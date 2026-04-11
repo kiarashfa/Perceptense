@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 16: Engineering Rules of Thumb — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.rule-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.rh { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.rname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.rval { font-size: 13px; font-family: monospace; font-weight: 500; }
+.rbadge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.rsub { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.rbox { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.rl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+.rv { font-size: 12px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+.rnote { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 16: Engineering Rules of Thumb</h1>
+    <p class="module-subtitle">Quick estimates for how things are built</p>
+
+    <div class="sec">Part A · what engineering actually is</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The one-sentence definition that covers everything</div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px; font-size:14px; color:var(--color-text-primary); line-height:1.6; margin-bottom:10px; font-style:italic;">
+        Engineering is the application of science and mathematics to solve real problems under real constraints — where constraints include cost, time, weight, safety, regulation, and what can actually be manufactured.
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Science asks "why?"</div>
+          <div style="font-size:12px; color:var(--color-text-secondary);">Physics explains why a bridge can hold weight. A physicist publishes a paper.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Engineering asks "how, cheaply, safely?"</div>
+          <div style="font-size:12px; color:var(--color-text-secondary);">An engineer builds a bridge that holds weight, within budget, before the deadline, that won't fall down.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The engineer's eternal trade-off</div>
+          <div style="font-size:12px; color:var(--color-text-secondary);">Fast, cheap, good — pick two. Every engineering decision is a negotiation between these three.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part B · the thumb rules every engineer uses</div>
+
+    <div class="rule-card">
+      <div class="rh">
+        <span class="rname">Safety factor</span>
+        <span class="rval" style="color:#0C447C;">Design load × 2–10</span>
+        <span class="rbadge" style="background:#E6F1FB; color:#0C447C;">the most important rule</span>
+      </div>
+      <div class="rsub">
+        <div class="rbox"><p class="rl">What it means</p><p class="rv">Build it stronger than the maximum expected load by a multiplier.</p></div>
+        <div class="rbox"><p class="rl">Typical factors</p><p class="rv">Buildings: ×2–3. Bridges: ×4. Aircraft: ×1.5 (weight-critical). Pressure vessels: ×4. Elevators: ×10.</p></div>
+        <div class="rbox"><p class="rl">Why not just ×1?</p><p class="rv">Materials vary, loads are uncertain, manufacturing isn't perfect, and failures are catastrophic.</p></div>
+      </div>
+      <p class="rnote">An elevator cable rated for 1,000 kg is actually strong enough to hold 10,000 kg. This is why buildings don't collapse from one extra person, why bridges don't fail when a lorry hits a pothole, and why planes don't break apart in turbulence. The safety factor quietly saves millions of lives daily.</p>
+    </div>
+
+    <div class="rule-card">
+      <div class="rh">
+        <span class="rname">The 80/20 rule (Pareto principle)</span>
+        <span class="rval" style="color:#27500A;">80% of problems come from 20% of causes</span>
+        <span class="rbadge" style="background:#EAF3DE; color:#27500A;">prioritisation tool</span>
+      </div>
+      <div class="rsub">
+        <div class="rbox"><p class="rl">In practice</p><p class="rv">80% of bugs come from 20% of the code. 80% of heat loss from 20% of the building envelope. 80% of failures from 20% of components.</p></div>
+        <div class="rbox"><p class="rl">Action</p><p class="rv">Find the 20% first. Fixing it gives 4× more return than spreading effort equally.</p></div>
+        <div class="rbox"><p class="rl">Also true:</p><p class="rv">The last 20% of performance improvement costs 80% of the effort. "Good enough" is often the right engineering answer.</p></div>
+      </div>
+      <p class="rnote">Vilfredo Pareto noticed in 1896 that 80% of land in Italy was owned by 20% of the population — and the ratio kept appearing in unrelated systems. Engineers use it to decide what to fix first, what to optimise, and when to stop. A bridge optimised for the last 5% of strength costs twice as much for 5% gain.</p>
+    </div>
+
+    <div class="rule-card">
+      <div class="rh">
+        <span class="rname">Order-of-magnitude estimation (Fermi estimation)</span>
+        <span class="rval" style="color:#633806;">±1 order of magnitude is "good enough"</span>
+        <span class="rbadge" style="background:#FAEEDA; color:#633806;">back-of-envelope</span>
+      </div>
+      <div class="rsub">
+        <div class="rbox"><p class="rl">What it is</p><p class="rv">A quick estimate using round numbers that gets you within 10× of the real answer, done in your head in minutes.</p></div>
+        <div class="rbox"><p class="rl">Classic example</p><p class="rv">"How many piano tuners in Chicago?" Fermi: population ÷ pianos per family × tuning frequency ÷ hours per tuner = ~125. Actual: ~150.</p></div>
+        <div class="rbox"><p class="rl">Engineering use</p><p class="rv">Before spending a week calculating: "Is this even in the right ballpark?" If your estimate says it would need 10× more power than available, don't detail-design it.</p></div>
+      </div>
+      <p class="rnote">Enrico Fermi famously estimated the yield of the first nuclear bomb test by dropping scraps of paper and watching how far they moved in the blast wave — getting within a factor of 2 of the measured result. Engineers use this constantly: the first answer should come in minutes, not days. Only if it looks promising do you do the full calculation.</p>
+    </div>
+
+    <div class="rule-card">
+      <div class="rh">
+        <span class="rname">Tolerance and fit</span>
+        <span class="rval" style="color:#712B13;">nominal ± tolerance</span>
+        <span class="rbadge" style="background:#FAECE7; color:#712B13;">manufacturing reality</span>
+      </div>
+      <div class="rsub">
+        <div class="rbox"><p class="rl">What it means</p><p class="rv">Nothing is made perfectly. A "10 mm" rod is actually 9.95–10.05 mm. The ±0.05 mm is the tolerance.</p></div>
+        <div class="rbox"><p class="rl">Clearance vs interference fit</p><p class="rv">Clearance: shaft is smaller than hole (moves freely — bearings). Interference: shaft is larger (press-fit — never comes apart). Transition: could be either.</p></div>
+        <div class="rbox"><p class="rl">Why it matters</p><p class="rv">A jet engine has thousands of parts with tolerances of ±0.005 mm. Stack tolerances wrong and parts don't fit, or jam, or vibrate to destruction.</p></div>
+      </div>
+      <p class="rnote">Tight tolerances cost money — exponentially. A part machined to ±1 mm costs €5. The same part to ±0.1 mm costs €50. To ±0.01 mm costs €500. The engineering discipline is: use the loosest tolerance that still works. Over-specifying tolerances is one of the most common and expensive rookie engineering mistakes.</p>
+    </div>
+
+    <div class="rule-card">
+      <div class="rh">
+        <span class="rname">The 10× cost rule of error correction</span>
+        <span class="rval" style="color:#3C3489;">fix it early, or pay 10× later</span>
+        <span class="rbadge" style="background:#EEEDFE; color:#3C3489;">project management</span>
+      </div>
+      <div class="rsub">
+        <div class="rbox"><p class="rl">The rule</p><p class="rv">A design error caught at the drawing stage costs €1 to fix. At prototype: €10. In production: €100. After delivery: €1,000+.</p></div>
+        <div class="rbox"><p class="rl">Why</p><p class="rv">As a project progresses, more decisions have been built on top of the error. Fixing the foundation means rebuilding the house.</p></div>
+        <div class="rbox"><p class="rl">Applies to software too</p><p class="rv">A bug found in code review: 1 hour to fix. Found in testing: 1 day. Found in production: 1 week + reputation cost.</p></div>
+      </div>
+      <p class="rnote">This is why engineering reviews, design audits, prototypes, and testing exist. The money spent catching errors early is always cheaper than correcting them later. The Boeing 737 MAX disasters were partly attributed to software changes late in the design process that weren't subjected to the same scrutiny as the original design.</p>
+    </div>
+
+    <div class="rule-card">
+      <div class="rh">
+        <span class="rname">Redundancy</span>
+        <span class="rval" style="color:#085041;">N+1 for reliability, N+2 for safety-critical</span>
+        <span class="rbadge" style="background:#E1F5EE; color:#085041;">failure tolerance</span>
+      </div>
+      <div class="rsub">
+        <div class="rbox"><p class="rl">What it means</p><p class="rv">Have one more than you need. If you need 1 pump, install 2. If you need 2 engines, use 4.</p></div>
+        <div class="rbox"><p class="rl">Examples</p><p class="rv">Commercial aircraft: 2+ engines, 3+ hydraulic systems, 4+ flight computers. Nuclear plants: multiple coolant loops. Data centres: dual power, UPS, generators.</p></div>
+        <div class="rbox"><p class="rl">The maths</p><p class="rv">If each component fails with probability p, two independent components both fail with probability p². If p=0.01, two units: 0.0001 (100× safer).</p></div>
+      </div>
+      <p class="rnote">A single-engine aircraft failing means a forced landing. A twin-engine commercial plane losing one engine continues to destination safely. This is why critical infrastructure is never designed to exactly minimum requirements — always with capacity to survive failures. RAID storage, dual power supplies, backup generators, emergency brakes — all redundancy.</p>
+    </div>
+
+    <div class="sec">Part C · back-of-envelope calculator</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Quick engineering sanity checks — pick a scenario</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+        <button onclick="showCalc('beam')"   style="font-size:12px; padding:4px 11px;">Beam load</button>
+        <button onclick="showCalc('pipe')"   style="font-size:12px; padding:4px 11px;">Pipe flow</button>
+        <button onclick="showCalc('heat')"   style="font-size:12px; padding:4px 11px;">Heat loss</button>
+        <button onclick="showCalc('power')"  style="font-size:12px; padding:4px 11px;">Motor power</button>
+        <button onclick="showCalc('cable')"  style="font-size:12px; padding:4px 11px;">Cable size</button>
+        <button onclick="showCalc('floor')"  style="font-size:12px; padding:4px 11px;">Floor load</button>
+      </div>
+      <div id="eng-inputs" style="margin-bottom:12px;"></div>
+      <div id="eng-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+    </div>
+
+    <div class="sec">Part D · the major engineering disciplines</div>
+
+    <div id="branch-btns" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+      <button onclick="showBranch('civil')"    style="font-size:12px; padding:4px 11px;">Civil</button>
+      <button onclick="showBranch('mech')"     style="font-size:12px; padding:4px 11px;">Mechanical</button>
+      <button onclick="showBranch('elec')"     style="font-size:12px; padding:4px 11px;">Electrical</button>
+      <button onclick="showBranch('chem')"     style="font-size:12px; padding:4px 11px;">Chemical</button>
+      <button onclick="showBranch('software')" style="font-size:12px; padding:4px 11px;">Software</button>
+      <button onclick="showBranch('aero')"     style="font-size:12px; padding:4px 11px;">Aerospace</button>
+      <button onclick="showBranch('bio')"      style="font-size:12px; padding:4px 11px;">Biomedical</button>
+    </div>
+    <div id="branch-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+
+    <div class="sec">Part E · the key concepts every engineer internalises</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Feedback loop</p>
+        <p class="cval">Output affects input</p>
+        <p class="cnote">A thermostat senses temperature (output) and adjusts the heater (input). Without feedback, systems overshoot or drift. Negative feedback = stability (thermostat). Positive feedback = runaway (microphone squeal, population explosion, compound interest).</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Precision vs accuracy</p>
+        <p class="cval">Repeatable ≠ correct</p>
+        <p class="cnote">Accurate = close to truth. Precise = consistent, even if consistently wrong. A scale that always reads 2 kg too heavy is precise but not accurate. A scale that gives random readings near the true value is accurate but not precise. You need both.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Failure mode analysis</p>
+        <p class="cval">"What can go wrong?"</p>
+        <p class="cnote">FMEA (Failure Mode and Effects Analysis): list every possible failure, how likely it is, how bad the consequence is, and how detectable it is. Product of these three = risk priority number. Fix the high scores first.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">The weakest link</p>
+        <p class="cval">System = its weakest part</p>
+        <p class="cnote">Strengthening the strongest part of a system achieves nothing. A chain with one weak link fails at that link regardless of how strong the other links are. Always find and address the bottleneck first.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Diminishing returns</p>
+        <p class="cval">Each improvement costs more</p>
+        <p class="cnote">Getting from 0% to 90% efficiency is often easier than 90% to 99%. The last 1% of fuel efficiency in a car might cost more to achieve than the first 30%. Decide in advance what "good enough" is.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">First principles thinking</p>
+        <p class="cval">Build from fundamentals</p>
+        <p class="cnote">Instead of "we've always done it this way," ask: what are the physical constraints? What does physics actually allow? Elon Musk famously used this to challenge rocket costs: what are the raw materials? Why does the assembled rocket cost 100× more? This mindset drives engineering breakthroughs.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part F · famous engineering failures and what they taught</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Tacoma Narrows Bridge (1940)</p>
+        <p class="cval">Resonance ignored</p>
+        <p class="cnote">The bridge oscillated at its natural frequency in a 64 km/h wind and collapsed after 4 hours. Lesson: all structures have resonant frequencies. Match external forces to them and they amplify to destruction. Changed bridge design permanently — aerodynamic testing became mandatory.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Challenger Space Shuttle (1986)</p>
+        <p class="cval">Known failure mode, ignored</p>
+        <p class="cnote">O-ring seals known to fail at low temperatures. Launch temperature: -2°C. Engineers objected; management overrode. 73 seconds after launch: disaster. Lesson: safety culture matters as much as engineering. Known risks must be escalated, not suppressed.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Millennium Bridge, London (2000)</p>
+        <p class="cval">Positive feedback oscillation</p>
+        <p class="cnote">Opened June 2000; wobbled so severely it closed within 2 days. Pedestrians involuntarily walked in sync with the bridge's natural lateral frequency, amplifying the oscillation. Lesson: human interaction with structures creates unexpected feedback loops. Cost £5M to fix.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Mars Climate Orbiter (1999)</p>
+        <p class="cval">Unit conversion error</p>
+        <p class="cnote">One team used imperial units (pound-force seconds), another metric (newton-seconds) for thruster data. The $328M spacecraft entered the atmosphere and burned up. Lesson: unit consistency is safety-critical. Always check units explicitly at system interfaces.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A floor is designed to hold 500 kg/m² with a safety factor of 3. What is the maximum safe load, and why isn't the safety factor just 1?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The floor is structurally designed to hold 500 × 3 = 1,500 kg/m². The "safe load" rating (500 kg/m²) is the published limit users work to. The structure is actually 3× stronger. The factor isn't 1 because: materials vary batch-to-batch, calculation models aren't perfect, loads are dynamic not static (people jumping vs standing), materials degrade over time, and a structural failure is catastrophic. A factor of 3 means the floor could have a significant calculation error, a bad concrete batch, AND extra-dynamic loading — and still survive.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Estimate (back-of-envelope): how much steel is in a typical 10-storey office building?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Rough estimate: ~500–1,000 tonnes. A 10-storey building might cover 1,000 m² per floor = 10,000 m² total floor area. Typical steel intensity for a steel-framed office building: ~50–100 kg per m² of floor area. So: 10,000 m² × 75 kg/m² = 750,000 kg = 750 tonnes. This is the Fermi approach — use a density rule-of-thumb, apply it to the known area, and get an order-of-magnitude answer. Actual buildings vary from 40–150 kg/m² depending on height, span, and design — so the answer "~500–1,000 tonnes" is a solid back-of-envelope estimate.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. Why does a plane with 4 engines not need to be 4× as powerful as a plane with 2 engines to carry the same load?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Because the extra engines are partly redundancy, not capacity. A 4-engine plane (like a Boeing 747) doesn't need more thrust than a 2-engine plane carrying the same weight — both need thrust equal to drag to maintain cruise. The 4-engine design was historically driven by reliability: with 1950s–1970s engine technology, losing one engine was a realistic risk. 4 engines meant you could lose one and still have 75% thrust. Modern high-bypass turbofans are so reliable that twins (like the 777 or A380's replacement A350) have made 4-engine designs nearly obsolete on most routes. ETOPS regulations govern how far a twin-engine plane can fly from a diversion airport.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. A part is specified as "25.00 ± 0.05 mm." What does this mean, and what happens if you tighten the tolerance to ±0.005 mm?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The part must be between 24.95 and 25.05 mm — a 0.1 mm acceptable range. Any part outside this range is rejected. Tightening to ±0.005 mm means the acceptable range shrinks to 0.01 mm — ten times tighter. This requires: a more precise machine (CNC instead of manual), slower machining speed (more passes), temperature-controlled environment (steel expands ~11 µm per metre per °C — at room temperature, a 25mm part changes by 0.3 µm per °C), and more frequent measurement and rejection. Cost increases roughly 5–10× per order-of-magnitude tighter tolerance. The engineering question is always: does the function actually need this precision, or is it being over-specified?</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. A system has three components in series, each with 99% reliability (1% failure rate). What is the system reliability?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">97.03%. For components in series, the system works only if ALL components work. System reliability = 0.99 × 0.99 × 0.99 = 0.970299 ≈ 97%. This is the critical insight: chaining reliable components in series always reduces overall reliability. A system with 100 components each at 99% reliability has overall reliability of 0.99¹⁰⁰ = 36.6% — barely a coin flip. This is why complex systems (aircraft, power plants) use redundancy (parallel components) rather than just making each component more reliable. Parallel redundancy: if one fails, the other takes over. System failure requires BOTH to fail = 0.01 × 0.01 = 0.01% — 100× more reliable.</div>
+    </div>
+
+    <script>
+const calcs = {
+  beam: {
+    label: 'Simply supported beam — maximum central point load',
+    inputs: [
+      { id:'beam-span', label:'Span (m)', val:4, step:0.5 },
+      { id:'beam-depth', label:'Beam depth (mm)', val:200, step:10 },
+      { id:'beam-width', label:'Beam width (mm)', val:100, step:10 },
+      { id:'beam-sf', label:'Safety factor', val:3, step:1 }
+    ],
+    calc: v => {
+      const [L, d, b, sf] = v;
+      const I = (b/1000) * Math.pow(d/1000,3) / 12;
+      const fy = 250e6;
+      const M_max = fy * I / (d/1000/2);
+      const P_fail = 4 * M_max / L;
+      const P_safe = P_fail / sf;
+      return `Estimated safe central load: <strong>${(P_safe/1000).toFixed(1)} kN</strong> (${(P_safe/9.81/1000).toFixed(1)} tonnes)<br>
+      <span style="color:var(--color-text-secondary); font-size:12px;">Beam: ${b}×${d}mm, span ${L}m, steel (fy=250 MPa), safety factor ×${sf}<br>
+      Without safety factor: ${(P_fail/1000).toFixed(1)} kN failure load. This is approximate — real design requires full code check.</span>`;
+    }
+  },
+  pipe: {
+    label: 'Water flow rate through a pipe',
+    inputs: [
+      { id:'pipe-d', label:'Pipe diameter (mm)', val:50, step:5 },
+      { id:'pipe-v', label:'Flow velocity (m/s)', val:1.5, step:0.5 },
+    ],
+    calc: v => {
+      const [d, vel] = v;
+      const r = d/1000/2;
+      const A = Math.PI * r * r;
+      const Q = A * vel * 1000;
+      const Qhr = Q * 3600;
+      return `Flow rate: <strong>${Q.toFixed(2)} litres/second</strong> = <strong>${Math.round(Qhr)} litres/hour</strong><br>
+      <span style="color:var(--color-text-secondary); font-size:12px;">Pipe area: ${(A*10000).toFixed(2)} cm². Rule of thumb: water velocity 1–3 m/s in building pipes. Above 3 m/s: noise and erosion. Below 0.5 m/s: sediment settles.</span>`;
+    }
+  },
+  heat: {
+    label: 'Heat loss through a flat wall (steady state)',
+    inputs: [
+      { id:'heat-area', label:'Wall area (m²)', val:20, step:1 },
+      { id:'heat-tin', label:'Inside temp (°C)', val:20, step:1 },
+      { id:'heat-tout', label:'Outside temp (°C)', val:0, step:1 },
+      { id:'heat-r', label:'Thermal resistance R-value (m²K/W)', val:2.5, step:0.5 },
+    ],
+    calc: v => {
+      const [A, Tin, Tout, R] = v;
+      const dT = Tin - Tout;
+      const Q = A * dT / R;
+      const Qday = Q * 24 / 1000;
+      return `Heat loss: <strong>${Q.toFixed(0)} W</strong> (${Qday.toFixed(1)} kWh/day)<br>
+      <span style="color:var(--color-text-secondary); font-size:12px;">Q = A × ΔT / R. R-value 2.5 ≈ 100mm mineral wool insulation. A typical uninsulated wall: R≈0.3. Double glazing: R≈0.35. Well-insulated wall: R≈4–6. Annual heating cost at ${dT}°C difference, 16hrs/day: ~€${(Qday*0.6*365*0.25).toFixed(0)} at €0.25/kWh.</span>`;
+    }
+  },
+  power: {
+    label: 'Electric motor power required to move a load',
+    inputs: [
+      { id:'mot-mass', label:'Mass (kg)', val:500, step:50 },
+      { id:'mot-speed', label:'Speed (m/s)', val:0.5, step:0.1 },
+      { id:'mot-eff', label:'Efficiency (%)', val:85, step:5 },
+    ],
+    calc: v => {
+      const [m, spd, eff] = v;
+      const F = m * 9.81;
+      const P_mech = F * spd;
+      const P_elec = P_mech / (eff/100);
+      return `Mechanical power needed: <strong>${(P_mech/1000).toFixed(2)} kW</strong><br>
+      Electrical power consumed: <strong>${(P_elec/1000).toFixed(2)} kW</strong> (at ${eff}% efficiency)<br>
+      <span style="color:var(--color-text-secondary); font-size:12px;">Force = mass × g = ${m} × 9.81 = ${F.toFixed(0)} N. Power = Force × velocity. The ${100-eff}% efficiency loss becomes heat in the motor windings. Typical motor efficiencies: small motors 75–85%, large industrial motors 92–96%.</span>`;
+    }
+  },
+  cable: {
+    label: 'Minimum cable cross-section for a given current',
+    inputs: [
+      { id:'cab-i', label:'Current (amps)', val:20, step:1 },
+      { id:'cab-len', label:'Cable run length (m, one way)', val:25, step:5 },
+      { id:'cab-vdrop', label:'Max voltage drop (%)', val:3, step:1 },
+    ],
+    calc: v => {
+      const [I, L, vdrop] = v;
+      const V = 230;
+      const rho = 1.72e-8;
+      const Vd = V * vdrop/100;
+      const R_max = Vd / I;
+      const A = rho * 2 * L / R_max * 1e6;
+      const std = [1,1.5,2.5,4,6,10,16,25,35,50].find(s => s >= A) || 50;
+      return `Minimum cable area (voltage drop): <strong>${A.toFixed(2)} mm²</strong><br>
+      Next standard size up: <strong>${std} mm²</strong><br>
+      <span style="color:var(--color-text-secondary); font-size:12px;">Based on ${vdrop}% voltage drop (${(V*vdrop/100).toFixed(1)}V) over ${L}m each way at ${I}A. Standard cable sizes: 1.5, 2.5, 4, 6, 10, 16, 25 mm². Note: also check current-carrying capacity — ${std}mm² copper cable typically carries 20–27A depending on installation method. Always verify against local wiring regulations.</span>`;
+    }
+  },
+  floor: {
+    label: 'Floor load — people and contents',
+    inputs: [
+      { id:'fl-area', label:'Floor area (m²)', val:50, step:5 },
+      { id:'fl-people', label:'Number of people', val:10, step:1 },
+      { id:'fl-contents', label:'Contents load (kg/m²)', val:50, step:10 },
+    ],
+    calc: v => {
+      const [area, people, contents] = v;
+      const pLoad = people * 80;
+      const cLoad = area * contents;
+      const total = pLoad + cLoad;
+      const perM2 = total / area;
+      const typical_office = 250;
+      const typical_res = 150;
+      return `Total load: <strong>${total.toLocaleString()} kg</strong> (<strong>${perM2.toFixed(0)} kg/m²</strong>)<br>
+      <span style="color:var(--color-text-secondary); font-size:12px;">People: ${pLoad} kg (${people} × 80 kg avg). Contents: ${cLoad} kg. Typical floor ratings: residential 150 kg/m², office 250 kg/m², storage 500–1,000 kg/m². Your ${perM2.toFixed(0)} kg/m² is ${perM2 <= typical_res ? 'within residential limits' : perM2 <= typical_office ? 'within office limits' : 'above typical office floor rating — check with structural engineer'}.</span>`;
+    }
+  }
+};
+
+const branches = {
+  civil: {
+    title: 'Civil engineering', col: '#0C447C', bg: '#E6F1FB',
+    tagline: 'The built environment at scale',
+    what: 'Roads, bridges, tunnels, dams, water supply systems, sewage systems, airports, railways, ports. Everything that society relies on to function physically.',
+    mindset: 'Civil engineers think in decades and centuries. A bridge built today must last 100+ years with minimal maintenance. Cost certainty and political constraints are as important as physics.',
+    famous: 'Roman aqueducts, the Suez Canal, the Channel Tunnel, the Three Gorges Dam, the Burj Khalifa foundations.',
+    numbers: 'Structural loads in kN/m², soil bearing capacity in kPa, concrete in MPa, flow rates in m³/s.',
+    joke: 'Mechanical engineers build weapons; civil engineers build targets. (Old interdisciplinary rivalry.)'
+  },
+  mech: {
+    title: 'Mechanical engineering', col: '#27500A', bg: '#EAF3DE',
+    tagline: 'Anything that moves or transfers energy',
+    what: 'Engines, turbines, HVAC systems, manufacturing machinery, pumps, robots, vehicles, medical devices, consumer products. If it has moving parts or manages energy, a mechanical engineer designed it.',
+    mindset: 'Thermodynamics, fluid mechanics, solid mechanics, and manufacturing all in one. Mechanical engineers must understand how things fail — fatigue, wear, corrosion, vibration.',
+    famous: 'Steam engine, jet engine, internal combustion engine, MRI machine, wind turbines.',
+    numbers: 'Stress in MPa, temperature in °C/K, flow in kg/s, power in kW, RPM, torque in Nm.',
+    joke: 'Any sufficiently advanced technology is indistinguishable from a really good mechanical engineer.'
+  },
+  elec: {
+    title: 'Electrical & electronic engineering', col: '#633806', bg: '#FAEEDA',
+    tagline: 'Power and signals',
+    what: 'Power generation and distribution (electrical), circuits, sensors, communications, processors, control systems (electronic). The distinction: electrical = high-power, electronic = low-power signal processing.',
+    mindset: 'Everything is a circuit. Voltage, current, resistance, capacitance, inductance. Analogue thinking (what does this waveform look like?) and digital thinking (1s and 0s) are both essential.',
+    famous: 'Power grid, transistor (1947 — enabled all modern computing), radio, fibre optics, GPS.',
+    numbers: 'Voltage (V), current (A), resistance (Ω), power (W), frequency (Hz), capacitance (F), inductance (H).',
+    joke: 'Ohm\'s law: the only law you can break without going to prison (by using the wrong resistance).'
+  },
+  chem: {
+    title: 'Chemical engineering', col: '#3C3489', bg: '#EEEDFE',
+    tagline: 'Making chemistry happen at industrial scale',
+    what: 'Takes chemistry from a lab flask to a factory producing millions of tonnes per year. Refineries, pharmaceutical plants, food processing, plastics, fertilisers, water treatment, batteries.',
+    mindset: 'Reaction engineering (how to make chemistry go faster/more efficiently), separation (how to purify the product), heat and mass transfer, safety (chemicals at industrial scale are extremely dangerous).',
+    famous: 'Haber-Bosch process (making ammonia for fertiliser — feeds ~half the world), oil refining, pharmaceutical synthesis.',
+    numbers: 'Conversion (%), selectivity (%), pressure (bar), temperature (°C), flow rates (t/day), yield.',
+    joke: 'Chemical engineers do it in continuous stirred tank reactors.'
+  },
+  software: {
+    title: 'Software engineering', col: '#712B13', bg: '#FAECE7',
+    tagline: 'Building systems out of logic',
+    what: 'Designing, building, and maintaining software systems. From operating systems to apps, embedded control systems to cloud infrastructure. Unlike other branches, the "material" is pure logic — but constraints (performance, reliability, security, cost) are just as real.',
+    mindset: 'Abstraction (hiding complexity), modularity (independent components), testing, version control, documentation, and — crucially — understanding that software is never truly "finished." Maintenance often exceeds initial development cost.',
+    famous: 'Linux kernel (35+ years old, runs most of the internet), TCP/IP (the internet protocol), GPS algorithms.',
+    numbers: 'Latency (ms), throughput (requests/s), uptime (%), lines of code, bug rate, cyclomatic complexity.',
+    joke: 'There are 10 types of people in the world: those who understand binary, and those who don\'t.'
+  },
+  aero: {
+    title: 'Aerospace engineering', col: '#085041', bg: '#E1F5EE',
+    tagline: 'Where every gram counts',
+    what: 'Aircraft (aeronautical) and spacecraft (astronautical). The most demanding engineering discipline in terms of weight efficiency, reliability, and operating environment. Extreme temperatures, pressures, vibrations, and zero margin for failure.',
+    mindset: 'Weight is money and safety simultaneously. Every design decision is evaluated in grams saved vs risk added. Redundancy is mandatory, not optional. Regulations (FAA, EASA) govern everything.',
+    famous: 'Wright Brothers (1903), Spitfire (1936), Apollo program (1969), Concorde (1969), SpaceX Falcon 9.',
+    numbers: 'Lift/drag ratio, Mach number, specific impulse (Isp, for rockets), thrust-to-weight ratio, g-forces.',
+    joke: 'An aerospace engineer is someone who builds things that would be perfectly safe if not for those pesky passengers.'
+  },
+  bio: {
+    title: 'Biomedical engineering', col: '#534AB7', bg: '#EEEDFE',
+    tagline: 'Engineering meets the human body',
+    what: 'Medical devices (pacemakers, MRI scanners, prosthetics), tissue engineering, drug delivery systems, biosensors, hospital equipment. Applies engineering principles to medicine.',
+    mindset: 'The most regulated engineering field — a failed bridge affects a town, a failed pacemaker kills a patient. Every design decision must account for biocompatibility (the material must not harm the body), sterilisation, and 10–15 year regulatory approval timelines.',
+    famous: 'Pacemaker, cochlear implant, insulin pump, artificial heart, CRISPR gene editing tools.',
+    numbers: 'Biocompatibility (ISO 10993), sterilisation logs, fatigue cycles (a heart valve opens ~40M times per year), force in mN.',
+    joke: 'A biomedical engineer is a mechanical engineer who is allowed to be wrong only once.'
+  }
+};
+
+function showBranch(key) {
+  const b = branches[key];
+  document.getElementById('branch-display').innerHTML = `
+    <div style="display:inline-block; font-size:11px; font-weight:500; background:${b.bg}; color:${b.col}; border-radius:99px; padding:2px 10px; margin-bottom:10px;">${b.title}</div>
+    <div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">${b.tagline}</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">What they build</div>
+        <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.what}</div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">The mindset</div>
+        <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.mindset}</div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Famous examples</div>
+        <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.famous}</div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Key numbers / units</div>
+        <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.numbers}</div>
+      </div>
+    </div>
+    <div style="font-size:12px; color:var(--color-text-secondary); font-style:italic;">${b.joke}</div>`;
+}
+
+const calcInputCache = {};
+
+function showCalc(key) {
+  const c = calcs[key];
+  let html = `<div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">${c.label}</div>`;
+  html += `<div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end;">`;
+  c.inputs.forEach(inp => {
+    html += `<div style="display:flex; flex-direction:column; gap:4px; min-width:120px; flex:1;">
+      <label style="font-size:11px; color:var(--color-text-secondary);">${inp.label}</label>
+      <input type="number" id="${inp.id}" value="${inp.val}" step="${inp.step}" style="font-size:13px;">
+    </div>`;
+  });
+  html += `<button onclick="runCalc('${key}')" style="height:36px; padding:0 16px; font-size:13px; flex-shrink:0;">Calculate</button>`;
+  html += `</div>`;
+  document.getElementById('eng-inputs').innerHTML = html;
+  runCalc(key);
+}
+
+function runCalc(key) {
+  const c = calcs[key];
+  const vals = c.inputs.map(inp => parseFloat(document.getElementById(inp.id).value) || 0);
+  document.getElementById('eng-result').innerHTML = c.calc(vals);
+}
+
+showBranch('civil');
+showCalc('beam');
+    </script>
+  </div>
+</body>
+</html>

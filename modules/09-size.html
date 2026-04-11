@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 9: Size & Scale — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 9: Size & Scale</h1>
+    <p class="module-subtitle">Atoms to galaxies — orders of magnitude</p>
+
+    <div class="sec">Part A · first, master the prefix language</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">SI prefixes — each step is exactly 1,000× the previous</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Once you know these, every scientific size becomes readable.</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap: 8px;">
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 12px; font-weight: 500; color: var(--color-text-primary); font-family: monospace;">femto (f)</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">10⁻¹⁵ m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary);">0.000000000000001 m. Proton territory.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 12px; font-weight: 500; color: var(--color-text-primary); font-family: monospace;">pico (p)</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">10⁻¹² m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary);">Atom size range.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 12px; font-weight: 500; color: var(--color-text-primary); font-family: monospace;">nano (n)</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">10⁻⁹ m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary);">DNA, molecules, chip transistors.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 12px; font-weight: 500; color: var(--color-text-primary); font-family: monospace;">micro (µ)</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">10⁻⁶ m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary);">Bacteria, human hair width, cell size.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 12px; font-weight: 500; color: var(--color-text-primary); font-family: monospace;">milli (m)</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">10⁻³ m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary);">1 mm — thickness of a credit card, grain of sand.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part B · the interactive zoom — drag to travel the full scale</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">Drag the slider from the smallest known things to the largest</div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <span style="font-size: 11px; color: var(--color-text-secondary); white-space: nowrap;">Proton</span>
+        <input type="range" id="zoom-slider" min="-15" max="27" value="0" step="1" style="flex:1;">
+        <span style="font-size: 11px; color: var(--color-text-secondary); white-space: nowrap;">Universe</span>
+      </div>
+      <div id="zoom-display" style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px;">
+          <div id="zoom-name" style="font-size: 16px; font-weight: 500; color: var(--color-text-primary);"></div>
+          <div id="zoom-size" style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary); font-family: monospace;"></div>
+        </div>
+        <div id="zoom-desc" style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 8px;"></div>
+        <div id="zoom-compare" style="font-size: 12px; color: var(--color-text-secondary); border-top: 0.5px solid var(--color-border-tertiary); padding-top: 8px; line-height: 1.5;"></div>
+      </div>
+      <div style="margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap;" id="zoom-buttons"></div>
+    </div>
+
+    <div class="sec">Part C · key anchors at every scale — the ones to memorize</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div class="anchor-row">
+        <span class="pill p-purple">10⁻¹⁵ m</span>
+        <div><div class="atext">Proton — 1 femtometre</div><div class="asub">The nucleus of a hydrogen atom. 100,000× smaller than the atom itself.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">10⁻¹⁰ m</span>
+        <div><div class="atext">Hydrogen atom — 0.1 nanometres (1 Ångström)</div><div class="asub">The smallest atom. A row of 10 hydrogen atoms = 1 nanometre.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">0.3 nm</span>
+        <div><div class="atext">Water molecule (H₂O)</div><div class="asub">3× bigger than a hydrogen atom. 3 million water molecules fit across 1 mm.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">2 nm</span>
+        <div><div class="atext">DNA double helix width</div><div class="asub">The most information-dense structure known. Your total DNA uncoiled = ~2 metres per cell.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">7 nm</span>
+        <div><div class="atext">Cutting-edge chip transistor (2024)</div><div class="asub">Modern chips pack billions of these in your fingernail-sized processor.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">~100 nm</span>
+        <div><div class="atext">Virus (e.g. coronavirus is ~120 nm)</div><div class="asub">700× smaller than a human hair. Too small to see with a light microscope.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">~1 µm</span>
+        <div><div class="atext">Bacterium (e.g. E. coli ≈ 2 µm long)</div><div class="asub">Just visible with the best light microscopes. 1,000× bigger than a virus.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">~7 µm</span>
+        <div><div class="atext">Red blood cell</div><div class="asub">5,000 fit side by side across 1 cm. So thin it has no nucleus — optimised for oxygen.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">~70 µm</span>
+        <div><div class="atext">Human hair width</div><div class="asub">The universal "thin" reference. A spider silk thread is ~3 µm — 20× thinner.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">~0.1 mm</span>
+        <div><div class="atext">Grain of fine sand · human egg cell</div><div class="asub">The human egg is the largest single cell in the body — just barely visible to the naked eye.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">1 mm</span>
+        <div><div class="atext">Credit card thickness · ant width</div><div class="asub">The threshold of comfortable naked-eye visibility.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">1 cm</span>
+        <div><div class="atext">Fingernail width · large ant</div><div class="asub">10,000 bacteria fit in 1 cm. 10,000,000 viruses fit in 1 cm.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">1.7 m</span>
+        <div><div class="atext">Average human height</div><div class="asub">Our intuitive reference point. Everything else in this module is relative to this.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">12,742 km</span>
+        <div><div class="atext">Earth's diameter</div><div class="asub">A human is 1/7,500,000th of Earth's diameter. Earth is 1/109th of the Sun's diameter.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">150M km</span>
+        <div><div class="atext">Earth–Sun distance (1 AU)</div><div class="asub">Light takes 8 minutes. A car at 120 km/h would take 142 years.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">9.46T km</span>
+        <div><div class="atext">1 light-year</div><div class="asub">The distance light travels in one year. Nearest star: 4.2 light-years away.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">100,000 ly</span>
+        <div><div class="atext">Milky Way diameter</div><div class="asub">Our galaxy. Light takes 100,000 years to cross it. ~200–400 billion stars inside.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">93B ly</span>
+        <div><div class="atext">Observable universe diameter</div><div class="asub">The furthest light that has had time to reach us. Beyond this: unknown, possibly infinite.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part D · the ratio shockers — comparing across scales</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap: 10px; margin-bottom: 1rem;">
+      <div class="card">
+        <p class="clabel">Atom → human hair</p>
+        <p class="cval">1,000,000×</p>
+        <p class="cnote">A hydrogen atom (0.1 nm) fits one million times across a single hair width (70 µm). 1 million = a medium city's population.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Virus → human hair</p>
+        <p class="cval">700×</p>
+        <p class="cnote">A coronavirus (~120 nm) is 700× narrower than a hair. Yet it can shut down the world.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Human → Earth</p>
+        <p class="cval">1 : 7,500,000</p>
+        <p class="cnote">If Earth were the size of a basketball (24 cm), a human would be 32 nanometres — smaller than a virus.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Earth → Sun</p>
+        <p class="cval">1 : 109</p>
+        <p class="cnote">1.3 million Earths fit inside the Sun. Yet the Sun is a perfectly average-sized star.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Sun → Milky Way</p>
+        <p class="cval">1 : 10⁹</p>
+        <p class="cnote">If the Sun were a grain of sand, the Milky Way would be wider than Europe.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Proton → observable universe</p>
+        <p class="cval">10⁴² ×</p>
+        <p class="cnote">42 orders of magnitude separate the smallest known structure from the largest. The full range of physical reality.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part E · spider silk — the most remarkable thin thing</div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; margin-bottom: 1rem; font-size: 13px; color: var(--color-text-secondary); line-height: 1.7;">
+      Spider silk is <strong style="color:var(--color-text-primary)">~3–8 µm</strong> in diameter — about 10–20× thinner than a human hair, and invisible to the naked eye unless light catches it. Yet it is, weight for weight, <strong style="color:var(--color-text-primary)">5× stronger than steel</strong> and tougher than Kevlar. A single thread of spider silk weighing 300 grams (thicker than real silk, but same material) could theoretically encircle the entire Earth. The reason you can walk through a spiderweb and barely feel it is not that it's weak — it's that the mass is so tiny. One full orb web weighs less than <strong style="color:var(--color-text-primary)">0.5 mg</strong>, about the weight of a grain of fine sand.
+    </div>
+
+    <div class="sec">Part F · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A virus is ~100 nm. A bacterium is ~1,000 nm (1 µm). How many times bigger is the bacterium?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">10 times bigger. 1,000 nm ÷ 100 nm = 10. This is why bacteria can be seen under a standard light microscope but viruses cannot — they're below the ~200 nm resolution limit of visible light. To see viruses you need an electron microscope. Important consequence: antibiotics can target bacteria (large enough to have complex internal machinery to disrupt) but don't work on viruses (too simple, too small — antiviral drugs work on completely different principles).</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Your DNA is 2 nm wide and about 2 metres long when uncoiled. How does 2 metres of DNA fit in a cell that is only 10 µm across?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Extreme folding and compaction. The 2 metres are wound around protein spools (histones), then coiled, then super-coiled, then organised into chromosomes — compacting the DNA about 50,000-fold. If you took all the DNA from all your ~37 trillion cells and laid it end to end, it would reach from Earth to Pluto and back — about 17 times. All of that coiled up into structures you cannot see without a microscope.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. The nearest star (Proxima Centauri) is 4.2 light-years away. The Milky Way is 100,000 light-years across. How many "nearest star distances" fit across our galaxy?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 24,000. 100,000 ÷ 4.2 ≈ 23,800. So even if we could travel to the nearest star, we'd still need to make that same journey 24,000 more times to cross our galaxy — and our galaxy is just one of an estimated 2 trillion galaxies in the observable universe. Interstellar travel, let alone intergalactic travel, is not just a technology problem. It's a scale problem that dwarfs anything else in this course.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. A human hair is 70 µm wide. A transistor on a modern chip is ~7 nm. How many transistors fit across the width of one hair?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">10,000 transistors. 70,000 nm ÷ 7 nm = 10,000. And modern chips pack billions of these transistors into a surface the size of your thumbnail. An Apple M-series chip contains around 20 billion transistors in roughly 120 mm². That's ~167 million transistors per square millimetre — a density so extreme it requires manufacturing tolerances measured in atoms.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. If you scaled the observable universe (93 billion light-years) down so that 1 metre = 1 light-year, how big would a human be at that scale?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 180 femtometres — roughly the size of a proton. A 1.7 m human, scaled down by 9.46 × 10¹⁵ (metres per light-year), becomes 1.7 ÷ 9.46×10¹⁵ ≈ 1.8 × 10⁻¹⁶ metres = 0.18 femtometres. Smaller than a proton (which is ~1 fm). At cosmic scale, a human isn't just invisible — we don't even register as subatomic. And yet, as far as we know, we are the only part of the universe that is aware of its own scale.</div>
+    </div>
+
+    <script>
+const items = [
+  { exp: -15, name: "Proton", size: "~1 fm (10⁻¹⁵ m)", desc: "The nucleus of a hydrogen atom. The fundamental building block of all matter you can touch.", compare: "A proton is to a marble what a marble is to the entire Earth." },
+  { exp: -14, name: "Atomic nucleus (heavy atom)", size: "~10 fm (10⁻¹⁴ m)", desc: "The dense core of a large atom like uranium. Contains protons and neutrons packed tightly together.", compare: "99.97% of an atom's mass is here, yet it occupies less than 1 trillionth of the atom's volume." },
+  { exp: -13, name: "Range of nuclear force", size: "~0.1 pm (10⁻¹³ m)", desc: "The reach of the strong nuclear force that holds nuclei together. Beyond this distance, atoms fall apart.", compare: "The force that powers the Sun and nuclear weapons acts only at this extreme range." },
+  { exp: -12, name: "X-ray wavelength", size: "~1 pm (10⁻¹² m)", desc: "Short X-rays used in medical imaging and crystallography have wavelengths at this scale.", compare: "X-rays can probe atomic structure because their wavelength matches atom spacing." },
+  { exp: -11, name: "Hydrogen atom (Bohr radius)", size: "~53 pm (5×10⁻¹¹ m)", desc: "The most probable distance from the proton to the electron in a hydrogen atom.", compare: "The atom is 99.9999999999996% empty space. If the nucleus were a golf ball, the electron orbits 1.5 km away." },
+  { exp: -10, name: "Small atom / 1 Ångström", size: "~0.1 nm (10⁻¹⁰ m)", desc: "The size of hydrogen and helium atoms. Chemists use Ångström (Å) as the atomic ruler.", compare: "10 hydrogen atoms in a row = 1 nanometre. A row of 10 million = 1 mm." },
+  { exp: -9, name: "Water molecule / small protein", size: "~0.3–10 nm (10⁻⁹ m)", desc: "A water molecule is 0.3 nm across. Small proteins (like insulin) are ~5 nm. This is the nanometre world.", compare: "A human hair is 70,000× wider than a water molecule." },
+  { exp: -8, name: "DNA helix / transistor (7 nm chip)", size: "~2–10 nm", desc: "DNA is 2 nm wide — the most information-dense structure known. The most advanced chip transistors are also in this range.", compare: "1 billion transistors fit in a space the size of a pinhead." },
+  { exp: -7, name: "Virus (e.g. coronavirus ~120 nm)", size: "~20–300 nm (10⁻⁷ m)", desc: "Viruses are below the resolution of light microscopes. They are not cells — just protein shells containing genetic code.", compare: "700 coronaviruses fit across a single human hair width." },
+  { exp: -6, name: "Bacterium (e.g. E. coli)", size: "~1–10 µm (10⁻⁶ m)", desc: "Bacteria are the smallest living organisms with their own cellular machinery. Just visible with light microscopes.", compare: "1,000 bacteria fit across 1 mm. A virus is 1,000× smaller than a bacterium." },
+  { exp: -5, name: "Red blood cell / human egg", size: "~7–100 µm (10⁻⁵ m)", desc: "Red blood cells are 7 µm — thin discs that carry oxygen. The human egg cell (~100 µm) is just barely visible to the naked eye.", compare: "5,000 red blood cells fit side by side across 1 cm." },
+  { exp: -4, name: "Human hair / fine sand grain", size: "~70–200 µm (10⁻⁴ m)", desc: "A human hair is 70 µm wide — the classic reference for 'very thin.' Spider silk is 3–8 µm (10–20× thinner).", compare: "Your fingertip can feel objects down to about 200 µm (0.2 mm). Hair is just below human touch threshold." },
+  { exp: -3, name: "1 millimetre", size: "1 mm (10⁻³ m)", desc: "A grain of coarse sand, a credit card's thickness, the width of a large ant. The smallest unit most people can comfortably see and handle.", compare: "1 mm = 1,000 µm = 10,000 human hairs laid flat. Smaller than this requires instruments to measure." },
+  { exp: -2, name: "1 centimetre", size: "1 cm (10⁻² m)", desc: "A fingernail width. 10 mm. The scale of coins, buttons, and small insects.", compare: "10,000 bacteria in a row = 1 cm. 10,000,000 viruses = 1 cm." },
+  { exp: -1, name: "10 centimetres", size: "10 cm (10⁻¹ m)", desc: "A hand span, a large orange, a smartphone screen. The scale of things you grasp and manipulate daily.", compare: "10 cm = 100,000 human hairs = 100,000,000 bacteria = 1,000,000,000 viruses." },
+  { exp: 0, name: "1 metre — the human reference", size: "1 m (10⁰ m)", desc: "A door handle height. Roughly chest height on a child. The unit the metric system is built around.", compare: "1 m = 10 billion hydrogen atoms in a row. You are built from atoms too small to see individually." },
+  { exp: 1, name: "10 metres", size: "10 m (10¹ m)", desc: "A 3-storey building. A large tree. A blue whale. The scale where everything still feels 'human sized.'", compare: "A blue whale (30 m) is 30,000 times longer than a bacterium." },
+  { exp: 2, name: "100 metres", size: "100 m (10² m)", desc: "A football pitch length. A tall skyscraper floor count (100m ≈ 33 floors). The human walking-distance scale.", compare: "100 m = 1.4 million human hairs laid end to end." },
+  { exp: 3, name: "1 kilometre", size: "1 km (10³ m)", desc: "A 12-minute walk. The scale of a small town centre, an airport runway, a large factory complex.", compare: "1 km = 1 trillion (10¹²) water molecules in a row." },
+  { exp: 4, name: "10 kilometres", size: "10 km (10⁴ m)", desc: "A city's width. A long run. The depth of the ocean (Mariana Trench: 11 km). Mount Everest: 8.8 km.", compare: "Everest would be invisible as a bump if Earth were scaled to a basketball." },
+  { exp: 5, name: "100 kilometres", size: "100 km (10⁵ m)", desc: "A country's smaller dimension. Paris to Chartres. The altitude of the Kármán line — the boundary of space.", compare: "Space begins at 100 km up. Rockets reach this in about 3 minutes." },
+  { exp: 6, name: "1,000 km", size: "1,000 km (10⁶ m)", desc: "Paris to Berlin. A large country's width. The distance a plane flies in about 1 hour.", compare: "Earth's diameter is ~12,742 km — about 12 of these." },
+  { exp: 7, name: "Earth's diameter", size: "12,742 km (1.27×10⁷ m)", desc: "The full width of our planet. A flight from one side to the other at cruising speed would take ~14 hours.", compare: "109 Earths fit across the Sun's diameter. The Moon is 3,474 km — about 1/3 of Earth's diameter." },
+  { exp: 8, name: "Earth–Moon distance", size: "384,400 km (3.8×10⁸ m)", desc: "Light takes 1.3 seconds to reach the Moon. Apollo astronauts took 3 days by rocket.", compare: "If you stacked all humans on top of each other (~1.7m each × 8B people), you'd reach about halfway to the Moon." },
+  { exp: 9, name: "Sun's diameter", size: "1,392,000 km (1.4×10⁹ m)", desc: "1.3 million Earths fit inside the Sun. It's so large that light takes 4.6 seconds to cross it.", compare: "The Sun is an average-sized star. The largest known star (UY Scuti) is 1,700× bigger." },
+  { exp: 11, name: "Earth–Sun distance (1 AU)", size: "150,000,000 km (1.5×10¹¹ m)", desc: "Light takes 8 minutes. This is defined as 1 Astronomical Unit (AU) — the ruler of the solar system.", compare: "A car at 120 km/h would take 142 years. The Voyager probe has been travelling since 1977 and is only at ~160 AU." },
+  { exp: 13, name: "Solar system (to Neptune)", size: "~6 billion km (6×10¹² m)", desc: "The edge of Neptune's orbit, about 30 AU from the Sun. Pluto reaches ~50 AU at aphelion.", compare: "Voyager 1 (launched 1977) has now passed ~160 AU. It's still technically within the Sun's gravitational reach." },
+  { exp: 16, name: "1 light-year", size: "9.46×10¹⁵ m", desc: "The distance light travels in one year. The fundamental unit of interstellar distances.", compare: "1 light-year = 63,000 AU. Proxima Centauri, the nearest star, is 4.2 light-years away." },
+  { exp: 17, name: "Nearest star — Proxima Centauri", size: "4.2 light-years (4×10¹⁶ m)", desc: "The closest star to our Sun. At current spacecraft speeds (~60,000 km/h), a trip would take ~77,000 years.", compare: "4.2 light-years = ~266,000 AU. Even at the speed of our fastest probes, unreachable in a human lifespan." },
+  { exp: 21, name: "Milky Way galaxy", size: "100,000 light-years (10²¹ m)", desc: "Our home galaxy. Contains 200–400 billion stars. The Sun is about 26,000 light-years from the centre.", compare: "24,000 × the nearest-star distance. Light leaving the far edge of our galaxy today left before Homo sapiens existed." },
+  { exp: 22, name: "Andromeda galaxy (nearest large galaxy)", size: "2.5 million light-years (2.4×10²² m)", desc: "Our nearest major galactic neighbour. Visible to the naked eye as a faint smudge in the sky.", compare: "It's approaching us at ~110 km/s and will collide with the Milky Way in ~4.5 billion years." },
+  { exp: 26, name: "Observable universe", size: "93 billion light-years (8.8×10²⁶ m)", desc: "The sphere of space from which light has had time to reach us since the Big Bang. Beyond this: unknown.", compare: "Contains an estimated 2 trillion galaxies, each with billions of stars. The full scale of physical reality as we can observe it." },
+];
+
+function fmtExp(exp) {
+  const prefixes = {'-15':'fm','-12':'pm','-9':'nm','-6':'µm','-3':'mm','0':'m','3':'km','6':'Mm','9':'Gm'};
+  if (prefixes[exp]) return '10' + (exp !== 0 ? (exp > 0 ? '⁺' : '') + exp.toString().split('').map(c=>({'-':'⁻','0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹'}[c]||c)).join('') : '⁰') + ' ' + (prefixes[exp] || 'm');
+  return '10^' + exp + ' m';
+}
+
+function updateZoom() {
+  const exp = parseInt(document.getElementById('zoom-slider').value);
+  const closest = items.reduce((a, b) => Math.abs(b.exp - exp) < Math.abs(a.exp - exp) ? b : a);
+  document.getElementById('zoom-name').textContent = closest.name;
+  document.getElementById('zoom-size').textContent = closest.size;
+  document.getElementById('zoom-desc').textContent = closest.desc;
+  document.getElementById('zoom-compare').textContent = closest.compare;
+}
+
+const jumpTargets = [
+  { label: 'Atom', exp: -10 }, { label: 'DNA', exp: -8 }, { label: 'Virus', exp: -7 },
+  { label: 'Bacterium', exp: -6 }, { label: 'Hair', exp: -4 }, { label: '1 mm', exp: -3 },
+  { label: 'Human', exp: 0 }, { label: 'City', exp: 4 }, { label: 'Earth', exp: 7 },
+  { label: 'Sun', exp: 9 }, { label: '1 AU', exp: 11 }, { label: '1 ly', exp: 16 },
+  { label: 'Milky Way', exp: 21 }, { label: 'Universe', exp: 26 }
+];
+
+const btnWrap = document.getElementById('zoom-buttons');
+jumpTargets.forEach(t => {
+  const b = document.createElement('button');
+  b.textContent = t.label;
+  b.style.cssText = 'font-size:11px; padding:3px 9px; cursor:pointer;';
+  b.onclick = () => { document.getElementById('zoom-slider').value = t.exp; updateZoom(); };
+  btnWrap.appendChild(b);
+});
+
+document.getElementById('zoom-slider').addEventListener('input', updateZoom);
+updateZoom();
+    </script>
+  </div>
+</body>
+</html>

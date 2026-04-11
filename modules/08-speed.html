@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 8: Speed & Duration — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.dur-row { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.dur-row:last-child { border-bottom: none; }
+.dur-name { font-size: 13px; color: var(--color-text-primary); width: 180px; flex-shrink: 0; font-weight: 500; }
+.dur-bar-wrap { flex: 1; }
+.dur-bar { height: 14px; border-radius: 2px; }
+.dur-val { font-size: 12px; color: var(--color-text-secondary); width: 80px; flex-shrink: 0; text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 8: Speed & Duration</h1>
+    <p class="module-subtitle">How fast things move and how long things take</p>
+
+    <div class="sec">Part A · the speed scale — from snail to light</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Speed comparison (km/h) — logarithmic feel</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Each step up is roughly 10× faster. Human intuition covers only the first few rows.</div>
+
+      <div class="bar-row"><span class="bl">Snail</span><div class="bb" style="width:0.3%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="bv" style="color:#0C447C; margin-left:5px; font-size:10px;">0.05 km/h</span></div></div>
+      <div class="bar-row"><span class="bl">Human walk</span><div class="bb" style="width:1.7%; background:#B5D4F4;"><span class="bv" style="color:#042C53; font-size:10px;">5 km/h</span></div></div>
+      <div class="bar-row"><span class="bl">Cycling</span><div class="bb" style="width:5%; background:#85B7EB;"><span class="bv" style="color:#042C53; font-size:10px;">15–25 km/h</span></div></div>
+      <div class="bar-row"><span class="bl">City car / sprint</span><div class="bb" style="width:11%; background:#378ADD;"><span class="bv" style="color:#fff; font-size:10px;">~30–50 km/h</span></div></div>
+      <div class="bar-row"><span class="bl">Motorway car</span><div class="bb" style="width:40%; background:#185FA5;"><span class="bv" style="color:#fff;">~120 km/h</span></div></div>
+      <div class="bar-row"><span class="bl">High-speed train (TGV)</span><div class="bb" style="width:60%; background:#0C447C;"><span class="bv" style="color:#fff;">~300 km/h</span></div></div>
+      <div class="bar-row"><span class="bl">Commercial plane</span><div class="bb" style="width:100%; background:#042C53;"><span class="bv" style="color:#E6F1FB;">~900 km/h</span></div></div>
+
+      <div style="margin-top:12px; border-top: 0.5px solid var(--color-border-tertiary); padding-top:10px;">
+        <div class="bar-row"><span class="bl">Concorde (retired)</span><div class="bb" style="width:100%; background:#633806;"><span class="bv" style="color:#FAEEDA;">~2,170 km/h — Mach 2</span></div></div>
+        <div class="bar-row"><span class="bl">SR-71 spy plane</span><div class="bb" style="width:100%; background:#412402;"><span class="bv" style="color:#FAC775;">~3,540 km/h — Mach 3.2</span></div></div>
+      </div>
+
+      <div style="margin-top:12px; border-top: 0.5px solid var(--color-border-tertiary); padding-top:10px;">
+        <div class="bar-row"><span class="bl">Speed of sound (air)</span><div class="bb" style="width:100%; background:#27500A;"><span class="bv" style="color:#EAF3DE;">1,235 km/h — Mach 1</span></div></div>
+        <div class="bar-row"><span class="bl">ISS / orbital speed</span><div class="bb" style="width:100%; background:#085041;"><span class="bv" style="color:#E1F5EE;">~28,000 km/h</span></div></div>
+        <div class="bar-row"><span class="bl">Speed of light</span><div class="bb" style="width:100%; background:#3C3489;"><span class="bv" style="color:#EEEDFE;">1,080,000,000 km/h</span></div></div>
+      </div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Light is 1,200,000× faster than a plane. The ISS orbits Earth every 92 minutes — 16 sunrises per day.</p>
+    </div>
+
+    <div class="sec">Part B · the key speed anchors you'll use every day</div>
+
+    <div class="cgrid">
+      <div class="card">
+        <p class="clabel">Walking</p>
+        <p class="cval">5 km/h</p>
+        <p class="cnote">1 km = 12 min walk. 10 min = ~800 m. The foundation of all human-scale distance sense.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Cycling</p>
+        <p class="cval">~20 km/h</p>
+        <p class="cnote">4× walking. 1 km = 3 min. 10 km commute = 30 min by bike.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Motorway driving</p>
+        <p class="cval">~120 km/h</p>
+        <p class="cnote">2 km per minute. 100 km = ~50 min. 1 hr = ~120 km.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Commercial flight</p>
+        <p class="cval">~900 km/h</p>
+        <p class="cnote">15 km per minute. 1,000 km ≈ 1 hr. The Module 3 anchor in action.</p>
+      </div>
+    </div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 5px;">The travel time formula — works for any journey</div>
+      <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.7;">
+        Time = Distance ÷ Speed. Always in the same units.<br>
+        300 km by car at 100 km/h = <strong style="color:var(--color-text-primary)">3 hours</strong>.<br>
+        300 km by plane at 900 km/h = <strong style="color:var(--color-text-primary)">20 minutes</strong> (plus airport time — realistically 3 hrs total).<br>
+        300 km by TGV at 300 km/h = <strong style="color:var(--color-text-primary)">1 hour</strong> — often faster door-to-door than flying.
+      </div>
+    </div>
+
+    <div class="sec">Part C · interactive speed & distance calculator</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">How long does a journey take? Pick a speed and enter a distance.</div>
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
+        <select id="speed-select" style="flex:1; min-width:160px; font-size:13px; height:36px; padding: 0 10px; border-radius: var(--border-radius-md); border: 0.5px solid var(--color-border-secondary); background: var(--color-background-primary); color: var(--color-text-primary);">
+          <option value="5">Walking (5 km/h)</option>
+          <option value="20">Cycling (20 km/h)</option>
+          <option value="50">City driving (50 km/h)</option>
+          <option value="120" selected>Motorway (120 km/h)</option>
+          <option value="300">High-speed train (300 km/h)</option>
+          <option value="900">Commercial plane (900 km/h)</option>
+          <option value="28000">Space station (28,000 km/h)</option>
+          <option value="1080000000">Speed of light (1,080,000,000 km/h)</option>
+        </select>
+        <input type="number" id="dist-input" placeholder="Distance (km)" value="500" step="1" style="flex:1; min-width:130px; font-size:13px;">
+      </div>
+      <div id="calc-result" style="font-size:14px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px;"></div>
+    </div>
+
+    <div class="sec">Part D · how long does it actually take? duration anchors</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Real-world task durations — most people underestimate these</div>
+
+      <div class="dur-row">
+        <span class="dur-name">Boiling water (1L)</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:1%; background:#85B7EB;"></div></div>
+        <span class="dur-val">~4 min</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Cooking pasta</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:2%; background:#85B7EB;"></div></div>
+        <span class="dur-val">8–12 min</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Roasting a chicken (1.5kg)</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:15%; background:#378ADD;"></div></div>
+        <span class="dur-val">~90 min</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Appendix surgery</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:5%; background:#EF9F27;"></div></div>
+        <span class="dur-val">30–60 min</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Hip replacement</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:10%; background:#EF9F27;"></div></div>
+        <span class="dur-val">1–2 hours</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Open-heart surgery</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:50%; background:#BA7517;"></div></div>
+        <span class="dur-val">4–6 hours</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Building a house</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:25%; background:#1D9E75;"></div></div>
+        <span class="dur-val">6–18 months</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Building a skyscraper</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:70%; background:#0F6E56;"></div></div>
+        <span class="dur-val">3–5 years</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Building a nuclear plant</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:100%; background:#085041;"></div></div>
+        <span class="dur-val">10–20 years</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Writing a PhD thesis</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:20%; background:#7F77DD;"></div></div>
+        <span class="dur-val">3–5 years</span>
+      </div>
+      <div class="dur-row">
+        <span class="dur-name">Becoming a surgeon</span>
+        <div class="dur-bar-wrap"><div class="dur-bar" style="width:80%; background:#534AB7;"></div></div>
+        <span class="dur-val">12–15 years training</span>
+      </div>
+    </div>
+
+    <div class="sec">Part E · human body speeds — things happening inside you right now</div>
+
+    <div class="cgrid">
+      <div class="card">
+        <p class="clabel">Nerve signal speed</p>
+        <p class="cval">~70 m/s</p>
+        <p class="cnote">252 km/h. Pain signals are slower (~1 m/s). That's why you feel a stubbed toe slightly after you see it happen.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Blood circulation (full loop)</p>
+        <p class="cval">~60 seconds</p>
+        <p class="cnote">Blood travels ~5 km of vessels to complete one full circuit of your body every ~1 minute.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Heart beats per minute</p>
+        <p class="cval">~60–100 bpm</p>
+        <p class="cnote">~100,000 beats per day. ~3 billion beats in a lifetime. It never stops for a rest longer than 1 second.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Blink duration</p>
+        <p class="cval">~150–400 ms</p>
+        <p class="cnote">You blink 15–20 times per minute. Total "blind time" per day: ~30 minutes. You never notice.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part F · the speed of light — putting the universe in perspective</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Light travels 300,000 km per second. How far in each timeframe?</div>
+      <div class="bar-row"><span class="bl">1 nanosecond</span><div class="bb" style="width:0.3%; background:#EEEDFE; border:0.5px solid #CECBF6;"><span class="bv" style="color:#26215C; margin-left:5px; font-size:10px;">30 cm — a ruler</span></div></div>
+      <div class="bar-row"><span class="bl">1 blink (200ms)</span><div class="bb" style="width:1.5%; background:#CECBF6;"><span class="bv" style="color:#26215C; font-size:10px;">60,000 km</span></div></div>
+      <div class="bar-row"><span class="bl">1 second</span><div class="bb" style="width:3%; background:#AFA9EC;"><span class="bv" style="color:#26215C; font-size:10px;">300,000 km — Earth→Moon</span></div></div>
+      <div class="bar-row"><span class="bl">1 minute</span><div class="bb" style="width:10%; background:#7F77DD;"><span class="bv" style="color:#fff; font-size:10px;">18M km</span></div></div>
+      <div class="bar-row"><span class="bl">8 minutes</span><div class="bb" style="width:50%; background:#534AB7;"><span class="bv" style="color:#fff;">150M km — Earth to Sun</span></div></div>
+      <div class="bar-row"><span class="bl">4.2 years</span><div class="bb" style="width:100%; background:#26215C;"><span class="bv" style="color:#CECBF6;">nearest star (Proxima Centauri)</span></div></div>
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0;">When you look at the Sun, you're seeing it as it was 8 minutes ago. When you look at Proxima Centauri, you're seeing 4.2 years into the past. The night sky is a time machine — the further you look, the older the light.</p>
+    </div>
+
+    <div class="sec">Part G · anchor numbers to memorize</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div class="anchor-row">
+        <span class="pill p-blue">5 km/h</span>
+        <div><div class="atext">Human walking speed</div><div class="asub">1 km = 12 min · the foundation of all distance intuition</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">120 km/h</span>
+        <div><div class="atext">Motorway car — 2 km per minute</div><div class="asub">100 km = ~50 min driving</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">300 km/h</span>
+        <div><div class="atext">High-speed train (TGV, Shinkansen)</div><div class="asub">Often faster than flying for <500 km city-centre to city-centre</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">900 km/h</span>
+        <div><div class="atext">Commercial aircraft</div><div class="asub">1,000 km ≈ 1 hour — the module 3 rule</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">1,235 km/h</span>
+        <div><div class="atext">Speed of sound (Mach 1) at sea level</div><div class="asub">Thunder arrives ~3 sec after lightning per km of distance</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">300,000 km/s</span>
+        <div><div class="atext">Speed of light</div><div class="asub">Earth to Moon in 1.3 sec · Earth to Sun in 8 min</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part H · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. You hear thunder 6 seconds after a lightning flash. How far away is the storm?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 2 km. Sound travels ~340 m/s (1.2 km per 3.5 seconds). The rule of thumb: 3 seconds of delay ≈ 1 km. So 6 seconds ≈ 2 km. Light from the flash arrives almost instantly (it's less than a millisecond delay at 2 km), so the gap is purely sound travel time. At 6 seconds, the storm is close — seek shelter.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Paris to Lyon is about 460 km. Which is faster door-to-door: TGV or plane?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The TGV — easily. The train takes about 2 hours at ~300 km/h, city-centre to city-centre. A flight takes ~1 hour in the air, but add 45 min check-in, 30 min to/from each airport, and 20 min baggage = ~3.5–4 hours total. For any journey under ~600 km between well-connected cities, high-speed rail is almost always faster door-to-door than flying.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. The ISS orbits at 28,000 km/h. How long does one full orbit of Earth take?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 92 minutes. Earth's circumference at orbital altitude (~400 km up) is roughly 42,000 km. 42,000 ÷ 28,000 ≈ 1.5 hours = 90 minutes. This means ISS astronauts see 16 sunrises and sunsets every single day — one every 45 minutes.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. A surgeon says your operation will take "about 3 to 4 hours." Is that unusual, or normal for major surgery?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Completely normal for major surgery. Appendix removal: 30–60 min (minor). Hip replacement: 1–2 hours. Knee replacement: 1–2 hours. Open-heart surgery: 4–6 hours. Liver transplant: 6–12 hours. A 3–4 hour estimate puts you in the "significant but routine" category — complex enough to require careful work, but not an unusually long procedure. Add recovery room time and you're typically looking at waking up 1–2 hours after the stated surgery duration.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. You're driving at 90 km/h and need to stop suddenly. Roughly how far does the car travel while you react and brake?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 55–65 metres total. At 90 km/h you're travelling 25 metres per second. Human reaction time is ~0.7–1 second, covering ~18–25 metres before you even touch the brakes. Then braking distance at 90 km/h on dry road is roughly 40 metres. Total: ~55–65 m. On wet roads, add 50%. This is why motorway tailgating is so dangerous — at 120 km/h, the total stopping distance exceeds 90 metres, longer than a football pitch.</div>
+    </div>
+
+    <script>
+function fmtDuration(hours) {
+  if (hours < 1/60) {
+    const secs = hours * 3600;
+    if (secs < 0.001) return (secs * 1000).toFixed(3) + ' milliseconds';
+    if (secs < 1) return secs.toFixed(3) + ' seconds';
+    return secs.toFixed(1) + ' seconds';
+  }
+  if (hours < 1) {
+    const mins = hours * 60;
+    if (mins < 1) return (mins * 60).toFixed(1) + ' seconds';
+    return mins.toFixed(1) + ' minutes';
+  }
+  if (hours < 24) return hours.toFixed(2).replace(/\.?0+$/, '') + ' hours';
+  const days = hours / 24;
+  if (days < 365) return days.toFixed(1) + ' days';
+  return (days / 365).toFixed(2) + ' years';
+}
+
+function calcTravel() {
+  const speed = parseFloat(document.getElementById('speed-select').value);
+  const dist  = parseFloat(document.getElementById('dist-input').value);
+  const out   = document.getElementById('calc-result');
+  if (isNaN(dist) || dist <= 0) { out.innerHTML = 'Enter a positive distance.'; return; }
+  const hours = dist / speed;
+  const speedLabel = document.getElementById('speed-select').selectedOptions[0].text;
+  let context = '';
+  if (speed === 5)   context = ' — about the same as a very long walk';
+  else if (speed === 20)  context = ' — a solid cycling session';
+  else if (speed === 50)  context = ' — city traffic';
+  else if (speed === 120) context = ' — add 20–30 min for stops on a real road trip';
+  else if (speed === 300) context = ' — station to station; often faster than flying door-to-door';
+  else if (speed === 900) context = ' — in the air only; add ~2 hrs for airport';
+  else if (speed === 28000) context = ' — the ISS would have completed ' + (hours / (92/60)).toFixed(1) + ' full orbits';
+  else if (speed === 1080000000) context = ' — light covers this in an instant';
+
+  out.innerHTML =
+    '<strong>' + dist.toLocaleString() + ' km</strong> at <strong>' + speedLabel + '</strong><br>' +
+    'Travel time: <strong>' + fmtDuration(hours) + '</strong>' + context;
+}
+
+document.getElementById('speed-select').addEventListener('change', calcTravel);
+document.getElementById('dist-input').addEventListener('input', calcTravel);
+calcTravel();
+    </script>
+  </div>
+</body>
+</html>

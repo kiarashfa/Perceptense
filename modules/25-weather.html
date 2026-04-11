@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 25: Weather — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 25: Weather</h1>
+    <p class="module-subtitle">Fronts, clouds, pressure, and forecasting</p>
+
+    <div class="sec">Part A · what weather actually is — energy redistribution in the troposphere</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The atmosphere as an engine</div>
+      <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The troposphere</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">All weather happens here — the bottom 8–15 km of atmosphere. Temperature decreases ~6.5°C per km of altitude (the environmental lapse rate). Above it: stratosphere (ozone layer, no weather, very stable).</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The engine</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The Sun heats the Earth's surface unevenly (equator more than poles, land more than sea). This creates temperature differences → density differences → pressure differences → wind. Weather is the atmosphere attempting to redistribute this energy imbalance.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The water cycle's role</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Water evaporates (absorbs energy) → rises (cools) → condenses into clouds (releases latent heat — this energy powers storms) → falls as precipitation → evaporates again. This cycle moves enormous amounts of energy.</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">The Coriolis effect:</strong> Earth's rotation deflects moving air to the right in the Northern Hemisphere and left in the Southern. This is why low-pressure systems spin anticlockwise in the Northern Hemisphere (cyclones) and clockwise in the Southern. At the equator, the Coriolis effect is zero — which is why powerful rotating storms (hurricanes, typhoons) cannot form within about 5° of the equator.
+      </div>
+    </div>
+
+    <div class="sec">Part B · pressure systems — high and low, what they mean and why</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+      <div style="background:#E6F1FB; border:0.5px solid #85B7EB; border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:14px; font-weight:500; color:#042C53; margin-bottom:6px;">High pressure (anticyclone)</div>
+        <div style="font-size:12px; color:#0C447C; line-height:1.6; margin-bottom:8px;">Air sinks from above → warms as it descends (compression) → reduces relative humidity → clouds evaporate → fair weather. Winds spiral outward (clockwise in N. Hemisphere).</div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">Typical weather: clear skies, sunshine, light winds</div>
+          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">In summer: heatwaves (blocking high pressure traps warm air)</div>
+          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">In winter: cold, frost, fog (clear skies = rapid radiative cooling)</div>
+          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">Typical pressure: 1,020–1,040+ hPa (standard sea level: 1,013 hPa)</div>
+        </div>
+      </div>
+      <div style="background:#FAECE7; border:0.5px solid #F0997B; border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:14px; font-weight:500; color:#4A1B0C; margin-bottom:6px;">Low pressure (cyclone / depression)</div>
+        <div style="font-size:12px; color:#712B13; line-height:1.6; margin-bottom:8px;">Air rises → cools as it ascends → relative humidity increases → water vapour condenses → clouds form → precipitation. Winds spiral inward (anticlockwise in N. Hemisphere).</div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Typical weather: cloud, rain, strong winds</div>
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Deep lows: storms, gales, heavy rain</div>
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Tropical cyclones: extreme low pressure, catastrophic winds</div>
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Typical pressure: 980–1,010 hPa. Severe storm: below 960 hPa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part C · fronts — where weather changes happen</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Cold front</p>
+        <p class="cval">Cold air undercuts warm air — sharp, fast</p>
+        <p class="cnote">A wedge of cold air advances and undercuts warmer air ahead of it. Warm air is forced sharply upward → rapid condensation → tall cumulonimbus clouds → intense but brief rain, thunderstorms, gusty winds. After passage: rapid clearance, temperature drops sharply, pressure rises quickly. On a weather map: blue line with triangular "teeth" pointing in the direction of travel.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Warm front</p>
+        <p class="cval">Warm air overrides cold air — gradual, wide</p>
+        <p class="cnote">Warm air slides gently up and over retreating cold air. The lifting is gradual → clouds form over a wide area (500–1,000 km ahead) → prolonged, steady rain. Arrival sequence: cirrus (high wispy clouds, 24h+ before), then altostratus, then nimbostratus (continuous rain). After passage: temperature rises, pressure stabilises. On a map: red line with rounded bumps (semicircles) pointing forward.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Occluded front</p>
+        <p class="cval">Cold overtakes warm — complex, often intense</p>
+        <p class="cnote">As a depression matures, the faster-moving cold front catches up with the warm front. The warm air is lifted entirely off the surface → occluded front. Often produces persistent rain and unsettled weather. Marks the stage where a depression is weakening. On a map: purple line with alternating triangles and semicircles.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Stationary front</p>
+        <p class="cval">No movement — prolonged same weather</p>
+        <p class="cnote">When neither air mass advances. Can produce days of persistent rain or fog over a region. On a map: alternating cold and warm front symbols facing opposite directions. Often responsible for prolonged flooding events when stationary fronts stall over a region for days.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part D · atmospheric phenomena — what causes each</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showPhen('dew')"        style="font-size:12px; padding:3px 10px;">Morning dew</button>
+      <button onclick="showPhen('fog')"        style="font-size:12px; padding:3px 10px;">Fog</button>
+      <button onclick="showPhen('thunder')"    style="font-size:12px; padding:3px 10px;">Thunderstorm</button>
+      <button onclick="showPhen('rainbow')"    style="font-size:12px; padding:3px 10px;">Rainbow</button>
+      <button onclick="showPhen('halo')"       style="font-size:12px; padding:3px 10px;">Sun / moon halo</button>
+      <button onclick="showPhen('frost')"      style="font-size:12px; padding:3px 10px;">Frost</button>
+      <button onclick="showPhen('mirage')"     style="font-size:12px; padding:3px 10px;">Mirage</button>
+      <button onclick="showPhen('heatlight')"  style="font-size:12px; padding:3px 10px;">Heat lightning</button>
+      <button onclick="showPhen('virga')"      style="font-size:12px; padding:3px 10px;">Virga</button>
+    </div>
+    <div id="phen-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part E · what "60% chance of rain" actually means</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Forecast probability of precipitation (PoP) — the most misunderstood number in meteorology</div>
+
+      <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #F09595; margin-bottom:10px;">
+        <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">What 60% does NOT mean</div>
+        <div style="font-size:12px; color:#A32D2D; line-height:1.6;">It does NOT mean: "it will rain for 60% of the day." It does NOT mean: "60% of the city will get rain." It does NOT mean: "there's a 60% chance it rains somewhere in the region at some point."</div>
+      </div>
+
+      <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #97C459; margin-bottom:10px;">
+        <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">What 60% actually means</div>
+        <div style="font-size:12px; color:#3B6D11; line-height:1.6;">PoP = C × A, where C = confidence (probability that rain occurs somewhere in the forecast area) and A = the area coverage fraction if rain does occur. A 60% PoP typically means: there is a 60% probability that at least 0.01 inches (0.25mm) of precipitation will fall at any specific point in the forecast area during the forecast period.</div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Practical interpretation</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">A 60% PoP means: if you were to experience this forecast 10 times, it would rain on about 6 of those days (at your specific location). It says nothing about duration or intensity. You might get 5 minutes of drizzle or 2 hours of heavy rain — the probability is the same.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">The decision threshold</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Research shows: people tend to carry an umbrella when PoP ≥ 50–60%. But whether to carry one depends on the consequences of being wrong, not just the probability. For a formal outdoor event: even 30% might warrant precautions. For a 5-min walk: 80% might not.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">Additional forecast numbers you should know:</strong> "Isolated showers" = less than 25% area coverage. "Scattered showers" = 25–54% coverage. "Numerous showers" or "widespread" = 55%+. These give area coverage context the PoP number alone doesn't. Humidity percentage is not PoP — it's relative humidity (how saturated the air is relative to its capacity at that temperature).
+      </div>
+    </div>
+
+    <div class="sec">Part F · climate zones — how location shapes weather character</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showClimate('coastal')"     style="font-size:12px; padding:3px 10px;">Coastal maritime</button>
+      <button onclick="showClimate('continental')" style="font-size:12px; padding:3px 10px;">Continental interior</button>
+      <button onclick="showClimate('tropical')"    style="font-size:12px; padding:3px 10px;">Tropical</button>
+      <button onclick="showClimate('desert')"      style="font-size:12px; padding:3px 10px;">Desert / arid</button>
+      <button onclick="showClimate('mountain')"    style="font-size:12px; padding:3px 10px;">Mountain / alpine</button>
+      <button onclick="showClimate('mediterranean')' " style="font-size:12px; padding:3px 10px;">Mediterranean</button>
+      <button onclick="showClimate('polar')"       style="font-size:12px; padding:3px 10px;">Polar / subarctic</button>
+    </div>
+    <div id="climate-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part G · weather vs climate — and the global warming question</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The most important distinction in climate science</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB;">
+          <div style="font-size:12px; font-weight:500; color:#042C53; margin-bottom:4px;">Weather</div>
+          <div style="font-size:12px; color:#185FA5; line-height:1.5;">The state of the atmosphere at a specific place and time. Highly variable day to day, week to week, year to year. Subject to enormous natural variability. A single hot summer, cold winter, or unusual storm is weather. Cannot be reliably forecast more than ~10 days ahead.</div>
+        </div>
+        <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F0997B;">
+          <div style="font-size:12px; font-weight:500; color:#4A1B0C; margin-bottom:4px;">Climate</div>
+          <div style="font-size:12px; color:#712B13; line-height:1.5;">The statistical average of weather over long periods — typically 30 years (the WMO standard climate normal period). Climate describes the pattern, not any individual event. "Climate is what you expect; weather is what you get." (commonly attributed to Mark Twain, though disputed).</div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-bottom:10px;">
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">The signal vs noise problem — what the data actually shows</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">Global average surface temperature has risen approximately +1.1–1.2°C since the pre-industrial baseline (1850–1900). The warming trend is clearly visible in 30-year averages. Individual years vary: a cold year doesn't contradict the trend, just as one bad day on the stock market doesn't mean the market is declining.</div>
+        <div style="margin-bottom:8px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">Annual global average temperature anomaly — illustrative of the trend</div>
+          <div style="position:relative; height:80px;">
+            <div style="display:flex; align-items:flex-end; gap:2px; height:60px; margin-bottom:4px;">
+              <div style="flex:1; background:#85B7EB; height:20%;"></div>
+              <div style="flex:1; background:#85B7EB; height:15%;"></div>
+              <div style="flex:1; background:#85B7EB; height:30%;"></div>
+              <div style="flex:1; background:#85B7EB; height:10%;"></div>
+              <div style="flex:1; background:#85B7EB; height:25%;"></div>
+              <div style="flex:1; background:#85B7EB; height:18%;"></div>
+              <div style="flex:1; background:#85B7EB; height:35%;"></div>
+              <div style="flex:1; background:#85B7EB; height:28%;"></div>
+              <div style="flex:1; background:#EF9F27; height:42%;"></div>
+              <div style="flex:1; background:#EF9F27; height:38%;"></div>
+              <div style="flex:1; background:#EF9F27; height:55%;"></div>
+              <div style="flex:1; background:#D85A30; height:62%;"></div>
+              <div style="flex:1; background:#D85A30; height:58%;"></div>
+              <div style="flex:1; background:#D85A30; height:70%;"></div>
+              <div style="flex:1; background:#D85A30; height:65%;"></div>
+              <div style="flex:1; background:#D85A30; height:75%;"></div>
+              <div style="flex:1; background:#A32D2D; height:80%;"></div>
+              <div style="flex:1; background:#A32D2D; height:85%;"></div>
+              <div style="flex:1; background:#A32D2D; height:90%;"></div>
+              <div style="flex:1; background:#A32D2D; height:88%;"></div>
+              <div style="flex:1; background:#A32D2D; height:95%;"></div>
+              <div style="flex:1; background:#791F1F; height:100%;"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--color-text-secondary);">
+              <span>1900</span><span>1930</span><span>1960</span><span>1990</span><span>2010</span><span>2024</span>
+            </div>
+          </div>
+        </div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;">Year-to-year variation is high (some years cooler than the previous, some much warmer). But the 30-year trend is unambiguous. The 10 warmest years on record globally have all occurred since 2005. 2023 and 2024 set successive all-time global temperature records.</div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">The loaded dice analogy (NASA scientist James Hansen, 1980s):</strong> Before climate change, rolling a die gave roughly equal chances of a hot, average, or cold summer. Climate change loads the die — you still get variety (some cool summers), but hot summers now come up far more often. A single hot summer might have been equally likely before. A series of record-breaking summers is consistent with loaded dice even though any individual outcome is possible. Statistical attribution science can now calculate: "this specific heatwave was X times more likely due to climate change." For recent European heatwaves, the multiplier has ranged from 2× to 5×.
+      </div>
+    </div>
+
+    <div class="sec">Part H · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. It's a clear night in summer and the forecast says no rain, but in the morning there's moisture on your car and grass. Where did it come from, and why does it appear overnight?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">This is dew — water condensed directly from water vapour in the air onto the surface. The mechanism: during a clear night, surfaces (car bonnet, grass blades) radiate their heat to the sky without a cloud "blanket" to reflect it back (this is radiative cooling). The surface temperature drops below the dew point — the temperature at which the surrounding air is 100% saturated and can no longer hold its water vapour. Water vapour then condenses onto the cooler surface as liquid water. Clear nights produce the most dew because cloud cover prevents radiative cooling. On a cloudy night, surfaces stay warmer because clouds absorb and re-emit longwave radiation back to the surface — the same mechanism that makes cloudy nights warmer than clear nights. If the surface temperature drops below 0°C before moisture condenses, you get frost (ice crystals) rather than dew. Dew is not "falling" from the sky — it forms directly on the surface from local air moisture.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Why does thunder follow lightning, and why can you estimate the storm's distance?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Lightning and thunder occur simultaneously — but light travels at ~300,000 km/second while sound travels at ~340 m/second. Light arrives essentially instantaneously regardless of distance. Sound takes about 3 seconds per kilometre. The rule: count the seconds between the flash and the thunder, then divide by 3 for kilometres (or divide by 5 for miles). 6 seconds = 2 km. 15 seconds = 5 km. When lightning and thunder are simultaneous, the strike is directly overhead. Thunder is the acoustic shockwave from the rapid superheating of air by the lightning channel — the air expands explosively at ~30,000 K (five times hotter than the Sun's surface), creating a pressure wave. The rumbling that follows a single flash occurs because the lightning channel is kilometres long — you're hearing thunder from different parts of the channel arriving at different times, and reflections off clouds and terrain.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. Why does a rainbow always appear as a semicircle at a specific angle, and why can't two people ever see the same rainbow?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">A rainbow appears at exactly 42° from the antisolar point (the point directly opposite the Sun from your perspective). When sunlight enters a water droplet, it refracts (bends), reflects off the back of the droplet, and refracts again as it exits. Different wavelengths (colours) refract at slightly different angles — red at 42°, violet at 40°. You see red on the outside and violet on the inside of the primary bow. This 42° geometry is fixed by physics — only droplets that happen to be at that exact angle from the antisolar point send their light to your eye. The "bow" shape is because the antisolar point is directly behind you and you're tracing a 42° cone in all directions — which is a circle (or semicircle above the horizon). No two people see the same rainbow because each person's antisolar point is different — you see light from different sets of droplets than the person standing next to you. You can never reach a rainbow's base; as you move toward it, the antisolar point shifts with you and the rainbow remains at the same angle ahead.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. You live near the coast and your friend lives 200km inland. The forecast shows the same temperature for both locations, but the coast always "feels" different. Why?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Water has a very high specific heat capacity (~4× that of land) — it takes much more energy to change its temperature. This creates the maritime moderating effect. The sea heats up slowly in summer and cools slowly in winter. Coastal areas therefore have smaller temperature ranges: cooler summers and milder winters compared to inland areas at the same latitude. Sea breezes add to this: during the day, land heats faster than sea → air rises over land → cooler sea air flows in (sea breeze) — creating a refreshing coastal breeze even when inland is still. At night, the reverse happens (land breeze). High coastal humidity also makes temperatures feel different from what a thermometer shows: 25°C at 80% humidity feels much hotter than 25°C at 40% humidity, because sweat evaporates slowly when the air is already nearly saturated. Inland continental areas experience larger diurnal (day-night) and seasonal temperature swings — 40°C summers and −20°C winters in places like central Russia or the American Midwest are normal, while oceanic islands rarely see either extreme.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. This summer was the hottest in your city's recorded history. Does that prove global warming? And if temperatures are rising, why did last winter feel colder than usual?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">A single record-hot summer alone doesn't "prove" global warming in the sense of being conclusive proof of anthropogenic climate change — but it is consistent with it, and the pattern of record-hot summers occurring with increasing frequency is highly significant. Individual events are weather (variable). The statistical pattern over decades is climate. What does provide compelling evidence: the global average temperature anomaly trend over 150 years; the fact that the 10 warmest years globally have all occurred since 2005; the shrinking Arctic sea ice measured over decades; the poleward shift of climate zones; attribution studies that calculate how much more likely specific events are due to climate change. As for a cold winter: this is exactly the loaded dice problem. Climate change shifts the probability distribution toward hotter outcomes, but the distribution doesn't disappear. You still get cold winters — they just become less frequent and less extreme. Moreover, some patterns of warming (weakening of the Arctic polar vortex) can paradoxically push cold Arctic air southward in winter, causing cold snaps in mid-latitudes. Cold winters and record-hot summers can co-exist in a warming world.</div>
+    </div>
+
+    <script>
+const phenomena = {
+  dew: { name:'Morning dew', bg:'#E6F1FB', col:'#0C447C',
+    cause:'Radiative cooling of surfaces overnight below the dew point temperature.',
+    mechanism:'Surfaces (grass, metal, glass) radiate heat to the sky during clear nights. With no cloud cover to reflect radiation back, surfaces cool rapidly. When the surface temperature falls below the dew point — the temperature at which air is 100% saturated — water vapour condenses directly onto the surface as liquid droplets.',
+    conditions:'Requires: clear skies (cloud cover prevents sufficient radiative cooling), calm wind (wind mixes air and prevents the local surface-layer air from reaching saturation), and air with reasonable humidity. Strongest in early autumn when nights become cool but humidity from summer remains high.',
+    note:'Dew is NOT moisture falling from the sky — it forms in place on the surface. If the surface cools below 0°C, you get frost instead of dew. Heavy dew on a windscreen in summer can indicate that the surface was clean (reflective) and dried quickly — glass cools more readily than painted metal.' },
+  fog: { name:'Fog', bg:'#F1EFE8', col:'#444441',
+    cause:'Cloud at ground level — water droplets or ice crystals suspended in air, reducing visibility below 1km.',
+    mechanism:'Radiation fog: same mechanism as dew — overnight radiative cooling cools air to its dew point, but instead of forming on surfaces, droplets suspend in the lower atmosphere. Common in valleys (cold air drains downhill). Advection fog: warm, moist air moves over a cold surface. Sea fog: warm, humid maritime air moves over cold ocean current. Upslope fog: air rises up a hillside, cools, and condenses.',
+    conditions:'Radiation fog: clear nights, light wind, high humidity. Dispersal: sun heats the ground, warms the air from below, mixes the fog. "Fog before seven, fine before eleven" is a roughly accurate folk rule for radiation fog.',
+    note:'The difference between fog and mist: visibility in fog < 1km; mist = 1–2km. Marine fog (advection fog) can persist for days regardless of sunshine because the cold sea surface keeps regenerating it. Tule fog in California\'s Central Valley is one of the thickest fogs in the world, forming in winter inversions.' },
+  thunder: { name:'Thunderstorm', bg:'#FAECE7', col:'#712B13',
+    cause:'Electrical discharge between charged regions in cumulonimbus clouds or between cloud and ground.',
+    mechanism:'Inside a deep cumulonimbus (up to 15km tall), violent updrafts and downdrafts cause collisions between ice crystals and supercooled water droplets. Positively charged smaller particles concentrate at the top; negative charges at the bottom. When the charge difference becomes large enough, lightning (a plasma channel at ~30,000 K) bridges the gap. The explosive heating creates the shockwave: thunder.',
+    conditions:'Requires: strong instability (warm, moist air near the surface; cold air aloft), lifting mechanism (front, sea breeze, or surface heating), and sufficient moisture. Most common in summer afternoons and along frontal boundaries.',
+    note:'A cumulonimbus can contain energy equivalent to a small nuclear bomb. Lightning strikes Earth ~100 times per second globally. Your chance of being struck in a lifetime is ~1 in 15,300 (USA). Safest: inside a metal-bodied car (Faraday cage) or solid building. Unsafe: under isolated trees, on hilltops, in water, holding metal objects.' },
+  rainbow: { name:'Rainbow', bg:'#EEEDFE', col:'#3C3489',
+    cause:'Sunlight refracted, reflected, and dispersed by spherical water droplets in the air.',
+    mechanism:'Sunlight enters a droplet, refracts (bends) as it enters, reflects off the back of the droplet, and refracts again as it exits. The dispersion separates wavelengths: red at 42°, orange ~41.5°, violet at 40° from the antisolar point. You see a bow because only droplets at exactly that angle send their specific colour to your eye.',
+    conditions:'Sun behind you and rain ahead. Antisolar point below horizon (bow is semicircle; from aircraft, you see a full circle). Best in mid-morning or late afternoon when the Sun is low. After a storm passes, with residual rain and clearing skies.',
+    note:'Double rainbows: a secondary bow at 51° (colours reversed — red on inside, violet outside) from light that undergoes two internal reflections. It\'s always fainter than the primary. The sky between the two bows (Alexander\'s band) is noticeably darker — a region where no light is directed toward the observer from either reflection geometry.' },
+  halo: { name:'Sun or moon halo', bg:'#FAEEDA', col:'#633806',
+    cause:'Refraction of light through hexagonal ice crystals in high cirrostratus clouds.',
+    mechanism:'Thin cirrostratus cloud at high altitude (6–12 km) contains hexagonal plate and column ice crystals, randomly oriented. When light passes through these crystals at the 60° prism angle of a hexagonal shape, it bends by a minimum of 22°. This creates a ring at exactly 22° radius around the Sun or Moon.',
+    conditions:'Requires thin, high ice cloud (cirrostratus — the hazy, milky veil that often precedes frontal systems). The rule "ring around the moon, rain by noon" has meteorological validity: cirrostratus often precedes a warm front by 12–24 hours.',
+    note:'A 22° halo (sharp, coloured ring: red inside, blue outside) is distinct from a corona (much smaller, coloured rings very close to the Sun/Moon, caused by diffraction in water droplet clouds). Circumzenithal arc (a smile-shaped band of colour near the zenith) and sun dogs (bright spots at 22° each side of the Sun) are also caused by ice crystal refraction.' },
+  frost: { name:'Frost', bg:'#E6F1FB', col:'#0C447C',
+    cause:'Water vapour depositing directly as ice crystals onto surfaces that have cooled below 0°C.',
+    mechanism:'Similar to dew but the surface temperature drops below freezing (0°C) before or while reaching the dew point. Water vapour undergoes deposition (gas → solid, bypassing liquid) onto the cold surface, forming ice crystals. The intricate patterns come from the crystalline structure of ice growing at different orientations on the surface.',
+    conditions:'Clear nights (maximum radiative cooling), calm wind, above-zero air temperature (if air were below 0°C, it would be an air frost — more severe). "Ground frost" occurs when the surface is below 0°C but air temperature is above, as measured at standard 1.2m height.',
+    note:'Hoar frost (feathery ice crystals on surfaces), rime frost (droplets that freeze on contact in freezing fog — creates thick, opaque coating, especially on high ground), and black ice (thin invisible ice on roads from freezing of rain or dew) are all frost variants with different formation mechanisms.' },
+  mirage: { name:'Mirage', bg:'#FAEEDA', col:'#633806',
+    cause:'Refraction of light through layers of air at different temperatures and therefore different densities.',
+    mechanism:'Hot air near the ground is less dense than cooler air above. Light bends (refracts) as it passes through layers of different density. In an inferior mirage (desert/road shimmer), light from the sky is bent upward near the hot surface and reaches your eye from below — appearing as a "puddle" (reflected sky). In a superior mirage (over cold sea), cool dense air near the surface bends light downward, making objects below the horizon appear above it.',
+    conditions:'Inferior mirage: very hot surface (desert, asphalt road in summer). Superior mirage: cold surface under warm air (Arctic, calm sea). Fata Morgana (distorted superior mirages of cliffs, cities, ships) occurs over extremely stable layered atmospheres — common over polar seas.',
+    note:'A road shimmer is a real optical phenomenon, not an illusion in the sense of a cognitive trick — the light really is bending. What you see is genuinely sky light, not water. Hot air expands, becomes less dense, and has a lower refractive index — just enough to bend light at shallow angles over a long horizontal path.' },
+  heatlight: { name:'Heat lightning', bg:'#FAEEDA', col:'#633806',
+    cause:'Simply distant thunderstorm lightning — no special phenomenon.',
+    mechanism:'There is no physical phenomenon called "heat lightning." What people observe as "heat lightning" (flashes of light on a warm night with no audible thunder) is simply ordinary lightning from a thunderstorm that is too far away to hear. Thunder becomes inaudible beyond ~15–20 km because it disperses and is absorbed by the atmosphere. The light is still visible because it illuminates clouds from behind.',
+    conditions:'Hot summer nights when distant storms are common. The "heat" association arises because summer nights are when distant thunderstorms are most frequent, not because heat itself creates lightning.',
+    note:'This is one of weather\'s great myths — "heat lightning" is completely ordinary lightning. If you can see flickering light on the horizon on a warm night but hear no thunder, there is a thunderstorm about 15–30 km away. You are not necessarily in danger (the storm is distant) but it may be approaching.' },
+  virga: { name:'Virga', bg:'#EAF3DE', col:'#27500A',
+    cause:'Precipitation that evaporates (or sublimates) before reaching the ground.',
+    mechanism:'Rain or snow falls from a cloud base but encounters a layer of dry air below. As the precipitation falls through this dry layer, it evaporates (liquid → gas) or sublimates (ice → gas), absorbing energy and cooling the air. The result is visible streaks or curtains of precipitation hanging below cloud base that never reach the surface. The evaporative cooling can sometimes cause strong downdrafts (microbursts) — a serious aviation hazard.',
+    conditions:'Common in arid and semi-arid regions where cloud bases are high and lower air is very dry. Common sight over deserts in summer. Also visible in dry continental regions when shower clouds form at high altitude.',
+    note:'Virga is visually beautiful — wispy grey-blue curtains hanging beneath flat-based cumulus clouds. It\'s also responsible for dust devils and microbursts: the evaporative cooling creates a cold, dense air mass that crashes to the surface, spreading outward. Aircraft encountering a microburst can experience first a headwind (apparent lift) then a violent downburst and tailwind — a crash sequence that killed hundreds before microbursts were understood in the 1970s–80s.' }
+};
+
+function showPhen(key) {
+  const p = phenomena[key];
+  document.getElementById('phen-display').innerHTML = `
+    <div style="display:inline-block; background:${p.bg}; color:${p.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${p.name}</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">What causes it</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${p.cause}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The mechanism</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${p.mechanism}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Conditions required</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${p.conditions}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Important nuance</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${p.note}</div></div>
+    </div>`;
+}
+
+const climates = {
+  coastal: { name:'Coastal maritime', badge:'Mild, wet, small temperature range', bg:'#E6F1FB', col:'#0C447C',
+    what:'Dominated by proximity to the ocean. Water\'s high heat capacity moderates temperatures — summers are cooler than inland, winters milder. Persistent cloud and rainfall, especially on windward coasts. Western coasts of continents at mid-latitudes (UK, Pacific Northwest, Norway, western France, New Zealand).',
+    why:'Prevailing westerlies bring moist oceanic air onshore. Mountains on the coast force this air to rise (orographic lift), causing heavy rain on the windward side and rain shadow on the leeward.',
+    temps:'UK example: London summer avg ~23°C max, winter avg ~8°C max. Annual range ~15°C. Compare with Moscow (similar latitude): 26°C summer, -5°C winter. Annual range ~31°C.',
+    note:'Coastal fog is common where cold ocean currents meet warmer air — California coast, Benguela Current (Namibia), Humboldt Current (Chile/Peru). San Francisco\'s famous summer fog is advection fog from cold Pacific upwelling.' },
+  continental: { name:'Continental interior', badge:'Hot summers, cold winters, low humidity', bg:'#FAEEDA', col:'#633806',
+    what:'Far from the moderating influence of the ocean. Extremes dominate: hot summers and very cold winters. Precipitation is lower overall, often concentrated in summer thunderstorms. Siberia, central USA (Great Plains), central Canada, Central Asia.',
+    why:'Without maritime influence, the land heats and cools freely with the seasons. Latitude amplifies this — continental interiors at 50°N have polar air masses in winter and near-tropical heat in summer.',
+    temps:'Verkhoyansk, Russia: −67°C winter minimum, +37°C summer maximum — a range of over 100°C. Chicago: summer 29°C avg, winter −9°C avg. Range ~38°C.',
+    note:'Continental climates produce some of the world\'s most severe weather: the blizzards and "polar vortex" events in North America, the Siberian anticyclone (the most powerful high-pressure system on Earth), and the severe thunderstorm corridor of the American Great Plains (Tornado Alley).' },
+  tropical: { name:'Tropical', badge:'Hot year-round, wet/dry seasons', bg:'#EAF3DE', col:'#27500A',
+    what:'Within ~23.5° of the equator. High temperatures year-round (little seasonal variation — angle of sunlight doesn\'t change much). Abundant rainfall from ITCZ (Intertropical Convergence Zone), where Northern and Southern hemisphere trade winds meet and force air to rise.',
+    why:'The Sun is never far from directly overhead. Intense heating drives powerful convection daily — hence the classic tropical afternoon thunderstorm pattern. Monsoon = seasonal wind reversal that brings wet season (Indian subcontinent, West Africa, Southeast Asia).',
+    temps:'Singapore: average ~31°C high year-round, variation less than 2°C between months. Amazon basin: similarly constant.',
+    note:'The ITCZ migrates seasonally — moving north in Northern Hemisphere summer, south in winter, following the sun. This drives the monsoon systems of South and Southeast Asia. The wet season/dry season structure is more important than temperature in defining tropical weather experience.' },
+  desert: { name:'Desert / arid', badge:'Extreme heat, minimal rain, extreme diurnal range', bg:'#FAECE7', col:'#712B13',
+    what:'Receives less than 250mm of rain per year. Defined by moisture deficit, not necessarily heat — cold deserts (Gobi, Antarctic) exist. Hot deserts form at 15–30° latitude (subtropical high-pressure belt suppresses precipitation). Sahara, Arabian, Australian interior, Atacama, Namib, Sonoran.',
+    why:'Subtropical anticyclones (descending air) suppress rainfall. Extreme daytime heating (no cloud cover, no moisture to absorb heat). Massive diurnal temperature range — clear skies allow intense heating by day and rapid radiative cooling by night.',
+    temps:'Sahara: summer daytime 45–50°C, night can drop to 20°C or below. Atacama (world\'s driest): some areas receive no measurable rain for decades.',
+    note:'The Atacama Desert (Chile/Peru) is the driest non-polar desert on Earth — some weather stations have never recorded rainfall. It is so arid that it is used as a Mars analog environment. Desert varnish (dark coating on rocks) takes thousands of years to form and provides geologic age dating.' },
+  mountain: { name:'Mountain / alpine', badge:'Temperature decreases with altitude — orographic forcing', bg:'#E1F5EE', col:'#085041',
+    what:'Altitude overrides latitude — a mountain in the tropics can have permanent glaciers. Temperature falls ~6.5°C per 1,000m of altitude (environmental lapse rate). Orographic lift forces precipitation on windward slopes; rain shadow on leeward. Alps, Rockies, Andes, Himalayas, Ethiopian Highlands.',
+    why:'Less atmosphere above = less greenhouse effect = greater radiative cooling. Orographic precipitation: moist air rises over mountains, cools, and precipitates — leaving dry air to descend (foehn/Chinook wind, which warms as it descends).',
+    temps:'Mont Blanc (4,810m, France): summit averages -15°C in summer. Base (Chamonix, ~1,000m): +20°C in summer. Every 1,000m = roughly 6–7°C cooler.',
+    note:'Foehn winds (Alps) and Chinook winds (Rockies) are warm, dry winds that descend leeward of mountain ranges. Air cools 10°C/1,000m as it rises (moist adiabatic lapse rate while condensing) but warms 10°C/1,000m as it descends (dry adiabatic, having lost moisture to precipitation on the windward side). Net result: warmer and drier air on the leeward side.' },
+  mediterranean: { name:'Mediterranean', badge:'Hot dry summers, mild wet winters', bg:'#FAEEDA', col:'#633806',
+    what:'Defined by its seasonality: warm to hot, dry summers and mild, wet winters. Found on the western sides of continents at 30–45° latitude. Mediterranean basin, California, central Chile, southwest Australia, and Western Cape of South Africa — a small fraction of Earth\'s land area but disproportionately important for agriculture.',
+    why:'In summer, subtropical high pressure shifts poleward to suppress rain. In winter, the high retreats and westerly storms bring rainfall. The result is the inverse of most mid-latitude climates where summer is wet.',
+    temps:'Rome: August 29°C avg, January 12°C avg. Los Angeles: similar. Dry season typically June–September; rainfall concentrated October–April.',
+    note:'Mediterranean climates support the world\'s most productive agriculture for heat-tolerant crops: olives, grapes, citrus, figs, almonds. The sclerophyll vegetation (tough, waxy-leaved shrubs like maquis, chaparral, fynbos) is adapted to summer drought and fire. Climate change is expanding and intensifying summer drought in Mediterranean climates globally.' },
+  polar: { name:'Polar / subarctic', badge:'Extreme cold, minimal precipitation, polar night', bg:'#E6F1FB', col:'#0C447C',
+    what:'Polar: ice caps and tundra within ~66.5° of poles. Arctic/Antarctic where no month has average temperature above 10°C. Subarctic (taiga/boreal zone): short, mild summers with very long, severe winters. Northern Canada, Siberia, Scandinavia above 60°N, Greenland, Iceland.',
+    why:'Low sun angle even in summer → low solar energy per unit area. Long polar nights in winter → months of continuous darkness and radiative cooling. Polar vortex: circumpolar wind pattern that normally keeps cold air locked in the Arctic; disruption can push cold air southward into mid-latitudes.',
+    temps:'Oymyakon, Siberia (Pole of Cold): −67.7°C recorded minimum. Summers reach +30°C — a range of nearly 100°C. Churchill, Canada: −33°C January avg, +17°C July avg.',
+    note:'Permafrost (permanently frozen ground) underlies ~25% of the Northern Hemisphere land surface. Climate change is thawing permafrost, releasing methane (a potent greenhouse gas) stored for thousands of years — a potential feedback loop that amplifies warming. Arctic sea ice extent has declined ~40% since satellite records began in 1979.' }
+};
+
+function showClimate(key) {
+  const c = climates[key];
+  document.getElementById('climate-display').innerHTML = `
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${c.name}</div>
+      <div style="font-size:11px; font-weight:500; background:${c.bg}; color:${c.col}; border-radius:99px; padding:2px 9px;">${c.badge}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Character and locations</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.what}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Why it works this way</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.why}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Representative temperatures</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.temps}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Notable features</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.note}</div></div>
+    </div>`;
+}
+
+showPhen('dew');
+showClimate('coastal');
+    </script>
+  </div>
+</body>
+</html>

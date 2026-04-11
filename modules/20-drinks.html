@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 20: Drinks — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.spirit-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.sphead { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.spname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.spbadge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.spgrid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 8px; }
+.spbox { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.spl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+.spv { font-size: 12px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+.spnote { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+.cocktail-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.cname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+.crecipe { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 6px; }
+.cbox { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.cl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+.cv { font-size: 12px; color: var(--color-text-primary); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 20: Drinks</h1>
+    <p class="module-subtitle">Spirits, cocktails, wine, and coffee</p>
+
+    <div class="sec">Part A · bartender units — read any recipe</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The unit system used in every professional cocktail recipe</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
+          <div style="font-size:18px; font-weight:500; color:var(--color-text-primary);">1 cl</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); margin-top:3px;">= 10 ml<br>The basic unit</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
+          <div style="font-size:18px; font-weight:500; color:var(--color-text-primary);">1 dash</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); margin-top:3px;">~0.6 ml<br>~6–8 drops from a dash bottle</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
+          <div style="font-size:18px; font-weight:500; color:var(--color-text-primary);">1 barspoon</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); margin-top:3px;">~5 ml<br>½ cl. Used for small additions.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
+          <div style="font-size:18px; font-weight:500; color:var(--color-text-primary);">1 jigger</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); margin-top:3px;">Double-sided measure: typically 3 cl / 4.5 cl (EU) or 1 oz / 1.5 oz (USA)</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
+          <div style="font-size:18px; font-weight:500; color:var(--color-text-primary);">1 oz</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); margin-top:3px;">≈ 3 cl (29.6 ml)<br>Common in US recipes</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
+          <div style="font-size:18px; font-weight:500; color:var(--color-text-primary);">Top up</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); margin-top:3px;">Fill the glass to near the rim with the specified mixer</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">Methods:</strong> Shake (with ice in shaker — chills, dilutes, aerates — for citrus/juice cocktails). Stir (with ice in mixing glass — chills, dilutes without aeration — for spirit-only cocktails like Martini/Negroni). Build (pour directly into serving glass over ice). Muddle (crush ingredients in glass). Strain (pour through strainer to remove ice/solids). Double strain (also through fine mesh to remove ice chips).
+      </div>
+    </div>
+
+    <div class="sec">Part B · spirits — click to explore each family</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showSpirit('whisky')"   style="font-size:12px; padding:4px 11px;">Whisky/Whiskey</button>
+      <button onclick="showSpirit('rum')"      style="font-size:12px; padding:4px 11px;">Rum</button>
+      <button onclick="showSpirit('tequila')"  style="font-size:12px; padding:4px 11px;">Tequila &amp; mezcal</button>
+      <button onclick="showSpirit('gin')"      style="font-size:12px; padding:4px 11px;">Gin</button>
+      <button onclick="showSpirit('vodka')"    style="font-size:12px; padding:4px 11px;">Vodka</button>
+      <button onclick="showSpirit('cognac')"   style="font-size:12px; padding:4px 11px;">Cognac &amp; brandy</button>
+      <button onclick="showSpirit('vermouth')" style="font-size:12px; padding:4px 11px;">Vermouth</button>
+    </div>
+    <div id="spirit-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part C · beer — fermentation is everything</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">The one difference that divides all beer</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.6;">Ales use top-fermenting yeast at warm temperatures (15–24°C) — faster, fruitier, more complex. Lagers use bottom-fermenting yeast at cold temperatures (7–13°C) — slower, cleaner, crisper. This single difference explains why Guinness and Pilsner taste completely different despite using similar ingredients.</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px;">
+        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #EF9F27;">
+          <div style="font-size:12px; font-weight:500; color:#633806; margin-bottom:4px;">Pale ale / IPA (Ale family)</div>
+          <div style="font-size:11px; color:#854F0B; line-height:1.5;">Hoppy, bitter, aromatic. IPA (India Pale Ale) has intensified hop character. Alcohol: 4–7.5%. Popular brands: Sierra Nevada Pale Ale, Punk IPA (BrewDog), Goose Island IPA.</div>
+        </div>
+        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F09595;">
+          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">Stout / Porter (Ale family)</div>
+          <div style="font-size:11px; color:#A32D2D; line-height:1.5;">Dark, roasted malt flavours — coffee, chocolate, caramel. Dry stout (Guinness) vs sweet stout (Milk Stout). Alcohol: 4–8%. Iconic: Guinness Draught (4.2%).</div>
+        </div>
+        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB;">
+          <div style="font-size:12px; font-weight:500; color:#0C447C; margin-bottom:4px;">Pilsner / Lager (Lager family)</div>
+          <div style="font-size:11px; color:#185FA5; line-height:1.5;">Crisp, clean, light golden. The dominant global beer style. Alcohol: 4–5.5%. Brands: Pilsner Urquell (the original, 1842), Heineken, Peroni, Stella Artois, Corona.</div>
+        </div>
+        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #97C459;">
+          <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">Wheat beer / Weizen (Ale family)</div>
+          <div style="font-size:11px; color:#3B6D11; line-height:1.5;">Cloudy, banana and clove notes (from wheat yeast esters). Hefeweizen (with yeast) vs Kristallweizen (filtered clear). Alcohol: 4–5.5%. Iconic: Paulaner, Erdinger, Weihenstephaner.</div>
+        </div>
+        <div style="background:#EEEDFE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #AFA9EC;">
+          <div style="font-size:12px; font-weight:500; color:#3C3489; margin-bottom:4px;">Belgian ale (Ale family)</div>
+          <div style="font-size:11px; color:#534AB7; line-height:1.5;">Fruity, spicy, complex. Trappist ales (brewed by monks — Chimay, Westmalle, Westvleteren) and abbey styles. Dubbel (dark, 6–7%), Tripel (golden, 8–10%), Quad (strongest, 10–12%). ABV can reach 12%+.</div>
+        </div>
+        <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F0997B;">
+          <div style="font-size:12px; font-weight:500; color:#712B13; margin-bottom:4px;">Sour / Lambic (Ale — wild fermentation)</div>
+          <div style="font-size:11px; color:#993C1D; line-height:1.5;">Uses wild ambient yeast and bacteria. Tart, funky, acidic — very different from conventional beer. Belgian Gueuze and Kriek (cherry lambic). A polarising acquired taste. Alcohol: 5–7%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part D · 10 cocktails you'll find at any serious bar</div>
+
+    <div id="cocktail-btns" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showCocktail('negroni')"        style="font-size:12px; padding:3px 10px;">Negroni</button>
+      <button onclick="showCocktail('martini')"        style="font-size:12px; padding:3px 10px;">Dry Martini</button>
+      <button onclick="showCocktail('oldfashioned')"   style="font-size:12px; padding:3px 10px;">Old Fashioned</button>
+      <button onclick="showCocktail('mojito')"         style="font-size:12px; padding:3px 10px;">Mojito</button>
+      <button onclick="showCocktail('daiquiri')"       style="font-size:12px; padding:3px 10px;">Daiquiri</button>
+      <button onclick="showCocktail('margarita')"      style="font-size:12px; padding:3px 10px;">Margarita</button>
+      <button onclick="showCocktail('spritz')"         style="font-size:12px; padding:3px 10px;">Aperol Spritz</button>
+      <button onclick="showCocktail('manhattan')"      style="font-size:12px; padding:3px 10px;">Manhattan</button>
+      <button onclick="showCocktail('espressomartini')" style="font-size:12px; padding:3px 10px;">Espresso Martini</button>
+      <button onclick="showCocktail('cosmo')"          style="font-size:12px; padding:3px 10px;">Cosmopolitan</button>
+    </div>
+    <div id="cocktail-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part E · the coffee menu decoded</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Everything starts with espresso</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">A single espresso is 3 cl (30 ml) of concentrated coffee extracted under ~9 bar of pressure through ~7g of finely ground coffee in ~25–30 seconds. All other coffee drinks are built from this base by adding water, milk, or both.</div>
+
+      <div id="coffee-slider-wrap" style="margin-bottom:14px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+          <span style="font-size:12px; color:var(--color-text-secondary); min-width:80px;">Espresso ratio:</span>
+          <input type="range" id="coffee-slider" min="0" max="10" value="0" step="1" style="flex:1;">
+        </div>
+        <div id="coffee-drink-name" style="font-size:16px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;"></div>
+        <div id="coffee-drink-desc" style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px; line-height:1.5;"></div>
+        <div id="coffee-drink-bar" style="height:28px; border-radius:3px; display:flex; overflow:hidden; margin-bottom:4px;"></div>
+        <div style="display:flex; gap:12px; font-size:11px; color:var(--color-text-secondary);">
+          <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#3C2415; border-radius:2px; display:inline-block;"></span>Espresso</span>
+          <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#D4A679; border-radius:2px; display:inline-block;"></span>Steamed milk</span>
+          <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#F5E6D3; border-radius:2px; display:inline-block;"></span>Milk foam</span>
+          <span style="display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#B8D4E8; border-radius:2px; display:inline-block;"></span>Hot water</span>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Ristretto</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">2 cl (20ml). Ultra-concentrated. Less water, same coffee — sweeter, more intense, less bitter. The "short" espresso.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Espresso</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">3 cl (30ml). The foundation. Single shot. Rich crema on top. Drunk without milk in Italy, usually standing at the bar.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Lungo</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">5–6 cl. More water through same coffee. Longer, more bitter, less concentrated than espresso.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Americano</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">Espresso + 12 cl hot water added after. Like drip coffee in strength. "Black Americano" = no milk.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Flat white</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">Double espresso (6cl) + ~10 cl microfoam milk. Stronger coffee ratio than a latte. Australian/NZ origin.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Cappuccino</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">1/3 espresso + 1/3 steamed milk + 1/3 thick foam. The foam is substantial, not just a thin layer. Traditionally not drunk after 11am in Italy.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Latte</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">Single/double espresso + 15–20 cl steamed milk + thin layer of microfoam. Milkiest espresso drink. The "coffee" taste is most diluted.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Macchiato</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">Espresso "stained" with a splash of milk foam. 3.5 cl total. Preserves coffee intensity with just a hint of milk to cut bitterness.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Cortado</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">Equal parts espresso and warm milk (~3cl+3cl). Spanish origin. Balances the coffee without diluting it. Between macchiato and flat white.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">Cold brew</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.4;">Coffee steeped in cold water for 12–24 hours. No heat = less acidic, sweeter, higher caffeine. Not the same as iced coffee (hot brewed then chilled).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part F · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A cocktail recipe calls for "4.5 cl of gin, 1.5 cl of dry vermouth, 1 dash of orange bitters." You have a 3 cl / 4.5 cl jigger. How do you measure this?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Gin (4.5 cl): use the large side of the jigger once, filled to the top. Dry vermouth (1.5 cl): use the small side of the jigger (3 cl) filled only to the halfway mark. Bitters (1 dash): tip the bottle quickly once — you'll get approximately 0.6 ml. This is essentially a dry Martini — gin forward with minimal vermouth. Build in a mixing glass with ice, stir 30–40 times until cold and diluted, then strain into a chilled martini glass. The bitters are optional but add aromatic complexity.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. What is the difference between Scotch whisky and Bourbon, and why can't Bourbon be made in Scotland?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">They are fundamentally different products with legal definitions tied to geography. Bourbon must be made in the USA (though not legally required to be Kentucky — most is, but legally any US state qualifies), from a mash that is at least 51% corn, aged in new charred oak barrels, with no added colouring or flavouring. The new charred oak barrel is the key — it gives Bourbon its vanilla and caramel character. Scotch whisky must be made in Scotland, predominantly from malted barley (though grain whisky uses other cereals), aged in Scotland for at least 3 years in oak casks (often previously used bourbon or sherry casks — not new oak). The used barrel gives Scotch a more subtle, less sweet character. Scotland couldn't make Bourbon even if it wanted to — the product would legally have to be called something else.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. What makes a Negroni different from a Boulevardier, and what's the rule that governs the Negroni's balance?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">A Boulevardier substitutes bourbon (or rye whiskey) for gin in the Negroni formula — same ratios, same sweet vermouth and Campari. It's richer and less herbaceous than a Negroni, with the whiskey warmth replacing gin's juniper bite. The Negroni's governing rule is the 1:1:1 ratio — equal parts gin, sweet vermouth, and Campari (typically 3 cl each). This perfect equilibrium is why the Negroni is considered the ideal "equal parts" cocktail: bitter (Campari), sweet (vermouth), and dry/spirit (gin) in perfect balance. Adjusting ratios changes the character dramatically — more gin = drier and stronger, more Campari = more bitter, more vermouth = sweeter and rounder. The 1:1:1 rule is the starting point from which bartenders calibrate.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Someone orders a "cappuccino" at 3pm in Rome. What happens, and why?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">They'll be served it, but with a slightly raised eyebrow. In Italian coffee culture, milky coffee drinks (cappuccino, latte) are morning drinks — consumed at breakfast to accompany a cornetto (croissant). The cultural logic: milk is heavy, consumed in the morning; coffee after meals (espresso or macchiato) is taken without much milk to aid digestion. A cappuccino at 3pm marks you as a tourist. An espresso, macchiato, or espresso corretto (espresso with a splash of grappa or sambuca) would be the culturally appropriate choice. The Italian rule: the darker and smaller the coffee, the later in the day it's appropriate. Espresso is fine at any hour; a latte is exclusively breakfast territory.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. What is the difference between tequila and mezcal, and why does "Oaxacan" mezcal taste smoky?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Both are made from agave, but all tequila is mezcal (not vice versa). Tequila is a specific mezcal made exclusively from blue agave (Agave tequilana Weber), produced in a specific region of Mexico (primarily Jalisco). Mezcal can be made from any of ~40 agave varieties across multiple Mexican states. The smokiness: mezcal production roasts the agave hearts (piñas) in earthen pits lined with hot rocks, often using wood fire. The smoke penetrates the agave and is present through distillation. Tequila production typically uses steam ovens (autoclaves) or brick ovens — no smoking. The result: tequila is generally cleaner, more consistent; mezcal is smokier, more complex, more artisanal. The agave variety also contributes flavour: espadin (most common) is lighter, tobalá (rare, wild) is more floral and complex.</div>
+    </div>
+
+    <script>
+const spirits = {
+  whisky: { name:'Whisky / Whiskey', badge:'Grain spirit, barrel-aged', badgeBg:'#FAEEDA', badgeCol:'#633806',
+    base:'Fermented grain (barley, corn, rye, wheat) distilled and aged in oak barrels. The barrel does most of the flavour work — colour and 60–70% of flavour comes from the wood.',
+    abv:'40–68% ABV. Cask strength whiskies can reach 65%. Minimum 40% for sale.',
+    types:'Scotch (malted barley, Scotland, 3yr min, often smoky/peaty). Bourbon (51%+ corn, new charred oak, USA, vanilla/caramel). Irish (triple-distilled, smooth, 3yr min). Japanese (Scotch-inspired, precise, delicate). Rye (spicy, North American).',
+    brands:'Scotch single malt: Glenfiddich, Macallan, Laphroaig, Glenlivet, Oban. Bourbon: Jack Daniel\'s (technically Tennessee), Makers Mark, Woodford Reserve, Buffalo Trace, Pappy Van Winkle. Irish: Jameson, Bushmills, Redbreast. Japanese: Suntory Toki, Hibiki, Nikka.',
+    note:'"Whisky" (no e) = Scotland, Canada, Japan. "Whiskey" (with e) = Ireland, USA. Ageing matters enormously: a 12-year Scotch has spent 12 years in the barrel; a 25-year is much rarer and more expensive. The oldest whiskies are not always the best — some peak at 15–18 years depending on the cask.' },
+  rum: { name:'Rum', badge:'Sugarcane spirit — Caribbean soul', badgeBg:'#FAECE7', badgeCol:'#712B13',
+    base:'Distilled from fermented sugarcane juice or molasses (the by-product of sugar refining). Most rum starts from molasses; agricole rum (from Martinique, Guadeloupe) uses fresh cane juice.',
+    abv:'37.5–80% ABV. Most bottled at 40%. Overproof rum (Wray & Nephew) at 63%.',
+    types:'White/silver (unaged or briefly aged, then filtered — clean, mixable). Golden/amber (light ageing, mild character). Dark/aged (substantial barrel ageing — molasses, vanilla, dried fruit). Spiced (added spices — Captain Morgan). Agricole (from cane juice — grassy, fresh).',
+    brands:'White: Havana Club 3yr, Bacardi Superior, Mount Gay Silver. Dark/aged: Diplomatico Reserva, Appleton Estate 12yr, Ron Zacapa 23, Havana Club 7yr, Angostura 1919. Overproof: Wray & Nephew.',
+    note:'The Caribbean island of origin matters enormously — Barbados (light, elegant: Foursquare), Jamaica (funky, heavy: Appleton, Hampden), Cuba (light, dry: Havana), Trinidad (balanced: Angostura), Martinique (agricole: Clément, Rhum J.M.). No equivalent of "cognac" legal protections — "Rum" covers a huge quality and style range.' },
+  tequila: { name:'Tequila & mezcal', badge:'Agave spirits of Mexico', badgeBg:'#EAF3DE', badgeCol:'#27500A',
+    base:'Tequila: 100% blue agave (Agave tequilana Weber), grown in Jalisco region, heart (piña) cooked in autoclave/brick oven, fermented, double-distilled. Mezcal: any agave variety, piñas roasted in earthen pits (= smoky flavour), various Mexican states.',
+    abv:'38–55% ABV. Most bottled at 38–40%. Some artisanal mezcals at 46–55%.',
+    types:'Blanco/plata (unaged, purest agave flavour). Reposado ("rested", 2–12 months in oak — light wood notes). Añejo (1–3 years — more complex, darker). Extra añejo (3+ years — most aged). Cristalino (aged then filtered to remove colour).',
+    brands:'Tequila: Patrón Silver, Don Julio 1942 (añejo), Casamigos Blanco, Herradura, El Tesoro. Mezcal: Del Maguey, Montelobos, Banhez (ensemble), Los Amantes, Ilegal Joven.',
+    note:'The "worm" in some bottles is a marketing gimmick — it\'s actually a larva, not a worm, and has nothing to do with quality tequila. High-quality tequila is a sipping spirit; mixing good añejo in a margarita wastes it. Blanco or reposado for cocktails; añejo or extra añejo for sipping.' },
+  gin: { name:'Gin', badge:'Redistilled neutral spirit with botanicals', badgeBg:'#E6F1FB', badgeCol:'#0C447C',
+    base:'Neutral grain spirit (usually wheat or barley) redistilled with botanicals, of which juniper must be the dominant flavour. Beyond juniper, hundreds of botanical combinations are used. No ageing required (though barrel-aged gins exist).',
+    abv:'37.5–57% ABV. Most at 40–47%. Navy Strength at 57%.',
+    types:'London Dry (classic: juniper-forward, all botanicals added during distillation, no added flavouring after — Tanqueray, Beefeater). Plymouth (geographic designation, slightly earthier). Contemporary/New Western (juniper present but other botanicals lead — more floral, fruity, herbal). Sloe gin (liqueur, not technically gin — gin + sloe berries + sugar).',
+    brands:'Classic: Tanqueray, Beefeater, Gordon\'s, Plymouth. Premium contemporary: Hendrick\'s (cucumber/rose), Monkey 47 (47 botanicals!), The Botanist (Islay, 22 botanicals), Sipsmith, Aviation. Cask-aged: Hayman\'s Sloe, Brockmans.',
+    note:'The gin renaissance began ~2010 with craft distilleries experimenting with botanicals. The crucial rule: juniper must be dominant for it to legally be gin in the EU/UK. If it tastes more like flavoured vodka than juniper, it\'s borderline. The Martini and Negroni both showcase gin at its purest.' },
+  vodka: { name:'Vodka', badge:'The neutral spirit — terroir in purity', badgeBg:'#E6F1FB', badgeCol:'#0C447C',
+    base:'Highly rectified neutral spirit, typically from grain (wheat, rye) or potato, diluted to bottling strength. EU law: minimum 37.5%, must be "without taste, aroma, or colour" — though character does vary.',
+    abv:'37.5–50% ABV. Standard: 40%. Russian standards traditionally 40%.',
+    types:'Russian/Polish style (rye or wheat, slightly grainy/oily character — Belvedere, Żubrówka). Scandinavian (very clean and neutral — Absolut, Finlandia). Potato vodka (creamier texture — Chopin, Luksusowa). Flavoured vodkas (added flavourings — Absolut Citron etc., technically not "pure" vodka).',
+    brands:'Premium: Belvedere (Polish rye), Grey Goose (French wheat), Ketel One (Dutch), Chopin (Polish potato). Standard: Absolut, Smirnoff, Stolichnaya. Ultra-premium: Cîroc (grape), Crystal Head.',
+    note:'"Vodka has no taste" is only partly true. Side-by-side tasting reveals genuine differences: potato vodka is creamier, rye is slightly spicy, wheat is clean and sweet. The differences are subtle but real. The rise of craft vodka challenges the idea that neutrality is the goal — some distillers now lean into expressing the base material\'s character.' },
+  cognac: { name:'Cognac & brandy', badge:'Distilled wine — the pinnacle of ageing', badgeBg:'#EEEDFE', badgeCol:'#3C3489',
+    base:'Cognac: wine distilled twice in copper pot stills, aged in Limousin or Tronçais oak barrels, produced in the Cognac region of France (primarily from Ugni Blanc grapes). Brandy: any distilled wine from anywhere in the world.',
+    abv:'40–43% ABV standard. Cask-strength expressions available.',
+    types:'VS (Very Special: minimum 2yr ageing). VSOP (Very Superior Old Pale: minimum 4yr). XO (Extra Old: minimum 10yr since 2018). Hors d\'âge ("beyond age" — often 20–50yr blends). Single vintage cognacs (rare, prestigious).',
+    brands:'Major houses: Hennessy (by far the largest), Rémy Martin, Martell, Courvoisier. Artisanal: Hine, Delamain, Pierre Ferrand. Armagnac (similar but from Gascony, continuous distillation, more rustic): Gelas, Delord, Darroze.',
+    note:'Armagnac is often considered by connoisseurs to be more characterful than cognac — continuous distillation (vs cognac\'s double pot-still) retains more of the base wine\'s flavour. Most cognac is drunk outside France — Hennessy sells ~60% of its production in Asia, particularly China, where XO is a luxury gift. Brandy de Jerez (Spain, aged in sherry casks) and Metaxa (Greece, with wine and botanicals added) are regional brandies.' },
+  vermouth: { name:'Vermouth', badge:'Fortified aromatised wine', badgeBg:'#F1EFE8', badgeCol:'#444441',
+    base:'Wine fortified with neutral spirit (to 15–20% ABV) and aromatised with botanicals — dozens of herbs, roots, barks, and spices. Not a spirit — a wine-based aperitif/ingredient. Must be refrigerated after opening (it oxidises like wine).',
+    abv:'15–20% ABV. Sweet vermouth ~16%, dry vermouth ~17–18%.',
+    types:'Dry/French vermouth (pale, low sugar, herbaceous — Noilly Prat, Dolin Dry). Sweet/Italian vermouth (dark, rich, bittersweet — Martini Rosso, Cinzano Rosso, Carpano Antica Formula). Bianco vermouth (pale, sweetened — between dry and sweet). Rosé vermouth. Extra-dry: Martini Extra Dry.',
+    brands:'Dry: Noilly Prat Original Dry (the bartender\'s choice), Dolin Dry. Sweet: Carpano Antica Formula (the most complex, rich), Punt e Mes (bitter-sweet), Martini Rosso, Cinzano Rosso. Premium: Cocchi Americano (for Corpse Reviver #2), Mancino, Lo-Fi.',
+    note:'Vermouth is one of the most underappreciated and misused ingredients in the bar. Quality vermouth stored correctly in the fridge (replacing weekly, like any opened wine) transforms cocktails. Cheap, oxidised vermouth ruins a Martini. The Negroni uses sweet vermouth; the Dry Martini uses dry; the Manhattan uses sweet. Different products, not interchangeable.' }
+};
+
+function showSpirit(key) {
+  const s = spirits[key];
+  document.getElementById('spirit-display').innerHTML = `
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${s.name}</div>
+      <div style="font-size:11px; font-weight:500; background:${s.badgeBg}; color:${s.badgeCol}; border-radius:99px; padding:2px 9px;">${s.badge}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">How it's made</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.base}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Alcohol content</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.abv}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Types and styles</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.types}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Notable brands</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.brands}</div></div>
+    </div>
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">${s.note}</div>`;
+}
+
+const cocktails = {
+  negroni: { name:'Negroni', family:'Gin · Sweet vermouth · Campari', col:'#D85A30',
+    recipe:[ ['Gin', '3 cl'], ['Sweet vermouth', '3 cl (Carpano/Martini Rosso)'], ['Campari', '3 cl'] ],
+    method:'Build in a mixing glass with ice. Stir 30–40 times. Strain into rocks glass over large ice cube. Express orange peel over glass and place as garnish.',
+    notes:'The perfect 1:1:1 cocktail. Invented in Florence ~1919. Bitter, complex, aromatic. One of the world\'s most ordered cocktails. Variations: Boulevardier (bourbon instead of gin), White Negroni (Lillet Blanc + Suze instead of vermouth + Campari).' },
+  martini: { name:'Dry Martini', family:'Gin · Dry vermouth', col:'#85B7EB',
+    recipe:[ ['Gin', '6 cl (London Dry recommended)'], ['Dry vermouth', '1–1.5 cl (Noilly Prat)'], ['Orange bitters', '1 dash (optional)'] ],
+    method:'Stir with ice in mixing glass 40–50 times until very cold. Strain into chilled martini glass. Garnish: lemon twist or olive (changes the flavour slightly).',
+    notes:'"Shaken not stirred" (Bond) is actually wrong for a Martini — shaking aerates and clouds it. Stirring gives clarity and silky texture. "Dirty" = add 1 cl olive brine. "Gibson" = cocktail onion instead of olive. The vermouth ratio is hotly debated — Churchill allegedly waved the bottle across the room. Modern bars use 5:1 or 6:1 gin:vermouth.' },
+  oldfashioned: { name:'Old Fashioned', family:'Bourbon/Rye · Sugar · Bitters', col:'#BA7517',
+    recipe:[ ['Bourbon or rye whiskey', '6 cl'], ['Demerara sugar syrup', '1 cl (or ½ sugar cube)'], ['Angostura bitters', '2 dashes'] ],
+    method:'Build directly in rocks glass. Add sugar and bitters, stir briefly. Add ice (preferably one large cube). Add whiskey. Stir gently. Express and garnish with orange peel.',
+    notes:'One of the oldest cocktail forms — a spirit, sugar, water (from ice dilution), and bitters. A cocktail is, definitionally, just that. No muddled fruit in a proper Old Fashioned (a 1970s corruption). Use quality whiskey: the simplicity of the drink means the spirit carries everything.' },
+  mojito: { name:'Mojito', family:'White rum · Lime · Mint · Soda', col:'#1D9E75',
+    recipe:[ ['White rum', '5 cl (Havana Club 3yr)'], ['Fresh lime juice', '3 cl (½–1 lime)'], ['Sugar syrup', '2 cl'], ['Fresh mint', '~10 leaves'], ['Soda water', 'Top up (6–8 cl)'] ],
+    method:'Muddle mint gently with sugar syrup (do not shred — bruise only). Add lime juice, rum, and crushed ice. Top with soda. Stir gently. Garnish with mint sprig.',
+    notes:'Cuban origin. One of the most ordered cocktails globally and one of the most frequently made badly. Key: don\'t over-muddle mint (turns bitter). Use crushed or pellet ice. Balance is sweet-sour-mint-rum equally. Fresh lime only — never bottled lime juice.' },
+  daiquiri: { name:'Daiquiri', family:'Rum · Lime · Sugar', col:'#E24B4A',
+    recipe:[ ['White rum', '6 cl (Havana Club 3yr or Bacardi)'], ['Fresh lime juice', '2.5 cl'], ['Sugar syrup', '2 cl'] ],
+    method:'Shake all ingredients vigorously with ice for 10–15 seconds. Double strain into chilled coupe glass. No garnish (or thin lime wheel).',
+    notes:'The holy trinity of cocktails: spirit, citrus, sugar — perfectly balanced. One of the great three-ingredient drinks (alongside Negroni and Old Fashioned). Frozen Daiquiri = blended with ice (legitimate variation). Hemingway Daiquiri: grapefruit juice + maraschino liqueur instead of regular sugar. Use fresh lime only.' },
+  margarita: { name:'Margarita', family:'Tequila · Triple sec · Lime', col:'#EF9F27',
+    recipe:[ ['Tequila blanco', '5 cl (El Jimador, Patron)'], ['Triple sec / Cointreau', '2 cl'], ['Fresh lime juice', '2.5 cl'], ['Salt', 'Half rim (optional)'] ],
+    method:'Shake with ice. Strain into salt-rimmed rocks glass over ice (or coupe). Salt rim: wet rim with lime, press into salt plate.',
+    notes:'The world\'s most ordered cocktail. The classic uses Cointreau (triple sec) — cheap triple sec produces a noticeably worse drink. Frozen Margarita: blend with ice. Tommy\'s Margarita (modern standard): agave syrup instead of triple sec, more tequila-forward. Always fresh lime — bottled lime ruins it.' },
+  spritz: { name:'Aperol Spritz', family:'Aperol · Prosecco · Soda', col:'#D85A30',
+    recipe:[ ['Prosecco', '9 cl (3 parts)'], ['Aperol', '6 cl (2 parts)'], ['Soda water', '3 cl (1 part)'], ['Ice', 'Large cubes'], ['Orange slice', 'Garnish'] ],
+    method:'Build directly in large wine glass with ice. Add prosecco first, then Aperol, then a splash of soda. Stir gently once. Garnish with orange slice.',
+    notes:'The 3-2-1 rule (prosecco:Aperol:soda). Aperol (11% ABV) is the most accessible bitter — lower alcohol, sweeter than Campari. The Aperol Spritz became a global phenomenon c.2010 through aggressive marketing. The Venetian Spritz is the original — Aperol or Campari with prosecco, simple and refreshing before a meal.' },
+  manhattan: { name:'Manhattan', family:'Rye/Bourbon · Sweet vermouth · Bitters', col:'#A32D2D',
+    recipe:[ ['Rye whiskey (preferred) or Bourbon', '6 cl'], ['Sweet vermouth', '3 cl (Carpano Antica)'], ['Angostura bitters', '2 dashes'] ],
+    method:'Stir with ice in mixing glass 40 seconds. Strain into chilled coupe or martini glass. Garnish with maraschino cherry or twist.',
+    notes:'The whisky Martini. Stirred, not shaken. Rye whiskey (spicier, drier) is preferred; Bourbon gives a sweeter Manhattan. Carpano Antica Formula is the best vermouth choice — rich and complex. A "Perfect Manhattan" uses equal parts sweet and dry vermouth. The Rob Roy is the same recipe with Scotch.' },
+  espressomartini: { name:'Espresso Martini', family:'Vodka · Espresso · Coffee liqueur', col:'#3C2415',
+    recipe:[ ['Vodka', '5 cl'], ['Fresh espresso', '3 cl (1 shot, hot)'], ['Kahlúa (coffee liqueur)', '1.5 cl'], ['Sugar syrup', '1 cl (optional, if espresso is bitter)'] ],
+    method:'Shake ALL ingredients hard with ice (the hot espresso needs energy to mix and create foam). Double strain into chilled coupe. Three coffee beans on the foam as garnish.',
+    notes:'Created by Dick Bradsell in London c.1983 ("something to wake me up and f*** me up"). Key: use a freshly pulled espresso — not cold brew, not instant. The crema from the hot espresso + vigorous shaking creates the foam. Kahlúa can be replaced by Mr Black (better quality) or Tia Maria.' },
+  cosmo: { name:'Cosmopolitan', family:'Vodka · Triple sec · Cranberry · Lime', col:'#D4537E',
+    recipe:[ ['Citrus vodka (Absolut Citron)', '4 cl'], ['Triple sec / Cointreau', '2 cl'], ['Cranberry juice', '1.5 cl'], ['Fresh lime juice', '1.5 cl'] ],
+    method:'Shake hard with ice. Strain into chilled martini glass (cocktail glass). Garnish with orange twist or lime wheel.',
+    notes:'Made famous by Sex and the City (1998). A balance of tart-sweet with just a blush of cranberry for colour and flavour. Only a tiny amount of cranberry — just enough for the pink colour and a hint of fruit. Not a fruit punch: if it tastes overwhelmingly of cranberry, the proportions are wrong. Citrus vodka is traditional.' }
+};
+
+function showCocktail(key) {
+  const c = cocktails[key];
+  let recipeHtml = c.recipe.map(r => `<div style="display:flex; justify-content:space-between; align-items:baseline; padding:4px 0; border-bottom:0.5px solid var(--color-border-tertiary);"><span style="font-size:12px; color:var(--color-text-secondary);">${r[0]}</span><span style="font-size:13px; font-weight:500; color:var(--color-text-primary);">${r[1]}</span></div>`).join('');
+  document.getElementById('cocktail-display').innerHTML = `
+    <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+      <div style="width:12px; height:12px; border-radius:50%; background:${c.col}; flex-shrink:0;"></div>
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${c.name}</div>
+      <div style="font-size:11px; color:var(--color-text-secondary);">${c.family}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:8px;">
+      <div>
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:6px;">Recipe (cl)</div>
+        ${recipeHtml}
+      </div>
+      <div>
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:6px;">Method</div>
+        <div style="font-size:12px; color:var(--color-text-primary); line-height:1.6;">${c.method}</div>
+      </div>
+    </div>
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">${c.notes}</div>`;
+}
+
+const coffeeDrinks = [
+  { name:'Ristretto', shots:1, water:0, steamedMilk:0, foam:0, desc:'2 cl. Ultra-short, concentrated, sweet and intense. Less water than espresso.' },
+  { name:'Espresso', shots:1, water:0, steamedMilk:0, foam:0, desc:'3 cl. The foundation. Rich crema. Drunk standing at the bar in Italy.' },
+  { name:'Macchiato', shots:1, water:0, steamedMilk:0.5, foam:0.5, desc:'3.5 cl. Espresso "stained" with a splash of foam. Barely any milk.' },
+  { name:'Cortado', shots:1, water:0, steamedMilk:1, foam:0, desc:'6 cl total. Equal espresso and warm milk. Balanced, no foam. Spanish origin.' },
+  { name:'Flat white', shots:2, water:0, steamedMilk:3, foam:0.2, desc:'Double espresso + ~10 cl microfoam. Strong coffee ratio. Australian origin.' },
+  { name:'Cappuccino', shots:1, water:0, steamedMilk:1, foam:1, desc:'1/3 espresso, 1/3 steamed milk, 1/3 thick foam. Classic balance.' },
+  { name:'Latte', shots:1, water:0, steamedMilk:5, foam:0.3, desc:'Espresso + 15–20 cl steamed milk + thin foam layer. Milkiest espresso drink.' },
+  { name:'Lungo', shots:1, water:1, steamedMilk:0, foam:0, desc:'5–6 cl. More water through the coffee. Longer, more bitter than espresso.' },
+  { name:'Americano', shots:1, water:4, steamedMilk:0, foam:0, desc:'Espresso + 12 cl hot water. Similar strength to drip coffee. Served large.' },
+  { name:'Long black', shots:1, water:4, steamedMilk:0, foam:0, desc:'Water first, then espresso on top (preserves crema). Antipodean version of Americano.' },
+  { name:'Cold brew', shots:0, water:6, steamedMilk:0, foam:0, desc:'12–24hr cold steep. Less acidic, sweeter, higher caffeine. Served over ice.' },
+];
+
+function updateCoffee() {
+  const idx = parseInt(document.getElementById('coffee-slider').value);
+  const d = coffeeDrinks[idx];
+  document.getElementById('coffee-drink-name').textContent = d.name;
+  document.getElementById('coffee-drink-desc').textContent = d.desc;
+
+  const total = d.shots + d.water + d.steamedMilk + d.foam || 1;
+  const bar = document.getElementById('coffee-drink-bar');
+  bar.innerHTML = '';
+  const add = (w, col) => {
+    if (!w) return;
+    const div = document.createElement('div');
+    div.style.cssText = `flex:${w}; background:${col};`;
+    bar.appendChild(div);
+  };
+  add(d.shots, '#3C2415');
+  add(d.water, '#B8D4E8');
+  add(d.steamedMilk, '#D4A679');
+  add(d.foam, '#F5E6D3');
+}
+
+document.getElementById('coffee-slider').addEventListener('input', updateCoffee);
+showSpirit('whisky');
+showCocktail('negroni');
+updateCoffee();
+    </script>
+  </div>
+</body>
+</html>

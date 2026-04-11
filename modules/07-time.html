@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 7: Time & Scale — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.tl-row { display: flex; align-items: center; gap: 0; margin-bottom: 5px; }
+.tl-lbl { font-size: 11px; color: var(--color-text-secondary); width: 144px; flex-shrink: 0; text-align: right; padding-right: 10px; line-height: 1.3; }
+.tl-bar { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 3px; }
+.tl-val { font-size: 11px; font-weight: 500; white-space: nowrap; }
+.cross-ref { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 13px; margin-bottom: 8px; }
+.cr-title { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 5px; }
+.cr-body  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; margin: 0; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 7: Time & Scale</h1>
+    <p class="module-subtitle">Seconds to centuries — building time intuition</p>
+
+    <div class="sec">Part A · the number scale — feel the gaps between orders of magnitude</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">From 1 to 1 trillion — with real anchors at every step</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 11px;">Each row is 1,000× the one above it. That gap never gets smaller.</div>
+      <div class="tl-row"><span class="tl-lbl">1</span><div class="tl-bar" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="tl-val" style="color:#0C447C; margin-left:6px; font-size:10px;">one</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1,000</span><div class="tl-bar" style="width:0.8%; background:#B5D4F4;"><span class="tl-val" style="color:#042C53; margin-left:6px; font-size:10px;">one thousand</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 million</span><div class="tl-bar" style="width:2%; background:#85B7EB;"><span class="tl-val" style="color:#042C53; font-size:10px;">11.5 days in seconds</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 billion</span><div class="tl-bar" style="width:8%; background:#378ADD;"><span class="tl-val" style="color:#fff; font-size:10px;">31.7 years in seconds</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 trillion</span><div class="tl-bar" style="width:100%; background:#0C447C;"><span class="tl-val" style="color:#fff;">31,700 years in seconds — before end of Ice Age</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Thousand (10³)</div>
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">~1,000 people</div>
+          <div style="font-size:11px; color:var(--color-text-secondary);">A village. Fits in a small theatre.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Million (10⁶)</div>
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">~1M people</div>
+          <div style="font-size:11px; color:var(--color-text-secondary);">A medium city (e.g. Birmingham, Prague).</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Billion (10⁹)</div>
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">~1B people</div>
+          <div style="font-size:11px; color:var(--color-text-secondary);">China or India. ~⅛ of humanity.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part B · the cosmic time scale</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">How old is everything? (years ago)</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Compressed to a single bar. Human history is invisible at this scale.</div>
+      <div class="tl-row"><span class="tl-lbl">Big Bang</span><div class="tl-bar" style="width:100%; background:#26215C;"><span class="tl-val" style="color:#CECBF6;">13.8 billion years ago</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">Earth formed</span><div class="tl-bar" style="width:32%; background:#534AB7;"><span class="tl-val" style="color:#fff;">4.5 billion years ago</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">First life on Earth</span><div class="tl-bar" style="width:28%; background:#7F77DD;"><span class="tl-val" style="color:#fff;">~3.8 billion years ago</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">Dinosaurs extinct</span><div class="tl-bar" style="width:0.48%; background:#AFA9EC;"><span class="tl-val" style="color:#26215C; margin-left:4px; font-size:10px;">66M yrs</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">First humans (Homo sapiens)</span><div class="tl-bar" style="width:0.022%; background:#CECBF6; border:0.5px solid #AFA9EC;"><span class="tl-val" style="color:#26215C; margin-left:4px; font-size:10px;">300K yrs</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">First writing / cities</span><div class="tl-bar" style="width:0.00036%; background:#EEEDFE; border:0.5px solid #CECBF6;"><span class="tl-val" style="color:#26215C; margin-left:4px; font-size:10px;">5,000 yrs</span></div></div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">
+        If Earth's entire history = 1 year, humans appeared on <strong style="color:var(--color-text-primary)">December 31st at 11:48pm</strong>. All of recorded history — Egypt, Rome, the Renaissance, everything — fits in the last <strong style="color:var(--color-text-primary)">10 seconds</strong> of that year.
+      </div>
+    </div>
+
+    <div class="sec">Part C · human time — from seconds to a lifetime</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Key time conversions to feel, not just calculate</div>
+      <div class="tl-row"><span class="tl-lbl">1 minute</span><div class="tl-bar" style="width:0.07%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="tl-val" style="color:#085041; margin-left:5px; font-size:10px;">60 sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 hour</span><div class="tl-bar" style="width:0.4%; background:#9FE1CB;"><span class="tl-val" style="color:#04342C; margin-left:4px; font-size:10px;">3,600 sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 day</span><div class="tl-bar" style="width:1%; background:#5DCAA5;"><span class="tl-val" style="color:#04342C; font-size:10px;">86,400 sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 week</span><div class="tl-bar" style="width:6%; background:#1D9E75;"><span class="tl-val" style="color:#fff; font-size:10px;">604,800 sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 year</span><div class="tl-bar" style="width:31%; background:#0F6E56;"><span class="tl-val" style="color:#fff;">~31.5 million seconds</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 human lifetime (~80 yr)</span><div class="tl-bar" style="width:100%; background:#085041;"><span class="tl-val" style="color:#fff;">~2.5 billion seconds</span></div></div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">
+        A human lifetime ≈ 2.5 billion seconds. A billionaire's wealth in dollars roughly matches the number of seconds in many lifetimes. <strong style="color:var(--color-text-primary)">Elon Musk's $220 billion ≈ 88 human lifetimes' worth of seconds.</strong>
+      </div>
+    </div>
+
+    <div class="sec">Part D · interactive number sense — compare anything</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">How big is a number? Enter any number and see it in context.</div>
+      <div style="display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap;">
+        <input type="number" id="num-input" placeholder="e.g. 500000000" style="flex:1; min-width:160px; font-size:14px;" value="1000000000">
+        <button onclick="analyzeNumber()" style="padding:0 18px; height:36px; font-size:13px;">Analyze ↗</button>
+      </div>
+      <div id="num-output" style="font-size:13px; color:var(--color-text-primary); line-height:1.9;"></div>
+    </div>
+
+    <div class="sec">Part E · cross-module connections — putting it all together</div>
+
+    <div class="cross-ref">
+      <p class="cr-title">Weight + money</p>
+      <p class="cr-body">Apple earns ~$97B profit per year. At $1 per gram, that would weigh 97,000 tonnes — roughly the steel in the Golden Gate Bridge (83,000 t). Apple earns a Golden Gate Bridge's weight in profit every year.</p>
+    </div>
+    <div class="cross-ref">
+      <p class="cr-title">Population + infrastructure</p>
+      <p class="cr-body">The world adds ~80 million people per year. That's roughly 3 million new homes needed annually. At $300,000 per home, that's $900 billion in housing per year — more than Germany's entire GDP ($4.1T) every 4.5 years, just to house new arrivals.</p>
+    </div>
+    <div class="cross-ref">
+      <p class="cr-title">Distance + time + wealth</p>
+      <p class="cr-body">Light travels 300,000 km per second. In the time it takes you to blink (~150ms), light travels 45,000 km — more than Earth's circumference. In that same blink, Apple earns about $460 in profit.</p>
+    </div>
+    <div class="cross-ref">
+      <p class="cr-title">Hair + lifetime</p>
+      <p class="cr-body">Your 100,000 hairs grow 1.25 cm/month each. Total hair growth across your whole head: 1,250 metres per month, or 15 km per year. Over an 80-year lifetime: ~1,200 km of hair grown — roughly the distance from Paris to Madrid.</p>
+    </div>
+    <div class="cross-ref">
+      <p class="cr-title">Births + cargo</p>
+      <p class="cr-body">385,000 babies are born per day. Each weighs ~3.3 kg. That's 1,270 tonnes of new humans per day — roughly 49 fully loaded trucks, or a small cargo ship, arriving daily in human mass alone.</p>
+    </div>
+
+    <div class="sec">Part F · the master anchor list — everything in one place</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div class="anchor-row">
+        <span class="pill p-blue">Seconds</span>
+        <div><div class="atext">1M sec = 11.5 days · 1B sec = 31.7 years · 1T sec = 31,700 years</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">Weight</span>
+        <div><div class="atext">1L water = 1 kg · human = 70 kg · car = 1,400 kg · HGV load = 26 t · ship = 200,000 t</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">Distance</span>
+        <div><div class="atext">1,000 km ≈ 1 hr flight · Earth circumference = 40,000 km · Moon = 384,000 km</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">Money</span>
+        <div><div class="atext">$1M = 20 yrs saving · $1B = 20,000 yrs · Apple profit = ~$97B/yr · richest person ~$220B</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">People</span>
+        <div><div class="atext">8.2B alive · 108B ever born · 385,000 born/day · 170,000 die/day</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">Time</span>
+        <div><div class="atext">Human lifetime ≈ 2.5B seconds · Earth = 4.5B years · universe = 13.8B years</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part G · final test yourself — mixed questions from all modules</div>
+
+    <div class="qa">
+      <p class="qa-q">1. Someone says "I've been alive for about a billion seconds." How old are they?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 31.7 years old. 1 billion seconds ÷ 31,536,000 seconds per year ≈ 31.7 years. This is a great party trick — you hit your "billion second birthday" around age 31 years and 8 months. Most people in their 30s have lived almost exactly 1 billion seconds.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. The universe is 13.8 billion years old. Humans have existed for 300,000 years. What percentage of cosmic time have we been here?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 0.0022%. 300,000 ÷ 13,800,000,000 = 0.0000217 = 0.00217%. Rounded: roughly 2 thousandths of a percent. All of human existence — every war, every civilization, every person who ever lived — occupies less than 1/45,000th of cosmic time. And recorded history (5,000 years) is just 1/360th of even that tiny slice.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. A news story says a government spent "$2 trillion on infrastructure over 10 years." How does that compare to what you now know?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">$200B per year. To calibrate: that's roughly twice Apple's annual profit, about 7% of US GDP, and enough to build ~130 Golden Gate Bridges per year, or fund the entire French government for about 6 months. It sounds enormous — and it is — but spread over 10 years across a large country's entire infrastructure, it's actually a moderate commitment. The USA spends roughly $500B/year on its military alone for comparison.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Your friend says "I walked 10,000 steps today." How far is that in km, and how long did it take roughly?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 7–8 km, taking roughly 1.5 hours. One step ≈ 0.75 m, so 10,000 steps ≈ 7.5 km. Walking speed is ~5 km/h, so 7.5 km ÷ 5 = 1.5 hours. This is a useful anchor: 10,000 steps ≈ 7.5 km ≈ 90 minutes of walking. It also burns roughly 300–400 calories — about the same as a Mars bar.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. Final challenge: Apple has a market cap of ~$3 trillion. The world's population is 8.2 billion. If Apple's value were divided equally among all humans, how much would each person get?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About $365 each. $3,000,000,000,000 ÷ 8,200,000,000 ≈ $366. One year's worth of Apple's entire market value, spread across every human alive, gives each person roughly enough to buy a mid-range phone — ironically, perhaps an iPhone. This illustrates how concentrated wealth is: the entire value of the world's most valuable company amounts to about one modest purchase per person on Earth.</div>
+    </div>
+
+    <script>
+function fmt(n) {
+  if (n >= 1e12) return (n/1e12).toFixed(2).replace(/\.?0+$/,'') + ' trillion';
+  if (n >= 1e9)  return (n/1e9).toFixed(2).replace(/\.?0+$/,'')  + ' billion';
+  if (n >= 1e6)  return (n/1e6).toFixed(2).replace(/\.?0+$/,'')  + ' million';
+  if (n >= 1e3)  return (n/1e3).toFixed(1).replace(/\.?0+$/,'')  + ' thousand';
+  return n.toString();
+}
+function analyzeNumber() {
+  const raw = parseFloat(document.getElementById('num-input').value);
+  if (isNaN(raw) || raw <= 0) { document.getElementById('num-output').innerHTML = '<span style="color:var(--color-text-secondary)">Please enter a positive number.</span>'; return; }
+  const n = raw;
+  const lines = [];
+  lines.push('<strong>' + fmt(n) + '</strong> — here is what that number feels like:');
+  lines.push('');
+  if (n >= 1) lines.push('· As seconds of time: <strong>' + (n < 60 ? n.toFixed(0)+' seconds' : n < 3600 ? (n/60).toFixed(1)+' minutes' : n < 86400 ? (n/3600).toFixed(1)+' hours' : n < 31536000 ? (n/86400).toFixed(1)+' days' : n < 31536000000 ? (n/31536000).toFixed(1)+' years' : fmt(n/31536000)+' years') + '</strong>');
+  if (n >= 1000) lines.push('· As metres: <strong>' + (n < 1000 ? n+'m' : n < 1000000 ? (n/1000).toFixed(1)+'km' : fmt(n/1000)+'km') + '</strong>' + (n/1000 < 40000 ? ' — ' + (n/1000/40000*100).toFixed(3) + '% of Earth\'s circumference' : n/1000 >= 40000 ? ' — ' + Math.round(n/1000/40000) + '× around Earth' : ''));
+  if (n >= 1000) lines.push('· As dollars: <strong>$' + fmt(n) + '</strong>' + (n < 1e6 ? ' — a car or short holiday' : n < 1e7 ? ' — a luxury flat in Paris' : n < 1e8 ? ' — a small company' : n < 1e9 ? ' — a large startup' : n < 1e10 ? ' — a modest billionaire' : n < 1e11 ? ' — a very large company profit' : n < 1e12 ? ' — Apple\'s annual profit territory' : ' — approaching Apple\'s market cap'));
+  if (n >= 100) lines.push('· As people: <strong>' + fmt(n) + ' people</strong>' + (n < 1000 ? ' — a small village' : n < 100000 ? ' — a small town' : n < 1000000 ? ' — a city district' : n < 10000000 ? ' — a major city' : n < 100000000 ? ' — a large country' : n < 1000000000 ? ' — a very large country' : ' — approaching world population (' + (n/8200000000*100).toFixed(1) + '% of all humans)'));
+  if (n >= 1) lines.push('· As kilograms: <strong>' + fmt(n) + ' kg</strong>' + (n < 1 ? '' : n < 5 ? ' — a bag of sugar' : n < 80 ? ' — a person' : n < 1400 ? ' — a car' : n < 26000 ? ' — ' + Math.round(n/1400) + ' cars' : n < 200000 ? ' — ' + Math.round(n/26000) + ' HGV truck loads' : ' — ' + Math.round(n/200000) + ' container ships'));
+  document.getElementById('num-output').innerHTML = lines.join('<br>');
+}
+analyzeNumber();
+    </script>
+  </div>
+</body>
+</html>

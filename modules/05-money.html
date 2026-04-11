@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 5: Money & Economy — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.wealth-block { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.wealth-block:last-child { border-bottom: none; }
+.wb-rank { font-size: 12px; color: var(--color-text-secondary); width: 28px; flex-shrink: 0; text-align: right; }
+.wb-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); width: 130px; flex-shrink: 0; }
+.wb-bar-wrap { flex: 1; }
+.wb-bar { height: 16px; border-radius: 2px; }
+.wb-val { font-size: 12px; color: var(--color-text-secondary); width: 72px; flex-shrink: 0; text-align: right; }
+.scale-note { font-size: 11px; color: var(--color-text-secondary); margin: 8px 0 0; }
+.million-box { display: inline-block; width: 10px; height: 10px; background: #378ADD; border-radius: 2px; margin-right: 3px; vertical-align: middle; }
+.billion-box { display: inline-block; width: 10px; height: 10px; background: #A32D2D; border-radius: 2px; margin-right: 3px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 5: Money & Economy</h1>
+    <p class="module-subtitle">Millions, billions, GDP, and financial scale</p>
+
+    <div class="sec">Part A · first, understand the scale — million, billion, trillion</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">The most important number lesson: a billion is not "a big million"</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-bottom: 12px;">
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">1 million</div>
+          <div style="font-size: 15px; font-weight: 500; color: var(--color-text-primary);">$1,000,000</div>
+          <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; line-height:1.4;">If you earn $50k/year, you'd need <strong style="color:var(--color-text-primary)">20 years</strong> to save this (spending nothing).</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">1 billion</div>
+          <div style="font-size: 15px; font-weight: 500; color: var(--color-text-primary);">$1,000,000,000</div>
+          <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; line-height:1.4;">At $50k/year: <strong style="color:var(--color-text-primary)">20,000 years</strong> to save. That's longer than all of recorded history.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">1 trillion</div>
+          <div style="font-size: 15px; font-weight: 500; color: var(--color-text-primary);">$1,000,000,000,000</div>
+          <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 4px; line-height:1.4;">At $50k/year: <strong style="color:var(--color-text-primary)">20 million years</strong>. The dinosaurs died 66 million years ago.</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+        <div style="font-size:12px; color:var(--color-text-primary); font-weight:500; margin-bottom:4px;">Time anchor — the clearest way to feel the difference</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+          1 million seconds = <strong style="color:var(--color-text-primary)">11.5 days</strong><br>
+          1 billion seconds = <strong style="color:var(--color-text-primary)">31.7 years</strong><br>
+          1 trillion seconds = <strong style="color:var(--color-text-primary)">31,700 years</strong> — back to before the end of the last Ice Age
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part B · company revenues and profits</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Annual profit (net income) — approximate, 2023–2024</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Profit = what's left after all costs. Revenue is always much larger.</div>
+      <div class="bar-row"><span class="bl">Apple</span><div class="bb" style="width:100%; background:#185FA5;"><span class="bv" style="color:#fff;">~$97B profit/yr</span></div></div>
+      <div class="bar-row"><span class="bl">Saudi Aramco</span><div class="bb" style="width:85%; background:#185FA5;"><span class="bv" style="color:#fff;">~$82B</span></div></div>
+      <div class="bar-row"><span class="bl">Microsoft</span><div class="bb" style="width:75%; background:#378ADD;"><span class="bv" style="color:#fff;">~$72B</span></div></div>
+      <div class="bar-row"><span class="bl">Google (Alphabet)</span><div class="bb" style="width:75%; background:#378ADD;"><span class="bv" style="color:#fff;">~$74B</span></div></div>
+      <div class="bar-row"><span class="bl">Samsung</span><div class="bb" style="width:14%; background:#85B7EB;"><span class="bv" style="color:#042C53;">~$14B</span></div></div>
+      <div class="bar-row"><span class="bl">Tesla</span><div class="bb" style="width:10%; background:#85B7EB;"><span class="bv" style="color:#042C53;">~$10B</span></div></div>
+      <div class="bar-row"><span class="bl">BMW</span><div class="bb" style="width:13%; background:#B5D4F4;"><span class="bv" style="color:#042C53;">~$13B</span></div></div>
+      <div class="bar-row"><span class="bl">Toyota</span><div class="bb" style="width:29%; background:#378ADD;"><span class="bv" style="color:#fff;">~$28B</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Apple earns more profit per year than the GDP of most countries. Samsung and Tesla are surprisingly close in profit size, and both dwarf what most people imagine.</p>
+    </div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Revenue vs. profit — Samsung example</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Revenue is total sales. Profit is what remains. The gap is enormous.</div>
+      <div class="bar-row"><span class="bl">Samsung revenue</span><div class="bb" style="width:100%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$224B/yr revenue</span></div></div>
+      <div class="bar-row"><span class="bl">Samsung profit</span><div class="bb" style="width:6%; background:#5DCAA5;"><span class="bv" style="color:#04342C;">~$14B profit</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0;">Samsung keeps only about 6 cents of profit per $1 of revenue — that's a thin margin for such a massive company. Apple keeps ~25 cents per dollar (much higher margin).</p>
+    </div>
+
+    <div class="sec">Part C · Tesla vs BMW — how they compare</div>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Tesla — market cap</p>
+        <p class="cval">~$700–800B</p>
+        <p class="cnote">Varies wildly. At peak (2021) it hit $1.2 trillion. Elon's stake is ~13%.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">BMW — market cap</p>
+        <p class="cval">~$55B</p>
+        <p class="cnote">A fraction of Tesla's valuation, despite selling more cars and being profitable for decades.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Tesla cars sold/year</p>
+        <p class="cval">~1.8M</p>
+        <p class="cnote">Growing fast from near zero in 2012.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">BMW cars sold/year</p>
+        <p class="cval">~2.6M</p>
+        <p class="cnote">Sells more cars but valued at ~1/13th of Tesla.</p>
+      </div>
+    </div>
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 14px; margin-bottom:1rem; font-size:13px; color:var(--color-text-secondary); line-height:1.6;">
+      Tesla's market cap is ~13× BMW's, yet BMW sells more cars and has made consistent profit longer. The gap reflects investor bets on Tesla's future (AI, autonomous driving, energy) rather than its current business. This is the difference between <em style="color:var(--color-text-primary)">valuation</em> (what investors think it's worth) and <em style="color:var(--color-text-primary)">earnings</em> (what it actually makes).
+    </div>
+
+    <div class="sec">Part D · the richest people — and the gap between them</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Top billionaires by net worth (~2024, approximate)</div>
+      <div class="wealth-block">
+        <span class="wb-rank">#1</span>
+        <span class="wb-name">Elon Musk</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:100%; background:#A32D2D;"></div></div>
+        <span class="wb-val">~$220B</span>
+      </div>
+      <div class="wealth-block">
+        <span class="wb-rank">#2</span>
+        <span class="wb-name">Jeff Bezos</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:82%; background:#D85A30;"></div></div>
+        <span class="wb-val">~$180B</span>
+      </div>
+      <div class="wealth-block">
+        <span class="wb-rank">#3</span>
+        <span class="wb-name">Mark Zuckerberg</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:73%; background:#D85A30;"></div></div>
+        <span class="wb-val">~$160B</span>
+      </div>
+      <div class="wealth-block">
+        <span class="wb-rank">#5</span>
+        <span class="wb-name">Bill Gates</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:55%; background:#F0997B;"></div></div>
+        <span class="wb-val">~$120B</span>
+      </div>
+      <div class="wealth-block">
+        <span class="wb-rank">#10</span>
+        <span class="wb-name">~10th richest</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:36%; background:#F5C4B3;"></div></div>
+        <span class="wb-val">~$80B</span>
+      </div>
+      <div class="wealth-block">
+        <span class="wb-rank">#99</span>
+        <span class="wb-name">~99th richest</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:8%; background:#FAECE7; border: 0.5px solid #F5C4B3;"></div></div>
+        <span class="wb-val">~$18B</span>
+      </div>
+      <div class="wealth-block">
+        <span class="wb-rank">#500</span>
+        <span class="wb-name">~500th richest</span>
+        <div class="wb-bar-wrap"><div class="wb-bar" style="width:3%; background:#FAECE7; border: 0.5px solid #F5C4B3;"></div></div>
+        <span class="wb-val">~$7B</span>
+      </div>
+      <p class="scale-note">The #1 person (~$220B) is about 12× richer than #99 (~$18B). Both are still unimaginably far from a normal human's lifetime earnings (~$2–3M total over 40 working years).</p>
+    </div>
+
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 14px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">What $1 billion actually means for a billionaire</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        If Elon Musk spent $1 million every single day, it would take him <strong style="color:var(--color-text-primary)">600 years</strong> to spend his fortune. <br>
+        A $100 purchase for him is proportionally what <strong style="color:var(--color-text-primary)">3 cents</strong> is to someone earning $50,000/year.<br>
+        The gap between the richest person and the 99th richest (~$18B) is still <strong style="color:var(--color-text-primary)">$200 billion</strong> — more than most countries' annual budgets.
+      </div>
+    </div>
+
+    <div class="sec">Part E · GDP — what countries "earn"</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">GDP (economic output) per year</div>
+      <div class="bar-row"><span class="bl">USA</span><div class="bb" style="width:100%; background:#27500A;"><span class="bv" style="color:#fff;">~$27 trillion/yr</span></div></div>
+      <div class="bar-row"><span class="bl">China</span><div class="bb" style="width:63%; background:#3B6D11;"><span class="bv" style="color:#fff;">~$17 trillion</span></div></div>
+      <div class="bar-row"><span class="bl">Germany</span><div class="bb" style="width:15%; background:#639922;"><span class="bv" style="color:#fff;">~$4.1T</span></div></div>
+      <div class="bar-row"><span class="bl">Japan</span><div class="bb" style="width:15%; background:#639922;"><span class="bv" style="color:#fff;">~$4.2T</span></div></div>
+      <div class="bar-row"><span class="bl">France / UK</span><div class="bb" style="width:10%; background:#97C459;"><span class="bv" style="color:#27500A;">~$2.8T each</span></div></div>
+      <div class="bar-row"><span class="bl">Sweden</span><div class="bb" style="width:2%; background:#C0DD97;"><span class="bv" style="color:#27500A; font-size:10px;">~$590B</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Apple's annual revenue (~$380B) is larger than the entire GDP of Sweden (~$590B is close). The US GDP is so large that Apple represents about 1.4% of it alone.</p>
+    </div>
+
+    <div class="sec">Part F · anchor numbers to memorize</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div class="anchor-row">
+        <span class="pill p-blue">$1M</span>
+        <div><div class="atext">A lifetime of careful saving for most people</div><div class="asub">20 years at $50k/year saving everything</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">$1B</span>
+        <div><div class="atext">1,000 × a million. Functionally inexhaustible for one person.</div><div class="asub">1 billion seconds = 31.7 years</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">~$100B</span>
+        <div><div class="atext">Apple's annual profit — the world's most profitable company</div><div class="asub">Earns roughly $3,000 every second, 24/7</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">~$14B</span>
+        <div><div class="atext">Samsung's annual profit</div><div class="asub">Similar ballpark to BMW (~$13B) and Tesla (~$10B)</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">~$220B</span>
+        <div><div class="atext">Richest person's net worth (Musk, ~2024)</div><div class="asub">The 99th richest person has ~$18B — 12× less</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">$27T</span>
+        <div><div class="atext">USA GDP — the world's largest economy</div><div class="asub">China is #2 at ~$17T. The gap is still vast.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A headline says "Company X made $500 million profit last year." Is that a lot, a little, or average for a major global company?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">It's decent but not exceptional — solidly mid-tier for a large global company. Apple makes ~$97B (200× more). Samsung makes ~$14B (28× more). $500M would be reasonable for a large regional bank, a mid-sized tech company, or a major retailer. It sounds huge to a human but is modest in corporate terms.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Tesla's market cap is ~$750B. BMW's is ~$55B. Yet BMW sells more cars. How is this possible?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Stock market value isn't about current earnings — it's about expected future earnings. Investors believe Tesla will dominate electric vehicles, autonomous driving, and energy storage. They're paying for the future. BMW is seen as a mature, stable but slower-growth company. This is why high-growth tech companies often have valuations that seem disconnected from their current profits.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. How long would it take Apple to earn $1 trillion in profit at its current rate?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 10 years. At ~$100B profit per year, $1 trillion = 10 years of total profit. Apple's entire market cap (~$3 trillion) represents roughly 30 years of current profits. That's the math behind how investors value companies — they're estimating many decades of future earnings.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Elon Musk has ~$220B. The 99th richest person has ~$18B. How many "99th richest people" could you fit inside Musk's wealth?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 12. $220B ÷ $18B ≈ 12. So the single richest person holds as much wealth as about 12 of the 99th-richest people combined. And the 99th richest person ($18B) still holds more than 300,000 average lifetime earners combined — the wealth compression at the very top is extreme at every level.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. Sweden's GDP is ~$590 billion. Is Apple's revenue ($380B) bigger or smaller than Sweden's entire economy?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Smaller — but not by much. Apple's revenue (~$380B) is about 64% of Sweden's entire GDP (~$590B). If Apple were a country, it would rank roughly 20th in the world by economic output. Note the comparison is imperfect (revenue ≠ GDP), but it captures the order of magnitude: a single company approaching the economic output of an entire wealthy nation of 10 million people.</div>
+    </div>
+
+  </div>
+</body>
+</html>

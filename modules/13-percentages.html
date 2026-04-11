@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 13: Percentages & Ratios — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.trick-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.trick-header { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.trick-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.trick-badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.sub2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.sub-box { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px; }
+.sub-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+.sub-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.sub-note { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 13: Percentages & Ratios</h1>
+    <p class="module-subtitle">Mental math tricks for everyday numbers</p>
+
+    <div class="sec">Part A · the single most important distinction — % vs percentage points</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">See the difference — drag the slider and watch both outputs</div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:100px;">Starting rate:</label>
+        <input type="range" id="start-rate" min="1" max="80" value="40" step="1" style="flex:1;">
+        <span id="start-out" style="font-size:13px; font-weight:500; min-width:40px; text-align:right;">40%</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:100px;">Change:</label>
+        <input type="range" id="change-rate" min="1" max="50" value="10" step="1" style="flex:1;">
+        <span id="change-out" style="font-size:13px; font-weight:500; min-width:40px; text-align:right;">+10</span>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:12px 14px; border:0.5px solid #F09595;">
+          <div style="font-size:11px; color:#791F1F; margin-bottom:4px; font-weight:500;">If the change is in PERCENTAGE POINTS</div>
+          <div id="pp-result" style="font-size:22px; font-weight:500; color:#501313;"></div>
+          <div id="pp-desc" style="font-size:12px; color:#791F1F; margin-top:4px; line-height:1.5;"></div>
+        </div>
+        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:12px 14px; border:0.5px solid #97C459;">
+          <div style="font-size:11px; color:#27500A; margin-bottom:4px; font-weight:500;">If the change is in PERCENT (%)</div>
+          <div id="pct-result" style="font-size:22px; font-weight:500; color:#173404;"></div>
+          <div id="pct-desc" style="font-size:12px; color:#27500A; margin-top:4px; line-height:1.5;"></div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:13px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">Rule:</strong> "Percentage points" = raw arithmetic subtraction (40% → 50% = +10 pp). "Percent change" = relative to the original (40% → 44% = +10%). Politicians and media almost always use whichever sounds bigger — which is usually % when rates are low, and pp when rates are high.
+      </div>
+    </div>
+
+    <div class="sec">Part B · the 5 tricks used to mislead with percentages</div>
+
+    <div class="trick-card">
+      <div class="trick-header">
+        <span class="trick-name">Trick 1 · the moving baseline</span>
+        <span class="trick-badge" style="background:#FCEBEB; color:#791F1F;">very common</span>
+      </div>
+      <div class="sub2">
+        <div class="sub-box">
+          <p class="sub-label">What they say</p>
+          <p class="sub-val">"Prices fell 20% then rose 25% — we're back to normal!"</p>
+        </div>
+        <div class="sub-box">
+          <p class="sub-label">What's actually true</p>
+          <p class="sub-val">You are NOT back to normal.</p>
+          <p class="sub-note">Start at 100. −20% = 80. Then +25% of 80 = +20 = 100? No: 25% of 80 = 20. 80 + 20 = 100. Wait — that works here. Let's try: −20% then +20%: 100 → 80 → 96. Still 4% below start.</p>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; margin-top:8px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+        <strong style="color:var(--color-text-primary);">The rule:</strong> Percentage changes are not reversible with the same number. A 50% drop needs a 100% rise to recover. A 20% drop needs a 25% rise. The base changes each time.
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-header">
+        <span class="trick-name">Trick 2 · cherry-picking the timeframe</span>
+        <span class="trick-badge" style="background:#FAEEDA; color:#633806;">very common</span>
+      </div>
+      <div class="sub2">
+        <div class="sub-box">
+          <p class="sub-label">Politician A says</p>
+          <p class="sub-val">"Crime is down 15% since we took office 2 years ago."</p>
+          <p class="sub-note">True — but starts from a 20-year high.</p>
+        </div>
+        <div class="sub-box">
+          <p class="sub-label">Politician B says</p>
+          <p class="sub-val">"Crime is up 40% over the last decade."</p>
+          <p class="sub-note">Also true — measured over a longer window that includes the spike.</p>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; margin-top:8px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+        <strong style="color:var(--color-text-primary);">The rule:</strong> Always ask "compared to when?" A trend can go up or down depending entirely on the start point chosen. Ask for the longest available timeframe.
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-header">
+        <span class="trick-name">Trick 3 · the average that hides everything</span>
+        <span class="trick-badge" style="background:#EEEDFE; color:#3C3489;">everywhere</span>
+      </div>
+      <div class="sub2">
+        <div class="sub-box">
+          <p class="sub-label">Mean (average)</p>
+          <p class="sub-val">5 people earn: €10k, €20k, €30k, €40k, €400k → mean = €100k</p>
+          <p class="sub-note">The mean is €100k, but 4 out of 5 people earn below it. One outlier destroyed the average.</p>
+        </div>
+        <div class="sub-box">
+          <p class="sub-label">Median (middle value)</p>
+          <p class="sub-val">Same 5 people → median = €30k</p>
+          <p class="sub-note">The median is far more representative of "typical." For income, house prices, and wealth, always prefer the median.</p>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; margin-top:8px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+        <strong style="color:var(--color-text-primary);">The rule:</strong> When the topic involves wealth, income, house prices, or anything with outliers — ask for the median. The mean is almost always higher and almost always misleading. "Average salary" is typically 20–40% higher than "typical salary."
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-header">
+        <span class="trick-name">Trick 4 · percent of what?</span>
+        <span class="trick-badge" style="background:#E1F5EE; color:#085041;">sneaky</span>
+      </div>
+      <div class="sub2">
+        <div class="sub-box">
+          <p class="sub-label">What they say</p>
+          <p class="sub-val">"We increased the education budget by 5%."</p>
+        </div>
+        <div class="sub-box">
+          <p class="sub-label">What you need to know</p>
+          <p class="sub-val">5% of the education budget — or 5% of GDP? Or 5% of last year's budget? Each gives wildly different numbers.</p>
+          <p class="sub-note">5% of a €1B budget = €50M. 5% of GDP (say €1T) = €50B. Same number, 1,000× different reality.</p>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; margin-top:8px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+        <strong style="color:var(--color-text-primary);">The rule:</strong> A percentage is meaningless without knowing its base. Always ask "X% of what total?"
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-header">
+        <span class="trick-name">Trick 5 · small sample sizes</span>
+        <span class="trick-badge" style="background:#FBEAF0; color:#72243E;">in headlines daily</span>
+      </div>
+      <div class="sub2">
+        <div class="sub-box">
+          <p class="sub-label">Headline says</p>
+          <p class="sub-val">"100% increase in rare disease cases in our town!"</p>
+        </div>
+        <div class="sub-box">
+          <p class="sub-label">Reality</p>
+          <p class="sub-val">Last year: 1 case. This year: 2 cases. That is a 100% increase — from 1 to 2.</p>
+          <p class="sub-note">With tiny counts, random variation produces huge percentage swings that mean nothing.</p>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; margin-top:8px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+        <strong style="color:var(--color-text-primary);">The rule:</strong> Large percentage changes on small absolute numbers are almost always noise. Ask for the raw counts first.
+      </div>
+    </div>
+
+    <div class="sec">Part C · interactive percentage calculator — do it in your head</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The mental maths toolkit — pick a scenario</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
+        <button onclick="setCalc('tip')"  style="font-size:12px; padding:4px 12px;">Restaurant tip</button>
+        <button onclick="setCalc('disc')" style="font-size:12px; padding:4px 12px;">Sale discount</button>
+        <button onclick="setCalc('tax')"  style="font-size:12px; padding:4px 12px;">VAT / tax</button>
+        <button onclick="setCalc('raise')" style="font-size:12px; padding:4px 12px;">Salary raise</button>
+        <button onclick="setCalc('gdp')"  style="font-size:12px; padding:4px 12px;">GDP growth</button>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:10px;">
+        <input type="number" id="calc-base" placeholder="Base number" style="flex:1; min-width:120px; font-size:14px;" value="85">
+        <input type="number" id="calc-pct" placeholder="%" style="width:80px; font-size:14px;" value="15">
+        <span style="font-size:13px; color:var(--color-text-secondary);">%</span>
+        <select id="calc-op" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="of">% of number</option>
+          <option value="add">add %</option>
+          <option value="sub">subtract %</option>
+          <option value="change">% change A→B</option>
+        </select>
+        <input type="number" id="calc-b" placeholder="B (for change)" style="width:80px; font-size:14px; display:none;" value="100">
+      </div>
+      <div id="calc-result" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px; font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+    </div>
+
+    <div class="sec">Part D · ratios in the real world — what they actually mean</div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">P/E ratio (stocks)</p>
+        <p class="cval">Price ÷ Annual earnings</p>
+        <p class="cnote">A P/E of 20 means you pay €20 for every €1 of annual profit. S&P 500 average ~15–25. A P/E of 100+ means investors are betting heavily on future growth (like Tesla, early Amazon).</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Debt-to-income ratio</p>
+        <p class="cval">Monthly debt ÷ Monthly income</p>
+        <p class="cnote">Banks want this below 43% for mortgage approval. If you earn €3,000/month and owe €1,000/month in debts, your ratio is 33% — acceptable. Above 50% = financial stress risk.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Body Mass Index (BMI)</p>
+        <p class="cval">Weight (kg) ÷ Height (m)²</p>
+        <p class="cnote">18.5–25 = normal. 25–30 = overweight. 30+ = obese. A 75 kg person who is 1.75m tall: 75 ÷ 3.0625 = BMI 24.5 (normal). Crude measure — ignores muscle mass.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Gini coefficient</p>
+        <p class="cval">0 = perfectly equal, 1 = one person owns everything</p>
+        <p class="cnote">Nordic countries: ~0.25–0.28. USA: ~0.41. Brazil: ~0.53. The single most widely used measure of income inequality in a country.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part E · the compound growth trap — why % growth adds up fast</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The rule of 72: how long to double at any growth rate?</div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:100px;">Annual growth:</label>
+        <input type="range" id="growth-slider" min="1" max="30" value="7" step="1" style="flex:1;">
+        <span id="growth-out" style="font-size:13px; font-weight:500; min-width:50px; text-align:right;">7%/yr</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; text-align:center;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Doubles in</div>
+          <div id="double-years" style="font-size:20px; font-weight:500; color:var(--color-text-primary);"></div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; text-align:center;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">×10 in</div>
+          <div id="ten-years" style="font-size:20px; font-weight:500; color:var(--color-text-primary);"></div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; text-align:center;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">€1,000 → in 30 yrs</div>
+          <div id="future-val" style="font-size:20px; font-weight:500; color:var(--color-text-primary);"></div>
+        </div>
+      </div>
+      <div id="growth-examples" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"></div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:8px; line-height:1.5;">
+        <strong style="color:var(--color-text-primary);">Rule of 72:</strong> Divide 72 by the growth rate to get approximate doubling time. 72 ÷ 7% ≈ 10.3 years. 72 ÷ 3% = 24 years. 72 ÷ 12% = 6 years. Works for any compound growth — inflation, investment returns, population, debt.
+      </div>
+    </div>
+
+    <div class="sec">Part F · reading percentages in the news — a checklist</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Every time you see a % in a headline, ask these 4 questions:</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:24px; height:24px; border-radius:50%; background:#E6F1FB; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:500; color:#0C447C; flex-shrink:0;">1</div>
+          <div><div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">X% of what?</div><div style="font-size:12px; color:var(--color-text-secondary);">What is the base? Is it the total, a subset, last year's value?</div></div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:24px; height:24px; border-radius:50%; background:#E1F5EE; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:500; color:#085041; flex-shrink:0;">2</div>
+          <div><div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">Percentage or percentage points?</div><div style="font-size:12px; color:var(--color-text-secondary);">A change "from 5% to 8%" is either +3 pp or +60% — both technically correct, wildly different in feel.</div></div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:24px; height:24px; border-radius:50%; background:#FAEEDA; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:500; color:#633806; flex-shrink:0;">3</div>
+          <div><div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">Compared to when?</div><div style="font-size:12px; color:var(--color-text-secondary);">What is the time window? Who chose it, and why?</div></div>
+        </div>
+        <div style="display:flex; gap:10px; align-items:flex-start;">
+          <div style="width:24px; height:24px; border-radius:50%; background:#FCEBEB; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:500; color:#791F1F; flex-shrink:0;">4</div>
+          <div><div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">What are the raw numbers?</div><div style="font-size:12px; color:var(--color-text-secondary);">A 200% increase from 1 to 3 is very different from a 200% increase from 1,000 to 3,000.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. Interest rates rise "from 2% to 3%." A newspaper says this is a "50% increase in interest rates." A politician says it's "just a 1 percentage point rise." Who is right?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Both are technically correct — which is exactly the problem. In percentage terms: 3 is 50% more than 2, so "50% increase" is mathematically valid. In percentage point terms: the rate moved from 2 to 3, which is +1 percentage point. For borrowers with mortgages, the politician's framing feels smaller but the financial impact is substantial: a 1 pp rise on a €200,000 mortgage means ~€2,000 more per year in interest. The absolute cash impact is what matters for personal finance decisions — always convert to actual amounts.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. A share price falls 50% in a crash. How much must it rise to get back to the original price?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">100%. Start at €100. A 50% fall → €50. To go from €50 back to €100, you need a €50 gain — which is 100% of €50. This is the moving baseline trap: percentage losses and gains are not symmetric. It takes a 100% gain to recover from a 50% loss. A 75% loss needs a 300% gain to recover. A 90% loss needs a 900% gain. This is why investors obsess about avoiding large drawdowns — it is mathematically much harder to recover than to fall.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. A company reports "average employee salary: €85,000." A union says "typical worker earns €45,000." Can both be true?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Yes, absolutely — and this is extremely common. If a company has 98 workers earning €45,000 and 2 executives earning €2.35 million each, the mean is: (98×45,000 + 2×2,350,000) ÷ 100 = (4,410,000 + 4,700,000) ÷ 100 = €91,100. The median is €45,000. Both numbers are honest. The company uses the mean because it's higher; the union uses the median because it represents the typical worker. For any distribution with high-end outliers, always prefer the median.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. GDP grows at 2.5% per year. Using the rule of 72, approximately how long until the economy is twice as large?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 29 years. 72 ÷ 2.5 = 28.8 years. The exact answer (using compound interest formula) is 28.1 years — the rule of 72 is remarkably accurate. At 3% growth: doubles in 24 years. At 1% growth: doubles in 72 years. China's ~6% average growth over recent decades: doubles in 12 years — which explains why its economy grew from roughly $500B in 1990 to over $17 trillion today (roughly 34× in 35 years, consistent with doubling ~2.8 times).</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. A product is "30% off" and then "an additional 20% off at the register." Is the total discount 50%?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">No — it's 44% off, not 50%. The moving baseline again. Start at €100. First 30% off → €70. Then 20% off €70 = €14 off → €56. Total saving: €44 on a €100 item = 44% off. Retailers use this trick deliberately: "30% + 20% off" sounds like 50% but delivers 44%. The general rule: to combine percentage discounts, multiply the "remaining" fractions. (1 − 0.30) × (1 − 0.20) = 0.70 × 0.80 = 0.56, meaning you pay 56% = a 44% total discount.</div>
+    </div>
+
+    <script>
+function updatePP() {
+  const start = parseInt(document.getElementById('start-rate').value);
+  const change = parseInt(document.getElementById('change-rate').value);
+  document.getElementById('start-out').textContent = start + '%';
+  document.getElementById('change-out').textContent = '+' + change;
+
+  const pp_new = start + change;
+  document.getElementById('pp-result').textContent = start + '% → ' + pp_new + '%';
+  document.getElementById('pp-desc').textContent = 'Added ' + change + ' percentage points. The rate went from ' + start + '% to ' + pp_new + '%.';
+
+  const pct_new = +(start * (1 + change/100)).toFixed(1);
+  document.getElementById('pct-result').textContent = start + '% → ' + pct_new + '%';
+  document.getElementById('pct-desc').textContent = 'A ' + change + '% increase on ' + start + '% = ×' + (1 + change/100).toFixed(2) + ' = ' + pct_new + '%.';
+}
+
+document.getElementById('start-rate').addEventListener('input', updatePP);
+document.getElementById('change-rate').addEventListener('input', updatePP);
+updatePP();
+
+function setCalc(type) {
+  const opSel = document.getElementById('calc-op');
+  const bInput = document.getElementById('calc-b');
+  if (type === 'tip')   { document.getElementById('calc-base').value = 85;  document.getElementById('calc-pct').value = 15; opSel.value = 'of'; }
+  if (type === 'disc')  { document.getElementById('calc-base').value = 120; document.getElementById('calc-pct').value = 30; opSel.value = 'sub'; }
+  if (type === 'tax')   { document.getElementById('calc-base').value = 200; document.getElementById('calc-pct').value = 20; opSel.value = 'add'; }
+  if (type === 'raise') { document.getElementById('calc-base').value = 42000; document.getElementById('calc-pct').value = 8; opSel.value = 'add'; }
+  if (type === 'gdp')   { document.getElementById('calc-base').value = 1000; document.getElementById('calc-pct').value = 3; document.getElementById('calc-b').value = 1030; opSel.value = 'change'; }
+  bInput.style.display = opSel.value === 'change' ? 'block' : 'none';
+  runCalc();
+}
+
+function runCalc() {
+  const base = parseFloat(document.getElementById('calc-base').value);
+  const pct  = parseFloat(document.getElementById('calc-pct').value);
+  const op   = document.getElementById('calc-op').value;
+  const b    = parseFloat(document.getElementById('calc-b').value);
+  const bInput = document.getElementById('calc-b');
+  bInput.style.display = op === 'change' ? 'inline-block' : 'none';
+  if (isNaN(base) || isNaN(pct)) return;
+  const fmt = v => v >= 1000 ? v.toLocaleString('en', {maximumFractionDigits:0}) : v.toFixed(2).replace(/\.?0+$/, '');
+  let html = '';
+  if (op === 'of') {
+    const res = base * pct / 100;
+    html = `<strong>${pct}% of ${fmt(base)}</strong> = <strong style="color:var(--color-text-info);">${fmt(res)}</strong><br>` +
+      `<span style="color:var(--color-text-secondary); font-size:12px;">Mental shortcut: move the decimal (1% = ${fmt(base/100)}), then multiply by ${pct}.</span>`;
+  } else if (op === 'add') {
+    const res = base * (1 + pct/100);
+    html = `<strong>${fmt(base)} + ${pct}%</strong> = <strong style="color:var(--color-text-success);">${fmt(res)}</strong><br>` +
+      `<span style="color:var(--color-text-secondary); font-size:12px;">You are paying/getting ${fmt(res - base)} more.</span>`;
+  } else if (op === 'sub') {
+    const res = base * (1 - pct/100);
+    html = `<strong>${fmt(base)} − ${pct}%</strong> = <strong style="color:var(--color-text-danger);">${fmt(res)}</strong><br>` +
+      `<span style="color:var(--color-text-secondary); font-size:12px;">Saving ${fmt(base - res)}. You pay ${fmt(res)}.</span>`;
+  } else if (op === 'change') {
+    if (isNaN(b)) return;
+    const change = ((b - base) / base * 100);
+    const pp = b - base;
+    html = `<strong>${fmt(base)} → ${fmt(b)}</strong><br>` +
+      `Percent change: <strong style="color:${change >= 0 ? '#27500A':'#791F1F'};">${change >= 0 ? '+' : ''}${change.toFixed(1)}%</strong><br>` +
+      `Absolute change: <strong>${pp >= 0 ? '+' : ''}${fmt(pp)}</strong> (${Math.abs(pp) === Math.abs(change) ? 'same as %, since base is 100' : 'different from %'})`;
+  }
+  document.getElementById('calc-result').innerHTML = html;
+}
+
+document.getElementById('calc-op').addEventListener('change', runCalc);
+document.getElementById('calc-base').addEventListener('input', runCalc);
+document.getElementById('calc-pct').addEventListener('input', runCalc);
+document.getElementById('calc-b').addEventListener('input', runCalc);
+runCalc();
+
+function updateGrowth() {
+  const r = parseInt(document.getElementById('growth-slider').value);
+  document.getElementById('growth-out').textContent = r + '%/yr';
+  const doubleYrs = Math.round(72 / r * 10) / 10;
+  const tenYrs = Math.round(Math.log(10) / Math.log(1 + r/100) * 10) / 10;
+  const future = Math.round(1000 * Math.pow(1 + r/100, 30));
+  document.getElementById('double-years').textContent = doubleYrs + ' yrs';
+  document.getElementById('ten-years').textContent = tenYrs.toFixed(1) + ' yrs';
+  document.getElementById('future-val').textContent = '€' + future.toLocaleString();
+
+  const examples = {
+    1: 'Inflation in a stable economy. Savings account in low-rate period. Barely keeps pace.',
+    2: 'Typical developed-world GDP growth. Moderate inflation. Pension fund minimum target.',
+    3: 'Good GDP growth. Typical global stock market above inflation. Solid savings target.',
+    5: 'Strong economy / emerging market growth. Reasonable investment portfolio return.',
+    7: 'Historical average real stock market return (S&P 500, inflation-adjusted). Warren Buffett\'s rule of thumb for equity returns.',
+    10: 'Strong bull market returns. Tech sector growth. High-risk investment territory.',
+    15: 'Exceptional investment performance. Roughly Berkshire Hathaway\'s historical average.',
+    20: 'Venture capital target return. Very few portfolios sustain this long-term.',
+    25: 'Extreme growth. Startups, crypto bull runs. Highly unsustainable long-term.',
+  };
+  const closest = Object.keys(examples).reduce((a,b) => Math.abs(b-r) < Math.abs(a-r) ? b : a);
+  document.getElementById('growth-examples').textContent = examples[closest];
+}
+
+document.getElementById('growth-slider').addEventListener('input', updateGrowth);
+updateGrowth();
+    </script>
+  </div>
+</body>
+</html>

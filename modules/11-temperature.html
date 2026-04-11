@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 11: Temperature & Energy — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.trow { display: flex; align-items: center; gap: 0; margin-bottom: 4px; }
+.tl { font-size: 11px; color: var(--color-text-secondary); width: 148px; flex-shrink: 0; text-align: right; padding-right: 10px; line-height: 1.3; }
+.tb { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 3px; }
+.tv { font-size: 11px; font-weight: 500; white-space: nowrap; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 11: Temperature & Energy</h1>
+    <p class="module-subtitle">Celsius, calories, watts, and thermal intuition</p>
+
+    <div class="sec">Part A · the temperature scale — interactive thermometer</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">Drag to explore any temperature. What does it mean?</div>
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+        <button onclick="setTemp(-273)" style="font-size:11px; padding:2px 8px;">Absolute zero</button>
+        <button onclick="setTemp(-40)"  style="font-size:11px; padding:2px 8px;">-40°</button>
+        <button onclick="setTemp(0)"    style="font-size:11px; padding:2px 8px;">0° (freeze)</button>
+        <button onclick="setTemp(20)"   style="font-size:11px; padding:2px 8px;">20° (room)</button>
+        <button onclick="setTemp(37)"   style="font-size:11px; padding:2px 8px;">37° (body)</button>
+        <button onclick="setTemp(100)"  style="font-size:11px; padding:2px 8px;">100° (boil)</button>
+        <button onclick="setTemp(200)"  style="font-size:11px; padding:2px 8px;">200° (oven)</button>
+        <button onclick="setTemp(1535)" style="font-size:11px; padding:2px 8px;">Steel melts</button>
+        <button onclick="setTemp(5500)" style="font-size:11px; padding:2px 8px;">Sun surface</button>
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+        <span style="font-size:11px; color:var(--color-text-secondary); white-space:nowrap;">−273°C</span>
+        <input type="range" id="temp-slider" min="-273" max="5778" value="20" step="1" style="flex:1;">
+        <span style="font-size:11px; color:var(--color-text-secondary); white-space:nowrap;">5,778°C</span>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; margin-bottom: 10px;">
+        <div id="temp-c" style="font-size:26px; font-weight:500; color:var(--color-text-primary);"></div>
+        <div id="temp-f" style="font-size:16px; color:var(--color-text-secondary);"></div>
+        <div id="temp-k" style="font-size:14px; color:var(--color-text-secondary);"></div>
+      </div>
+      <div id="temp-name" style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;"></div>
+      <div id="temp-desc" style="font-size:13px; color:var(--color-text-secondary); line-height:1.6;"></div>
+    </div>
+
+    <div class="sec">Part B · the practical daily range — what temps feel like</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Weather and environment — what you actually experience</div>
+      <div class="trow"><span class="tl">-40°C / -40°F</span><div class="tb" style="width:5%; background:#042C53;"><span class="tv" style="color:#E6F1FB;">Extreme cold — F = C here</span></div></div>
+      <div class="trow"><span class="tl">-20°C / -4°F</span><div class="tb" style="width:10%; background:#0C447C;"><span class="tv" style="color:#E6F1FB;">Siberian winter, Arctic</span></div></div>
+      <div class="trow"><span class="tl">-10°C / 14°F</span><div class="tb" style="width:16%; background:#185FA5;"><span class="tv" style="color:#fff;">Harsh European winter</span></div></div>
+      <div class="trow"><span class="tl">0°C / 32°F</span><div class="tb" style="width:22%; background:#378ADD;"><span class="tv" style="color:#fff;">Freezing — water/ice boundary</span></div></div>
+      <div class="trow"><span class="tl">10°C / 50°F</span><div class="tb" style="width:30%; background:#85B7EB;"><span class="tv" style="color:#042C53;">Cool — coat needed</span></div></div>
+      <div class="trow"><span class="tl">20°C / 68°F</span><div class="tb" style="width:40%; background:#9FE1CB;"><span class="tv" style="color:#04342C;">Comfortable room temp</span></div></div>
+      <div class="trow"><span class="tl">28°C / 82°F</span><div class="tb" style="width:50%; background:#5DCAA5;"><span class="tv" style="color:#04342C;">Warm summer day</span></div></div>
+      <div class="trow"><span class="tl">37°C / 98.6°F</span><div class="tb" style="width:60%; background:#EF9F27;"><span class="tv" style="color:#412402;">Human body temperature</span></div></div>
+      <div class="trow"><span class="tl">40°C / 104°F</span><div class="tb" style="width:63%; background:#BA7517;"><span class="tv" style="color:#fff;">Dangerous fever / extreme heat wave</span></div></div>
+      <div class="trow"><span class="tl">56°C / 133°F</span><div class="tb" style="width:70%; background:#D85A30;"><span class="tv" style="color:#fff;">Hottest air temp ever recorded (Death Valley 2020)</span></div></div>
+      <div class="trow"><span class="tl">100°C / 212°F</span><div class="tb" style="width:100%; background:#A32D2D;"><span class="tv" style="color:#fff;">Water boils at sea level</span></div></div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">
+        The magic number: <strong style="color:var(--color-text-primary)">-40°C = -40°F</strong>. The only point where Celsius and Fahrenheit are identical. A useful anchor for the F↔C conversion.
+      </div>
+    </div>
+
+    <div class="sec">Part C · Fahrenheit ↔ Celsius — the conversion tricks</div>
+
+    <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 12px;">
+      <input type="number" id="conv-val" placeholder="Enter temperature" value="72" style="flex:1; min-width:140px; font-size:14px;">
+      <select id="conv-dir" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <option value="ftoc">°F → °C</option>
+        <option value="ctof">°C → °F</option>
+      </select>
+      <button onclick="doConvert()" style="height:36px; padding:0 18px; font-size:13px;">Convert</button>
+    </div>
+    <div id="conv-result" style="font-size:14px; color:var(--color-text-primary); margin-bottom:6px; font-weight:500;"></div>
+    <div id="conv-trick" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;"></div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">The mental shortcut that works 80% of the time</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        <strong style="color:var(--color-text-primary);">°C → °F:</strong> Double it, then add 30. (Exact: ×1.8 + 32)<br>
+        20°C → 40 + 30 = 70°F. Actual: 68°F. Close enough.<br><br>
+        <strong style="color:var(--color-text-primary);">°F → °C:</strong> Subtract 30, then halve it.<br>
+        80°F → 50 ÷ 2 = 25°C. Actual: 26.7°C. Works well for weather conversations.
+      </div>
+    </div>
+
+    <div class="sec">Part D · the full temperature scale — beyond daily life</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">From absolute zero to the Big Bang</div>
+      <div class="trow"><span class="tl">-273.15°C (0 K)</span><div class="tb" style="width:2%; background:#26215C; border:0.5px solid #534AB7;"><span class="tv" style="color:#CECBF6; margin-left:4px; font-size:10px;">Absolute zero — no motion</span></div></div>
+      <div class="trow"><span class="tl">-196°C</span><div class="tb" style="width:5%; background:#3C3489;"><span class="tv" style="color:#CECBF6; font-size:10px;">Liquid nitrogen</span></div></div>
+      <div class="trow"><span class="tl">-89°C</span><div class="tb" style="width:12%; background:#534AB7;"><span class="tv" style="color:#fff; font-size:10px;">Coldest on Earth (Antarctica, 1983)</span></div></div>
+      <div class="trow"><span class="tl">0°C to 100°C</span><div class="tb" style="width:22%; background:#1D9E75;"><span class="tv" style="color:#fff; font-size:10px;">Liquid water — life's zone</span></div></div>
+      <div class="trow"><span class="tl">~200°C</span><div class="tb" style="width:27%; background:#EF9F27;"><span class="tv" style="color:#412402; font-size:10px;">Standard oven</span></div></div>
+      <div class="trow"><span class="tl">~600°C</span><div class="tb" style="width:38%; background:#BA7517;"><span class="tv" style="color:#fff; font-size:10px;">Wood fire, glass softens</span></div></div>
+      <div class="trow"><span class="tl">~1,000°C</span><div class="tb" style="width:50%; background:#D85A30;"><span class="tv" style="color:#fff; font-size:10px;">Iron melts (~1,538°C)</span></div></div>
+      <div class="trow"><span class="tl">~3,500°C</span><div class="tb" style="width:70%; background:#A32D2D;"><span class="tv" style="color:#fff; font-size:10px;">Tungsten melts — highest melting point of any metal</span></div></div>
+      <div class="trow"><span class="tl">5,500°C</span><div class="tb" style="width:85%; background:#791F1F;"><span class="tv" style="color:#fff;">Surface of the Sun</span></div></div>
+      <div class="trow"><span class="tl">15,000,000°C</span><div class="tb" style="width:100%; background:#501313;"><span class="tv" style="color:#FCEBEB;">Sun's core — nuclear fusion</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">For reference: the Big Bang was ~10³² °C. Nuclear fusion reactors aim for ~150,000,000°C — ten times hotter than the Sun's core, because they use different fuel and need higher pressure.</p>
+    </div>
+
+    <div class="sec">Part E · energy and calories — the other half of this module</div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">The calorie confusion — kcal vs cal</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        Food "calories" are actually <strong style="color:var(--color-text-primary)">kilocalories (kcal)</strong>. 1 food calorie = 1,000 physics calories. When a label says "250 calories," it means 250 kcal. This is one of the most widespread unit confusions in everyday life. From here on, "calorie" means food calorie = kcal.
+      </div>
+    </div>
+
+    <div class="cgrid">
+      <div class="card">
+        <p class="clabel">Human daily energy need</p>
+        <p class="cval">~2,000 kcal</p>
+        <p class="cnote">Average adult. ~2,500 for men, ~2,000 for women. Athletes can need 3,500–5,000 kcal.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">In watts (power output)</p>
+        <p class="cval">~80–100 W</p>
+        <p class="cnote">A resting human radiates about as much heat as a 100W light bulb. Your body is literally a heater.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">1 gram of fat</p>
+        <p class="cval">9 kcal</p>
+        <p class="cnote">More than double carbs or protein (4 kcal/g each). Fat is the body's most dense energy store.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">1 gram of carbohydrate</p>
+        <p class="cval">4 kcal</p>
+        <p class="cnote">Same as protein. Sugar = carbohydrate. 1 teaspoon of sugar (~4g) = 16 kcal.</p>
+      </div>
+    </div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How far does 100 kcal go? (exercise to burn it off)</div>
+      <div class="trow"><span class="tl">Running (fast)</span><div class="tb" style="width:20%; background:#1D9E75;"><span class="tv" style="color:#fff;">~8 min</span></div></div>
+      <div class="trow"><span class="tl">Cycling</span><div class="tb" style="width:30%; background:#5DCAA5;"><span class="tv" style="color:#04342C;">~15 min</span></div></div>
+      <div class="trow"><span class="tl">Brisk walking</span><div class="tb" style="width:50%; background:#9FE1CB;"><span class="tv" style="color:#04342C;">~25 min</span></div></div>
+      <div class="trow"><span class="tl">Sitting at a desk</span><div class="tb" style="width:100%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="tv" style="color:#085041;">~75 min</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">100 kcal = roughly a small apple, a plain rice cake with peanut butter, or 3 squares of dark chocolate. Exercise burns less than most people think — that croissant (250 kcal) needs 30 min of running to offset.</p>
+    </div>
+
+    <div class="sec">Part F · energy in the world — from food to nuclear weapons</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Energy released — logarithmic scale (in joules, J)</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Each step up is ~1,000× more energy. 1 food calorie = 4,184 joules.</div>
+      <div class="trow"><span class="tl">Lifting 1 kg by 1 metre</span><div class="tb" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="tv" style="color:#0C447C; margin-left:4px; font-size:10px;">~10 J</span></div></div>
+      <div class="trow"><span class="tl">1 food calorie (1 kcal)</span><div class="tb" style="width:0.6%; background:#B5D4F4;"><span class="tv" style="color:#042C53; margin-left:4px; font-size:10px;">~4,200 J</span></div></div>
+      <div class="trow"><span class="tl">Human daily food (2,000 kcal)</span><div class="tb" style="width:2%; background:#85B7EB;"><span class="tv" style="color:#042C53; font-size:10px;">~8.4 MJ</span></div></div>
+      <div class="trow"><span class="tl">1 litre of petrol (burned)</span><div class="tb" style="width:4%; background:#378ADD;"><span class="tv" style="color:#fff; font-size:10px;">~34 MJ</span></div></div>
+      <div class="trow"><span class="tl">Lightning bolt</span><div class="tb" style="width:6%; background:#185FA5;"><span class="tv" style="color:#fff; font-size:10px;">~1–5 GJ (1–5 billion J)</span></div></div>
+      <div class="trow"><span class="tl">Full tank of car petrol (~50L)</span><div class="tb" style="width:8%; background:#0C447C;"><span class="tv" style="color:#E6F1FB; font-size:10px;">~1.7 GJ</span></div></div>
+      <div class="trow"><span class="tl">Hiroshima bomb (Little Boy)</span><div class="tb" style="width:30%; background:#633806;"><span class="tv" style="color:#fff;">~63 TJ (63 trillion J)</span></div></div>
+      <div class="trow"><span class="tl">Largest H-bomb ever (Tsar Bomba)</span><div class="tb" style="width:100%; background:#3C3489;"><span class="tv" style="color:#EEEDFE;">~210 PJ — 3,300× Hiroshima</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Surprising fact: a lightning bolt (~1 billion joules) contains less total energy than a full car petrol tank (~1.7 billion joules). The difference is delivery speed — a lightning bolt releases its energy in microseconds. Your petrol tank releases it over hours. Energy rate (power) matters as much as total energy.</p>
+    </div>
+
+    <div class="sec">Part G · interactive calorie calculator</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How long to burn off any food?</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
+        <select id="food-sel" style="flex:1; min-width:160px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="52">Small apple (52 kcal)</option>
+          <option value="250">Croissant (250 kcal)</option>
+          <option value="300">Cheeseburger (300 kcal)</option>
+          <option value="550">Big Mac (550 kcal)</option>
+          <option value="240">Can of Coke (240 kcal)</option>
+          <option value="160">Snickers bar (160 kcal)</option>
+          <option value="80">Glass of wine (80 kcal)</option>
+          <option value="100">Banana (100 kcal)</option>
+          <option value="700">Pizza slice, large (700 kcal)</option>
+        </select>
+        <select id="activity-sel" style="flex:1; min-width:160px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="11.5">Running fast (11.5 kcal/min)</option>
+          <option value="7">Cycling moderate (7 kcal/min)</option>
+          <option value="4">Brisk walking (4 kcal/min)</option>
+          <option value="2.5">Yoga / stretching (2.5 kcal/min)</option>
+          <option value="1.3">Sitting / desk work (1.3 kcal/min)</option>
+          <option value="0.9">Sleeping (0.9 kcal/min)</option>
+        </select>
+      </div>
+      <div id="calorie-result" style="font-size:14px; color:var(--color-text-primary); background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; line-height:1.8;"></div>
+    </div>
+
+    <div class="sec">Part H · anchor numbers to memorize</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div class="anchor-row">
+        <span class="pill p-blue">-273°C</span>
+        <div><div class="atext">Absolute zero — coldest possible temperature</div><div class="asub">No heat energy at all. Nothing in the universe reaches this.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">-40°</span>
+        <div><div class="atext">Where Fahrenheit = Celsius</div><div class="asub">The one anchor that unlocks F↔C mental arithmetic.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">0° / 100°C</span>
+        <div><div class="atext">Water freezes / boils — life's boundaries</div><div class="asub">The entire range of liquid water is just 100 degrees.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">37°C</span>
+        <div><div class="atext">Human body temperature</div><div class="asub">38.5°C+ = fever. 40°C+ = dangerous. 42°C = fatal.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">190–220°C</span>
+        <div><div class="atext">Standard oven temperature range</div><div class="asub">Fan ovens run ~20°C hotter effectively. Above 250°C = very hot.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">5,500°C</span>
+        <div><div class="atext">Surface of the Sun</div><div class="asub">Its core is 15,000,000°C. Nuclear fusion reactors aim for 150,000,000°C.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-red">2,000 kcal</span>
+        <div><div class="atext">Average human daily energy need</div><div class="asub">Fat = 9 kcal/g. Carbs & protein = 4 kcal/g each.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">~80 W</span>
+        <div><div class="atext">Resting human heat output</div><div class="asub">A human body radiates as much as a dim light bulb, continuously.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part I · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A weather forecast says it will be 95°F tomorrow. Is that hot, mild, or cold? What is it in Celsius?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Hot — a scorching summer day. Using the mental shortcut: 95 − 30 = 65, then ÷ 2 = 32.5°C. The exact answer is (95 − 32) × 5/9 = 35°C. At 35°C you're approaching heat-wave territory. Human core temperature is only 2 degrees higher at 37°C, which is why such days feel so oppressive — the air is nearly as hot as your own body.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. A person eats a 550 kcal Big Mac and then goes for a 30-minute jog. Have they burned it off?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Not quite. Running burns roughly 10–12 kcal per minute at moderate pace, so 30 minutes = ~300–360 kcal. The Big Mac has 550 kcal — so you'd need closer to 50 minutes of running to fully offset it. This is the key insight: it is much faster to consume calories than to burn them. A 2-second bite of a burger takes 4 minutes of running to undo. This is why diet (what you eat) has far more impact on weight than exercise alone.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. Why does 20°C water feel cold but 20°C air feels comfortable?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Thermal conductivity. Water conducts heat away from your body about 25× faster than air. At 20°C both are below your body temperature (37°C), so both are drawing heat away — but water does it so efficiently that your body can't compensate, and you feel cold. This is why falling into cold water is far more dangerous than being in cold air at the same temperature. Wet clothing similarly conducts heat away much faster than dry clothing, which is why "cotton kills" in outdoors survival — wet cotton conducts heat almost as well as water.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. A nuclear power plant produces about 1,000 megawatts of electricity. How many humans would you need to generate the same power by cycling?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 13 million cyclists. A person cycling hard generates roughly 75–80 watts of electrical power. 1,000 megawatts = 1,000,000,000 watts. 1,000,000,000 ÷ 75 ≈ 13,300,000 people. One nuclear plant replaces 13 million people pedalling flat out, continuously, 24 hours a day. This illustrates why energy density matters so much — a lump of uranium the size of a golf ball contains the energy equivalent of about 800 tonnes of coal, or 600,000 litres of oil.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. Body temperature is 37°C. A fever is 39°C. That's only 2 degrees — why is it dangerous?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Because the human body is an extraordinarily finely tuned machine that operates within an extremely narrow temperature band. The proteins and enzymes that run every chemical reaction in your body are designed to work at 37°C. Even small deviations denature (unfold and break) them. At 40°C, enzymes begin failing. At 41°C, brain damage risk rises sharply. At 42°C+, it becomes life-threatening. Similarly, hypothermia becomes dangerous around 35°C — just 2 degrees below normal. The "safe range" for the human body is only about ±3°C around 37°C. For comparison, a kitchen oven works anywhere from 100°C to 250°C — a 150°C range. Biology is far less forgiving.</div>
+    </div>
+
+    <script>
+const tempData = [
+  { min:-274, max:-270, name:"Absolute zero", desc:"The lowest possible temperature. At absolute zero (−273.15°C / 0 Kelvin), all molecular motion stops. Nothing in the observable universe reaches this — even deep space is ~−270°C (2.7 K), still slightly above absolute zero due to cosmic background radiation.", col:"#26215C" },
+  { min:-270, max:-200, name:"Deep space / near absolute zero", desc:"The temperature of empty space between galaxies (~2.7 K / −270°C). Also the realm of liquid helium (−269°C), used in MRI machines and superconducting magnets.", col:"#3C3489" },
+  { min:-200, max:-90, name:"Cryogenic zone", desc:"Liquid nitrogen (−196°C) is used to preserve biological samples, freeze food, and cool electronics. The coldest natural temperature on Earth (Antarctica, −89°C) sits in this zone.", col:"#534AB7" },
+  { min:-90, max:-30, name:"Extreme cold — polar regions", desc:"Siberian and Antarctic winters. At −40°C, Fahrenheit and Celsius meet (−40°F = −40°C — the only point where both scales agree). Exposed skin freezes in minutes at these temperatures.", col:"#042C53" },
+  { min:-30, max:0, name:"Cold winter — water about to freeze", desc:"European winters, freezer temperature (typically −18°C). At 0°C, water freezes. This is where snow and ice form. Road salt works by lowering water's freezing point to about −10°C.", col:"#0C447C" },
+  { min:0, max:15, name:"Cool — coat weather", desc:"Spring/autumn in temperate climates. 10°C feels noticeably cold without a jacket. Water is liquid but cold enough to feel unpleasant. Bacteria grow more slowly in this range — why refrigerators are kept at 4°C.", col:"#185FA5" },
+  { min:15, max:25, name:"Comfortable room temperature", desc:"The sweet spot for human comfort. Most people feel comfortable between 18–24°C indoors. Room temperature (20°C) is the standard reference for science experiments and food storage recommendations.", col:"#1D9E75" },
+  { min:25, max:33, name:"Warm — summer day", desc:"Shorts and T-shirt weather. 28°C is a lovely summer day; 32°C+ starts feeling hot for most people. Your body is now sweating to stay cool rather than shivering to warm up.", col:"#5DCAA5" },
+  { min:33, max:38, name:"Hot — approaching body temperature", desc:"Air this close to body temperature (37°C) offers little cooling benefit. At 35°C+ the body struggles to shed heat by convection — sweating becomes the primary cooling mechanism. Dangerous for elderly people.", col:"#EF9F27" },
+  { min:38, max:42, name:"Danger zone — fever territory", desc:"Above 38°C in the human body = fever. 39°C is a significant fever. 40°C is high fever requiring treatment. 41°C+ risks brain damage. 42°C is potentially fatal. Ambient temperatures above 40°C are dangerous for outdoor exposure.", col:"#BA7517" },
+  { min:42, max:100, name:"Hot to scalding — up to boiling", desc:"At 55°C, skin receives a full-thickness burn in about 1 second. At 60°C, most bacteria die (pasteurisation principle). At 100°C, water boils at sea level. This is the upper limit of the liquid water range.", col:"#D85A30" },
+  { min:100, max:300, name:"Boiling to oven temperature", desc:"Steam is at 100°C. Standard oven: 180–220°C. At 200°C, food browns via the Maillard reaction (creating flavour). Paper ignites at ~233°C. Fahrenheit 451 (the book's title) is 233°C.", col:"#993C1D" },
+  { min:300, max:1000, name:"Fire and glass", desc:"Wood fire: 600–900°C. Glass softens around 600–700°C. Volcanic lava is 700–1,200°C. Iron melts at 1,538°C. These temperatures are visible as red to orange to yellow-white glow.", col:"#712B13" },
+  { min:1000, max:4000, name:"Molten metals and plasma threshold", desc:"Steel melts around 1,370°C. Tungsten, the highest-melting pure metal, melts at 3,422°C. This is the range of electric arc furnaces, industrial metalworking, and rocket nozzles.", col:"#501313" },
+  { min:4000, max:6000, name:"Surface of the Sun", desc:"The Sun's photosphere (visible surface) is ~5,500°C — producing brilliant white-yellow light. This temperature creates plasma — matter where electrons are stripped from atoms. Everything at this temperature glows brilliantly.", col:"#A32D2D" },
+  { min:6000, max:5778000, name:"Beyond the solar surface — stellar & fusion temperatures", desc:"The Sun's corona (atmosphere) paradoxically reaches millions of degrees. Nuclear fusion reactors aim for 100–200 million °C. The Sun's core is 15 million °C. At these temperatures, atomic nuclei fuse together, releasing enormous energy.", col:"#3C3489" },
+];
+
+function getTempData(c) {
+  return tempData.find(d => c >= d.min && c < d.max) || tempData[tempData.length-1];
+}
+
+function setTemp(val) {
+  document.getElementById('temp-slider').value = Math.max(-273, Math.min(5778, val));
+  updateTemp();
+}
+
+function updateTemp() {
+  const c = parseInt(document.getElementById('temp-slider').value);
+  const f = Math.round(c * 9/5 + 32);
+  const k = (c + 273.15).toFixed(2);
+  document.getElementById('temp-c').textContent = c + '°C';
+  document.getElementById('temp-f').textContent = f + '°F';
+  document.getElementById('temp-k').textContent = k + ' K';
+  const d = getTempData(c);
+  document.getElementById('temp-name').textContent = d.name;
+  document.getElementById('temp-name').style.color = d.col;
+  document.getElementById('temp-desc').textContent = d.desc;
+}
+
+function doConvert() {
+  const v = parseFloat(document.getElementById('conv-val').value);
+  const dir = document.getElementById('conv-dir').value;
+  if (isNaN(v)) return;
+  if (dir === 'ftoc') {
+    const c = ((v - 32) * 5/9);
+    document.getElementById('conv-result').textContent = v + '°F = ' + c.toFixed(1) + '°C';
+    const quick = Math.round((v - 30) / 2);
+    document.getElementById('conv-trick').textContent = 'Mental shortcut: (' + v + ' − 30) ÷ 2 = ' + quick + '°C. Exact: ' + c.toFixed(1) + '°C. Error: ' + Math.abs(c - quick).toFixed(1) + ' degrees.';
+  } else {
+    const f = (v * 9/5 + 32);
+    document.getElementById('conv-result').textContent = v + '°C = ' + f.toFixed(1) + '°F';
+    const quick = Math.round(v * 2 + 30);
+    document.getElementById('conv-trick').textContent = 'Mental shortcut: ' + v + ' × 2 + 30 = ' + quick + '°F. Exact: ' + f.toFixed(1) + '°F. Error: ' + Math.abs(f - quick).toFixed(1) + ' degrees.';
+  }
+}
+
+function updateCalc() {
+  const kcal = parseInt(document.getElementById('food-sel').value);
+  const rate = parseFloat(document.getElementById('activity-sel').value);
+  const mins = kcal / rate;
+  const foodLabel = document.getElementById('food-sel').selectedOptions[0].text;
+  const actLabel  = document.getElementById('activity-sel').selectedOptions[0].text.split(' (')[0];
+  let timeStr;
+  if (mins < 60) timeStr = Math.round(mins) + ' minutes';
+  else timeStr = Math.floor(mins/60) + ' hr ' + Math.round(mins%60) + ' min';
+  document.getElementById('calorie-result').innerHTML =
+    '<strong>' + foodLabel + '</strong><br>' +
+    actLabel + ': <strong>' + timeStr + '</strong> to burn it off.<br>' +
+    '<span style="color:var(--color-text-secondary); font-size:12px;">That\'s ' + (kcal/rate).toFixed(1) + ' minutes at ' + rate + ' kcal/min.</span>';
+}
+
+document.getElementById('temp-slider').addEventListener('input', updateTemp);
+document.getElementById('food-sel').addEventListener('change', updateCalc);
+document.getElementById('activity-sel').addEventListener('change', updateCalc);
+doConvert();
+updateTemp();
+updateCalc();
+    </script>
+  </div>
+</body>
+</html>

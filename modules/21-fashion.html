@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 21: Fashion — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.brand-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 11px 14px; margin-bottom: 8px; }
+.bh { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+.bname { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.bbadge { font-size: 11px; font-weight: 500; padding: 2px 7px; border-radius: 99px; }
+.bgrid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 6px; margin-bottom: 5px; }
+.bsub { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 6px 9px; }
+.bnote { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 21: Fashion</h1>
+    <p class="module-subtitle">Fabrics, brands, dress codes, and style</p>
+
+    <div class="sec">Part A · the fashion industry pyramid</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Four tiers — the same brand sometimes occupies multiple levels</div>
+      <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+        <div style="background:#26215C; border-radius:var(--border-radius-md); padding:10px 14px;">
+          <div style="font-size:12px; font-weight:500; color:#CECBF6; margin-bottom:2px;">Haute couture — hand-crafted, made-to-measure, one client at a time</div>
+          <div style="font-size:11px; color:#AFA9EC; line-height:1.5;">Chanel, Dior, Valentino, Givenchy. A single couture dress: €10,000–€200,000+. Legally protected designation in France. Only ~15 official haute couture houses. Shows twice yearly in Paris. Serves ~2,000–3,000 clients worldwide. Exists primarily as marketing for the brand's perfume, beauty, and accessories lines — which actually make money.</div>
+        </div>
+        <div style="background:#185FA5; border-radius:var(--border-radius-md); padding:10px 14px;">
+          <div style="font-size:12px; font-weight:500; color:#E6F1FB; margin-bottom:2px;">Luxury / ready-to-wear — designed in-house, manufactured to high standards, high price</div>
+          <div style="font-size:11px; color:#B5D4F4; line-height:1.5;">Louis Vuitton, Gucci, Hermès, Prada, Burberry, Versace, Saint Laurent. Items: €500–€5,000+. Sold in own boutiques and high-end department stores. Quality materials and construction; distinct brand identity. The "aspirational luxury" tier where most luxury revenue is made.</div>
+        </div>
+        <div style="background:#1D9E75; border-radius:var(--border-radius-md); padding:10px 14px;">
+          <div style="font-size:12px; font-weight:500; color:#E1F5EE; margin-bottom:2px;">Premium / contemporary — quality above high street, accessible luxury</div>
+          <div style="font-size:11px; color:#9FE1CB; line-height:1.5;">Ralph Lauren, Tommy Hilfiger, Hugo Boss, Calvin Klein (mainline), Ted Baker, Reiss. Items: €80–€800. Good quality, brand recognition, sold in department stores and own shops. The sweet spot for most aspirational shoppers.</div>
+        </div>
+        <div style="background:#633806; border-radius:var(--border-radius-md); padding:10px 14px;">
+          <div style="font-size:12px; font-weight:500; color:#FAEEDA; margin-bottom:2px;">High street / fast fashion — trend-driven, low-cost, high-volume, rapid cycles</div>
+          <div style="font-size:11px; color:#EF9F27; line-height:1.5;">Zara, H&M, Uniqlo, Mango, Primark. Items: €5–€100. 52 "micro-seasons" per year (Zara). Global supply chains. Environmental and labour concerns. Zara's model (design-to-shelf in 2 weeks vs industry's 6 months) revolutionised the industry.</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">The great irony:</strong> Haute couture exists to fund perfume. A Chanel No.5 perfume (€120) funds the €200,000 dress that funds the brand's prestige that sells the perfume. The entire pyramid depends on each level signalling upward aspiration.
+      </div>
+    </div>
+
+    <div class="sec">Part B · the three fashion conglomerates that own almost everything</div>
+
+    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div style="background:#EEEDFE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #AFA9EC;">
+        <div style="font-size:13px; font-weight:500; color:#26215C; margin-bottom:4px;">LVMH</div>
+        <div style="font-size:11px; color:#3C3489; margin-bottom:6px;">Louis Vuitton Moët Hennessy. Largest luxury group. Bernard Arnault (France), world's richest person ~2021–2023.</div>
+        <div style="font-size:11px; color:#534AB7; line-height:1.6;">Louis Vuitton, Dior, Givenchy, Celine, Loewe, Fendi, Bulgari, TAG Heuer, Dom Pérignon, Moët &amp; Chandon, Hennessy. 75 houses. Revenue ~€86B (2023).</div>
+      </div>
+      <div style="background:#FAECE7; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #F0997B;">
+        <div style="font-size:13px; font-weight:500; color:#4A1B0C; margin-bottom:4px;">Kering</div>
+        <div style="font-size:11px; color:#712B13; margin-bottom:6px;">François-Henri Pinault (France). Second-largest luxury group. His wife: Salma Hayek.</div>
+        <div style="font-size:11px; color:#993C1D; line-height:1.6;">Gucci, Saint Laurent, Bottega Veneta, Balenciaga, Alexander McQueen, Brioni, Pomellato. Revenue ~€18B (2023).</div>
+      </div>
+      <div style="background:#E6F1FB; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #85B7EB;">
+        <div style="font-size:13px; font-weight:500; color:#042C53; margin-bottom:4px;">Richemont</div>
+        <div style="font-size:11px; color:#0C447C; margin-bottom:6px;">Johann Rupert (South Africa). Specialises in watches and jewellery.</div>
+        <div style="font-size:11px; color:#185FA5; line-height:1.6;">Cartier, Van Cleef &amp; Arpels, IWC, Jaeger-LeCoultre, Piaget, Panerai, Dunhill, Chloé. Revenue ~€20B (2023).</div>
+      </div>
+    </div>
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+      <strong style="color:var(--color-text-primary);">Independents:</strong> Hermès (Hermès family, publicly traded but family-controlled), Chanel (Wertheimer family, private — no public financials), Prada (Miuccia Prada and Patrizio Bertelli family), Versace (sold to Capri Holdings/Tapestry), Burberry (UK listed), Ralph Lauren (Ralph Lauren corporation, NYSE).
+    </div>
+
+    <div class="sec">Part C · top 20 brands — click to explore</div>
+
+    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showBrand('lv')"         style="font-size:11px; padding:3px 9px;">Louis Vuitton</button>
+      <button onclick="showBrand('chanel')"     style="font-size:11px; padding:3px 9px;">Chanel</button>
+      <button onclick="showBrand('hermes')"     style="font-size:11px; padding:3px 9px;">Hermès</button>
+      <button onclick="showBrand('gucci')"      style="font-size:11px; padding:3px 9px;">Gucci</button>
+      <button onclick="showBrand('dior')"       style="font-size:11px; padding:3px 9px;">Dior</button>
+      <button onclick="showBrand('prada')"      style="font-size:11px; padding:3px 9px;">Prada</button>
+      <button onclick="showBrand('versace')"    style="font-size:11px; padding:3px 9px;">Versace</button>
+      <button onclick="showBrand('balenciaga')" style="font-size:11px; padding:3px 9px;">Balenciaga</button>
+      <button onclick="showBrand('burberry')"   style="font-size:11px; padding:3px 9px;">Burberry</button>
+      <button onclick="showBrand('armani')"     style="font-size:11px; padding:3px 9px;">Armani</button>
+      <button onclick="showBrand('rl')"         style="font-size:11px; padding:3px 9px;">Ralph Lauren</button>
+      <button onclick="showBrand('boss')"       style="font-size:11px; padding:3px 9px;">Hugo Boss</button>
+      <button onclick="showBrand('zara')"       style="font-size:11px; padding:3px 9px;">Zara</button>
+      <button onclick="showBrand('hm')"         style="font-size:11px; padding:3px 9px;">H&amp;M</button>
+      <button onclick="showBrand('uniqlo')"     style="font-size:11px; padding:3px 9px;">Uniqlo</button>
+      <button onclick="showBrand('nike')"       style="font-size:11px; padding:3px 9px;">Nike</button>
+      <button onclick="showBrand('adidas')"     style="font-size:11px; padding:3px 9px;">Adidas</button>
+      <button onclick="showBrand('cartier')"    style="font-size:11px; padding:3px 9px;">Cartier</button>
+      <button onclick="showBrand('saint')"      style="font-size:11px; padding:3px 9px;">Saint Laurent</button>
+      <button onclick="showBrand('moncler')"    style="font-size:11px; padding:3px 9px;">Moncler</button>
+    </div>
+    <div id="brand-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part D · size conversion — the interactive calculator</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Convert any clothing or shoe size between systems</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
+        <select id="size-cat" style="flex:1; min-width:130px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="clothing-women">Women's clothing</option>
+          <option value="clothing-men">Men's clothing</option>
+          <option value="shirt">Men's shirt collar</option>
+          <option value="shoes-women">Women's shoes</option>
+          <option value="shoes-men">Men's shoes</option>
+        </select>
+        <select id="size-from" style="flex:1; min-width:100px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="eu">EU</option>
+          <option value="uk">UK</option>
+          <option value="us">US</option>
+          <option value="it">IT</option>
+          <option value="fr">FR</option>
+        </select>
+        <input type="number" id="size-val" placeholder="Size" style="width:80px; font-size:14px;" value="38">
+        <button onclick="convertSize()" style="height:36px; padding:0 16px; font-size:13px;">Convert</button>
+      </div>
+      <div id="size-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+    </div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">XS – XXL to measurements — what the labels actually mean</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; font-size:12px; border-collapse:collapse; min-width:400px;">
+          <thead><tr style="border-bottom:0.5px solid var(--color-border-secondary);">
+            <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">Label</th>
+            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">Women chest (cm)</th>
+            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">Men chest (cm)</th>
+            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">EU women</th>
+            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">EU men</th>
+            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">US women</th>
+            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">US men</th>
+          </tr></thead>
+          <tbody id="size-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec">Part E · dress codes decoded</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showDress('whitetie')"   style="font-size:12px; padding:3px 10px;">White tie</button>
+      <button onclick="showDress('blacktie')"   style="font-size:12px; padding:3px 10px;">Black tie</button>
+      <button onclick="showDress('cocktail')"   style="font-size:12px; padding:3px 10px;">Cocktail / smart</button>
+      <button onclick="showDress('bizformal')"  style="font-size:12px; padding:3px 10px;">Business formal</button>
+      <button onclick="showDress('bizcasual')"  style="font-size:12px; padding:3px 10px;">Business casual</button>
+      <button onclick="showDress('smartcasual')' " style="font-size:12px; padding:3px 10px;">Smart casual</button>
+    </div>
+    <div id="dress-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part F · tie vs bow tie — and how to wear both</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Necktie (regular tie)</p>
+        <p class="cval">Business and formal events</p>
+        <p class="cnote">Width: slim (5–6 cm) for modern/fashion; classic (8–9 cm) for business; wide (10+ cm) is dated. Length: tip should reach the waistband of your trousers — not above, not below. Knots: Four-in-hand (simple, slightly asymmetric), Half Windsor (medium, triangular), Full Windsor (large, symmetrical — for spread collar shirts). Dimple: a single indent just below the knot signals intentionality and care. Worn with: business formal, business casual with jacket, smart events, funerals.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Bow tie</p>
+        <p class="cval">Black tie and above (or confident casual)</p>
+        <p class="cnote">Always self-tied (never pre-tied clip-on at formal events — the small imperfection of a hand-tied bow is the point). Black silk for black tie events. Patterned/colourful bow ties for parties or confident daywear. The bow tie signals: either very formal (tuxedo context) or deliberate eccentricity (day wear). Size: the ends should not extend beyond the outer corners of the eyes. Worn with: black tie required, white tie required, or as a conscious statement with a suit.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part G · fast fashion — what it is and why it matters</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">The Zara model</p>
+        <p class="cval">Design to shelf in 2 weeks</p>
+        <p class="cnote">Inditex (Zara's parent, founded by Amancio Ortega, Spain) revolutionised fashion by cutting lead times from 6 months to 2 weeks. In-house designers, owned factories in Spain/Portugal/Morocco, centralised logistics from Arteixo, Spain. Result: 500–1,000 new styles per week, always fresh stock, never marked down (unsold items destroyed or donated). Creates artificial urgency — "buy it now or it's gone."</p>
+      </div>
+      <div class="card">
+        <p class="clabel">The environmental cost</p>
+        <p class="cval">Fashion = 10% of global CO₂ emissions</p>
+        <p class="cnote">The fashion industry produces ~92 million tonnes of textile waste per year. A single polyester T-shirt sheds ~700,000 microplastic fibres per wash. The average garment is worn 7–10 times before being discarded (down from 200 times in the 1970s). The Congo (DRC) mines cobalt for dyes; Bangladesh's Rana Plaza factory collapse (2013, 1,134 dead) brought labour conditions to global attention.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Ultra-fast fashion (Shein model)</p>
+        <p class="cval">AI-driven demand → 10,000 new items/day</p>
+        <p class="cnote">Shein (China, ~$66B valuation 2023) uses real-time trend algorithms to produce items in days, priced at €5–€20. Ships directly from Chinese factories. Bypasses import duties via "de minimis" exemptions. Faces scrutiny for IP theft (copying independent designers), labour conditions, and hazardous chemicals in garments. Represents the endpoint of the fast fashion model.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Sustainable alternatives</p>
+        <p class="cval">Slow fashion and second-hand</p>
+        <p class="cnote">Patagonia (USA, B Corp) built its brand on environmental activism — "Don't buy this jacket" ad campaign. Vinted, Depop, ThredUp (second-hand marketplaces). Rent the Runway (dress rental). The resale market is growing 3× faster than regular fashion. Uniqlo's LifeWear philosophy (Japan) focuses on quality basics designed to last years, not seasons.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part H · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. You're invited to a "black tie" dinner. You don't own a tuxedo. What exactly do you need, and what are the acceptable alternatives?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The traditional requirement: black dinner jacket (tuxedo jacket) — single or double-breasted with silk or satin lapels, matching black trousers with a satin stripe down the leg, white dress shirt with a pleated front or bib, black bow tie (self-tied), black patent leather shoes, black cummerbund or waistcoat. Acceptable alternatives if you don't own one: (1) Hire a tuxedo — most formal hire shops provide the complete package. (2) Dark navy suit (not black suit — counterintuitively, a dark navy suit reads as more intentional than a black lounge suit, which looks like you misunderstood the dress code). A white pocket square and black bow tie signal the effort. (3) Morning dress is not appropriate for evening black tie — wrong time of day. What is never acceptable: a black lounge suit with a black tie (that's business formal, not black tie). The invitation saying "black tie preferred" gives more latitude than "black tie required."</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. A European woman wears EU size 40 in clothing and EU size 39 in shoes. What are her US sizes?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Clothing: EU 40 women's = US size 10 (approximately). The general rule: EU women's clothing size minus 30 = US size. So 40 − 30 = 10. This is approximate — brands vary. Shoes: EU 39 women's = US size 8. The rule for women's shoes: EU size minus 31 = US size. 39 − 31 = 8. For men's shoes the offset is different: EU 43 = US 10 (EU minus 33). Important caveat: these are guidelines. Italian sizing, French sizing, and UK sizing all differ slightly. A Zara EU 40 may fit differently from a Chanel EU 40. Always try on or check the brand's specific size chart.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. What does a "16½" shirt collar size mean, and what measurement does it correspond to?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">It's in inches — the circumference of your neck measured at the base. 16½ inches = approximately 42 cm. The collar should allow one finger between the collar and your neck when buttoned — tight enough to look neat, loose enough to breathe. In European/continental sizing this shirt would be labelled "42" (for 42 cm neck). Common sizes: 15" (38cm) small, 15½" (39.5cm) medium, 16" (41cm) medium-large, 16½" (42cm) large, 17" (43cm) XL, 17½" (44.5cm) XXL. Shirt sleeve length is a separate measurement: "32/33" means the sleeve length is 32–33 inches (81–84 cm). A full shirt size notation like "16½ / 33" tells you both collar and sleeve.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. What is the difference between LVMH and Kering, and which owns Gucci?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Both are French luxury conglomerates. LVMH (Louis Vuitton Moët Hennessy), controlled by Bernard Arnault, is the world's largest luxury group with ~75 brands including Louis Vuitton, Dior, Fendi, Bulgari, and Moët &amp; Chandon. It spans fashion, wines and spirits, watches and jewellery. Kering, controlled by François-Henri Pinault, is smaller but elite in fashion specifically — it owns Gucci, Saint Laurent, Bottega Veneta, Balenciaga, and Alexander McQueen. Gucci is Kering's most valuable brand and generates roughly half of Kering's total revenue. The rivalry between Arnault and Pinault for luxury supremacy is one of the great business competitions of the past 30 years. Hermès, notably, remains independent and family-controlled — Arnault once attempted to acquire a stake, leading to a legal battle that Hermès won.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. What is the difference between "smart casual" and "business casual" — and why does it matter?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Business casual is for professional office environments — the goal is to look polished and work-appropriate without a tie. It typically means: collared shirt (button-down or polo), chinos or tailored trousers, leather shoes or clean smart shoes. No jeans (in most interpretations), no trainers, no T-shirts. Smart casual is a broader social code — the goal is to look intentional and put-together for a restaurant, party, or casual event. It allows well-fitted dark jeans, a clean shirt or smart knitwear, Chelsea boots or clean trainers. The key distinction: business casual is constrained by professional context; smart casual has more personal expression but still requires deliberate choices. The reason it matters: arriving underdressed at an event signals either you didn't know the code (ignorance) or didn't care enough to follow it (disrespect). Overdressing is almost always better than underdressing.</div>
+    </div>
+
+    <script>
+const brands = {
+  lv: { name:'Louis Vuitton', country:'France', founded:'1854', group:'LVMH (Bernard Arnault)', tier:'Luxury', col:'#633806', bg:'#FAEEDA',
+    known:'The world\'s most valuable luxury brand (~$120B brand value). Started as a travel trunk maker. The LV monogram canvas (1896, by Georges Vuitton) is the most recognised pattern in fashion.',
+    revenue:'~€20B+/yr. The single most profitable fashion brand on earth. Handbags are the core: Speedy, Neverfull, Capucines.',
+    note:'The logo\'s ubiquity was deliberate: in markets where luxury is new (Asia), visible logos signal status. In older luxury markets (Europe), logomania is considered nouveau riche. LV has produced different products for different cultural contexts deliberately.' },
+  chanel: { name:'Chanel', country:'France', founded:'1910', group:'Independent (Wertheimer family, private)', tier:'Luxury / Haute Couture', col:'#2C2C2A', bg:'#F1EFE8',
+    known:'Founded by Gabrielle "Coco" Chanel. Revolutionised women\'s fashion by liberating it from corsets. The little black dress, No. 5 perfume, Chanel suit (boucle tweed), and the 2.55 quilted handbag.',
+    revenue:'Private company — no public financials. Estimated ~€17B revenue. Chanel No. 5 alone generates ~€1B/yr.',
+    note:'Chanel remains one of the few mega-brands that is entirely private. The Wertheimer family bought 70% of the perfume business in 1924 from Coco Chanel for a fraction of its value. They still own it. Karl Lagerfeld was creative director 1983–2019; Virginie Viard since.' },
+  hermes: { name:'Hermès', country:'France', founded:'1837', group:'Independent (Hermès family, publicly traded but ~66% family-held)', tier:'Ultra-luxury', col:'#993C1D', bg:'#FAECE7',
+    known:'Started as a harness-maker for horses. The Birkin and Kelly bags are the most coveted (and waitlisted) fashion items in the world. Orange boxes are the brand\'s signature.',
+    revenue:'~€13B (2023). Net profit margin ~40% — extraordinary for any industry.',
+    note:'A Birkin bag retails at €8,000–€300,000 and routinely resells for 2–4× retail. Hermès intentionally creates scarcity. LVMH attempted a hostile acquisition in 2010–2013 by quietly accumulating shares — Hermès retaliated by creating a holding company among family members. LVMH eventually sold its stake. Hermès remains the most profitable luxury brand per revenue.' },
+  gucci: { name:'Gucci', country:'Italy', founded:'1921', group:'Kering (François-Henri Pinault)', tier:'Luxury', col:'#3B6D11', bg:'#EAF3DE',
+    known:'Florence-born leather goods house. The double G logo, horsebit loafer, and bamboo handle bag are classics. Tom Ford\'s directorship (1994–2004) saved the brand; Alessandro Michele (2015–2022) made it maximalist and cult; Sabato De Sarno (2023–) has returned it to quieter elegance.',
+    revenue:'~€10B (2023). Kering\'s largest brand by far.',
+    note:'Gucci\'s value swings dramatically with creative director changes — Michele\'s maximalist, gender-fluid, maximalist aesthetic drove revenues from €3B to €10B in 7 years. This is the most dramatic example of how a single designer can transform a brand\'s entire commercial trajectory.' },
+  dior: { name:'Christian Dior', country:'France', founded:'1946', group:'LVMH (Bernard Arnault)', tier:'Luxury / Haute Couture', col:'#3C3489', bg:'#EEEDFE',
+    known:'The "New Look" (1947) — nipped waist, full skirt — redefined post-war fashion and made Paris the fashion capital again. Now: Maria Grazia Chiuri (first female Dior creative director, since 2016). The Lady Dior bag (given to Princess Diana in 1995) and Saddle bag are icons.',
+    revenue:'~€8B+. Women\'s fashion, men\'s fashion (Kim Jones), beauty, perfume.',
+    note:'J\'adore perfume and Sauvage (men\'s) are among the world\'s best-selling fragrances. Like all luxury houses, fragrance and beauty fund the prestige of the fashion shows.' },
+  prada: { name:'Prada', country:'Italy', founded:'1913', group:'Independent (Miuccia Prada and Patrizio Bertelli family)', tier:'Luxury', col:'#0C447C', bg:'#E6F1FB',
+    known:'Founded as a leather goods shop in Milan. Miuccia Prada (granddaughter of founder) took over in 1978 and made it an intellectual fashion house. The Prada nylon backpack (1984) was revolutionary luxury-in-utilitarian-material.',
+    revenue:'~€4.7B (2023), growing strongly.',
+    note:'Raf Simons joined as co-creative director in 2020, alongside Miuccia. Prada is known for making fashion intellectual — each show has a concept, often drawing from art, architecture, and philosophy. Also owns Miu Miu (younger, more playful sub-brand).' },
+  versace: { name:'Versace', country:'Italy', founded:'1978', group:'Capri Holdings (US, NYSE: CPRI)', tier:'Luxury', col:'#BA7517', bg:'#FAEEDA',
+    known:'Gianni Versace founded. Murdered in Miami, 1997. Sister Donatella took over. Known for bold prints, Medusa logo, gold hardware, overtly sensual aesthetic. Jennifer Lopez\'s green dress at the 2000 Grammys crashed Google (leading to the creation of Google Images).',
+    revenue:'~$1B (est). Capri Holdings also owns Michael Kors and Jimmy Choo.',
+    note:'Sold to Capri Holdings (Michael Kors group) in 2018 for $2.1B. Capri itself was the subject of a blocked merger attempt by Tapestry (Coach, Kate Spade) in 2024. The Versace aesthetic has influenced streetwear and hip-hop enormously.' },
+  balenciaga: { name:'Balenciaga', country:'Spain (now France-based)', founded:'1919', group:'Kering (François-Henri Pinault)', tier:'Luxury', col:'#26215C', bg:'#EEEDFE',
+    known:'Cristóbal Balenciaga (Basque, Spain) was considered the master of couture by Coco Chanel. Dormant 1968–1997. Resurrected; Demna (Georgian designer) transformed it into high-concept streetwear luxury 2015–. Triple S trainers, Crocs collaboration, destroyed sneakers at €1,850.',
+    revenue:'~€2B+ est. One of Kering\'s fastest-growing brands in the 2010s.',
+    note:'Demna (Gvasalia) created the "ugly shoe" luxury trend — deliberately anti-aesthetic footwear priced at luxury levels. Also faced a major crisis in 2022 over controversial advertising. The tension between provocation and brand damage is the central challenge of concept-driven luxury fashion.' },
+  burberry: { name:'Burberry', country:'UK', founded:'1856', group:'Independent (London Stock Exchange: BRBY)', tier:'Luxury', col:'#633806', bg:'#FAEEDA',
+    known:'Thomas Burberry invented gabardine fabric (1879) and the trench coat. The tartan check lining became iconic. Struggled with brand dilution in the 2000s (chav associations in UK); transformed by Christopher Bailey; now Daniel Lee as creative director (since 2022).',
+    revenue:'~£3.1B (2023), under pressure due to luxury slowdown.',
+    note:'The trench coat remains Burberry\'s defining product. The brand\'s challenge: it\'s British (perceived as more accessible than French/Italian luxury) but prices at luxury levels. Lee has repositioned it as more unapologetically British — Stonehenge campaigns, Union Jack imagery.' },
+  armani: { name:'Giorgio Armani', country:'Italy', founded:'1975', group:'Independent (Giorgio Armani SpA, privately held by Giorgio Armani himself)', tier:'Premium / Luxury', col:'#444441', bg:'#F1EFE8',
+    known:'Defined "power dressing" of the 1980s. Unstructured suits, neutral palette. Richard Gere wearing Armani in American Gigolo (1980) made the brand. Now a multi-tier empire: Giorgio Armani (luxury), Emporio Armani (younger), A|X Armani Exchange (entry).',
+    revenue:'~€2.4B. Giorgio Armani himself (now 90+) still controls the company.',
+    note:'One of the last true independent luxury houses, entirely controlled by its founder. Armani has repeatedly refused acquisition offers, including from LVMH. His succession plan is via the Armani Foundation, which will inherit control. The brand\'s power is its reliability — clean, tailored, timeless.' },
+  rl: { name:'Ralph Lauren', country:'USA', founded:'1967', group:'Ralph Lauren Corporation (NYSE: RL)', tier:'Premium', col:'#0C447C', bg:'#E6F1FB',
+    known:'Born Ralph Lifshitz in the Bronx. Created a fantasy of American aristocracy — Polo shirts, tweed blazers, the Polo Ralph Lauren aesthetic of New England prep and western Americana. Official outfitter for US Olympic team.',
+    revenue:'~$8B/yr. Multiple tiers: Ralph Lauren Purple Label (ultra-luxury), Polo Ralph Lauren (core), Lauren (bridge), Chaps (mass).',
+    note:'Ralph Lauren essentially invented a cultural identity and sold it. He had no fashion training — he was a salesman who convinced Neiman Marcus to stock his wide ties. The Polo pony logo is one of the most recognised symbols globally. The brand\'s aspiration is "old money" lifestyle, crafted by a first-generation American immigrant.' },
+  boss: { name:'Hugo Boss', country:'Germany', founded:'1924', group:'Hugo Boss AG (Frankfurt: BOSS)', tier:'Premium', col:'#2C2C2A', bg:'#F1EFE8',
+    known:'Hugo Ferdinand Boss originally manufactured uniforms for the Nazi party in WWII (formally acknowledged and apologised for in 2011). Post-war rebuilt as a tailoring brand. Known for sharp suits, clean lines, and "BOSS" fragrance.',
+    revenue:'~€4.2B (2023). BOSS (upscale) and HUGO (younger, fashion-forward) sub-brands.',
+    note:'The historical Nazi connection is the most significant ethical controversy in German fashion history. Hugo Boss acknowledged making SS uniforms and profited from forced labour. Despite this, the brand has rebuilt successfully around professional dressing, particularly in Germany and Central Europe.' },
+  zara: { name:'Zara (Inditex)', country:'Spain', founded:'1975', group:'Inditex SA (Madrid: ITX) — Amancio Ortega, founder, ~59% stake', tier:'Fast fashion', col:'#27500A', bg:'#EAF3DE',
+    known:'The fast fashion pioneer. Design-to-shelf in 2 weeks vs industry average of 6 months. Own factories near headquarters in Arteixo, Galicia. 2,000+ stores globally. No advertising — invests in prime retail locations instead.',
+    revenue:'~€36B (Inditex total). Also owns Pull&Bear, Massimo Dutti, Bershka, Zara Home.',
+    note:'Amancio Ortega (net worth ~$80B) is one of the world\'s richest people yet keeps almost no public profile. The Zara model copied luxury trends rapidly at low prices — enabling mass market fashion democratisation but also creating enormous waste.' },
+  hm: { name:'H&M', country:'Sweden', founded:'1947', group:'H&M Group (Stockholm Stock Exchange: HM-B) — Persson family', tier:'Fast fashion', col:'#A32D2D', bg:'#FCEBEB',
+    known:'Hennes (women\'s) + Mauritz (menswear). Made celebrity designer collaborations mainstream (Karl Lagerfeld for H&M, 2004 — queues around the block). Also owns COS (premium minimalist), ARKET, Weekday, Monki.',
+    revenue:'~SEK 236B (~€21B). Second-largest fast fashion group globally.',
+    note:'H&M pioneered the "accessible luxury" designer collaboration model — inviting Balmain, Alexander Wang, Stella McCartney, Versace to create collections at H&M prices. Each causes a frenzy. The model generates PR worth far more than the profit from the collections themselves.' },
+  uniqlo: { name:'Uniqlo', country:'Japan', founded:'1984', group:'Fast Retailing Co. (Tokyo: 9983) — Tadashi Yanai, founder', tier:'Value/Premium basics', col:'#185FA5', bg:'#E6F1FB',
+    known:'LifeWear philosophy: functional, high-quality basics designed to last years. Fleece jackets (1994), HeatTech (thermal underwear), Ultra Light Down jacket, AIRism. Anti-trend — deliberately avoids fashion cycles.',
+    revenue:'~¥2.7T (~€17B). Third-largest fashion retailer globally.',
+    note:'Uniqlo is the anti-fast-fashion fast retailer: high volumes, low prices, but designed for durability and function rather than trend. Tadashi Yanai is Japan\'s richest person. The brand is deliberately boring — and that\'s the point. It competes on fabric innovation (HeatTech\'s thermal properties, AIRism\'s moisture wicking) rather than aesthetics.' },
+  nike: { name:'Nike', country:'USA', founded:'1964 (as Blue Ribbon Sports)', group:'Nike Inc. (NYSE: NKE) — Phil Knight, founder', tier:'Sportswear / Streetwear', col:'#A32D2D', bg:'#FCEBEB',
+    known:'The Swoosh (designed for $35 by Carolyn Davidson in 1971). "Just Do It" (1988). Air Jordan (1985 with Michael Jordan). Largest athletic footwear and apparel brand. Collaborations with Off-White (Virgil Abloh), Travis Scott, sacai elevated Nike into high fashion.',
+    revenue:'~$51B/yr. World\'s most valuable apparel brand.',
+    note:'Nike doesn\'t make shoes — it designs and markets them. All manufacturing is contracted. The business model: own the brand, the athlete endorsements, and the retail relationship. Factory workers in Vietnam/Indonesia make the product. This model maximises margins and minimises asset-intensive manufacturing.' },
+  adidas: { name:'Adidas', country:'Germany', founded:'1949', group:'Adidas AG (Frankfurt: ADS) — public', tier:'Sportswear / Streetwear', col:'#0C447C', bg:'#E6F1FB',
+    known:'Three stripes. Founded by Adolf "Adi" Dassler (brother of Puma founder Rudolf Dassler — a family feud that split Herzogenaurach, Germany into two shoe camps). Stan Smith, Superstar, Gazelle, NMD, Yeezy (Kanye West collaboration, ended 2022).',
+    revenue:'~€22B. The Yeezy termination cost Adidas ~€250M in unsold inventory.',
+    note:'The Adidas-Yeezy saga (Kanye West\'s antisemitic statements led to contract termination) is the clearest modern example of a brand partnership crisis. Adidas was left with $1.3B of Yeezy inventory. They eventually sold it gradually, donating proceeds to anti-hate organisations.' },
+  cartier: { name:'Cartier', country:'France', founded:'1847', group:'Richemont (Johann Rupert, South Africa)', tier:'Ultra-luxury (jewellery/watches)', col:'#791F1F', bg:'#FCEBEB',
+    known:'The Love bracelet, the Trinity ring, the Tank watch, the Panthère watch. "Jeweller to kings, king of jewellers." Made the bracelet for Edward VII, the Maharaja of Patiala, Wallis Simpson. The red box is as iconic as the product.',
+    revenue:'~€8B+ (est, as Richemont doesn\'t break out individual brands). Largest single revenue contributor to Richemont.',
+    note:'The Love bracelet (1969, designed by Aldo Cipullo) uses a proprietary screwdriver to fasten — the concept was that you and a partner each hold a screwdriver, making the bracelet a mutual commitment. One of the most successful jewellery marketing concepts in history.' },
+  saint: { name:'Saint Laurent (YSL)', country:'France', founded:'1961', group:'Kering (François-Henri Pinault)', tier:'Luxury', col:'#2C2C2A', bg:'#F1EFE8',
+    known:'Yves Saint Laurent invented the women\'s tuxedo (Le Smoking, 1966) and the safari jacket. Anthony Vaccarello as creative director since 2016 — sleek, rock-and-roll, consistent. The YSL monogram is among fashion\'s most recognised.',
+    revenue:'~€3.5B (2023). Kering\'s second brand after Gucci.',
+    note:'YSL is studied as a case study in brand consistency. While Gucci zigzags between designers and aesthetics, YSL under Vaccarello has maintained a singular vision for nearly a decade — slim black suits, sharp tailoring, French arrogance. This consistency has made it the quietly growing luxury brand.' },
+  moncler: { name:'Moncler', country:'France (Italian operations)', founded:'1952', group:'Moncler SpA (Milan: MONC) — Remo Ruffini, owner', tier:'Luxury', col:'#185FA5', bg:'#E6F1FB',
+    known:'Originally made quilted sleeping bags and tents for mountaineers. Now: luxury down jackets, a staple of affluent Europeans in winter. The "Genius" project (multiple collaborators per year) keeps it culturally relevant.',
+    revenue:'~€3.1B (2023). Remarkable growth from near-bankruptcy in 2003.',
+    note:'Remo Ruffini bought the near-bankrupt brand in 2003 for €20M. It is now worth ~€18B. His strategy: maintain the performance heritage (down insulation, outdoor codes) while pricing and positioning as luxury fashion. The puffer jacket went from functional to status symbol largely due to Moncler\'s success.' }
+};
+
+function showBrand(key) {
+  const b = brands[key];
+  document.getElementById('brand-display').innerHTML = `
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${b.name}</div>
+      <div style="font-size:11px; font-weight:500; background:${b.bg}; color:${b.col}; border-radius:99px; padding:2px 9px;">${b.tier}</div>
+      <div style="font-size:11px; color:var(--color-text-secondary);">${b.country}, est. ${b.founded}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Ownership</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.group}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Revenue / scale</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.revenue}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Known for</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.known}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Important nuance</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${b.note}</div></div>
+    </div>`;
+}
+
+const dressCodes = {
+  whitetie: { title:'White tie', subtitle:'The most formal dress code that exists',
+    men:'White marcella dress shirt with stiff bib front, white marcella waistcoat, black tailcoat with silk-faced tails, matching black trousers with double silk stripe, white bow tie (self-tied), white pocket square, black patent leather court shoes. Optionally: white gloves, top hat.',
+    women:'Full-length evening gown (floor length required). Tiara, gloves, and jewellery appropriate. No shoulder bag.',
+    occasions:'State banquets, formal balls (Vienna Opera Ball), royal events, Nobel Prize dinner. Extremely rare. If the invitation says "white tie," it means it.',
+    note:'White tie is above black tie. If you see "white tie" on an invitation and show up in a tuxedo, you are underdressed. This dress code is so rare that most people never encounter it.' },
+  blacktie: { title:'Black tie', subtitle:'Tuxedo / dinner jacket required',
+    men:'Black or midnight-blue dinner jacket (single or double-breasted, with silk or satin lapels), matching trousers with satin stripe, white dress shirt (pleated or bib front), black bow tie (self-tied — clip-on is a faux pas), black patent leather or highly polished shoes, cummerbund or low-cut waistcoat.',
+    women:'Floor-length evening gown or very formal cocktail dress (knee length at minimum). Significant jewellery, evening bag, formal shoes or heels.',
+    occasions:'Galas, charity dinners, awards ceremonies, formal weddings, opera, high-end corporate events.',
+    note:'"Black tie preferred" = you should wear a tuxedo but won\'t be turned away in a dark suit. "Black tie required" = no exceptions expected.' },
+  cocktail: { title:'Cocktail / smart evening', subtitle:'Dressy but not formal',
+    men:'Dark suit (navy, charcoal, or black) with a dress shirt and tie. Or a blazer with smart trousers. No jeans, no sneakers. A pocket square elevates the look. Dress shoes.',
+    women:'Cocktail dress (knee to midi length), dressy separates (silk blouse + tailored skirt/trousers), elegant jumpsuit. Heels or smart flats. More jewellery than daytime.',
+    occasions:'Cocktail parties, weddings (non-formal), dinner parties, theatre, gallery openings.',
+    note:'The broadest and most ambiguous dress code — the safe interpretation is always to dress up rather than down. If uncertain, a dark suit (men) or cocktail dress (women) is always appropriate.' },
+  bizformal: { title:'Business formal', subtitle:'Full suit, tie required',
+    men:'Well-fitted suit in navy, charcoal, or dark grey. White or pale blue dress shirt. Conservative tie. Dark leather dress shoes (Oxford or Derby). Briefcase or leather portfolio. Pocket square optional.',
+    women:'Formal pantsuit or skirt suit. Conservative blouse. Closed-toe heels or smart flats. Minimal jewellery, structured handbag.',
+    occasions:'Job interviews, client presentations, court appearances, formal meetings, banking/legal/financial environments.',
+    note:'Business formal means the full suit — not separates that match well. The tie is expected for men. In some sectors (finance, law, consulting) this remains the daily standard; in others (tech, creative) it\'s only for specific occasions.' },
+  bizcasual: { title:'Business casual', subtitle:'Smart professional without a tie',
+    men:'Collared shirt (button-down, polo) with chinos or tailored trousers. No tie required. Smart shoes (loafers, Oxfords, clean brogues). A blazer elevates. No jeans, no T-shirts, no trainers.',
+    women:'Blouse or smart top with tailored trousers or skirt. Blazer or cardigan. Smart flat shoes or modest heels. Clean jewellery.',
+    occasions:'Most modern offices, non-client meetings, creative professional environments, certain interviews.',
+    note:'"Business casual" is the most variable code — it means different things in a London law firm vs a Berlin startup. When in doubt, add a blazer: it can always be removed but you can\'t add formality you didn\'t bring.' },
+  smartcasual: { title:'Smart casual', subtitle:'Polished but relaxed — personal style welcome',
+    men:'Well-fitted dark jeans or chinos, collared shirt or fine knitwear, clean leather or suede shoes (or very clean white trainers). A blazer elevates significantly. No gym wear, no very casual T-shirts.',
+    women:'Jeans or casual trousers (well-fitted), a smart blouse or fine knit, neat trainers or ankle boots, or casual dress. More personal expression than business codes.',
+    occasions:'Casual restaurant, friend\'s dinner party, gallery visit, daytime social event, weekend errands with effort.',
+    note:'Smart casual is the code where personal style matters most. The definition: would you be comfortable and appropriate in this? Are the clothes clean, fitted, and intentional? The failure modes: too casual (gym kit, stained hoodie) and too formal (full suit when everyone else is in jeans).' }
+};
+
+function showDress(key) {
+  const d = dressCodes[key];
+  document.getElementById('dress-display').innerHTML = `
+    <div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">${d.title}</div>
+    <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px; font-style:italic;">${d.subtitle}</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Men</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${d.men}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Women</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${d.women}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Occasions</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${d.occasions}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key rule</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${d.note}</div></div>
+    </div>`;
+}
+
+const sizeData = {
+  'clothing-women': {
+    headers:['Letter','EU','UK','US/CA','IT','FR','Chest cm','Waist cm'],
+    rows:[
+      ['XS','32–34','4–6','0–2','36–38','34–36','79–83','60–64'],
+      ['S','36–38','8–10','4–6','40–42','38–40','84–88','65–69'],
+      ['M','40–42','12–14','8–10','44–46','42–44','89–93','70–74'],
+      ['L','44–46','16–18','12–14','48–50','46–48','94–100','75–81'],
+      ['XL','48–50','20–22','16–18','52–54','50–52','101–107','82–88'],
+      ['XXL','52–54','24–26','20–22','56–58','54–56','108–116','89–97'],
+    ]
+  },
+  'clothing-men': {
+    headers:['Letter','EU','UK/US','IT','Chest cm','Waist cm'],
+    rows:[
+      ['XS','44','34','44','84–88','70–74'],
+      ['S','46–48','36–38','46–48','88–96','75–80'],
+      ['M','48–50','38–40','48–50','96–100','80–85'],
+      ['L','52–54','42–44','52–54','100–108','85–92'],
+      ['XL','56–58','46–48','56–58','108–116','92–100'],
+      ['XXL','60–62','50–52','60–62','116–124','100–108'],
+    ]
+  },
+  'shirt': {
+    headers:['EU/cm','UK/US (inches)','Letter size','Neck circumference'],
+    rows:[
+      ['36','14','XXS','36 cm'],
+      ['37','14.5','XS','37 cm'],
+      ['38','15','S','38 cm'],
+      ['39','15.5','S–M','39 cm'],
+      ['40','15.75','M','40 cm'],
+      ['41','16','M–L','41 cm'],
+      ['42','16.5','L','42 cm'],
+      ['43','17','XL','43 cm'],
+      ['44','17.5','XL–XXL','44 cm'],
+      ['45','17.75','XXL','45 cm'],
+    ]
+  },
+  'shoes-women': {
+    headers:['EU','UK','US','IT','cm (foot length)'],
+    rows:[
+      ['35','2.5','5','35','22.5'],
+      ['36','3.5','6','36','23'],
+      ['37','4','6.5','37','23.5'],
+      ['38','5','7.5','38','24.5'],
+      ['39','6','8.5','39','25'],
+      ['40','6.5','9','40','25.5'],
+      ['41','7.5','10','41','26.5'],
+      ['42','8','10.5','42','27'],
+      ['43','9','11.5','43','27.5'],
+    ]
+  },
+  'shoes-men': {
+    headers:['EU','UK','US','IT','cm (foot length)'],
+    rows:[
+      ['39','6','7','39','25'],
+      ['40','6.5','7.5','40','25.5'],
+      ['41','7.5','8.5','41','26.5'],
+      ['42','8','9','42','27'],
+      ['43','9','10','43','27.5'],
+      ['44','9.5','10.5','44','28'],
+      ['45','10.5','11.5','45','28.5'],
+      ['46','11','12','46','29.5'],
+      ['47','12','13','47','30'],
+    ]
+  }
+};
+
+function buildSizeTable() {
+  const data = sizeData['clothing-women'];
+  const tbody = document.getElementById('size-table-body');
+  const sizes = [
+    {label:'XS',wChest:'79–83',mChest:'84–88',euW:'32–34',euM:'44',usW:'0–2',usM:'XS'},
+    {label:'S',wChest:'84–88',mChest:'88–96',euW:'36–38',euM:'46–48',usW:'4–6',usM:'S'},
+    {label:'M',wChest:'89–93',mChest:'96–100',euW:'40–42',euM:'48–50',usW:'8–10',usM:'M'},
+    {label:'L',wChest:'94–100',mChest:'100–108',euW:'44–46',euM:'52–54',usW:'12–14',usM:'L'},
+    {label:'XL',wChest:'101–107',mChest:'108–116',euW:'48–50',euM:'56–58',usW:'16–18',usM:'XL'},
+    {label:'XXL',wChest:'108–116',mChest:'116–124',euW:'52–54',euM:'60–62',usW:'20–22',usM:'XXL'},
+  ];
+  tbody.innerHTML = sizes.map((s,i) => `<tr style="background:${i%2?'var(--color-background-secondary)':''}; border-bottom:0.5px solid var(--color-border-tertiary);">
+    <td style="padding:5px 8px; font-weight:500; color:var(--color-text-primary);">${s.label}</td>
+    <td style="padding:5px 8px; text-align:center; color:var(--color-text-secondary);">${s.wChest}</td>
+    <td style="padding:5px 8px; text-align:center; color:var(--color-text-secondary);">${s.mChest}</td>
+    <td style="padding:5px 8px; text-align:center; color:var(--color-text-secondary);">${s.euW}</td>
+    <td style="padding:5px 8px; text-align:center; color:var(--color-text-secondary);">${s.euM}</td>
+    <td style="padding:5px 8px; text-align:center; color:var(--color-text-secondary);">${s.usW}</td>
+    <td style="padding:5px 8px; text-align:center; color:var(--color-text-secondary);">${s.usM}</td>
+  </tr>`).join('');
+}
+
+function convertSize() {
+  const cat = document.getElementById('size-cat').value;
+  const from = document.getElementById('size-from').value;
+  const val = parseFloat(document.getElementById('size-val').value);
+  const data = sizeData[cat];
+  if (!data) return;
+  const systemIdx = {'eu':1,'uk':2,'us':3,'it':4,'fr':5};
+  const colIdx = systemIdx[from];
+  if (colIdx === undefined) { document.getElementById('size-result').innerHTML = 'System not available for this category.'; return; }
+
+  const effectiveIdx = Math.min(colIdx, data.headers.length - 1);
+  const match = data.rows.find(r => {
+    const cell = r[effectiveIdx];
+    if (!cell) return false;
+    if (cell.includes('–')) {
+      const [lo, hi] = cell.split('–').map(Number);
+      return val >= lo && val <= hi;
+    }
+    return parseFloat(cell) === val;
+  });
+
+  if (!match) {
+    document.getElementById('size-result').innerHTML = `Size ${val} not found in the ${from.toUpperCase()} system for ${cat}. Check the table above for the full range.`;
+    return;
+  }
+
+  let html = `<strong>${from.toUpperCase()} ${val}</strong> (${cat.replace('-',' ')}) converts to:<br>`;
+  data.headers.forEach((h,i) => {
+    if (i === effectiveIdx) return;
+    html += `<span style="margin-right:16px;"><strong>${h}:</strong> ${match[i] || '—'}</span>`;
+  });
+  document.getElementById('size-result').innerHTML = html;
+}
+
+showBrand('lv');
+showDress('blacktie');
+buildSizeTable();
+convertSize();
+    </script>
+  </div>
+</body>
+</html>

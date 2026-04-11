@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 6: Big Infrastructure — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.vehicle-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.vh { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.vname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.vtag { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.vrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.vsub { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.vslabel { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
+.vsval { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+.vsnote { font-size: 11px; color: var(--color-text-secondary); margin: 2px 0 0; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 6: Big Infrastructure</h1>
+    <p class="module-subtitle">Bridges, dams, airports, and mega-projects</p>
+
+    <div class="sec">Part A · what it costs to build big things</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Major infrastructure — construction cost (in today's money)</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Costs vary enormously by location, era, and complexity. These are approximate real-world figures.</div>
+      <div class="bar-row"><span class="bl">Channel Tunnel (UK–France)</span><div class="bb" style="width:100%; background:#085041;"><span class="bv" style="color:#fff;">~$21B — 50 km undersea tunnel</span></div></div>
+      <div class="bar-row"><span class="bl">Golden Gate Bridge</span><div class="bb" style="width:18%; background:#1D9E75;"><span class="bv" style="color:#fff;">~$1.5B today</span></div></div>
+      <div class="bar-row"><span class="bl">Typical large suspension bridge</span><div class="bb" style="width:24%; background:#1D9E75;"><span class="bv" style="color:#fff;">$1–4B</span></div></div>
+      <div class="bar-row"><span class="bl">Simple motorway bridge (100m)</span><div class="bb" style="width:2%; background:#9FE1CB;"><span class="bv" style="color:#085041; font-size:10px;">$10–50M</span></div></div>
+      <div class="bar-row"><span class="bl">Nuclear power plant</span><div class="bb" style="width:90%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$10–20B (new build)</span></div></div>
+      <div class="bar-row"><span class="bl">Large airport (new)</span><div class="bb" style="width:60%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$10–15B</span></div></div>
+      <div class="bar-row"><span class="bl">Large hospital (500 beds)</span><div class="bb" style="width:6%; background:#5DCAA5;"><span class="bv" style="color:#04342C; font-size:10px;">~$1–2B</span></div></div>
+      <div class="bar-row"><span class="bl">Skyscraper (50+ floors)</span><div class="bb" style="width:5%; background:#9FE1CB;"><span class="bv" style="color:#04342C; font-size:10px;">$500M–1B</span></div></div>
+    </div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Golden Gate Bridge — what goes into the cost</div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px;">
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Span length</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">1,280 m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">Main span. Total bridge: 2.7 km.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Tower height</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">227 m</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">Above water. Taller than the Eiffel Tower's first floor.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Main cable diameter</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">92 cm</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">Each cable has 27,572 individual wires inside.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Steel used</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">83,000 tonnes</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">About 60,000 cars' worth of steel.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Original cost (1937)</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">$35 million</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">~$1.5B in today's money.</div>
+        </div>
+        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Built in</div>
+          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">4 years</div>
+          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">1933–1937. 11 workers died. 1,400 workers employed at peak.</div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 10px; line-height: 1.5;">
+        Key anchor: a major iconic suspension bridge costs roughly <strong style="color: var(--color-text-primary)">$1–4 billion</strong>. A simple road bridge over a river costs <strong style="color: var(--color-text-primary)">$10–50 million</strong>. The difference is mostly span length and engineering complexity.
+      </div>
+    </div>
+
+    <div class="sec">Part B · how much can each vehicle carry?</div>
+
+    <div class="vehicle-card">
+      <div class="vh">
+        <span class="vname">Car (standard 4-door)</span>
+        <span class="vtag" style="background:#E6F1FB; color:#0C447C;">lightest</span>
+      </div>
+      <div class="vrow">
+        <div class="vsub">
+          <p class="vslabel">Passenger capacity</p>
+          <p class="vsval">4–5 people</p>
+          <p class="vsnote">~300–400 kg of people</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Cargo/boot load</p>
+          <p class="vsval">~400–500 kg</p>
+          <p class="vsnote">Legal payload. Don't confuse with boot volume (litres).</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Total vehicle weight</p>
+          <p class="vsval">~1,400 kg</p>
+          <p class="vsnote">The car itself, empty. Payload adds on top.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vh">
+        <span class="vname">Van / light commercial</span>
+        <span class="vtag" style="background:#EAF3DE; color:#27500A;">everyday freight</span>
+      </div>
+      <div class="vrow">
+        <div class="vsub">
+          <p class="vslabel">Payload (small van)</p>
+          <p class="vsval">~800 kg</p>
+          <p class="vsnote">Transit-size van. Good for pallets, furniture.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Payload (large van)</p>
+          <p class="vsval">~1,200 kg</p>
+          <p class="vsnote">Luton / Sprinter. Used by most delivery companies.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Load volume</p>
+          <p class="vsval">8–14 m³</p>
+          <p class="vsnote">Roughly fits a small apartment's contents.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vh">
+        <span class="vname">Truck / articulated lorry (HGV)</span>
+        <span class="vtag" style="background:#FAEEDA; color:#633806;">road freight workhorse</span>
+      </div>
+      <div class="vrow">
+        <div class="vsub">
+          <p class="vslabel">Maximum legal payload</p>
+          <p class="vsval">~24–26 tonnes</p>
+          <p class="vsnote">EU road limit. About 17–18 family cars' worth of weight.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Gross vehicle weight</p>
+          <p class="vsval">~44 tonnes total</p>
+          <p class="vsnote">Truck (18t) + trailer (26t payload).</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Load volume</p>
+          <p class="vsval">~82–100 m³</p>
+          <p class="vsnote">Standard 13.6m trailer. Fits ~26 standard pallets.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vh">
+        <span class="vname">Cargo aircraft (Boeing 747 freighter)</span>
+        <span class="vtag" style="background:#EEEDFE; color:#3C3489;">fast but expensive</span>
+      </div>
+      <div class="vrow">
+        <div class="vsub">
+          <p class="vslabel">Payload capacity</p>
+          <p class="vsval">~103 tonnes</p>
+          <p class="vsnote">About 4 fully loaded HGV trucks — in one aircraft.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Range (loaded)</p>
+          <p class="vsval">~8,000 km</p>
+          <p class="vsnote">Europe to Asia nonstop, roughly.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Cost per tonne-km</p>
+          <p class="vsval">~$4–8</p>
+          <p class="vsnote">~10× more expensive than sea freight per tonne.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="vehicle-card">
+      <div class="vh">
+        <span class="vname">Container ship (large — e.g. Evergreen)</span>
+        <span class="vtag" style="background:#FAECE7; color:#712B13;">the real workhorse of global trade</span>
+      </div>
+      <div class="vrow">
+        <div class="vsub">
+          <p class="vslabel">Container capacity</p>
+          <p class="vsval">~24,000 TEU</p>
+          <p class="vsnote">TEU = 1 standard 20-foot container. That's 24,000 of them.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Maximum cargo weight</p>
+          <p class="vsval">~200,000 tonnes</p>
+          <p class="vsnote">About 8,000 loaded HGV trucks — on one ship.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel">Ship's own weight (empty)</p>
+          <p class="vsval">~55,000 tonnes</p>
+          <p class="vsnote">The ship weighs ~55,000 t before loading a single container.</p>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 8px; line-height:1.5;">
+        One large container ship carries the equivalent freight of <strong style="color:var(--color-text-primary)">~8,000 trucks</strong> or <strong style="color:var(--color-text-primary)">~1,940 Boeing 747 freighters</strong>. This is why ~90% of all traded goods travel by sea. It's by far the most efficient way to move things.
+      </div>
+    </div>
+
+    <div class="sec">Part C · payload comparison at a glance</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Maximum payload capacity (tonnes)</div>
+      <div class="bar-row"><span class="bl">Large container ship</span><div class="bb" style="width:100%; background:#712B13;"><span class="bv" style="color:#fff;">200,000 t</span></div></div>
+      <div class="bar-row"><span class="bl">Bulk carrier ship</span><div class="bb" style="width:90%; background:#993C1D;"><span class="bv" style="color:#fff;">~180,000 t (iron ore, grain)</span></div></div>
+      <div class="bar-row"><span class="bl">Large cargo plane (747F)</span><div class="bb" style="width:0.05%; background:#F5C4B3; border: 0.5px solid #F0997B;"><span class="bv" style="color:#712B13; margin-left:4px; font-size:10px;">103 t</span></div></div>
+      <div class="bar-row"><span class="bl">HGV truck</span><div class="bb" style="width:0.013%; background:#FAECE7; border: 0.5px solid #F5C4B3;"><span class="bv" style="color:#712B13; margin-left:4px; font-size:10px;">26 t</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0;">The scale difference is staggering. One container ship carries as much as ~1,940 cargo planes or ~7,700 trucks. This is why shipping by sea is ~10–50× cheaper per tonne than air freight.</p>
+    </div>
+
+    <div class="sec">Part D · anchor numbers to memorize</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div class="anchor-row">
+        <span class="pill p-blue">~$1–4B</span>
+        <div><div class="atext">A major suspension bridge</div><div class="asub">Simple road bridge: $10–50M. The complexity drives cost, not just size.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">500 kg</span>
+        <div><div class="atext">Car cargo payload</div><div class="asub">A fully loaded family car (people + luggage) is roughly 2,000 kg total</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">26 tonnes</span>
+        <div><div class="atext">HGV truck payload</div><div class="asub">About 18 family cars' worth of cargo in one lorry</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple">103 tonnes</span>
+        <div><div class="atext">Boeing 747 freighter payload</div><div class="asub">~4 fully loaded HGV trucks, flying at 900 km/h</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">200,000 t</span>
+        <div><div class="atext">Large container ship payload</div><div class="asub">~8,000 trucks. 90% of world trade moves this way.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part E · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A news article says a new bridge will cost "$800 million." Is that cheap, average, or expensive for a bridge?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">It's on the lower end for a major bridge — reasonable but not cheap. A simple road bridge is $10–50M. A major suspension bridge is $1–4B. At $800M, you're looking at a significant but not iconic bridge — likely a cable-stayed or medium-span structure over a wide river or bay. The Golden Gate Bridge cost the equivalent of ~$1.5B in today's money, so $800M buys you roughly half a Golden Gate.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. You want to move 500 tonnes of cargo from Europe to Japan. A ship takes 30 days. A plane takes 12 hours. What's the main reason almost everyone chooses the ship?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Cost. Air freight costs roughly $4–8 per tonne per km. Sea freight costs about $0.05–0.15 per tonne per km — roughly 50–100× cheaper. For 500 tonnes over ~10,000 km: sea freight ≈ $500,000–750,000. Air freight ≈ $40–80 million. You'd only choose air if the cargo is time-critical (medicine, electronics, perishables) or extremely high-value relative to weight.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. A removal company says their van can carry "up to 1 tonne." You're moving a 2-bedroom flat. Is one van enough?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Probably not by weight, but the volume limit usually hits first. A 2-bed flat typically has 20–40 m³ of furniture and boxes. A large van holds 8–14 m³, so you'd likely need 2–4 van loads regardless of weight. The 1-tonne weight limit is rarely the binding constraint for household goods — furniture is bulky but not particularly heavy (a sofa is ~80–120 kg, a double bed frame ~50 kg, a fridge ~80 kg).</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. A large container ship carries 200,000 tonnes. It crosses the Pacific in about 14 days. How many HGV trucks would it take to carry the same load on land?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 7,700 trucks (200,000 ÷ 26 tonnes per truck ≈ 7,692). If those trucks drove bumper to bumper at 12 metres each, the convoy would stretch about 92 km — roughly Paris to Reims. This is why container ships are civilization's most important logistics tool: one ship does the work of a small city's entire trucking fleet.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. The Golden Gate Bridge used 83,000 tonnes of steel. A car weighs ~1.4 tonnes. How many cars' worth of steel is in the bridge?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 59,000 cars. 83,000 ÷ 1.4 ≈ 59,300. Imagine melting down 59,000 cars and reshaping the steel into a bridge. That's the scale of material in one iconic structure — and the Golden Gate is not even close to the largest bridge ever built. The Akashi Kaikyō Bridge in Japan used over 200,000 tonnes of steel.</div>
+    </div>
+
+  </div>
+</body>
+</html>

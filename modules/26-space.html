@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 26: Space & the Solar System — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 26: Space & the Solar System</h1>
+    <p class="module-subtitle">Planets, distances, and cosmic scale</p>
+
+    <div class="sec">Part A · the Sun — the star at the centre</div>
+
+    <div style="background:#FAEEDA; border:0.5px solid #EF9F27; border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:14px; font-weight:500; color:#412402; margin-bottom:8px;">The Sun — our star</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px; margin-bottom:8px;">
+        <div style="background:#FAC775; border-radius:var(--border-radius-md); padding:8px 10px;"><p style="font-size:11px; color:#633806; margin:0 0 2px;">Diameter</p><p style="font-size:13px; font-weight:500; color:#412402; margin:0;">1,392,700 km — 109× Earth's diameter</p></div>
+        <div style="background:#FAC775; border-radius:var(--border-radius-md); padding:8px 10px;"><p style="font-size:11px; color:#633806; margin:0 0 2px;">Mass</p><p style="font-size:13px; font-weight:500; color:#412402; margin:0;">1.989 × 10³⁰ kg — 333,000× Earth's mass</p></div>
+        <div style="background:#FAC775; border-radius:var(--border-radius-md); padding:8px 10px;"><p style="font-size:11px; color:#633806; margin:0 0 2px;">Surface temperature</p><p style="font-size:13px; font-weight:500; color:#412402; margin:0;">~5,500°C (corona: 1–3 million °C — hotter than surface, still unexplained)</p></div>
+        <div style="background:#FAC775; border-radius:var(--border-radius-md); padding:8px 10px;"><p style="font-size:11px; color:#633806; margin:0 0 2px;">Distance from Earth</p><p style="font-size:13px; font-weight:500; color:#412402; margin:0;">~150 million km = 1 AU. Light travel time: 8 min 20 sec.</p></div>
+        <div style="background:#FAC775; border-radius:var(--border-radius-md); padding:8px 10px;"><p style="font-size:11px; color:#633806; margin:0 0 2px;">Composition</p><p style="font-size:13px; font-weight:500; color:#412402; margin:0;">~74% hydrogen, ~25% helium, 1% heavier elements</p></div>
+        <div style="background:#FAC775; border-radius:var(--border-radius-md); padding:8px 10px;"><p style="font-size:11px; color:#633806; margin:0 0 2px;">Age / remaining life</p><p style="font-size:13px; font-weight:500; color:#412402; margin:0;">4.6 billion years old. ~5 billion years of hydrogen fuel remaining.</p></div>
+      </div>
+      <div style="font-size:12px; color:#633806; line-height:1.6;">The Sun contains 99.86% of all mass in the solar system. Its gravity holds everything from Mercury to the Oort Cloud (~2 light-years away). The Sun is a G-type main-sequence star — perfectly average by stellar standards, which is fortunate: massive stars burn fast and go supernova.</div>
+    </div>
+
+    <div class="sec">Part B · the planets — interactive explorer</div>
+
+    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showPlanet('mercury')"  style="font-size:11px; padding:3px 9px;">Mercury</button>
+      <button onclick="showPlanet('venus')"    style="font-size:11px; padding:3px 9px;">Venus</button>
+      <button onclick="showPlanet('earth')"    style="font-size:11px; padding:3px 9px;">Earth</button>
+      <button onclick="showPlanet('mars')"     style="font-size:11px; padding:3px 9px;">Mars</button>
+      <button onclick="showPlanet('jupiter')"  style="font-size:11px; padding:3px 9px;">Jupiter</button>
+      <button onclick="showPlanet('saturn')"   style="font-size:11px; padding:3px 9px;">Saturn</button>
+      <button onclick="showPlanet('uranus')"   style="font-size:11px; padding:3px 9px;">Uranus</button>
+      <button onclick="showPlanet('neptune')"  style="font-size:11px; padding:3px 9px;">Neptune</button>
+    </div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
+      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Scale visualisation — relative planet sizes (not to orbital distance scale)</div>
+      <div style="display:flex; align-items:center; gap:4px; margin-bottom:8px; flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="width:4px; height:4px; background:#888780; border-radius:50%; margin:0 auto 2px;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Mer</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:9px; height:9px; background:#BA7517; border-radius:50%; margin:0 auto 2px;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Ven</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:10px; height:10px; background:#378ADD; border-radius:50%; margin:0 auto 2px;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Ear</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:5px; height:5px; background:#D85A30; border-radius:50%; margin:0 auto 2px;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Mar</div>
+        </div>
+        <div style="width:8px; height:1px; background:var(--color-border-tertiary); flex-shrink:0; align-self:center;"></div>
+        <div style="font-size:9px; color:var(--color-text-secondary); align-self:center;">belt</div>
+        <div style="width:8px; height:1px; background:var(--color-border-tertiary); flex-shrink:0; align-self:center;"></div>
+        <div style="text-align:center;">
+          <div style="width:112px; height:112px; background:#D85A30; border-radius:50%; margin:0 auto 2px; opacity:0.7;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Jupiter</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:94px; height:94px; background:#EF9F27; border-radius:50%; margin:0 auto 2px; opacity:0.7; border:2px solid #BA7517;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Saturn (rings not shown)</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:40px; height:40px; background:#5DCAA5; border-radius:50%; margin:0 auto 2px; opacity:0.8;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Uranus</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="width:38px; height:38px; background:#185FA5; border-radius:50%; margin:0 auto 2px; opacity:0.8;"></div>
+          <div style="font-size:9px; color:var(--color-text-secondary);">Neptune</div>
+        </div>
+      </div>
+      <div style="font-size:11px; color:var(--color-text-secondary);">Inner planets (Mercury–Mars) shown at 10px per Earth diameter. Gas giants scaled at ~1/11th for fit. If Jupiter were truly to scale relative to Earth above, it would be 1,120px wide.</div>
+    </div>
+
+    <div id="planet-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part C · beyond the planets — the outer solar system</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Asteroid belt</p>
+        <p class="cval">Between Mars and Jupiter (~2.2–3.2 AU)</p>
+        <p class="cnote">Millions of rocky objects, but total mass only ~4% of Earth's Moon. Despite depictions in films, space between asteroids averages hundreds of thousands of km — the Voyager probes passed through without incident. Ceres (diameter 940 km) is the largest and is classified as a dwarf planet.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Dwarf planets</p>
+        <p class="cval">Pluto, Eris, Ceres, Makemake, Haumea</p>
+        <p class="cnote">Pluto (reclassified in 2006) orbits at ~39 AU, takes 248 years per orbit, has 5 moons including Charon (half its size). Eris is slightly larger than Pluto — its discovery triggered the dwarf planet debate. IAU definition: orbits the Sun, roughly spherical, but has NOT cleared its orbital neighbourhood.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Kuiper Belt</p>
+        <p class="cval">30–50 AU — beyond Neptune</p>
+        <p class="cnote">A disc of icy objects, the remnants of solar system formation. Contains Pluto, Eris, and thousands of other objects. Short-period comets originate here (those with orbital periods under 200 years). 20× wider than the asteroid belt but 20–200× more massive.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Oort Cloud</p>
+        <p class="cval">~2,000–100,000 AU — the edge of the solar system</p>
+        <p class="cnote">A vast spherical shell of icy bodies surrounding the solar system. Long-period comets (orbital periods thousands to millions of years) originate here. Never been directly observed — inferred from comet trajectories. Its outer edge (~100,000 AU = ~1.6 light-years) is roughly halfway to the nearest star.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part D · Earth's Moon — everything worth knowing</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Distance from Earth</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">384,400 km</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">Light: 1.3 sec. Varies: 356,500 (perigee) to 406,700 km (apogee)</p></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Diameter</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">3,474 km</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">27% of Earth's. Largest moon relative to its planet (except Charon/Pluto)</p></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Orbital period</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">27.3 days</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">Sidereal (relative to stars). Lunar month (new moon to new moon): 29.5 days</p></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Rotation period</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">27.3 days</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">Same as orbital period — tidally locked. We always see the same face.</p></div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Tidal locking — why one face only</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Earth's gravity created tidal bulges in the Moon's crust. These bulges created a drag that gradually slowed the Moon's rotation over billions of years until rotation period exactly matched orbital period. Now perfectly synchronised — the far side ("dark side" is a misnomer — it gets as much sunlight as the near side, just never faces us) was unseen until Soviet Luna 3 photographed it in 1959.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Tides — the Moon's gravitational pull</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The Moon's gravity pulls Earth's oceans (and to a tiny extent, land) toward it. As Earth rotates, different points pass through this tidal bulge — creating high and low tides (~2 per day). The Sun also creates tides (~46% the strength). When Sun, Moon, and Earth align (new/full moon): spring tides (highest). When at right angles: neap tides (lowest range).</div>
+        </div>
+      </div>
+
+      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">The 8 lunar phases — one complete cycle = 29.5 days</div>
+      <div style="display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;">
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:#2C2C2A; margin:0 auto 4px; border:1px solid var(--color-border-secondary);"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">New Moon</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Day 0 — Moon between Earth and Sun. Invisible.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:linear-gradient(to right, #2C2C2A 50%, #D3D1C7 50%); margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">Waxing crescent</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Days 1–6. Right side lit.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:linear-gradient(to right, #2C2C2A 25%, #D3D1C7 25%); margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">First quarter</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Day 7. Right half lit.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:linear-gradient(to right, #D3D1C7 60%, #888780 60%); margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">Waxing gibbous</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Days 8–13. Mostly lit.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:#D3D1C7; margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">Full Moon</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Day 14–15. Fully lit. Earth between Sun and Moon.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:linear-gradient(to left, #D3D1C7 60%, #888780 60%); margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">Waning gibbous</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Days 16–21. Left side lit.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:linear-gradient(to left, #2C2C2A 25%, #D3D1C7 25%); margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">Last quarter</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Day 22. Left half lit.</div>
+        </div>
+        <div style="flex:1; min-width:80px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 8px; text-align:center;">
+          <div style="width:20px; height:20px; border-radius:50%; background:linear-gradient(to left, #2C2C2A 50%, #D3D1C7 50%); margin:0 auto 4px;"></div>
+          <div style="font-size:10px; font-weight:500; color:var(--color-text-primary);">Waning crescent</div>
+          <div style="font-size:10px; color:var(--color-text-secondary);">Days 23–29. Sliver left side.</div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">The Moon's movement through space is complex:</strong> It orbits Earth (27.3 days). Earth + Moon orbit the Sun together (365.25 days). The Moon's path around the Sun is always convex — it always curves toward the Sun, never loops backward, despite appearances. The Moon is also very slowly drifting away from Earth at ~3.8 cm/year (measured by laser retroreflectors left by Apollo missions).
+      </div>
+    </div>
+
+    <div class="sec">Part E · Earth's atmosphere — the five layers</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">From the ground to space — altitude and what happens at each level</div>
+      <div style="display:flex; flex-direction:column; gap:0; margin-bottom:10px;">
+        <div style="background:#042C53; border-radius:var(--border-radius-md) var(--border-radius-md) 0 0; padding:10px 14px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+            <span style="font-size:12px; font-weight:500; color:#E6F1FB;">Exosphere</span>
+            <span style="font-size:11px; color:#B5D4F4;">700 km to ~10,000 km</span>
+          </div>
+          <div style="font-size:11px; color:#85B7EB; margin-top:4px; line-height:1.4;">The outermost layer — atmosphere so thin it merges imperceptibly into interplanetary space. Molecules can escape Earth's gravity. Satellites in very high orbits (GPS: ~20,200 km) orbit here. No weather phenomena. Temperature "definition" breaks down — molecules travel huge distances between collisions.</div>
+        </div>
+        <div style="background:#0C447C; padding:10px 14px; border-left:0.5px solid #042C53; border-right:0.5px solid #042C53;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+            <span style="font-size:12px; font-weight:500; color:#E6F1FB;">Thermosphere</span>
+            <span style="font-size:11px; color:#B5D4F4;">80–700 km</span>
+          </div>
+          <div style="font-size:11px; color:#85B7EB; margin-top:4px; line-height:1.4;">ISS orbits here (~400 km). Temperature rises dramatically with altitude (up to 2,500°C) — but air is so thin there are almost no molecules to transfer heat. Auroras (Northern/Southern Lights) occur here — solar wind particles excite atmospheric atoms. Re-entry vehicles experience intense heating here from air compression.</div>
+        </div>
+        <div style="background:#185FA5; padding:10px 14px; border-left:0.5px solid #042C53; border-right:0.5px solid #042C53;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+            <span style="font-size:12px; font-weight:500; color:#E6F1FB;">Mesosphere</span>
+            <span style="font-size:11px; color:#B5D4F4;">50–80 km</span>
+          </div>
+          <div style="font-size:11px; color:#B5D4F4; margin-top:4px; line-height:1.4;">Temperature drops to −90°C at the mesopause (top) — coldest natural temperature on Earth. Most meteors burn up here (friction with air molecules). Noctilucent clouds form near the top at ~82 km — rare, beautiful electric-blue clouds of ice crystals, only visible at twilight. Too high for aircraft, too low for satellites — the "ignorosphere."</div>
+        </div>
+        <div style="background:#B5D4F4; padding:10px 14px; border-left:0.5px solid #85B7EB; border-right:0.5px solid #85B7EB;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+            <span style="font-size:12px; font-weight:500; color:#042C53;">Stratosphere</span>
+            <span style="font-size:11px; color:#0C447C;">12–50 km</span>
+          </div>
+          <div style="font-size:11px; color:#0C447C; margin-top:4px; line-height:1.4;">Contains the ozone layer (~15–35 km) which absorbs UV radiation — essential for life on Earth. Temperature increases with altitude here (the opposite of the troposphere) because ozone absorbs UV energy. Very dry, no weather. Commercial aircraft fly at ~10–12 km (just below/at the tropopause). Concorde flew at ~18 km in the lower stratosphere. Weather balloons reach ~30–40 km.</div>
+        </div>
+        <div style="background:#E6F1FB; border-radius:0 0 var(--border-radius-md) var(--border-radius-md); padding:10px 14px; border:0.5px solid #B5D4F4; border-top:none;">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:4px;">
+            <span style="font-size:12px; font-weight:500; color:#042C53;">Troposphere</span>
+            <span style="font-size:11px; color:#185FA5;">0–12 km (8 km at poles, 16 km at equator)</span>
+          </div>
+          <div style="font-size:11px; color:#185FA5; margin-top:4px; line-height:1.4;">All weather happens here. Contains ~75% of the atmosphere's mass and ~99% of its water vapour. Temperature decreases ~6.5°C per km. Mount Everest (8,849 m) is near the top. Beyond the tropopause (the boundary), temperature stops falling — this inversion "caps" convection and prevents weather systems from penetrating into the stratosphere.</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary);">The Kármán line (100 km) is the internationally recognised boundary of space — the point where the atmosphere is too thin for aircraft to generate lift and orbital mechanics take over.</div>
+    </div>
+
+    <div class="sec">Part F · key space distances — the numbers you need</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Distances from Earth's surface — drag to explore</div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:80px;">Altitude:</label>
+        <input type="range" id="dist-slider" min="0" max="18" value="3" step="1" style="flex:1;">
+      </div>
+      <div id="dist-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+    </div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. Venus is closer to Earth than Mars, yet Mars has been visited by more spacecraft. Why is Mars a better destination for exploration?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Venus is hellish in ways Mars is not. Venus's surface temperature is ~465°C — hot enough to melt lead — due to an extreme greenhouse effect. The atmosphere is 90× denser than Earth's (equivalent to 900m underwater) and composed of carbon dioxide with sulphuric acid clouds. Every spacecraft that has landed on Venus has been destroyed within 2 hours by the pressure and heat. Mars, while cold (avg −63°C) and with a very thin atmosphere (1% of Earth's), is survivable for robotic missions. Rovers (Curiosity, Perseverance) have operated for years. Mars also has evidence of ancient water (dried riverbeds, polar ice caps) making it interesting for life-detection. There are also serious proposals for human missions to Mars. A human mission to Venus would require floating in the upper atmosphere — the surface is inaccessible with current technology.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Why does the Moon always show the same face to Earth, and what would you see if you stood on the far side?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Tidal locking: Earth's gravity created tidal bulges in the Moon's solid crust. The gravitational pull on these bulges created a torque that gradually slowed the Moon's rotation over billions of years until its rotation period exactly equalled its orbital period (27.3 days). At that point, the same face perpetually points toward Earth — the system is in its lowest energy state, and there's no longer a torque to change it. From the far side of the Moon, you would never see Earth — it would always be below your horizon. You would see the stars and Sun in a completely black sky (no atmosphere means no scattered light). The far side has a much more heavily cratered surface — the near side's mare (dark volcanic plains) are largely absent. China's Chang'e 4 became the first mission to land on the far side in January 2019. Communication requires a relay satellite positioned at the Earth-Moon L2 Lagrange point because the Moon itself blocks direct radio contact.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. If you were on the ISS (400 km altitude), would you experience weightlessness because you're "far from Earth's gravity"?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">No — this is one of the most common misconceptions in space science. At 400 km altitude, Earth's gravity is still about 88–89% of its surface value. You feel weightless on the ISS not because gravity is weak, but because you are in continuous freefall. The ISS (and everything in it) is falling toward Earth at the same rate — but moving horizontally fast enough (~27,600 km/h) that Earth's curved surface keeps falling away beneath it at the same rate it falls toward Earth. This is what an orbit is: perpetual freefall in which you miss the ground because you're moving sideways so fast. Astronauts experience microgravity because every object in the ISS — the station itself, their bodies, their breakfast — is all falling at exactly the same rate. There is no relative gravitational force between them. True weightlessness (absence of gravity) doesn't exist in the solar system — gravity has infinite range, just diminishing with distance.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Saturn has rings — why doesn't every gas giant? And what are the rings actually made of?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">All four gas giants actually have rings — but Saturn's are uniquely prominent and bright. Jupiter, Uranus, and Neptune all have ring systems, but they are faint and dark (composed of dust and dark rocky material). Saturn's rings are made primarily of water ice particles ranging from tiny grains to chunks several metres across — and ice is highly reflective (albedo ~0.9 vs dark rocky material's ~0.05). This is why Saturn's rings are brilliant white and visible from Earth with a basic telescope while the other planets' rings are nearly invisible. The rings likely formed from the tidal disruption of an icy moon (or captured comet) that came within Saturn's Roche limit — the distance at which tidal forces overcome an object's self-gravity. Saturn's rings are only ~10–100 metres thick despite being 282,000 km wide — if scaled to the thickness of a sheet of paper, the rings would be several kilometres across. Saturn's rings are also surprisingly young — estimated at only 10–100 million years old, meaning dinosaurs existed before Saturn had its current ring system.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. How far away is the nearest star, and how does that distance put the solar system's scale in perspective?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Proxima Centauri is 4.24 light-years away — ~40 trillion km, or ~268,000 AU. To put this in perspective: if you shrank the Sun to the size of a grapefruit (13 cm), Earth would be a grain of sand 14 metres away, Jupiter a marble 73 metres away, and Neptune a pea 440 metres away. The Oort Cloud's outer edge would be about 50 km away. Proxima Centauri, at the same scale, would be 3,800 km away — roughly the distance from London to New York. The nearest star is as far from our solar system as a different continent is from another, while our entire solar system (planets) fits on a football pitch. The Voyager 1 probe, launched in 1977 and travelling at ~17 km/s (the fastest human-made object), is currently ~24 billion km from Earth — which sounds enormous but is only ~0.000025% of the way to Proxima Centauri. At its current speed, it would take ~73,000 years to reach there (it's not heading that direction).</div>
+    </div>
+
+    <script>
+const planets = {
+  mercury: { name:'Mercury', num:1, col:'#888780', bg:'#F1EFE8',
+    dist:'0.387 AU (57.9M km)', year:'88 Earth days', day:'59 Earth days (but solar day = 176 Earth days)', diam:'4,879 km (0.38× Earth)', moons:'0',
+    facts:[
+      'Despite being closest to the Sun, Venus is hotter — Mercury has no atmosphere to retain heat.',
+      'Surface temperatures swing from −180°C (night) to +430°C (day) — the largest range of any planet.',
+      'Mercury has a surprisingly large iron core (~85% of its radius) — possibly stripped of its mantle by a giant impact.',
+      'Has water ice in permanently shadowed craters at the poles despite its proximity to the Sun.',
+      'Visited by Mariner 10 (1974–75) and MESSENGER (2011–15). BepiColombo mission en route (arrives 2025).'
+    ]},
+  venus: { name:'Venus', num:2, col:'#BA7517', bg:'#FAEEDA',
+    dist:'0.723 AU (108.2M km)', year:'225 Earth days', day:'243 Earth days (longer than its year! And rotates backwards)', diam:'12,104 km (0.95× Earth)', moons:'0',
+    facts:[
+      'Hottest planet: ~465°C average surface temperature — hotter than Mercury despite being further from the Sun.',
+      'Extreme greenhouse effect: 96% CO₂ atmosphere, atmospheric pressure 90× Earth\'s (like 900m underwater).',
+      'Rotates backwards (retrograde) and extremely slowly — the Sun rises in the west and sets in the east.',
+      'Clouds of sulphuric acid reflect ~70% of sunlight — brightest object in the night sky after the Moon.',
+      'Often called Earth\'s "twin" due to similar size and mass — but radically different. A cautionary tale for climate change.'
+    ]},
+  earth: { name:'Earth', num:3, col:'#378ADD', bg:'#E6F1FB',
+    dist:'1.000 AU (149.6M km)', year:'365.25 days', day:'24 hours (23h 56min sidereal)', diam:'12,742 km (the baseline)', moons:'1 (The Moon)',
+    facts:[
+      'The only known planet with liquid water on its surface — covers ~71% of the surface.',
+      'The largest rocky planet and the densest planet in the solar system (5,514 kg/m³).',
+      'The axial tilt of 23.5° creates the seasons — Earth is actually slightly closer to the Sun in January (Northern winter).',
+      'Has plate tectonics — unique among known planets. Responsible for mountains, earthquakes, and the carbon cycle.',
+      'The only planet known to harbour life. All life is based on liquid water and carbon chemistry.'
+    ]},
+  mars: { name:'Mars', num:4, col:'#D85A30', bg:'#FAECE7',
+    dist:'1.524 AU (227.9M km)', year:'687 Earth days (1.88 Earth years)', day:'24 hours 37 minutes (closest to Earth\'s)', diam:'6,779 km (0.53× Earth)', moons:'2 (Phobos, Deimos — captured asteroids)',
+    facts:[
+      'Has Olympus Mons — the tallest volcano in the solar system (21 km high, 3× Everest) and Valles Marineris (4,000 km long canyon).',
+      'Average temperature −63°C; thin CO₂ atmosphere (1% of Earth\'s pressure).',
+      'Evidence of ancient liquid water: dried riverbeds, mineral deposits, polar ice caps (water + CO₂ ice).',
+      'Has the most explored non-Earth surface: 50+ missions, including rovers Curiosity (since 2012) and Perseverance (since 2021).',
+      'Perseverance found ancient organic molecules and the Ingenuity helicopter proved powered flight is possible on Mars.'
+    ]},
+  jupiter: { name:'Jupiter', num:5, col:'#D85A30', bg:'#FAECE7',
+    dist:'5.203 AU (778.5M km)', year:'11.86 Earth years', day:'9 hours 56 minutes — fastest rotation of any planet', diam:'139,820 km (11× Earth, 1,321× Earth\'s volume)', moons:'95 confirmed (2023)',
+    facts:[
+      'Most massive planet — 2.5× more massive than all other planets combined. Its gravity profoundly shapes the solar system.',
+      'The Great Red Spot is a storm that has persisted for at least 350 years — though shrinking; currently ~1.3× Earth\'s diameter.',
+      'Has a faint ring system discovered by Voyager 1 in 1979.',
+      'The four Galilean moons (Io, Europa, Ganymede, Callisto) are fascinating: Europa likely has a liquid ocean under its ice shell — prime target for life.',
+      'Acts as a "vacuum cleaner" for comets and asteroids — protects inner planets from bombardment. The Shoemaker-Levy 9 comet struck Jupiter in 1994 in one of history\'s most dramatic astronomical events.'
+    ]},
+  saturn: { name:'Saturn', num:6, col:'#EF9F27', bg:'#FAEEDA',
+    dist:'9.537 AU (1.43B km)', year:'29.46 Earth years', day:'10 hours 42 minutes', diam:'116,460 km (9.5× Earth)', moons:'146 confirmed (2023) — most of any planet',
+    facts:[
+      'The only planet less dense than water (density 0.687 g/cm³) — it would float if you had an ocean large enough.',
+      'Its spectacular ring system extends 282,000 km from the planet but is only ~10–100 m thick.',
+      'Titan (largest moon) has a thick nitrogen atmosphere, methane lakes, and complex organic chemistry — fascinating for astrobiology.',
+      'Enceladus (another moon) erupts geysers of water vapour and ice from cracks in its south pole — evidence of a subsurface ocean with hydrothermal vents.',
+      'Cassini spacecraft orbited Saturn 2004–2017, performing one of the most successful planetary missions in history before its planned plunge into Saturn\'s atmosphere.'
+    ]},
+  uranus: { name:'Uranus', num:7, col:'#5DCAA5', bg:'#E1F5EE',
+    dist:'19.19 AU (2.87B km)', year:'84 Earth years', day:'17 hours 14 minutes (retrograde rotation)', diam:'50,724 km (4× Earth)', moons:'28 confirmed',
+    facts:[
+      'Axial tilt of 98° — Uranus rotates essentially on its side, likely from a giant collision early in solar system history.',
+      'This extreme tilt means each pole gets ~42 years of continuous sunlight followed by 42 years of darkness.',
+      'Coldest planetary atmosphere: −224°C at the cloud tops — colder than Neptune despite being closer to the Sun.',
+      'The composition (water, methane, ammonia "ices") places it in the category of "ice giant" rather than gas giant.',
+      'Has 13 known rings (discovered 1977) — narrow and dark. Visited only once: Voyager 2 in 1986 (a 6-hour flyby).'
+    ]},
+  neptune: { name:'Neptune', num:8, col:'#185FA5', bg:'#E6F1FB',
+    dist:'30.07 AU (4.50B km)', year:'164.8 Earth years (discovered 1846 — completed first orbit in 2011)', day:'16 hours 6 minutes', diam:'49,244 km (3.9× Earth)', moons:'16 confirmed',
+    facts:[
+      'Predicted mathematically before it was observed — astronomers noted Uranus\'s orbit was being perturbed, calculated where a massive planet must be, and found it there in 1846.',
+      'Has the strongest winds in the solar system: up to 2,100 km/h.',
+      'The Great Dark Spot (observed by Voyager 2 in 1989) had disappeared by 1994 — storms on Neptune are transient unlike Jupiter\'s.',
+      'Triton (largest moon) orbits backwards (retrograde) — a captured Kuiper Belt object. It is slowly spiralling inward and will be torn apart by tidal forces in ~3.6 billion years.',
+      'Only visited by Voyager 2 in 1989 — an 8-hour flyby after a 12-year journey. No dedicated Neptune mission has been sent since.'
+    ]}
+};
+
+function showPlanet(key) {
+  const p = planets[key];
+  let factsHtml = p.facts.map(f => `<div style="display:flex; gap:8px; margin-bottom:5px;"><span style="color:${p.col}; flex-shrink:0; font-weight:500;">—</span><span style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">${f}</span></div>`).join('');
+  document.getElementById('planet-display').innerHTML = `
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+      <div style="width:40px; height:40px; border-radius:50%; background:${p.col}; flex-shrink:0; opacity:0.85;"></div>
+      <div>
+        <div style="font-size:16px; font-weight:500; color:var(--color-text-primary);">${p.name} — planet ${p.num}</div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:1px;">Distance from Sun</div><div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${p.dist}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:1px;">Year length</div><div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${p.year}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:1px;">Day length</div><div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${p.day}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:1px;">Diameter</div><div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${p.diam}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:1px;">Known moons</div><div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${p.moons}</div></div>
+    </div>
+    <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Key facts</div>
+    ${factsHtml}`;
+}
+
+const distances = [
+  { km:0, label:'Sea level — Earth\'s surface', atm:'Troposphere (ground level)', note:'Standard atmospheric pressure: 1013.25 hPa. Density: 1.225 kg/m³. 78% nitrogen, 21% oxygen. All weather occurs within the next 12 km.' },
+  { km:10, label:'10 km — commercial aircraft cruising altitude', atm:'Tropopause (boundary)', note:'Temperature ~−50°C. Pressure ~26% of sea level. Above most weather. The jet stream (strong winds 120–250 km/h) flows around this altitude, driving weather systems.' },
+  { km:30, label:'30 km — stratosphere / weather balloon', atm:'Stratosphere (ozone layer)', note:'Weather balloons reach ~30–40 km before bursting. Temperature starts rising here (ozone absorbs UV). Pressure ~1% of sea level. Concorde flew at ~18 km.' },
+  { km:80, label:'80 km — mesosphere top / meteors burn here', atm:'Mesopause (−90°C — coldest point)', note:'Most meteors burn up between 70–120 km. Temperature here is the minimum in the atmosphere: −90°C. Above this, temperature rises dramatically in the thermosphere.' },
+  { km:100, label:'100 km — Kármán line (edge of space)', atm:'Lower thermosphere', note:'The internationally recognised boundary of space (IAF definition). Aircraft cannot generate aerodynamic lift here — orbital mechanics required. This is where "astronaut" status is conferred by most organisations.' },
+  { km:200, label:'200 km — lower LEO (decays quickly)', atm:'Thermosphere', note:'Spacecraft at this altitude experience significant drag and fall back to Earth in days. The atmosphere here is incredibly thin but sufficient to brake orbital objects. Temperature: ~800–1,200°C (but nearly no molecules).' },
+  { km:400, label:'400 km — International Space Station (ISS)', atm:'Thermosphere', note:'The ISS orbits at 370–460 km, completing 15.5 orbits per day at ~27,600 km/h. Needs regular reboosts (every few months) because residual atmosphere creates drag. Gravity here is ~88% of surface strength — weightlessness is from freefall, not weak gravity.' },
+  { km:800, label:'800 km — upper LEO (orbits for decades)', atm:'Thermosphere / lower exosphere', note:'Satellites at this altitude (many Earth observation and some communication satellites) orbit for decades before atmospheric drag becomes significant. The debris-dense "Shell of Concern" from rocket breakups and collisions.' },
+  { km:2000, label:'2,000 km — Van Allen radiation belts begin', atm:'Exosphere', note:'Inner Van Allen belt (2,000–5,000 km): intense trapped protons from cosmic rays. Highly dangerous for humans and electronics — astronauts must pass through quickly. The ISS orbit was chosen partly to be below the most intense regions.' },
+  { km:20200, label:'20,200 km — GPS satellites (MEO)', atm:'Deep space / geomagnetic field', note:'GPS satellites orbit here in Medium Earth Orbit (MEO). Each completes 2 orbits per day. A minimum of 4 satellites must be visible from any point on Earth for GPS to work. The constellation uses ~30 operational satellites.' },
+  { km:35786, label:'35,786 km — geostationary orbit (GEO)', atm:'Deep space', note:'At this exact altitude, orbital period = 24 hours — the satellite stays stationary above a fixed point on the equator. Used for communications (TV, telephone), weather satellites (GOES, Meteosat). Arthur C. Clarke proposed this orbit in 1945.' },
+  { km:384400, label:'384,400 km — the Moon', atm:'Interplanetary space', note:'Average distance (varies ±12%). Light travel time: 1.28 seconds. Travel time by Apollo missions: ~3 days. At car motorway speed (120 km/h): ~134 days. The Moon is the only celestial body beyond Earth visited by humans (Apollo 11: July 1969; last: Apollo 17: December 1972).' },
+  { km:1e8, label:'~100 million km — Mars at close approach', atm:'Interplanetary space', note:'Mars\'s closest approach to Earth varies from ~54 million km (every 15–17 years) to ~401 million km. Communication delay: 3–22 minutes one way. The Parker Solar Probe has come as close as ~8.5 million km to the Sun — closer than Mercury.' },
+  { km:150e6, label:'150 million km — the Sun (1 AU)', atm:'Interplanetary space', note:'1 Astronomical Unit (AU) = 149,597,870 km. Light travel time: 8 minutes 20 seconds. All planetary distances measured relative to this. The Sun\'s gravity controls everything within ~100,000 AU (the Oort Cloud\'s outer edge = ~2 light-years).' },
+  { km:4.5e9, label:'4.5 billion km — edge of planetary solar system (Neptune)', atm:'Kuiper Belt region', note:'Neptune\'s average distance from the Sun. Beyond Neptune: Kuiper Belt (30–50 AU), then Oort Cloud (2,000–100,000 AU). Voyager 1 is currently at ~165 AU — the most distant human-made object. It left the heliosphere (Sun\'s magnetic bubble) and entered interstellar space in 2012.' },
+  { km:1.5e10, label:'~15 billion km — heliosphere boundary', atm:'Heliopause / interstellar space', note:'The heliopause is where the solar wind is balanced by interstellar medium — the true "edge" of the Sun\'s influence. Voyager 1 crossed this at ~121 AU in 2012. Beyond: interstellar space. The Oort Cloud extends further but is gravitationally bound to the Sun.' },
+  { km:2e13, label:'~20 trillion km — inner Oort Cloud', atm:'Outer solar system', note:'The Oort Cloud begins at ~2,000 AU and extends to ~100,000 AU. Its outer edge is ~0.5 light-years — roughly halfway to Proxima Centauri. Long-period comets originate here. No spacecraft has reached it; Voyager 1 will take ~300 years to reach its inner edge.' },
+  { km:4e13, label:'~40 trillion km — Proxima Centauri (nearest star)', atm:'Interstellar space (4.24 light-years)', note:'4.24 light-years = 268,000 AU = ~40 trillion km. If Earth were 1 mm across, the Sun would be 12 m away — and Proxima Centauri would be 3,700 km away. At Voyager 1\'s speed (~17 km/s), reaching Proxima Centauri would take ~73,000 years. No current propulsion technology can bridge this gap in a human lifetime.' },
+  { km:9.5e15, label:'~10 quadrillion km — 1,000 light-years', atm:'Milky Way galaxy (our neighbourhood)', note:'1,000 light-years — a tiny fraction of the Milky Way (~100,000 light-years diameter). Our galaxy contains 100–400 billion stars. The Milky Way is ~26,000 light-years from the galactic centre. The nearest large galaxy (Andromeda) is 2.5 million light-years away. The observable universe is ~93 billion light-years in diameter.' }
+];
+
+function updateDist() {
+  const idx = parseInt(document.getElementById('dist-slider').value);
+  const d = distances[idx];
+  const fmt = km => {
+    if (km >= 1e15) return `${(km/9.461e15).toFixed(1)} kly (${(km/1e12).toFixed(0)} trillion km)`;
+    if (km >= 1e12) return `${(km/1e9).toFixed(1)} billion km`;
+    if (km >= 1e9) return `${(km/1e6).toFixed(0)} million km`;
+    if (km >= 1e6) return `${(km/1e3).toFixed(0)} thousand km`;
+    return `${km.toLocaleString()} km`;
+  };
+  document.getElementById('dist-display').innerHTML = `
+    <div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">${d.label}</div>
+    <div style="display:flex; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
+      <div style="background:var(--color-background-primary); border-radius:var(--border-radius-md); padding:6px 10px; border:0.5px solid var(--color-border-tertiary);"><span style="font-size:11px; color:var(--color-text-secondary);">Distance: </span><span style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${fmt(d.km)}</span></div>
+      <div style="background:var(--color-background-primary); border-radius:var(--border-radius-md); padding:6px 10px; border:0.5px solid var(--color-border-tertiary);"><span style="font-size:11px; color:var(--color-text-secondary);">Region: </span><span style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${d.atm}</span></div>
+    </div>
+    <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.6;">${d.note}</div>`;
+}
+
+document.getElementById('dist-slider').addEventListener('input', updateDist);
+showPlanet('earth');
+updateDist();
+    </script>
+  </div>
+</body>
+</html>

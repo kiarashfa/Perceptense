@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 27: Psychology — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 27: Psychology</h1>
+    <p class="module-subtitle">Biases, memory, motivation, and mental models</p>
+
+    <div class="sec">Part A · what psychology is — and what it isn't</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The science of mind and behaviour</div>
+      <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">What psychology studies</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Perception, cognition, emotion, personality, behaviour, interpersonal relationships, social groups, development across the lifespan. Both normal functioning and psychological disorders.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">How it differs from common sense</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Psychology uses empirical methods — experiments, surveys, brain imaging, longitudinal studies — to test intuitions that are often wrong. Many common beliefs (venting anger releases it, people use 10% of their brain, opposites attract) are contradicted by evidence.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Subfields</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Clinical, cognitive, developmental, social, neuropsychology, forensic, educational, industrial/organisational, health psychology. Each uses different methods and addresses different questions.</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">Psychology vs psychiatry vs psychotherapy:</strong> Psychiatry is a medical speciality — psychiatrists are medical doctors (MDs) who can prescribe medication and make diagnoses. Psychology is a research and clinical discipline — clinical psychologists (usually PhD or PsyD) provide therapy and psychological assessment but in most countries cannot prescribe medication. Psychotherapy is the practice of using psychological methods to treat mental health problems — it can be practised by psychiatrists, psychologists, or trained psychotherapists/counsellors with various levels of qualification. See Part E for a full breakdown.
+      </div>
+    </div>
+
+    <div class="sec">Part B · the founding figures — click to explore</div>
+
+    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showFigure('freud')"    style="font-size:12px; padding:3px 10px;">Sigmund Freud</button>
+      <button onclick="showFigure('jung')"     style="font-size:12px; padding:3px 10px;">Carl Jung</button>
+      <button onclick="showFigure('pavlov')"   style="font-size:12px; padding:3px 10px;">Ivan Pavlov</button>
+      <button onclick="showFigure('skinner')"  style="font-size:12px; padding:3px 10px;">B.F. Skinner</button>
+      <button onclick="showFigure('piaget')"   style="font-size:12px; padding:3px 10px;">Jean Piaget</button>
+      <button onclick="showFigure('maslow')"   style="font-size:12px; padding:3px 10px;">Abraham Maslow</button>
+      <button onclick="showFigure('bandura')"  style="font-size:12px; padding:3px 10px;">Albert Bandura</button>
+      <button onclick="showFigure('beck')"     style="font-size:12px; padding:3px 10px;">Aaron Beck</button>
+      <button onclick="showFigure('rogers')"   style="font-size:12px; padding:3px 10px;">Carl Rogers</button>
+      <button onclick="showFigure('wundt')"    style="font-size:12px; padding:3px 10px;">Wilhelm Wundt</button>
+    </div>
+    <div id="figure-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part C · the major schools of thought</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showSchool('psychoanalytic')" style="font-size:12px; padding:3px 10px;">Psychoanalytic</button>
+      <button onclick="showSchool('behaviourist')"   style="font-size:12px; padding:3px 10px;">Behaviourist</button>
+      <button onclick="showSchool('humanistic')"     style="font-size:12px; padding:3px 10px;">Humanistic</button>
+      <button onclick="showSchool('cognitive')"      style="font-size:12px; padding:3px 10px;">Cognitive</button>
+      <button onclick="showSchool('biological')"     style="font-size:12px; padding:3px 10px;">Biological</button>
+      <button onclick="showSchool('evolutionary')"   style="font-size:12px; padding:3px 10px;">Evolutionary</button>
+      <button onclick="showSchool('sociocultural')"  style="font-size:12px; padding:3px 10px;">Sociocultural</button>
+    </div>
+    <div id="school-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part D · therapy types — what each is for</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showTherapy('psychoanalysis')" style="font-size:12px; padding:3px 10px;">Psychoanalysis</button>
+      <button onclick="showTherapy('cbt')"            style="font-size:12px; padding:3px 10px;">CBT</button>
+      <button onclick="showTherapy('dbt')"            style="font-size:12px; padding:3px 10px;">DBT</button>
+      <button onclick="showTherapy('act')"            style="font-size:12px; padding:3px 10px;">ACT</button>
+      <button onclick="showTherapy('emdr')"           style="font-size:12px; padding:3px 10px;">EMDR</button>
+      <button onclick="showTherapy('humanistic')"     style="font-size:12px; padding:3px 10px;">Humanistic / person-centred</button>
+      <button onclick="showTherapy('schema')"         style="font-size:12px; padding:3px 10px;">Schema therapy</button>
+      <button onclick="showTherapy('group')"          style="font-size:12px; padding:3px 10px;">Group therapy</button>
+    </div>
+    <div id="therapy-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part E · who's who in mental health — the professional hierarchy</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div style="background:#EEEDFE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #AFA9EC;">
+        <div style="font-size:13px; font-weight:500; color:#26215C; margin-bottom:5px;">Psychiatrist (MD)</div>
+        <div style="font-size:12px; color:#3C3489; line-height:1.6; margin-bottom:6px;">Medical doctor who specialised in psychiatry. Can diagnose mental disorders, prescribe medication (antidepressants, antipsychotics, mood stabilisers), and provide therapy. The highest level of medical authority in mental health.</div>
+        <div style="font-size:11px; color:#534AB7; line-height:1.4;">Training: medical degree (5–6 years) + psychiatric residency (4–5 years). Can admit patients to hospital. Most appropriate for: severe mental illness (schizophrenia, bipolar disorder), medication management, complex cases.</div>
+      </div>
+      <div style="background:#E6F1FB; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #85B7EB;">
+        <div style="font-size:13px; font-weight:500; color:#042C53; margin-bottom:5px;">Clinical psychologist (PhD/PsyD)</div>
+        <div style="font-size:12px; color:#0C447C; line-height:1.6; margin-bottom:6px;">Doctoral-level specialist trained in psychological assessment, diagnosis, and therapy. Cannot prescribe medication in most countries (prescribing rights for psychologists exist in a few US states and some other jurisdictions). Strong emphasis on research and evidence-based practice.</div>
+        <div style="font-size:11px; color:#185FA5; line-height:1.4;">Training: undergraduate + doctoral programme (4–7 years) + supervised clinical hours. Can diagnose using DSM/ICD. Most appropriate for: depression, anxiety, PTSD, eating disorders, personality disorders, neuropsychological assessment.</div>
+      </div>
+      <div style="background:#E1F5EE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #5DCAA5;">
+        <div style="font-size:13px; font-weight:500; color:#04342C; margin-bottom:5px;">Psychotherapist / counsellor</div>
+        <div style="font-size:12px; color:#085041; line-height:1.6; margin-bottom:6px;">Practises psychotherapy — using psychological methods to help people with emotional and mental health problems. Training and regulation varies widely by country and approach. "Psychotherapist" is not a legally protected title in all jurisdictions (unlike "psychologist" or "psychiatrist").</div>
+        <div style="font-size:11px; color:#0F6E56; line-height:1.4;">Training: varies from 2-year diploma to master's degree. Counsellors typically focus on specific issues (grief, relationships) with less intensive training. Most appropriate for: relationship issues, life transitions, mild-moderate depression and anxiety, bereavement.</div>
+      </div>
+      <div style="background:#FAEEDA; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #EF9F27;">
+        <div style="font-size:13px; font-weight:500; color:#412402; margin-bottom:5px;">Neuropsychologist</div>
+        <div style="font-size:12px; color:#633806; line-height:1.6; margin-bottom:6px;">Specialist in the relationship between brain function and behaviour. Assesses cognitive deficits from brain injury, stroke, dementia, or developmental conditions. Doctoral level.</div>
+        <div style="font-size:11px; color:#854F0B; line-height:1.4;">Most appropriate for: dementia assessment, post-stroke evaluation, traumatic brain injury, ADHD and learning disorder assessment, pre-surgical neurological evaluation.</div>
+      </div>
+    </div>
+
+    <div class="sec">Part F · essential psychological concepts everyone should know</div>
+
+    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showConcept('cogdis')"      style="font-size:12px; padding:3px 9px;">Cognitive dissonance</button>
+      <button onclick="showConcept('confbias')"    style="font-size:12px; padding:3px 9px;">Confirmation bias</button>
+      <button onclick="showConcept('schema')"      style="font-size:12px; padding:3px 9px;">Schema</button>
+      <button onclick="showConcept('attachment')"  style="font-size:12px; padding:3px 9px;">Attachment theory</button>
+      <button onclick="showConcept('projection')"  style="font-size:12px; padding:3px 9px;">Projection</button>
+      <button onclick="showConcept('cogdist')"     style="font-size:12px; padding:3px 9px;">Cognitive distortions</button>
+      <button onclick="showConcept('flow')"        style="font-size:12px; padding:3px 9px;">Flow state</button>
+      <button onclick="showConcept('dk')"          style="font-size:12px; padding:3px 9px;">Dunning-Kruger</button>
+      <button onclick="showConcept('lh')"          style="font-size:12px; padding:3px 9px;">Learned helplessness</button>
+      <button onclick="showConcept('conditioning')'" style="font-size:12px; padding:3px 9px;">Classical conditioning</button>
+    </div>
+    <div id="concept-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. What is the difference between Freud's ego, id, and superego — and why is the model influential despite being scientifically unfalsifiable?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Freud's structural model divides the mind into three agencies. The id is entirely unconscious — the primitive, instinctual drives (sex and aggression primarily). It operates on the pleasure principle: immediate gratification with no regard for reality or consequences. The ego is partly conscious, partly unconscious — it mediates between the id's demands, the superego's constraints, and external reality. It operates on the reality principle, postponing gratification and navigating the real world. The superego is the internalised moral authority — parental rules, social norms, the conscience. It punishes via guilt and shame. Neurosis, in Freudian theory, results from the ego failing to manage the tensions between id and superego. The model is influential because it introduced ideas that became culturally pervasive and clinically useful as metaphors: the unconscious, repression, inner conflict, the role of childhood in adult psychology. It's scientifically problematic because it's unfalsifiable — any evidence against it can be "explained" by the theory (e.g., denying you're angry proves repression). Karl Popper used Freudian theory as his primary example of pseudoscience. Despite this, the framework generated enormous clinical practice and cultural understanding, and some core ideas (unconscious processing, the role of early relationships) have been validated by modern neuroscience even if the specific Freudian structure hasn't.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. What is CBT and what is the core insight that makes it effective?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Cognitive Behavioural Therapy (CBT) is based on the insight that it is not events themselves that cause emotional distress, but the meaning we assign to them — our thoughts and interpretations. The core model: Situation → Thought → Emotion → Behaviour. The same situation (receiving criticism) will produce different emotions depending on the thought ("I'm worthless" vs "this is useful feedback"). CBT teaches patients to identify automatic negative thoughts, examine the evidence for and against them, and replace distorted thinking patterns with more accurate and helpful interpretations. The "behavioural" component addresses avoidance behaviours — the tendency to avoid feared situations, which provides short-term relief but long-term maintains the fear. CBT is the most extensively researched form of psychotherapy. It has strong evidence for depression, anxiety disorders, OCD, PTSD, eating disorders, and insomnia. It typically runs for 12–20 sessions and is explicitly goal-oriented and structured — unlike psychoanalytic therapies, which can run for years. It is skills-based: the goal is for patients to become their own therapist.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. What is Maslow's hierarchy of needs, and what is the most important criticism of it?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Maslow's 1943 hierarchy proposes that human needs form a pyramid: Physiological (food, water, sleep) at the base, then Safety (security, stability), then Love/belonging (relationships, community), then Esteem (respect, achievement), then Self-actualisation (realising one's potential) at the apex. The idea: lower needs must be met before higher needs become motivating. The framework is intuitive, widely used in education, management, and therapy, and has cultural resonance. The main criticism: it is largely empirically unsupported. Cross-cultural research shows that people regularly pursue higher-order needs (connection, meaning, creativity) even when basic needs are unmet — prisoners have spiritual experiences, starving people create art, people in poverty report strong community bonds and meaning. The strict hierarchical sequencing is too rigid. Moreover, "self-actualisation" is vague and culture-specific. Maslow studied primarily healthy, successful people in constructing the theory, and later admitted his criteria for self-actualisation were based on a small, biased sample. The hierarchy is better understood as a useful heuristic than an empirically validated model.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. What does "cognitive distortion" mean, and what are the most common ones to recognise in your own thinking?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Cognitive distortions (identified by Aaron Beck and later expanded by David Burns) are systematic errors in thinking — patterns of thought that are consistently inaccurate and negatively biased, maintaining depression and anxiety. The most important ones: All-or-nothing thinking (black-and-white, no middle ground: "I failed this one test — I'm a complete failure"). Catastrophising (assuming the worst outcome: "I'll probably lose my job and never recover"). Mind reading (assuming you know what others think without evidence: "They didn't reply — they must be angry with me"). Personalisation (taking blame for things outside your control: "My friend is in a bad mood — I must have caused it"). Should statements (rigid rules about how you or others must behave: "I should never feel anxious"). Emotional reasoning (treating feelings as facts: "I feel guilty so I must have done something wrong"). Overgeneralisation (one event becomes a universal rule: "This always happens to me"). Mental filter (dwelling on one negative detail while ignoring positives). The key insight: the mere presence of a thought or feeling doesn't mean it accurately reflects reality. Learning to notice these patterns and question them is the core skill of CBT.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. What is the difference between classical and operant conditioning, and can you identify an example of each in everyday life?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Classical conditioning (Pavlov, Watson): learning through association. A neutral stimulus (bell) is paired with an unconditioned stimulus (food) that naturally produces a response (salivation). After repeated pairings, the neutral stimulus alone produces the response. The organism is passive — it doesn't "do" anything, it just learns an association. Everyday example: hearing a particular song that was playing during a breakup triggers sadness automatically. The song is the conditioned stimulus; the emotional state is the conditioned response. Also: anxiety when entering a dentist's waiting room (associated with past pain), or hunger triggered by the smell of a particular food associated with positive memories. Operant conditioning (Skinner): learning through consequences. Behaviour is strengthened by reinforcement (reward) or weakened by punishment. The organism is active — it learns that its behaviour has consequences. Positive reinforcement: adding something good (praise, pay) increases behaviour. Negative reinforcement: removing something bad (pain stops when you take paracetamol → you take paracetamol again) increases behaviour. Punishment decreases behaviour. Everyday examples: a slot machine (variable ratio reinforcement schedule — the most powerful for creating habitual behaviour) keeps people playing; checking social media for "likes" (variable ratio reinforcement of the checking behaviour); a child's tantrums increasing if parents give in (behaviour reinforced by getting what they want).</div>
+    </div>
+
+    <script>
+const figures = {
+  freud: { name:'Sigmund Freud', years:'1856–1939', origin:'Austria', col:'#3C3489', bg:'#EEEDFE',
+    contribution:'Founded psychoanalysis — the first systematic theory of mind and therapy. Proposed the unconscious mind, where repressed thoughts and desires influence behaviour outside awareness.',
+    keyideas:'Unconscious mind. Id, ego, superego (structural model). Libido as psychic energy. Defence mechanisms (repression, projection, denial, rationalisation, sublimation). Psychosexual stages of development (oral, anal, phallic, latency, genital). Dream interpretation as a "royal road to the unconscious." Free association as a therapeutic method.',
+    influence:'Transformed how Western culture understands the self, motivation, and mental illness. Popularised concepts now embedded in everyday language: repression, ego, denial, projection, Freudian slip, complex, neurosis.',
+    critique:'Most specific theoretical claims (Oedipus complex, penis envy, psychosexual stages) are not empirically supported. The method (free association) is not falsifiable. Despite this, his emphasis on childhood, relationships, and the unconscious influenced all of psychotherapy.' },
+  jung: { name:'Carl Gustav Jung', years:'1875–1961', origin:'Switzerland', col:'#534AB7', bg:'#EEEDFE',
+    contribution:'Broke from Freud to develop analytical psychology. Expanded the unconscious beyond Freud\'s personal unconscious to the collective unconscious — a shared reservoir of archetypes inherited from human evolutionary history.',
+    keyideas:'Collective unconscious. Archetypes (The Shadow, The Anima/Animus, The Self, The Persona). Individuation (the process of becoming fully oneself). Psychological types: introversion vs extroversion (which he coined). The MBTI personality test is loosely based on his typology (though he would have disowned it). Synchronicity. The Jungian concept of the "Shadow" — the unconscious dark side of personality.',
+    influence:'Enormously influential in psychotherapy, art, literature, and culture. The terms introvert/extrovert are now universal. His framework of archetypes pervades literary criticism and cultural analysis.',
+    critique:'His theories are largely unscientific — unfalsifiable and reliant on symbolic interpretation. The MBTI (Myers-Briggs), inspired by his work, has very weak psychometric validity. Nevertheless, Jungian therapy has devoted practitioners and many patients find his framework meaningful.' },
+  pavlov: { name:'Ivan Pavlov', years:'1849–1936', origin:'Russia', col:'#27500A', bg:'#EAF3DE',
+    contribution:'Accidentally discovered classical conditioning while studying digestion in dogs. Demonstrated that a neutral stimulus (bell) could be conditioned to produce a reflex response (salivation) by pairing it repeatedly with an unconditioned stimulus (food). Won Nobel Prize in Physiology in 1904.',
+    keyideas:'Classical (Pavlovian) conditioning. Conditioned and unconditioned stimuli/responses. Extinction (conditioned response fades when stimulus is no longer paired with reward). Spontaneous recovery (extinguished responses can re-emerge). Stimulus generalisation and discrimination.',
+    influence:'Founding work of behaviourism. Established that learned associations could be studied scientifically. His work underpins understanding of phobias, addiction, PTSD (trauma-triggered responses), and exposure therapy.',
+    critique:'His work was purely on reflexes and physiological responses — the extension to all human learning was an overreach. The conditioning model cannot explain all learning (particularly language acquisition and insight learning), but remains one of the most robustly replicated findings in psychology.' },
+  skinner: { name:'B.F. Skinner', years:'1904–1990', origin:'USA', col:'#3B6D11', bg:'#EAF3DE',
+    contribution:'The most influential figure in behaviourism. Developed operant conditioning — the study of how voluntary behaviour is shaped by its consequences. Invented the "Skinner box" to precisely measure animal behaviour under controlled reinforcement schedules.',
+    keyideas:'Operant conditioning. Reinforcement (positive and negative) and punishment. Schedules of reinforcement: fixed ratio, variable ratio, fixed interval, variable interval — with variable ratio being most resistant to extinction (the basis of slot machines, social media). Token economy. Radical behaviourism: the belief that all behaviour, including "mental" events, is ultimately shaped by environmental contingencies.',
+    influence:'Applied behaviour analysis (ABA) — used in autism treatment, animal training, education, workplace behaviour modification — all derive from his work. Variable ratio reinforcement schedules explain gambling addiction and social media compulsion.',
+    critique:'His rejection of mental states as legitimate objects of study and his claim that free will is an illusion have been controversial. Noam Chomsky\'s critique (1959) that behaviourism cannot explain language acquisition was highly influential in the cognitive revolution.' },
+  piaget: { name:'Jean Piaget', years:'1896–1980', origin:'Switzerland', col:'#085041', bg:'#E1F5EE',
+    contribution:'Developed the most influential theory of cognitive development — how children\'s thinking changes qualitatively (not just quantitatively) as they grow. Identified distinct stages through which all children pass in the same order.',
+    keyideas:'Four stages: Sensorimotor (0–2 years: understanding through senses and action), Preoperational (2–7: symbolic thought but egocentric, lacks conservation), Concrete operational (7–11: logical thought about concrete objects), Formal operational (12+: abstract and hypothetical reasoning). Schema (mental frameworks), assimilation (fitting new info into existing schemas), accommodation (changing schemas to fit new info), equilibration.',
+    influence:'Transformed education — the idea that children are active constructors of their own knowledge, not passive recipients, changed teaching practice globally. Stage theory remains the most influential model of cognitive development.',
+    critique:'Stage boundaries are more fluid than he suggested — children show abilities earlier than he observed. Cultural variation in stage attainment challenges universality. Underestimated the role of social interaction (Vygotsky\'s critique).' },
+  maslow: { name:'Abraham Maslow', years:'1908–1970', origin:'USA', col:'#633806', bg:'#FAEEDA',
+    contribution:'Founded humanistic psychology — a "third force" against psychoanalysis and behaviourism, focusing on human potential and growth. Proposed the hierarchy of needs as a model of human motivation.',
+    keyideas:'Hierarchy of needs: physiological → safety → love/belonging → esteem → self-actualisation. Self-actualisation: realising one\'s full potential. Peak experiences: moments of profound transcendence and insight. Being needs vs deficiency needs. The study of psychologically healthy, flourishing individuals rather than pathology.',
+    influence:'Hugely influential in management (motivation theory), education, and popular psychology. Self-actualisation entered everyday language. The hierarchy is among the most widely recognised psychological models.',
+    critique:'The hierarchical structure is not well-supported empirically — people pursue meaning and connection even when basic needs are unmet. His sample of self-actualisers (Lincoln, Einstein, Eleanor Roosevelt) was small and biased. The concept of self-actualisation remains vague. Nevertheless, his focus on growth and flourishing influenced positive psychology.' },
+  bandura: { name:'Albert Bandura', years:'1925–2021', origin:'Canada', col:'#0C447C', bg:'#E6F1FB',
+    contribution:'Demonstrated that learning occurs through observation — without direct reinforcement. The Bobo doll experiment (1961) showed children imitate aggressive behaviour they observe in adults, challenging pure behaviourism.',
+    keyideas:'Social learning theory: learning through observation, imitation, and modelling. Self-efficacy: belief in one\'s own ability to succeed at a task — one of the most powerful predictors of achievement and resilience. Reciprocal determinism: behaviour, personal factors, and environment all influence each other bidirectionally. Observational learning stages: attention, retention, reproduction, motivation.',
+    influence:'Self-efficacy is among the most researched concepts in psychology. Applied to education, health behaviour change, phobia treatment, and organisational psychology. Showed that media violence and observed behaviour can influence real behaviour.',
+    critique:'Social learning theory was a bridge between behaviourism and cognitive psychology — it doesn\'t explain all learning but substantially improved on pure stimulus-response models. Self-efficacy has strong empirical support.' },
+  beck: { name:'Aaron Beck', years:'1921–2021', origin:'USA', col:'#712B13', bg:'#FAECE7',
+    contribution:'Developed Cognitive Therapy (later CBT) in the 1960s, originally for depression. Trained as a psychoanalyst but found that analysing patients\' thoughts directly was more effective than exploring unconscious dynamics.',
+    keyideas:'Cognitive model of depression: negative automatic thoughts, cognitive distortions, negative core beliefs (cognitive triad: negative views of self, world, and future). Cognitive distortions (all-or-nothing thinking, catastrophising, mind reading, personalisation). The therapeutic technique: Socratic questioning to examine and test automatic thoughts. Beck Depression Inventory (BDI) — most widely used depression assessment.',
+    influence:'CBT became the gold standard evidence-based therapy for depression and anxiety. Beck\'s cognitive model is the foundation of CBT, DBT, ACT, and schema therapy. He changed the entire landscape of psychological treatment.',
+    critique:'CBT\'s effectiveness varies — it works very well for anxiety and mild-moderate depression but is less effective for severe depression, chronic depression, and personality disorders, which is why deeper approaches like schema therapy and psychoanalytic therapy are still needed.' },
+  rogers: { name:'Carl Rogers', years:'1902–1987', origin:'USA', col:'#085041', bg:'#E1F5EE',
+    contribution:'Founded person-centred (humanistic) therapy. Proposed that people have an innate drive toward growth (actualising tendency) that flourishes under the right conditions. The therapist\'s role is not to analyse or advise, but to provide a growth-facilitating relationship.',
+    keyideas:'Core conditions: unconditional positive regard (accepting the client without judgment), empathy (accurate understanding of the client\'s perspective), congruence (therapist is genuine and transparent). The self-concept and the ideal self — psychological distress arises from discrepancy between how we are and how we think we should be. Non-directive therapy: the client, not the therapist, directs the process.',
+    influence:'Transformed therapeutic relationship as a healing instrument. Influenced counselling, education, conflict resolution, and international diplomacy. Introduced "active listening" and "empathic reflection" as standard therapeutic and communication skills.',
+    critique:'Critics argue non-directive therapy is insufficient for serious mental illness and that the therapist\'s neutrality is unachievable and sometimes unhelpful. Randomised controlled trials show person-centred therapy to be effective for mild-moderate conditions but less so than CBT for specific disorders.' },
+  wundt: { name:'Wilhelm Wundt', years:'1832–1920', origin:'Germany', col:'#444441', bg:'#F1EFE8',
+    contribution:'Established the first experimental psychology laboratory in Leipzig in 1879 — considered the founding moment of psychology as a science distinct from philosophy. Introduced introspection as a systematic method.',
+    keyideas:'Structuralism: the attempt to break down conscious experience into its basic elements (sensations, feelings, images) through trained introspection. Experimental psychology: applying the methods of natural science (controlled experiments, measurement) to mental processes. Voluntarism: emphasis on active mental processes, not just passive reception.',
+    influence:'Established psychology as an independent discipline. His laboratory trained the first generation of psychologists who spread the discipline internationally. The experimental method he championed became the standard.',
+    critique:'Introspection as a method proved unreliable — different trained observers gave different reports. Structuralism was quickly superseded by functionalism (James), behaviourism (Watson/Skinner), and Gestalt psychology. But Wundt\'s insistence on rigorous methods shaped the entire discipline.' }
+};
+
+function showFigure(key) {
+  const f = figures[key];
+  document.getElementById('figure-display').innerHTML = `
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${f.name}</div>
+      <div style="font-size:11px; font-weight:500; background:${f.bg}; color:${f.col}; border-radius:99px; padding:2px 9px;">${f.years} · ${f.origin}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Main contribution</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.contribution}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key ideas</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.keyideas}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Influence and legacy</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.influence}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Critique / limitations</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.critique}</div></div>
+    </div>`;
+}
+
+const schools = {
+  psychoanalytic: { name:'Psychoanalytic / psychodynamic', col:'#3C3489', bg:'#EEEDFE',
+    focus:'The unconscious mind, early childhood experiences, and inner psychological conflicts as the primary causes of behaviour and mental distress.',
+    keyideas:'Unconscious drives and repressed memories shape current behaviour. The relationship between therapist and patient (transference) is therapeutic. Defence mechanisms protect the ego from anxiety. Childhood experiences, particularly attachment, form the template for adult relationships.',
+    modern:'Modern psychodynamic therapy is shorter-term and more evidence-based than classical Freudian analysis. Attachment theory (Bowlby) and object relations theory (Winnicott, Klein) are the most influential modern developments.',
+    critique:'Freudian ideas are largely unfalsifiable. However, the core insight — that much of our mental life is outside conscious awareness, and that early relationships shape adult patterns — has been substantially confirmed by neuroscience and attachment research.' },
+  behaviourist: { name:'Behaviourism', col:'#27500A', bg:'#EAF3DE',
+    focus:'Observable behaviour as the proper subject of psychology, not mental states. Behaviour is learned through conditioning — classical (Pavlov) and operant (Skinner).',
+    keyideas:'All behaviour is learned. The mind is a "black box" — unobservable and therefore outside scientific psychology. Behaviour can be shaped entirely through reinforcement and punishment. Environment determines behaviour.',
+    modern:'Behaviour therapy (exposure therapy, systematic desensitisation, token economies) derived from behaviourism is highly effective. Applied Behaviour Analysis (ABA) is widely used in autism treatment and behaviour modification.',
+    critique:'The cognitive revolution (1950s–60s) overthrew pure behaviourism by showing that mental processes (thoughts, beliefs, images) are real causal factors. Language acquisition, insight learning, and observational learning cannot be explained by stimulus-response mechanisms alone. Modern psychology accepts both behaviour and mental processes.' },
+  humanistic: { name:'Humanistic psychology', col:'#085041', bg:'#E1F5EE',
+    focus:'Human potential, growth, and the subjective experience of being human. A reaction against both psychoanalysis (too dark, too deterministic) and behaviourism (too mechanistic).',
+    keyideas:'People have an innate drive toward growth and self-actualisation (Maslow). The subjective, first-person perspective is primary. Psychological health requires authentic self-expression, meaning, and genuine relationships. The therapeutic relationship itself is healing.',
+    modern:'Positive psychology (Seligman) is a research-based descendent. Person-centred therapy (Rogers) is widely practised. Existential therapy addresses meaning, freedom, and mortality.',
+    critique:'Often accused of being vague, naive (assumes people are basically good), and lacking empirical rigour. The concept of self-actualisation is culturally specific and hard to operationalise. Nevertheless, humanistic ideas are deeply embedded in modern counselling practice.' },
+  cognitive: { name:'Cognitive psychology', col:'#0C447C', bg:'#E6F1FB',
+    focus:'Mental processes — how people perceive, remember, think, speak, and solve problems. The mind as an information-processing system.',
+    keyideas:'Cognitive schemas (mental frameworks) shape how we interpret new information. Memory is reconstructive not reproductive — we don\'t "play back" memories, we reconstruct them. Attention is selective and limited. Cognitive biases systematically distort judgement (Kahneman and Tversky\'s heuristics and biases programme).',
+    modern:'The most dominant current approach. Cognitive neuroscience uses brain imaging to study mental processes. Cognitive-behavioural therapy. Artificial intelligence and cognitive psychology have deeply influenced each other.',
+    critique:'Early cognitive psychology was criticised for treating the mind as a cold computer, ignoring emotion, motivation, and social context. Embodied cognition research shows that cognition is far more embedded in the body and environment than early models suggested.' },
+  biological: { name:'Biological / neuropsychological', col:'#791F1F', bg:'#FCEBEB',
+    focus:'The biological bases of mind and behaviour — genetics, neuroscience, hormones, brain structure and function.',
+    keyideas:'Mental disorders have biological substrates (abnormal brain chemistry, structure, or genetics). Behaviour is influenced by neurotransmitters (dopamine, serotonin, norepinephrine). Twin and adoption studies reveal genetic contributions to personality, intelligence, and psychopathology.',
+    modern:'Neuroimaging (fMRI, PET) allows real-time observation of brain activity. GWAS (genome-wide association studies) identify genetic variants associated with disorders. Psychopharmacology (medication) is the dominant biological treatment.',
+    critique:'Biological reductionism risks oversimplifying complex phenomena. "Serotonin deficiency theory" of depression was oversimplified — the neuroscience is far more complex. Environment interacts with biology (epigenetics). Diagnosis based purely on biology is not yet possible for most mental disorders.' },
+  evolutionary: { name:'Evolutionary psychology', col:'#633806', bg:'#FAEEDA',
+    focus:'Human psychology as shaped by natural selection — our minds contain evolved mechanisms that were adaptive in ancestral environments.',
+    keyideas:'Fear of snakes and spiders, attachment to infants, food preferences, mate selection criteria, social hierarchies, in-group/out-group thinking — all are argued to reflect adaptations to ancestral environments. Evolutionary approaches to mental disorders: some anxiety and depression may be adaptive responses gone awry in modern environments.',
+    modern:'David Buss (sexual strategies theory, jealousy). Leda Cosmides and John Tooby (the massive modularity hypothesis). Robert Sapolsky (stress neuroscience).',
+    critique:'"Just-so stories" — evolutionary explanations for current behaviours are often unfalsifiable post-hoc narratives. The adapted environment is uncertain. Cultural variation is often larger than evolutionary accounts acknowledge. But evolutionary thinking has generated important and testable hypotheses.' },
+  sociocultural: { name:'Sociocultural psychology', col:'#444441', bg:'#F1EFE8',
+    focus:'How social environment, cultural context, and interpersonal relationships shape thought, behaviour, and development.',
+    keyideas:'Vygotsky: cognitive development is fundamentally social — the Zone of Proximal Development (what a child can do with guidance vs alone). Culture shapes what we perceive, remember, and value. Cross-cultural psychology finds significant variation in cognition, emotion expression, and self-concept (individualist vs collectivist cultures).',
+    modern:'Social identity theory (Tajfel). Stereotyping and prejudice research (Allport, Aronson). The fundamental attribution error (over-attributing behaviour to personality, under-attributing to situation). Milgram and Zimbardo\'s studies of situational power over behaviour.',
+    critique:'Can underemphasise individual differences and agency. The most influential demonstrations (Zimbardo\'s Stanford Prison Experiment) have been subject to significant methodological criticism and partial debunking.' }
+};
+
+function showSchool(key) {
+  const s = schools[key];
+  document.getElementById('school-display').innerHTML = `
+    <div style="display:inline-block; background:${s.bg}; color:${s.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${s.name}</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Core focus</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.focus}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key ideas</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.keyideas}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Modern developments</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.modern}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Critique</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.critique}</div></div>
+    </div>`;
+}
+
+const therapies = {
+  psychoanalysis: { name:'Psychoanalysis / psychodynamic therapy', badge:'Unconscious patterns, long-term', col:'#3C3489', bg:'#EEEDFE',
+    for:'Chronic patterns of relationship difficulties, personality issues, long-standing depression, unexplained symptoms, trauma from early life, a desire for deep self-understanding.',
+    how:'Explores unconscious motivations, childhood experiences, and repetitive patterns in relationships. Techniques: free association (saying whatever comes to mind), dream analysis, interpretation of transference (the patient\'s feelings toward the therapist as a window into past relationships). Classical analysis: 3–5 sessions per week, years. Modern psychodynamic therapy: 1 session/week, 16–50 sessions.',
+    evidence:'Moderate evidence for effectiveness with depression and personality disorders. Long-term psychodynamic therapy shows lasting benefits. Less evidence than CBT for specific disorders (anxiety, OCD).',
+    not:'Not the best choice for acute anxiety, phobias, OCD, or symptoms needing rapid relief — CBT or medication are more efficient for these.' },
+  cbt: { name:'Cognitive Behavioural Therapy (CBT)', badge:'Gold standard for anxiety and depression', col:'#27500A', bg:'#EAF3DE',
+    for:'Depression (mild-moderate), anxiety disorders (GAD, panic, social anxiety, health anxiety), OCD, phobias, PTSD, eating disorders, insomnia, chronic pain.',
+    how:'Identifies and challenges automatic negative thoughts and cognitive distortions. Behavioural experiments test whether feared outcomes actually occur. Exposure (facing feared situations gradually) reduces avoidance. Structured homework between sessions. Typically 12–20 sessions, structured and goal-directed.',
+    evidence:'The most evidence-based psychotherapy. Comparable to medication for mild-moderate depression and superior for anxiety. Effects persist after therapy ends (unlike medication, where relapse is common on stopping).',
+    not:'Less effective for severe/chronic depression, personality disorders, or complex trauma — where longer-term approaches (schema therapy, psychodynamic) may be needed.' },
+  dbt: { name:'Dialectical Behaviour Therapy (DBT)', badge:'Skills-based, especially for BPD and self-harm', col:'#712B13', bg:'#FAECE7',
+    for:'Borderline personality disorder (BPD), chronic suicidality, self-harm, eating disorders (particularly binge-purge), PTSD with emotion dysregulation, substance use disorders.',
+    how:'Developed by Marsha Linehan (who had BPD herself) as a modification of CBT. Four skill modules: Mindfulness (observing experience without judgment), Distress tolerance (coping with crisis without making it worse), Emotion regulation (understanding and managing intense emotions), Interpersonal effectiveness (maintaining relationships while meeting needs). Combines individual therapy with skills group, phone coaching.',
+    evidence:'Strong evidence for BPD — the most empirically validated treatment. Reduces self-harm, hospitalisations, and treatment dropout.',
+    not:'Comprehensive DBT requires significant commitment (1–2 years, multiple weekly contacts). Skills-only DBT groups are used as a lower-intensity alternative.' },
+  act: { name:'Acceptance and Commitment Therapy (ACT)', badge:'Mindfulness-based, values-driven', col:'#085041', bg:'#E1F5EE',
+    for:'Depression, anxiety, chronic pain, OCD, workplace stress, psychosis as an adjunct. Particularly useful when clients are "stuck" struggling against thoughts and feelings rather than living according to their values.',
+    how:'Part of the "third wave" of CBT. Core idea: psychological suffering comes not from having negative thoughts and feelings but from the attempt to suppress or control them (experiential avoidance). ACT teaches: Acceptance (allowing unwanted experiences without struggle), Defusion (stepping back from thoughts — seeing them as just thoughts, not facts), Present moment awareness (mindfulness), Values clarification, Committed action.',
+    evidence:'Strong evidence for depression, anxiety, chronic pain, and OCD. Particularly effective when CBT has been tried and hasn\'t worked. The focus on values and meaning gives it a humanistic depth.',
+    not:'The philosophical stance (accepting rather than changing thoughts) can feel counterintuitive and takes time to internalise. Less structured than CBT — requires a capable, experienced therapist.' },
+  emdr: { name:'EMDR (Eye Movement Desensitisation and Reprocessing)', badge:'Trauma-focused', col:'#0C447C', bg:'#E6F1FB',
+    for:'PTSD (primary indication), single-incident trauma, complex trauma, phobias, grief. Now used for a growing range of conditions.',
+    how:'Developed by Francine Shapiro (1987). Clients briefly focus on traumatic memories while tracking the therapist\'s moving finger with their eyes (or receiving bilateral stimulation via taps or sounds). This bilateral stimulation appears to facilitate the processing of traumatic memories that have become "frozen" and continue to trigger intense distress. The mechanism is debated — possibly similar to what happens during REM sleep.',
+    evidence:'Strong empirical support for PTSD — rated as a first-line treatment by WHO, APA, and most national health bodies. Works faster than traditional trauma-focused CBT for many clients.',
+    not:'The bilateral stimulation component may not be essential (the evidence that it adds to standard trauma exposure is mixed). Nevertheless, the overall protocol is strongly evidence-based regardless of the mechanism debate.' },
+  humanistic: { name:'Humanistic / person-centred therapy (PCT)', badge:'Relationship-based, non-directive', col:'#633806', bg:'#FAEEDA',
+    for:'Low to moderate depression and anxiety, relationship difficulties, self-esteem issues, life transitions, personal growth, existential concerns. The approach that most closely resembles what most people think of as "talking therapy."',
+    how:'Carl Rogers\'s approach: the therapist provides unconditional positive regard (accepting without judgment), empathy (deeply understanding the client\'s perspective), and congruence (genuine, transparent presence). The client, not the therapist, directs the topics and pace. The healing comes from the experience of being fully heard and accepted — correcting experiences of conditional love and judgment.',
+    evidence:'Evidence for effectiveness with mild-moderate conditions. The therapeutic alliance (quality of the relationship) — which Rogers emphasised — is consistently the strongest predictor of outcome across all therapy types, suggesting his insight was fundamental.',
+    not:'Evidence of effectiveness is weaker than CBT for specific disorders. The non-directive approach is insufficient for severe mental illness, active crisis, or conditions requiring structured skill-building.' },
+  schema: { name:'Schema therapy', badge:'Deeper than CBT — for personality and chronic patterns', col:'#534AB7', bg:'#EEEDFE',
+    for:'Personality disorders (especially borderline, narcissistic, avoidant), chronic depression, complex trauma, long-standing patterns of unhealthy relationships, people for whom CBT hasn\'t worked.',
+    how:'Developed by Jeffrey Young as an extension of CBT for personality disorders. Identifies "early maladaptive schemas" — deep core beliefs about self and world formed in childhood (e.g., "I am fundamentally flawed," "I am unlovable," "The world is dangerous"). Therapy uses cognitive, behavioural, experiential (imagery rescripting, chair work), and the therapeutic relationship to change these deeply held patterns. Typically 1–3 years.',
+    evidence:'Strong evidence for borderline personality disorder and moderate evidence for other personality disorders. More effective than standard CBT for chronic, personality-level difficulties.',
+    not:'A long-term commitment and requires a trained schema therapist. Not the first choice for straightforward anxiety or depression.' },
+  group: { name:'Group therapy', badge:'Social learning through shared experience', col:'#444441', bg:'#F1EFE8',
+    for:'Depression, anxiety, addiction, grief, social anxiety, eating disorders, personality disorders, trauma (particularly for conditions where isolation and shame are core components).',
+    how:'Typically 6–10 clients with 1–2 therapists, meeting weekly for 1.5–2 hours. Can be structured (skills-based, like a DBT skills group) or unstructured (process-based, where the group dynamics themselves are therapeutic). Yalom\'s curative factors: universality (knowing others share your experience), instillation of hope, altruism, interpersonal learning.',
+    evidence:'Broadly comparable effectiveness to individual therapy for many conditions, at significantly lower cost. For social anxiety specifically, group therapy may be superior — the social context is the treatment environment.',
+    not:'Some people find the group setting too exposing initially. Not appropriate for acute crisis, psychosis, or severe antisocial behaviour. Confidentiality concerns are more complex.' }
+};
+
+function showTherapy(key) {
+  const t = therapies[key];
+  document.getElementById('therapy-display').innerHTML = `
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${t.name}</div>
+      <div style="font-size:11px; font-weight:500; background:${t.bg}; color:${t.col}; border-radius:99px; padding:2px 9px;">${t.badge}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Best for</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.for}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">How it works</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.how}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Evidence</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.evidence}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Not suitable for</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.not}</div></div>
+    </div>`;
+}
+
+const concepts = {
+  cogdis: { name:'Cognitive dissonance', col:'#3C3489', bg:'#EEEDFE',
+    def:'The psychological discomfort experienced when holding two contradictory beliefs, or when behaviour conflicts with beliefs. Identified by Leon Festinger (1957).',
+    mechanism:'The discomfort motivates us to reduce the inconsistency — either by changing a belief, changing our behaviour, adding a new belief that reconciles the conflict, or (most commonly) rationalising the inconsistency away.',
+    examples:'A smoker who knows smoking causes cancer: "I\'ll stop before it affects me" or "Stress is worse for you than smoking." Buying an expensive item: "I rarely buy luxuries, so I deserve this." Voting for a candidate who disappoints: "They\'re still better than the alternative." The more we have invested in a belief (money, identity, time), the more intense the dissonance when it\'s challenged.',
+    apply:'Understanding cognitive dissonance explains why people resist information that contradicts their beliefs (motivated reasoning), why persuasion often backfires ("reactance"), and why cult members become more committed after failed prophecies (Festinger studied this directly).' },
+  confbias: { name:'Confirmation bias', col:'#27500A', bg:'#EAF3DE',
+    def:'The tendency to search for, interpret, favour, and recall information in a way that confirms our pre-existing beliefs, while ignoring or discounting contradictory evidence.',
+    mechanism:'We pay more attention to evidence that supports what we already believe. We interpret ambiguous evidence as confirming. We remember confirming evidence better than disconfirming. We seek out information sources that reinforce our views.',
+    examples:'Reading only news sources aligned with your political views. Interpreting a partner\'s ambiguous text as proof of your existing suspicion. Remembering all the times your superstition "worked" and forgetting when it didn\'t. Medical professionals who settle on a diagnosis early and then collect evidence to support it (one of the leading causes of misdiagnosis).',
+    apply:'Confirmation bias is arguably the most pervasive and damaging cognitive bias. Counter-strategy: actively seek disconfirming evidence ("what would change my mind?"), use preregistered hypothesis testing, seek out devil\'s advocates, and distinguish between evidence that supports a hypothesis and evidence that rules out alternatives.' },
+  schema: { name:'Schema', col:'#085041', bg:'#E1F5EE',
+    def:'A mental framework or structure that organises and interprets information. Schemas are cognitive shortcuts that help us process the world quickly by filtering new information through existing categories and expectations.',
+    mechanism:'Piaget: schemas develop and change through assimilation (fitting new info into existing schema) and accommodation (changing schema to fit new info). When new information matches a schema, it\'s processed quickly. When it doesn\'t, cognitive effort is required. We often distort new information to fit our schemas rather than updating the schema.',
+    examples:'A "restaurant schema" tells you what to expect (menu, waiter, pay at end) without conscious effort. A person with an "abandonment schema" (from early experiences) may interpret a friend\'s cancellation as evidence they will always be left. A child who has only seen golden retrievers has a "dog schema" and may call a cat a "dog" initially.',
+    apply:'In schema therapy, maladaptive schemas ("I am fundamentally defective," "I cannot trust others") formed in childhood perpetuate adult suffering. The therapeutic work is identifying and gradually changing these deep frameworks through cognitive, experiential, and relational means.' },
+  attachment: { name:'Attachment theory', col:'#0C447C', bg:'#E6F1FB',
+    def:'Developed by John Bowlby (1950s–70s) and researched by Mary Ainsworth. Proposes that the bonds formed with primary caregivers in infancy create an internal working model — a template for all subsequent relationships.',
+    mechanism:'Ainsworth\'s Strange Situation experiment identified four attachment styles: Secure (caregiver is a reliable safe base — adult equivalent: comfortable with intimacy and independence), Anxious/preoccupied (inconsistent care → hypervigilance for rejection — adult: clingy, fears abandonment), Avoidant/dismissing (emotionally unavailable care → suppression of attachment needs — adult: values independence, dismisses vulnerability), Disorganised (frightening care, typically abusive → no coherent strategy — adult: often associated with personality disorders).',
+    examples:'Adults with anxious attachment may check their phone constantly for responses, interpret neutral messages as distant, and become distressed when partners need space. Adults with avoidant attachment may feel suffocated by closeness and dismiss emotional conversations.',
+    apply:'Attachment style predicts relationship satisfaction, parenting behaviour, response to therapy, and mental health outcomes. It\'s not destiny — secure attachment can be "earned" through corrective relationships (including therapy). Bowlby\'s work changed child-rearing practices: it established that emotional responsiveness, not just physical care, is essential to healthy development.' },
+  projection: { name:'Projection', col:'#3C3489', bg:'#EEEDFE',
+    def:'A defence mechanism (Freud) in which unacceptable thoughts, feelings, or impulses are attributed to another person rather than acknowledged as one\'s own.',
+    mechanism:'Because acknowledging the feeling creates anxiety (e.g., recognising one\'s own anger, sexual impulses, or inadequacy), the ego "projects" it outward — perceiving it as belonging to someone else. The impulse is distanced from the self.',
+    examples:'A person who is angry at a colleague but finds this unacceptable perceives the colleague as hostile toward them. Someone struggling with sexual attraction to someone other than their partner accuses their partner of flirting. A parent who feels inadequate as a parent focuses intensely on a child\'s inadequacies. In politics: leaders who accuse opponents of the corruption they themselves engage in.',
+    apply:'Projection is ubiquitous and difficult to recognise in oneself by definition (if you knew you were projecting, the defence wouldn\'t work). In therapy: noticing when you have strong, disproportionate negative reactions to another person is often a signal to look inward. "If you spot it, you\'ve got it" is a common therapeutic heuristic.' },
+  cogdist: { name:'Cognitive distortions', col:'#712B13', bg:'#FAECE7',
+    def:'Systematic patterns of thought that are inaccurate, negatively biased, and maintain psychological distress. Identified by Aaron Beck; catalogued by David Burns in Feeling Good (1980).',
+    mechanism:'Depressed and anxious people develop characteristic thought patterns that feel true but consistently distort reality in ways that maintain negative mood. They operate automatically, outside awareness, with a sense of certainty.',
+    examples:'All-or-nothing: "I made one mistake — I\'m completely incompetent." Catastrophising: "I felt anxious on the train — I\'m going to have a breakdown." Mind reading: "They didn\'t invite me — they must dislike me." Personalisation: "My friend is depressed — I must have done something." Should statements: "I shouldn\'t feel this way." Emotional reasoning: "I feel worthless, so I am worthless."',
+    apply:'CBT\'s core technique is identifying automatic negative thoughts, labelling the distortion, examining the evidence, and generating a more balanced alternative. Simply naming a distortion ("I\'m catastrophising again") creates distance from it and reduces its emotional power.' },
+  flow: { name:'Flow state', col:'#633806', bg:'#FAEEDA',
+    def:'A state of complete absorption in an intrinsically rewarding activity, characterised by effortless concentration, loss of self-consciousness, and altered time perception. Described by Mihaly Csikszentmihalyi (1975).',
+    mechanism:'Flow occurs at the intersection of challenge and skill — when a task is challenging enough to require full attention but not so difficult as to produce anxiety. The feedback is immediate. The goals are clear. Consciousness becomes ordered: no rumination, no self-consciousness. Associated with high dopamine activity.',
+    examples:'A musician playing a complex piece. A surgeon in a difficult operation. A programmer debugging a tricky problem. An athlete "in the zone." A chess player deep in an endgame. Children at absorbed play.',
+    apply:'Csikszentmihalyi proposed flow as the basis of subjective wellbeing — the opposite of the passive consumption that most people use for "relaxation." Designing work and life to create more flow conditions (clear goals, appropriate challenge level, immediate feedback) is one of the most evidence-based paths to sustained wellbeing. The key: flow requires active engagement, never passive consumption.' },
+  dk: { name:'Dunning-Kruger effect', col:'#444441', bg:'#F1EFE8',
+    def:'The cognitive bias by which people with limited competence in a domain overestimate their ability, while people with high competence tend to underestimate it (or at least are less confident relative to actual performance). Described by Kruger and Dunning (1999).',
+    mechanism:'Competence in a domain requires the same meta-cognitive skills needed to evaluate one\'s own competence. Novices lack both the skill and the ability to recognise their lack of skill. Experts know enough to know how much they don\'t know.',
+    examples:'Someone who has read one book on a topic feeling confident to debate experts. The most dangerous drivers (young, overconfident) are statistically the most likely to have accidents. In medicine: the unskilled clinician who is certain of their diagnosis; the experienced one who says "I\'m not sure."',
+    apply:'Important to distinguish from the pop-science version ("stupid people think they\'re smart") — the effect is actually about domain-specific competence and is universal. Everyone is a Dunning-Kruger novice in fields they don\'t know. The antidote: seeking feedback, staying in contact with actual performance data, cultivating genuine expertise before high confidence.' },
+  lh: { name:'Learned helplessness', col:'#0C447C', bg:'#E6F1FB',
+    def:'A state in which a person (or animal) learns that their actions have no effect on outcomes, leading to passive acceptance of negative situations even when escape is possible. Discovered by Martin Seligman and Steven Maier (1967) in dogs, later applied to human depression.',
+    mechanism:'After repeated experiences of uncontrollable negative events, the organism develops the expectation that nothing it does will matter. This generalises beyond the original situation. Three components: personal (it\'s my fault), permanent (it will always be this way), pervasive (it affects everything).',
+    examples:'A student who fails despite effort concludes they are fundamentally incapable of academic success and stops trying. A person in an abusive relationship who stays because they believe escape is impossible. Refugees who become passive after years in camps where decisions are made for them.',
+    apply:'Seligman later realised that not all people exposed to uncontrollable situations develop helplessness — those with an "explanatory style" that is temporary, specific, and external are resilient. This became the foundation of positive psychology and learned optimism. Cognitive therapy explicitly targets the helplessness cognitions.' },
+  conditioning: { name:'Classical conditioning', col:'#27500A', bg:'#EAF3DE',
+    def:'Learning through association: a neutral stimulus becomes capable of producing a response because it has been repeatedly paired with a stimulus that naturally produces that response. Discovered by Ivan Pavlov.',
+    mechanism:'Unconditioned stimulus (food) → unconditioned response (salivation). Conditioned stimulus (bell) + UCS (food) repeatedly → CS alone → conditioned response (salivation). Extinction: CS presented without UCS → response weakens. Spontaneous recovery: extinguished response returns after a rest period.',
+    examples:'A child who was bitten by a dog (UCS → pain/fear) becomes fearful of all dogs (CS → CR). Brand advertising: a product repeatedly shown alongside beautiful, happy people → positive feelings toward the product. PTSD: a car backfire (previously paired with combat) triggers a full-scale threat response. Aversion therapy: pairing alcohol with nausea-inducing medication.',
+    apply:'Classical conditioning underpins: phobias (and their treatment via systematic desensitisation and exposure), addictive cue-reactivity (the glass, the pub, the smell trigger drug cravings), brand loyalty, and emotional responses to music, places, and smells.' }
+};
+
+function showConcept(key) {
+  const c = concepts[key];
+  document.getElementById('concept-display').innerHTML = `
+    <div style="display:inline-block; background:${c.bg}; color:${c.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${c.name}</div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Definition</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.def}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">How it works</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.mechanism}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Examples</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.examples}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Practical application</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.apply}</div></div>
+    </div>`;
+}
+
+showFigure('freud');
+showSchool('cognitive');
+showTherapy('cbt');
+showConcept('cogdist');
+    </script>
+  </div>
+</body>
+</html>

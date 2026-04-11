@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 14: Materials & Engineering — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.mat-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.mat-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.mat-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.mat-badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.props { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 8px; }
+.prop { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.prop-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+.prop-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+.prop-note { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.3; }
+.uses { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 14: Materials & Engineering</h1>
+    <p class="module-subtitle">Steel, concrete, wood — what things are made of</p>
+
+    <div class="sec">Part A · the three properties that define every material</div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Strength</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">How much force before it permanently deforms or breaks. Measured in megapascals (MPa) — force per area.</div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Rubber</span><span style="color:#3B6D11; font-weight:500;">~10 MPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Concrete (compression)</span><span style="color:#BA7517; font-weight:500;">~30 MPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Aluminium alloy</span><span style="color:#185FA5; font-weight:500;">~270 MPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Structural steel</span><span style="color:#534AB7; font-weight:500;">~400 MPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Carbon fibre composite</span><span style="color:#791F1F; font-weight:500;">~1,500 MPa</span></div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Stiffness (Young's modulus)</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">How much it resists being stretched or compressed. A stiff material bends little under load. Measured in GPa.</div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Rubber</span><span style="color:#3B6D11; font-weight:500;">~0.01 GPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Wood (along grain)</span><span style="color:#BA7517; font-weight:500;">~10 GPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Concrete</span><span style="color:#633806; font-weight:500;">~30 GPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Aluminium</span><span style="color:#185FA5; font-weight:500;">~69 GPa</span></div>
+          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Steel</span><span style="color:#534AB7; font-weight:500;">~200 GPa</span></div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Toughness vs brittleness</div>
+        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">Tough = absorbs energy before fracture (steel, rubber). Brittle = breaks suddenly with little warning (glass, ceramic, cast iron).</div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px; font-size:11px; color:var(--color-text-secondary); line-height:1.5;">
+          <strong style="color:var(--color-text-primary);">Key insight:</strong> High strength ≠ tough. Diamond is the hardest known material but extremely brittle — hit it with a hammer and it shatters. Steel is less hard but far tougher.
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part B · the main materials — why we use each one</div>
+
+    <div class="mat-card">
+      <div class="mat-header">
+        <span class="mat-name">Steel</span>
+        <span class="mat-badge" style="background:#EEEDFE; color:#3C3489;">backbone of civilisation</span>
+      </div>
+      <div class="props">
+        <div class="prop"><p class="prop-label">Density</p><p class="prop-val">7,850 kg/m³</p><p class="prop-note">Heavy — 7.85× denser than water</p></div>
+        <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~400–800 MPa</p><p class="prop-note">Varies widely by alloy and heat treatment</p></div>
+        <div class="prop"><p class="prop-label">Melting point</p><p class="prop-val">~1,370–1,540°C</p><p class="prop-note">Harder to work than aluminium, but much stronger</p></div>
+      </div>
+      <p class="uses"><strong style="color:var(--color-text-primary);">Why steel:</strong> Strong, tough, weldable, and cheap. Used in buildings, bridges, ships, cars, railways, appliances, and tools. The great workhorse. Downside: heavy and rusts without protection (stainless steel adds chromium to prevent this). The world produces ~1.9 billion tonnes of steel per year — more than all other metals combined.</p>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-header">
+        <span class="mat-name">Aluminium</span>
+        <span class="mat-badge" style="background:#E6F1FB; color:#0C447C;">the lightweight champion</span>
+      </div>
+      <div class="props">
+        <div class="prop"><p class="prop-label">Density</p><p class="prop-val">2,700 kg/m³</p><p class="prop-note">1/3 the weight of steel</p></div>
+        <div class="prop"><p class="prop-label">Strength-to-weight</p><p class="prop-val">~100–270 MPa</p><p class="prop-note">Weaker than steel, but per kg it competes well</p></div>
+        <div class="prop"><p class="prop-label">Key property</p><p class="prop-val">Corrosion-resistant</p><p class="prop-note">Forms a natural oxide layer — no rust</p></div>
+      </div>
+      <p class="uses"><strong style="color:var(--color-text-primary);">Why aluminium:</strong> Weight matters above all else — aircraft, cars, bikes, drink cans, laptops. A Boeing 747 is ~80% aluminium by weight. Costs more than steel to produce (energy-intensive smelting) but infinitely recyclable at 5% of the original energy cost. Discovered in its pure form in 1825 — so rare it was more valuable than gold. Napoleon served guests on aluminium plates while the lower classes used gold ones.</p>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-header">
+        <span class="mat-name">Concrete</span>
+        <span class="mat-badge" style="background:#FAEEDA; color:#633806;">strongest in compression, weakest in tension</span>
+      </div>
+      <div class="props">
+        <div class="prop"><p class="prop-label">Compressive strength</p><p class="prop-val">~25–50 MPa</p><p class="prop-note">Excellent — handles being squashed</p></div>
+        <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~3–5 MPa</p><p class="prop-note">Very poor — cracks easily when pulled or bent</p></div>
+        <div class="prop"><p class="prop-label">Why reinforce it?</p><p class="prop-val">Steel rebar inside</p><p class="prop-note">Steel handles tension; concrete handles compression. Together: reinforced concrete, the world's most used building material.</p></div>
+      </div>
+      <p class="uses"><strong style="color:var(--color-text-primary);">Why concrete:</strong> Cheap, mouldable into any shape, fire-resistant, and superb under compression. Buildings, dams, roads, bridges. The Romans invented concrete 2,000 years ago — their Pantheon dome, unreinforced, still stands. Modern reinforced concrete was invented in the 1850s. The world uses ~4 billion tonnes per year — more than any other manufactured material.</p>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-header">
+        <span class="mat-name">Carbon fibre (composite)</span>
+        <span class="mat-badge" style="background:#FCEBEB; color:#791F1F;">strongest per kg — but expensive</span>
+      </div>
+      <div class="props">
+        <div class="prop"><p class="prop-label">Density</p><p class="prop-val">~1,600 kg/m³</p><p class="prop-note">Half the weight of aluminium; ¼ of steel</p></div>
+        <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~1,500–3,000 MPa</p><p class="prop-note">3–7× stronger than steel by weight</p></div>
+        <div class="prop"><p class="prop-label">Cost</p><p class="prop-val">~€20–100/kg</p><p class="prop-note">vs steel at ~€0.50/kg. 40–200× more expensive.</p></div>
+      </div>
+      <p class="uses"><strong style="color:var(--color-text-primary);">Why carbon fibre:</strong> When weight is critical and cost is secondary — F1 cars, aircraft (787 Dreamliner is 50% carbon fibre), high-end bikes, sports equipment, spacecraft. Cannot be welded; must be bonded with adhesives. Brittle — fails suddenly with no warning deformation. Not recyclable easily. The future of carbon fibre is bringing its cost down enough for mass-market vehicles.</p>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-header">
+        <span class="mat-name">Glass</span>
+        <span class="mat-badge" style="background:#E1F5EE; color:#085041;">amorphous solid — neither liquid nor crystal</span>
+      </div>
+      <div class="props">
+        <div class="prop"><p class="prop-label">Compressive strength</p><p class="prop-val">~700–1,000 MPa</p><p class="prop-note">Stronger than steel in compression!</p></div>
+        <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~7 MPa (practical)</p><p class="prop-note">Surface scratches cause catastrophic failure — much weaker in practice than theory.</p></div>
+        <div class="prop"><p class="prop-label">Young's modulus</p><p class="prop-val">~70 GPa</p><p class="prop-note">As stiff as aluminium — but brittle</p></div>
+      </div>
+      <p class="uses"><strong style="color:var(--color-text-primary);">Why glass:</strong> Transparent, impermeable, chemically inert, hard. Windows, bottles, phone screens, optical fibres. Tempered glass (safety glass) is heated and rapidly cooled, creating compression on the surface that requires far more force to crack — and when it does, it shatters into small blunt pieces rather than sharp shards. Gorilla Glass (phone screens) uses ion exchange to achieve the same effect chemically.</p>
+    </div>
+
+    <div class="mat-card">
+      <div class="mat-header">
+        <span class="mat-name">Polymers (plastics)</span>
+        <span class="mat-badge" style="background:#EAF3DE; color:#27500A;">the shape-shifters</span>
+      </div>
+      <div class="props">
+        <div class="prop"><p class="prop-label">Density range</p><p class="prop-val">~900–1,400 kg/m³</p><p class="prop-note">Lighter than all metals. Some float in water.</p></div>
+        <div class="prop"><p class="prop-label">Strength range</p><p class="prop-val">~20–100 MPa</p><p class="prop-note">Wide range — engineering plastics (nylon, PEEK) approach aluminium</p></div>
+        <div class="prop"><p class="prop-label">Key advantage</p><p class="prop-val">Mouldable + cheap</p><p class="prop-note">Injection moulding can produce millions of identical complex parts cheaply</p></div>
+      </div>
+      <p class="uses"><strong style="color:var(--color-text-primary);">Why plastics:</strong> Cheap, light, corrosion-proof, electrically insulating, infinitely mouldable. Packaging, pipes, clothing, electronics, medical devices. The downside — durability that was an engineering triumph is an environmental catastrophe: most plastics persist for 400–1,000 years in the environment. The world produces ~400 million tonnes per year; ~91% has never been recycled.</p>
+    </div>
+
+    <div class="sec">Part C · strength-to-weight — the real comparison</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Specific strength (MPa per density) — how strong per kilogram</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">This is what engineers care about for vehicles and aircraft — not absolute strength, but strength per unit weight.</div>
+      <div class="bar-row"><span class="bl">Carbon fibre composite</span><div class="bb" style="width:100%; background:#A32D2D;"><span class="bv" style="color:#fff;">~938 kN·m/kg — best structural material</span></div></div>
+      <div class="bar-row"><span class="bl">Spider silk</span><div class="bb" style="width:88%; background:#D85A30;"><span class="bv" style="color:#fff;">~800 kN·m/kg — extraordinary</span></div></div>
+      <div class="bar-row"><span class="bl">Titanium alloy</span><div class="bb" style="width:55%; background:#EF9F27;"><span class="bv" style="color:#412402;">~500 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Aluminium alloy</span><div class="bb" style="width:30%; background:#5DCAA5;"><span class="bv" style="color:#04342C;">~290 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">High-strength steel</span><div class="bb" style="width:20%; background:#1D9E75;"><span class="bv" style="color:#fff;">~180 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Structural steel</span><div class="bb" style="width:13%; background:#9FE1CB;"><span class="bv" style="color:#04342C;">~50 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Wood (oak, along grain)</span><div class="bb" style="width:10%; background:#C0DD97;"><span class="bv" style="color:#27500A;">~40 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Concrete</span><div class="bb" style="width:2%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="bv" style="color:#0C447C; margin-left:4px; font-size:10px;">~10 kN·m/kg</span></div></div>
+      <p style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">Spider silk is as strong per gram as carbon fibre — the challenge is producing it in industrial quantities. Spiders are territorial and cannibalistic, making farming impossible. Scientists are trying to synthesise it using bacteria.</p>
+    </div>
+
+    <div class="sec">Part D · interactive material explorer</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">You're designing something. Which material fits?</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+        <button onclick="showUseCase('bridge')"   style="font-size:12px; padding:4px 12px;">Bridge</button>
+        <button onclick="showUseCase('plane')"    style="font-size:12px; padding:4px 12px;">Aircraft</button>
+        <button onclick="showUseCase('phone')"    style="font-size:12px; padding:4px 12px;">Smartphone</button>
+        <button onclick="showUseCase('bottle')"   style="font-size:12px; padding:4px 12px;">Water bottle</button>
+        <button onclick="showUseCase('building')" style="font-size:12px; padding:4px 12px;">Skyscraper</button>
+        <button onclick="showUseCase('bike')"     style="font-size:12px; padding:4px 12px;">Racing bike</button>
+        <button onclick="showUseCase('pan')"      style="font-size:12px; padding:4px 12px;">Frying pan</button>
+        <button onclick="showUseCase('tyre')"     style="font-size:12px; padding:4px 12px;">Car tyre</button>
+      </div>
+      <div id="usecase-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+    </div>
+
+    <div class="sec">Part E · why things break, bend, or hold</div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Why bridges sag in the middle</p>
+        <p class="cval">Bending = tension below</p>
+        <p class="cnote">The top of a beam under load is in compression (squashed); the bottom is in tension (stretched). Concrete handles compression well but cracks in tension — that's why bridges use steel cables or rebar along the bottom.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why wine glasses ring but plastic cups don't</p>
+        <p class="cval">Elasticity & damping</p>
+        <p class="cnote">Glass is crystalline and highly elastic — it vibrates for a long time. Plastic is amorphous and damps (absorbs) vibrations quickly. The "ring" test tells you how much energy a material can store and release.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why rubber bounces but clay doesn't</p>
+        <p class="cval">Elastic vs plastic deformation</p>
+        <p class="cnote">Rubber returns to its original shape (elastic). Clay permanently deforms (plastic). Steel has both zones: small forces → elastic (springs back). Large forces → plastic (bent permanently). Engineers design structures to stay in the elastic zone.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why I-beams are I-shaped</p>
+        <p class="cval">Putting material where it matters</p>
+        <p class="cnote">In a beam under load, the top and bottom surfaces carry the most stress. The middle carries almost nothing. Removing the middle (making an I or H shape) saves ~40% of the material and weight while retaining ~90% of the stiffness. Genius efficiency.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why arches don't need mortar</p>
+        <p class="cval">Redirecting tension into compression</p>
+        <p class="cnote">An arch converts all downward loads into compression forces along its curve — and stone/concrete are strong in compression. Roman arches built 2,000 years ago still stand because they're made of dry stones held in pure compression. No glue, no steel — just geometry.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why planes are thin-walled tubes</p>
+        <p class="cval">Monocoque structure</p>
+        <p class="cnote">A hollow tube is far stiffer than a solid rod of the same weight. Aircraft fuselages are thin aluminium (or carbon fibre) shells where the skin itself carries the load — like an eggshell. This is called monocoque design.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part F · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A marketing claim says a phone case is "military-grade aluminium." What does that actually mean?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Very little. "Military-grade" is a marketing term with no universal standard. Aluminium alloys span a huge range — from soft 1000-series (cooking foil) to hard 7000-series aerospace alloys (3× stronger). Most "military-grade" phone cases use 6061 aluminium, which is a solid general-purpose alloy but nothing exotic. The phone case industry uses this phrase because it sounds impressive, not because it meets any specific military specification. The actual drop protection depends far more on the case's geometry and internal padding than on the alloy grade.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Why is concrete always reinforced with steel rebar in modern construction, but ancient Roman concrete wasn't?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Because ancient Roman structures were designed to stay in pure compression — arches, domes, vaults — where concrete's weakness in tension doesn't matter. The Pantheon is a dome: every point on it is under compression, so unreinforced concrete works perfectly. Modern buildings use flat floors, horizontal beams, and cantilevers, which create bending forces with tension in some areas. Steel rebar handles that tension. Interestingly, Roman concrete was also chemically superior for some applications — it actually got stronger over centuries due to a chemical reaction with seawater, which modern concrete does not do.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. A racing cyclist is choosing between aluminium and carbon fibre frame. Carbon fibre is 5× more expensive. What are they actually buying?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Primarily weight reduction — and the ability to tune stiffness directionally. A carbon fibre frame might weigh 800g vs 1,400g for aluminium — a 600g saving. On a 70kg rider+bike system, that's less than 1% of total weight. The real advantage is that carbon fibre can be laid in specific orientations: stiff vertically (efficient pedalling) but slightly flexible horizontally (road vibration absorption). Aluminium is isotropic — equally stiff in all directions. For amateur cyclists, the performance difference is measurable in lab conditions and nearly imperceptible in real riding. Most of the speed difference comes from the aerodynamics, the wheels, and the rider — not the frame material.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Why do overhead power lines sag more in summer than winter?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Thermal expansion. All materials expand when heated. Aluminium expands by about 23 millionths of a metre per metre per degree Celsius (coefficient of thermal expansion = 23×10⁻⁶/°C). A 300-metre power line spanning a gap will expand by roughly 300 × 23×10⁻⁶ × 40°C temperature increase ≈ 0.28 metres over a 40°C summer day. Since the attachment points are fixed, the extra length has to go somewhere — it sags. Engineers design towers with enough clearance that sagging lines never touch the ground. In extreme heat waves, lines sag more than expected and sometimes short circuit or touch trees — causing blackouts.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. Why is an egg so hard to crush when you squeeze it in your palm, but so easy to crack on a bowl edge?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The eggshell is a thin arch — a perfect compression structure. When you squeeze in your palm, the force is distributed evenly over the curved surface, and the shell converts it into compression along its curves (which it handles well). This is the same principle as a Roman arch or an aircraft fuselage. But when you crack it on a bowl edge, you apply a concentrated point load that creates a sharp local bending moment — suddenly one tiny region is in tension, which the brittle calcium carbonate shell cannot handle. The shell cracks there first, and the crack propagates rapidly. Geometry, not the material, determines how strong the egg feels.</div>
+    </div>
+
+    <script>
+const useCases = {
+  bridge: {
+    title: 'A bridge',
+    choices: [
+      { mat: 'Steel', role: 'Primary structural material', why: 'Strong in both tension and compression, weldable, tough. Suspension cables are high-strength steel wire. I-beams form the deck structure.', col: '#3C3489' },
+      { mat: 'Concrete', role: 'Deck and piers', why: 'Cheap, mouldable, fire-resistant, excellent in compression. Always reinforced with steel rebar to handle tension from bending. The deck surface is often concrete.', col: '#633806' },
+      { mat: 'Aluminium', role: 'Rarely used (some modern pedestrian bridges)', why: 'Would save weight but costs more and is less stiff. Not the standard choice for road bridges.', col: '#0C447C' }
+    ],
+    note: 'The Golden Gate Bridge uses 83,000 tonnes of steel and almost no concrete (except the towers). Most motorway bridges use reinforced concrete for cost. The choice is economics + span length.'
+  },
+  plane: {
+    title: 'A commercial aircraft',
+    choices: [
+      { mat: 'Aluminium alloys', role: 'Most of the airframe (older designs)', why: '~80% of a Boeing 737 by weight. Excellent strength-to-weight, corrosion resistant, well understood. 7075 alloy used for high-stress parts.', col: '#0C447C' },
+      { mat: 'Carbon fibre composites', role: 'Modern aircraft (Boeing 787, Airbus A350)', why: '50% of a 787 by weight. Lighter than aluminium, allows complex aerodynamic curves, doesn\'t fatigue the same way. But expensive and harder to repair.', col: '#791F1F' },
+      { mat: 'Titanium', role: 'Fasteners, engine mounts, high-heat zones', why: 'Handles high temperatures near engines. Strong, light, corrosion-proof. But very expensive — used only where it pays off.', col: '#27500A' }
+    ],
+    note: 'Every 1 kg saved on a plane saves roughly €1,000–3,000 in fuel over the aircraft\'s lifetime. Weight is money at aircraft scale.'
+  },
+  phone: {
+    title: 'A smartphone',
+    choices: [
+      { mat: 'Aluminium alloy', role: 'Frame / chassis', why: 'Light, stiff, good thermal conductor (helps with heat), premium feel. iPhone, Samsung Galaxy all use aluminium alloy frames.', col: '#0C447C' },
+      { mat: 'Gorilla Glass (hardened glass)', role: 'Screen and back panel', why: 'Chemically strengthened — ion exchange creates surface compression. Scratch-resistant and optically clear. Also used for back panels (enables wireless charging).', col: '#085041' },
+      { mat: 'Plastics (polycarbonate, nylon)', role: 'Internal components, budget phones', why: 'Cheap, light, electrically insulating, mouldable. Budget phones often use polycarbonate for the whole body. Feels cheaper but is actually more impact-resistant than glass.', col: '#27500A' }
+    ],
+    note: '"Ceramic" backs on premium phones (some Samsung models) use zirconia ceramic — extremely hard and scratch-resistant, but brittle when dropped.'
+  },
+  bottle: {
+    title: 'A water bottle',
+    choices: [
+      { mat: 'PET plastic (single-use)', role: 'Disposable bottles', why: 'Cheap, lightweight, transparent, food-safe, recyclable. Made from petroleum. Takes 400+ years to decompose. 1 million plastic bottles are bought every minute worldwide.', col: '#27500A' },
+      { mat: 'Stainless steel', role: 'Reusable bottles', why: 'Food-safe, durable, doesn\'t absorb flavours, can insulate if double-walled (vacuum insulation). Heavier than plastic. Lasts decades.', col: '#3C3489' },
+      { mat: 'Borosilicate glass', role: 'Reusable, premium bottles', why: 'Thermally resistant (used in lab glass), doesn\'t leach chemicals, heavy, breakable. Niche but genuinely inert.', col: '#085041' }
+    ],
+    note: 'The environmental break-even point for a stainless steel bottle vs single-use plastic is roughly 50–100 uses — at which point the manufacturing energy difference is offset.'
+  },
+  building: {
+    title: 'A skyscraper',
+    choices: [
+      { mat: 'Steel', role: 'Structural frame', why: 'A steel skeleton (moment-resisting frame or braced core) carries all vertical and lateral (wind) loads. Steel\'s strength means slender columns — freeing up floor space.', col: '#3C3489' },
+      { mat: 'Reinforced concrete', role: 'Core, floors, foundations', why: 'The central core (elevators, stairs) is usually reinforced concrete — extremely stiff and fire-resistant. Floors are often composite (steel deck + concrete topping).', col: '#633806' },
+      { mat: 'Glass', role: 'Curtain wall (cladding)', why: 'The exterior glass facade carries no structural load — it\'s hung off the steel frame. Tempered or laminated for safety. Provides daylighting and weather resistance.', col: '#085041' }
+    ],
+    note: 'The world\'s tallest building (Burj Khalifa, 828m) uses a reinforced concrete core with a steel exterior. The Empire State Building (443m) is almost entirely steel — built in 1931 in 410 days.'
+  },
+  bike: {
+    title: 'A racing bicycle',
+    choices: [
+      { mat: 'Carbon fibre composite', role: 'Pro/elite frames', why: 'Lightest option (~700–900g frame), can be tuned for directional stiffness, aerodynamic shapes possible. Used by Tour de France riders. Fails suddenly if damaged — no visible warning.', col: '#791F1F' },
+      { mat: 'Aluminium alloy (6061, 7005)', role: 'Mid-range performance', why: 'Good stiffness-to-weight, cheaper than carbon, weldable. A quality aluminium frame weighs ~1,100–1,400g. Transmits road vibration more than carbon.', col: '#0C447C' },
+      { mat: 'Chromoly steel', role: 'Touring, classic, durable bikes', why: 'Chrome-molybdenum steel — strong, tough, repairable, comfortable ride quality. Heavier (~1,400–2,000g) but lasts decades. Preferred for long-distance touring.', col: '#3C3489' }
+    ],
+    note: 'Titanium frames (~1,000g) offer the best of all worlds — light, tough, corrosion-proof, comfortable — but cost €3,000+ for the frame alone.'
+  },
+  pan: {
+    title: 'A frying pan',
+    choices: [
+      { mat: 'Stainless steel (18/10)', role: 'Professional/durable pans', why: 'Durable, non-reactive (won\'t affect food flavour), dishwasher-safe, no coating to wear off. Poor heat distribution unless bonded with aluminium or copper base. Requires oil to prevent sticking.', col: '#3C3489' },
+      { mat: 'Cast iron', role: 'High-heat cooking, longevity', why: 'Excellent heat retention, oven-safe to very high temps, naturally non-stick when seasoned, lasts generations. Very heavy (~2–4kg). Reacts with acidic foods (tomatoes). Rusts if not dried.', col: '#633806' },
+      { mat: 'Aluminium with non-stick coating', role: 'Everyday home cooking', why: 'Light, heats quickly and evenly, cheap. PTFE (Teflon) coating prevents sticking at low-medium heat. Coating degrades over time and at high temperatures (above ~260°C it releases fumes).', col: '#0C447C' }
+    ],
+    note: 'Copper pans (used in professional kitchens) have the best thermal conductivity of any cookware — 400 W/m·K vs steel\'s 50 W/m·K — but cost £100–500+ per pan and react with acidic food without tin lining.'
+  },
+  tyre: {
+    title: 'A car tyre',
+    choices: [
+      { mat: 'Synthetic rubber (SBR + NR blend)', role: 'The tyre body', why: 'Vulcanised rubber — sulphur cross-links make it elastic but durable. Natural rubber (NR) for flexibility; styrene-butadiene rubber (SBR) for wear resistance. Must grip at all temperatures.', col: '#27500A' },
+      { mat: 'Steel cords (belt)', role: 'Structural reinforcement under the tread', why: 'Multiple layers of thin steel wire twisted into cords, embedded in rubber at an angle. Provides rigidity and puncture resistance. Without it, the tyre would balloon and deform under load.', col: '#3C3489' },
+      { mat: 'Nylon / polyester / aramid cords', role: 'Carcass (inner structure)', why: 'Fabric cords form the tyre\'s skeleton, keeping its shape under pressure. Aramid (Kevlar) used in run-flat tyres for cut resistance. The carcass takes the inflation pressure force.', col: '#0C447C' }
+    ],
+    note: 'A modern car tyre contains ~25 different materials. The black colour comes from carbon black (soot) added to rubber — it dramatically extends tyre life by absorbing UV and improving wear resistance. Without it, tyres would be white and last 1/4 as long.'
+  }
+};
+
+function showUseCase(key) {
+  const u = useCases[key];
+  let html = `<div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">${u.title}</div>`;
+  u.choices.forEach(c => {
+    html += `<div style="display:flex; gap:10px; margin-bottom:8px; align-items:flex-start;">
+      <div style="min-width:100px; flex-shrink:0; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:5px 8px; text-align:center;">
+        <div style="font-size:12px; font-weight:500; color:${c.col};">${c.mat}</div>
+        <div style="font-size:10px; color:var(--color-text-secondary); margin-top:1px;">${c.role}</div>
+      </div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5; padding-top:3px;">${c.why}</div>
+    </div>`;
+  });
+  html += `<div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary); line-height:1.5; margin-top:4px;"><strong style="color:var(--color-text-primary);">Note: </strong>${u.note}</div>`;
+  document.getElementById('usecase-display').innerHTML = html;
+}
+showUseCase('bridge');
+    </script>
+  </div>
+</body>
+</html>

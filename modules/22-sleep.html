@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 22: Sleep — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.stage-card { border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; border: 0.5px solid; }
+.sh { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.sname { font-size: 14px; font-weight: 500; }
+.sbadge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.sgrid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+.sbox { border-radius: var(--border-radius-md); padding: 8px 10px; }
+.sl { font-size: 11px; margin-bottom: 2px; }
+.sv { font-size: 12px; font-weight: 500; line-height: 1.4; }
+.snote { font-size: 12px; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 22: Sleep</h1>
+    <p class="module-subtitle">Cycles, stages, hygiene, and circadian rhythms</p>
+
+    <div class="sec">Part A · the architecture of a night's sleep — the 90-minute cycle</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">A typical 8-hour night contains 4–5 complete cycles</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.6;">Each cycle lasts roughly 90 minutes. The composition changes across the night: early cycles are dominated by deep sleep (N3); later cycles contain more REM. This is why the last 2 hours of sleep are disproportionately rich in dreaming — and why cutting sleep short costs you mostly REM, not deep sleep.</div>
+
+      <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">A single 90-minute cycle — stages in order</div>
+        <div style="display:flex; height:32px; border-radius:var(--border-radius-md); overflow:hidden; border:0.5px solid var(--color-border-tertiary);">
+          <div style="flex:1; background:#B5D4F4; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#042C53; font-weight:500;">N1 (5 min)</span></div>
+          <div style="flex:2; background:#378ADD; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#fff; font-weight:500;">N2 (20–25 min)</span></div>
+          <div style="flex:2; background:#26215C; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#CECBF6; font-weight:500;">N3 deep (20–40 min)</span></div>
+          <div style="flex:1; background:#378ADD; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#fff; font-weight:500;">N2 brief</span></div>
+          <div style="flex:2; background:#D4537E; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#fff; font-weight:500;">REM (10–60 min)</span></div>
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;">
+          <span style="font-size:11px; color:var(--color-text-secondary); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#B5D4F4; border-radius:2px; display:inline-block;"></span>N1 light</span>
+          <span style="font-size:11px; color:var(--color-text-secondary); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#378ADD; border-radius:2px; display:inline-block;"></span>N2 true sleep</span>
+          <span style="font-size:11px; color:var(--color-text-secondary); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#26215C; border-radius:2px; display:inline-block;"></span>N3 deep/slow-wave</span>
+          <span style="font-size:11px; color:var(--color-text-secondary); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#D4537E; border-radius:2px; display:inline-block;"></span>REM (dreaming)</span>
+        </div>
+      </div>
+
+      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:11px 14px; margin-bottom:8px;">
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">How the cycle composition shifts across a full night</div>
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div>
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Cycle 1 (~11pm–12:30am)</div>
+            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
+              <div style="flex:0.5; background:#B5D4F4;"></div>
+              <div style="flex:2; background:#378ADD;"></div>
+              <div style="flex:3.5; background:#26215C;"></div>
+              <div style="flex:1; background:#D4537E;"></div>
+            </div>
+            <div style="font-size:10px; color:var(--color-text-secondary); margin-top:2px;">Heavy deep sleep, minimal REM</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Cycle 2 (~12:30–2am)</div>
+            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
+              <div style="flex:0.5; background:#B5D4F4;"></div>
+              <div style="flex:2; background:#378ADD;"></div>
+              <div style="flex:2.5; background:#26215C;"></div>
+              <div style="flex:2; background:#D4537E;"></div>
+            </div>
+            <div style="font-size:10px; color:var(--color-text-secondary); margin-top:2px;">Still substantial deep sleep, more REM</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Cycle 3 (~2–3:30am)</div>
+            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
+              <div style="flex:0.5; background:#B5D4F4;"></div>
+              <div style="flex:2; background:#378ADD;"></div>
+              <div style="flex:1; background:#26215C;"></div>
+              <div style="flex:3.5; background:#D4537E;"></div>
+            </div>
+            <div style="font-size:10px; color:var(--color-text-secondary); margin-top:2px;">Deep sleep diminishing, REM growing</div>
+          </div>
+          <div>
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Cycle 4–5 (~3:30–7am)</div>
+            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
+              <div style="flex:0.5; background:#B5D4F4;"></div>
+              <div style="flex:2; background:#378ADD;"></div>
+              <div style="flex:0.2; background:#26215C;"></div>
+              <div style="flex:5; background:#D4537E;"></div>
+            </div>
+            <div style="font-size:10px; color:var(--color-text-secondary); margin-top:2px;">Almost entirely REM — the dream-heavy second half of sleep</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">The alarm clock problem:</strong> Most people set an alarm that cuts off the final 1–2 cycles. This disproportionately removes REM sleep — the stage most critical for emotional regulation, creativity, and memory consolidation. Waking up mid-REM (when you were dreaming) produces the grogginess called sleep inertia. The 90-minute rule: if you need to wake at 7am, count back in 90-minute increments — bedtimes of 11:30pm, 10pm, or 8:30pm all align with cycle boundaries and produce gentler waking.
+      </div>
+    </div>
+
+    <div class="sec">Part B · the four sleep stages — what happens in each</div>
+
+    <div style="background:#E6F1FB; border:0.5px solid #85B7EB; border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
+      <div class="sh"><span class="sname" style="color:#042C53;">Stage N1 — light sleep / hypnagogic state</span><span class="sbadge" style="background:#B5D4F4; color:#042C53;">1–7 min, ~5% of sleep</span></div>
+      <div class="sgrid">
+        <div style="background:#B5D4F4; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#0C447C;">Brain waves</p><p class="sv" style="color:#042C53;">Alpha waves slow to theta waves. Easily awakened — "not really asleep yet."</p></div>
+        <div style="background:#B5D4F4; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#0C447C;">What happens</p><p class="sv" style="color:#042C53;">Muscle tone decreases. Eyes move slowly. Hypnic jerks (that sudden falling sensation) are common — muscle twitch as body releases tension.</p></div>
+        <div style="background:#B5D4F4; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#0C447C;">Hypnagogia</p><p class="sv" style="color:#042C53;">The border state between waking and sleep. Vivid, dreamlike images, sounds, or sensations that aren't yet dreams. Salvador Dalí deliberately induced this state for creative inspiration.</p></div>
+      </div>
+      <p class="snote" style="color:#185FA5;">N1 is the twilight zone of consciousness. Woken from N1, most people deny having been asleep at all. This is why "I was just resting my eyes" is often literally true — the person was in N1, barely unconscious.</p>
+    </div>
+
+    <div style="background:#EEEDFE; border:0.5px solid #AFA9EC; border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
+      <div class="sh"><span class="sname" style="color:#26215C;">Stage N2 — true sleep</span><span class="sbadge" style="background:#CECBF6; color:#26215C;">20–30 min per cycle, ~45–50% of total sleep</span></div>
+      <div class="sgrid">
+        <div style="background:#CECBF6; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#3C3489;">Brain waves</p><p class="sv" style="color:#26215C;">Sleep spindles (bursts of 12–14 Hz oscillations, 0.5–2 sec) and K-complexes (sharp negative waves). Both unique to N2.</p></div>
+        <div style="background:#CECBF6; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#3C3489;">What happens</p><p class="sv" style="color:#26215C;">Heart rate and body temperature drop. Sensory processing significantly reduced. Sleep spindles believed to be the brain "gating" sensory input to maintain sleep.</p></div>
+        <div style="background:#CECBF6; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#3C3489;">Memory function</p><p class="sv" style="color:#26215C;">Sleep spindles correlate strongly with motor memory consolidation. Learning a new physical skill (playing piano, typing) improves after N2-rich sleep.</p></div>
+      </div>
+      <p class="snote" style="color:#534AB7;">A 20-minute "power nap" that stays in N2 (not reaching N3) leaves you refreshed, not groggy. The groggy nap problem is when you enter N3 and wake mid-cycle. The 20-minute cap is the practical application of this.</p>
+    </div>
+
+    <div style="background:#26215C; border:0.5px solid #534AB7; border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
+      <div class="sh"><span class="sname" style="color:#CECBF6;">Stage N3 — deep sleep / slow-wave sleep (SWS)</span><span class="sbadge" style="background:#534AB7; color:#CECBF6;">20–40 min early, near zero later, ~20% of total</span></div>
+      <div class="sgrid">
+        <div style="background:#3C3489; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#AFA9EC;">Brain waves</p><p class="sv" style="color:#CECBF6;">Delta waves — the slowest, highest amplitude brain waves. Less than 1 Hz. The brain is maximally synchronised and "quiet."</p></div>
+        <div style="background:#3C3489; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#AFA9EC;">Physical repair</p><p class="sv" style="color:#CECBF6;">Growth hormone (GH) is secreted in its largest pulse of the day. Tissue repair, muscle growth, immune strengthening all peak here. The body physically heals itself.</p></div>
+        <div style="background:#3C3489; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#AFA9EC;">Brain cleaning</p><p class="sv" style="color:#CECBF6;">The glymphatic system (brain's waste clearance) is most active during N3. Cerebrospinal fluid flushes metabolic waste including amyloid-beta proteins (associated with Alzheimer's).</p></div>
+      </div>
+      <p class="snote" style="color:#AFA9EC;">N3 is the hardest to wake from — if woken, severe disorientation (sleep inertia) lasts 15–30 minutes. Sleepwalking and sleep talking occur in N3, not REM — explaining why sleepwalkers have no memory and are hard to rouse. Children spend proportionally more time in N3 (explains deep childhood sleep and growth hormone peaks).</p>
+    </div>
+
+    <div style="background:#FBEAF0; border:0.5px solid #ED93B1; border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
+      <div class="sh"><span class="sname" style="color:#4B1528;">REM — Rapid Eye Movement sleep</span><span class="sbadge" style="background:#F4C0D1; color:#4B1528;">10–60 min per cycle, ~20–25% of total — dreams here</span></div>
+      <div class="sgrid">
+        <div style="background:#F4C0D1; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#72243E;">Brain waves</p><p class="sv" style="color:#4B1528;">Almost identical to waking brain — fast, low-amplitude, desynchronised. The brain is as active as when awake. Eyes dart rapidly (hence the name). Body is in voluntary muscle paralysis (atonia).</p></div>
+        <div style="background:#F4C0D1; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#72243E;">Dreaming</p><p class="sv" style="color:#4B1528;">90–95% of vivid, narrative dreams occur in REM. The muscle atonia prevents acting out dreams. REM sleep behaviour disorder: atonia fails — people physically act out dreams.</p></div>
+        <div style="background:#F4C0D1; border-radius:var(--border-radius-md); padding:8px 10px;"><p class="sl" style="color:#72243E;">Functions</p><p class="sv" style="color:#4B1528;">Emotional memory processing (re-activating memories but stripping the emotional charge — "therapy while you sleep"). Creativity and insight — novel connections between memories. Social and emotional learning.</p></div>
+      </div>
+      <p class="snote" style="color:#993556;">REM is the most psychologically active stage. Norepinephrine (the stress chemical) is almost completely absent during REM — the only time in the 24-hour cycle when this happens. This is why REM is thought to provide emotional "overnight therapy": distressing memories are reprocessed in a neurochemically calm state.</p>
+    </div>
+
+    <div class="sec">Part C · dreams — why we have them, why we forget them, why we get nightmares</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Why do we dream?</p>
+        <p class="cval">No single agreed theory — several plausible ones</p>
+        <p class="cnote">Threat simulation theory (Antti Revonsuo): dreaming evolved to simulate threatening situations and rehearse responses. Memory consolidation theory: the sleeping brain replays and integrates experiences. Emotional processing (Matthew Walker): dreams allow safe processing of emotional memories. Default mode hypothesis: dreaming is simply the activated brain generating narrative from memory fragments. All probably partly true.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why do we forget dreams?</p>
+        <p class="cval">Memory requires norepinephrine — absent in REM</p>
+        <p class="cnote">Dream memories are encoded only briefly. The same absence of norepinephrine that makes REM neurochemically calming also prevents strong memory encoding. You remember a dream only if you wake during or immediately after REM — within about 2 minutes. This is why alarm clock interruptions of late-night REM cycles often produce vivid dream recall: you were woken mid-REM.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why nightmares?</p>
+        <p class="cval">Emotional processing gone incomplete or overwhelmed</p>
+        <p class="cnote">Nightmares occur when the REM emotional processing system can't adequately resolve distressing material. Causes: stress (unresolved daily anxiety reactivates), trauma (PTSD involves hyperactivated amygdala that floods REM), certain medications (beta-blockers, some antidepressants), alcohol (suppresses REM, causing REM rebound with intense dreams on withdrawal nights), fever (heightened brain activity during REM).</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Lucid dreaming</p>
+        <p class="cval">Awareness that you're dreaming, during REM</p>
+        <p class="cnote">Occurs when the prefrontal cortex (which is normally very inactive during REM) becomes activated enough for self-awareness while the rest of the brain remains in the dream state. About 55% of people have had at least one spontaneous lucid dream. Can be trained through reality-testing habits, the MILD technique, or waking during REM cycles. Used therapeutically for nightmare reduction.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Sleep paralysis</p>
+        <p class="cval">Waking while muscle atonia is still active</p>
+        <p class="cnote">The REM muscle paralysis persists briefly after the mind wakes. The person is conscious but cannot move, often accompanied by vivid hallucinations (a presence in the room, pressure on the chest). Terrifying but physically harmless. Occurs most often when sleeping on your back, sleep-deprived, or with disrupted sleep. Historically explained as demons, incubi, and the "old hag" across many cultures.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">The role of the subconscious in sleep</p>
+        <p class="cval">Sleep is when the subconscious does its heaviest work</p>
+        <p class="cnote">The prefrontal cortex (rational, inhibitory) is less active during REM. This allows the limbic system (emotional, associative) to dominate — producing the unconstrained, emotionally vivid, associatively strange narrative of dreams. The "incubation" effect: deliberately thinking about a problem before sleep and waking with insight is documented (the discovery of the benzene ring's structure, "Yesterday" by Paul McCartney, Mendeleev's periodic table arrangement all reportedly arrived in dreams).</p>
+      </div>
+    </div>
+
+    <div class="sec">Part D · the sleep hormones — your body's chemical clock</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Interactive hormone timeline — drag to explore the 24-hour cycle</div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:60px;">Time of day:</label>
+        <input type="range" id="time-slider" min="0" max="23" value="23" step="1" style="flex:1;">
+        <span id="time-out" style="font-size:13px; font-weight:500; min-width:55px; text-align:right; color:var(--color-text-primary);"></span>
+      </div>
+      <div id="hormone-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-bottom:10px;"></div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Melatonin</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The "darkness hormone." Produced by the pineal gland when light fades (~2 hours before natural sleep time). Tells the body it's night. Does not cause sleep — signals its appropriateness. Peaks ~2–3am, fades as light returns. Suppressed by blue light (phone screens) — equivalent to miniature sunrise signal.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Adenosine</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The "sleep pressure" chemical. Produced as a by-product of brain activity — it accumulates steadily from the moment you wake. After ~16 hours, high adenosine = overwhelming sleepiness. Sleep clears it. Caffeine works by blocking adenosine receptors (not reducing it) — when caffeine wears off, the accumulated adenosine floods in (the "crash").</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Cortisol</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The "wake-up" hormone. Rises sharply in the last 2 hours of sleep and peaks ~30 min after waking (the "cortisol awakening response"). This is what allows you to feel alert on waking. Chronic sleep deprivation keeps cortisol elevated, causing chronic stress responses, impaired immunity, and metabolic disruption. Cortisol is the opposite of melatonin in the 24-hour cycle.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Growth hormone (GH)</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">~70–80% of daily GH secretion occurs during the first slow-wave (N3) sleep episode — typically within 1 hour of falling asleep. GH drives tissue repair, muscle growth, fat metabolism, and immune function. This is why "sleep for gains" is physiologically real — skipping sleep cuts the primary GH pulse. Children and teenagers have dramatically higher GH secretion, explaining deep sleep and growth.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part E · sleep deprivation — what actually breaks, and when</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+        <button onclick="showDepriv('mild')"   style="font-size:12px; padding:4px 11px;">Mild (6 hrs/night)</button>
+        <button onclick="showDepriv('24')"     style="font-size:12px; padding:4px 11px;">24 hours awake</button>
+        <button onclick="showDepriv('48')"     style="font-size:12px; padding:4px 11px;">48 hours awake</button>
+        <button onclick="showDepriv('72')"     style="font-size:12px; padding:4px 11px;">72 hours awake</button>
+        <button onclick="showDepriv('chronic')" style="font-size:12px; padding:4px 11px;">Chronic insufficiency</button>
+      </div>
+      <div id="depriv-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+    </div>
+
+    <div class="sec">Part F · chronotypes and daydreaming</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Chronotype — your natural sleep timing</p>
+        <p class="cval">Partly genetic, age-dependent</p>
+        <p class="cnote">Morning types ("larks") naturally wake early and feel alert in the morning. Evening types ("owls") naturally feel tired late and alert at night. Chronotype is ~50% heritable, encoded in clock genes (PER3, CLOCK). Teenagers' chronotypes shift dramatically later due to hormonal changes — a 16-year-old's biological night is genuinely 2 hours later than an adult's. "Just go to bed earlier" doesn't work against a biological clock.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">The social jet lag problem</p>
+        <p class="cval">Work schedules misaligned with biology</p>
+        <p class="cnote">When your chronotype requires sleeping until 8am but work demands 7am waking, you experience "social jet lag" every weekday — the equivalent of flying 1–2 time zones west daily. ~70% of people are not morning types. School start times before 9am have been shown to impair academic performance, increase accident rates, and harm mental health in adolescents, whose biology makes early rising genuinely difficult.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Daydreaming — the default mode network</p>
+        <p class="cval">A specific brain state, not idleness</p>
+        <p class="cnote">The Default Mode Network (DMN) — regions including the medial prefrontal cortex and posterior cingulate — activates when the brain is not focused on a task. Daydreaming, mind-wandering, self-reflection, and imagining the future all use the DMN. It's the opposite of the task-positive network (focused work). The DMN was considered "neural noise" until fMRI showed it is highly organised, consuming ~20% of the brain's energy baseline.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Why daydreaming is valuable</p>
+        <p class="cval">Incubation, creativity, and self-knowledge</p>
+        <p class="cnote">The DMN integrates autobiographical memory, social cognition, and future planning. "Incubation" — the phenomenon of a solution appearing after you stop consciously working on a problem — is thought to be the DMN making novel associations during mind-wandering. The creative insight that arrives in the shower is the DMN working while the task-positive network is off. Constant task-focus (and constant phone-checking) may suppress this essential integration process.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. You have an important exam at 9am tomorrow. Should you stay up until 2am studying, or sleep 8 hours and accept having studied less?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Sleep 8 hours — it's not even close. Sleep is not just rest; it is when learning is physically encoded into long-term memory. The process: during waking, experiences are held in the hippocampus (short-term store). During N2 sleep spindles and N3 slow oscillations, these memories are "transferred" to the neocortex for long-term storage — a process called sleep-dependent memory consolidation. Staying up until 2am and sleeping 5 hours cuts this consolidation process roughly in half. You would be better off studying less but sleeping fully. Additionally, sleep deprivation impairs working memory, attention, and processing speed on the day of the exam — the skills you need to perform. An experiment by Matthew Walker showed that students who slept the night after learning retained 20–40% more than those who stayed awake.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. Why does alcohol feel like it helps you sleep but actually makes sleep worse?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Alcohol is a sedative — it suppresses neural activity and does help you fall asleep faster. This is the genuine benefit. The damage comes in two ways. First, alcohol directly suppresses REM sleep in the first half of the night. The brain senses REM deprivation and causes REM rebound in the second half — but this rebound REM is more intense, more emotionally vivid, and more likely to produce vivid or disturbing dreams. This is why drinking produces a night that feels fragmented and unrefreshing. Second, alcohol is a diuretic (makes you urinate more) and disrupts body temperature regulation — both fragment sleep continuity. It also suppresses N3 in some studies. The net effect: alcohol-induced "sleep" provides less restorative benefit, less memory consolidation, and more emotional disturbance than natural sleep, even if you fell asleep faster.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. What is the difference between sleepwalking and acting out a dream, and which stage of sleep does each occur in?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Sleepwalking (somnambulism) occurs during N3 deep sleep — the stage when the brain is in its slowest wave state. The person's brain remains largely in deep sleep while their motor system activates partially. They have no memory of the event, can't be reasoned with, and appear blank and confused if woken. Their eyes may be open but they are not conscious in any meaningful sense. Acting out dreams (REM Sleep Behaviour Disorder, RBD) is the opposite: it occurs during REM sleep when the normal muscle paralysis (atonia) fails. The person physically performs the actions of their dream — punching, running, shouting — and may cause injury to themselves or a partner. Unlike sleepwalkers, RBD patients can often recall what they were dreaming. RBD is clinically significant: it is a strong early predictor of Parkinson's disease and Lewy body dementia, appearing 5–15 years before neurological symptoms.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Why do teenagers genuinely struggle to sleep early, and is forcing them to wake at 7am for school harmful?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Teenagers experience a biological circadian phase delay — their internal clocks genuinely shift 2–3 hours later during puberty due to hormonal changes (specifically involving melatonin timing). A teenager's melatonin doesn't rise until ~11pm–midnight and suppresses later in the morning. Telling a 15-year-old to fall asleep at 10pm is asking their body to sleep at what it perceives as 7–8pm. School start times of 7–8am mean most teenagers are waking in the middle of their biological night. The research is consistent: delaying school start times to 8:30–9am improves academic performance, reduces car accidents among teen drivers (one of the largest risk factors), decreases depression rates, and improves physical health. The American Academy of Pediatrics has formally recommended no school start before 8:30am for middle and high schools. The teenagers are not lazy — they are biologically different.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. What happens to the brain during the transition between waking and sleep — and why do some people experience falling sensations or vivid images just before sleeping?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">This is the hypnagogic state — the N1 threshold zone. As the brain begins downregulating sensory processing and shifting from alpha to theta waves, the prefrontal cortex loses its executive control while the sensory and memory systems remain partially active. The result is a state where internally generated images, sounds, and sensations are perceived as real — because the brain's reality-checking mechanisms are no longer fully engaged. The falling sensation and hypnic jerk (sudden muscle contraction as you "catch" yourself falling) is thought to result from the brainstem misinterpreting the sudden relaxation of muscle tone as a genuine fall — triggering a reflexive startle response. Some researchers believe it's a vestigial reflex from primate ancestors sleeping in trees, where muscle relaxation could mean a fall. The vivid images (hypnagogic hallucinations) are simply memory fragments being accessed without the conscious editor that controls waking thought. Famously exploited creatively: Edison napped holding steel balls — as he fell asleep, the balls would drop onto a metal plate and wake him, capturing the hypnagogic state's creativity without crossing into full sleep.</div>
+    </div>
+
+    <script>
+const hormoneData = [
+  { hour:6, label:'6am', cortisol:'high rising', melatonin:'fading', adenosine:'low (cleared)', gh:'low', desc:'Cortisol awakening response peaks ~30 min after waking. Melatonin nearly zero. Adenosine cleared by sleep. Body primed to be alert.' },
+  { hour:7, label:'7am', cortisol:'peak', melatonin:'very low', adenosine:'low', gh:'low', desc:'Cortisol at daily peak — highest alertness, best reaction times, peak physical performance window beginning. Melatonin fully suppressed by morning light.' },
+  { hour:9, label:'9am', cortisol:'high', melatonin:'zero', adenosine:'building slightly', gh:'low', desc:'Peak cognitive window for most chronotypes. Cortisol still elevated; adenosine beginning to build slowly from the moment of waking.' },
+  { hour:12, label:'12pm', cortisol:'moderate declining', melatonin:'zero', adenosine:'moderate', gh:'low', desc:'The post-lunch dip: a slight drop in alertness is biological, not purely caused by food. Cortisol declining; adenosine continuing to build. A 20-min nap here (before N3) is highly effective.' },
+  { hour:14, label:'2pm', cortisol:'moderate', melatonin:'zero', adenosine:'moderate-high', gh:'low', desc:'Afternoon alertness trough for many people. Best time for a brief nap if needed — sleep pressure is sufficient and there is enough day remaining to avoid disrupting night sleep.' },
+  { hour:17, label:'5pm', cortisol:'low', melatonin:'zero', adenosine:'high', gh:'very low', desc:'Late afternoon: another alertness peak for many evening types. Adenosine building strongly. Testosterone also peaks in late afternoon — physical performance window for athletes.' },
+  { hour:19, label:'7pm', cortisol:'low', melatonin:'starting to rise', adenosine:'high', gh:'very low', desc:'Melatonin begins to rise ~2 hours before natural sleep time. Body temperature starting to drop (a key sleep signal). Avoid bright light here to preserve melatonin signal.' },
+  { hour:21, label:'9pm', cortisol:'very low', melatonin:'rising', adenosine:'very high', gh:'low', desc:'Melatonin rising strongly. Adenosine very high — sleep drive is intense. Body temperature dropping. Ideal wind-down window. Avoid screens and bright light.' },
+  { hour:22, label:'10pm', cortisol:'very low', melatonin:'high', adenosine:'very high', gh:'beginning to rise', desc:'Natural sleep onset for most adults. Melatonin near peak. Growth hormone begins to rise in preparation for first N3 cycle. Adenosine about to be cleared by sleep.' },
+  { hour:23, label:'11pm', cortisol:'very low', melatonin:'peak', adenosine:'clearing as sleep begins', gh:'rising towards first pulse', desc:'First sleep cycle in progress. Melatonin at peak. Growth hormone building towards its largest pulse in the first N3 stage. Brain entering deep slow-wave sleep — physical repair beginning.' },
+  { hour:0, label:'midnight', cortisol:'minimal', melatonin:'peak', adenosine:'clearing', gh:'peak pulse (first N3)', desc:'Growth hormone at daily peak — the first N3 cycle triggers the largest GH pulse of the 24-hour period. Tissue repair, muscle growth, and immune strengthening maximally active.' },
+  { hour:2, label:'2am', cortisol:'very low', melatonin:'high', adenosine:'low', gh:'moderate', desc:'Mid-sleep. REM cycles growing longer. Emotional memory processing intensive. The darkest, coldest, most deeply asleep period for most people. Body temperature at its lowest.' },
+  { hour:4, label:'4am', cortisol:'beginning to rise', melatonin:'declining', adenosine:'very low', gh:'low', desc:'Cortisol begins its pre-dawn rise — the body preparing to wake. Melatonin fading as internal clock anticipates light. Final long REM cycles occurring.' },
+];
+
+function updateHormones() {
+  const idx = parseInt(document.getElementById('time-slider').value);
+  const hours = [6,7,9,12,14,17,19,21,22,23,0,2,4];
+  const closestIdx = hours.reduce((best, h, i) => {
+    const diff = Math.abs(h <= 12 ? h + 24 - idx : h - idx);
+    const bestDiff = Math.abs(hours[best] <= 12 ? hours[best] + 24 - idx : hours[best] - idx);
+    return diff < bestDiff ? i : best;
+  }, 0);
+  const d = hormoneData[closestIdx];
+  const hourStr = idx === 0 ? '12am (midnight)' : idx < 12 ? `${idx}am` : idx === 12 ? '12pm (noon)' : `${idx-12}pm`;
+  document.getElementById('time-out').textContent = hourStr;
+  document.getElementById('hormone-display').innerHTML = `
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-primary); border-radius:var(--border-radius-md); padding:7px 9px; border:0.5px solid var(--color-border-tertiary);">
+        <div style="font-size:10px; color:var(--color-text-secondary);">Cortisol</div>
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${d.cortisol}</div>
+      </div>
+      <div style="background:var(--color-background-primary); border-radius:var(--border-radius-md); padding:7px 9px; border:0.5px solid var(--color-border-tertiary);">
+        <div style="font-size:10px; color:var(--color-text-secondary);">Melatonin</div>
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${d.melatonin}</div>
+      </div>
+      <div style="background:var(--color-background-primary); border-radius:var(--border-radius-md); padding:7px 9px; border:0.5px solid var(--color-border-tertiary);">
+        <div style="font-size:10px; color:var(--color-text-secondary);">Adenosine</div>
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${d.adenosine}</div>
+      </div>
+      <div style="background:var(--color-background-primary); border-radius:var(--border-radius-md); padding:7px 9px; border:0.5px solid var(--color-border-tertiary);">
+        <div style="font-size:10px; color:var(--color-text-secondary);">Growth hormone</div>
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${d.gh}</div>
+      </div>
+    </div>
+    <div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${d.desc}</div>`;
+}
+
+document.getElementById('time-slider').addEventListener('input', updateHormones);
+updateHormones();
+
+const deprivData = {
+  mild: { title:'Mild chronic deprivation — 6 hours/night for 2+ weeks',
+    col:'#BA7517', bg:'#FAEEDA',
+    effects:[
+      ['Cognitive impairment','After 10 days on 6 hrs/night, performance is as impaired as someone who has been awake for 24 hours straight — but the person rates themselves as only "slightly sleepy." The dangerous part: you lose the ability to accurately gauge your own impairment.'],
+      ['Memory consolidation','Reduced by ~20–40%. Information studied the night before is less well retained. Learning curves flatten.'],
+      ['Emotional regulation','Amygdala reactivity increases ~60% — small stressors trigger disproportionate emotional responses. Irritability, reduced empathy, impaired social judgment.'],
+      ['Physical health','Elevated cortisol → increased blood pressure, insulin resistance, weight gain (ghrelin rises, leptin falls = increased hunger). Immune function reduced: ~40% fewer natural killer cells after one week of 6-hour nights.'],
+      ['The illusion of adaptation','After 2 weeks on 6 hours, people report "feeling fine" — but objective tests show continued, worsening impairment. Chronic sleep deprivation impairs the ability to perceive the deprivation itself.']
+    ]
+  },
+  '24': { title:'24 hours without sleep',
+    col:'#D85A30', bg:'#FAECE7',
+    effects:[
+      ['Cognitive performance','Equivalent to blood alcohol content of 0.10% — legally drunk in most countries. Reaction time, decision-making, and short-term memory all significantly impaired.'],
+      ['Microsleeps','The brain begins forcing 1–30 second episodes of sleep (microsleeps) even if you\'re trying to stay awake. During a microsleep, you process no information — highly dangerous while driving.'],
+      ['Hallucinations','Visual and auditory hallucinations may begin around the 18–24 hour mark in some individuals — the brain attempting to generate REM-like states while awake.'],
+      ['Physical','Elevated inflammatory markers. Immune suppression. Metabolic dysregulation. Elevated cortisol and heart rate.'],
+      ['Mood','Significantly elevated anxiety and emotional reactivity. Difficulty with empathy and reading social cues.']
+    ]
+  },
+  '48': { title:'48 hours without sleep',
+    col:'#A32D2D', bg:'#FCEBEB',
+    effects:[
+      ['Cognitive performance','Severely impaired across all domains. Working memory, attention, and processing speed degraded by ~40%. Problem-solving and creativity essentially non-functional.'],
+      ['Immune system','Natural killer cell activity drops ~70%. Interleukin-6 (inflammation marker) significantly elevated. Risk of infection greatly increased.'],
+      ['Perceptual distortions','More severe hallucinations. Reality-testing impaired — the person may not reliably distinguish hallucinations from perception. Paranoid ideation possible.'],
+      ['Physiological stress','Cortisol remains elevated. Blood pressure significantly raised. Tremors and impaired coordination reported.'],
+      ['Sleep debt','This much sleep debt cannot be fully recovered from in one night — recovery requires multiple nights of extended sleep, particularly focused on repaying N3 and REM deficits.']
+    ]
+  },
+  '72': { title:'72 hours without sleep',
+    col:'#791F1F', bg:'#FCEBEB',
+    effects:[
+      ['Psychosis-like symptoms','At this level, hallucinations are near-universal, disorganised thinking resembling acute psychosis appears. The person may be unable to maintain a coherent conversation.'],
+      ['Motor impairment','Slurred speech, hand tremors, balance problems. Involuntary micro-sleep episodes become impossible to suppress.'],
+      ['Cognitive collapse','Essentially no reliable cognitive function. The brain cannot form coherent new memories. Existing memories may become confused.'],
+      ['World record context','Randy Gardner (1964) stayed awake for 264 hours (11 days) under medical supervision — the longest documented case. He recovered after extended sleep with no permanent damage. However, this is an extreme outlier. Most people become incapacitated and begin displaying psychotic symptoms well before 72 hours.'],
+      ['Physiological danger','Core body temperature dysregulation. Extreme immune suppression. Fatal familial insomnia (a genetic prion disease) demonstrates that complete deprivation of sleep is ultimately fatal — death occurs within months.']
+    ]
+  },
+  chronic: { title:'Chronic insufficiency — years of suboptimal sleep',
+    col:'#3C3489', bg:'#EEEDFE',
+    effects:[
+      ['Alzheimer\'s risk','Chronic poor sleep is one of the strongest modifiable risk factors for Alzheimer\'s disease. N3 slow-wave sleep is when the glymphatic system clears amyloid-beta protein. Decades of poor N3 → amyloid accumulation → neurodegeneration. The relationship is bidirectional: Alzheimer\'s also disrupts sleep.'],
+      ['Cardiovascular disease','Sleeping less than 6 hours per night consistently is associated with 200% increased risk of heart attack and significantly elevated stroke risk (large-scale epidemiological studies).'],
+      ['Metabolic consequences','Chronic short sleep dysregulates insulin and glucose — a key pathway to type 2 diabetes. Leptin/ghrelin imbalance drives increased caloric intake (~300 extra calories/day on sleep-deprived days, research shows).'],
+      ['Cancer risk','Studies show increased cancer risk with chronic sleep disruption, particularly for breast, colon, and prostate cancer. Immune surveillance (natural killer cells detecting abnormal cells) is compromised by sleep loss.'],
+      ['Mental health','Insomnia is the single strongest predictor of depression and anxiety disorders. The relationship is bidirectional but sleep disruption often precedes the psychiatric disorder. Treating sleep often substantially improves mental health outcomes independent of other interventions.']
+    ]
+  }
+};
+
+function showDepriv(key) {
+  const d = deprivData[key];
+  let html = `<div style="display:inline-block; background:${d.bg}; color:${d.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 10px; margin-bottom:10px;">${d.title}</div>`;
+  d.effects.forEach(([title, desc]) => {
+    html += `<div style="margin-bottom:8px;"><div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">${title}</div><div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;">${desc}</div></div>`;
+  });
+  document.getElementById('depriv-display').innerHTML = html;
+}
+showDepriv('mild');
+    </script>
+  </div>
+</body>
+</html>

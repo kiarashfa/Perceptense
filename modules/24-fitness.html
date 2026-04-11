@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 24: Fitness & Exercise — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.lift-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
+.lh { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.lname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+.lbadge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
+.lgrid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin-bottom: 8px; }
+.lbox { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
+.ll { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
+.lv { font-size: 12px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
+.lnote { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 24: Fitness & Exercise</h1>
+    <p class="module-subtitle">Lifts, cardio, programming, and body mechanics</p>
+
+    <div class="sec">Part A · aerobic vs anaerobic — the fundamental split</div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+      <div style="background:#E1F5EE; border:0.5px solid #5DCAA5; border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:14px; font-weight:500; color:#04342C; margin-bottom:6px;">Aerobic exercise</div>
+        <div style="font-size:12px; color:#085041; margin-bottom:8px; line-height:1.6;">"With oxygen." At moderate intensities where oxygen supply meets demand. Fat and glycogen are the fuels. Can be sustained for long periods.</div>
+        <div style="display:flex; flex-direction:column; gap:4px; margin-bottom:8px;">
+          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Fuel:</strong> Fat (primary at low intensity) + glycogen</div>
+          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Heart rate:</strong> 50–80% of max HR (roughly 220 − age)</div>
+          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Duration:</strong> Minutes to hours. Improves cardiovascular fitness, endurance, fat metabolism.</div>
+          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Examples:</strong> Walking, jogging, cycling, swimming, rowing, elliptical</div>
+        </div>
+        <div style="font-size:11px; color:#085041; line-height:1.5;">Benefits: improved VO2 max, heart health, mitochondrial density, fat oxidation capacity, mood (endorphins, BDNF), longevity. The single best-studied intervention for long-term health is regular moderate aerobic exercise.</div>
+      </div>
+      <div style="background:#FAECE7; border:0.5px solid #F0997B; border-radius:var(--border-radius-lg); padding:13px 15px;">
+        <div style="font-size:14px; font-weight:500; color:#4A1B0C; margin-bottom:6px;">Anaerobic exercise</div>
+        <div style="font-size:12px; color:#712B13; margin-bottom:8px; line-height:1.6;">"Without oxygen." At high intensities where oxygen demand exceeds supply. Glucose is the primary fuel. Cannot be sustained long — produces lactate and fatigue.</div>
+        <div style="display:flex; flex-direction:column; gap:4px; margin-bottom:8px;">
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Fuel:</strong> Glucose (glycolysis) + ATP-PCr system (very short bursts)</div>
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Heart rate:</strong> 80–100% of max HR. Can only be sustained seconds to ~2 minutes.</div>
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Duration:</strong> Seconds (sprint, max lift) to ~2 min. Builds strength, power, muscle mass.</div>
+          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Examples:</strong> Weightlifting, sprinting, HIIT, plyometrics, max-effort anything</div>
+        </div>
+        <div style="font-size:11px; color:#712B13; line-height:1.5;">Benefits: increased muscle mass, strength, bone density, metabolic rate, testosterone and growth hormone response, insulin sensitivity. After heavy resistance exercise, metabolic rate stays elevated for hours (EPOC — excess post-exercise oxygen consumption).</div>
+      </div>
+    </div>
+
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+      <strong style="color:var(--color-text-primary);">The lactate threshold:</strong> The intensity at which lactate production exceeds the body's ability to clear it — the transition from aerobic to predominantly anaerobic. Training this threshold (tempo runs, sustained efforts just below max) is the most powerful tool for improving athletic performance. World-class endurance athletes have extremely high lactate thresholds — they operate aerobically at intensities that would be anaerobic for most people.
+    </div>
+
+    <div class="sec">Part B · metabolism — how your body accounts for energy</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Calculate your estimated daily energy needs</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-bottom:12px;">
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Weight (kg)</label>
+          <input type="number" id="met-weight" value="75" style="font-size:13px;">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Height (cm)</label>
+          <input type="number" id="met-height" value="175" style="font-size:13px;">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:80px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Age</label>
+          <input type="number" id="met-age" value="30" style="font-size:13px;">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:80px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Sex</label>
+          <select id="met-sex" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+          </select>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:130px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Activity level</label>
+          <select id="met-activity" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+            <option value="1.2">Sedentary (desk job, no exercise)</option>
+            <option value="1.375">Light (1–3x/week)</option>
+            <option value="1.55" selected>Moderate (3–5x/week)</option>
+            <option value="1.725">Active (6–7x/week)</option>
+            <option value="1.9">Very active (2x/day, hard training)</option>
+          </select>
+        </div>
+        <button onclick="calcMet()" style="height:36px; padding:0 16px; font-size:13px;">Calculate</button>
+      </div>
+      <div id="met-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.9; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-top:8px;">
+        <strong style="color:var(--color-text-primary);">The calorie balance equation:</strong> Weight change = calories in − calories out. Fat: 1 kg of body fat ≈ 7,700 kcal. A 500 kcal/day deficit = ~0.5 kg/week loss. A 500 kcal/day surplus = ~0.5 kg/week gain. This is the physics — but metabolism adapts (BMR drops with sustained deficit, rises with sustained surplus), so the relationship is not perfectly linear over time.
+      </div>
+    </div>
+
+    <div class="sec">Part C · the compound lifts — the foundation of strength training</div>
+
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+      <button onclick="showLift('squat')"     style="font-size:12px; padding:4px 11px;">Squat</button>
+      <button onclick="showLift('deadlift')"  style="font-size:12px; padding:4px 11px;">Deadlift</button>
+      <button onclick="showLift('bench')"     style="font-size:12px; padding:4px 11px;">Bench press</button>
+      <button onclick="showLift('ohp')"       style="font-size:12px; padding:4px 11px;">Overhead press</button>
+      <button onclick="showLift('pullup')"    style="font-size:12px; padding:4px 11px;">Pull-up / chin-up</button>
+      <button onclick="showLift('row')"       style="font-size:12px; padding:4px 11px;">Barbell row</button>
+      <button onclick="showLift('rdl')"       style="font-size:12px; padding:4px 11px;">Romanian deadlift</button>
+      <button onclick="showLift('dip')"       style="font-size:12px; padding:4px 11px;">Dip</button>
+    </div>
+    <div id="lift-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+
+    <div class="sec">Part D · breathing — when to inhale, when to exhale, why it matters</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The universal rule for resistance training</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
+        <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #5DCAA5;">
+          <div style="font-size:13px; font-weight:500; color:#04342C; margin-bottom:4px;">Inhale on the eccentric phase</div>
+          <div style="font-size:12px; color:#085041; line-height:1.5;">The eccentric is the lowering/lengthening/easier phase — where you're resisting gravity. Breathe in here. Examples: lowering the bar to chest in bench press; descending into a squat; lowering yourself on a pull-up; descending in a deadlift.</div>
+        </div>
+        <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #F0997B;">
+          <div style="font-size:13px; font-weight:500; color:#4A1B0C; margin-bottom:4px;">Exhale on the concentric phase</div>
+          <div style="font-size:12px; color:#712B13; line-height:1.5;">The concentric is the lifting/shortening/harder phase — where you're doing the work against gravity. Breathe out here. Examples: pressing the bar up in bench; standing up from a squat; pulling yourself up on a pull-up; lifting the bar in a deadlift.</div>
+        </div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">
+        <strong style="color:var(--color-text-primary);">Why this matters — intra-abdominal pressure (IAP):</strong> Exhaling during the hardest part of a lift (concentric) reduces intra-abdominal pressure, which reduces spinal stability — making the lift weaker and increasing injury risk. The technical technique for heavy lifting is the Valsalva manoeuvre: take a deep breath, brace your core hard (like you're about to be punched), hold the breath through the sticking point of the lift (the hardest moment), then exhale as you complete the rep. This creates maximum IAP and spinal stability.
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Squat breathing cue</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Inhale and brace before descent. Hold breath through the bottom and begin exhale as you drive up. Complete exhale at top. Reset breath each rep for heavy sets.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Deadlift breathing cue</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Stand tall, take a deep breath, brace 360° around your torso. Initiate the pull. Begin exhale as bar passes knees. Exhale fully at lockout. Lower the bar, reset.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Light/cardio breathing</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">For lighter weights and cardio: breathe naturally in rhythm with the movement. Don't hold breath. For running: try 2-count or 3-count breathing (inhale for 2–3 strides, exhale for 2–3 strides).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part E · protein — how much, why, and when</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Protein target calculator — enter your weight</div>
+      <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px;">
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:120px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Body weight (kg)</label>
+          <input type="number" id="prot-weight" value="75" style="font-size:13px;">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:120px;">
+          <label style="font-size:11px; color:var(--color-text-secondary);">Goal</label>
+          <select id="prot-goal" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+            <option value="maintain">Maintain / general health</option>
+            <option value="build" selected>Build muscle (resistance training)</option>
+            <option value="cut">Build/maintain muscle in calorie deficit</option>
+            <option value="athlete">Endurance athlete</option>
+          </select>
+        </div>
+        <button onclick="calcProtein()" style="height:36px; padding:0 16px; font-size:13px;">Calculate</button>
+      </div>
+      <div id="prot-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.9; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-bottom:10px;"></div>
+
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The science of muscle growth — what actually drives it</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The signal: mechanical tension</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Mechanical tension (load on the muscle, especially under stretch) is the primary driver of hypertrophy. When a loaded muscle is stretched under tension (the eccentric phase), mechanosensors in the muscle fibre detect this and trigger the anabolic signalling cascade (mTOR pathway).</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The process: muscle protein synthesis</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Exercise triggers muscle protein synthesis (MPS) — the construction of new protein to repair and add to muscle fibres. MPS is elevated for 24–48h after resistance exercise. Without adequate dietary protein, the body can't build the new tissue regardless of training stimulus.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The limit: genetics and testosterone</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Natural muscle gain: ~0.5–1 kg/month for beginners, ~0.25–0.5 kg/month intermediate, ~0.1–0.25 kg/month advanced. Men gain faster than women (testosterone). Genetic ceiling exists — "natural" bodybuilders hit a ceiling set by their genetics and hormone profile.</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Protein timing — does it matter?</div>
+          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">The "anabolic window" (eat protein immediately post-workout) is largely a myth for people eating adequate daily protein. Total daily intake matters far more than timing. That said, distributing protein over 3–4 meals maximises MPS — each meal should contain ~20–40g protein to optimally stimulate MPS.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec">Part F · recovery — the most undervalued variable</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Why muscles grow on rest days, not training days</p>
+        <p class="cval">Training is the stimulus, not the adaptation</p>
+        <p class="cnote">Exercise creates microscopic damage in muscle fibres (microtears — especially from eccentric loading). The repair process — which happens primarily during sleep and rest — makes the fibre thicker and stronger than before. Training without recovery produces more damage than repair. "Overtraining" is genuinely possible — it suppresses immune function, raises cortisol chronically, and can reverse progress.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Minimum recovery time by muscle group</p>
+        <p class="cval">48–72 hours between sessions for the same muscle</p>
+        <p class="cnote">Large muscles (legs, back): 72h minimum between heavy sessions. Smaller muscles (arms, shoulders): 48h. High frequency (hitting a muscle 3x/week) works only if volume per session is lower. Signs of insufficient recovery: persistent soreness, performance declining session to session, disrupted sleep, mood changes, loss of motivation.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Sleep's role in muscle growth</p>
+        <p class="cval">~70–80% of growth hormone secreted in first sleep cycle</p>
+        <p class="cnote">N3 sleep triggers the largest GH pulse of the day. GH drives tissue repair and protein synthesis. Consistently sleeping less than 7 hours: impaired recovery, lower testosterone (~10–15% reduction after one week of 5-hour nights), elevated cortisol, and reduced muscle protein synthesis. Sleep is arguably as important as training for body composition.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Progressive overload — the only principle that matters long-term</p>
+        <p class="cval">Gradually increasing the demand on the muscle</p>
+        <p class="cnote">The body adapts to any given load and stops responding. Progress requires progressive overload: increasing weight, reps, sets, range of motion, or reducing rest time over time. Without it, training maintains but doesn't improve. The simplest implementation: add a small amount of weight (2.5–5 kg) when you can complete all reps of all sets with good form.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">DOMS — delayed onset muscle soreness</p>
+        <p class="cval">Not an indicator of a good workout</p>
+        <p class="cnote">DOMS peaks 24–72h after exercise, especially after eccentric-heavy movements or novel exercises. It is inflammation from microscopic damage — not a measure of training quality. You can have an excellent, muscle-building session with little DOMS (particularly as you become more trained). Chasing soreness is not a training strategy. DOMS is not related to lactic acid — that clears within ~30 min of exercise ending.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Overtraining vs underrecovery</p>
+        <p class="cval">Most "overtraining" is actually under-eating and under-sleeping</p>
+        <p class="cnote">True overtraining syndrome (systemic physiological breakdown from excessive training volume) is rare in recreational athletes. More common: functional overreaching — a temporary state of fatigue where performance drops, usually from training hard while eating in a deficit and sleeping poorly. Fix: eat more, sleep more, reduce training volume temporarily. Signs of real concern: persistent performance decline, resting heart rate chronically elevated, mood disturbance, illness frequency.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part G · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. You weigh 80 kg and want to build muscle. You're currently eating 100g of protein per day. Is this enough, and what foods get you to the right amount?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">No — 100g is insufficient for muscle building at 80 kg. The research consensus for muscle hypertrophy is 1.6–2.2g per kg of body weight per day. For 80 kg: 128–176g protein/day. The minimum meaningful target is 128g; 160g is a solid working target. The gap between 100g and 160g = 60g of additional protein daily. Practical sources per 100g of food: chicken breast (~31g), canned tuna (~25g), Greek yoghurt (~10g per 100g, or ~17g per 170g pot), eggs (~13g per 2 eggs), cottage cheese (~11g per 100g), lentils (~9g per 100g cooked), whey protein shake (~25g per scoop). A rough daily structure: 2 eggs at breakfast (13g), 150g chicken at lunch (46g), 170g Greek yoghurt as snack (17g), 150g salmon at dinner (45g) = 121g. Add a protein shake (25g) = 146g. This is achievable with deliberate food choices without supplements, though protein powder makes it much easier.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. What is the difference between a squat and a deadlift — why do both exist, and which muscles does each primarily work?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">They target overlapping but distinct movement patterns. The squat is primarily a knee-dominant pattern — the knee flexes and extends under load, with the torso relatively upright. Primary movers: quadriceps (front of thigh), glutes, with hamstrings and adductors supporting. The bar (or weight) is above the centre of mass, requiring upper back and core to stabilise. The deadlift is primarily a hip-dominant pattern — the hip hinges (bends), with the spine in a neutral position and the bar on the floor. Primary movers: hamstrings, glutes, erector spinae (lower back), with quadriceps helping to break the floor initially. Secondary: traps, lats (to keep bar close), forearms (grip). Why both exist: the squat develops anterior chain (quads) and vertical pushing power; the deadlift develops posterior chain (hamstrings, glutes, back) and pulling strength. Together they cover essentially all major lower body and hip muscles. A programme with both is more complete than either alone. A simple test: "does the knee travel forward over the toes?" — yes = squat-like. "Does the hip hinge backward?" — yes = deadlift-like.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. What is EPOC and why does it make post-workout calorie calculations complicated?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">EPOC (Excess Post-exercise Oxygen Consumption) is the elevated oxygen consumption — and therefore elevated calorie burn — that persists after exercise ends. After aerobic exercise, EPOC lasts 15–60 minutes and adds a modest number of calories (50–150 kcal). After high-intensity resistance training or HIIT, EPOC can last 24–48 hours and add 100–350 kcal. The complication for calorie tracking: fitness trackers and apps calculate calories burned during exercise based on the movement, but they don't account for EPOC. More importantly, heavy resistance exercise has a smaller "during exercise" calorie burn than cardio (because rest periods are included) but significantly larger post-exercise metabolic elevation. This is why pure calorie-during-exercise comparisons favour cardio but miss the long-term metabolic advantage of resistance training. The practical implication: two workouts with the same calorie burn during exercise may have very different total metabolic costs once EPOC is included.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. Why does the number on the scale sometimes go up right after starting a new exercise program, even if you're eating correctly?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Several things happen simultaneously that can increase scale weight despite positive body composition changes. First, glycogen storage: exercise depletes muscle glycogen, and as the body adapts to regular training it stores more glycogen. Each gram of glycogen is stored with ~3g of water. Increased glycogen storage can add 1–3 kg of water weight within the first 2–4 weeks. Second, muscle inflammation: resistance training causes microscopic damage and inflammation that draws fluid into the muscle tissue (the "pump" partially, and post-exercise swelling). This inflammation peaks around 24–48h post-exercise. Third, muscle protein synthesis genuinely adds mass. This is slow (see Module text) but real. The scale captures all of these — fat, muscle, water, glycogen, food in the digestive tract. For this reason, bodyweight trending over 4+ weeks is more useful than daily measurement, and body measurements or progress photos are more informative than scale weight alone for tracking actual body composition change.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. You've been lifting for 6 months and your progress has stalled — same weights, same reps. What is almost certainly wrong, and what should you change?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">A plateau after 6 months almost always has one of three causes, often in combination. First and most common: absence of progressive overload. If you've been lifting the same weight for the same reps for months, the muscle has fully adapted to that stimulus and has no reason to grow further. Fix: systematically add small amounts of weight (2.5 kg) or reps each week, or add a set. Second: insufficient protein. Muscle growth requires building blocks. If you're not consuming 1.6–2.2g protein/kg/day, you can stimulate muscle all you want but can't build it. Fix: track protein for two weeks and hit the target. Third: insufficient recovery. If you're training hard but sleeping 6 hours, stressed, or undereating, the recovery gap limits adaptation. Fix: prioritise sleep, ensure calorie intake is at or above maintenance if building is the goal. A less common fourth: your programme needs structural change (adding volume, changing exercises to create novel stimulus, adjusting rep ranges). True overtraining causing a plateau is rare — the other three causes are far more common.</div>
+    </div>
+
+    <script>
+function calcMet() {
+  const w = parseFloat(document.getElementById('met-weight').value);
+  const h = parseFloat(document.getElementById('met-height').value);
+  const a = parseFloat(document.getElementById('met-age').value);
+  const s = document.getElementById('met-sex').value;
+  const act = parseFloat(document.getElementById('met-activity').value);
+  if (!w || !h || !a) return;
+  let bmr = s === 'm'
+    ? 10 * w + 6.25 * h - 5 * a + 5
+    : 10 * w + 6.25 * h - 5 * a - 161;
+  const tdee = Math.round(bmr * act);
+  const bmrR = Math.round(bmr);
+  const deficit = Math.round(tdee - 500);
+  const surplus = Math.round(tdee + 300);
+  document.getElementById('met-result').innerHTML = `
+    <strong>BMR (Basal Metabolic Rate):</strong> ${bmrR} kcal/day — what you burn doing absolutely nothing (resting, breathing, organ function).<br>
+    <strong>TDEE (Total Daily Energy Expenditure):</strong> ${tdee} kcal/day — your estimated total burn including activity.<br>
+    <strong>To lose ~0.5 kg/week:</strong> target ${deficit} kcal/day (500 kcal deficit)<br>
+    <strong>To build muscle:</strong> target ${surplus} kcal/day (modest surplus of ~300 kcal)<br>
+    <strong>Protein target:</strong> ${Math.round(w * 1.6)}–${Math.round(w * 2.2)}g/day (${(w * 1.6).toFixed(0)}g minimum, ${(w * 2.0).toFixed(0)}g solid working target)<br>
+    <span style="font-size:11px; color:var(--color-text-secondary);">Formula: Mifflin-St Jeor. All estimates ±15% — individual metabolism varies. Actual results require tracking over 4+ weeks.</span>`;
+}
+
+function calcProtein() {
+  const w = parseFloat(document.getElementById('prot-weight').value);
+  const goal = document.getElementById('prot-goal').value;
+  if (!w) return;
+  const targets = {
+    maintain: [0.8, 1.2],
+    build: [1.6, 2.2],
+    cut: [2.0, 2.6],
+    athlete: [1.4, 1.7]
+  };
+  const labels = {
+    maintain: 'general health / sedentary',
+    build: 'muscle building with resistance training',
+    cut: 'muscle preservation in calorie deficit',
+    athlete: 'endurance athlete'
+  };
+  const [lo, hi] = targets[goal];
+  const min = Math.round(w * lo);
+  const max = Math.round(w * hi);
+  const working = Math.round(w * (lo + hi) / 2);
+  document.getElementById('prot-result').innerHTML = `
+    For <strong>${w} kg</strong> (${labels[goal]}):<br>
+    <strong>Range: ${min}–${max}g protein/day</strong> (${lo}–${hi}g/kg body weight)<br>
+    <strong>Working target:</strong> ~${working}g/day<br>
+    <strong>Per meal (3–4 meals):</strong> ${Math.round(working/4)}–${Math.round(working/3)}g per meal<br>
+    <span style="color:var(--color-text-secondary); font-size:11px;">
+    Note: ${goal === 'cut' ? 'Higher protein in a deficit helps preserve muscle mass — the body can use protein for energy when calories are low, so requirements are higher.' :
+    goal === 'athlete' ? 'Endurance athletes primarily need carbohydrates for performance. Protein needs are moderate — focus on carbohydrate timing around training.' :
+    goal === 'build' ? 'Going above 2.2g/kg has minimal additional benefit. Extra protein beyond this is simply used as energy. Consistency and progressive overload matter more than precise protein amounts.' :
+    'The 0.8g/kg is the minimum requirement. Most sedentary people can aim for the higher end (1.2g/kg) without concerns.'}
+    </span>`;
+}
+
+const lifts = {
+  squat: { name:'Back squat', badge:'King of lower body exercises', bg:'#E6F1FB', col:'#0C447C',
+    muscles:'Quadriceps (primary), glutes, hamstrings, adductors, erector spinae (stabiliser), core',
+    pattern:'Knee-dominant. Bar on upper back. Hip and knee flexion simultaneously. Torso relatively upright.',
+    cues:'Feet shoulder-width, toes slightly out. Bar on traps (low bar) or upper traps (high bar). Brace core, big breath. Break at hips and knees simultaneously. Knees track over toes. Hit parallel (hip crease below knee) at minimum. Drive through the whole foot. Keep chest up.',
+    breathing:'Inhale and brace before descent. Hold (Valsalva) through the hole and start of ascent. Exhale as you pass the sticking point.',
+    mistakes:'Butt wink (pelvis tucks under at the bottom — usually hip mobility or depth). Knees caving in. Weight shifting to toes. Not reaching depth. Heels rising.',
+    note:'The front squat (bar on front shoulders) loads the quads more and requires greater mobility. Goblet squat is the best learning tool for beginners — weight in front naturally creates the correct torso angle.' },
+  deadlift: { name:'Conventional deadlift', badge:'Posterior chain compound lift', bg:'#FAECE7', col:'#712B13',
+    muscles:'Hamstrings, glutes (primary movers), erector spinae/lower back (isometric stabiliser), quadriceps (initial leg drive), traps, lats, forearms',
+    pattern:'Hip-hinge dominant. Bar on floor. Pull from floor to lockout at hip. Most posterior chain muscles in one movement.',
+    cues:'Bar over mid-foot (~3cm from shins). Hinge down, grip just outside knees. Lats tight (protect shoulder blades). Big breath, brace. "Leg press the floor away" to initiate. Bar stays close to body throughout. Lock out by driving hips forward and squeezing glutes. Don\'t hyperextend at top.',
+    breathing:'Inhale and brace (Valsalva) before the pull. Hold breath through the hardest part (bar off floor to knee). Exhale as bar passes knees or at lockout.',
+    mistakes:'Bar drifting away from body (increases moment arm, hurts back). Rounding lower back. Hyperextending at lockout. Starting with hips too low (turns it into a squat). Jerking the bar (should be controlled tension before the pull).',
+    note:'Sumo deadlift (wider stance, more upright) loads the quads and adductors more, reduces back stress — better for people with limited hip mobility or longer torsos.' },
+  bench: { name:'Barbell bench press', badge:'Primary upper body push', bg:'#EAF3DE', col:'#27500A',
+    muscles:'Pectorals (primary), anterior deltoid, triceps',
+    pattern:'Horizontal push. Bar over lower chest at bottom. Vertical bar path from chest to lockout.',
+    cues:'Eyes under the bar. Grip slightly wider than shoulder width. Unrack. Bar to lower chest (not throat). Elbows at ~45–60° to torso (not flared out at 90°). Touch chest at bottom. Drive bar back up and slightly toward face. Full lockout at top. Retract and depress scapulae throughout — creates a stable base.',
+    breathing:'Inhale on the descent (bar toward chest). Exhale on the press (bar moving up).',
+    mistakes:'Flaring elbows to 90° (shoulder injury risk). Bar path going straight up instead of arcing slightly toward face. Bouncing bar off chest. Not retracting shoulder blades. Wrists bending back.',
+    note:'The arch in the back (thoracic arch) in competitive powerlifting shortens the range of motion and is a legal technique. For hypertrophy, full range of motion with less arch is more effective at building pec mass.' },
+  ohp: { name:'Overhead press (OHP)', badge:'Vertical push — shoulder builder', bg:'#EEEDFE', col:'#3C3489',
+    muscles:'Anterior and lateral deltoids (primary), triceps, upper chest, upper traps (top), core (stabiliser)',
+    pattern:'Vertical push. Bar from upper chest/front rack to overhead lockout. Standing version also trains core stability.',
+    cues:'Grip slightly wider than shoulders. Bar rests on front delts/upper chest (front rack). Elbows slightly forward. Press bar up and back in a slight arc to avoid hitting the face. As bar passes face, shift head slightly through. Full lockout at top — bar over mid-foot from side view. Glutes squeezed throughout (prevents lower back hyperextension).',
+    breathing:'Inhale before pressing. Exhale during the press upward.',
+    mistakes:'Hyperextending the lower back to "help" the press (compensating for weak shoulders). Bar path not travelling back slightly. Elbows too far back (stress on rotator cuff). Not engaging glutes to prevent lower back arch.',
+    note:'The seated dumbbell press is a good accessory for beginners who haven\'t built the core stability for heavy standing OHP. Landmine press is gentler on the shoulder joint for people with shoulder issues.' },
+  pullup: { name:'Pull-up / chin-up', badge:'Best bodyweight upper body pull', bg:'#FAEEDA', col:'#633806',
+    muscles:'Pull-up (pronated/overhand grip): lats primary, biceps secondary. Chin-up (supinated/underhand): biceps more involved, still lat-dominant.',
+    pattern:'Vertical pull. Start from dead hang. Pull body up until chin over bar (or chest to bar for full ROM). Lower with control.',
+    cues:'Full dead hang start. Depress shoulder blades before pulling (eliminates shrug). Initiate by driving elbows down and back. Avoid swinging (kipping) unless training for CrossFit-style kips specifically. Full extension at bottom.',
+    breathing:'Inhale on descent (lowering). Exhale on the way up (pulling body up).',
+    mistakes:'Not starting from full dead hang (removes range of motion). Kipping/swinging to compensate for insufficient strength. Not depressing scapulae first. Not achieving chin over bar. Partial reps only.',
+    note:'If you can\'t do 1 pull-up: start with band-assisted pull-ups or the lat pulldown machine. Negative (eccentric) pull-ups — jump to top position, lower yourself very slowly (5–10 sec) — build strength faster than most alternatives.' },
+  row: { name:'Barbell row (Pendlay or Yates)', badge:'Horizontal pull — back thickness', bg:'#E1F5EE', col:'#085041',
+    muscles:'Latissimus dorsi, rhomboids, mid-traps (primary), biceps, rear delts, erector spinae (stabiliser)',
+    pattern:'Horizontal pull. Bar from floor (Pendlay) or hanging (Yates) to lower abdomen/upper hip. Hinged torso.',
+    cues:'Hip-width stance. Hinge forward 45–90°. Overhand or underhand grip. Drive elbows back and up. Row to navel (overhand) or upper hip (underhand). Squeeze shoulder blades together at top. Control the descent.',
+    breathing:'Inhale before the row. Exhale as bar meets body.',
+    mistakes:'Swinging body to create momentum. Not pulling elbows fully back. Letting the bar crash down (no eccentric control). Too upright (reduces lat involvement). Not squeezing at the top.',
+    note:'Pendlay row (bar returns to floor each rep) emphasises the concentric pull more. Yates row (bar hangs between reps) allows slightly more weight. Both are excellent. Dumbbell rows allow greater range of motion and are easier on the lower back.' },
+  rdl: { name:'Romanian deadlift (RDL)', badge:'Hamstring isolation — hip hinge', bg:'#FAECE7', col:'#712B13',
+    muscles:'Hamstrings (primary, especially eccentric stretch), glutes, erector spinae, traps/upper back',
+    pattern:'Hip hinge with straight (soft) legs. Excellent for hamstring hypertrophy — high eccentric tension through stretch.',
+    cues:'Start standing with bar. Push hips back while lowering bar along legs. Soft bend in knee (not locked). Feel stretch in hamstrings. Lower until hamstrings are at their limit (usually bar at mid-shin). Drive hips forward to return. Back stays neutral throughout.',
+    breathing:'Inhale as bar descends. Exhale on the way up.',
+    mistakes:'Bending knees too much (turns into a deadlift). Rounding the lower back. Not feeling hamstrings stretch (means hips aren\'t hinging properly). Going too low (lower back rounds).',
+    note:'The RDL is one of the best exercises for hamstring hypertrophy because it loads the hamstring in a lengthened position — which research shows produces greater hypertrophy than exercises that only load shortened muscles.' },
+  dip: { name:'Dip (chest or tricep variation)', badge:'Compound push — chest or triceps', bg:'#EEEDFE', col:'#3C3489',
+    muscles:'Chest dip (torso forward): pectorals (lower), triceps, anterior deltoid. Tricep dip (torso upright): triceps primary, less chest.',
+    pattern:'Vertical push. Lower body between bars until elbows at ~90°. Press back to lockout.',
+    cues:'Chest dip: lean torso forward, elbows slightly flared, lower until chest is roughly at bar level or elbows at 90°. Tricep dip: keep torso upright, elbows close to body, lockout fully at top. Control the descent — don\'t drop.',
+    breathing:'Inhale on the descent. Exhale on the press up.',
+    mistakes:'Not controlling the descent (shoulder injury risk). Going too deep (excessive anterior shoulder stretch under load). Elbows flaring excessively on tricep dips. Not locking out at the top.',
+    note:'Weighted dips (belt with plates) are one of the most effective chest and tricep exercises for intermediate to advanced lifters. If you can do 15+ bodyweight dips, add weight. If you can\'t do 1: band-assisted dips or bench dips build toward the full movement.' }
+};
+
+function showLift(key) {
+  const l = lifts[key];
+  document.getElementById('lift-display').innerHTML = `
+    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${l.name}</div>
+      <div style="font-size:11px; font-weight:500; background:${l.bg}; color:${l.col}; border-radius:99px; padding:2px 9px;">${l.badge}</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Muscles worked</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${l.muscles}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Movement pattern</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${l.pattern}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key technique cues</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${l.cues}</div></div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Breathing</div><div style="font-size:12px; color:var(--color-text-primary); margin-bottom:6px; line-height:1.5;">${l.breathing}</div><div style="font-size:11px; color:var(--color-text-secondary); margin-top:4px; margin-bottom:1px;">Common mistakes</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${l.mistakes}</div></div>
+    </div>
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">${l.note}</div>`;
+}
+
+showLift('squat');
+calcMet();
+calcProtein();
+    </script>
+  </div>
+</body>
+</html>

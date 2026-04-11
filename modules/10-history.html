@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 10: History Anchors — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 10: History Anchors</h1>
+    <p class="module-subtitle">A navigable map of the last 5,000 years</p>
+
+    <div class="sec">Part A · the 7 eras — your skeleton map</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap: 8px; margin-bottom: 1rem;">
+      <div style="background:#EEEDFE; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #AFA9EC;">
+        <div style="font-size:11px; font-weight:500; color:#3C3489;">Era 1</div>
+        <div style="font-size:12px; font-weight:500; color:#26215C;">Ancient world</div>
+        <div style="font-size:11px; color:#534AB7;">3000 BC – 500 AD</div>
+      </div>
+      <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #F0997B;">
+        <div style="font-size:11px; font-weight:500; color:#712B13;">Era 2</div>
+        <div style="font-size:12px; font-weight:500; color:#4A1B0C;">Middle Ages</div>
+        <div style="font-size:11px; color:#993C1D;">500 – 1400</div>
+      </div>
+      <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #EF9F27;">
+        <div style="font-size:11px; font-weight:500; color:#633806;">Era 3</div>
+        <div style="font-size:12px; font-weight:500; color:#412402;">Early Modern</div>
+        <div style="font-size:11px; color:#854F0B;">1400 – 1700</div>
+      </div>
+      <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #5DCAA5;">
+        <div style="font-size:11px; font-weight:500; color:#085041;">Era 4</div>
+        <div style="font-size:12px; font-weight:500; color:#04342C;">Enlightenment</div>
+        <div style="font-size:11px; color:#0F6E56;">1700 – 1800</div>
+      </div>
+      <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #97C459;">
+        <div style="font-size:11px; font-weight:500; color:#27500A;">Era 5</div>
+        <div style="font-size:12px; font-weight:500; color:#173404;">Long 19th century</div>
+        <div style="font-size:11px; color:#3B6D11;">1800 – 1914</div>
+      </div>
+      <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #F09595;">
+        <div style="font-size:11px; font-weight:500; color:#791F1F;">Era 6</div>
+        <div style="font-size:12px; font-weight:500; color:#501313;">Age of catastrophe</div>
+        <div style="font-size:11px; color:#A32D2D;">1914 – 1945</div>
+      </div>
+      <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:9px 11px; border:0.5px solid #85B7EB;">
+        <div style="font-size:11px; font-weight:500; color:#0C447C;">Era 7</div>
+        <div style="font-size:12px; font-weight:500; color:#042C53;">Modern world</div>
+        <div style="font-size:11px; color:#185FA5;">1945 – today</div>
+      </div>
+    </div>
+
+    <div class="sec">Part B · interactive timeline — click any event to learn more</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+        <span style="font-size:12px; color:var(--color-text-secondary);">Jump to era:</span>
+        <button onclick="jumpTo(-3000)" style="font-size:11px; padding:2px 8px;">Ancient</button>
+        <button onclick="jumpTo(500)" style="font-size:11px; padding:2px 8px;">Middle Ages</button>
+        <button onclick="jumpTo(1400)" style="font-size:11px; padding:2px 8px;">Early Modern</button>
+        <button onclick="jumpTo(1700)" style="font-size:11px; padding:2px 8px;">Enlightenment</button>
+        <button onclick="jumpTo(1800)" style="font-size:11px; padding:2px 8px;">19th century</button>
+        <button onclick="jumpTo(1914)" style="font-size:11px; padding:2px 8px;">World Wars</button>
+        <button onclick="jumpTo(1945)" style="font-size:11px; padding:2px 8px;">Modern</button>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
+        <span style="font-size:11px; color:var(--color-text-secondary); white-space:nowrap;">3000 BC</span>
+        <input type="range" id="hist-slider" min="-3000" max="2025" value="1" step="1" style="flex:1;">
+        <span style="font-size:11px; color:var(--color-text-secondary); white-space:nowrap;">2025</span>
+      </div>
+
+      <div id="hist-year-display" style="font-size:22px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;"></div>
+      <div id="hist-era-badge" style="display:inline-block; font-size:11px; font-weight:500; padding:2px 9px; border-radius:99px; margin-bottom:10px;"></div>
+      <div id="hist-nearby" style="margin-bottom: 10px;"></div>
+      <div id="hist-context" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; border-top:0.5px solid var(--color-border-tertiary); padding-top:8px;"></div>
+    </div>
+
+    <div class="sec">Part C · the 40 anchor events — your permanent mental map</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;" id="anchor-list"></div>
+
+    <div class="sec">Part D · proximity shockers — things that feel far apart but aren't</div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap: 10px; margin-bottom: 1rem;">
+      <div class="card">
+        <p style="font-size:11px; color:var(--color-text-secondary); margin:0 0 3px;">Cleopatra and the iPhone</p>
+        <p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px;">Closer than you think</p>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.5;">Cleopatra (died 30 BC) lived closer in time to the Moon landing (1969) than to the building of the Great Pyramid (~2560 BC). The pyramids are genuinely ancient — even to the ancient Egyptians.</p>
+      </div>
+      <div class="card">
+        <p style="font-size:11px; color:var(--color-text-secondary); margin:0 0 3px;">Napoleon and the first photograph</p>
+        <p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px;">Only 14 years apart</p>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.5;">Napoleon died in 1821. The first photograph was taken in 1826. No photo of Napoleon ever existed — he died just before the invention that would have captured him.</p>
+      </div>
+      <div class="card">
+        <p style="font-size:11px; color:var(--color-text-secondary); margin:0 0 3px;">The fax machine and the US Civil War</p>
+        <p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px;">Invented the same decade</p>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.5;">The fax machine was patented in 1843. The US Civil War began in 1861. Lincoln could theoretically have sent a fax.</p>
+      </div>
+      <div class="card">
+        <p style="font-size:11px; color:var(--color-text-secondary); margin:0 0 3px;">Shakespeare and Galileo</p>
+        <p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px;">Exact contemporaries</p>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.5;">Shakespeare (1564–1616) and Galileo (1564–1642) were born the same year. While one rewrote drama, the other rewrote the solar system.</p>
+      </div>
+      <div class="card">
+        <p style="font-size:11px; color:var(--color-text-secondary); margin:0 0 3px;">Vikings and the Aztecs</p>
+        <p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px;">Overlapped by 400 years</p>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.5;">Viking raids peaked 800–1000 AD. The Aztec empire rose ~1300 AD and was conquered in 1521. Vikings and Aztecs existed at the same time for centuries — just on different continents.</p>
+      </div>
+      <div class="card">
+        <p style="font-size:11px; color:var(--color-text-secondary); margin:0 0 3px;">The last guillotine execution in France</p>
+        <p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0 0 2px;">1977 — same year as Star Wars</p>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.5;">France's last execution by guillotine was in September 1977. Star Wars came out in May 1977. The guillotine outlasted the Apollo programme.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part E · the "what year was that?" lookup tool</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Enter any year and instantly see its era, what just happened, and what was coming next.</div>
+      <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+        <input type="number" id="year-lookup" placeholder="e.g. 1870" min="-3000" max="2025" style="flex:1; min-width:120px; font-size:14px;">
+        <button onclick="lookupYear()" style="padding:0 18px; height:36px; font-size:13px;">Look up ↗</button>
+      </div>
+      <div id="lookup-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+    </div>
+
+    <div class="sec">Part F · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. Someone says something happened in 1870. What era is that, and what major events frame it?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The Long 19th Century — the industrialising, empire-building era. 1870 sits between Napoleon's final defeat (1815) and the start of WW1 (1914). Specific anchors: the Franco-Prussian War was 1870–71, which led directly to the unification of Germany under Bismarck. Darwin published On the Origin of Species only 11 years earlier (1859). The US Civil War ended just 5 years prior (1865). Edison invented the light bulb 9 years later (1879). It's squarely the Victorian industrial age — steam power, nation-states forming, European empires expanding.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. How many years separate Julius Caesar's assassination from the fall of the Western Roman Empire?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 521 years. Caesar was assassinated in 44 BC. The Western Roman Empire fell in 476 AD. 44 + 476 = 520 years. To put that in perspective: that is longer than the time between Columbus reaching the Americas (1492) and today (2025) — 533 years. Rome lasted as an empire for longer than the entire post-Columbus age of exploration, colonialism, industrialisation, and the world wars combined.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. The French Revolution began in 1789. How long before WW1 was that?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">125 years. 1914 − 1789 = 125. In that span: the entire Napoleonic era, the Industrial Revolution, Darwin, Marx, the US Civil War, Bismarck's unification of Germany, the Belle Époque, and the invention of the telephone, car, and aeroplane. The 19th century was extraordinarily compressed with change — more transformation per decade than any previous era. Napoleon himself was only 25 years after the French Revolution's start.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. The Berlin Wall fell in 1989. How old would someone be today if they were 20 years old when it fell?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 56 years old in 2025. 1989 + 36 = 2025; if they were 20 then, they are now 56. This is useful for calibrating "living memory." The Cold War, the USSR, apartheid South Africa, and a divided Germany are not ancient history — they are within the clear memory of people in their mid-50s and older. Your parents or colleagues may have adult memories of a world that felt entirely different.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. Was Beethoven alive at the same time as Napoleon? What about Mozart?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Both, yes — and the overlap is closer than most people expect. Napoleon (1769–1821) and Beethoven (1770–1827) were almost exact contemporaries — born one year apart. Beethoven originally dedicated his Third Symphony (the "Eroica") to Napoleon, then furiously crossed out the dedication when Napoleon declared himself Emperor. Mozart (1756–1791) died when Napoleon was just 22 and already rising through the French military. All three — Napoleon, Beethoven, and Mozart — were alive simultaneously for 22 years (1769–1791).</div>
+    </div>
+
+    <script>
+const events = [
+  { y:-3000, name:"First writing (Sumer, Egypt)", era:1, note:"Cuneiform in Mesopotamia. History begins — everything before is prehistoric." },
+  { y:-2560, name:"Great Pyramid of Giza built", era:1, note:"Old Kingdom Egypt at its peak. One of the few ancient wonders still standing." },
+  { y:-776, name:"First Olympic Games (Greece)", era:1, note:"Ancient Greeks dated their history by Olympiads. A sign of an organised, literate civilisation." },
+  { y:-753, name:"Traditional founding of Rome", era:1, note:"Rome begins as a small city-state. It will dominate the Western world for 1,200 years." },
+  { y:-490, name:"Battle of Marathon (Persia vs Greece)", era:1, note:"Greece repels the Persian Empire. Athenian democracy and philosophy flourish afterward." },
+  { y:-44, name:"Julius Caesar assassinated", era:1, note:"The Roman Republic ends. Within 17 years, Augustus becomes the first emperor." },
+  { y:0, name:"Approximate birth of Jesus", era:1, note:"The AD/BC calendar anchor. Rome controls most of the known Western world at this moment." },
+  { y:79, name:"Vesuvius erupts — Pompeii destroyed", era:1, note:"Snapshot of Roman daily life preserved in ash. Rome is at near-peak power." },
+  { y:476, name:"Fall of Western Roman Empire", era:2, note:"The last emperor Romulus Augustulus deposed. The Middle Ages begin in Western Europe." },
+  { y:570, name:"Birth of Muhammad", era:2, note:"Islam founded in the 7th century. Within 100 years, it spreads from Spain to Central Asia." },
+  { y:800, name:"Charlemagne crowned Holy Roman Emperor", era:2, note:"Europe's first unifying force after Rome. The Carolingian Renaissance — brief revival of learning." },
+  { y:1000, name:"Vikings reach North America (Leif Eriksson)", era:2, note:"500 years before Columbus. A temporary settlement at L'Anse aux Meadows, Canada." },
+  { y:1066, name:"Norman Conquest of England", era:2, note:"Battle of Hastings. French-speaking Normans reshape English language and culture permanently." },
+  { y:1215, name:"Magna Carta signed", era:2, note:"English barons limit the king's power. First seeds of constitutional democracy in Europe." },
+  { y:1347, name:"Black Death arrives in Europe", era:2, note:"Kills ~30–50% of Europe's population in 5 years. Reshapes society, labour, and religion." },
+  { y:1440, name:"Gutenberg's printing press", era:3, note:"The internet of its day. Within 50 years, millions of books exist. Knowledge can't be controlled." },
+  { y:1453, name:"Fall of Constantinople (Ottoman Turks)", era:3, note:"End of the Eastern Roman Empire. Byzantine scholars flee to Italy, fuelling the Renaissance." },
+  { y:1492, name:"Columbus reaches the Americas", era:3, note:"Europe and the Americas connect permanently. The modern world's shape begins here." },
+  { y:1517, name:"Martin Luther's 95 Theses — Reformation", era:3, note:"The Catholic Church splits. Protestantism emerges. Wars of Religion reshape Europe for 200 years." },
+  { y:1543, name:"Copernicus: Earth orbits the Sun", era:3, note:"The Scientific Revolution begins. Followed by Galileo (1610), Newton (1687), Darwin (1859)." },
+  { y:1687, name:"Newton's Principia Mathematica", era:3, note:"Gravity, motion, calculus. The foundation of physics. Science becomes the dominant worldview." },
+  { y:1776, name:"American Declaration of Independence", era:4, note:"Democracy is possible as a modern government. Huge inspiration for the French Revolution 13 years later." },
+  { y:1789, name:"French Revolution begins", era:4, note:"Liberty, Equality, Fraternity. Monarchy and religion challenged. Napoleon follows within 10 years." },
+  { y:1804, name:"Napoleon becomes Emperor", era:5, note:"The most consequential figure of the early 19th century. Reshapes European borders, law, and nationalism." },
+  { y:1815, name:"Napoleon defeated at Waterloo", era:5, note:"The Napoleonic Wars end. European order reset at the Congress of Vienna. 99 years of relative peace follow." },
+  { y:1859, name:"Darwin: On the Origin of Species", era:5, note:"Evolution by natural selection. One of the most consequential books ever written." },
+  { y:1865, name:"US Civil War ends / Lincoln assassinated", era:5, note:"Slavery abolished in the USA. Reconstruction begins. The modern USA takes shape." },
+  { y:1871, name:"Germany unified under Bismarck", era:5, note:"After the Franco-Prussian War. A new major power in the centre of Europe — crucial for WW1." },
+  { y:1903, name:"Wright brothers' first flight", era:5, note:"12 seconds, 37 metres. 66 years later, humans land on the Moon." },
+  { y:1914, name:"World War 1 begins", era:6, note:"Assassination of Archduke Franz Ferdinand in Sarajevo. Europe's imperial order collapses over 4 years." },
+  { y:1917, name:"Russian Revolution / USA enters WW1", era:6, note:"Two pivotal 1917 events. Communism takes power in Russia. The USA becomes a global force." },
+  { y:1918, name:"WW1 ends — 20 million dead", era:6, note:"The old empires (Ottoman, Austro-Hungarian, Russian, German) all fall. The modern Middle East is drawn." },
+  { y:1929, name:"Wall Street Crash — Great Depression", era:6, note:"The global economy collapses. Unemployment, poverty, and political instability fuel extremism." },
+  { y:1939, name:"World War 2 begins", era:6, note:"Germany invades Poland. 6 years, ~70–85 million dead. The Holocaust kills 6 million Jews." },
+  { y:1945, name:"WW2 ends / atomic bombs / UN founded", era:7, note:"The modern world order is set. USA and USSR emerge as superpowers. Cold War begins immediately." },
+  { y:1948, name:"State of Israel founded / Universal Declaration of Human Rights", era:7, note:"Two of the most consequential documents/events of the 20th century, both in the same year." },
+  { y:1969, name:"Moon landing (Apollo 11)", era:7, note:"July 20, 1969. The peak achievement of the Space Race. 600 million people watch live." },
+  { y:1989, name:"Berlin Wall falls / Cold War ends", era:7, note:"The USSR begins to collapse. German reunification. 45 years of Cold War end almost peacefully." },
+  { y:1991, name:"Soviet Union dissolves / World Wide Web invented", era:7, note:"Two events that define the next 30 years: the end of the USSR and the birth of the internet." },
+  { y:2001, name:"9/11 attacks", era:7, note:"The deadliest terrorist attack in history. Triggers two decades of Middle Eastern wars and reshapes global security." },
+];
+
+const eraStyles = [
+  null,
+  { bg:'#EEEDFE', border:'#AFA9EC', text:'#3C3489', label:'Ancient world' },
+  { bg:'#FAECE7', border:'#F0997B', text:'#712B13', label:'Middle Ages' },
+  { bg:'#FAEEDA', border:'#EF9F27', text:'#633806', label:'Early Modern' },
+  { bg:'#E1F5EE', border:'#5DCAA5', text:'#085041', label:'Enlightenment' },
+  { bg:'#EAF3DE', border:'#97C459', text:'#27500A', label:'Long 19th century' },
+  { bg:'#FCEBEB', border:'#F09595', text:'#791F1F', label:'Age of catastrophe' },
+  { bg:'#E6F1FB', border:'#85B7EB', text:'#0C447C', label:'Modern world' },
+];
+
+function getEra(y) {
+  if (y < 500) return 1;
+  if (y < 1400) return 2;
+  if (y < 1700) return 3;
+  if (y < 1800) return 4;
+  if (y < 1914) return 5;
+  if (y < 1945) return 6;
+  return 7;
+}
+
+function fmtYear(y) {
+  return y < 0 ? Math.abs(y) + ' BC' : y + ' AD';
+}
+
+function getNearby(y) {
+  const sorted = [...events].sort((a,b) => Math.abs(a.y-y) - Math.abs(b.y-y));
+  const before = events.filter(e => e.y <= y).sort((a,b) => b.y-a.y)[0];
+  const after  = events.filter(e => e.y >  y).sort((a,b) => a.y-b.y)[0];
+  return { before, after };
+}
+
+function updateTimeline() {
+  const y = parseInt(document.getElementById('hist-slider').value);
+  const era = getEra(y);
+  const s = eraStyles[era];
+  document.getElementById('hist-year-display').textContent = fmtYear(y);
+  const badge = document.getElementById('hist-era-badge');
+  badge.textContent = s.label;
+  badge.style.cssText = `background:${s.bg}; color:${s.text}; border:0.5px solid ${s.border}; display:inline-block; font-size:11px; font-weight:500; padding:2px 9px; border-radius:99px; margin-bottom:10px;`;
+  const { before, after } = getNearby(y);
+  let nearby = '';
+  if (before) nearby += `<div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:4px;">← Last anchor: <strong style="color:var(--color-text-primary)">${fmtYear(before.y)} — ${before.name}</strong> (${Math.abs(y-before.y)} years ago)</div>`;
+  if (after)  nearby += `<div style="font-size:12px; color:var(--color-text-secondary);">→ Next anchor: <strong style="color:var(--color-text-primary)">${fmtYear(after.y)} — ${after.name}</strong> (in ${Math.abs(after.y-y)} years)</div>`;
+  document.getElementById('hist-nearby').innerHTML = nearby;
+
+  const exact = events.find(e => e.y === y);
+  if (exact) {
+    document.getElementById('hist-context').innerHTML = `<strong style="color:var(--color-text-primary)">${exact.name}</strong><br>${exact.note}`;
+  } else {
+    const eraContext = [
+      '',
+      'The ancient world: Egypt, Mesopotamia, Greece, and Rome dominate. Writing, philosophy, democracy, and empire are invented.',
+      'The Middle Ages: Christianity and Islam shape civilisation. Feudal Europe, Islamic Golden Age, Mongol conquests, the Black Death.',
+      'The Early Modern period: Printing press, Renaissance, Reformation, global exploration. The medieval world unravels rapidly.',
+      'The Enlightenment: Reason, science, and individual rights challenge kings and churches. Revolution is in the air.',
+      'The Long 19th century: Industry, nationalism, empire. Railways, Darwin, Marx. Europe dominates the globe. Tension building.',
+      'The Age of Catastrophe: Two World Wars, the Holocaust, communism vs fascism vs democracy. ~100 million dead in 31 years.',
+      'The Modern world: Cold War, decolonisation, the internet, globalisation. The fastest technological change in history.',
+    ];
+    document.getElementById('hist-context').textContent = eraContext[era];
+  }
+}
+
+function jumpTo(y) {
+  document.getElementById('hist-slider').value = y;
+  updateTimeline();
+}
+
+function buildAnchorList() {
+  const container = document.getElementById('anchor-list');
+  let html = '';
+  let currentEra = 0;
+  events.forEach(e => {
+    if (e.era !== currentEra) {
+      currentEra = e.era;
+      const s = eraStyles[currentEra];
+      html += `<div style="font-size:11px; font-weight:500; color:${s.text}; background:${s.bg}; border-radius:var(--border-radius-md); padding:3px 9px; display:inline-block; margin: 10px 0 6px; border:0.5px solid ${s.border};">${s.label}</div>`;
+    }
+    html += `<div style="display:flex; gap:10px; padding:5px 0; border-bottom:0.5px solid var(--color-border-tertiary); align-items:baseline; cursor:pointer;" onclick="jumpTo(${e.y})" title="Jump to ${fmtYear(e.y)}">
+      <span style="font-size:12px; font-weight:500; color:var(--color-text-secondary); min-width:64px; flex-shrink:0; font-family:monospace;">${fmtYear(e.y)}</span>
+      <span style="font-size:13px; color:var(--color-text-primary);">${e.name}</span>
+    </div>`;
+  });
+  container.innerHTML = html;
+}
+
+function lookupYear() {
+  const y = parseInt(document.getElementById('year-lookup').value);
+  if (isNaN(y)) return;
+  const era = getEra(y);
+  const s = eraStyles[era];
+  const { before, after } = getNearby(y);
+  const exact = events.find(e => e.y === y);
+  let html = `<strong>${fmtYear(y)}</strong> — <span style="background:${s.bg}; color:${s.text}; padding:1px 7px; border-radius:99px; font-size:11px; border:0.5px solid ${s.border};">${s.label}</span><br><br>`;
+  if (exact) html += `<strong>This is: ${exact.name}</strong><br>${exact.note}<br><br>`;
+  if (before) html += `Most recent anchor before: <strong>${fmtYear(before.y)} — ${before.name}</strong><br><span style="color:var(--color-text-secondary); font-size:12px;">${before.note}</span><br><br>`;
+  if (after)  html += `Next anchor after: <strong>${fmtYear(after.y)} — ${after.name}</strong><br><span style="color:var(--color-text-secondary); font-size:12px;">${after.note}</span>`;
+  document.getElementById('lookup-result').innerHTML = html;
+  document.getElementById('hist-slider').value = y;
+  updateTimeline();
+}
+
+document.getElementById('hist-slider').addEventListener('input', updateTimeline);
+buildAnchorList();
+updateTimeline();
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 12: Probability & Risk — Have a Sense</title>
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+.dot-grid { display: flex; flex-wrap: wrap; gap: 3px; margin: 8px 0; }
+.dot { width: 9px; height: 9px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <a href="../index.html" class="nav-back">← All modules</a>
+    <h1 class="module-title">Module 12: Probability & Risk</h1>
+    <p class="module-subtitle">Odds, chance, and how to think about risk</p>
+
+    <div class="sec">Part A · feel the scale of probability first</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">What does "1 in N" actually look like?</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:12px;">Each dot below is one person or one event. The red dot is the one that "happens."</div>
+
+      <div style="margin-bottom:14px;">
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">1 in 10 — e.g. chance of getting a cold in any given month</div>
+        <div class="dot-grid" id="dots-10"></div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">1 in 100 — e.g. chance of a serious car accident in a year of driving</div>
+        <div class="dot-grid" id="dots-100"></div>
+      </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">1 in 1,000 — e.g. dying in a car accident this year (UK/Western Europe)</div>
+        <div class="dot-grid" id="dots-1000"></div>
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-top:4px;">Finding the red dot in this grid takes effort — that's the point.</div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">The crowd test:</strong> "1 in 1,000" means: imagine 1,000 people in a sports stadium. One of them. That's it. "1 in a million" is 20 such stadiums. "1 in a billion" is 20,000 stadiums — the entire population of a large city.
+      </div>
+    </div>
+
+    <div class="sec">Part B · the probability scale — real anchors</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div class="anchor-row">
+        <span class="pill p-red">~1 in 2</span>
+        <div><div class="atext">Lifetime cancer diagnosis (Western countries)</div><div class="asub">Most cancers are treatable. This high number surprises people who think cancer is rare.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-coral">~1 in 4</span>
+        <div><div class="atext">Dying of heart disease (lifetime risk)</div><div class="asub">The single largest cause of death in most developed countries.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">~1 in 100</span>
+        <div><div class="atext">Being involved in a serious car accident in any given year</div><div class="asub">People drive daily and feel safe — but across a lifetime of driving, the cumulative risk is substantial.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber">~1 in 500</span>
+        <div><div class="atext">Dying in a road accident this year (UK)</div><div class="asub">Higher in countries with less safe roads. Lower for pedestrians in cities.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">~1 in 11,000</span>
+        <div><div class="atext">Dying on a single commercial flight</div><div class="asub">Flying is ~50–100× safer per km than driving. Yet people fear it far more.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">~1 in 1,000,000</span>
+        <div><div class="atext">Being struck by lightning in a year</div><div class="asub">Lifetime risk (~1 in 15,000) is much higher — which is why "1 in a million" feels wrong for lightning.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">~1 in 14,000,000</span>
+        <div><div class="atext">Winning a major lottery jackpot (UK National Lottery)</div><div class="asub">You are ~1,000× more likely to be struck by lightning this year than to win the jackpot.</div></div>
+      </div>
+    </div>
+
+    <div class="sec">Part C · the biggest trap — relative vs absolute risk</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Interactive: see how the same fact can be presented two very different ways</div>
+
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+        <select id="risk-scenario" style="flex:1; min-width:200px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="0">Drug reduces heart attack risk by 50%</option>
+          <option value="1">Processed meat "increases cancer risk by 18%"</option>
+          <option value="2">New vaccine is "95% effective"</option>
+          <option value="3">"Coffee doubles your risk of X"</option>
+        </select>
+      </div>
+
+      <div id="risk-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+    </div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">The rule to remember forever</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        Whenever you hear a relative risk ("X% more likely"), always ask: <strong style="color:var(--color-text-primary);">"more likely than what?"</strong> — what is the base rate?<br>
+        A 100% increase sounds catastrophic. If the base rate is 0.001%, doubling it gives 0.002% — almost nothing.<br>
+        A 10% increase sounds small. If the base rate is 30%, adding 3 percentage points matters a lot.
+      </div>
+    </div>
+
+    <div class="sec">Part D · cognitive biases — why our probability intuition fails</div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Availability bias</p>
+        <p class="cval">Vivid = likely</p>
+        <p class="cnote">We judge probability by how easily we can imagine it. Plane crashes make the news; car crashes don't. So we fear the wrong things. Sharks kill ~5 people/year worldwide. Vending machines kill more.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Base rate neglect</p>
+        <p class="cval">Ignoring the denominator</p>
+        <p class="cnote">A drug test is "99% accurate." You test positive. What's the chance you actually have the disease? If only 1 in 10,000 people have it, probably less than 1% — because false positives outnumber true positives. See Part E.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Gambler's fallacy</p>
+        <p class="cval">Coins have no memory</p>
+        <p class="cnote">After 10 heads in a row, the next flip is still 50/50. The coin doesn't "owe" you tails. Each independent event resets to its base probability. Casinos are built on this misunderstanding.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Conjunction fallacy</p>
+        <p class="cval">Specific ≠ more likely</p>
+        <p class="cnote">"She is a feminist bank teller" feels more probable than "she is a bank teller" — but it can't be, because the specific includes the general. Adding detail always reduces probability, never increases it.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part E · the false positive problem — most surprising result in probability</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Adjust the sliders — what does a positive test really mean?</div>
+
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:160px;">Disease prevalence:</label>
+        <input type="range" id="prev-slider" min="1" max="500" value="10" step="1" style="flex:1;">
+        <span id="prev-out" style="font-size:13px; font-weight:500; min-width:72px; text-align:right;">1 in 100</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+        <label style="font-size:12px; color:var(--color-text-secondary); min-width:160px;">Test accuracy:</label>
+        <input type="range" id="acc-slider" min="80" max="99" value="99" step="1" style="flex:1;">
+        <span id="acc-out" style="font-size:13px; font-weight:500; min-width:72px; text-align:right;">99%</span>
+      </div>
+
+      <div id="fp-visual" style="margin-bottom:10px;"></div>
+      <div id="fp-result" style="font-size:14px; color:var(--color-text-primary); font-weight:500; margin-bottom:6px;"></div>
+      <div id="fp-explain" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;"></div>
+    </div>
+
+    <div class="sec">Part F · the birthday paradox — probability defies intuition</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">How many people in a room before two share a birthday?</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Drag to find where the probability crosses 50% — most people guess far too high.</div>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+        <span style="font-size:11px; color:var(--color-text-secondary);">2</span>
+        <input type="range" id="bday-slider" min="2" max="60" value="23" step="1" style="flex:1;">
+        <span style="font-size:11px; color:var(--color-text-secondary);">60</span>
+      </div>
+      <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:8px; flex-wrap:wrap;">
+        <div id="bday-people" style="font-size:22px; font-weight:500; color:var(--color-text-primary);"></div>
+        <div id="bday-prob" style="font-size:16px; color:var(--color-text-secondary);"></div>
+      </div>
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); height:14px; margin-bottom:8px; overflow:hidden;">
+        <div id="bday-bar" style="height:14px; border-radius:3px; transition:width 0.2s;"></div>
+      </div>
+      <div id="bday-note" style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;"></div>
+    </div>
+
+    <div class="sec">Part G · risk in real life — the numbers that actually matter</div>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Lifetime risk of dying in a car (UK/EU)</p>
+        <p class="cval">~1 in 240</p>
+        <p class="cnote">Yet most people drive daily without conscious fear. We accept familiar risks far more readily than unfamiliar ones — even when unfamiliar risks are lower.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Lifetime risk of dying in a plane crash</p>
+        <p class="cval">~1 in 11,000</p>
+        <p class="cnote">About 45× safer than driving per journey. Per km travelled, flying is ~50–100× safer. Fear of flying is one of the most statistically unjustified common fears.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Risk of a serious side effect from a common vaccine</p>
+        <p class="cval">~1 in 100,000</p>
+        <p class="cnote">The disease being vaccinated against typically carries 100–10,000× greater risk of the same outcome. Vaccine risk must always be weighed against disease risk, not against zero.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Risk of dying from surgery (routine, healthy adult)</p>
+        <p class="cval">~1 in 100,000</p>
+        <p class="cnote">General anaesthesia alone: ~1 in 100,000. Surgical risk rises sharply with age, obesity, and pre-existing conditions.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part H · test yourself</div>
+
+    <div class="qa">
+      <p class="qa-q">1. A headline reads: "New drug cuts heart attack risk by 50%." Should you be impressed?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Not necessarily — you need the base rate. If your annual risk of a heart attack was 2%, a 50% relative reduction brings it to 1%. That's a real 1 percentage point benefit — meaningful. But if your base risk was 0.2%, the drug brings it to 0.1% — an absolute reduction of just 0.1 percentage points. The drug would need to treat 1,000 people to prevent one heart attack. Whether that justifies the cost, side effects, and daily pill-taking depends entirely on that absolute number, not the 50% headline.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">2. You flip a fair coin and get 7 heads in a row. What is the probability the next flip is tails?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Exactly 50%. Each flip is independent — the coin has no memory of previous outcomes. The probability of 7 heads in a row happening was 1/128 (~0.78%), which was unlikely, but it happened. Now that it has happened, you are simply at flip #8, and the probability of tails is 50%. This is the gambler's fallacy: the feeling that "tails is due" is a cognitive error. Casinos thrive on it. Roulette wheels display recent results precisely to feed this illusion.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">3. A disease affects 1 in 1,000 people. A test for it is 99% accurate. You test positive. What is the approximate probability you actually have the disease?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 9%. This is the false positive paradox. Test 100,000 people: 100 actually have the disease, and the 99% test catches 99 of them (true positives). But 99,900 don't have it, and the 1% error rate gives 999 false positives. So among all ~1,098 positive results, only 99 are real — that's 99/1,098 ≈ 9%. This is why medical screening for rare diseases is complex: even very accurate tests produce mostly false positives when the disease is uncommon. Doctors follow up positive screening tests with confirmatory tests precisely because of this.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">4. You are choosing between two routes to work. Route A has a 10% chance of making you 10 minutes late. Route B has a 1% chance of making you 60 minutes late. Which is riskier in terms of expected delay?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">They are equal. Expected delay = probability × impact. Route A: 10% × 10 min = 1 minute expected delay per trip. Route B: 1% × 60 min = 0.6 minutes expected delay per trip. Route B is actually slightly better in pure expected value — but Route A's frequent small delays might be more manageable than Route B's rare catastrophic ones. This illustrates that expected value isn't always the right metric: variance (how unpredictable the outcome is) matters too, especially when a bad outcome is truly unacceptable.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">5. "Smokers are 15–30× more likely to get lung cancer than non-smokers." Is this a relative or absolute risk? What does it mean in practice?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">It's a relative risk — but the base rate is high enough that it translates to a large absolute risk too. About 0.1% of non-smokers develop lung cancer per year. A 20× increase means ~2% of heavy smokers develop it per year. Over 40 years of heavy smoking, roughly 1 in 10 to 1 in 6 heavy smokers will develop lung cancer. That's an enormous absolute risk — and this is before counting heart disease, stroke, and other cancers that smoking also dramatically increases. This is one of the clearest examples in medicine where both the relative risk (20×) and the absolute risk (~15% lifetime) are both genuinely large and alarming.</div>
+    </div>
+
+    <script>
+function buildDots(id, n, highlightIndex) {
+  const wrap = document.getElementById(id);
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  for (let i = 0; i < n; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot';
+    d.style.background = (i === highlightIndex) ? '#E24B4A' : 'var(--color-background-secondary)';
+    d.style.border = (i === highlightIndex) ? 'none' : '0.5px solid var(--color-border-secondary)';
+    wrap.appendChild(d);
+  }
+}
+buildDots('dots-10', 10, 0);
+buildDots('dots-100', 100, 7);
+buildDots('dots-1000', 200, 113);
+
+const riskScenarios = [
+  {
+    headline: 'Drug reduces heart attack risk by 50%',
+    relative: '50% reduction (relative risk)',
+    base: 'In a typical at-risk group, ~2% have a heart attack per year',
+    absolute: '2% → 1% — an absolute reduction of 1 percentage point',
+    nnt: '100 patients must take the drug for 1 year to prevent 1 heart attack (NNT = 100)',
+    verdict: 'Real but modest. Worth taking if side effects are low. Would you take a daily pill, with potential side effects, to reduce your personal risk from 2% to 1%? That is the actual decision.',
+    col: '#1D9E75'
+  },
+  {
+    headline: 'Processed meat increases colon cancer risk by 18%',
+    relative: '18% relative risk increase',
+    base: 'Lifetime colon cancer risk for an average person: ~5%',
+    absolute: '5% → 5.9% — an absolute increase of ~0.9 percentage points',
+    nnt: '~110 people would need to eat processed meat regularly for a lifetime for 1 additional case of colon cancer',
+    verdict: 'A real but small absolute risk. The 18% figure is technically accurate but creates false alarm. Other lifestyle factors (exercise, obesity, alcohol) have far larger absolute effects on cancer risk.',
+    col: '#EF9F27'
+  },
+  {
+    headline: 'Vaccine is 95% effective',
+    relative: '95% relative risk reduction in getting the disease',
+    base: 'In trials, ~1% of unvaccinated people got the disease',
+    absolute: '1% → 0.05% — an absolute reduction of 0.95 percentage points',
+    nnt: 'About 105 people vaccinated to prevent 1 case — but those prevented cases include severe illness and death',
+    verdict: 'For common or severe diseases, even modest absolute reductions are enormously valuable at population scale. Vaccinating 100 million people with NNT=105 prevents ~1 million cases.',
+    col: '#378ADD'
+  },
+  {
+    headline: '"Coffee doubles your risk of X"',
+    relative: '100% relative risk increase (2× = "doubles")',
+    base: 'Suppose X affects 0.5 per 100,000 people per year (very rare)',
+    absolute: '0.5 → 1 per 100,000 — still only 1 in 100,000',
+    nnt: '100,000 coffee drinkers would need to be tracked for a year to observe 0.5 extra cases',
+    verdict: '"Doubles the risk" of a rare event is often meaningless in absolute terms. Always ask the base rate before worrying about a relative risk increase.',
+    col: '#D85A30'
+  }
+];
+
+function updateRisk() {
+  const i = parseInt(document.getElementById('risk-scenario').value);
+  const s = riskScenarios[i];
+  document.getElementById('risk-display').innerHTML =
+    `<div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">"${s.headline}"</div>` +
+    `<div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">` +
+    `<div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">What the headline says</div><div style="font-size:13px; color:#A32D2D; font-weight:500;">${s.relative}</div></div>` +
+    `<div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Base rate (what you need to know)</div><div style="font-size:13px; color:var(--color-text-primary);">${s.base}</div></div>` +
+    `<div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Absolute risk (the real story)</div><div style="font-size:13px; color:${s.col}; font-weight:500;">${s.absolute}</div></div>` +
+    `<div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Number needed to treat (NNT)</div><div style="font-size:13px; color:var(--color-text-primary);">${s.nnt}</div></div>` +
+    `</div>` +
+    `<div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;"><strong style="color:var(--color-text-primary);">Verdict: </strong>${s.verdict}</div>`;
+}
+
+function updateFP() {
+  const prev = parseInt(document.getElementById('prev-slider').value);
+  const acc  = parseInt(document.getElementById('acc-slider').value) / 100;
+  document.getElementById('prev-out').textContent = '1 in ' + prev;
+  document.getElementById('acc-out').textContent = (acc * 100).toFixed(0) + '%';
+
+  const pop = 100000;
+  const sick = Math.round(pop / prev);
+  const healthy = pop - sick;
+  const truePos  = Math.round(sick * acc);
+  const falsePos = Math.round(healthy * (1 - acc));
+  const total_pos = truePos + falsePos;
+  const ppv = total_pos > 0 ? (truePos / total_pos * 100) : 0;
+
+  document.getElementById('fp-result').textContent =
+    'If you test positive: ' + ppv.toFixed(1) + '% chance you actually have it.';
+  document.getElementById('fp-result').style.color = ppv < 30 ? '#A32D2D' : ppv < 70 ? '#BA7517' : '#27500A';
+
+  document.getElementById('fp-explain').innerHTML =
+    `In 100,000 tested people: <strong style="color:var(--color-text-primary);">${sick.toLocaleString()} have the disease</strong>, ${healthy.toLocaleString()} do not.<br>` +
+    `The test catches <strong style="color:#1D9E75;">${truePos.toLocaleString()} true positives</strong> but also flags <strong style="color:#A32D2D;">${falsePos.toLocaleString()} false positives</strong>.<br>` +
+    `Among all ${total_pos.toLocaleString()} positive results, only ${truePos.toLocaleString()} are real — <strong style="color:var(--color-text-primary);">${ppv.toFixed(1)}%</strong>.<br>` +
+    `<span style="font-size:11px;">Tip: try setting prevalence to 1 in 10,000 with a 99% accurate test. The result will shock you.</span>`;
+}
+
+function updateBday() {
+  const n = parseInt(document.getElementById('bday-slider').value);
+  let prob = 1;
+  for (let k = 0; k < n; k++) prob *= (365 - k) / 365;
+  const pMatch = (1 - prob) * 100;
+  document.getElementById('bday-people').textContent = n + ' people';
+  document.getElementById('bday-prob').textContent = pMatch.toFixed(1) + '% chance of a shared birthday';
+  document.getElementById('bday-bar').style.width = Math.min(pMatch, 100) + '%';
+  document.getElementById('bday-bar').style.background = pMatch >= 50 ? '#1D9E75' : '#378ADD';
+  let note = '';
+  if (pMatch < 50) note = `Still below 50%. ${23 - n} more people needed to cross the 50% threshold.`;
+  else if (n === 23) note = 'With just 23 people — barely more than a classroom — there is a 50.7% chance two share a birthday. Most people guess 183 (half of 365). The maths surprises almost everyone.';
+  else if (pMatch > 99) note = 'Almost certain. With 60+ people, a shared birthday is nearly guaranteed (99.4%).';
+  else note = `${pMatch.toFixed(1)}% — already past the 50% threshold. It only took 23.`;
+  document.getElementById('bday-note').textContent = note;
+}
+
+document.getElementById('risk-scenario').addEventListener('change', updateRisk);
+document.getElementById('prev-slider').addEventListener('input', updateFP);
+document.getElementById('acc-slider').addEventListener('input', updateFP);
+document.getElementById('bday-slider').addEventListener('input', updateBday);
+updateRisk();
+updateFP();
+updateBday();
+    </script>
+  </div>
+</body>
+</html>
