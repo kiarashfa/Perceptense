@@ -1,70 +1,844 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Have a Sense About Everything</title>
   <link rel="stylesheet" href="files/shared.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
   <style>
-    .home-header { margin-bottom: 2rem; }
-    .home-title { font-size: 26px; font-weight: 600; color: var(--color-text-primary); margin: 0 0 0.25rem; }
-    .home-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0 0 2rem; }
-    .mod-list { list-style: none; padding: 0; margin: 0; }
-    .mod-list li { margin-bottom: 6px; }
-    .mod-list a {
+    /* ============================================================
+       THEME OVERRIDES
+       ============================================================ */
+    html[data-theme="light"] {
+      --color-background-primary: #ffffff;
+      --color-background-secondary: #f5f5f4;
+      --color-background-tertiary: #eeede8;
+      --color-text-primary: #1a1a18;
+      --color-text-secondary: #5f5e5a;
+      --color-text-tertiary: #888780;
+      --color-border-primary: rgba(0,0,0,0.4);
+      --color-border-secondary: rgba(0,0,0,0.3);
+      --color-border-tertiary: rgba(0,0,0,0.15);
+    }
+    html[data-theme="dark"] {
+      --color-background-primary: #1c1c1a;
+      --color-background-secondary: #252523;
+      --color-background-tertiary: #2e2e2b;
+      --color-text-primary: #e8e6df;
+      --color-text-secondary: #a8a69e;
+      --color-text-tertiary: #6e6c65;
+      --color-border-primary: rgba(255,255,255,0.4);
+      --color-border-secondary: rgba(255,255,255,0.25);
+      --color-border-tertiary: rgba(255,255,255,0.12);
+    }
+
+    body {
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    }
+
+    .home-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 1.5rem 0;
+    }
+
+    /* ============================================================
+       TOP BAR
+       ============================================================ */
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 1.5rem;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .topbar-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 0.5px solid var(--color-border-tertiary);
+      background: var(--color-background-primary);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+      padding: 0;
+    }
+    .topbar-btn:hover {
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      border-color: var(--color-border-secondary);
+    }
+    .topbar-btn svg { width: 16px; height: 16px; }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      text-align: center;
+      padding: 2rem 0 3rem;
+      position: relative;
+      animation: fadeIn 0.5s ease both;
+    }
+    .hero-graphic {
+      margin: 0 auto 1.5rem;
+      width: 280px;
+      height: auto;
       display: block;
-      padding: 10px 14px;
+      opacity: 0.85;
+    }
+    .hero-overtitle {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #4E99A3;
+      margin-bottom: 0.6rem;
+    }
+    .hero-title {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: clamp(32px, 5.5vw, 50px);
+      font-weight: 400;
+      color: var(--color-text-primary);
+      margin: 0 0 0.6rem;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .hero-sub {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin: 0 auto;
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       FEATURED CARDS
+       ============================================================ */
+    .feat-section {
+      margin-bottom: 2.5rem;
+      animation: fadeIn 0.5s 0.1s ease both;
+    }
+    .feat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      margin-bottom: 10px;
+    }
+    .feat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 600px) {
+      .feat-grid { grid-template-columns: 1fr; }
+    }
+    .feat-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
       background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-md);
+      border-radius: var(--border-radius-lg);
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .feat-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.07);
+    }
+    html[data-theme="dark"] .feat-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    }
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="auto"] .feat-card:hover {
+        box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+      }
+    }
+    .feat-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      background: var(--color-background-secondary);
+    }
+    .feat-img-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: var(--color-background-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-tertiary);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+    .feat-body {
+      padding: 14px 16px 16px;
+      flex: 1;
+    }
+    .feat-num {
+      font-size: 10px;
+      font-weight: 600;
+      color: #4E99A3;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .feat-name {
+      font-size: 15px;
+      font-weight: 600;
       color: var(--color-text-primary);
-      text-decoration: none;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .feat-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       SEARCH & FILTERS
+       ============================================================ */
+    .search-section {
+      margin-bottom: 1rem;
+      animation: fadeIn 0.5s 0.15s ease both;
+    }
+    .search-wrap {
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-tertiary);
+      pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 16px 0 42px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border-tertiary);
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
       font-size: 14px;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      outline: none;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      caret-color: #4E99A3;
+      caret-shape: bar;
+    }
+    .search-input:focus {
+      border-color: #4E99A3;
+      box-shadow: 0 0 0 3px rgba(78, 153, 163, 0.12);
+    }
+    .search-input::placeholder {
+      color: var(--color-text-tertiary);
+    }
+
+    .filters {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .filter-btn {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 5px 13px;
+      border-radius: 99px;
+      border: 0.5px solid var(--color-border-secondary);
+      background: none;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.12s;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    }
+    .filter-btn:hover {
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+    }
+    .filter-btn.active {
+      background: var(--color-text-primary);
+      color: var(--color-background-primary);
+      border-color: var(--color-text-primary);
+    }
+
+    .result-count {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    /* ============================================================
+       MODULE LIST
+       ============================================================ */
+    .mod-list {
+      border-top: 0.5px solid var(--color-border-tertiary);
+      animation: fadeIn 0.5s 0.2s ease both;
+    }
+
+    .mod-item {
+      display: grid;
+      grid-template-columns: 30px 1fr auto 52px;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 12px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      text-decoration: none;
       transition: background 0.1s;
     }
-    .mod-list a:hover { background: var(--color-background-secondary); }
-    .mod-num { color: var(--color-text-tertiary); font-size: 12px; margin-right: 8px; }
+    .mod-item:hover {
+      background: var(--color-background-primary);
+    }
+    .mod-item[hidden] { display: none; }
+
+    .mod-num {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .mod-body {
+      min-width: 0;
+    }
+    .mod-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      margin-bottom: 1px;
+      line-height: 1.35;
+    }
+    .mod-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      margin: 0;
+      line-height: 1.4;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mod-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .mod-tag[data-cat="numbers"]  { color: #0C447C; background: #E6F1FB; }
+    .mod-tag[data-cat="physical"] { color: #085041; background: #E1F5EE; }
+    .mod-tag[data-cat="science"]  { color: #633806; background: #FAEEDA; }
+    .mod-tag[data-cat="body"]     { color: #712B13; background: #FAECE7; }
+    .mod-tag[data-cat="society"]  { color: #3C3489; background: #EEEDFE; }
+    .mod-tag[data-cat="culture"]  { color: #791F1F; background: #FCEBEB; }
+    .mod-tag[data-cat="mind"]     { color: #27500A; background: #EAF3DE; }
+
+    html[data-theme="dark"] .mod-tag {
+      opacity: 0.85;
+    }
+    @media (prefers-color-scheme: dark) {
+      html[data-theme="auto"] .mod-tag { opacity: 0.85; }
+    }
+
+    .mod-thumb {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      object-fit: cover;
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      display: block;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .mod-item {
+        grid-template-columns: 24px 1fr auto 40px;
+        gap: 10px;
+        padding: 10px 8px;
+      }
+      .mod-thumb { width: 40px; height: 40px; }
+      .mod-desc { display: none; }
+    }
+
+    .no-results {
+      padding: 2.5rem;
+      text-align: center;
+      color: var(--color-text-tertiary);
+      font-size: 14px;
+      display: none;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .home-footer {
+      margin-top: 3rem;
+      padding: 2rem 0 2.5rem;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      text-align: center;
+    }
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      margin: 0 0 6px;
+    }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin: 0 0 4px;
+      line-height: 1.6;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-updated {
+      font-size: 10px;
+      color: var(--color-text-tertiary);
+      margin: 8px 0 0;
+      letter-spacing: 0.03em;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+       ============================================================ */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
-  <div class="page-wrap">
-    <div class="home-header">
-      <h1 class="home-title">Have a Sense About Everything</h1>
-      <p class="home-sub">A self-directed course in 29 modules — build intuition for numbers, systems, and the world around you.</p>
+
+  <!-- ========== TOP BAR ========== -->
+  <div class="topbar">
+    <button class="topbar-btn" id="themeToggle" title="Toggle dark/light mode" aria-label="Toggle dark/light mode">
+      <svg id="iconSun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="iconMoon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <a href="about.html" class="topbar-btn" title="About this project" aria-label="About this project">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    </a>
+  </div>
+
+  <div class="home-wrap">
+
+    <!-- ========== HERO ========== -->
+    <div class="hero">
+      <!-- Elegant SVG graphic: an abstract constellation / knowledge web -->
+      <svg class="hero-graphic" viewBox="0 0 280 120" xmlns="http://www.w3.org/2000/svg">
+        <!-- Connection lines -->
+        <line x1="40" y1="70" x2="100" y2="30" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <line x1="100" y1="30" x2="140" y2="60" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <line x1="140" y1="60" x2="180" y2="25" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <line x1="180" y1="25" x2="240" y2="55" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <line x1="100" y1="30" x2="180" y2="25" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="40" y1="70" x2="140" y2="60" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="140" y1="60" x2="240" y2="55" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="70" y1="95" x2="140" y2="60" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="140" y1="60" x2="210" y2="90" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="70" y1="95" x2="40" y2="70" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <line x1="210" y1="90" x2="240" y2="55" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <!-- Nodes -->
+        <circle cx="40"  cy="70" r="5"   fill="#4E99A3" opacity="0.7"/>
+        <circle cx="100" cy="30" r="6.5" fill="#4E99A3" opacity="0.85"/>
+        <circle cx="140" cy="60" r="8"   fill="#4E99A3" opacity="1"/>
+        <circle cx="180" cy="25" r="5.5" fill="#4E99A3" opacity="0.75"/>
+        <circle cx="240" cy="55" r="6"   fill="#4E99A3" opacity="0.8"/>
+        <circle cx="70"  cy="95" r="4"   fill="#4E99A3" opacity="0.55"/>
+        <circle cx="210" cy="90" r="4.5" fill="#4E99A3" opacity="0.6"/>
+        <!-- Decorative small dots -->
+        <circle cx="60"  cy="45" r="1.5" fill="var(--color-text-tertiary)" opacity="0.3"/>
+        <circle cx="120" cy="80" r="1.5" fill="var(--color-text-tertiary)" opacity="0.3"/>
+        <circle cx="160" cy="45" r="1.5" fill="var(--color-text-tertiary)" opacity="0.3"/>
+        <circle cx="200" cy="70" r="1.5" fill="var(--color-text-tertiary)" opacity="0.3"/>
+        <circle cx="260" cy="40" r="1.5" fill="var(--color-text-tertiary)" opacity="0.3"/>
+        <circle cx="20"  cy="50" r="1.2" fill="var(--color-text-tertiary)" opacity="0.2"/>
+        <circle cx="220" cy="40" r="1.2" fill="var(--color-text-tertiary)" opacity="0.2"/>
+      </svg>
+
+      <div class="hero-overtitle">A self-directed course</div>
+      <h1 class="hero-title">Have a Sense<br>About Everything</h1>
+      <p class="hero-sub">29 interactive modules covering numbers, science, culture, and the systems that shape daily life. Free, open, and no sign-up required.</p>
     </div>
 
-    <div class="sec">All modules</div>
-    <ul class="mod-list">
-      <li><a href="modules/01-everyday.html"><span class="mod-num">01</span> Everyday Objects</a></li>
-      <li><a href="modules/02-biology.html"><span class="mod-num">02</span> Human Body &amp; Biology</a></li>
-      <li><a href="modules/03-geography.html"><span class="mod-num">03</span> Geography &amp; Distance</a></li>
-      <li><a href="modules/04-food.html"><span class="mod-num">04</span> Food &amp; Cooking</a></li>
-      <li><a href="modules/05-money.html"><span class="mod-num">05</span> Money &amp; Economy</a></li>
-      <li><a href="modules/06-infrastructure.html"><span class="mod-num">06</span> Big Infrastructure</a></li>
-      <li><a href="modules/07-time.html"><span class="mod-num">07</span> Time &amp; Scale</a></li>
-      <li><a href="modules/08-speed.html"><span class="mod-num">08</span> Speed &amp; Duration</a></li>
-      <li><a href="modules/09-size.html"><span class="mod-num">09</span> Size &amp; Scale</a></li>
-      <li><a href="modules/10-history.html"><span class="mod-num">10</span> History Anchors</a></li>
-      <li><a href="modules/11-temperature.html"><span class="mod-num">11</span> Temperature &amp; Energy</a></li>
-      <li><a href="modules/12-probability.html"><span class="mod-num">12</span> Probability &amp; Risk</a></li>
-      <li><a href="modules/13-percentages.html"><span class="mod-num">13</span> Percentages &amp; Ratios</a></li>
-      <li><a href="modules/14-materials.html"><span class="mod-num">14</span> Materials &amp; Engineering</a></li>
-      <li><a href="modules/15-chemistry.html"><span class="mod-num">15</span> Chemistry</a></li>
-      <li><a href="modules/16-engineering.html"><span class="mod-num">16</span> Engineering Rules of Thumb</a></li>
-      <li><a href="modules/17-politics.html"><span class="mod-num">17</span> Politics</a></li>
-      <li><a href="modules/18-diplomacy.html"><span class="mod-num">18</span> Diplomacy</a></li>
-      <li><a href="modules/19-culinary.html"><span class="mod-num">19</span> Culinary Arts</a></li>
-      <li><a href="modules/20-drinks.html"><span class="mod-num">20</span> Drinks</a></li>
-      <li><a href="modules/21-fashion.html"><span class="mod-num">21</span> Fashion</a></li>
-      <li><a href="modules/22-sleep.html"><span class="mod-num">22</span> Sleep</a></li>
-      <li><a href="modules/23-gender.html"><span class="mod-num">23</span> Sex, Gender &amp; Orientation</a></li>
-      <li><a href="modules/24-fitness.html"><span class="mod-num">24</span> Fitness &amp; Exercise</a></li>
-      <li><a href="modules/25-weather.html"><span class="mod-num">25</span> Weather</a></li>
-      <li><a href="modules/26-space.html"><span class="mod-num">26</span> Space &amp; the Solar System</a></li>
-      <li><a href="modules/27-psychology.html"><span class="mod-num">27</span> Psychology</a></li>
-      <li><a href="modules/28-philosophy.html"><span class="mod-num">28</span> Philosophy</a></li>
-      <li><a href="modules/29-art.html"><span class="mod-num">29</span> Art</a></li>
-    </ul>
+    <!-- ========== FEATURED ========== -->
+    <div class="feat-section">
+      <div class="feat-label">Featured modules</div>
+      <div class="feat-grid">
+        <a href="modules/17-politics.html" class="feat-card">
+          <img src="assets/feat_17.jpg" alt="Politics" class="feat-img" onerror="this.outerHTML='<div class=\'feat-img-placeholder\'>Politics</div>'">
+          <div class="feat-body">
+            <div class="feat-num">Module 17</div>
+            <div class="feat-name">Politics</div>
+            <p class="feat-desc">Government systems, institutions, and how power is structured around the world.</p>
+          </div>
+        </a>
+        <a href="modules/27-psychology.html" class="feat-card">
+          <img src="assets/feat_27.jpg" alt="Psychology" class="feat-img" onerror="this.outerHTML='<div class=\'feat-img-placeholder\'>Psychology</div>'">
+          <div class="feat-body">
+            <div class="feat-num">Module 27</div>
+            <div class="feat-name">Psychology</div>
+            <p class="feat-desc">Biases, memory, motivation, and the mental models that shape your decisions.</p>
+          </div>
+        </a>
+        <a href="modules/29-art.html" class="feat-card">
+          <img src="assets/feat_29.jpg" alt="Art" class="feat-img" onerror="this.outerHTML='<div class=\'feat-img-placeholder\'>Art</div>'">
+          <div class="feat-body">
+            <div class="feat-num">Module 29</div>
+            <div class="feat-name">Art</div>
+            <p class="feat-desc">Movements, techniques, and the visual literacy everyone should have.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ========== SEARCH ========== -->
+    <div class="search-section">
+      <div class="search-wrap">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-input" id="search" placeholder="Search modules..." autocomplete="off">
+      </div>
+
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="numbers">Numbers</button>
+        <button class="filter-btn" data-cat="physical">Physical World</button>
+        <button class="filter-btn" data-cat="science">Science</button>
+        <button class="filter-btn" data-cat="body">Body &amp; Health</button>
+        <button class="filter-btn" data-cat="society">Society</button>
+        <button class="filter-btn" data-cat="culture">Culture</button>
+        <button class="filter-btn" data-cat="mind">Mind</button>
+      </div>
+
+      <div class="result-count" id="resultCount">29 modules</div>
+    </div>
+
+    <!-- ========== MODULE LIST ========== -->
+    <div class="mod-list" id="modList">
+
+      <a href="modules/01-everyday.html" class="mod-item" data-cat="numbers" data-search="everyday objects weights sizes nutritional content">
+        <span class="mod-num">01</span>
+        <div class="mod-body"><div class="mod-name">Everyday Objects</div><p class="mod-desc">Weights, sizes, and nutritional content</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <img src="assets/thumb_01.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/02-biology.html" class="mod-item" data-cat="body" data-search="human body biology vital signs organs">
+        <span class="mod-num">02</span>
+        <div class="mod-body"><div class="mod-name">Human Body &amp; Biology</div><p class="mod-desc">Vital signs, organs, and how your body works</p></div>
+        <span class="mod-tag" data-cat="body">Body</span>
+        <img src="assets/thumb_02.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/03-geography.html" class="mod-item" data-cat="physical" data-search="geography distance countries oceans">
+        <span class="mod-num">03</span>
+        <div class="mod-body"><div class="mod-name">Geography &amp; Distance</div><p class="mod-desc">Countries, oceans, and how far things are</p></div>
+        <span class="mod-tag" data-cat="physical">Physical</span>
+        <img src="assets/thumb_03.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/04-food.html" class="mod-item" data-cat="body" data-search="food cooking temperatures times kitchen science">
+        <span class="mod-num">04</span>
+        <div class="mod-body"><div class="mod-name">Food &amp; Cooking</div><p class="mod-desc">Temperatures, times, and kitchen science</p></div>
+        <span class="mod-tag" data-cat="body">Body</span>
+        <img src="assets/thumb_04.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/05-money.html" class="mod-item" data-cat="numbers" data-search="money economy millions billions gdp financial scale">
+        <span class="mod-num">05</span>
+        <div class="mod-body"><div class="mod-name">Money &amp; Economy</div><p class="mod-desc">Millions, billions, GDP, and financial scale</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <img src="assets/thumb_05.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/06-infrastructure.html" class="mod-item" data-cat="science" data-search="big infrastructure bridges dams airports mega-projects">
+        <span class="mod-num">06</span>
+        <div class="mod-body"><div class="mod-name">Big Infrastructure</div><p class="mod-desc">Bridges, dams, airports, and mega-projects</p></div>
+        <span class="mod-tag" data-cat="science">Science</span>
+        <img src="assets/thumb_06.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/07-time.html" class="mod-item" data-cat="numbers" data-search="time scale seconds centuries intuition">
+        <span class="mod-num">07</span>
+        <div class="mod-body"><div class="mod-name">Time &amp; Scale</div><p class="mod-desc">Seconds to centuries — building time intuition</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <img src="assets/thumb_07.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/08-speed.html" class="mod-item" data-cat="physical" data-search="speed duration fast move long take">
+        <span class="mod-num">08</span>
+        <div class="mod-body"><div class="mod-name">Speed &amp; Duration</div><p class="mod-desc">How fast things move and how long things take</p></div>
+        <span class="mod-tag" data-cat="physical">Physical</span>
+        <img src="assets/thumb_08.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/09-size.html" class="mod-item" data-cat="numbers" data-search="size scale atoms galaxies orders magnitude">
+        <span class="mod-num">09</span>
+        <div class="mod-body"><div class="mod-name">Size &amp; Scale</div><p class="mod-desc">Atoms to galaxies — orders of magnitude</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <img src="assets/thumb_09.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/10-history.html" class="mod-item" data-cat="physical" data-search="history anchors navigable map 5000 years">
+        <span class="mod-num">10</span>
+        <div class="mod-body"><div class="mod-name">History Anchors</div><p class="mod-desc">A navigable map of the last 5,000 years</p></div>
+        <span class="mod-tag" data-cat="physical">Physical</span>
+        <img src="assets/thumb_10.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/11-temperature.html" class="mod-item" data-cat="physical" data-search="temperature energy celsius calories watts thermal">
+        <span class="mod-num">11</span>
+        <div class="mod-body"><div class="mod-name">Temperature &amp; Energy</div><p class="mod-desc">Celsius, calories, watts, and thermal intuition</p></div>
+        <span class="mod-tag" data-cat="physical">Physical</span>
+        <img src="assets/thumb_11.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/12-probability.html" class="mod-item" data-cat="numbers" data-search="probability risk odds chance think">
+        <span class="mod-num">12</span>
+        <div class="mod-body"><div class="mod-name">Probability &amp; Risk</div><p class="mod-desc">Odds, chance, and how to think about risk</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <img src="assets/thumb_12.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/13-percentages.html" class="mod-item" data-cat="numbers" data-search="percentages ratios mental math tricks everyday">
+        <span class="mod-num">13</span>
+        <div class="mod-body"><div class="mod-name">Percentages &amp; Ratios</div><p class="mod-desc">Mental math tricks for everyday numbers</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <img src="assets/thumb_13.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/14-materials.html" class="mod-item" data-cat="science" data-search="materials engineering steel concrete wood made">
+        <span class="mod-num">14</span>
+        <div class="mod-body"><div class="mod-name">Materials &amp; Engineering</div><p class="mod-desc">Steel, concrete, wood — what things are made of</p></div>
+        <span class="mod-tag" data-cat="science">Science</span>
+        <img src="assets/thumb_14.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/15-chemistry.html" class="mod-item" data-cat="science" data-search="chemistry functional groups reactions molecular logic">
+        <span class="mod-num">15</span>
+        <div class="mod-body"><div class="mod-name">Chemistry</div><p class="mod-desc">Functional groups, reactions, and molecular logic</p></div>
+        <span class="mod-tag" data-cat="science">Science</span>
+        <img src="assets/thumb_15.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/16-engineering.html" class="mod-item" data-cat="science" data-search="engineering rules thumb quick estimates built">
+        <span class="mod-num">16</span>
+        <div class="mod-body"><div class="mod-name">Engineering Rules of Thumb</div><p class="mod-desc">Quick estimates for how things are built</p></div>
+        <span class="mod-tag" data-cat="science">Science</span>
+        <img src="assets/thumb_16.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/17-politics.html" class="mod-item" data-cat="society" data-search="politics government systems institutions power">
+        <span class="mod-num">17</span>
+        <div class="mod-body"><div class="mod-name">Politics</div><p class="mod-desc">Government systems, institutions, and power</p></div>
+        <span class="mod-tag" data-cat="society">Society</span>
+        <img src="assets/thumb_17.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/18-diplomacy.html" class="mod-item" data-cat="society" data-search="diplomacy international organizations treaties soft power">
+        <span class="mod-num">18</span>
+        <div class="mod-body"><div class="mod-name">Diplomacy</div><p class="mod-desc">International organizations, treaties, and soft power</p></div>
+        <span class="mod-tag" data-cat="society">Society</span>
+        <img src="assets/thumb_18.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/19-culinary.html" class="mod-item" data-cat="culture" data-search="culinary arts world cuisines sauces techniques etiquette">
+        <span class="mod-num">19</span>
+        <div class="mod-body"><div class="mod-name">Culinary Arts</div><p class="mod-desc">World cuisines, sauces, techniques, and etiquette</p></div>
+        <span class="mod-tag" data-cat="culture">Culture</span>
+        <img src="assets/thumb_19.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/20-drinks.html" class="mod-item" data-cat="culture" data-search="drinks spirits cocktails wine coffee">
+        <span class="mod-num">20</span>
+        <div class="mod-body"><div class="mod-name">Drinks</div><p class="mod-desc">Spirits, cocktails, wine, and coffee</p></div>
+        <span class="mod-tag" data-cat="culture">Culture</span>
+        <img src="assets/thumb_20.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/21-fashion.html" class="mod-item" data-cat="culture" data-search="fashion fabrics brands dress codes style">
+        <span class="mod-num">21</span>
+        <div class="mod-body"><div class="mod-name">Fashion</div><p class="mod-desc">Fabrics, brands, dress codes, and style</p></div>
+        <span class="mod-tag" data-cat="culture">Culture</span>
+        <img src="assets/thumb_21.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/22-sleep.html" class="mod-item" data-cat="body" data-search="sleep cycles stages hygiene circadian rhythms">
+        <span class="mod-num">22</span>
+        <div class="mod-body"><div class="mod-name">Sleep</div><p class="mod-desc">Cycles, stages, hygiene, and circadian rhythms</p></div>
+        <span class="mod-tag" data-cat="body">Body</span>
+        <img src="assets/thumb_22.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/23-gender.html" class="mod-item" data-cat="body" data-search="sex gender orientation biology identity social constructs">
+        <span class="mod-num">23</span>
+        <div class="mod-body"><div class="mod-name">Sex, Gender &amp; Orientation</div><p class="mod-desc">Biology, identity, and social constructs</p></div>
+        <span class="mod-tag" data-cat="body">Body</span>
+        <img src="assets/thumb_23.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/24-fitness.html" class="mod-item" data-cat="body" data-search="fitness exercise lifts cardio programming body mechanics">
+        <span class="mod-num">24</span>
+        <div class="mod-body"><div class="mod-name">Fitness &amp; Exercise</div><p class="mod-desc">Lifts, cardio, programming, and body mechanics</p></div>
+        <span class="mod-tag" data-cat="body">Body</span>
+        <img src="assets/thumb_24.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/25-weather.html" class="mod-item" data-cat="physical" data-search="weather fronts clouds pressure forecasting">
+        <span class="mod-num">25</span>
+        <div class="mod-body"><div class="mod-name">Weather</div><p class="mod-desc">Fronts, clouds, pressure, and forecasting</p></div>
+        <span class="mod-tag" data-cat="physical">Physical</span>
+        <img src="assets/thumb_25.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/26-space.html" class="mod-item" data-cat="physical" data-search="space solar system planets distances cosmic scale">
+        <span class="mod-num">26</span>
+        <div class="mod-body"><div class="mod-name">Space &amp; the Solar System</div><p class="mod-desc">Planets, distances, and cosmic scale</p></div>
+        <span class="mod-tag" data-cat="physical">Physical</span>
+        <img src="assets/thumb_26.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/27-psychology.html" class="mod-item" data-cat="mind" data-search="psychology biases memory motivation mental models">
+        <span class="mod-num">27</span>
+        <div class="mod-body"><div class="mod-name">Psychology</div><p class="mod-desc">Biases, memory, motivation, and mental models</p></div>
+        <span class="mod-tag" data-cat="mind">Mind</span>
+        <img src="assets/thumb_27.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/28-philosophy.html" class="mod-item" data-cat="mind" data-search="philosophy ethics logic epistemology big questions">
+        <span class="mod-num">28</span>
+        <div class="mod-body"><div class="mod-name">Philosophy</div><p class="mod-desc">Ethics, logic, epistemology, and big questions</p></div>
+        <span class="mod-tag" data-cat="mind">Mind</span>
+        <img src="assets/thumb_28.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+      <a href="modules/29-art.html" class="mod-item" data-cat="culture" data-search="art movements techniques visual literacy">
+        <span class="mod-num">29</span>
+        <div class="mod-body"><div class="mod-name">Art</div><p class="mod-desc">Movements, techniques, and visual literacy</p></div>
+        <span class="mod-tag" data-cat="culture">Culture</span>
+        <img src="assets/thumb_29.jpg" alt="" class="mod-thumb" onerror="this.style.visibility='hidden'">
+      </a>
+
+    </div>
+
+    <div class="no-results" id="noResults">No modules match your search.</div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="home-footer">
+      <p class="footer-copy">&copy; 2025 Kiarash Farajzadehahary. All rights reserved.</p>
+      <p class="footer-disclaimer">This content is provided for educational and informational purposes only. It does not constitute professional, medical, legal, political, or psychological advice. The author makes no representations or warranties regarding the accuracy, completeness, or applicability of the information presented. Views on sensitive or debated topics reflect general educational summaries, not personal advocacy. Use of this material is at your own discretion and risk.</p>
+      <p class="footer-updated">Last updated: April 2026</p>
+    </footer>
+
   </div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    /* --- Search & filter --- */
+    const search = document.getElementById('search');
+    const items = document.querySelectorAll('.mod-item');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const resultCount = document.getElementById('resultCount');
+    const noResults = document.getElementById('noResults');
+    let activeCat = 'all';
+
+    function applyFilters() {
+      const q = search.value.toLowerCase().trim();
+      let visible = 0;
+      items.forEach(item => {
+        const matchesCat = activeCat === 'all' || item.dataset.cat === activeCat;
+        const searchText = item.dataset.search + ' ' + item.querySelector('.mod-name').textContent.toLowerCase();
+        const matchesSearch = !q || searchText.includes(q);
+        const show = matchesCat && matchesSearch;
+        item.hidden = !show;
+        if (show) visible++;
+      });
+      resultCount.textContent = visible + (visible === 1 ? ' module' : ' modules');
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    search.addEventListener('input', applyFilters);
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.dataset.cat;
+        applyFilters();
+      });
+    });
+
+    /* --- Theme toggle --- */
+    const themeBtn = document.getElementById('themeToggle');
+    const iconSun = document.getElementById('iconSun');
+    const iconMoon = document.getElementById('iconMoon');
+    const html = document.documentElement;
+
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      if (theme === 'dark' || (theme === 'auto' && getSystemTheme() === 'dark')) {
+        iconSun.style.display = 'none';
+        iconMoon.style.display = 'block';
+      } else {
+        iconSun.style.display = 'block';
+        iconMoon.style.display = 'none';
+      }
+    }
+
+    // Load saved preference or default to auto
+    const saved = localStorage.getItem('theme');
+    if (saved) {
+      applyTheme(saved);
+    } else {
+      applyTheme('auto');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      let next;
+      if (current === 'auto') {
+        next = getSystemTheme() === 'dark' ? 'light' : 'dark';
+      } else if (current === 'dark') {
+        next = 'light';
+      } else {
+        next = 'dark';
+      }
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    });
+
+    // Listen for OS theme changes when in auto mode
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (html.getAttribute('data-theme') === 'auto') {
+        applyTheme('auto');
+      }
+    });
+  </script>
+
 </body>
 </html>
