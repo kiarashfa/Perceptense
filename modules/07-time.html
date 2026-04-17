@@ -18,9 +18,6 @@
 .tl-lbl { font-size: 11px; color: var(--color-text-secondary); width: 144px; flex-shrink: 0; text-align: right; padding-right: 10px; line-height: 1.3; }
 .tl-bar { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 3px; }
 .tl-val { font-size: 11px; font-weight: 500; white-space: nowrap; }
-.cross-ref { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 13px; margin-bottom: 8px; }
-.cr-title { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 5px; }
-.cr-body  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.6; margin: 0; }
   </style>
 </head>
 <body>
@@ -79,19 +76,26 @@
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Key time conversions to feel, not just calculate</div>
       <div class="tl-row"><span class="tl-lbl">1 minute</span><div class="tl-bar" style="width:0.07%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="tl-val" style="color:#085041; margin-left:5px; font-size:10px;">60 sec</span></div></div>
       <div class="tl-row"><span class="tl-lbl">1 hour</span><div class="tl-bar" style="width:0.4%; background:#9FE1CB;"><span class="tl-val" style="color:#04342C; margin-left:4px; font-size:10px;">3,600 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 day</span><div class="tl-bar" style="width:1%; background:#5DCAA5;"><span class="tl-val" style="color:#04342C; font-size:10px;">86,400 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 week</span><div class="tl-bar" style="width:6%; background:#1D9E75;"><span class="tl-val" style="color:#fff; font-size:10px;">604,800 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 year</span><div class="tl-bar" style="width:31%; background:#0F6E56;"><span class="tl-val" style="color:#fff;">~31.5 million seconds</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 human lifetime (~80 yr)</span><div class="tl-bar" style="width:100%; background:#085041;"><span class="tl-val" style="color:#fff;">~2.5 billion seconds</span></div></div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">
-        A human lifetime ≈ 2.5 billion seconds. A billionaire's wealth in dollars roughly matches the number of seconds in many lifetimes. <strong style="color:var(--color-text-primary)">Elon Musk's $220 billion ≈ 88 human lifetimes' worth of seconds.</strong>
+      <div class="tl-row"><span class="tl-lbl">1 day</span><div class="tl-bar" style="width:1.1%; background:#5DCAA5;"><span class="tl-val" style="color:#04342C; font-size:10px;">86,400 sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 week</span><div class="tl-bar" style="width:7.5%; background:#1D9E75;"><span class="tl-val" style="color:#fff; font-size:10px;">604,800 sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">1 year</span><div class="tl-bar" style="width:40%; background:#085041;"><span class="tl-val" style="color:#9FE1CB;">31.5 million sec</span></div></div>
+      <div class="tl-row"><span class="tl-lbl">80-year lifetime</span><div class="tl-bar" style="width:100%; background:#04342C;"><span class="tl-val" style="color:#5DCAA5;">~2.5 billion sec</span></div></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">Your 80-year lifetime</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">~960 months · ~4,170 weeks · ~29,200 days · ~700,800 hours · ~2.5 billion seconds</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">The "million-second" rule</div>
+          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">1M seconds = 11.5 days · 1B seconds = 31.7 years · 1T seconds = 31,700 years</div>
+        </div>
       </div>
     </div>
 
     <div class="sec">Part D · interactive number sense — compare anything</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">How big is a number? Enter any number and see it in context.</div>
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Enter any number and see it in context.</div>
       <div style="display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap;">
         <input type="number" id="num-input" placeholder="e.g. 500000000" style="flex:1; min-width:160px; font-size:14px;" value="1000000000">
         <button onclick="analyzeNumber()" style="padding:0 18px; height:36px; font-size:13px;">Analyze ↗</button>
@@ -99,59 +103,7 @@
       <div id="num-output" style="font-size:13px; color:var(--color-text-primary); line-height:1.9;"></div>
     </div>
 
-    <div class="sec">Part E · cross-module connections — putting it all together</div>
-
-    <div class="cross-ref">
-      <p class="cr-title">Weight + money</p>
-      <p class="cr-body">Apple earns ~$97B profit per year. At $1 per gram, that would weigh 97,000 tonnes — roughly the steel in the Golden Gate Bridge (83,000 t). Apple earns a Golden Gate Bridge's weight in profit every year.</p>
-    </div>
-    <div class="cross-ref">
-      <p class="cr-title">Population + infrastructure</p>
-      <p class="cr-body">The world adds ~80 million people per year. That's roughly 3 million new homes needed annually. At $300,000 per home, that's $900 billion in housing per year — more than Germany's entire GDP ($4.1T) every 4.5 years, just to house new arrivals.</p>
-    </div>
-    <div class="cross-ref">
-      <p class="cr-title">Distance + time + wealth</p>
-      <p class="cr-body">Light travels 300,000 km per second. In the time it takes you to blink (~150ms), light travels 45,000 km — more than Earth's circumference. In that same blink, Apple earns about $460 in profit.</p>
-    </div>
-    <div class="cross-ref">
-      <p class="cr-title">Hair + lifetime</p>
-      <p class="cr-body">Your 100,000 hairs grow 1.25 cm/month each. Total hair growth across your whole head: 1,250 metres per month, or 15 km per year. Over an 80-year lifetime: ~1,200 km of hair grown — roughly the distance from Paris to Madrid.</p>
-    </div>
-    <div class="cross-ref">
-      <p class="cr-title">Births + cargo</p>
-      <p class="cr-body">385,000 babies are born per day. Each weighs ~3.3 kg. That's 1,270 tonnes of new humans per day — roughly 49 fully loaded trucks, or a small cargo ship, arriving daily in human mass alone.</p>
-    </div>
-
-    <div class="sec">Part F · the master anchor list — everything in one place</div>
-
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
-      <div class="anchor-row">
-        <span class="pill p-blue">Seconds</span>
-        <div><div class="atext">1M sec = 11.5 days · 1B sec = 31.7 years · 1T sec = 31,700 years</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-teal">Weight</span>
-        <div><div class="atext">1L water = 1 kg · human = 70 kg · car = 1,400 kg · HGV load = 26 t · ship = 200,000 t</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-green">Distance</span>
-        <div><div class="atext">1,000 km ≈ 1 hr flight · Earth circumference = 40,000 km · Moon = 384,000 km</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-amber">Money</span>
-        <div><div class="atext">$1M = 20 yrs saving · $1B = 20,000 yrs · Apple profit = ~$97B/yr · richest person ~$220B</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-coral">People</span>
-        <div><div class="atext">8.2B alive · 108B ever born · 385,000 born/day · 170,000 die/day</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-purple">Time</span>
-        <div><div class="atext">Human lifetime ≈ 2.5B seconds · Earth = 4.5B years · universe = 13.8B years</div></div>
-      </div>
-    </div>
-
-    <div class="sec">Part G · final test yourself — mixed questions from all modules</div>
+    <div class="sec">Part E · test yourself</div>
 
     <div class="qa">
       <p class="qa-q">1. Someone says "I've been alive for about a billion seconds." How old are they?</p>

@@ -3,264 +3,224 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 4: Food & Cooking — Have a Sense</title>
+  <title>Module 4: Nutrition & Food Labels — Have a Sense</title>
   <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
-  <meta name="description" content="Module 4: Temperatures, times, and kitchen science. Part of 'Have a Sense About Everything' — a free, self-directed course.">
-  <meta property="og:title" content="Module 4: Food & Cooking — Have a Sense">
-  <meta property="og:description" content="Module 4: Temperatures, times, and kitchen science. Part of 'Have a Sense About Everything' — a free, self-directed course.">
+  <meta name="description" content="Module 4: Calories, macronutrients, and how to read what's in your food. Part of 'Have a Sense About Everything' — a free, self-directed course.">
+  <meta property="og:title" content="Module 4: Nutrition & Food Labels — Have a Sense">
+  <meta property="og:description" content="Module 4: Calories, macronutrients, and how to read what's in your food. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-.cgrid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-bottom: 1rem; }
-.meat-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
-.meat-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
-.meat-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
-.meat-badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
-.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 4px; }
-.sub-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px; }
-.sub-label { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
-.sub-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
-.sub-note { font-size: 11px; color: var(--color-text-secondary); margin: 2px 0 0; }
-.temp-strip { height: 12px; border-radius: 3px; margin: 8px 0 3px; display: flex; overflow: hidden; }
-.ts-seg { height: 12px; display: flex; align-items: center; justify-content: center; }
-.strip-labels { display: flex; justify-content: space-between; font-size: 10px; color: var(--color-text-secondary); margin-bottom: 8px; }
-.pill-red { color: #712B13; background: #FAECE7; }
-</style>
+.trow { display: flex; align-items: center; gap: 0; margin-bottom: 4px; }
+.tl { font-size: 11px; color: var(--color-text-secondary); width: 148px; flex-shrink: 0; text-align: right; padding-right: 10px; line-height: 1.3; }
+.tb { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 3px; }
+.tv { font-size: 11px; font-weight: 500; white-space: nowrap; }
+  </style>
 </head>
 <body>
   <div class="page-wrap">
-<h1 class="module-title">Module 4: Food & Cooking</h1>
-    <p class="module-subtitle">Temperatures, times, and kitchen science</p>
+<h1 class="module-title">Module 4: Nutrition & Food Labels</h1>
+    <p class="module-subtitle">Calories, macronutrients, and how to read what's in your food</p>
 
-    <div class="sec">Part A · the temperature map — what happens to meat as it heats</div>
+    <div class="sec">Part A · the calorie confusion — kcal vs cal</div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">The calorie confusion — kcal vs cal</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        Food "calories" are actually <strong style="color:var(--color-text-primary)">kilocalories (kcal)</strong>. 1 food calorie = 1,000 physics calories. When a label says "250 calories," it means 250 kcal. This is one of the most widespread unit confusions in everyday life. From here on, "calorie" means food calorie = kcal.
+      </div>
+    </div>
+
+    <div class="sec">Part B · macronutrients — what's in your food</div>
+
+    <div class="cgrid">
+      <div class="card">
+        <p class="clabel">Human daily energy need</p>
+        <p class="cval">~2,000 kcal</p>
+        <p class="cnote">Average adult. ~2,500 for men, ~2,000 for women. Athletes can need 3,500–5,000 kcal.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">In watts (power output)</p>
+        <p class="cval">~80–100 W</p>
+        <p class="cnote">A resting human radiates about as much heat as a 100W light bulb. Your body is literally a heater.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">1 gram of fat</p>
+        <p class="cval">9 kcal</p>
+        <p class="cnote">More than double carbs or protein (4 kcal/g each). Fat is the body's most dense energy store.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">1 gram of carbohydrate</p>
+        <p class="cval">4 kcal</p>
+        <p class="cnote">Same as protein. Sugar = carbohydrate. 1 teaspoon of sugar (~4g) = 16 kcal.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part C · reading real food — what's actually inside</div>
+
+    <div style="margin-bottom: 1.2rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;">Protein in 200g of cooked chicken breast</div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Protein</span><span>~46 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 23%; background: #378ADD;"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Fat</span><span>~5 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 2.5%; background: #EF9F27;"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Total weight</span><span>200 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 100%; background: var(--color-border-secondary);"></div></div>
+      </div>
+      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 6px 0 0;">Rule of thumb: cooked chicken breast = ~23% protein by weight. So 200g gives you about 46g of protein — roughly what a 75kg person needs in an entire day.</p>
+    </div>
+
+    <div style="margin-bottom: 1.2rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;">A Snickers bar (standard, ~52 g)</div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Sugar</span><span>~27 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 52%; background: #E24B4A;"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Fat</span><span>~13 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 25%; background: #EF9F27;"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Protein</span><span>~4 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 8%; background: #378ADD;"></div></div>
+      </div>
+      <div class="bar-wrap">
+        <div class="bar-label"><span>Total bar weight</span><span>52 g</span></div>
+        <div class="bar-track"><div class="bar-fill" style="width: 100%; background: var(--color-border-secondary);"></div></div>
+      </div>
+      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 6px 0 0;">That 27g of sugar = about 6–7 teaspoons. The WHO recommends ≤25g free sugar per day for an adult. One Snickers already exceeds it.</p>
+    </div>
+
+    <div class="sec">Part D · how far does 100 kcal go?</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Internal temperature scale (°C) — what's happening inside the meat</div>
-      <div class="temp-strip">
-        <div class="ts-seg" style="width:10%; background:#E6F1FB;"></div>
-        <div class="ts-seg" style="width:12%; background:#85B7EB;"></div>
-        <div class="ts-seg" style="width:13%; background:#EF9F27;"></div>
-        <div class="ts-seg" style="width:15%; background:#E24B4A;"></div>
-        <div class="ts-seg" style="width:15%; background:#A32D2D;"></div>
-        <div class="ts-seg" style="width:35%; background:#501313;"></div>
-      </div>
-      <div class="strip-labels">
-        <span>0°</span><span>20°</span><span>40°</span><span>60°</span><span>74°</span><span>90°</span><span>100°+</span>
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; font-size:12px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
-          <div style="font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">0–40°C</div>
-          <div style="color:var(--color-text-secondary);">Danger zone. Bacteria multiply rapidly. Never leave raw meat here for long.</div>
-        </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
-          <div style="font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">60–74°C</div>
-          <div style="color:var(--color-text-secondary);">Proteins denature. Meat is "cooked." Most pathogens killed. Safe zone begins.</div>
-        </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
-          <div style="font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">74°C+</div>
-          <div style="color:var(--color-text-secondary);">Universally safe. All harmful bacteria destroyed. Poultry target.</div>
-        </div>
-      </div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:8px;">Water boils at 100°C. Meat cooked in boiling water reaches max 100°C internally — always safe, but can become tough if overdone.</div>
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How far does 100 kcal go? (exercise to burn it off)</div>
+      <div class="trow"><span class="tl">Running (fast)</span><div class="tb" style="width:20%; background:#1D9E75;"><span class="tv" style="color:#fff;">~8 min</span></div></div>
+      <div class="trow"><span class="tl">Cycling</span><div class="tb" style="width:30%; background:#5DCAA5;"><span class="tv" style="color:#04342C;">~15 min</span></div></div>
+      <div class="trow"><span class="tl">Brisk walking</span><div class="tb" style="width:50%; background:#9FE1CB;"><span class="tv" style="color:#04342C;">~25 min</span></div></div>
+      <div class="trow"><span class="tl">Sitting at a desk</span><div class="tb" style="width:100%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="tv" style="color:#085041;">~75 min</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">100 kcal = roughly a small apple, a plain rice cake with peanut butter, or 3 squares of dark chocolate. Exercise burns less than most people think — that croissant (250 kcal) needs 30 min of running to offset.</p>
     </div>
 
-    <div class="sec">Part B · each meat — safe temps and cook times</div>
+    <div class="sec">Part E · energy in the world — from food to nuclear weapons</div>
 
-    <div class="meat-card">
-      <div class="meat-header">
-        <span class="meat-name">Chicken &amp; poultry</span>
-        <span class="meat-badge" style="background:#FAECE7; color:#712B13;">Most strict — no pink ever</span>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Safe internal temp (grill/oven)</p>
-          <p class="sub-val">74°C (165°F)</p>
-          <p class="sub-note">The strictest of all meats. Salmonella risk means no exceptions.</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Boiling (whole pieces in water)</p>
-          <p class="sub-val">20–30 min</p>
-          <p class="sub-note">Breast: 20 min. Thighs/legs: 30 min. Always fully opaque, no pink juice.</p>
-        </div>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Pan-fry / grill (breast, 2 cm thick)</p>
-          <p class="sub-val">6–8 min per side</p>
-          <p class="sub-note">Medium heat. Rest 3 min after. Juices should run clear.</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Oven-roast whole chicken (~1.5 kg)</p>
-          <p class="sub-val">~1.5 hours at 190°C</p>
-          <p class="sub-note">Rule: 20 min per 500g + 20 min extra. Thigh must reach 74°C.</p>
-        </div>
-      </div>
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Energy released — logarithmic scale (in joules, J)</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Each step up is ~1,000× more energy. 1 food calorie = 4,184 joules.</div>
+      <div class="trow"><span class="tl">Lifting 1 kg by 1 metre</span><div class="tb" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="tv" style="color:#0C447C; margin-left:4px; font-size:10px;">~10 J</span></div></div>
+      <div class="trow"><span class="tl">1 food calorie (1 kcal)</span><div class="tb" style="width:0.6%; background:#B5D4F4;"><span class="tv" style="color:#042C53; margin-left:4px; font-size:10px;">~4,200 J</span></div></div>
+      <div class="trow"><span class="tl">Human daily food (2,000 kcal)</span><div class="tb" style="width:2%; background:#85B7EB;"><span class="tv" style="color:#042C53; font-size:10px;">~8.4 MJ</span></div></div>
+      <div class="trow"><span class="tl">1 litre of petrol (burned)</span><div class="tb" style="width:4%; background:#378ADD;"><span class="tv" style="color:#fff; font-size:10px;">~34 MJ</span></div></div>
+      <div class="trow"><span class="tl">Lightning bolt</span><div class="tb" style="width:6%; background:#185FA5;"><span class="tv" style="color:#fff; font-size:10px;">~1–5 GJ (1–5 billion J)</span></div></div>
+      <div class="trow"><span class="tl">Full tank of car petrol (~50L)</span><div class="tb" style="width:8%; background:#0C447C;"><span class="tv" style="color:#E6F1FB; font-size:10px;">~1.7 GJ</span></div></div>
+      <div class="trow"><span class="tl">Hiroshima bomb (Little Boy)</span><div class="tb" style="width:30%; background:#633806;"><span class="tv" style="color:#fff;">~63 TJ (63 trillion J)</span></div></div>
+      <div class="trow"><span class="tl">Largest H-bomb ever (Tsar Bomba)</span><div class="tb" style="width:100%; background:#3C3489;"><span class="tv" style="color:#EEEDFE;">~210 PJ — 3,300× Hiroshima</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Surprising fact: a lightning bolt (~1 billion joules) contains less total energy than a full car petrol tank (~1.7 billion joules). The difference is delivery speed — a lightning bolt releases its energy in microseconds. Your petrol tank releases it over hours. Energy rate (power) matters as much as total energy.</p>
     </div>
 
-    <div class="meat-card">
-      <div class="meat-header">
-        <span class="meat-name">Beef</span>
-        <span class="meat-badge" style="background:#FAEEDA; color:#633806;">Flexible — doneness is personal</span>
+    <div class="sec">Part F · interactive calorie calculator</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How long to burn off any food?</div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
+        <select id="food-sel" style="flex:1; min-width:160px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="52">Small apple (52 kcal)</option>
+          <option value="250">Croissant (250 kcal)</option>
+          <option value="300">Cheeseburger (300 kcal)</option>
+          <option value="550">Big Mac (550 kcal)</option>
+          <option value="240">Can of Coke (240 kcal)</option>
+          <option value="160">Snickers bar (160 kcal)</option>
+          <option value="80">Glass of wine (80 kcal)</option>
+          <option value="100">Banana (100 kcal)</option>
+          <option value="700">Pizza slice, large (700 kcal)</option>
+        </select>
+        <select id="activity-sel" style="flex:1; min-width:160px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+          <option value="11.5">Running fast (11.5 kcal/min)</option>
+          <option value="7">Cycling moderate (7 kcal/min)</option>
+          <option value="4">Brisk walking (4 kcal/min)</option>
+          <option value="2.5">Yoga / stretching (2.5 kcal/min)</option>
+          <option value="1.3">Sitting / desk work (1.3 kcal/min)</option>
+          <option value="0.9">Sleeping (0.9 kcal/min)</option>
+        </select>
       </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Rare (red centre)</p>
-          <p class="sub-val">50–52°C</p>
-          <p class="sub-note">Safe for whole cuts (steak) — bacteria only on surface, which is seared.</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Medium-rare (pink, warm)</p>
-          <p class="sub-val">55–57°C</p>
-          <p class="sub-note">The sweet spot for most steaks. Juicy and tender.</p>
-        </div>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Medium (slight pink)</p>
-          <p class="sub-val">60–63°C</p>
-          <p class="sub-note">Good for burgers (ground beef must reach 71°C — bacteria throughout).</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Well done / boiling</p>
-          <p class="sub-val">71°C+ / 30–40 min</p>
-          <p class="sub-note">Stewing beef: 1.5–2 hrs simmering for tender results.</p>
-        </div>
-      </div>
+      <div id="calorie-result" style="font-size:14px; color:var(--color-text-primary); background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; line-height:1.8;"></div>
     </div>
 
-    <div class="meat-card">
-      <div class="meat-header">
-        <span class="meat-name">Pork</span>
-        <span class="meat-badge" style="background:#EAF3DE; color:#27500A;">Slightly pink is now fine (updated guidelines)</span>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Safe internal temp</p>
-          <p class="sub-val">63°C (145°F)</p>
-          <p class="sub-note">Modern standard — a little pink at the centre is safe. Old guideline was 77°C (overcooks it).</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Pork chop (grill/pan, 2 cm)</p>
-          <p class="sub-val">4–5 min per side</p>
-          <p class="sub-note">Rest 3 min. Should feel firm but not hard when pressed.</p>
-        </div>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Pork belly / ribs (oven slow)</p>
-          <p class="sub-val">2.5–3 hrs at 160°C</p>
-          <p class="sub-note">Low and slow for collagen breakdown. Fat renders out, meat falls off bone.</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Boiling (pork shoulder)</p>
-          <p class="sub-val">1.5–2 hrs</p>
-          <p class="sub-note">Until fork-tender. Good for ramen broth or pulled pork base.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="meat-card">
-      <div class="meat-header">
-        <span class="meat-name">Fish (salmon, cod, sea bass…)</span>
-        <span class="meat-badge" style="background:#E6F1FB; color:#0C447C;">Fastest — easy to overcook</span>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Safe internal temp</p>
-          <p class="sub-val">63°C (145°F)</p>
-          <p class="sub-note">Flesh should flake easily and be opaque. Salmon can stay slightly translucent if fresh.</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Pan-fry fillet (2–3 cm thick)</p>
-          <p class="sub-val">3–4 min per side</p>
-          <p class="sub-note">Skin side down first on high heat. Don't move it until it releases naturally.</p>
-        </div>
-      </div>
-      <div class="row2">
-        <div class="sub-card">
-          <p class="sub-label">Oven (salmon fillet, 180°C)</p>
-          <p class="sub-val">12–15 min</p>
-          <p class="sub-note">Rule: 10 min per 2.5 cm of thickness. Overcooked fish is dry and chalky.</p>
-        </div>
-        <div class="sub-card">
-          <p class="sub-label">Poaching in water (~80°C)</p>
-          <p class="sub-val">8–12 min</p>
-          <p class="sub-note">Gentle, keeps fish moist. Don't boil — it toughens the flesh.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec">Part C · the numbers that matter most — anchor table</div>
+    <div class="sec">Part G · anchor numbers to memorize</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
       <div class="anchor-row">
-        <span class="pill p-blue">100°C</span>
-        <div><div class="atext">Water boils. Meat cooked in boiling water can never exceed this.</div></div>
+        <span class="pill p-red">2,000 kcal</span>
+        <div><div class="atext">Average human daily energy need</div><div class="asub">Fat = 9 kcal/g. Carbs & protein = 4 kcal/g each.</div></div>
       </div>
       <div class="anchor-row">
-        <span class="pill pill-red">74°C</span>
-        <div><div class="atext">Chicken must reach this — no exceptions</div><div class="asub">The strictest rule in all of cooking</div></div>
+        <span class="pill p-purple">~80 W</span>
+        <div><div class="atext">Resting human heat output</div><div class="asub">A human body radiates as much as a dim light bulb, continuously.</div></div>
       </div>
       <div class="anchor-row">
-        <span class="pill p-amber">63°C</span>
-        <div><div class="atext">Pork and fish safe temp</div><div class="asub">Slight pink in pork is now officially fine at this temp</div></div>
+        <span class="pill p-blue">23%</span>
+        <div><div class="atext">Protein content of cooked chicken breast</div><div class="asub">200g chicken ≈ 46g protein — nearly a full day's requirement.</div></div>
       </div>
       <div class="anchor-row">
-        <span class="pill p-amber">57°C</span>
-        <div><div class="atext">Beef medium-rare</div><div class="asub">The target for a good steak. Ground beef must go to 71°C.</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-green">190°C</span>
-        <div><div class="atext">Standard oven roasting temperature</div><div class="asub">Most chicken, pork, and vegetables. "Hot oven" = 220°C.</div></div>
-      </div>
-      <div class="anchor-row">
-        <span class="pill p-green">3 min</span>
-        <div><div class="atext">Resting time after cooking any meat</div><div class="asub">Juices redistribute. Never cut immediately after removing from heat.</div></div>
+        <span class="pill p-amber">25 g</span>
+        <div><div class="atext">WHO recommended maximum free sugar per day</div><div class="asub">About 6 teaspoons. One Snickers bar (27g sugar) already exceeds this.</div></div>
       </div>
     </div>
 
-    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;">The thickness rule — works for grilling any meat</div>
-      <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
-        For every 1 cm of thickness, allow roughly 2–3 minutes per side on medium-high heat. A 2 cm chicken breast = 4–6 min per side. A 3 cm steak = 6–9 min per side for medium. This is a rough guide — always check with a thermometer or the finger-press test.
-      </div>
-    </div>
-
-    <div class="sec">Part D · test yourself</div>
+    <div class="sec">Part H · test yourself</div>
 
     <div class="qa">
-      <p class="qa-q">1. You're grilling a chicken breast and cut it open — there's a tiny pink spot in the thickest part. Is it safe to eat?</p>
+      <p class="qa-q">1. You eat 300g of chicken breast for dinner. How much protein is that?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">No — not yet. Chicken must reach 74°C all the way through with no pink remaining. Unlike beef, chicken can carry salmonella throughout the flesh, not just on the surface. Give it 2–3 more minutes and check again. When in doubt, use a meat thermometer.</div>
+      <div class="qa-ans">About 69g of protein (23% of 300g). That's close to a full day's requirement for most adults (roughly 0.8–1g per kg of body weight, so ~60–80g for an average person).</div>
     </div>
 
     <div class="qa">
-      <p class="qa-q">2. A recipe says to roast a 2 kg whole chicken. How long should it take, and at what temperature?</p>
+      <p class="qa-q">2. A person eats 3 Snickers bars. How many teaspoons of sugar is that?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">At 190°C, about 1 hour 40 minutes. The rule is 20 minutes per 500g + 20 minutes extra. So: (2,000 ÷ 500) × 20 + 20 = 80 + 20 = 100 minutes ≈ 1 hr 40 min. Always confirm the thigh reaches 74°C before serving.</div>
+      <div class="qa-ans">About 20 teaspoons. Each bar has ~27g sugar, three bars = ~81g. One teaspoon of sugar ≈ 4g, so 81 ÷ 4 ≈ 20 teaspoons. That's more than 3x the WHO daily recommended limit in a single snack.</div>
     </div>
 
     <div class="qa">
-      <p class="qa-q">3. Your pork chop has a slightly pink centre at 63°C internal temp. Is this a problem?</p>
+      <p class="qa-q">3. A person eats a 550 kcal Big Mac and then goes for a 30-minute jog. Have they burned it off?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">No — it's perfectly fine. The USDA and most food safety authorities updated their guidelines: pork is safe at 63°C (145°F) with a 3-minute rest, even if slightly pink. The old rule of cooking pork to 77°C was overly cautious and produced dry, tough meat. 63°C = safe and juicy.</div>
+      <div class="qa-ans">Not quite. Running burns roughly 10–12 kcal per minute at moderate pace, so 30 minutes = ~300–360 kcal. The Big Mac has 550 kcal — so you'd need closer to 50 minutes of running to fully offset it. This is the key insight: it is much faster to consume calories than to burn them. A 2-second bite of a burger takes 4 minutes of running to undo. This is why diet (what you eat) has far more impact on weight than exercise alone.</div>
     </div>
 
     <div class="qa">
-      <p class="qa-q">4. You're poaching salmon in water. The water is boiling hard at 100°C. Is this ideal?</p>
+      <p class="qa-q">4. A food label says "per 100g: 15g fat, 45g carbohydrate, 8g protein." Roughly how many kcal per 100g?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">Not ideal — it'll work, but the fish will be tougher. Poaching fish is best done at a gentle simmer (around 75–85°C), not a full boil. The aggressive bubbling damages the delicate protein structure of fish. The water should be steaming gently with occasional small bubbles, not rolling. Full boiling is fine for chicken and tougher meats, not fish.</div>
+      <div class="qa-ans">About 347 kcal. Fat: 15g × 9 kcal/g = 135 kcal. Carbs: 45g × 4 kcal/g = 180 kcal. Protein: 8g × 4 kcal/g = 32 kcal. Total: 135 + 180 + 32 = 347 kcal per 100g. The fat contributes the most calories despite being only 15g — because fat is 9 kcal/g, more than double carbs or protein. This is the fundamental label-reading skill: multiply and add.</div>
     </div>
 
-    <div class="qa">
-      <p class="qa-q">5. What's the one universal rule that applies to all meats after cooking?</p>
-      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">Rest the meat for at least 3 minutes before cutting. During cooking, juices are forced toward the centre by heat. Resting lets them redistribute throughout. Cut too early and all the juice runs out onto your board — the meat looks dry and loses flavour. Even a thin chicken breast benefits from 3 minutes of resting under foil.</div>
-    </div>
+    <script>
+function updateCalc() {
+  const kcal = parseInt(document.getElementById('food-sel').value);
+  const rate = parseFloat(document.getElementById('activity-sel').value);
+  const mins = kcal / rate;
+  const foodLabel = document.getElementById('food-sel').selectedOptions[0].text;
+  const actLabel  = document.getElementById('activity-sel').selectedOptions[0].text.split(' (')[0];
+  let timeStr;
+  if (mins < 60) timeStr = Math.round(mins) + ' minutes';
+  else timeStr = Math.floor(mins/60) + ' hr ' + Math.round(mins%60) + ' min';
+  document.getElementById('calorie-result').innerHTML =
+    '<strong>' + foodLabel + '</strong><br>' +
+    actLabel + ': <strong>' + timeStr + '</strong> to burn it off.<br>' +
+    '<span style="color:var(--color-text-secondary); font-size:12px;">That\'s ' + (kcal/rate).toFixed(1) + ' minutes at ' + rate + ' kcal/min.</span>';
+}
 
+document.getElementById('food-sel').addEventListener('change', updateCalc);
+document.getElementById('activity-sel').addEventListener('change', updateCalc);
+updateCalc();
+    </script>
   </div>
   <script src="../files/shared.js"></script>
 </body>
