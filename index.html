@@ -21,9 +21,9 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
   
   <!-- description -->
-  <meta name="description" content="A free, self-directed course in 29 interactive modules — build intuition for numbers, science, culture, and the systems that shape daily life.">
+  <meta name="description" content="A free, self-directed course in 30 interactive modules — build intuition for numbers, science, culture, and the systems that shape daily life.">
   <meta property="og:title" content="Have a Sense About Everything">
-  <meta property="og:description" content="29 interactive modules covering numbers, science, culture, and the systems that shape daily life. Free, open, and no sign-up required.">
+  <meta property="og:description" content="30 interactive modules covering numbers, science, culture, and the systems that shape daily life. Free, open, and no sign-up required.">
   <meta property="og:type" content="website">
   
   <!-- Custom CSS -->
@@ -259,6 +259,36 @@
       animation: fadeIn 0.5s 0.2s ease both;
     }
 
+    .mod-header-row {
+      display: grid;
+      grid-template-columns: 30px 44px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 8px 12px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      user-select: none;
+    }
+    .sort-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-tertiary);
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      transition: color 0.12s;
+    }
+    .sort-btn:hover { color: var(--color-text-primary); }
+    .sort-btn.active { color: var(--color-text-primary); }
+    .sort-arrow { font-size: 10px; opacity: 0.4; transition: opacity 0.12s; }
+    .sort-btn.active .sort-arrow { opacity: 1; }
+
     .mod-item {
       display: grid;
       grid-template-columns: 30px 44px 1fr auto;
@@ -350,6 +380,11 @@
       }
       .mod-icon { width: 38px; height: 38px; font-size: 15px; }
       .mod-desc { display: none; }
+      .mod-header-row {
+        grid-template-columns: 24px 38px 1fr auto;
+        gap: 10px;
+        padding: 8px 8px;
+      }
     }
 
     .no-results {
@@ -491,23 +526,36 @@
         <button class="filter-btn" data-cat="mind">Mind</button>
       </div>
 
-      <div class="result-count" id="resultCount">29 modules</div>
+      <div class="result-count" id="resultCount">30 modules</div>
     </div>
 
     <!-- ========== MODULE LIST ========== -->
     <div class="mod-list" id="modList">
 
-      <a href="modules/01-everyday.html" class="mod-item" data-cat="numbers" data-search="everyday objects weights sizes nutritional content">
+      <div class="mod-header-row" id="sortHeader">
+        <button class="sort-btn active" data-sort="num" title="Sort by number">
+          <span>#</span><span class="sort-arrow">▲</span>
+        </button>
+        <span></span>
+        <button class="sort-btn" data-sort="name" title="Sort by name">
+          <span>Module</span><span class="sort-arrow">▲</span>
+        </button>
+        <button class="sort-btn" data-sort="cat" title="Sort by category">
+          <span>Category</span><span class="sort-arrow">▲</span>
+        </button>
+      </div>
+
+      <a href="modules/01-everyday.html" class="mod-item" data-cat="numbers" data-search="weight mass everyday objects how much weigh paperclip car kilogram">
         <span class="mod-num">01</span>
         <span class="mod-icon"><i class="fa-solid fa-weight-hanging"></i></span>
-        <div class="mod-body"><div class="mod-name">Everyday Objects</div><p class="mod-desc">Weights, sizes, and nutritional content</p></div>
+        <div class="mod-body"><div class="mod-name">Weight &amp; Mass</div><p class="mod-desc">How much things weigh — from paperclips to cars</p></div>
         <span class="mod-tag" data-cat="numbers">Numbers</span>
       </a>
 
-      <a href="modules/02-biology.html" class="mod-item" data-cat="body" data-search="human body biology vital signs organs">
+      <a href="modules/02-biology.html" class="mod-item" data-cat="body" data-search="human body hair vital signs physical body numbers">
         <span class="mod-num">02</span>
         <span class="mod-icon"><i class="fa-solid fa-heart-pulse"></i></span>
-        <div class="mod-body"><div class="mod-name">Human Body &amp; Biology</div><p class="mod-desc">Vital signs, organs, and how your body works</p></div>
+        <div class="mod-body"><div class="mod-name">The Human Body</div><p class="mod-desc">Hair, vital signs, and the physical body in numbers</p></div>
         <span class="mod-tag" data-cat="body">Body</span>
       </a>
 
@@ -518,10 +566,10 @@
         <span class="mod-tag" data-cat="physical">Physical</span>
       </a>
 
-      <a href="modules/04-food.html" class="mod-item" data-cat="body" data-search="food cooking temperatures times kitchen science">
+      <a href="modules/04-food.html" class="mod-item" data-cat="body" data-search="nutrition food labels calories kcal macronutrients protein fat carbs sugar energy">
         <span class="mod-num">04</span>
-        <span class="mod-icon"><i class="fa-solid fa-fire-burner"></i></span>
-        <div class="mod-body"><div class="mod-name">Food &amp; Cooking</div><p class="mod-desc">Temperatures, times, and kitchen science</p></div>
+        <span class="mod-icon"><i class="fa-solid fa-apple-whole"></i></span>
+        <div class="mod-body"><div class="mod-name">Nutrition &amp; Food Labels</div><p class="mod-desc">Calories, macronutrients, and how to read what's in your food</p></div>
         <span class="mod-tag" data-cat="body">Body</span>
       </a>
 
@@ -567,10 +615,10 @@
         <span class="mod-tag" data-cat="physical">Physical</span>
       </a>
 
-      <a href="modules/11-temperature.html" class="mod-item" data-cat="physical" data-search="temperature energy celsius calories watts thermal">
+      <a href="modules/11-temperature.html" class="mod-item" data-cat="physical" data-search="temperature celsius fahrenheit thermal intuition absolute zero sun">
         <span class="mod-num">11</span>
         <span class="mod-icon"><i class="fa-solid fa-temperature-half"></i></span>
-        <div class="mod-body"><div class="mod-name">Temperature &amp; Energy</div><p class="mod-desc">Celsius, calories, watts, and thermal intuition</p></div>
+        <div class="mod-body"><div class="mod-name">Temperature</div><p class="mod-desc">From absolute zero to the surface of the Sun</p></div>
         <span class="mod-tag" data-cat="physical">Physical</span>
       </a>
 
@@ -588,10 +636,10 @@
         <span class="mod-tag" data-cat="numbers">Numbers</span>
       </a>
 
-      <a href="modules/14-materials.html" class="mod-item" data-cat="science" data-search="materials engineering steel concrete wood made">
+      <a href="modules/14-materials.html" class="mod-item" data-cat="science" data-search="materials steel concrete wood carbon fibre what things made of">
         <span class="mod-num">14</span>
         <span class="mod-icon"><i class="fa-solid fa-cubes"></i></span>
-        <div class="mod-body"><div class="mod-name">Materials &amp; Engineering</div><p class="mod-desc">Steel, concrete, wood — what things are made of</p></div>
+        <div class="mod-body"><div class="mod-name">Materials</div><p class="mod-desc">Steel, concrete, wood — what things are made of</p></div>
         <span class="mod-tag" data-cat="science">Science</span>
       </a>
 
@@ -623,10 +671,10 @@
         <span class="mod-tag" data-cat="society">Society</span>
       </a>
 
-      <a href="modules/19-culinary.html" class="mod-item" data-cat="culture" data-search="culinary arts world cuisines sauces techniques etiquette">
+      <a href="modules/19-culinary.html" class="mod-item" data-cat="culture" data-search="culinary arts world cuisines sauces techniques etiquette meat cooking temperatures">
         <span class="mod-num">19</span>
         <span class="mod-icon"><i class="fa-solid fa-utensils"></i></span>
-        <div class="mod-body"><div class="mod-name">Culinary Arts</div><p class="mod-desc">World cuisines, sauces, techniques, and etiquette</p></div>
+        <div class="mod-body"><div class="mod-name">Culinary Arts</div><p class="mod-desc">World cuisines, meat temperatures, sauces, techniques, and etiquette</p></div>
         <span class="mod-tag" data-cat="culture">Culture</span>
       </a>
 
@@ -700,6 +748,13 @@
         <span class="mod-tag" data-cat="culture">Culture</span>
       </a>
 
+      <a href="modules/30-demographics.html" class="mod-item" data-cat="numbers" data-search="world population demographics births deaths growth rate billion people">
+        <span class="mod-num">30</span>
+        <span class="mod-icon"><i class="fa-solid fa-people-group"></i></span>
+        <div class="mod-body"><div class="mod-name">World Population &amp; Demographics</div><p class="mod-desc">How many of us there are and how fast we're growing</p></div>
+        <span class="mod-tag" data-cat="numbers">Numbers</span>
+      </a>
+
     </div>
 
     <div class="no-results" id="noResults">No modules match your search.</div>
@@ -745,6 +800,56 @@
         btn.classList.add('active');
         activeCat = btn.dataset.cat;
         applyFilters();
+      });
+    });
+
+    /* --- Sorting --- */
+    const modList = document.getElementById('modList');
+    const sortBtns = document.querySelectorAll('.sort-btn');
+    let currentSort = 'num';
+    let sortAsc = true;
+
+    function sortItems() {
+      const arr = Array.from(items);
+      arr.sort((a, b) => {
+        let va, vb;
+        if (currentSort === 'num') {
+          va = parseInt(a.querySelector('.mod-num').textContent);
+          vb = parseInt(b.querySelector('.mod-num').textContent);
+        } else if (currentSort === 'name') {
+          va = a.querySelector('.mod-name').textContent.toLowerCase();
+          vb = b.querySelector('.mod-name').textContent.toLowerCase();
+        } else {
+          va = a.querySelector('.mod-tag').textContent.toLowerCase();
+          vb = b.querySelector('.mod-tag').textContent.toLowerCase();
+          if (va === vb) {
+            va = parseInt(a.querySelector('.mod-num').textContent);
+            vb = parseInt(b.querySelector('.mod-num').textContent);
+            return sortAsc ? va - vb : vb - va;
+          }
+        }
+        if (typeof va === 'number') return sortAsc ? va - vb : vb - va;
+        return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+      });
+      arr.forEach(item => modList.appendChild(item));
+    }
+
+    sortBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const col = btn.dataset.sort;
+        if (currentSort === col) {
+          sortAsc = !sortAsc;
+        } else {
+          currentSort = col;
+          sortAsc = true;
+        }
+        sortBtns.forEach(b => {
+          b.classList.remove('active');
+          b.querySelector('.sort-arrow').textContent = '▲';
+        });
+        btn.classList.add('active');
+        btn.querySelector('.sort-arrow').textContent = sortAsc ? '▲' : '▼';
+        sortItems();
       });
     });
 
