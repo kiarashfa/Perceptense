@@ -7,7 +7,6 @@
   'use strict';
 
   /* --- Module registry (order matters for prev/next) --- */
-  /* --- Module registry (order matters for prev/next) --- */
 var MODULES = [
   { id: 1,  file: '01-everyday.html',      name: 'Weight & Mass' },
   { id: 2,  file: '02-biology.html',       name: 'The Human Body' },
