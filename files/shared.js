@@ -7,37 +7,39 @@
   'use strict';
 
   /* --- Module registry (order matters for prev/next) --- */
-  var MODULES = [
-    { id: 1,  file: '01-everyday.html',      name: 'Everyday Objects' },
-    { id: 2,  file: '02-biology.html',        name: 'Human Body & Biology' },
-    { id: 3,  file: '03-geography.html',      name: 'Geography & Distance' },
-    { id: 4,  file: '04-food.html',           name: 'Food & Cooking' },
-    { id: 5,  file: '05-money.html',          name: 'Money & Economy' },
-    { id: 6,  file: '06-infrastructure.html', name: 'Big Infrastructure' },
-    { id: 7,  file: '07-time.html',           name: 'Time & Scale' },
-    { id: 8,  file: '08-speed.html',          name: 'Speed & Duration' },
-    { id: 9,  file: '09-size.html',           name: 'Size & Scale' },
-    { id: 10, file: '10-history.html',        name: 'History Anchors' },
-    { id: 11, file: '11-temperature.html',    name: 'Temperature & Energy' },
-    { id: 12, file: '12-probability.html',    name: 'Probability & Risk' },
-    { id: 13, file: '13-percentages.html',    name: 'Percentages & Ratios' },
-    { id: 14, file: '14-materials.html',      name: 'Materials & Engineering' },
-    { id: 15, file: '15-chemistry.html',      name: 'Chemistry' },
-    { id: 16, file: '16-engineering.html',    name: 'Engineering Rules of Thumb' },
-    { id: 17, file: '17-politics.html',       name: 'Politics' },
-    { id: 18, file: '18-diplomacy.html',      name: 'Diplomacy' },
-    { id: 19, file: '19-culinary.html',       name: 'Culinary Arts' },
-    { id: 20, file: '20-drinks.html',         name: 'Drinks' },
-    { id: 21, file: '21-fashion.html',        name: 'Fashion' },
-    { id: 22, file: '22-sleep.html',          name: 'Sleep' },
-    { id: 23, file: '23-gender.html',         name: 'Sex, Gender & Orientation' },
-    { id: 24, file: '24-fitness.html',        name: 'Fitness & Exercise' },
-    { id: 25, file: '25-weather.html',        name: 'Weather' },
-    { id: 26, file: '26-space.html',          name: 'Space & the Solar System' },
-    { id: 27, file: '27-psychology.html',     name: 'Psychology' },
-    { id: 28, file: '28-philosophy.html',     name: 'Philosophy' },
-    { id: 29, file: '29-art.html',            name: 'Art' }
-  ];
+  /* --- Module registry (order matters for prev/next) --- */
+var MODULES = [
+  { id: 1,  file: '01-everyday.html',      name: 'Weight & Mass' },
+  { id: 2,  file: '02-biology.html',       name: 'The Human Body' },
+  { id: 3,  file: '03-geography.html',     name: 'Geography & Distance' },
+  { id: 4,  file: '04-food.html',          name: 'Nutrition & Food Labels' },
+  { id: 5,  file: '05-money.html',         name: 'Money & Economy' },
+  { id: 6,  file: '06-infrastructure.html',name: 'Big Infrastructure' },
+  { id: 7,  file: '07-time.html',          name: 'Time & Scale' },
+  { id: 8,  file: '08-speed.html',         name: 'Speed & Duration' },
+  { id: 9,  file: '09-size.html',          name: 'Size & Scale' },
+  { id: 10, file: '10-history.html',       name: 'History Anchors' },
+  { id: 11, file: '11-temperature.html',   name: 'Temperature' },
+  { id: 12, file: '12-probability.html',   name: 'Probability & Risk' },
+  { id: 13, file: '13-percentages.html',   name: 'Percentages & Ratios' },
+  { id: 14, file: '14-materials.html',     name: 'Materials' },
+  { id: 15, file: '15-chemistry.html',     name: 'Chemistry' },
+  { id: 16, file: '16-engineering.html',   name: 'Engineering Rules of Thumb' },
+  { id: 17, file: '17-politics.html',      name: 'Politics' },
+  { id: 18, file: '18-diplomacy.html',     name: 'Diplomacy' },
+  { id: 19, file: '19-culinary.html',      name: 'Culinary Arts' },
+  { id: 20, file: '20-drinks.html',        name: 'Drinks' },
+  { id: 21, file: '21-fashion.html',       name: 'Fashion' },
+  { id: 22, file: '22-sleep.html',         name: 'Sleep' },
+  { id: 23, file: '23-gender.html',        name: 'Sex, Gender & Orientation' },
+  { id: 24, file: '24-fitness.html',       name: 'Fitness & Exercise' },
+  { id: 25, file: '25-weather.html',       name: 'Weather' },
+  { id: 26, file: '26-space.html',         name: 'Space & the Solar System' },
+  { id: 27, file: '27-psychology.html',    name: 'Psychology' },
+  { id: 28, file: '28-philosophy.html',    name: 'Philosophy' },
+  { id: 29, file: '29-art.html',           name: 'Art' },
+  { id: 30, file: '30-demographics.html',  name: 'World Population & Demographics' }
+];
 
   /* --- SVG icons --- */
   var IC = {
