@@ -15,10 +15,120 @@
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-.tl-row { display: flex; align-items: center; gap: 0; margin-bottom: 5px; }
-.tl-lbl { font-size: 11px; color: var(--color-text-secondary); width: 144px; flex-shrink: 0; text-align: right; padding-right: 10px; line-height: 1.3; }
-.tl-bar { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 3px; }
-.tl-val { font-size: 11px; font-weight: 500; white-space: nowrap; }
+/* ── Time Zone Clock Grid ── */
+.tz-clock-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+.tz-clock-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 10px 8px;
+  text-align: center;
+  position: relative;
+}
+.tz-city { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 3px; }
+.tz-time { font-size: 22px; font-weight: 500; color: var(--color-text-primary); letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+.tz-date-label { font-size: 10px; color: var(--color-text-tertiary); margin-top: 1px; }
+.tz-offset { font-size: 10px; color: var(--color-text-tertiary); margin-top: 2px; }
+.tz-day-night {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+.tz-day { background: #F5C842; }
+.tz-night { background: #4E6490; }
+/* ── Estimation game ── */
+.game-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 14px 14px 12px;
+  margin-bottom: 8px;
+}
+.game-q { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; line-height: 1.5; }
+.game-opts { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 6px; }
+.game-opt {
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.game-opt:hover { background: var(--color-background-tertiary); }
+.game-opt.correct { background: #EAF3DE; border-color: #97C459; color: #27500A; }
+.game-opt.wrong   { background: #FCEBEB; border-color: #F09595; color: #791F1F; }
+.game-opt:disabled { cursor: default; }
+.game-feedback { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; min-height: 18px; }
+.game-score-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.game-score-label { font-size: 12px; color: var(--color-text-secondary); }
+.game-score-val { font-size: 16px; font-weight: 500; color: var(--color-text-primary); min-width: 40px; }
+/* ── SVG label helper ── */
+.svg-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+/* ── Dot grid ── */
+.dot-grid { display: flex; flex-wrap: wrap; gap: 2px; line-height: 1; }
+.dot-grid span { width: 6px; height: 6px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+/* ── Planet age calc ── */
+.planet-calc {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 13px 15px;
+  margin-bottom: 1rem;
+}
+.planet-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.planet-input-row label { font-size: 12px; color: var(--color-text-secondary); }
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+.planet-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 11px 9px;
+  position: relative;
+  overflow: hidden;
+}
+.planet-card-name {
+  font-size: 11px; font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.planet-card-age {
+  font-size: 22px; font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.planet-card-unit { font-size: 11px; font-weight: 400; color: var(--color-text-tertiary); margin-left: 2px; }
+.planet-card-sub  { font-size: 10px; color: var(--color-text-tertiary); margin-top: 3px; line-height: 1.35; }
+.planet-card-bar  { position: absolute; bottom: 0; left: 0; height: 3px; border-radius: 0 0 0 var(--border-radius-md); transition: width 0.4s ease; }
+.conv-unit-btn {
+  font-size: 12px; padding: 3px 10px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  background: none; color: var(--color-text-secondary); cursor: pointer;
+}
+.conv-unit-btn.active {
+  background: var(--color-background-tertiary);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-primary);
+}
   </style>
 </head>
 <body>
@@ -29,17 +139,18 @@
 </div>
     <p class="module-subtitle">Seconds to centuries — building time intuition</p>
 
+    <!-- ═══════════════════════════════════════════════════ PART A -->
     <div class="sec">Part A · the number scale — feel the gaps between orders of magnitude</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">From 1 to 1 trillion — with real anchors at every step</div>
       <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 11px;">Each row is 1,000× the one above it. That gap never gets smaller.</div>
-      <div class="tl-row"><span class="tl-lbl">1</span><div class="tl-bar" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="tl-val" style="color:#0C447C; margin-left:6px; font-size:10px;">one</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1,000</span><div class="tl-bar" style="width:0.8%; background:#B5D4F4;"><span class="tl-val" style="color:#042C53; margin-left:6px; font-size:10px;">one thousand</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 million</span><div class="tl-bar" style="width:2%; background:#85B7EB;"><span class="tl-val" style="color:#042C53; font-size:10px;">11.5 days in seconds</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 billion</span><div class="tl-bar" style="width:8%; background:#378ADD;"><span class="tl-val" style="color:#fff; font-size:10px;">31.7 years in seconds</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 trillion</span><div class="tl-bar" style="width:100%; background:#0C447C;"><span class="tl-val" style="color:#fff;">31,700 years in seconds — before end of Ice Age</span></div></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-top:12px;">
+      <div class="bar-row"><span class="bl">1</span><div class="bb" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="bv" style="color:#0C447C; margin-left:6px; font-size:10px;">one</span></div></div>
+      <div class="bar-row"><span class="bl">1,000</span><div class="bb" style="width:0.8%; background:#B5D4F4;"><span class="bv" style="color:#042C53; margin-left:6px; font-size:10px;">one thousand</span></div></div>
+      <div class="bar-row"><span class="bl">1 million</span><div class="bb" style="width:2%; background:#85B7EB;"><span class="bv" style="color:#042C53; font-size:10px;">11.5 days in seconds</span></div></div>
+      <div class="bar-row"><span class="bl">1 billion</span><div class="bb" style="width:8%; background:#378ADD;"><span class="bv" style="color:#fff; font-size:10px;">31.7 years in seconds</span></div></div>
+      <div class="bar-row"><span class="bl">1 trillion</span><div class="bb" style="width:100%; background:#0C447C;"><span class="bv" style="color:#fff;">31,700 years in seconds — before end of Ice Age</span></div></div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:8px; margin-top:12px;">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
           <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Thousand (10³)</div>
           <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">~1,000 people</div>
@@ -58,33 +169,122 @@
       </div>
     </div>
 
+    <!-- ═══════════════════════════════════════════════════ PART B -->
     <div class="sec">Part B · the cosmic time scale</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 0.6rem;">
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">How old is everything? (years ago)</div>
       <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Compressed to a single bar. Human history is invisible at this scale.</div>
-      <div class="tl-row"><span class="tl-lbl">Big Bang</span><div class="tl-bar" style="width:100%; background:#26215C;"><span class="tl-val" style="color:#CECBF6;">13.8 billion years ago</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">Earth formed</span><div class="tl-bar" style="width:32%; background:#534AB7;"><span class="tl-val" style="color:#fff;">4.5 billion years ago</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">First life on Earth</span><div class="tl-bar" style="width:28%; background:#7F77DD;"><span class="tl-val" style="color:#fff;">~3.8 billion years ago</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">Dinosaurs extinct</span><div class="tl-bar" style="width:0.48%; background:#AFA9EC;"><span class="tl-val" style="color:#26215C; margin-left:4px; font-size:10px;">66M yrs</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">First humans (Homo sapiens)</span><div class="tl-bar" style="width:0.022%; background:#CECBF6; border:0.5px solid #AFA9EC;"><span class="tl-val" style="color:#26215C; margin-left:4px; font-size:10px;">300K yrs</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">First writing / cities</span><div class="tl-bar" style="width:0.00036%; background:#EEEDFE; border:0.5px solid #CECBF6;"><span class="tl-val" style="color:#26215C; margin-left:4px; font-size:10px;">5,000 yrs</span></div></div>
+      <div class="bar-row"><span class="bl">Big Bang</span><div class="bb" style="width:100%; background:#26215C;"><span class="bv" style="color:#CECBF6;">13.8 billion years ago</span></div></div>
+      <div class="bar-row"><span class="bl">Earth formed</span><div class="bb" style="width:32%; background:#534AB7;"><span class="bv" style="color:#fff;">4.5 billion years ago</span></div></div>
+      <div class="bar-row"><span class="bl">First life on Earth</span><div class="bb" style="width:28%; background:#7F77DD;"><span class="bv" style="color:#fff;">~3.8 billion years ago</span></div></div>
+      <div class="bar-row"><span class="bl">Dinosaurs extinct</span><div class="bb" style="width:0.48%; background:#AFA9EC;"><span class="bv" style="color:#26215C; margin-left:4px; font-size:10px;">66M yrs</span></div></div>
+      <div class="bar-row"><span class="bl">First humans (Homo sapiens)</span><div class="bb" style="width:0.022%; background:#CECBF6; border:0.5px solid #AFA9EC;"><span class="bv" style="color:#26215C; margin-left:4px; font-size:10px;">300K yrs</span></div></div>
+      <div class="bar-row"><span class="bl">First writing / cities</span><div class="bb" style="width:0.00040%; background:#EEEDFE; border:0.5px solid #CECBF6;"><span class="bv" style="color:#26215C; margin-left:4px; font-size:10px;">~5,500 yrs</span></div></div>
       <div style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">
-        If Earth's entire history = 1 year, humans appeared on <strong style="color:var(--color-text-primary)">December 31st at 11:48pm</strong>. All of recorded history — Egypt, Rome, the Renaissance, everything — fits in the last <strong style="color:var(--color-text-primary)">10 seconds</strong> of that year.
+        If Earth's entire history = 1 year, humans appeared on <strong style="color:var(--color-text-primary)">December 31st at ~11:25pm</strong>. All of recorded history — Egypt, Rome, the Renaissance, everything — fits in the last <strong style="color:var(--color-text-primary)">~35 seconds</strong> of that year.
       </div>
     </div>
 
+    <!-- Cosmic Calendar SVG -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">The Cosmic Calendar — Earth's year as one year</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Each month = ~375 million years. Each day = ~12.3 million years. Each second = ~143 years.</div>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 700 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:700px; display:block;">
+          <!-- Month cells -->
+          <defs>
+            <style>
+              .cc-month { font-size: 9px; fill: var(--color-text-tertiary); font-family: var(--font-sans); }
+              .cc-event { font-size: 8.5px; fill: var(--color-text-secondary); font-family: var(--font-sans); }
+              .cc-evtbig { font-size: 9.5px; font-weight: 500; fill: var(--color-text-primary); font-family: var(--font-sans); }
+            </style>
+          </defs>
+          <!-- 12 month blocks, 5 rows of 3, but let's do 4 rows of 3 = 12 months -->
+          <!-- Row 1: Jan–Apr, Row 2: May–Aug, Row 3: Sep–Dec -->
+          <!-- 3 columns × 4 rows = 12 months, each cell ~168px wide, ~48px tall -->
+          <!-- Grid lines -->
+          <rect x="1" y="1" width="698" height="198" rx="8" fill="none" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <!-- Months: 3 cols × 4 rows -->
+          <!-- COL widths: 0,175,350,525,700; ROW heights: 0,50,100,150,200 -->
+          <!-- Row 1 -->
+          <rect x="1" y="1" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
+          <rect x="234" y="1" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.4"/>
+          <rect x="467" y="1" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
+          <!-- Row 2 -->
+          <rect x="1" y="51" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.4"/>
+          <rect x="234" y="51" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
+          <rect x="467" y="51" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.4"/>
+          <!-- Row 3 -->
+          <rect x="1" y="101" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
+          <rect x="234" y="101" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.4"/>
+          <rect x="467" y="101" width="232" height="49" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
+          <!-- Row 4 -->
+          <rect x="1" y="151" width="232" height="48" rx="0" fill="var(--color-background-secondary)" opacity="0.4"/>
+          <rect x="234" y="151" width="232" height="48" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
+          <rect x="467" y="151" width="232" height="48" rx="0" fill="rgba(78,153,163,0.12)" />
+          <!-- Grid dividers -->
+          <line x1="233" y1="1" x2="233" y2="199" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <line x1="466" y1="1" x2="466" y2="199" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <line x1="1" y1="50" x2="699" y2="50" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <line x1="1" y1="100" x2="699" y2="100" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <line x1="1" y1="150" x2="699" y2="150" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <!-- Month labels -->
+          <text x="8" y="13" class="cc-month">January</text>
+          <text x="241" y="13" class="cc-month">February</text>
+          <text x="474" y="13" class="cc-month">March</text>
+          <text x="8" y="63" class="cc-month">April</text>
+          <text x="241" y="63" class="cc-month">May</text>
+          <text x="474" y="63" class="cc-month">June</text>
+          <text x="8" y="113" class="cc-month">July</text>
+          <text x="241" y="113" class="cc-month">August</text>
+          <text x="474" y="113" class="cc-month">September</text>
+          <text x="8" y="163" class="cc-month">October</text>
+          <text x="241" y="163" class="cc-month">November</text>
+          <text x="474" y="163" class="cc-month">December</text>
+          <!-- Key events -->
+          <!-- Jan 1: Big Bang -->
+          <circle cx="10" cy="24" r="3" fill="#26215C"/>
+          <text x="16" y="27" class="cc-evtbig">Jan 1 — Big Bang (13.8B yrs)</text>
+          <!-- Sep ~21: Earth forms 4.5B yrs = 4.5/13.8 = 0.326 of year -->
+          <!-- 0.326 × 12 months = month 3.9 = ~late March / early April -->
+          <!-- Earth: 4.5/13.8 = 32.6% of year. Sep: month 9 = 66.7%. Earth is actually at ~month 4 -->
+          <!-- Let's place: Earth formed ~Sep 2 (common Sagan calendar placement) -->
+          <circle cx="249" cy="120" r="3" fill="#534AB7"/>
+          <text x="256" y="123" class="cc-event">Sep 2 — Earth &amp; Moon form</text>
+          <!-- First life ~Sep 21 -->
+          <circle cx="249" cy="133" r="3" fill="#7F77DD"/>
+          <text x="256" y="136" class="cc-event">Sep 21 — First microbial life</text>
+          <!-- Cambrian explosion Nov 15 -->
+          <circle cx="474" cy="120" r="3" fill="#AFA9EC"/>
+          <text x="481" y="123" class="cc-event">Nov 15 — Cambrian explosion</text>
+          <!-- First land plants Dec 1 -->
+          <circle cx="474" cy="133" r="3" fill="#85B7EB"/>
+          <text x="481" y="136" class="cc-event">Dec 1 — First land plants</text>
+          <!-- Dinosaurs Nov 6 → extinct Dec 30 -->
+          <circle cx="474" cy="146" r="3" fill="#AFA9EC"/>
+          <text x="481" y="149" class="cc-event">Dec 30 — Dinosaurs extinct</text>
+          <!-- Humans Dec 31 11:25pm -->
+          <rect x="467" y="170" width="231" height="28" rx="4" fill="rgba(78,153,163,0.22)" stroke="rgba(78,153,163,0.5)" stroke-width="0.5"/>
+          <circle cx="475" cy="182" r="3.5" fill="#4E99A3"/>
+          <text x="482" y="178" class="cc-evtbig" style="fill:#4E99A3;">Dec 31, 11:25 PM — Homo sapiens</text>
+          <text x="482" y="190" class="cc-event">All recorded history = last 35 seconds</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ PART C -->
     <div class="sec">Part C · human time — from seconds to a lifetime</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Key time conversions to feel, not just calculate</div>
-      <div class="tl-row"><span class="tl-lbl">1 minute</span><div class="tl-bar" style="width:0.07%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="tl-val" style="color:#085041; margin-left:5px; font-size:10px;">60 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 hour</span><div class="tl-bar" style="width:0.4%; background:#9FE1CB;"><span class="tl-val" style="color:#04342C; margin-left:4px; font-size:10px;">3,600 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 day</span><div class="tl-bar" style="width:1.1%; background:#5DCAA5;"><span class="tl-val" style="color:#04342C; font-size:10px;">86,400 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 week</span><div class="tl-bar" style="width:7.5%; background:#1D9E75;"><span class="tl-val" style="color:#fff; font-size:10px;">604,800 sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">1 year</span><div class="tl-bar" style="width:40%; background:#085041;"><span class="tl-val" style="color:#9FE1CB;">31.5 million sec</span></div></div>
-      <div class="tl-row"><span class="tl-lbl">80-year lifetime</span><div class="tl-bar" style="width:100%; background:#04342C;"><span class="tl-val" style="color:#5DCAA5;">~2.5 billion sec</span></div></div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:12px;">
+      <div class="bar-row"><span class="bl">1 minute</span><div class="bb" style="width:0.07%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="bv" style="color:#085041; margin-left:5px; font-size:10px;">60 sec</span></div></div>
+      <div class="bar-row"><span class="bl">1 hour</span><div class="bb" style="width:0.4%; background:#9FE1CB;"><span class="bv" style="color:#04342C; margin-left:4px; font-size:10px;">3,600 sec</span></div></div>
+      <div class="bar-row"><span class="bl">1 day</span><div class="bb" style="width:1.1%; background:#5DCAA5;"><span class="bv" style="color:#04342C; font-size:10px;">86,400 sec</span></div></div>
+      <div class="bar-row"><span class="bl">1 week</span><div class="bb" style="width:7.5%; background:#1D9E75;"><span class="bv" style="color:#fff; font-size:10px;">604,800 sec</span></div></div>
+      <div class="bar-row"><span class="bl">1 year</span><div class="bb" style="width:40%; background:#085041;"><span class="bv" style="color:#9FE1CB;">31.5 million sec</span></div></div>
+      <div class="bar-row"><span class="bl">80-year lifetime</span><div class="bb" style="width:100%; background:#04342C;"><span class="bv" style="color:#5DCAA5;">~2.5 billion sec</span></div></div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-top:12px;">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
           <div style="font-size:12px; font-weight:500; color:var(--color-text-primary);">Your 80-year lifetime</div>
           <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">~960 months · ~4,170 weeks · ~29,200 days · ~700,800 hours · ~2.5 billion seconds</div>
@@ -96,18 +296,466 @@
       </div>
     </div>
 
+    <!-- Lifetime dot grid -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">A lifetime in weeks — 4,160 dots</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 6px;">Each dot = one week of an 80-year life. Each row = one year (52 weeks).</div>
+      <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin-bottom:10px;">
+        <div style="display:flex; align-items:center; gap:5px; font-size:11px; color:var(--color-text-secondary);"><span style="width:8px;height:8px;border-radius:50%;background:#4E99A3;display:inline-block;"></span> Lived (age slider)</div>
+        <div style="display:flex; align-items:center; gap:5px; font-size:11px; color:var(--color-text-secondary);"><span style="width:8px;height:8px;border-radius:50%;background:var(--color-background-tertiary);border:0.5px solid var(--color-border-tertiary);display:inline-block;"></span> Remaining</div>
+        <div style="display:flex; align-items:center; gap:5px; font-size:11px; color:var(--color-text-secondary); margin-left:auto;">Age: <strong id="dot-age-label" style="color:var(--color-text-primary); min-width:28px;">30</strong></div>
+      </div>
+      <input type="range" min="0" max="80" value="30" id="dot-age-slider" oninput="updateDotGrid(this.value)" style="margin-bottom:10px;">
+      <div id="dot-grid-wrap" class="dot-grid" style="max-height:280px; overflow:hidden;"></div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-top:8px;" id="dot-summary"></div>
+    </div>
+
+    <!-- Planet age calc -->
+    <div class="planet-calc">
+      <div style="font-size: 12px; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Your age across the solar system</div>
+      <div class="planet-input-row">
+        <label for="planetAgeInput">Enter your age:</label>
+        <input type="number" id="planetAgeInput" value="30" min="1" max="120" step="1" style="width:80px !important;" oninput="renderPlanetAges()">
+        <span style="font-size:12px; color:var(--color-text-tertiary);">Earth years</span>
+      </div>
+      <div class="planet-grid" id="planetAgeGrid"></div>
+      <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 10px 0 0;">Each planet's year = the time it takes to orbit the Sun. Your age in "planet years" = how many of those orbits have passed since you were born. Your biological age doesn't change — only the unit does.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ PART D -->
     <div class="sec">Part D · interactive number sense — compare anything</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Enter any number and see it in context.</div>
       <div style="display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap;">
-        <input type="number" id="num-input" placeholder="e.g. 500000000" style="flex:1; min-width:160px; font-size:14px;" value="1000000000">
+        <input type="number" id="num-input" aria-label="Enter a number to analyze" placeholder="e.g. 500000000" style="flex:1; min-width:160px; font-size:14px;" value="1000000000">
         <button onclick="analyzeNumber()" style="padding:0 18px; height:36px; font-size:13px;">Analyze ↗</button>
       </div>
       <div id="num-output" style="font-size:13px; color:var(--color-text-primary); line-height:1.9;"></div>
     </div>
 
-    <div class="sec">Part E · test yourself</div>
+    <!-- ═══════════════════════════════════════════════════ PART E (new) — Time Zones -->
+    <div class="sec">Part E · global time zones — the world's clocks right now</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 0.6rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Live clocks — major world cities</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">UTC offsets are fixed references. Daylight saving adjustments shown where applicable.</div>
+      <div class="tz-clock-grid" id="tz-live-clocks"></div>
+      <div style="font-size:10px; color:var(--color-text-tertiary); margin-top:10px;">☀ = daytime (6am–8pm local) · ● = night</div>
+    </div>
+
+    <!-- TZ world strip SVG -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 0.6rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">The UTC offset spectrum — West to East</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">The world spans UTC−12 to UTC+14, a total of 26 hours. Yes, two calendar days exist simultaneously.</div>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:500px; max-width:700px; display:block;">
+          <defs>
+            <linearGradient id="tzgrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#26215C"/>
+              <stop offset="46%" stop-color="#4E99A3"/>
+              <stop offset="100%" stop-color="#085041"/>
+            </linearGradient>
+          </defs>
+          <!-- Offset bar -->
+          <rect x="30" y="30" width="640" height="22" rx="4" fill="url(#tzgrad)" opacity="0.85"/>
+          <!-- UTC 0 marker -->
+          <line x1="30" y1="28" x2="30" y2="54" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <!-- Tick marks every 2 hours -->
+          <!-- Total span: 26 hours, bar width 640px -->
+          <!-- UTC-12 = x=30, UTC+14 = x=670 -->
+          <!-- px per hour = 640/26 = 24.6px -->
+          <!-- UTC-12: x=30, UTC-10: x=79, ..., UTC0: x=30+12*24.6=325, UTC+14: x=670 -->
+          <!-- Key cities: -->
+          <!-- LA UTC-8 (or -7 DST): x=30+(12-8)*24.6=30+98.5=128 -->
+          <!-- NYC UTC-5 (or -4 DST): x=30+(12-5)*24.6=30+172=202 -->
+          <!-- London UTC+0 (or +1 BST): x=325 -->
+          <!-- Paris UTC+1 (or +2 CEST): x=349 -->
+          <!-- Dubai UTC+4: x=30+16*24.6=424 -->
+          <!-- India UTC+5:30: x=30+17.5*24.6=460 -->
+          <!-- Singapore UTC+8: x=30+20*24.6=524 -->
+          <!-- Tokyo UTC+9: x=30+21*24.6=548 -->
+          <!-- Sydney UTC+10/11: x=30+22*24.6=571 -->
+          <!-- Axis labels -->
+          <text x="30" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">−12</text>
+          <text x="79" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">−10</text>
+          <text x="128" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">−8</text>
+          <text x="177" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">−6</text>
+          <text x="226" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">−4</text>
+          <text x="275" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">−2</text>
+          <text x="325" y="68" font-size="8.5" fill="var(--color-text-secondary)" font-family="var(--font-sans)" font-weight="500" text-anchor="middle">UTC 0</text>
+          <text x="374" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+2</text>
+          <text x="423" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+4</text>
+          <text x="472" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+6</text>
+          <text x="522" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+8</text>
+          <text x="571" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+10</text>
+          <text x="620" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+12</text>
+          <text x="670" y="68" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">+14</text>
+          <!-- City markers (above bar) -->
+          <!-- Los Angeles −8 → x=128 -->
+          <line x1="128" y1="30" x2="128" y2="9" stroke="#B5D4F4" stroke-width="0.8"/>
+          <text x="128" y="7" font-size="8" fill="#B5D4F4" font-family="var(--font-sans)" text-anchor="middle">LA</text>
+          <!-- New York −5 → x=202 -->
+          <line x1="202" y1="30" x2="202" y2="17" stroke="#B5D4F4" stroke-width="0.8"/>
+          <text x="202" y="15" font-size="8" fill="#B5D4F4" font-family="var(--font-sans)" text-anchor="middle">NYC</text>
+          <!-- London 0 → x=325 -->
+          <line x1="325" y1="30" x2="325" y2="9" stroke="#fff" stroke-width="0.8"/>
+          <text x="325" y="7" font-size="8" fill="#fff" font-family="var(--font-sans)" text-anchor="middle">London</text>
+          <!-- Dubai +4 → x=424 -->
+          <line x1="424" y1="30" x2="424" y2="17" stroke="#9FE1CB" stroke-width="0.8"/>
+          <text x="424" y="15" font-size="8" fill="#9FE1CB" font-family="var(--font-sans)" text-anchor="middle">Dubai</text>
+          <!-- India +5:30 → x=460 -->
+          <line x1="460" y1="30" x2="460" y2="9" stroke="#9FE1CB" stroke-width="0.8"/>
+          <text x="460" y="7" font-size="8" fill="#9FE1CB" font-family="var(--font-sans)" text-anchor="middle">India</text>
+          <!-- Singapore +8 → x=522 -->
+          <line x1="522" y1="30" x2="522" y2="17" stroke="#5DCAA5" stroke-width="0.8"/>
+          <text x="522" y="15" font-size="8" fill="#5DCAA5" font-family="var(--font-sans)" text-anchor="middle">SG</text>
+          <!-- Tokyo +9 → x=546 -->
+          <line x1="546" y1="30" x2="546" y2="9" stroke="#5DCAA5" stroke-width="0.8"/>
+          <text x="546" y="7" font-size="8" fill="#5DCAA5" font-family="var(--font-sans)" text-anchor="middle">Tokyo</text>
+          <!-- Sydney +10 → x=571 -->
+          <line x1="571" y1="30" x2="571" y2="17" stroke="#5DCAA5" stroke-width="0.8"/>
+          <text x="571" y="15" font-size="8" fill="#5DCAA5" font-family="var(--font-sans)" text-anchor="middle">Sydney</text>
+          <!-- Oddity callouts below -->
+          <text x="460" y="82" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">India: UTC+5:30</text>
+          <text x="460" y="91" font-size="7.5" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">(half-hour zone)</text>
+          <text x="128" y="82" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">Pacific islands:</text>
+          <text x="128" y="91" font-size="7.5" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">UTC−12 to −10</text>
+          <text x="645" y="82" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">Kiribati:</text>
+          <text x="645" y="91" font-size="7.5" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">UTC+14</text>
+          <!-- Tick marks on bar -->
+          <line x1="325" y1="30" x2="325" y2="52" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-top:6px; line-height:1.6;">
+        <strong style="color:var(--color-text-primary);">Odd fact:</strong> The International Date Line means two <em>calendar days</em> always exist simultaneously on Earth. When it's Sunday morning in Samoa, it's still Saturday afternoon in American Samoa — two territories just 100 km apart, separated by a day.
+      </div>
+    </div>
+
+    <!-- TZ Converter -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Time zone converter</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 12px;">Pick two cities and a time — see both clocks side by side.</div>
+      <!-- Controls row -->
+      <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:end; margin-bottom:14px;">
+        <div>
+          <div style="font-size:10px; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">From</div>
+          <select id="tz-from-city" style="width:100%; font-size:13px;" oninput="convertTimezone()">
+            <option value="-480">Los Angeles (UTC−8)</option>
+            <option value="-300">New York (UTC−5)</option>
+            <option value="-180">São Paulo (UTC−3)</option>
+            <option value="0" selected>London (UTC+0)</option>
+            <option value="60">Paris / Berlin (UTC+1)</option>
+            <option value="120">Cairo / Helsinki (UTC+2)</option>
+            <option value="180">Moscow / Nairobi (UTC+3)</option>
+            <option value="210">Tehran (UTC+3:30)</option>
+            <option value="240">Dubai (UTC+4)</option>
+            <option value="330">Mumbai / Delhi (UTC+5:30)</option>
+            <option value="360">Dhaka (UTC+6)</option>
+            <option value="420">Bangkok / Jakarta (UTC+7)</option>
+            <option value="480">Singapore / Beijing (UTC+8)</option>
+            <option value="540">Tokyo / Seoul (UTC+9)</option>
+            <option value="600">Sydney (UTC+10)</option>
+            <option value="720">Auckland (UTC+12)</option>
+          </select>
+        </div>
+        <div style="text-align:center; padding-bottom:4px;">
+          <input type="time" id="tz-input-time" value="12:00" aria-label="Reference time" style="width:100px; font-size:15px; text-align:center;" oninput="convertTimezone()">
+        </div>
+        <div>
+          <div style="font-size:10px; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:4px;">To</div>
+          <select id="tz-to-city" style="width:100%; font-size:13px;" oninput="convertTimezone()">
+            <option value="-480">Los Angeles (UTC−8)</option>
+            <option value="-300">New York (UTC−5)</option>
+            <option value="-180">São Paulo (UTC−3)</option>
+            <option value="0">London (UTC+0)</option>
+            <option value="60">Paris / Berlin (UTC+1)</option>
+            <option value="120">Cairo / Helsinki (UTC+2)</option>
+            <option value="180">Moscow / Nairobi (UTC+3)</option>
+            <option value="210">Tehran (UTC+3:30)</option>
+            <option value="240" selected>Dubai (UTC+4)</option>
+            <option value="330">Mumbai / Delhi (UTC+5:30)</option>
+            <option value="360">Dhaka (UTC+6)</option>
+            <option value="420">Bangkok / Jakarta (UTC+7)</option>
+            <option value="480">Singapore / Beijing (UTC+8)</option>
+            <option value="540">Tokyo / Seoul (UTC+9)</option>
+            <option value="600">Sydney (UTC+10)</option>
+            <option value="720">Auckland (UTC+12)</option>
+          </select>
+        </div>
+      </div>
+      <!-- Dual clock display -->
+      <div style="display:grid; grid-template-columns:1fr auto 1fr; gap:8px; align-items:center;">
+        <!-- From clock -->
+        <div id="tz-clock-from" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:14px 12px; text-align:center;"></div>
+        <!-- Arrow + offset badge -->
+        <div id="tz-clock-middle" style="text-align:center; color:var(--color-text-tertiary); font-size:18px; padding:0 4px;"></div>
+        <!-- To clock -->
+        <div id="tz-clock-to" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:14px 12px; text-align:center;"></div>
+      </div>
+    </div>
+
+    <!-- TZ facts -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;">Things worth knowing about time zones</div>
+      <div class="anchor-row">
+        <span class="pill p-blue" style="min-width:70px;">History</span>
+        <div><div class="atext">Time zones were only standardised in 1884 at the International Meridian Conference. Before then, every town set its own "local solar time." When the US had 300+ local times, running railways was chaos.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal" style="min-width:70px;">Oddities</span>
+        <div><div class="atext">China uses a single time zone (UTC+8) across its entire territory — meaning sunrise in western Xinjiang can occur at 10am "local" time. India's UTC+5:30 and Nepal's UTC+5:45 are both half/quarter-hour offsets from the standard hourly grid.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber" style="min-width:70px;">DST</span>
+        <div><div class="atext">Daylight Saving Time is observed by about 70 countries, mostly in Europe and North America — but not by most of Africa, Asia, or equatorial regions where day length barely changes year-round. The twice-yearly shift costs an estimated ~$434M in US productivity alone.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-purple" style="min-width:70px;">Space</span>
+        <div><div class="atext">The International Space Station uses UTC year-round. Astronauts experience ~16 sunrises per day (orbiting every 90 minutes), making "time zones" completely meaningless. Mars missions will use "Mars Solar Time" — a Martian day (sol) is 24 hours, 39 minutes, 35 seconds.</div></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ PART F — Perception of Time -->
+    <div class="sec">Part F · the psychology of time — why time doesn't feel equal</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 0.6rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Why your childhood felt longer than your 30s</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">The "proportional time" hypothesis: a year feels shorter as you age because it represents a smaller fraction of your total lived experience. To a 5-year-old, one year is 20% of everything they've ever known.</div>
+
+      <!-- Age vs perceived year length SVG -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 640 140" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:640px; display:block; margin-bottom:8px;">
+          <defs>
+            <style>.pc-lbl { font-size: 9px; fill: var(--color-text-tertiary); font-family: var(--font-sans); }</style>
+          </defs>
+          <!-- Y axis label -->
+          <text x="4" y="25" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)">Perceived</text>
+          <text x="4" y="34" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)">length of</text>
+          <text x="4" y="43" font-size="8" fill="var(--color-text-tertiary)" font-family="var(--font-sans)">1 year</text>
+          <!-- Axes -->
+          <line x1="60" y1="15" x2="60" y2="115" stroke="var(--color-border-secondary)" stroke-width="0.8"/>
+          <line x1="60" y1="115" x2="620" y2="115" stroke="var(--color-border-secondary)" stroke-width="0.8"/>
+          <!-- X axis ticks and labels -->
+          <!-- Ages: 5,10,20,30,40,50,60,70,80 -->
+          <!-- x positions: 60 + (age/80)*560 -->
+          <!-- age 5: x=95, 10: x=130, 20: x=200, 30: x=270, 40: x=340, 50: x=410, 60: x=480, 70: x=550, 80: x=620 -->
+          <line x1="95" y1="112" x2="95" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="95" y="126" class="pc-lbl" text-anchor="middle">5</text>
+          <line x1="130" y1="112" x2="130" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="130" y="126" class="pc-lbl" text-anchor="middle">10</text>
+          <line x1="200" y1="112" x2="200" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="200" y="126" class="pc-lbl" text-anchor="middle">20</text>
+          <line x1="270" y1="112" x2="270" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="270" y="126" class="pc-lbl" text-anchor="middle">30</text>
+          <line x1="340" y1="112" x2="340" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="340" y="126" class="pc-lbl" text-anchor="middle">40</text>
+          <line x1="410" y1="112" x2="410" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="410" y="126" class="pc-lbl" text-anchor="middle">50</text>
+          <line x1="480" y1="112" x2="480" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="480" y="126" class="pc-lbl" text-anchor="middle">60</text>
+          <line x1="550" y1="112" x2="550" y2="118" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+          <text x="550" y="126" class="pc-lbl" text-anchor="middle">70</text>
+          <text x="620" y="126" class="pc-lbl" text-anchor="middle">80</text>
+          <text x="340" y="138" font-size="8.5" fill="var(--color-text-tertiary)" font-family="var(--font-sans)" text-anchor="middle">Age (years)</text>
+          <!-- Curve: y = 60 + (1/age)*350, clamped to 15–115 -->
+          <!-- At age 5: y = 60+70=130 → clamped 115... let's use y_pixel = 115 - min(100, (1/age)*500) -->
+          <!-- age 5: y=115-100=15; age 10: y=115-50=65; age 20: y=115-25=90; age 30: y=115-16.7=98.3; age 40: y=115-12.5=102.5; age 50: y=115-10=105; age 60: y=115-8.3=106.7; age 70: y=115-7.1=107.9; age 80: y=115-6.25=108.75 -->
+          <path d="M95,15 C110,35 130,65 200,90 C250,102 310,105 410,107 C500,108.5 580,109.5 620,110"
+                fill="none" stroke="#4E99A3" stroke-width="2" stroke-linecap="round"/>
+          <!-- Shaded area under curve -->
+          <path d="M95,15 C110,35 130,65 200,90 C250,102 310,105 410,107 C500,108.5 580,109.5 620,110 L620,115 L95,115 Z"
+                fill="#4E99A3" opacity="0.08"/>
+          <!-- Annotations -->
+          <circle cx="95" cy="15" r="3" fill="#4E99A3"/>
+          <text x="100" y="13" font-size="8" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Age 5: year = 20% of life</text>
+          <circle cx="270" cy="98" r="3" fill="#4E99A3"/>
+          <text x="175" y="96" font-size="8" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Age 30: year = 3.3% of life</text>
+          <circle cx="620" cy="110" r="3" fill="#4E99A3"/>
+        </svg>
+      </div>
+      <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.6;">
+        This is called the <strong style="color:var(--color-text-primary)">logarithmic time perception</strong> model. The emotional weight of a year shrinks as your denominator (total years lived) grows. A practical implication: if you want a year to feel long, fill it with <em>new experiences</em>. Novelty forces your brain to form more distinct memories, making the period feel denser in retrospect.
+      </div>
+    </div>
+
+    <!-- Perceived time factors -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 0.6rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;">What makes time feel fast or slow</div>
+      <div class="anchor-row">
+        <span class="pill p-green" style="min-width:70px;">Faster</span>
+        <div>
+          <div class="atext">Flow states — deep focus on enjoyable tasks compresses perceived time dramatically. A programmer "in the zone" may lose 3 hours feeling like 30 minutes.</div>
+        </div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green" style="min-width:70px;">Faster</span>
+        <div>
+          <div class="atext">Routine and repetition. When each day is similar to the last, the brain stops forming distinct memories. A repetitive month is compressed into a single undifferentiated blur in memory.</div>
+        </div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-red" style="min-width:70px;">Slower</span>
+        <div>
+          <div class="atext">Fear and danger. Adrenaline and noradrenaline increase the brain's sampling rate — more sensory detail per second is encoded. Survivors of accidents often report the event felt "like slow motion."</div>
+        </div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-red" style="min-width:70px;">Slower</span>
+        <div>
+          <div class="atext">Boredom and waiting. Attention is focused on time itself, making each second feel longer. The paradox: a boring afternoon feels slow in the moment but short in retrospect (few memories formed).</div>
+        </div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-amber" style="min-width:70px;">Body temp</span>
+        <div>
+          <div class="atext">Higher body temperature speeds up your internal clock. During fever, time feels slower (more subjective moments per real-time second). Cold slows the internal clock — time feels faster.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive: perceived age calculator -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Your "felt" lifetime — how long has life actually felt?</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Using the logarithmic model: your felt age is proportional to log(actual age). We normalise to age 18 as the baseline of adult perception.</div>
+      <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px;">
+        <label for="felt-age-input" style="font-size:13px; color:var(--color-text-secondary);">Your age:</label>
+        <input type="number" id="felt-age-input" min="5" max="100" value="30" aria-label="Your current age" style="width:80px; font-size:14px;">
+        <button onclick="calcFeltAge()" style="padding:0 16px; height:36px; font-size:13px;">Calculate ↗</button>
+      </div>
+      <div id="felt-age-output" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ PART G — Historical Compression -->
+    <div class="sec">Part G · historical time — how recent everything is</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 0.6rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px;">Zooming in: the last 5,500 years</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">On this scale — 5,500 years total — modern history is shockingly recent. Each segment below is proportional.</div>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:680px; display:block;">
+          <defs>
+            <style>
+              .hl-lbl { font-size: 9px; fill: var(--color-text-secondary); font-family: var(--font-sans); }
+              .hl-val  { font-size: 8px; fill: var(--color-text-tertiary); font-family: var(--font-sans); }
+            </style>
+          </defs>
+          <!-- Timeline axis at y=130 -->
+          <!-- Total span: 5500 years. Bar from x=120 to x=660. Width=540px. px/year = 540/5500 = 0.09818 -->
+          <!-- 3500 BCE = 5500 yrs ago: x=120 -->
+          <!-- 1500 CE = 500 yrs ago: x=120+(5000*0.09818)=120+490.9=611 -->
+          <!-- 1800 CE = 220 yrs ago: x=120+(5280*0.09818)=120+518.4=638 -->
+          <!-- 1900 CE = 120 yrs ago: x=120+(5380*0.09818)=120+528.2=648 -->
+          <!-- 2000 CE = 24 yrs ago: x=120+(5476*0.09818)=120+537.6=658 -->
+          <!-- Today: x=660 -->
+          <!-- Main timeline bar -->
+          <rect x="120" y="125" width="540" height="10" rx="2" fill="var(--color-background-tertiary)"/>
+          <!-- Segments (colored) -->
+          <!-- Ancient world: 3500 BCE–500 BCE = 3000 yrs = 294.5px -->
+          <rect x="120" y="125" width="294" height="10" rx="0" fill="#534AB7" opacity="0.6"/>
+          <!-- Classical age: 500 BCE–500 CE = 1000 yrs = 98.2px -->
+          <rect x="414" y="125" width="98" height="10" rx="0" fill="#7F77DD" opacity="0.7"/>
+          <!-- Medieval: 500–1450 CE = 950 yrs = 93px -->
+          <rect x="512" y="125" width="93" height="10" rx="0" fill="#4E99A3" opacity="0.6"/>
+          <!-- Early modern: 1450–1800 = 350 yrs = 34.4px -->
+          <rect x="605" y="125" width="34" height="10" rx="0" fill="#1D9E75" opacity="0.8"/>
+          <!-- Industrial+modern: 1800–today = 220 yrs = 21.6px -->
+          <rect x="639" y="121" width="21" height="18" rx="2" fill="#F5C842"/>
+          <!-- Today marker -->
+          <line x1="660" y1="118" x2="660" y2="145" stroke="var(--color-text-primary)" stroke-width="1.5"/>
+          <text x="662" y="128" font-size="8.5" fill="var(--color-text-primary)" font-family="var(--font-sans)" font-weight="500">Now</text>
+
+          <!-- Event markers above line -->
+          <!-- Writing ~3400 BCE = 5400 yrs ago → x=120+9.8=130 -->
+          <line x1="130" y1="124" x2="130" y2="80" stroke="#534AB7" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <text x="133" y="78" class="hl-lbl">~3400 BCE</text>
+          <text x="133" y="88" class="hl-val">First writing (Sumeria)</text>
+
+          <!-- Rome ~700 BCE = 2700 yrs ago → x=120+265=385 -->
+          <line x1="385" y1="124" x2="385" y2="100" stroke="#7F77DD" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <text x="350" y="98" class="hl-lbl">753 BCE — Rome founded</text>
+
+          <!-- Islam ~622 CE = 1402 yrs ago → x=120+(4098*0.09818)=120+402.4=522 -->
+          <line x1="522" y1="124" x2="522" y2="80" stroke="#4E99A3" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <text x="525" y="78" class="hl-lbl">622 CE</text>
+          <text x="525" y="88" class="hl-val">Islam founded</text>
+
+          <!-- Printing press 1440 → x=120+(4060*0.09818)=120+398.6=519... 1440 CE = 584 yrs ago → x=120+(4916*0.09818)=120+482.5=603 -->
+          <line x1="603" y1="124" x2="603" y2="100" stroke="#1D9E75" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <text x="560" y="98" class="hl-lbl">1440 — Printing press</text>
+
+          <!-- Industrial Rev 1760 → 264 yrs ago → x=120+(5236*0.09818)=120+514=634 -->
+          <line x1="634" y1="124" x2="634" y2="75" stroke="#F5A623" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <text x="590" y="73" class="hl-lbl">1760 — Industrial Rev.</text>
+          <text x="590" y="83" class="hl-val">Last 4% of this timeline</text>
+
+          <!-- Internet 1991 → 33 yrs ago → x=120+(5467*0.09818)=120+536.7=657 -->
+          <line x1="657" y1="124" x2="657" y2="155" stroke="#F09595" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <text x="620" y="165" class="hl-lbl">1991 — Internet</text>
+          <text x="620" y="175" class="hl-val">Last 0.6%</text>
+
+          <!-- Legend below -->
+          <rect x="120" y="200" width="12" height="10" fill="#534AB7" opacity="0.6"/>
+          <text x="136" y="209" class="hl-lbl">Ancient (3500–500 BCE)</text>
+          <rect x="260" y="200" width="12" height="10" fill="#7F77DD" opacity="0.7"/>
+          <text x="276" y="209" class="hl-lbl">Classical (500 BCE–500 CE)</text>
+          <rect x="120" y="220" width="12" height="10" fill="#4E99A3" opacity="0.6"/>
+          <text x="136" y="229" class="hl-lbl">Medieval (500–1450 CE)</text>
+          <rect x="260" y="220" width="12" height="10" fill="#1D9E75" opacity="0.8"/>
+          <text x="276" y="229" class="hl-lbl">Early Modern (1450–1800)</text>
+          <rect x="120" y="240" width="12" height="10" fill="#F5C842"/>
+          <text x="136" y="249" class="hl-lbl">Industrial + Modern (1800–now) — just 4% of this bar</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- "Chaining generations" -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px;">History is shallower than you think — in human generations</div>
+      <div style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 10px; line-height:1.6;">At ~25–30 years per generation, a chain of surprisingly few people connects the present to antiquity. This makes history feel viscerally close.</div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:8px; margin-bottom:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px;">
+          <div class="clabel">To Julius Caesar (~44 BCE)</div>
+          <div class="cval">~82</div>
+          <div class="cnote">generations of 25 years</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px;">
+          <div class="clabel">To the pyramids (~2560 BCE)</div>
+          <div class="cval">~186</div>
+          <div class="cnote">generations of 25 years</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px;">
+          <div class="clabel">To first writing (~3400 BCE)</div>
+          <div class="cval">~216</div>
+          <div class="cnote">generations of 25 years</div>
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px;">
+          <div class="clabel">To Homo sapiens (300K yrs)</div>
+          <div class="cval">~12,000</div>
+          <div class="cnote">generations of 25 years</div>
+        </div>
+      </div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
+        <strong style="color:var(--color-text-primary)">The handshake thought experiment:</strong> If every generation could shake hands with the next, you could shake hands with someone who shook hands with Caesar in about 164 people. To reach the builders of Stonehenge (~3000 BCE) takes about 200 handshakes. That's fewer people than fit in a large lecture hall.
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ PART H — Estimation Game -->
+    <div class="sec">Part H · test yourself — time estimation game</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">How well-calibrated is your sense of time?</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">8 questions on durations, gaps, and historical distances. Choose the best answer.</div>
+      <div class="game-score-bar">
+        <div class="game-score-label">Score:</div>
+        <div class="game-score-val" id="game-score">0 / 0</div>
+        <button onclick="resetGame()" style="font-size:11px; margin-left:auto; padding:3px 10px;">↺ Reset</button>
+      </div>
+      <div id="game-container"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ PART I — Q&A -->
+    <div class="sec">Part I · test yourself — harder questions</div>
 
     <div class="qa">
       <p class="qa-q">1. Someone says "I've been alive for about a billion seconds." How old are they?</p>
@@ -118,13 +766,13 @@
     <div class="qa">
       <p class="qa-q">2. The universe is 13.8 billion years old. Humans have existed for 300,000 years. What percentage of cosmic time have we been here?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">About 0.0022%. 300,000 ÷ 13,800,000,000 = 0.0000217 = 0.00217%. Rounded: roughly 2 thousandths of a percent. All of human existence — every war, every civilization, every person who ever lived — occupies less than 1/45,000th of cosmic time. And recorded history (5,000 years) is just 1/360th of even that tiny slice.</div>
+      <div class="qa-ans">About 0.0022%. 300,000 ÷ 13,800,000,000 = 0.0000217 = 0.00217%. Rounded: roughly 2 thousandths of a percent. All of human existence — every war, every civilization, every person who ever lived — occupies less than 1/45,000th of cosmic time. And recorded history (5,500 years) is just 1/360th of even that tiny slice.</div>
     </div>
 
     <div class="qa">
       <p class="qa-q">3. A news story says a government spent "$2 trillion on infrastructure over 10 years." How does that compare to what you now know?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">$200B per year. To calibrate: that's roughly twice Apple's annual profit, about 7% of US GDP, and enough to build ~130 Golden Gate Bridges per year, or fund the entire French government for about 6 months. It sounds enormous — and it is — but spread over 10 years across a large country's entire infrastructure, it's actually a moderate commitment. The USA spends roughly $500B/year on its military alone for comparison.</div>
+      <div class="qa-ans">$200B per year. To calibrate: that's roughly twice Apple's annual profit, about 0.7% of US GDP, and enough to build ~150 Golden Gate Bridges per year. It sounds enormous — and it is — but spread over 10 years across a large country's entire infrastructure, it's actually a moderate commitment. The USA spends roughly $900B/year on its military alone for comparison.</div>
     </div>
 
     <div class="qa">
@@ -139,7 +787,14 @@
       <div class="qa-ans">About $365 each. $3,000,000,000,000 ÷ 8,200,000,000 ≈ $366. One year's worth of Apple's entire market value, spread across every human alive, gives each person roughly enough to buy a mid-range phone — ironically, perhaps an iPhone. This illustrates how concentrated wealth is: the entire value of the world's most valuable company amounts to about one modest purchase per person on Earth.</div>
     </div>
 
+    <div class="qa">
+      <p class="qa-q">6. If you slept 8 hours a night for 80 years, how many years of your life would you spend asleep? And how does that compare to time spent eating?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">About 26.7 years asleep — exactly one third of your life. 8h ÷ 24h = 33.3% × 80 years = 26.7 years. Eating takes roughly 1–1.5 hours per day, so ~3.3–5 years of your life. Working 8h/day, 5 days/week from age 22–65 consumes about ~11 years. This leaves roughly 27 years of "waking, non-working" time — the time you're actually free to use as you choose over a lifetime.</div>
+    </div>
+
     <script>
+/* ─── fmt helper ─────────────────────────────────── */
 function fmt(n) {
   if (n >= 1e12) return (n/1e12).toFixed(2).replace(/\.?0+$/,'') + ' trillion';
   if (n >= 1e9)  return (n/1e9).toFixed(2).replace(/\.?0+$/,'')  + ' billion';
@@ -147,6 +802,51 @@ function fmt(n) {
   if (n >= 1e3)  return (n/1e3).toFixed(1).replace(/\.?0+$/,'')  + ' thousand';
   return n.toString();
 }
+
+/* ─── Part C: Planet Age Calculator ─────────────── */
+const PLANETS = [
+  { name: 'Mercury', orbitalDays: 87.97,   color: '#9E9E9E', note: 'A Mercury year is just 88 Earth days' },
+  { name: 'Venus',   orbitalDays: 224.70,  color: '#D4A843', note: 'One Venus year ≈ 7.5 months on Earth' },
+  { name: 'Earth',   orbitalDays: 365.25,  color: '#4E99A3', note: 'Your biological reference' },
+  { name: 'Mars',    orbitalDays: 686.97,  color: '#C1440E', note: 'A Mars year ≈ 22.5 Earth months' },
+  { name: 'Jupiter', orbitalDays: 4332.59, color: '#C88B3A', note: 'One Jupiter year ≈ 11.9 Earth years' },
+  { name: 'Saturn',  orbitalDays: 10759.22,color: '#B5A26A', note: 'One Saturn year ≈ 29.5 Earth years' },
+  { name: 'Uranus',  orbitalDays: 30688.5, color: '#7DE8E8', note: 'One Uranus year ≈ 84 Earth years' },
+  { name: 'Neptune', orbitalDays: 60195.0, color: '#5B6FE4', note: 'One Neptune year ≈ 164.8 Earth years' },
+];
+// Max planet-age for bar scale = Earth age × (365.25 / shortest orbital) = huge for Mercury
+// So bar is relative to Earth age = 100%
+function renderPlanetAges() {
+  const earthAge = parseFloat(document.getElementById('planetAgeInput').value);
+  if (isNaN(earthAge) || earthAge <= 0) return;
+  const earthDays = earthAge * 365.25;
+  const grid = document.getElementById('planetAgeGrid');
+  let html = '';
+  const maxAge = earthDays / PLANETS[0].orbitalDays; // Mercury is always highest
+  PLANETS.forEach(function(p) {
+    const planetAge = earthDays / p.orbitalDays;
+    const barPct = Math.min(100, (planetAge / maxAge) * 100);
+    let display, unit;
+    if (planetAge >= 1) {
+      display = planetAge.toFixed(1);
+      unit = 'yrs';
+    } else {
+      display = (planetAge * 12).toFixed(1);
+      unit = 'mo';
+    }
+    const isEarth = p.name === 'Earth';
+    html += '<div class="planet-card"' + (isEarth ? ' style="border:0.5px solid var(--color-border-info);background:var(--color-background-info);"' : '') + '>' +
+      '<div class="planet-card-name">' + p.name + '</div>' +
+      '<div class="planet-card-age">' + display + '<span class="planet-card-unit">' + unit + '</span></div>' +
+      '<div class="planet-card-sub">' + p.note + '</div>' +
+      '<div class="planet-card-bar" style="width:' + barPct.toFixed(1) + '%;background:' + p.color + ';"></div>' +
+      '</div>';
+  });
+  grid.innerHTML = html;
+}
+renderPlanetAges();
+
+/* ─── Part D: Analyze Number ─────────────────────── */
 function analyzeNumber() {
   const raw = parseFloat(document.getElementById('num-input').value);
   if (isNaN(raw) || raw <= 0) { document.getElementById('num-output').innerHTML = '<span style="color:var(--color-text-secondary)">Please enter a positive number.</span>'; return; }
@@ -162,6 +862,263 @@ function analyzeNumber() {
   document.getElementById('num-output').innerHTML = lines.join('<br>');
 }
 analyzeNumber();
+
+/* ─── Part C: Dot Grid ───────────────────────────── */
+function updateDotGrid(age) {
+  age = parseInt(age);
+  document.getElementById('dot-age-label').textContent = age;
+  const totalWeeks = 80 * 52; // 4160
+  const livedWeeks = age * 52;
+  const wrap = document.getElementById('dot-grid-wrap');
+  let html = '';
+  for (let i = 0; i < totalWeeks; i++) {
+    if (i < livedWeeks) {
+      html += '<span style="background:#4E99A3; width:6px; height:6px; border-radius:50%; display:inline-block; flex-shrink:0;"></span>';
+    } else {
+      html += '<span style="background:var(--color-background-tertiary); border:0.5px solid var(--color-border-tertiary); width:6px; height:6px; border-radius:50%; display:inline-block; flex-shrink:0;"></span>';
+    }
+  }
+  wrap.innerHTML = html;
+  const remaining = totalWeeks - livedWeeks;
+  document.getElementById('dot-summary').textContent =
+    'Lived: ' + livedWeeks.toLocaleString() + ' weeks (' + age + ' years) · Remaining to 80: ' + remaining.toLocaleString() + ' weeks (' + (80 - age) + ' years) · ' + Math.round(livedWeeks/totalWeeks*100) + '% of 80-year life elapsed';
+}
+updateDotGrid(30);
+
+/* ─── Part E: Live Clocks ────────────────────────── */
+const TZ_CITIES = [
+  { city: 'Los Angeles',  tz: 'America/Los_Angeles', utc: '−8/−7' },
+  { city: 'New York',     tz: 'America/New_York',    utc: '−5/−4' },
+  { city: 'São Paulo',    tz: 'America/Sao_Paulo',   utc: '−3' },
+  { city: 'London',       tz: 'Europe/London',       utc: '+0/+1' },
+  { city: 'Paris',        tz: 'Europe/Paris',        utc: '+1/+2' },
+  { city: 'Dubai',        tz: 'Asia/Dubai',          utc: '+4' },
+  { city: 'Mumbai',       tz: 'Asia/Kolkata',        utc: '+5:30' },
+  { city: 'Singapore',    tz: 'Asia/Singapore',      utc: '+8' },
+  { city: 'Tokyo',        tz: 'Asia/Tokyo',          utc: '+9' },
+  { city: 'Sydney',       tz: 'Australia/Sydney',    utc: '+10/+11' },
+];
+
+function pad2(n) { return String(n).padStart(2,'0'); }
+
+function renderClocks() {
+  const wrap = document.getElementById('tz-live-clocks');
+  if (!wrap) return;
+  const now = new Date();
+  let html = '';
+  TZ_CITIES.forEach(function(c) {
+    try {
+      const opts = { timeZone: c.tz, hour:'2-digit', minute:'2-digit', second:'2-digit', hour12: false };
+      const timeStr = new Intl.DateTimeFormat('en-GB', opts).format(now);
+      const dayOpts = { timeZone: c.tz, weekday:'short', month:'short', day:'numeric' };
+      const dayStr = new Intl.DateTimeFormat('en-GB', dayOpts).format(now);
+      const hOpts = { timeZone: c.tz, hour:'numeric', hour12: false };
+      const h = parseInt(new Intl.DateTimeFormat('en-GB', hOpts).format(now));
+      const isDay = h >= 6 && h < 20;
+      html += '<div class="tz-clock-card">' +
+        '<div class="tz-city">' + c.city + '</div>' +
+        '<div class="tz-time">' + timeStr + '</div>' +
+        '<div class="tz-date-label">' + dayStr + '</div>' +
+        '<div class="tz-offset">' +
+          '<span class="tz-day-night ' + (isDay ? 'tz-day' : 'tz-night') + '"></span>' +
+          'UTC' + c.utc + '</div>' +
+        '</div>';
+    } catch(e) {
+      html += '<div class="tz-clock-card"><div class="tz-city">' + c.city + '</div><div class="tz-time">--:--</div></div>';
+    }
+  });
+  wrap.innerHTML = html;
+}
+renderClocks();
+setInterval(renderClocks, 1000);
+
+/* ─── Part E: TZ Converter (dual clock) ─────────── */
+function convertTimezone() {
+  const timeVal = document.getElementById('tz-input-time').value || '12:00';
+  const fromOffset = parseInt(document.getElementById('tz-from-city').value);
+  const toOffset   = parseInt(document.getElementById('tz-to-city').value);
+  const fromLabel  = document.getElementById('tz-from-city').selectedOptions[0].text;
+  const toLabel    = document.getElementById('tz-to-city').selectedOptions[0].text;
+
+  const [hh, mm] = timeVal.split(':').map(Number);
+  const utcMinutes = hh * 60 + mm - fromOffset;
+
+  function renderClock(el, offset, label, isFrom) {
+    let localMin = ((utcMinutes + offset) % 1440 + 1440) % 1440;
+    const dh = Math.floor(localMin / 60);
+    const dm = localMin % 60;
+    const timeStr = pad2(dh) + ':' + pad2(dm);
+    const absolute = utcMinutes + offset;
+    let dayTag = '';
+    if (absolute < 0) dayTag = '<span style="font-size:10px;color:#F09595;margin-left:4px;">prev day</span>';
+    else if (absolute >= 1440) dayTag = '<span style="font-size:10px;color:#4E99A3;margin-left:4px;">next day</span>';
+    const isDay = dh >= 6 && dh < 20;
+    const bg = isFrom ? 'var(--color-background-info)' : 'var(--color-background-secondary)';
+    const borderStyle = isFrom ? 'border:0.5px solid var(--color-border-info);' : '';
+    const cityName = label.replace(/\s*\(.*\)/, '');
+    const utcBit   = label.match(/\(([^)]+)\)/)?.[1] || '';
+    el.style.background = bg;
+    el.style.cssText += borderStyle;
+    el.innerHTML =
+      '<div class="tz-city">' + cityName + '</div>' +
+      '<div class="tz-time">' + timeStr + dayTag + '</div>' +
+      '<div class="tz-date-label" style="margin-top:3px;">' +
+        '<span class="tz-day-night ' + (isDay ? 'tz-day' : 'tz-night') + '"></span>' +
+        utcBit +
+      '</div>';
+  }
+
+  const diffHours = (toOffset - fromOffset) / 60;
+  const sign = diffHours >= 0 ? '+' : '−';
+  const absH = Math.abs(diffHours);
+  const diffStr = absH === Math.floor(absH) ? sign + Math.floor(absH) + 'h' : sign + absH + 'h';
+
+  renderClock(document.getElementById('tz-clock-from'), fromOffset, fromLabel, true);
+  renderClock(document.getElementById('tz-clock-to'),   toOffset,   toLabel,   false);
+  document.getElementById('tz-clock-middle').innerHTML =
+    '<div style="font-size:20px; color:var(--color-text-tertiary);">→</div>' +
+    '<div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-top:4px;">' + diffStr + '</div>';
+}
+convertTimezone();
+
+/* ─── Part F: Felt Age ───────────────────────────── */
+function calcFeltAge() {
+  const age = parseFloat(document.getElementById('felt-age-input').value);
+  if (isNaN(age) || age < 5 || age > 100) {
+    document.getElementById('felt-age-output').innerHTML = '<span style="color:var(--color-text-secondary)">Please enter an age between 5 and 100.</span>';
+    return;
+  }
+  // Proportional model: cumulative "felt time" = sum of 1/age for each year
+  // = ln(age) - ln(1) = ln(age). Normalise to age 18 = 1 adult unit.
+  const feltTotal = Math.log(age);
+  const feltAt18  = Math.log(18);
+  const feltAt80  = Math.log(80);
+  const pctOfFeltLife = (feltTotal / feltAt80 * 100).toFixed(1);
+  const firstDecadeShare = (Math.log(10) / feltAt80 * 100).toFixed(1);
+  const lines = [];
+  lines.push('At age <strong>' + age + '</strong>, you have experienced roughly <strong>' + pctOfFeltLife + '% of your felt lifetime</strong> (vs ' + (age/80*100).toFixed(1) + '% of your calendar lifetime).');
+  lines.push('');
+  lines.push('· Your first 10 years account for <strong>' + firstDecadeShare + '%</strong> of your total felt lifespan — more than any subsequent decade.');
+  lines.push('· Your first 18 years account for <strong>' + (Math.log(18)/feltAt80*100).toFixed(1) + '%</strong> of felt life — even though they\'re only 22.5% of an 80-year calendar life.');
+  if (age >= 20) {
+    const decadesFelt = [];
+    for (let d = 10; d <= Math.min(age, 80); d += 10) {
+      const share = ((Math.log(d) - Math.log(d-10)) / feltAt80 * 100).toFixed(1);
+      decadesFelt.push('Ages ' + (d-10) + '–' + d + ': <strong>' + share + '%</strong> of felt life');
+    }
+    lines.push('');
+    lines.push('Felt weight of each decade: ' + decadesFelt.join(' · '));
+  }
+  document.getElementById('felt-age-output').innerHTML = lines.join('<br>');
+}
+calcFeltAge();
+
+/* ─── Part H: Estimation Game ───────────────────── */
+const GAME_QUESTIONS = [
+  {
+    q: 'How long is 1 million seconds?',
+    opts: ['About 28 hours', 'About 11.5 days', 'About 3 months', 'About 1 year'],
+    ans: 1,
+    explain: '1,000,000 ÷ 86,400 sec/day = 11.57 days. A million seconds is less than two weeks — much shorter than most people expect.'
+  },
+  {
+    q: 'The Roman Empire fell in 476 CE. How many years ago was that?',
+    opts: ['About 800 years', 'About 1,000 years', 'About 1,550 years', 'About 2,000 years'],
+    ans: 2,
+    explain: '2025 − 476 = 1,549 years. The fall of Rome is closer to us in time than the founding of Rome (753 BCE) is to its fall.'
+  },
+  {
+    q: 'A 45-year-old has lived for approximately how many days?',
+    opts: ['~8,000 days', '~16,400 days', '~24,000 days', '~36,500 days'],
+    ans: 1,
+    explain: '45 × 365.25 ≈ 16,436 days. Most people dramatically underestimate their age in days — you\'ve probably lived over 10,000 days by your late 20s.'
+  },
+  {
+    q: 'How long ago did the last woolly mammoths go extinct?',
+    opts: ['~10,000 years ago', '~4,000 years ago', '~1,500 years ago', '~500 years ago'],
+    ans: 1,
+    explain: 'The last isolated population of woolly mammoths survived on Wrangel Island, Russia, until ~4,000 years ago — while the Egyptian pyramids were already being built. They didn\'t die with the dinosaurs.'
+  },
+  {
+    q: 'Cleopatra lived closer in time to which event?',
+    opts: ['The building of the Great Pyramid', 'The Moon landing (1969)'],
+    ans: 1,
+    explain: 'Cleopatra lived ~30 BCE. The Great Pyramid was built ~2560 BCE — about 2,530 years before her. The Moon landing was 1969 CE — about 2,000 years after her. She is literally closer in time to us than to the pyramids.'
+  },
+  {
+    q: 'If a human lifetime is 80 years, how many lifetimes ago was the signing of the Magna Carta (1215 CE)?',
+    opts: ['About 5 lifetimes', 'About 10 lifetimes', 'About 20 lifetimes', 'About 50 lifetimes'],
+    ans: 1,
+    explain: '2025 − 1215 = 810 years. 810 ÷ 80 = ~10 lifetimes. Almost every major event before the 20th century happened within 20–25 lifetimes of today.'
+  },
+  {
+    q: 'How long does light take to travel from the Sun to Earth?',
+    opts: ['About 1 second', 'About 8 minutes', 'About 1 hour', 'About 8 hours'],
+    ans: 1,
+    explain: 'The Sun is ~150 million km away. Light travels at ~300,000 km/s. 150,000,000 ÷ 300,000 = 500 seconds = 8 minutes 20 seconds. When you look at the Sun, you\'re seeing it as it was 8 minutes ago.'
+  },
+  {
+    q: 'The Industrial Revolution started ~1760. What fraction of recorded history (5,500 years) does that represent?',
+    opts: ['The last 50%', 'The last 20%', 'The last 5%', 'The last 1%'],
+    ans: 2,
+    explain: '2025 − 1760 = 265 years. 265 ÷ 5,500 = 4.8% — less than 5% of recorded human history. Every machine, factory, train, plane, computer, internet: all crammed into the last ~5% of civilised time.'
+  }
+];
+
+let gameAnswered = new Array(GAME_QUESTIONS.length).fill(false);
+let gameCorrect = 0;
+let gameTotal = 0;
+
+function renderGame() {
+  const container = document.getElementById('game-container');
+  let html = '';
+  GAME_QUESTIONS.forEach(function(q, qi) {
+    html += '<div class="game-card" id="gcard-' + qi + '">';
+    html += '<div class="game-q">' + (qi+1) + '. ' + q.q + '</div>';
+    html += '<div class="game-opts">';
+    q.opts.forEach(function(opt, oi) {
+      html += '<button class="game-opt" id="gopt-' + qi + '-' + oi + '" onclick="answerGame(' + qi + ',' + oi + ')">' + opt + '</button>';
+    });
+    html += '</div>';
+    html += '<div class="game-feedback" id="gfb-' + qi + '"></div>';
+    html += '</div>';
+  });
+  container.innerHTML = html;
+  updateGameScore();
+}
+
+function answerGame(qi, oi) {
+  if (gameAnswered[qi]) return;
+  gameAnswered[qi] = true;
+  gameTotal++;
+  const q = GAME_QUESTIONS[qi];
+  const isCorrect = oi === q.ans;
+  if (isCorrect) gameCorrect++;
+  // Disable all buttons for this question and colour them
+  for (let i = 0; i < q.opts.length; i++) {
+    const btn = document.getElementById('gopt-' + qi + '-' + i);
+    btn.disabled = true;
+    if (i === q.ans) btn.classList.add('correct');
+    else if (i === oi && !isCorrect) btn.classList.add('wrong');
+  }
+  const fb = document.getElementById('gfb-' + qi);
+  fb.innerHTML = (isCorrect ? '✓ Correct. ' : '✗ Not quite. ') + q.explain;
+  fb.style.color = isCorrect ? 'var(--color-text-success)' : 'var(--color-text-danger)';
+  updateGameScore();
+}
+
+function updateGameScore() {
+  document.getElementById('game-score').textContent = gameCorrect + ' / ' + gameTotal + (gameTotal === GAME_QUESTIONS.length ? (gameCorrect === GAME_QUESTIONS.length ? ' — Perfect! 🎯' : gameCorrect >= 6 ? ' — Great!' : gameCorrect >= 4 ? ' — Decent calibration' : ' — Keep practising') : '');
+}
+
+function resetGame() {
+  gameAnswered = new Array(GAME_QUESTIONS.length).fill(false);
+  gameCorrect = 0;
+  gameTotal = 0;
+  renderGame();
+}
+
+renderGame();
     </script>
   </div>
   <script src="../files/shared.js"></script>

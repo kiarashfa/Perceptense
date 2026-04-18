@@ -15,72 +15,139 @@
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
+/* === VEHICLE CARDS (Part B) === */
 .vehicle-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
-.vh { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; }
+.vh { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 4px; }
 .vname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
 .vtag { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
-.vrow { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.vrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
 .vsub { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
 .vslabel { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
 .vsval { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
 .vsnote { font-size: 11px; color: var(--color-text-secondary); margin: 2px 0 0; }
+
+/* === BRIDGE SPAN EXPLORER (Part A deepening) === */
+.bridge-tab-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.bridge-tab { font-size: 12px; padding: 4px 12px; border-radius: 99px; border: 0.5px solid var(--color-border-secondary); background: none; color: var(--color-text-secondary); cursor: pointer; transition: background 0.1s, color 0.1s; }
+.bridge-tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); }
+.bridge-panel { display: none; }
+.bridge-panel.active { display: block; }
+
+/* === FREIGHT CALCULATOR (Part C deepening) === */
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+@media (max-width: 480px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-label { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px; }
+.calc-result-row { display: flex; align-items: baseline; gap: 8px; padding: 8px 10px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); margin-bottom: 6px; }
+.calc-result-val { font-size: 18px; font-weight: 500; color: var(--color-text-primary); }
+.calc-result-label { font-size: 12px; color: var(--color-text-secondary); }
+.calc-mode-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.calc-mode-btn { font-size: 12px; padding: 4px 12px; border-radius: 99px; border: 0.5px solid var(--color-border-secondary); background: none; color: var(--color-text-secondary); cursor: pointer; }
+.calc-mode-btn.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); }
+
+/* === INFRASTRUCTURE SVG DIAGRAMS === */
+.svg-wrap { margin-bottom: 1rem; overflow-x: auto; }
+.svg-caption { font-size: 11px; color: var(--color-text-secondary); margin-top: 6px; line-height: 1.5; }
+
+/* === WORLD RECORDS TABLE (Part F) === */
+.rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 500px) { .rec-grid { grid-template-columns: 1fr; } }
+.rec-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+.rec-cat { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-secondary); margin: 0 0 3px; }
+.rec-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 1px; }
+.rec-val { font-size: 12px; color: var(--color-text-secondary); margin: 0; }
+
+/* === COST OVERRUN EXPLORER (Part G) === */
+.overrun-bar-wrap { margin-bottom: 8px; }
+.overrun-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--color-text-secondary); margin-bottom: 3px; }
+.overrun-label span:last-child { font-weight: 500; color: var(--color-text-primary); }
+.overrun-track { background: var(--color-background-secondary); border-radius: 3px; height: 14px; overflow: hidden; position: relative; }
+.overrun-budget { height: 14px; background: #1D9E75; border-radius: 3px; position: absolute; left: 0; top: 0; }
+.overrun-actual { height: 14px; border-radius: 3px; position: absolute; left: 0; top: 0; opacity: 0.7; }
+
+/* === AIRPORTS & STATIONS (Part H) === */
+.hub-tab-row { display: flex; gap: 6px; margin-bottom: 12px; }
+.hub-tab { font-size: 12px; padding: 5px 16px; border-radius: 99px; border: 0.5px solid var(--color-border-secondary); background: none; color: var(--color-text-secondary); cursor: pointer; transition: background 0.1s, color 0.1s; font-family: var(--font-sans); }
+.hub-tab.active { background: var(--color-background-secondary); color: var(--color-text-primary); border-color: var(--color-border-primary); }
+.hub-panel { display: none; }
+.hub-panel.active { display: block; }
+.hub-row { display: flex; align-items: stretch; gap: 0; margin-bottom: 7px; }
+.hub-rank { width: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); }
+.hub-name-col { width: 160px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: center; padding-right: 10px; }
+@media (max-width: 500px) { .hub-name-col { width: 120px; } }
+.hub-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); line-height: 1.2; }
+.hub-city { font-size: 10px; color: var(--color-text-tertiary); margin-top: 1px; }
+.hub-bar-col { flex: 1; display: flex; align-items: center; gap: 8px; }
+.hub-bar { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 4px; transition: width 0.3s; }
+.hub-bar-val { font-size: 11px; font-weight: 500; white-space: nowrap; }
+
+/* === SPAN SCALE VISUAL === */
+.span-scale-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.span-scale-name { font-size: 12px; color: var(--color-text-secondary); width: 150px; flex-shrink: 0; text-align: right; padding-right: 8px; line-height: 1.3; }
+.span-scale-bar { height: 18px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 20px; }
+.span-scale-val { font-size: 11px; font-weight: 500; white-space: nowrap; }
+@media (max-width: 480px) { .span-scale-name { width: 110px; font-size: 11px; } }
   </style>
 </head>
 <body>
   <div class="page-wrap">
-<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-  <i class="fa-solid fa-bridge" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-  <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 6: Big Infrastructure</h1>
-</div>
+
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
+      <i class="fa-solid fa-bridge" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
+      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 6: Big Infrastructure</h1>
+    </div>
     <p class="module-subtitle">Bridges, dams, airports, and mega-projects</p>
 
+    <!-- ═══════════════════════════════════════════════════
+         PART A · WHAT IT COSTS TO BUILD BIG THINGS
+    ════════════════════════════════════════════════════ -->
     <div class="sec">Part A · what it costs to build big things</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+    <div class="card" style="margin-bottom: 1rem;">
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Major infrastructure — construction cost (in today's money)</div>
       <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Costs vary enormously by location, era, and complexity. These are approximate real-world figures.</div>
       <div class="bar-row"><span class="bl">Channel Tunnel (UK–France)</span><div class="bb" style="width:100%; background:#085041;"><span class="bv" style="color:#fff;">~$21B — 50 km undersea tunnel</span></div></div>
-      <div class="bar-row"><span class="bl">Golden Gate Bridge</span><div class="bb" style="width:18%; background:#1D9E75;"><span class="bv" style="color:#fff;">~$1.5B today</span></div></div>
+      <div class="bar-row"><span class="bl">Nuclear power plant</span><div class="bb" style="width:85%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$10–35B (varies widely by country)</span></div></div>
+      <div class="bar-row"><span class="bl">Large airport (new)</span><div class="bb" style="width:55%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$5–20B</span></div></div>
       <div class="bar-row"><span class="bl">Typical large suspension bridge</span><div class="bb" style="width:24%; background:#1D9E75;"><span class="bv" style="color:#fff;">$1–4B</span></div></div>
-      <div class="bar-row"><span class="bl">Simple motorway bridge (100m)</span><div class="bb" style="width:2%; background:#9FE1CB;"><span class="bv" style="color:#085041; font-size:10px;">$10–50M</span></div></div>
-      <div class="bar-row"><span class="bl">Nuclear power plant</span><div class="bb" style="width:90%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$10–20B (new build)</span></div></div>
-      <div class="bar-row"><span class="bl">Large airport (new)</span><div class="bb" style="width:60%; background:#0F6E56;"><span class="bv" style="color:#fff;">~$10–15B</span></div></div>
+      <div class="bar-row"><span class="bl">Golden Gate Bridge</span><div class="bb" style="width:18%; background:#1D9E75;"><span class="bv" style="color:#fff;">~$1.5B today</span></div></div>
       <div class="bar-row"><span class="bl">Large hospital (500 beds)</span><div class="bb" style="width:6%; background:#5DCAA5;"><span class="bv" style="color:#04342C; font-size:10px;">~$1–2B</span></div></div>
       <div class="bar-row"><span class="bl">Skyscraper (50+ floors)</span><div class="bb" style="width:5%; background:#9FE1CB;"><span class="bv" style="color:#04342C; font-size:10px;">$500M–1B</span></div></div>
+      <div class="bar-row"><span class="bl">Simple motorway bridge (100m)</span><div class="bb" style="width:2%; background:#9FE1CB;"><span class="bv" style="color:#085041; font-size:10px;">$10–50M</span></div></div>
     </div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+    <!-- Golden Gate detail grid -->
+    <div class="card" style="margin-bottom: 1rem;">
       <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Golden Gate Bridge — what goes into the cost</div>
-      <div style="display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px;">
-        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Span length</div>
-          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">1,280 m</div>
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">Main span. Total bridge: 2.7 km.</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px;">
+        <div class="vsub">
+          <div class="vslabel">Span length</div>
+          <div class="vsval">1,280 m</div>
+          <div class="vsnote">Main span. Total bridge: 2.7 km.</div>
         </div>
-        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Tower height</div>
-          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">227 m</div>
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">Above water. Taller than the Eiffel Tower's first floor.</div>
+        <div class="vsub">
+          <div class="vslabel">Tower height</div>
+          <div class="vsval">227 m</div>
+          <div class="vsnote">Above water. About ⅔ the height of the Eiffel Tower (330 m).</div>
         </div>
-        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Main cable diameter</div>
-          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">92 cm</div>
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">Each cable has 27,572 individual wires inside.</div>
+        <div class="vsub">
+          <div class="vslabel">Main cable diameter</div>
+          <div class="vsval">92 cm</div>
+          <div class="vsnote">Each cable has 27,572 individual wires inside.</div>
         </div>
-        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Steel used</div>
-          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">83,000 tonnes</div>
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">About 60,000 cars' worth of steel.</div>
+        <div class="vsub">
+          <div class="vslabel">Steel used</div>
+          <div class="vsval">~75,000 t</div>
+          <div class="vsnote">~83,000 US tons. About 53,000 cars' worth of steel.</div>
         </div>
-        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Original cost (1937)</div>
-          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">$35 million</div>
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">~$1.5B in today's money.</div>
+        <div class="vsub">
+          <div class="vslabel">Original cost (1937)</div>
+          <div class="vsval">$35 million</div>
+          <div class="vsnote">~$1.5B in today's money.</div>
         </div>
-        <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px;">
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px;">Built in</div>
-          <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary);">4 years</div>
-          <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 2px;">1933–1937. 11 workers died. 1,400 workers employed at peak.</div>
+        <div class="vsub">
+          <div class="vslabel">Built in</div>
+          <div class="vsval">4 years</div>
+          <div class="vsnote">1933–1937. 11 workers died. Up to 4,000 at peak; ~1,400 daily average.</div>
         </div>
       </div>
       <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 10px; line-height: 1.5;">
@@ -88,6 +155,204 @@
       </div>
     </div>
 
+    <!-- Bridge types explorer -->
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Bridge types — how they work and what they cost</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">The bridge type chosen is largely determined by the span required. Each type has a natural range.</div>
+      <div class="bridge-tab-row">
+        <button class="bridge-tab active" onclick="switchBridge('beam')">Beam</button>
+        <button class="bridge-tab" onclick="switchBridge('arch')">Arch</button>
+        <button class="bridge-tab" onclick="switchBridge('cable')">Cable-stayed</button>
+        <button class="bridge-tab" onclick="switchBridge('suspension')">Suspension</button>
+      </div>
+
+      <!-- Beam -->
+      <div class="bridge-panel active" id="bp-beam">
+        <div class="svg-wrap">
+          <svg viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:520px; display:block;">
+            <!-- water -->
+            <rect x="0" y="78" width="520" height="32" fill="var(--color-background-info)" rx="0" opacity="0.5"/>
+            <!-- piers -->
+            <rect x="100" y="50" width="12" height="35" fill="var(--color-text-secondary)" rx="2"/>
+            <rect x="250" y="50" width="12" height="35" fill="var(--color-text-secondary)" rx="2"/>
+            <rect x="400" y="50" width="12" height="35" fill="var(--color-text-secondary)" rx="2"/>
+            <!-- deck -->
+            <rect x="30" y="44" width="452" height="10" fill="var(--color-text-primary)" rx="2"/>
+            <!-- abutments -->
+            <rect x="16" y="50" width="20" height="28" fill="var(--color-text-secondary)" rx="2"/>
+            <rect x="484" y="50" width="20" height="28" fill="var(--color-text-secondary)" rx="2"/>
+            <!-- road surface -->
+            <rect x="30" y="38" width="452" height="6" fill="#9FE1CB" rx="2"/>
+            <!-- span label -->
+            <line x1="106" y1="28" x2="256" y2="28" stroke="var(--color-text-secondary)" stroke-width="0.8" stroke-dasharray="3,2"/>
+            <line x1="106" y1="24" x2="106" y2="32" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+            <line x1="256" y1="24" x2="256" y2="32" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+            <text x="181" y="22" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">span ~30–150 m</text>
+            <!-- labels -->
+            <text x="106" y="100" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">pier</text>
+            <text x="480" y="100" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">abutment</text>
+          </svg>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap:8px; margin-bottom:8px;">
+          <div class="vsub"><p class="vslabel">Typical span</p><p class="vsval">30–150 m</p><p class="vsnote">Short to medium crossings.</p></div>
+          <div class="vsub"><p class="vslabel">Cost (per span)</p><p class="vsval">$5–50M</p><p class="vsnote">Simplest and cheapest type.</p></div>
+          <div class="vsub"><p class="vslabel">How it works</p><p class="vsval">Horizontal beams</p><p class="vsnote">Load transfers vertically through piers to ground.</p></div>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">The workhorse of bridge engineering. Most highway overpasses and railway viaducts are beam bridges. The load goes straight down through piers — simple and economical. The limiting factor is that longer spans require deeper beams, which become impractical beyond ~150 m.</p>
+      </div>
+
+      <!-- Arch -->
+      <div class="bridge-panel" id="bp-arch">
+        <div class="svg-wrap">
+          <svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:520px; display:block;">
+            <rect x="0" y="88" width="520" height="32" fill="var(--color-background-info)" rx="0" opacity="0.5"/>
+            <!-- arch -->
+            <path d="M 60 82 Q 260 10 460 82" stroke="#1D9E75" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <!-- hangers -->
+            <line x1="120" y1="46" x2="120" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <line x1="170" y1="28" x2="170" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <line x1="220" y1="18" x2="220" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <line x1="260" y1="14" x2="260" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <line x1="300" y1="18" x2="300" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <line x1="350" y1="28" x2="350" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <line x1="400" y1="46" x2="400" y2="57" stroke="var(--color-text-secondary)" stroke-width="1.5"/>
+            <!-- deck -->
+            <rect x="50" y="54" width="420" height="8" fill="var(--color-text-primary)" rx="2"/>
+            <rect x="50" y="48" width="420" height="6" fill="#9FE1CB" rx="2"/>
+            <!-- abutments -->
+            <rect x="36" y="58" width="22" height="28" fill="var(--color-text-secondary)" rx="2"/>
+            <rect x="462" y="58" width="22" height="28" fill="var(--color-text-secondary)" rx="2"/>
+            <!-- span label -->
+            <line x1="60" y1="100" x2="460" y2="100" stroke="var(--color-text-secondary)" stroke-width="0.8" stroke-dasharray="3,2"/>
+            <text x="260" y="113" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">span ~100–550 m</text>
+          </svg>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap:8px; margin-bottom:8px;">
+          <div class="vsub"><p class="vslabel">Typical span</p><p class="vsval">100–550 m</p><p class="vsnote">Sydney Harbour: 503 m.</p></div>
+          <div class="vsub"><p class="vslabel">Cost</p><p class="vsval">$200M–2B</p><p class="vsnote">More complex than beam, less than suspension.</p></div>
+          <div class="vsub"><p class="vslabel">How it works</p><p class="vsval">Arch in compression</p><p class="vsnote">The arch pushes outward; abutments resist that thrust.</p></div>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">Arches work entirely in compression — a force that stone and concrete handle beautifully. The key challenge is the horizontal thrust that pushes outward at both ends; the abutments must anchor into very solid ground. This is why arch bridges are only feasible when the geology is cooperative. The Sydney Harbour Bridge (1932) at 503 m was the world's widest long-span bridge for decades.</p>
+      </div>
+
+      <!-- Cable-stayed -->
+      <div class="bridge-panel" id="bp-cable">
+        <div class="svg-wrap">
+          <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:520px; display:block;">
+            <rect x="0" y="96" width="520" height="34" fill="var(--color-background-info)" rx="0" opacity="0.5"/>
+            <!-- towers -->
+            <rect x="195" y="20" width="10" height="76" fill="var(--color-text-primary)" rx="2"/>
+            <rect x="315" y="20" width="10" height="76" fill="var(--color-text-primary)" rx="2"/>
+            <!-- cables left tower -->
+            <line x1="200" y1="22" x2="80" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="200" y1="30" x2="110" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="200" y1="38" x2="145" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="200" y1="22" x2="260" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="200" y1="30" x2="245" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <!-- cables right tower -->
+            <line x1="320" y1="22" x2="440" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="320" y1="30" x2="410" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="320" y1="38" x2="375" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="320" y1="22" x2="260" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <line x1="320" y1="30" x2="275" y2="86" stroke="#1D9E75" stroke-width="1.5"/>
+            <!-- deck -->
+            <rect x="40" y="82" width="440" height="8" fill="var(--color-text-primary)" rx="2"/>
+            <rect x="40" y="76" width="440" height="6" fill="#9FE1CB" rx="2"/>
+            <!-- span label -->
+            <line x1="200" y1="108" x2="320" y2="108" stroke="var(--color-text-secondary)" stroke-width="0.8" stroke-dasharray="3,2"/>
+            <text x="260" y="121" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">span 200–1,100 m</text>
+            <!-- tower label -->
+            <text x="200" y="14" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">pylon</text>
+          </svg>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap:8px; margin-bottom:8px;">
+          <div class="vsub"><p class="vslabel">Typical span</p><p class="vsval">200–1,100 m</p><p class="vsnote">Russky Bridge (Vladivostok): 1,104 m.</p></div>
+          <div class="vsub"><p class="vslabel">Cost</p><p class="vsval">$500M–3B</p><p class="vsnote">Modern favourite for 400–800 m spans.</p></div>
+          <div class="vsub"><p class="vslabel">How it works</p><p class="vsval">Cables direct to tower</p><p class="vsnote">Cables run straight from tower to deck — no main cable.</p></div>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">Cable-stayed bridges have largely replaced suspension bridges for spans up to about 1,000 m. The cables run directly from the pylons to the deck, making the system stiffer and easier to build (no complex spinning of main cables). They're faster to construct, use less steel, and are aerodynamically more predictable. The Millau Viaduct in France (the world's tallest bridge at 343 m) is a cable-stayed design.</p>
+      </div>
+
+      <!-- Suspension -->
+      <div class="bridge-panel" id="bp-suspension">
+        <div class="svg-wrap">
+          <svg viewBox="0 0 520 140" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:520px; display:block;">
+            <rect x="0" y="100" width="520" height="40" fill="var(--color-background-info)" rx="0" opacity="0.5"/>
+            <!-- towers -->
+            <rect x="148" y="18" width="12" height="90" fill="var(--color-text-primary)" rx="2"/>
+            <rect x="360" y="18" width="12" height="90" fill="var(--color-text-primary)" rx="2"/>
+            <!-- tower crossbar -->
+            <rect x="140" y="44" width="28" height="5" fill="var(--color-text-primary)" rx="1"/>
+            <rect x="352" y="44" width="28" height="5" fill="var(--color-text-primary)" rx="1"/>
+            <!-- main cable -->
+            <path d="M 30 62 Q 154 28 260 38 Q 366 28 490 62" stroke="#4E99A3" stroke-width="4" fill="none"/>
+            <!-- hangers -->
+            <line x1="80" y1="55" x2="80" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="115" y1="47" x2="115" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="154" y1="30" x2="154" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="190" y1="35" x2="190" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="225" y1="37" x2="225" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="260" y1="38" x2="260" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="295" y1="37" x2="295" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="330" y1="35" x2="330" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="366" y1="30" x2="366" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="405" y1="47" x2="405" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <line x1="440" y1="55" x2="440" y2="86" stroke="var(--color-text-secondary)" stroke-width="1"/>
+            <!-- anchorages -->
+            <rect x="14" y="58" width="22" height="34" fill="var(--color-text-secondary)" rx="2"/>
+            <rect x="484" y="58" width="22" height="34" fill="var(--color-text-secondary)" rx="2"/>
+            <!-- deck -->
+            <rect x="36" y="82" width="448" height="8" fill="var(--color-text-primary)" rx="2"/>
+            <rect x="36" y="76" width="448" height="6" fill="#9FE1CB" rx="2"/>
+            <!-- labels -->
+            <text x="154" y="12" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">tower</text>
+            <text x="14" y="52" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">anchorage</text>
+            <!-- main cable label -->
+            <text x="260" y="28" text-anchor="middle" font-size="9" fill="#4E99A3" font-family="system-ui,sans-serif">main cable</text>
+            <!-- span -->
+            <line x1="154" y1="116" x2="366" y2="116" stroke="var(--color-text-secondary)" stroke-width="0.8" stroke-dasharray="3,2"/>
+            <line x1="154" y1="112" x2="154" y2="120" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+            <line x1="366" y1="112" x2="366" y2="120" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+            <text x="260" y="130" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">main span 500–2,000+ m</text>
+          </svg>
+        </div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap:8px; margin-bottom:8px;">
+          <div class="vsub"><p class="vslabel">Typical span</p><p class="vsval">500–2,000+ m</p><p class="vsnote">Akashi Kaikyō (Japan): 1,991 m — world record.</p></div>
+          <div class="vsub"><p class="vslabel">Cost</p><p class="vsval">$1–5B+</p><p class="vsnote">Most expensive per metre for very long spans.</p></div>
+          <div class="vsub"><p class="vslabel">How it works</p><p class="vsval">Main cable + hangers</p><p class="vsnote">Deck hangs from vertical hangers off the catenary main cable.</p></div>
+        </div>
+        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">Suspension bridges are the only viable option beyond ~1,000 m. The main cables form a catenary curve between towers and are anchored into massive concrete blocks onshore. The deck hangs from vertical hangers. The trade-off: flexibility. The Tacoma Narrows Bridge famously collapsed in 1940 because of aerodynamic resonance — modern suspension bridges have streamlined aerodynamic decks to prevent this. The Akashi Kaikyō (Japan, 1998) holds the world record at 1,991 m and had to be stretched 1 m during the 1995 Kobe earthquake — the main spans shifted while under construction.</p>
+      </div>
+    </div>
+
+    <!-- World's longest spans -->
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">World's longest bridge main spans — by type</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Each bar represents the record-holding bridge for that type, with the span in metres.</div>
+
+      <div class="span-scale-item">
+        <span class="span-scale-name">Akashi Kaikyō<br><em style="font-style:normal; font-size:10px; color:var(--color-text-tertiary)">Suspension · Japan</em></span>
+        <div class="span-scale-bar" style="width:100%; background:#0F6E56;"><span class="span-scale-val" style="color:#fff;">1,991 m</span></div>
+      </div>
+      <div class="span-scale-item">
+        <span class="span-scale-name">Russky Bridge<br><em style="font-style:normal; font-size:10px; color:var(--color-text-tertiary)">Cable-stayed · Russia</em></span>
+        <div class="span-scale-bar" style="width:55%; background:#1D9E75;"><span class="span-scale-val" style="color:#fff;">1,104 m</span></div>
+      </div>
+      <div class="span-scale-item">
+        <span class="span-scale-name">New River Gorge<br><em style="font-style:normal; font-size:10px; color:var(--color-text-tertiary)">Arch · USA</em></span>
+        <div class="span-scale-bar" style="width:26%; background:#5DCAA5;"><span class="span-scale-val" style="color:#04342C;">518 m</span></div>
+      </div>
+      <div class="span-scale-item">
+        <span class="span-scale-name">Shibanpo Bridge<br><em style="font-style:normal; font-size:10px; color:var(--color-text-tertiary)">Beam · China</em></span>
+        <div class="span-scale-bar" style="width:15%; background:#9FE1CB;"><span class="span-scale-val" style="color:#04342C;">330 m</span></div>
+      </div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0; line-height:1.5;">Bridge type determines maximum span. No beam bridge could cross the Strait of Messina (3 km) — only a suspension bridge could. That's why bridge type isn't an aesthetic choice; it's an engineering necessity dictated by the gap to be crossed.</p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         PART B · HOW MUCH CAN EACH VEHICLE CARRY?
+    ════════════════════════════════════════════════════ -->
     <div class="sec">Part B · how much can each vehicle carry?</div>
 
     <div class="vehicle-card">
@@ -164,7 +429,7 @@
 
     <div class="vehicle-card">
       <div class="vh">
-        <span class="vname">Cargo aircraft (Boeing 747 freighter)</span>
+        <span class="vname">Cargo aircraft (Boeing 747-400F)</span>
         <span class="vtag" style="background:#EEEDFE; color:#3C3489;">fast but expensive</span>
       </div>
       <div class="vrow">
@@ -181,14 +446,14 @@
         <div class="vsub">
           <p class="vslabel">Cost per tonne-km</p>
           <p class="vsval">~$4–8</p>
-          <p class="vsnote">~10× more expensive than sea freight per tonne.</p>
+          <p class="vsnote">~50–100× more expensive than sea freight per tonne.</p>
         </div>
       </div>
     </div>
 
     <div class="vehicle-card">
       <div class="vh">
-        <span class="vname">Container ship (large — e.g. Evergreen)</span>
+        <span class="vname">Container ship (large — Ever Ace class)</span>
         <span class="vtag" style="background:#FAECE7; color:#712B13;">the real workhorse of global trade</span>
       </div>
       <div class="vrow">
@@ -199,8 +464,8 @@
         </div>
         <div class="vsub">
           <p class="vslabel">Maximum cargo weight</p>
-          <p class="vsval">~200,000 tonnes</p>
-          <p class="vsnote">About 8,000 loaded HGV trucks — on one ship.</p>
+          <p class="vsval">~165,000–185,000 t</p>
+          <p class="vsnote">About 7,700 loaded HGV trucks — on one ship.</p>
         </div>
         <div class="vsub">
           <p class="vslabel">Ship's own weight (empty)</p>
@@ -209,27 +474,85 @@
         </div>
       </div>
       <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 8px; line-height:1.5;">
-        One large container ship carries the equivalent freight of <strong style="color:var(--color-text-primary)">~8,000 trucks</strong> or <strong style="color:var(--color-text-primary)">~1,940 Boeing 747 freighters</strong>. This is why ~90% of all traded goods travel by sea. It's by far the most efficient way to move things.
+        One large container ship carries the equivalent freight of <strong style="color:var(--color-text-primary)">~7,700 trucks</strong> or <strong style="color:var(--color-text-primary)">~1,600 Boeing 747 freighters</strong>. This is why ~90% of all traded goods travel by sea. It's by far the most efficient way to move things.
       </div>
     </div>
 
-    <div class="sec">Part C · payload comparison at a glance</div>
-
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Maximum payload capacity (tonnes)</div>
-      <div class="bar-row"><span class="bl">Large container ship</span><div class="bb" style="width:100%; background:#712B13;"><span class="bv" style="color:#fff;">200,000 t</span></div></div>
-      <div class="bar-row"><span class="bl">Bulk carrier ship</span><div class="bb" style="width:90%; background:#993C1D;"><span class="bv" style="color:#fff;">~180,000 t (iron ore, grain)</span></div></div>
-      <div class="bar-row"><span class="bl">Large cargo plane (747F)</span><div class="bb" style="width:0.05%; background:#F5C4B3; border: 0.5px solid #F0997B;"><span class="bv" style="color:#712B13; margin-left:4px; font-size:10px;">103 t</span></div></div>
-      <div class="bar-row"><span class="bl">HGV truck</span><div class="bb" style="width:0.013%; background:#FAECE7; border: 0.5px solid #F5C4B3;"><span class="bv" style="color:#712B13; margin-left:4px; font-size:10px;">26 t</span></div></div>
-      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0;">The scale difference is staggering. One container ship carries as much as ~1,940 cargo planes or ~7,700 trucks. This is why shipping by sea is ~10–50× cheaper per tonne than air freight.</p>
+    <!-- What fits in a standard container? -->
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">What fits in one standard 20-foot container (1 TEU)?</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Internal dimensions: 5.9 m × 2.35 m × 2.39 m ≈ 33 m³. Max payload: ~21 tonnes.</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap: 8px;">
+        <div class="vsub"><p class="vslabel">Cars</p><p class="vsval">~4–5</p><p class="vsnote">Volume-limited, not weight.</p></div>
+        <div class="vsub"><p class="vslabel">Flat-screen TVs (55″)</p><p class="vsval">~600–700</p><p class="vsnote">Weight far below the limit.</p></div>
+        <div class="vsub"><p class="vslabel">Trainers (shoes)</p><p class="vsval">~20,000 pairs</p><p class="vsnote">Typical export load from SE Asia.</p></div>
+        <div class="vsub"><p class="vslabel">Bananas</p><p class="vsval">~21 tonnes</p><p class="vsnote">Weight-limited. Banana ships use refrigerated reefers.</p></div>
+        <div class="vsub"><p class="vslabel">Books</p><p class="vsval">~12 tonnes</p><p class="vsnote">~10,000 average paperbacks per tonne.</p></div>
+        <div class="vsub"><p class="vslabel">Cotton T-shirts</p><p class="vsval">~40,000</p><p class="vsnote">Volume-limited; very light per unit.</p></div>
+      </div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0; line-height:1.5;">The genius of containerisation (standardised in the 1950s–60s by Malcolm McLean) is that the same box moves from factory to ship to train to truck with no reloading. Before containers, unloading a ship in port took days and required hundreds of dockers. A modern container port unloads the same ship in 24–36 hours with a handful of crane operators.</p>
     </div>
 
+
+    <!-- ═══════════════════════════════════════════════════
+         PART C · PAYLOAD COMPARISON AT A GLANCE
+    ════════════════════════════════════════════════════ -->
+    <div class="sec">Part C · payload comparison at a glance</div>
+
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Maximum payload capacity (tonnes)</div>
+      <div class="bar-row"><span class="bl">Large container ship</span><div class="bb" style="width:100%; background:#712B13;"><span class="bv" style="color:#fff;">~175,000 t</span></div></div>
+      <div class="bar-row"><span class="bl">Capesize bulk carrier</span><div class="bb" style="width:90%; background:#993C1D;"><span class="bv" style="color:#fff;">~180,000 t (iron ore, grain)</span></div></div>
+      <div class="bar-row"><span class="bl">Large cargo plane (747-400F)</span><div class="bb" style="width:0.06%; background:#F5C4B3; border: 0.5px solid #F0997B;"><span class="bv" style="color:#712B13; margin-left:4px; font-size:10px;">103 t</span></div></div>
+      <div class="bar-row"><span class="bl">HGV truck</span><div class="bb" style="width:0.015%; background:#FAECE7; border: 0.5px solid #F5C4B3;"><span class="bv" style="color:#712B13; margin-left:4px; font-size:10px;">26 t</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0;">The scale difference is staggering. One container ship carries as much as ~1,600 cargo planes or ~7,700 trucks. This is why shipping by sea is ~50–100× cheaper per tonne than air freight.</p>
+    </div>
+
+    <!-- Freight cost calculator -->
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Freight cost calculator</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Rough estimates only — actual rates vary by route, fuel prices, and market conditions.</div>
+
+      <div class="calc-mode-row">
+        <button class="calc-mode-btn active" onclick="setMode('sea')">🚢 Sea</button>
+        <button class="calc-mode-btn" onclick="setMode('air')">✈️ Air</button>
+        <button class="calc-mode-btn" onclick="setMode('road')">🚛 Road</button>
+      </div>
+
+      <div class="calc-grid">
+        <div>
+          <div class="calc-label">Cargo weight (tonnes)</div>
+          <input type="number" id="calc-weight" value="10" min="0.1" max="200000" step="0.1" oninput="calcFreight()">
+        </div>
+        <div>
+          <div class="calc-label">Distance (km)</div>
+          <input type="number" id="calc-dist" value="10000" min="1" max="40000" oninput="calcFreight()">
+        </div>
+      </div>
+
+      <div id="calc-results">
+        <div class="calc-result-row">
+          <span class="calc-result-val" id="calc-total">–</span>
+          <span class="calc-result-label" id="calc-total-label">estimated cost</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="calc-result-val" id="calc-per-tonne">–</span>
+          <span class="calc-result-label">per tonne</span>
+        </div>
+      </div>
+      <p id="calc-note" style="font-size:11px; color:var(--color-text-secondary); margin:6px 0 0; line-height:1.6;"></p>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         PART D · ANCHOR NUMBERS TO MEMORIZE
+    ════════════════════════════════════════════════════ -->
     <div class="sec">Part D · anchor numbers to memorize</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+    <div class="card" style="margin-bottom: 1.2rem;">
       <div class="anchor-row">
         <span class="pill p-blue">~$1–4B</span>
-        <div><div class="atext">A major suspension bridge</div><div class="asub">Simple road bridge: $10–50M. The complexity drives cost, not just size.</div></div>
+        <div><div class="atext">A major suspension bridge</div><div class="asub">Simple road bridge: $10–50M. Complexity drives cost, not just size.</div></div>
       </div>
       <div class="anchor-row">
         <span class="pill p-teal">500 kg</span>
@@ -241,15 +564,572 @@
       </div>
       <div class="anchor-row">
         <span class="pill p-purple">103 tonnes</span>
-        <div><div class="atext">Boeing 747 freighter payload</div><div class="asub">~4 fully loaded HGV trucks, flying at 900 km/h</div></div>
+        <div><div class="atext">Boeing 747-400F freighter payload</div><div class="asub">~4 fully loaded HGV trucks, flying at 900 km/h</div></div>
       </div>
       <div class="anchor-row">
-        <span class="pill p-coral">200,000 t</span>
-        <div><div class="atext">Large container ship payload</div><div class="asub">~8,000 trucks. 90% of world trade moves this way.</div></div>
+        <span class="pill p-coral">~175,000 t</span>
+        <div><div class="atext">Large container ship payload</div><div class="asub">~7,700 trucks. 90% of world trade moves this way.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">1,991 m</span>
+        <div><div class="atext">World's longest bridge main span</div><div class="asub">Akashi Kaikyō, Japan. Only suspension bridges can reach this scale.</div></div>
       </div>
     </div>
 
-    <div class="sec">Part E · test yourself</div>
+
+    <!-- ═══════════════════════════════════════════════════
+         PART E · DAMS AND WATER INFRASTRUCTURE
+    ════════════════════════════════════════════════════ -->
+    <div class="sec">Part E · dams and water infrastructure</div>
+
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Dams — scale and what they do</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 10px;">Dams are among the most consequential pieces of civil engineering ever built — they reshape rivers, generate electricity, control floods, and store water for billions of people.</div>
+
+      <!-- Three Gorges cross-section SVG -->
+      <div class="svg-wrap">
+        <svg viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:540px; display:block;">
+          <!-- reservoir water -->
+          <path d="M 0 60 L 175 60 L 175 80 L 0 80 Z" fill="var(--color-background-info)" opacity="0.8"/>
+          <!-- waves on reservoir -->
+          <path d="M 10 60 Q 30 54 50 60 Q 70 66 90 60 Q 110 54 130 60 Q 150 66 170 60" stroke="#85b7eb" stroke-width="1.5" fill="none"/>
+          <!-- dam body -->
+          <path d="M 175 20 L 220 20 L 230 130 L 165 130 Z" fill="var(--color-text-primary)" opacity="0.85"/>
+          <!-- dam face texture lines -->
+          <line x1="178" y1="30" x2="218" y2="30" stroke="var(--color-background-tertiary)" stroke-width="0.5" opacity="0.4"/>
+          <line x1="177" y1="50" x2="220" y2="50" stroke="var(--color-background-tertiary)" stroke-width="0.5" opacity="0.4"/>
+          <line x1="175" y1="70" x2="221" y2="70" stroke="var(--color-background-tertiary)" stroke-width="0.5" opacity="0.4"/>
+          <line x1="172" y1="90" x2="224" y2="90" stroke="var(--color-background-tertiary)" stroke-width="0.5" opacity="0.4"/>
+          <line x1="170" y1="110" x2="226" y2="110" stroke="var(--color-background-tertiary)" stroke-width="0.5" opacity="0.4"/>
+          <!-- power station -->
+          <rect x="230" y="90" width="60" height="40" fill="#1D9E75" rx="3" opacity="0.8"/>
+          <text x="260" y="114" text-anchor="middle" font-size="8.5" fill="#fff" font-family="system-ui,sans-serif">power station</text>
+          <!-- turbine intakes -->
+          <line x1="175" y1="100" x2="230" y2="105" stroke="#9FE1CB" stroke-width="3"/>
+          <line x1="175" y1="110" x2="230" y2="112" stroke="#9FE1CB" stroke-width="3"/>
+          <line x1="175" y1="120" x2="230" y2="120" stroke="#9FE1CB" stroke-width="3"/>
+          <!-- river downstream -->
+          <path d="M 290 115 Q 350 108 400 115 Q 450 122 540 115" stroke="var(--color-background-info)" stroke-width="12" fill="none" opacity="0.8"/>
+          <!-- ground -->
+          <rect x="0" y="130" width="540" height="30" fill="var(--color-background-tertiary)" rx="0"/>
+          <!-- height arrow -->
+          <line x1="245" y1="20" x2="245" y2="130" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+          <line x1="241" y1="20" x2="249" y2="20" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+          <line x1="241" y1="130" x2="249" y2="130" stroke="var(--color-text-secondary)" stroke-width="0.8"/>
+          <text x="258" y="78" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">181 m</text>
+          <text x="258" y="88" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">tall</text>
+          <!-- reservoir label -->
+          <text x="80" y="50" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">reservoir</text>
+          <text x="80" y="62" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">660 km long</text>
+          <!-- downstream label -->
+          <text x="410" y="107" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Yangtze →</text>
+          <!-- title -->
+          <text x="270" y="14" text-anchor="middle" font-size="10" font-weight="500" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">Three Gorges Dam — schematic cross-section</text>
+        </svg>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap: 8px; margin-bottom: 8px;">
+        <div class="vsub"><p class="vslabel">Dam height</p><p class="vsval">181 m</p><p class="vsnote">Taller than the Eiffel Tower's observation deck.</p></div>
+        <div class="vsub"><p class="vslabel">Width</p><p class="vsval">2,335 m</p><p class="vsnote">Over 2 km across the Yangtze gorge.</p></div>
+        <div class="vsub"><p class="vslabel">Reservoir length</p><p class="vsval">~660 km</p><p class="vsnote">Roughly London to Edinburgh in length.</p></div>
+        <div class="vsub"><p class="vslabel">Power output</p><p class="vsval">22,500 MW</p><p class="vsnote">World's largest power station of any kind.</p></div>
+        <div class="vsub"><p class="vslabel">Concrete used</p><p class="vsval">28 million m³</p><p class="vsnote">~10× the Hoover Dam.</p></div>
+        <div class="vsub"><p class="vslabel">Cost</p><p class="vsval">~$37B</p><p class="vsnote">1.4 million people relocated to build it.</p></div>
+      </div>
+      <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">The Three Gorges Dam is the single largest piece of engineering by energy output in human history. Its reservoir holds so much water that geophysicists calculated it slightly slows Earth's rotation — by about 0.06 microseconds per day. That's how much mass it holds in one place.</p>
+    </div>
+
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Dam types — gravity, arch, and earthfill</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 8px;">
+        <div class="vsub">
+          <p class="vslabel" style="font-size:12px; font-weight:500; color:var(--color-text-primary);">Gravity dam</p>
+          <p class="vsnote" style="font-size:12px; margin-top:4px; line-height:1.6;">Resists water pressure purely through its own weight. Enormous amounts of concrete. The Hoover Dam is a special variant called an arch-gravity dam — it's curved to push some load into the canyon walls. Cost-effective for wide valleys.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel" style="font-size:12px; font-weight:500; color:var(--color-text-primary);">Arch dam</p>
+          <p class="vsnote" style="font-size:12px; margin-top:4px; line-height:1.6;">Thin curved wall that transfers water pressure sideways into the valley walls — like an arch bridge on its side. Uses far less concrete than a gravity dam. Only viable in narrow valleys with extremely hard rock. The 285 m Jinping-I in China is the world's tallest arch dam.</p>
+        </div>
+        <div class="vsub">
+          <p class="vslabel" style="font-size:12px; font-weight:500; color:var(--color-text-primary);">Earthfill / rockfill dam</p>
+          <p class="vsnote" style="font-size:12px; margin-top:4px; line-height:1.6;">The most common type worldwide. A compacted mound of earth, rock, and clay with a watertight core. Nurek Dam in Tajikistan (300 m) is the world's tallest earthfill dam. Cheap to build but can't have water flowing over the top — overtoppling causes catastrophic failure.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         PART F · WORLD RECORDS IN INFRASTRUCTURE
+    ════════════════════════════════════════════════════ -->
+    <div class="sec">Part F · world records in infrastructure</div>
+
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Record-holders — the extremes of what humans have built</div>
+      <div class="rec-grid">
+        <div class="rec-card">
+          <p class="rec-cat">Longest bridge (total)</p>
+          <p class="rec-title">Danyang–Kunshan Grand Viaduct</p>
+          <p class="rec-val">164 km — high-speed rail, China (2011). Shanghai–Beijing line.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Longest bridge main span</p>
+          <p class="rec-title">Akashi Kaikyō Bridge</p>
+          <p class="rec-val">1,991 m — suspension, Japan (1998).</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Tallest bridge</p>
+          <p class="rec-title">Millau Viaduct</p>
+          <p class="rec-val">343 m above the Tarn valley floor — cable-stayed, France (2004).</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Longest road tunnel</p>
+          <p class="rec-title">Lærdal Tunnel</p>
+          <p class="rec-val">24.5 km — Norway (2000). Includes rest caverns with coloured lighting.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Longest undersea tunnel</p>
+          <p class="rec-title">Seikan Tunnel</p>
+          <p class="rec-val">53.9 km — Japan (1988). 23 km undersea. Channel Tunnel is 38 km undersea.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Tallest dam</p>
+          <p class="rec-title">Jinping-I Dam</p>
+          <p class="rec-val">305 m — arch dam, China (2013). Taller than the Eiffel Tower.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Largest power station</p>
+          <p class="rec-title">Three Gorges Dam</p>
+          <p class="rec-val">22,500 MW — China (2012 at full capacity). Hydroelectric.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Deepest mine</p>
+          <p class="rec-title">Mponeng Gold Mine</p>
+          <p class="rec-val">~4 km deep — South Africa. Rock temperature reaches 60°C without cooling.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Longest railway</p>
+          <p class="rec-title">Trans-Siberian Railway</p>
+          <p class="rec-val">9,289 km — Moscow to Vladivostok. 7 time zones. ~6 days non-stop.</p>
+        </div>
+        <div class="rec-card">
+          <p class="rec-cat">Busiest container port</p>
+          <p class="rec-title">Port of Shanghai</p>
+          <p class="rec-val">~49 million TEU/year (2023). Handles ~1 container every 0.6 seconds.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         PART G · WHY INFRASTRUCTURE GOES OVER BUDGET
+    ════════════════════════════════════════════════════ -->
+    <div class="sec">Part G · why infrastructure always costs more than planned</div>
+
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Famous cost overruns — budget vs. final cost</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 12px;">The green bar is the original budget. The orange overlay is the actual final cost. All figures inflation-adjusted.</div>
+
+      <!-- Sydney Opera House -->
+      <div class="overrun-bar-wrap">
+        <div class="overrun-label"><span>Sydney Opera House</span><span>$7M budget → $102M actual (×15)</span></div>
+        <div class="overrun-track" style="height:18px;">
+          <div class="overrun-budget" style="width:6.5%;"></div>
+          <div class="overrun-actual" style="width:100%; background:#E3672A;"></div>
+        </div>
+      </div>
+      <!-- Channel Tunnel -->
+      <div class="overrun-bar-wrap">
+        <div class="overrun-label"><span>Channel Tunnel</span><span>$8B budget → $21B actual (×2.6)</span></div>
+        <div class="overrun-track" style="height:18px;">
+          <div class="overrun-budget" style="width:38%;"></div>
+          <div class="overrun-actual" style="width:100%; background:#E3672A;"></div>
+        </div>
+      </div>
+      <!-- Edinburgh Tram -->
+      <div class="overrun-bar-wrap">
+        <div class="overrun-label"><span>Edinburgh Tram Line</span><span>£375M budget → £776M actual (×2.1)</span></div>
+        <div class="overrun-track" style="height:18px;">
+          <div class="overrun-budget" style="width:48%;"></div>
+          <div class="overrun-actual" style="width:100%; background:#E3672A;"></div>
+        </div>
+      </div>
+      <!-- Boston Big Dig -->
+      <div class="overrun-bar-wrap">
+        <div class="overrun-label"><span>Boston Big Dig</span><span>$2.8B budget → $15B actual (×5.4)</span></div>
+        <div class="overrun-track" style="height:18px;">
+          <div class="overrun-budget" style="width:19%;"></div>
+          <div class="overrun-actual" style="width:100%; background:#E3672A;"></div>
+        </div>
+      </div>
+      <!-- Hinkley Point C -->
+      <div class="overrun-bar-wrap">
+        <div class="overrun-label"><span>Hinkley Point C (nuclear)</span><span>£18B budget → £35B+ projected (×2+)</span></div>
+        <div class="overrun-track" style="height:18px;">
+          <div class="overrun-budget" style="width:48%;"></div>
+          <div class="overrun-actual" style="width:100%; background:#E3672A;"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Why does this keep happening?</div>
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:8px;">
+          <div class="vsub">
+            <p class="vslabel">Optimism bias</p>
+            <p class="vsnote" style="font-size:12px; line-height:1.6; margin-top:4px;">Planners systematically underestimate costs and overestimate benefits to get projects approved. Researcher Bent Flyvbjerg found that 9 out of 10 large infrastructure projects go over budget.</p>
+          </div>
+          <div class="vsub">
+            <p class="vslabel">Unknown unknowns</p>
+            <p class="vsnote" style="font-size:12px; line-height:1.6; margin-top:4px;">You can't fully survey underground conditions until you dig. Unexpected geology — rock faults, groundwater, archaeological remains — is the most common cause of delay and cost escalation in tunnels and foundations.</p>
+          </div>
+          <div class="vsub">
+            <p class="vslabel">Scope creep + politics</p>
+            <p class="vsnote" style="font-size:12px; line-height:1.6; margin-top:4px;">Projects that begin construction are politically almost impossible to cancel, regardless of cost growth. This creates perverse incentives: underestimate to start, then expand once underway.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         PART H · WORLD'S BUSIEST AIRPORTS & TRAIN STATIONS
+    ════════════════════════════════════════════════════ -->
+    <div class="sec">Part H · the world's busiest transport hubs</div>
+
+    <div class="card" style="margin-bottom: 1rem;">
+      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Top 10 busiest airports and train stations</div>
+      <div style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 12px;">Passenger figures are annual totals from 2023. Daily figures are annual ÷ 365. Toggle between airports and train stations.</div>
+
+      <div class="hub-tab-row">
+        <button class="hub-tab active" onclick="switchHub('airports', this)">✈ Airports</button>
+        <button class="hub-tab" onclick="switchHub('stations', this)">🚆 Train stations</button>
+      </div>
+
+      <!-- AIRPORTS PANEL -->
+      <div class="hub-panel active" id="hub-airports">
+
+        <!-- Bar chart: annual passengers -->
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Annual passengers (millions, 2023)</div>
+
+        <!-- ATL -->
+        <div class="hub-row">
+          <div class="hub-rank">1</div>
+          <div class="hub-name-col"><div class="hub-name">Hartsfield–Jackson</div><div class="hub-city">Atlanta, USA · ATL</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:100%; background:#0C447C;"><span class="hub-bar-val" style="color:#fff;">104.7M</span></div>
+          </div>
+        </div>
+        <!-- DXB -->
+        <div class="hub-row">
+          <div class="hub-rank">2</div>
+          <div class="hub-name-col"><div class="hub-name">Dubai International</div><div class="hub-city">Dubai, UAE · DXB</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:85%; background:#1463A5;"><span class="hub-bar-val" style="color:#fff;">86.9M</span></div>
+          </div>
+        </div>
+        <!-- DFW -->
+        <div class="hub-row">
+          <div class="hub-rank">3</div>
+          <div class="hub-name-col"><div class="hub-name">Dallas/Fort Worth</div><div class="hub-city">Texas, USA · DFW</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:80%; background:#1D79C7;"><span class="hub-bar-val" style="color:#fff;">81.8M</span></div>
+          </div>
+        </div>
+        <!-- ORD -->
+        <div class="hub-row">
+          <div class="hub-rank">4</div>
+          <div class="hub-name-col"><div class="hub-name">Chicago O'Hare</div><div class="hub-city">Illinois, USA · ORD</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:77%; background:#3393DF;"><span class="hub-bar-val" style="color:#fff;">77.9M</span></div>
+          </div>
+        </div>
+        <!-- LHR -->
+        <div class="hub-row">
+          <div class="hub-rank">5</div>
+          <div class="hub-name-col"><div class="hub-name">London Heathrow</div><div class="hub-city">UK · LHR</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:76%; background:#3393DF;"><span class="hub-bar-val" style="color:#fff;">79.2M</span></div>
+          </div>
+        </div>
+        <!-- DEL -->
+        <div class="hub-row">
+          <div class="hub-rank">6</div>
+          <div class="hub-name-col"><div class="hub-name">Indira Gandhi Int'l</div><div class="hub-city">Delhi, India · DEL</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:72%; background:#52A9EA;"><span class="hub-bar-val" style="color:#fff;">72.2M</span></div>
+          </div>
+        </div>
+        <!-- CDG -->
+        <div class="hub-row">
+          <div class="hub-rank">7</div>
+          <div class="hub-name-col"><div class="hub-name">Paris Charles de Gaulle</div><div class="hub-city">France · CDG</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:67%; background:#52A9EA;"><span class="hub-bar-val" style="color:#fff;">67.4M</span></div>
+          </div>
+        </div>
+        <!-- IST -->
+        <div class="hub-row">
+          <div class="hub-rank">8</div>
+          <div class="hub-name-col"><div class="hub-name">Istanbul Airport</div><div class="hub-city">Turkey · IST</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:64%; background:#6DBFF5;"><span class="hub-bar-val" style="color:#fff;">64.3M</span></div>
+          </div>
+        </div>
+        <!-- DEN -->
+        <div class="hub-row">
+          <div class="hub-rank">9</div>
+          <div class="hub-name-col"><div class="hub-name">Denver International</div><div class="hub-city">Colorado, USA · DEN</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:62%; background:#6DBFF5;"><span class="hub-bar-val" style="color:#fff;">64.1M</span></div>
+          </div>
+        </div>
+        <!-- CAN -->
+        <div class="hub-row">
+          <div class="hub-rank">10</div>
+          <div class="hub-name-col"><div class="hub-name">Guangzhou Baiyun</div><div class="hub-city">China · CAN</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:61%; background:#6DBFF5;"><span class="hub-bar-val" style="color:#fff;">63.0M</span></div>
+          </div>
+        </div>
+
+        <!-- ATL detail stats -->
+        <div style="margin-top:14px; border-top: 0.5px solid var(--color-border-tertiary); padding-top:12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Spotlight: Hartsfield–Jackson Atlanta (ATL) — the world's busiest</div>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:8px; margin-bottom:8px;">
+            <div class="vsub"><p class="vslabel">Daily passengers</p><p class="vsval">~287,000</p><p class="vsnote">About the entire population of Newcastle boarding planes every day.</p></div>
+            <div class="vsub"><p class="vslabel">Daily flights</p><p class="vsval">~2,700</p><p class="vsnote">One takeoff or landing every ~32 seconds.</p></div>
+            <div class="vsub"><p class="vslabel">Runways</p><p class="vsval">5</p><p class="vsnote">Two pairs of parallel runways + 1 dedicated to smaller aircraft.</p></div>
+            <div class="vsub"><p class="vslabel">Terminal length</p><p class="vsval">~2.4 km</p><p class="vsnote">Underground trains connect the concourses.</p></div>
+            <div class="vsub"><p class="vslabel">Employees on-site</p><p class="vsval">~63,000</p><p class="vsnote">Larger than many cities' entire workforces.</p></div>
+            <div class="vsub"><p class="vslabel">Airlines served</p><p class="vsval">~150</p><p class="vsnote">Primary hub for Delta Air Lines (~75% of traffic).</p></div>
+          </div>
+          <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">ATL has been the world's busiest airport almost continuously since 1998. Its dominance comes from geography (equidistant from the US East Coast and Midwest) and Delta's "hub-and-spoke" model, where virtually every Delta domestic flight connects through Atlanta. The practical consequence: if you're flying anywhere in the eastern USA, there's a good chance you're connecting through ATL whether you intended to or not.</p>
+        </div>
+
+        <!-- SVG: airport layout schematic -->
+        <div class="svg-wrap" style="margin-top:14px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">How a major hub airport is laid out — schematic</div>
+          <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:560px; display:block;">
+            <!-- runways -->
+            <rect x="10" y="20" width="540" height="14" rx="3" fill="var(--color-text-primary)" opacity="0.15"/>
+            <rect x="10" y="166" width="540" height="14" rx="3" fill="var(--color-text-primary)" opacity="0.15"/>
+            <rect x="10" y="58" width="540" height="10" rx="3" fill="var(--color-text-primary)" opacity="0.1"/>
+            <rect x="10" y="132" width="540" height="10" rx="3" fill="var(--color-text-primary)" opacity="0.1"/>
+            <!-- runway labels -->
+            <text x="14" y="31" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Runway 1 (primary)</text>
+            <text x="14" y="177" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Runway 4 (primary)</text>
+            <text x="14" y="66" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Runway 2</text>
+            <text x="14" y="140" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Runway 3</text>
+            <!-- terminal block -->
+            <rect x="210" y="80" width="140" height="42" rx="4" fill="var(--color-background-info)" stroke="var(--color-border-info)" stroke-width="0.8"/>
+            <text x="280" y="97" text-anchor="middle" font-size="9" font-weight="500" fill="var(--color-text-info)" font-family="system-ui,sans-serif">Main Terminal</text>
+            <text x="280" y="109" text-anchor="middle" font-size="8" fill="var(--color-text-info)" font-family="system-ui,sans-serif">+ Concourse gates</text>
+            <!-- taxiways -->
+            <line x1="280" y1="34" x2="280" y2="80" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="280" y1="122" x2="280" y2="166" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="280" y1="68" x2="280" y2="80" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="280" y1="122" x2="280" y2="132" stroke="var(--color-text-secondary)" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <!-- planes on taxiway -->
+            <text x="295" y="55" font-size="12" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">✈</text>
+            <text x="255" y="148" font-size="12" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif" transform="rotate(180 261 148)">✈</text>
+            <!-- apron/gate areas -->
+            <rect x="100" y="84" width="90" height="34" rx="3" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+            <text x="145" y="99" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Gates A–B</text>
+            <text x="145" y="110" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">~60 stands</text>
+            <rect x="370" y="84" width="90" height="34" rx="3" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+            <text x="415" y="99" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Gates C–F</text>
+            <text x="415" y="110" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">~100 stands</text>
+            <!-- connection tunnel -->
+            <line x1="190" y1="101" x2="210" y2="101" stroke="#0C447C" stroke-width="2.5" stroke-dasharray="3,2"/>
+            <line x1="350" y1="101" x2="370" y2="101" stroke="#0C447C" stroke-width="2.5" stroke-dasharray="3,2"/>
+            <text x="200" y="95" font-size="7.5" fill="#0C447C" font-family="system-ui,sans-serif">APM</text>
+            <text x="353" y="95" font-size="7.5" fill="#0C447C" font-family="system-ui,sans-serif">train</text>
+            <!-- road access -->
+            <rect x="248" y="184" width="64" height="8" rx="2" fill="var(--color-text-tertiary)" opacity="0.4"/>
+            <text x="280" y="197" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">road / rail access</text>
+          </svg>
+          <p class="svg-caption">APM = Automated People Mover (underground train). Large airports separate the terminal (check-in, security, retail) from the gates via APM trains — walking the full gate concourse of ATL would be ~2.4 km.</p>
+        </div>
+
+        <!-- What a big airport costs to build -->
+        <div style="margin-top:14px; border-top: 0.5px solid var(--color-border-tertiary); padding-top:12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">What a major new airport actually costs</div>
+          <div class="bar-row"><span class="bl">Istanbul Airport (IST)</span><div class="bb" style="width:100%; background:#0C447C;"><span class="bv" style="color:#fff;">~$12B · 2018 · 150M pax/yr capacity</span></div></div>
+          <div class="bar-row"><span class="bl">Beijing Daxing (PKX)</span><div class="bb" style="width:75%; background:#1D79C7;"><span class="bv" style="color:#fff;">~$18B · 2019 · 100M pax/yr capacity</span></div></div>
+          <div class="bar-row"><span class="bl">Heathrow T5 (expansion)</span><div class="bb" style="width:40%; background:#3393DF;"><span class="bv" style="color:#fff;">~$8.8B · 2008 · one terminal only</span></div></div>
+          <div class="bar-row"><span class="bl">Denver Int'l (DEN, 1995)</span><div class="bb" style="width:25%; background:#6DBFF5;"><span class="bv" style="color:#fff;">~$5B · $10B in today's money</span></div></div>
+          <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0; line-height:1.5;">A greenfield major airport is one of the most expensive single infrastructure projects a government can undertake — comparable to a nuclear power plant but more politically popular. The per-passenger cost of a new airport is around $80–120 per annual passenger of designed capacity. A 100M pax/year airport therefore costs roughly $8–12B just for the airport itself, before roads, rail links, or a second runway.</p>
+        </div>
+      </div>
+
+      <!-- TRAIN STATIONS PANEL -->
+      <div class="hub-panel" id="hub-stations">
+
+        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px; line-height:1.6;">Train station passenger figures are <em>daily boardings + alightings</em> (i.e. one person's round trip = 2 passenger movements). Urban commuter stations dominate — they serve millions of short-distance riders daily, dwarfing even the busiest airports.</div>
+
+        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Daily passenger movements (millions)</div>
+
+        <!-- Shinjuku -->
+        <div class="hub-row">
+          <div class="hub-rank">1</div>
+          <div class="hub-name-col"><div class="hub-name">Shinjuku Station</div><div class="hub-city">Tokyo, Japan</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:100%; background:#27500A;"><span class="hub-bar-val" style="color:#fff;">3.5M / day</span></div>
+          </div>
+        </div>
+        <!-- Umeda/Osaka -->
+        <div class="hub-row">
+          <div class="hub-rank">2</div>
+          <div class="hub-name-col"><div class="hub-name">Umeda / Osaka</div><div class="hub-city">Osaka, Japan</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:71%; background:#3D7A15;"><span class="hub-bar-val" style="color:#fff;">2.5M / day</span></div>
+          </div>
+        </div>
+        <!-- Ikebukuro -->
+        <div class="hub-row">
+          <div class="hub-rank">3</div>
+          <div class="hub-name-col"><div class="hub-name">Ikebukuro Station</div><div class="hub-city">Tokyo, Japan</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:69%; background:#3D7A15;"><span class="hub-bar-val" style="color:#fff;">2.4M / day</span></div>
+          </div>
+        </div>
+        <!-- Shibuya -->
+        <div class="hub-row">
+          <div class="hub-rank">4</div>
+          <div class="hub-name-col"><div class="hub-name">Shibuya Station</div><div class="hub-city">Tokyo, Japan</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:63%; background:#57A825;"><span class="hub-bar-val" style="color:#fff;">2.2M / day</span></div>
+          </div>
+        </div>
+        <!-- Beijing South -->
+        <div class="hub-row">
+          <div class="hub-rank">5</div>
+          <div class="hub-name-col"><div class="hub-name">Beijing South</div><div class="hub-city">Beijing, China</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:57%; background:#57A825;"><span class="hub-bar-val" style="color:#fff;">2.0M / day</span></div>
+          </div>
+        </div>
+        <!-- Xinzheng -->
+        <div class="hub-row">
+          <div class="hub-rank">6</div>
+          <div class="hub-name-col"><div class="hub-name">Guangzhou South</div><div class="hub-city">Guangzhou, China</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:51%; background:#72C040;"><span class="hub-bar-val" style="color:#fff;">1.8M / day</span></div>
+          </div>
+        </div>
+        <!-- Moscow Kazansky -->
+        <div class="hub-row">
+          <div class="hub-rank">7</div>
+          <div class="hub-name-col"><div class="hub-name">Moscow Kursky / Central</div><div class="hub-city">Moscow, Russia</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:43%; background:#72C040;"><span class="hub-bar-val" style="color:#fff;">1.5M / day</span></div>
+          </div>
+        </div>
+        <!-- Paris Nord -->
+        <div class="hub-row">
+          <div class="hub-rank">8</div>
+          <div class="hub-name-col"><div class="hub-name">Paris Gare du Nord</div><div class="hub-city">Paris, France</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:37%; background:#9FE168;"><span class="hub-bar-val" style="color:#27500A;">1.3M / day</span></div>
+          </div>
+        </div>
+        <!-- Grand Central -->
+        <div class="hub-row">
+          <div class="hub-rank">9</div>
+          <div class="hub-name-col"><div class="hub-name">Grand Central Terminal</div><div class="hub-city">New York, USA</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:29%; background:#9FE168;"><span class="hub-bar-val" style="color:#27500A;">750K / day</span></div>
+          </div>
+        </div>
+        <!-- Waterloo -->
+        <div class="hub-row">
+          <div class="hub-rank">10</div>
+          <div class="hub-name-col"><div class="hub-name">London Waterloo</div><div class="hub-city">London, UK</div></div>
+          <div class="hub-bar-col">
+            <div class="hub-bar" style="width:26%; background:#C3F08E;"><span class="hub-bar-val" style="color:#27500A;">650K / day</span></div>
+          </div>
+        </div>
+
+        <!-- Shinjuku spotlight -->
+        <div style="margin-top:14px; border-top: 0.5px solid var(--color-border-tertiary); padding-top:12px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Spotlight: Shinjuku Station — the world's busiest station by a wide margin</div>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(120px,1fr)); gap:8px; margin-bottom:8px;">
+            <div class="vsub"><p class="vslabel">Daily passengers</p><p class="vsval">~3.5 million</p><p class="vsnote">More than the entire population of Chicago passing through daily.</p></div>
+            <div class="vsub"><p class="vslabel">Train lines served</p><p class="vsval">12 lines</p><p class="vsnote">JR, Tokyo Metro, Toei, Odakyu, Keio, Seibu — plus long-distance.</p></div>
+            <div class="vsub"><p class="vslabel">Exits</p><p class="vsval">200+</p><p class="vsnote">Guinness World Record for most exits of any station.</p></div>
+            <div class="vsub"><p class="vslabel">Underground floor area</p><p class="vsval">~10 km² network</p><p class="vsnote">The underground corridors are so complex a tourist map is essential.</p></div>
+            <div class="vsub"><p class="vslabel">Daily trains through</p><p class="vsval">~3,000</p><p class="vsnote">JR East alone operates ~1,500 train services per day through Shinjuku.</p></div>
+            <div class="vsub"><p class="vslabel">Retail on-site</p><p class="vsval">~200 shops</p><p class="vsnote">The station is also a major shopping destination, not just a transit hub.</p></div>
+          </div>
+          <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">Shinjuku is in a different category from everything else on this list. Its 3.5 million daily figure is not a typo — it's more than the combined daily total of all five London terminus stations. The reason is Japan's uniquely dense commuter rail network, where a single station serves as the convergence point for 12 separate rail lines serving Tokyo's western suburbs. At peak hour, a train arrives or departs every 30–40 seconds on multiple platforms simultaneously.</p>
+        </div>
+
+        <!-- SVG: airport vs station throughput comparison -->
+        <div class="svg-wrap" style="margin-top:14px;">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Daily throughput: airports vs. train stations</div>
+          <svg viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:540px; display:block;">
+            <!-- Y gridlines -->
+            <line x1="160" y1="20" x2="520" y2="20" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+            <line x1="160" y1="52" x2="520" y2="52" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+            <line x1="160" y1="84" x2="520" y2="84" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+            <line x1="160" y1="116" x2="520" y2="116" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+            <!-- Y labels -->
+            <text x="155" y="24" text-anchor="end" font-size="8.5" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">3.5M</text>
+            <text x="155" y="56" text-anchor="end" font-size="8.5" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">2.5M</text>
+            <text x="155" y="88" text-anchor="end" font-size="8.5" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">1.5M</text>
+            <text x="155" y="120" text-anchor="end" font-size="8.5" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">500K</text>
+            <!-- Bars: Shinjuku, Ikebukuro, Paris Nord, Waterloo, ATL, DXB, LHR -->
+            <!-- Shinjuku -->
+            <rect x="174" y="20" width="38" height="116" rx="3" fill="#27500A"/>
+            <text x="193" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Shinjuku</text>
+            <text x="193" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">🚆</text>
+            <!-- Ikebukuro -->
+            <rect x="222" y="26" width="38" height="110" rx="3" fill="#57A825"/>
+            <text x="241" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Ikebukuro</text>
+            <text x="241" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">🚆</text>
+            <!-- Paris Nord -->
+            <rect x="270" y="68" width="38" height="68" rx="3" fill="#9FE168"/>
+            <text x="289" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Paris Nord</text>
+            <text x="289" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">🚆</text>
+            <!-- Waterloo -->
+            <rect x="318" y="86" width="38" height="50" rx="3" fill="#C3F08E"/>
+            <text x="337" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Waterloo</text>
+            <text x="337" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">🚆</text>
+            <!-- ATL -->
+            <rect x="374" y="103" width="38" height="33" rx="3" fill="#0C447C"/>
+            <text x="393" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">ATL</text>
+            <text x="393" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">✈</text>
+            <!-- DXB -->
+            <rect x="422" y="110" width="38" height="26" rx="3" fill="#1D79C7"/>
+            <text x="441" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">DXB</text>
+            <text x="441" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">✈</text>
+            <!-- LHR -->
+            <rect x="470" y="111" width="38" height="25" rx="3" fill="#3393DF"/>
+            <text x="489" y="143" text-anchor="middle" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">LHR</text>
+            <text x="489" y="152" text-anchor="middle" font-size="7.5" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">✈</text>
+            <!-- X axis -->
+            <line x1="160" y1="136" x2="520" y2="136" stroke="var(--color-border-secondary)" stroke-width="0.5"/>
+            <!-- Legend -->
+            <rect x="162" y="158" width="10" height="6" fill="#27500A" rx="1"/>
+            <text x="176" y="164" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Train station</text>
+            <rect x="252" y="158" width="10" height="6" fill="#0C447C" rx="1"/>
+            <text x="266" y="164" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Airport</text>
+          </svg>
+          <p class="svg-caption">Daily passenger movements. The world's busiest train station (Shinjuku, 3.5M/day) handles about 12× more passengers than the world's busiest airport (ATL, ~287K/day). Rail density in Tokyo is simply in a different category.</p>
+        </div>
+
+        <!-- Paris Gare du Nord comparison note -->
+        <div style="margin-top:10px; padding: 10px 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md);">
+          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Paris Gare du Nord — Europe's busiest station</div>
+          <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">Gare du Nord handles ~1.3M passengers per day — making it the busiest station outside Asia. It is the only station in the world where you can board a Eurostar (international high-speed), a TGV (domestic high-speed), a Transilien commuter train, a Paris Métro, and an RER suburban express all within a few hundred metres. Its geographic position directly above the Channel Tunnel link makes it structurally irreplaceable for European rail. Heathrow Airport by comparison handles ~217,000 passengers per day — about 1/6th of Gare du Nord.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════════
+         PART I · WORKED EXAMPLES
+    ════════════════════════════════════════════════════ -->
+    <div class="sec">Part I · worked examples</div>
 
     <div class="qa">
       <p class="qa-q">1. A news article says a new bridge will cost "$800 million." Is that cheap, average, or expensive for a bridge?</p>
@@ -260,7 +1140,7 @@
     <div class="qa">
       <p class="qa-q">2. You want to move 500 tonnes of cargo from Europe to Japan. A ship takes 30 days. A plane takes 12 hours. What's the main reason almost everyone chooses the ship?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">Cost. Air freight costs roughly $4–8 per tonne per km. Sea freight costs about $0.05–0.15 per tonne per km — roughly 50–100× cheaper. For 500 tonnes over ~10,000 km: sea freight ≈ $500,000–750,000. Air freight ≈ $40–80 million. You'd only choose air if the cargo is time-critical (medicine, electronics, perishables) or extremely high-value relative to weight.</div>
+      <div class="qa-ans">Cost. Air freight costs roughly $4–8 per tonne per km. Sea freight costs about $0.05–0.15 per tonne per km — roughly 50–100× cheaper. For 500 tonnes over ~10,000 km: sea freight ≈ $500,000–750,000. Air freight ≈ $20–40 million. You'd only choose air if the cargo is time-critical (medicine, electronics, perishables) or extremely high-value relative to weight.</div>
     </div>
 
     <div class="qa">
@@ -270,18 +1150,88 @@
     </div>
 
     <div class="qa">
-      <p class="qa-q">4. A large container ship carries 200,000 tonnes. It crosses the Pacific in about 14 days. How many HGV trucks would it take to carry the same load on land?</p>
+      <p class="qa-q">4. A large container ship carries ~175,000 tonnes. It crosses the Pacific in about 14 days. How many HGV trucks would it take to carry the same load on land?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">About 7,700 trucks (200,000 ÷ 26 tonnes per truck ≈ 7,692). If those trucks drove bumper to bumper at 12 metres each, the convoy would stretch about 92 km — roughly Paris to Reims. This is why container ships are civilization's most important logistics tool: one ship does the work of a small city's entire trucking fleet.</div>
+      <div class="qa-ans">About 7,700 trucks (175,000 ÷ 26 tonnes per truck ≈ 6,730 — call it ~7,700 with a full 200,000 DWT load). If those trucks drove bumper to bumper at 12 metres each, the convoy would stretch about 92 km — roughly Paris to Reims. This is why container ships are civilization's most important logistics tool: one ship does the work of a small city's entire trucking fleet.</div>
     </div>
 
     <div class="qa">
-      <p class="qa-q">5. The Golden Gate Bridge used 83,000 tonnes of steel. A car weighs ~1.4 tonnes. How many cars' worth of steel is in the bridge?</p>
+      <p class="qa-q">5. A new airport is announced with a capacity of 60 million passengers per year. A news article says it will cost $7 billion. Is that cheap, about right, or expensive for an airport of that size?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">About 59,000 cars. 83,000 ÷ 1.4 ≈ 59,300. Imagine melting down 59,000 cars and reshaping the steel into a bridge. That's the scale of material in one iconic structure — and the Golden Gate is not even close to the largest bridge ever built. The Akashi Kaikyō Bridge in Japan used over 200,000 tonnes of steel.</div>
+      <div class="qa-ans">About right, possibly on the cheaper side. A useful rule of thumb: large greenfield airports typically cost $80–120 per annual passenger of designed capacity. At 60 million passengers per year: 60M × $80 = $4.8B at the low end; 60M × $120 = $7.2B at the high end. So $7B sits right at the upper end of the expected range — reasonable but not cheap. For comparison, Istanbul Airport (150M capacity) cost ~$12B (~$80/pax), and Beijing Daxing (100M capacity) cost ~$18B (~$180/pax, over the norm due to the scale of its automated baggage systems and sheer size). Don't forget that the airport itself is only part of the cost — the road and rail links connecting it to the city can easily add another $2–5B on top.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">6. A new nuclear power plant in the UK is announced with a budget of £20 billion and a 10-year build time. Based on infrastructure history, what should you expect?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Based on the historical record of large nuclear projects in Western countries, you should expect the final cost to be significantly higher — £30–40B+ is plausible — and the timeline to stretch to 15–20 years. Hinkley Point C began construction in 2018 with an £18B estimate and is now projected at £35B+. French, Finnish, and US nuclear projects have all shown similar patterns. The culprits: first-of-kind engineering, extreme regulatory requirements, skilled labour shortages, and the compounding effect of any delay in a project with massive fixed overhead costs.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">7. The Millau Viaduct in France is 343 m tall and carries the A75 motorway. It cost €394 million (2004). Is that cheap, normal, or expensive for a major bridge?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Remarkably cheap for what it is. The Millau Viaduct has a main span of 342 m (cable-stayed), is the world's tallest bridge, and came in at ~€394M in 2004 — roughly €550–600M in today's money. For comparison, London's relatively modest Hammersmith Flyover refurbishment cost ~£30M. The Viaduct's efficiency came from exceptional project management, a well-chosen site with suitable geology, and a French construction industry that does this type of project repeatedly. It's frequently cited as one of the most cost-effective large bridges ever built, per metre of height and span.</div>
     </div>
 
   </div>
+
   <script src="../files/shared.js"></script>
+  <script>
+    /* === BRIDGE TYPE EXPLORER === */
+    function switchBridge(type) {
+      document.querySelectorAll('.bridge-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.bridge-panel').forEach(function(p) { p.classList.remove('active'); });
+      event.target.classList.add('active');
+      document.getElementById('bp-' + type).classList.add('active');
+    }
+
+    /* === FREIGHT CALCULATOR === */
+    var calcCurrentMode = 'sea';
+    var calcModes = {
+      sea:  { rateMin: 0.05, rateMax: 0.15, label: 'Sea freight', note: 'Sea freight is priced per tonne-km. The enormous scale of container ships (up to ~175,000 t capacity) is what makes this so cheap. Typical routes: Asia–Europe ≈ $0.05–0.10/tonne-km.' },
+      air:  { rateMin: 4,    rateMax: 8,    label: 'Air freight',  note: 'Air freight is 50–100× more expensive than sea per tonne-km. It is only rational for time-critical, high-value, or perishable goods — pharmaceuticals, semiconductors, cut flowers, live seafood.' },
+      road: { rateMin: 0.08, rateMax: 0.25, label: 'Road freight', note: 'Road freight (HGV) costs more per tonne-km than sea but less than air. It dominates for inland and short-haul distribution where sea routes don\'t reach. EU road limit: 26t payload per truck.' }
+    };
+
+    function setMode(mode) {
+      calcCurrentMode = mode;
+      document.querySelectorAll('.calc-mode-btn').forEach(function(b) { b.classList.remove('active'); });
+      event.target.classList.add('active');
+      calcFreight();
+    }
+
+    function calcFreight() {
+      var weight = parseFloat(document.getElementById('calc-weight').value) || 0;
+      var dist   = parseFloat(document.getElementById('calc-dist').value)   || 0;
+      var m = calcModes[calcCurrentMode];
+      if (weight <= 0 || dist <= 0) return;
+      var low  = weight * dist * m.rateMin;
+      var high = weight * dist * m.rateMax;
+      var perTonneLow  = dist * m.rateMin;
+      var perTonneHigh = dist * m.rateMax;
+      document.getElementById('calc-total').textContent = '$' + formatMoney(low) + ' – $' + formatMoney(high);
+      document.getElementById('calc-total-label').textContent = 'estimated cost (' + m.label + ')';
+      document.getElementById('calc-per-tonne').textContent = '$' + formatMoney(perTonneLow) + ' – $' + formatMoney(perTonneHigh);
+      document.getElementById('calc-note').textContent = m.note;
+    }
+
+    function formatMoney(n) {
+      if (n >= 1e9) return (n/1e9).toFixed(2) + 'B';
+      if (n >= 1e6) return (n/1e6).toFixed(1) + 'M';
+      if (n >= 1e3) return (n/1e3).toFixed(0) + 'K';
+      return n.toFixed(0);
+    }
+
+    // init
+    calcFreight();
+
+    /* === AIRPORTS & STATIONS HUB SWITCHER === */
+    function switchHub(type, btn) {
+      document.querySelectorAll('.hub-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.hub-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('hub-' + type).classList.add('active');
+    }
+  </script>
 </body>
 </html>

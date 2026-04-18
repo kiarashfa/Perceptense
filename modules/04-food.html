@@ -15,20 +15,114 @@
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-.trow { display: flex; align-items: center; gap: 0; margin-bottom: 4px; }
-.tl { font-size: 11px; color: var(--color-text-secondary); width: 148px; flex-shrink: 0; text-align: right; padding-right: 10px; line-height: 1.3; }
-.tb { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 7px; min-width: 3px; }
-.tv { font-size: 11px; font-weight: 500; white-space: nowrap; }
-  </style>
+/* ── Part D / E bar chart rows (uses shared .bar-row / .bl / .bb / .bv) ──
+   Override label width from 140px → 148px for this module's longer labels  */
+.bar-row .bl { width: 148px; }
+
+/* ── Part E mobile fallback: collapse to label+value list below 540px ── */
+@media (max-width: 540px) {
+  .energy-chart .bar-row { flex-wrap: wrap; margin-bottom: 8px; }
+  .energy-chart .bar-row .bl { width: 100%; text-align: left; padding-right: 0; padding-bottom: 2px; }
+  .energy-chart .bar-row .bb { display: none; }
+  .energy-chart .bar-row::after {
+    content: attr(data-val);
+    font-size: 11px; font-weight: 500;
+    color: var(--color-text-primary);
+    padding-left: 2px;
+  }
+}
+
+/* ── SVG diagrams ── */
+.diagram-wrap { margin-bottom: 1.2rem; overflow-x: auto; }
+.diagram-wrap svg { display: block; max-width: 100%; }
+
+/* ── Food label replica ── */
+.food-label {
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 8px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 280px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+.fl-title { font-size: 22px; font-weight: 900; line-height: 1; margin-bottom: 2px; }
+.fl-serving { font-size: 11px; border-bottom: 8px solid #000; padding-bottom: 5px; margin-bottom: 4px; }
+.fl-cal-row { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 4px solid #000; padding-bottom: 4px; margin-bottom: 4px; }
+.fl-cal-label { font-size: 11px; font-weight: 700; }
+.fl-cal-num { font-size: 36px; font-weight: 900; line-height: 1; }
+.fl-row { display: flex; justify-content: space-between; border-bottom: 0.5px solid #ccc; padding: 2px 0; }
+.fl-row-bold { font-weight: 700; }
+.fl-row-indent { padding-left: 12px; }
+.fl-dv { font-size: 10px; color: #444; margin-top: 4px; border-top: 0.5px solid #ccc; padding-top: 4px; }
+
+/* ── Macronutrient explorer ── */
+.macro-btn {
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-secondary);
+  background: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+.macro-btn.active, .macro-btn:hover {
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+}
+.macro-panel { display: none; }
+.macro-panel.show { display: block; }
+
+/* ── Hunger quiz ── */
+.quiz-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: var(--border-radius-md);
+  border: 0.5px solid var(--color-border-tertiary);
+  background: var(--color-background-secondary);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: background 0.1s;
+}
+.quiz-opt:hover { background: var(--color-background-tertiary); }
+.quiz-opt.correct { background: var(--color-background-success); border-color: var(--color-border-success); color: var(--color-text-success); }
+.quiz-opt.wrong   { background: var(--color-background-danger);  border-color: var(--color-border-danger);  color: var(--color-text-danger); }
+.quiz-feedback { font-size: 12px; margin-top: 6px; line-height: 1.6; display: none; }
+.quiz-feedback.show { display: block; }
+
+/* ── Sugar visualiser ── */
+.sugar-cube {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  margin: 1px;
+  vertical-align: middle;
+}
+</style>
 </head>
 <body>
   <div class="page-wrap">
-<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-  <i class="fa-solid fa-apple-whole" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-  <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 4: Nutrition & Food Labels</h1>
-</div>
+
+    <nav>
+      <a class="nav-back" href="../index.html">
+        <i class="fa-solid fa-arrow-left" style="font-size:11px;"></i> All modules
+      </a>
+    </nav>
+
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
+      <i class="fa-solid fa-apple-whole" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;" aria-hidden="true"></i>
+      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 4: Nutrition &amp; Food Labels</h1>
+    </div>
     <p class="module-subtitle">Calories, macronutrients, and how to read what's in your food</p>
 
+    <!-- ═══════════════════════════════════════════════════════ PART A -->
     <div class="sec">Part A · the calorie confusion — kcal vs cal</div>
 
     <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
@@ -38,6 +132,35 @@
       </div>
     </div>
 
+    <!-- SVG: the kcal vs cal scale diagram -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 660 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing 1 food calorie equals 1000 physics calories">
+        <rect width="660" height="90" fill="none"/>
+        <!-- left box: 1 food calorie -->
+        <rect x="10" y="12" width="148" height="52" rx="8" fill="var(--color-background-info)" stroke="var(--color-border-info)" stroke-width="0.8"/>
+        <text x="84" y="32" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-info)" font-family="system-ui,sans-serif">1 Food Calorie</text>
+        <text x="84" y="47" text-anchor="middle" font-size="10" fill="var(--color-text-info)" font-family="system-ui,sans-serif">(what labels show)</text>
+        <text x="84" y="60" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">= 1 kcal</text>
+        <!-- equals sign -->
+        <text x="178" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">=</text>
+        <!-- right box: 1000 physics calories -->
+        <rect x="200" y="12" width="172" height="52" rx="8" fill="var(--color-background-warning)" stroke="var(--color-border-warning)" stroke-width="0.8"/>
+        <text x="286" y="32" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-warning)" font-family="system-ui,sans-serif">1,000 physics calories</text>
+        <text x="286" y="47" text-anchor="middle" font-size="10" fill="var(--color-text-warning)" font-family="system-ui,sans-serif">(the scientific unit)</text>
+        <text x="286" y="60" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">= 4,184 joules</text>
+        <!-- equals sign -->
+        <text x="392" y="42" text-anchor="middle" font-size="18" font-weight="700" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">=</text>
+        <!-- right box 2: joules -->
+        <rect x="412" y="12" width="172" height="52" rx="8" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+        <text x="498" y="32" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">4,184 joules</text>
+        <text x="498" y="47" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">(SI energy unit)</text>
+        <text x="498" y="60" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">used in physics &amp; engineering</text>
+        <!-- label at bottom -->
+        <text x="330" y="84" text-anchor="middle" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">Food labels in the US use "Calories" (capital C) — always meaning kcal. EU labels show both kcal and kJ.</text>
+      </svg>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART B -->
     <div class="sec">Part B · macronutrients — what's in your food</div>
 
     <div class="cgrid">
@@ -48,8 +171,8 @@
       </div>
       <div class="card">
         <p class="clabel">In watts (power output)</p>
-        <p class="cval">~80–100 W</p>
-        <p class="cnote">A resting human radiates about as much heat as a 100W light bulb. Your body is literally a heater.</p>
+        <p class="cval">~80 W</p>
+        <p class="cnote">A resting human radiates about as much heat as a standard incandescent light bulb. Your body is literally a heater.</p>
       </div>
       <div class="card">
         <p class="clabel">1 gram of fat</p>
@@ -63,6 +186,108 @@
       </div>
     </div>
 
+    <!-- Macronutrient deep-dive explorer -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The three macronutrients — what they actually do</div>
+      <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;" role="tablist" aria-label="Macronutrient details">
+        <button class="macro-btn active" onclick="showMacro('carb')" role="tab" aria-selected="true" aria-controls="macro-carb" id="tab-carb">Carbohydrates</button>
+        <button class="macro-btn" onclick="showMacro('fat')" role="tab" aria-selected="false" aria-controls="macro-fat" id="tab-fat">Fat</button>
+        <button class="macro-btn" onclick="showMacro('protein')" role="tab" aria-selected="false" aria-controls="macro-protein" id="tab-protein">Protein</button>
+      </div>
+
+      <div id="macro-carb" class="macro-panel show" role="tabpanel" aria-labelledby="tab-carb">
+        <div style="display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7;">
+              <strong style="color:var(--color-text-primary)">Primary role:</strong> Fast energy. The brain alone uses ~120g of glucose per day — about half your carb intake. Carbs are the body's preferred fuel for high-intensity work.<br><br>
+              <strong style="color:var(--color-text-primary)">Simple vs complex:</strong> Sugar (glucose, fructose, sucrose) = simple carbs — digested in minutes, spike blood sugar fast. Starch (bread, rice, pasta) and fibre = complex carbs — slower digestion, steadier energy.<br><br>
+              <strong style="color:var(--color-text-primary)">Storage:</strong> Excess carbs convert to glycogen (stored in liver and muscle, ~400–500g total) or, once glycogen is full, to fat. Glycogen is why you can run a 10km without eating — you're burning stored carbs.
+            </div>
+          </div>
+          <!-- mini SVG: blood sugar spike comparison -->
+          <div style="flex-shrink:0;">
+            <svg viewBox="0 0 200 120" width="200" xmlns="http://www.w3.org/2000/svg" aria-label="Blood sugar response comparison: simple vs complex carbs">
+              <text x="100" y="12" text-anchor="middle" font-size="9" font-weight="600" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">Blood sugar response</text>
+              <!-- axes -->
+              <line x1="30" y1="100" x2="195" y2="100" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+              <line x1="30" y1="20" x2="30" y2="100" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
+              <text x="110" y="113" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">Time</text>
+              <text x="8" y="64" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" transform="rotate(-90,8,64)">Blood sugar</text>
+              <!-- simple carb spike: sharp peak, rapid drop -->
+              <polyline points="30,85 55,30 80,88 120,83 160,82 190,82" fill="none" stroke="#E24B4A" stroke-width="1.5" stroke-linejoin="round"/>
+              <!-- complex carb: gentle hill -->
+              <polyline points="30,85 70,58 110,50 150,60 190,72" fill="none" stroke="#378ADD" stroke-width="1.5" stroke-linejoin="round"/>
+              <!-- legend -->
+              <line x1="35" y1="22" x2="52" y2="22" stroke="#E24B4A" stroke-width="1.5"/>
+              <text x="55" y="25" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Sugar / white bread</text>
+              <line x1="35" y1="32" x2="52" y2="32" stroke="#378ADD" stroke-width="1.5"/>
+              <text x="55" y="35" font-size="8" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Oats / lentils</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div id="macro-fat" class="macro-panel" role="tabpanel" aria-labelledby="tab-fat">
+        <div style="display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7;">
+              <strong style="color:var(--color-text-primary)">Primary role:</strong> Long-term energy storage, cell membrane construction, fat-soluble vitamin transport (A, D, E, K), hormone production. Fat is not the enemy — it's essential.<br><br>
+              <strong style="color:var(--color-text-primary)">Types matter:</strong> Unsaturated fats (olive oil, avocado, nuts) are associated with better cardiovascular outcomes. Saturated fats (butter, red meat) should be moderate. Trans fats (partially hydrogenated oils) are the ones to genuinely avoid — largely banned in many countries now.<br><br>
+              <strong style="color:var(--color-text-primary)">Density insight:</strong> At 9 kcal/g, fat is the most energy-dense macronutrient — 2.25× more than carbs or protein. A tablespoon of olive oil (~14g) has ~125 kcal. This is why cooking oils add calories faster than people expect.
+            </div>
+          </div>
+          <div style="flex-shrink:0;">
+            <svg viewBox="0 0 180 130" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="Energy density comparison chart: fat vs carbs vs protein">
+              <text x="90" y="12" text-anchor="middle" font-size="9" font-weight="600" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">kcal per gram</text>
+              <!-- fat bar -->
+              <rect x="20" y="22" width="140" height="22" rx="3" fill="#EF9F27" opacity="0.85"/>
+              <text x="167" y="37" font-size="9" font-weight="600" fill="var(--color-text-warning)" font-family="system-ui,sans-serif">9</text>
+              <text x="24" y="37" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">Fat</text>
+              <!-- carb bar -->
+              <rect x="20" y="52" width="62" height="22" rx="3" fill="#378ADD" opacity="0.85"/>
+              <text x="88" y="67" font-size="9" font-weight="600" fill="var(--color-text-info)" font-family="system-ui,sans-serif">4</text>
+              <text x="24" y="67" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">Carbs</text>
+              <!-- protein bar -->
+              <rect x="20" y="82" width="62" height="22" rx="3" fill="#1D9E75" opacity="0.85"/>
+              <text x="88" y="97" font-size="9" font-weight="600" fill="var(--color-text-success)" font-family="system-ui,sans-serif">4</text>
+              <text x="24" y="97" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">Protein</text>
+              <!-- alcohol note -->
+              <rect x="20" y="112" width="98" height="14" rx="3" fill="var(--color-background-warning)" stroke="var(--color-border-warning)" stroke-width="0.5"/>
+              <text x="24" y="122" font-size="8" fill="var(--color-text-warning)" font-family="system-ui,sans-serif">Alcohol: 7 kcal/g (bonus!)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div id="macro-protein" class="macro-panel" role="tabpanel" aria-labelledby="tab-protein">
+        <div style="display:flex; gap:14px; align-items:flex-start; flex-wrap:wrap;">
+          <div style="flex:1; min-width:200px;">
+            <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7;">
+              <strong style="color:var(--color-text-primary)">Primary role:</strong> Building and repairing tissue — muscle, skin, enzymes, antibodies, hormones. The body cannot store protein the way it stores fat or glycogen, so it needs a daily supply.<br><br>
+              <strong style="color:var(--color-text-primary)">Complete vs incomplete:</strong> Proteins are made of 20 amino acids; 9 are "essential" (must come from food). Animal proteins (meat, eggs, dairy) are "complete" — they contain all 9. Most plant proteins are incomplete, but combining sources (e.g. rice + beans) covers all 9.<br><br>
+              <strong style="color:var(--color-text-primary)">Satiety superpower:</strong> Protein is the most satiating macronutrient — gram for gram, it keeps you full longer than carbs or fat. This is why high-protein breakfasts reduce total daily calorie intake in studies. The mechanism: protein raises GLP-1 and PYY (satiety hormones) more than other macros.
+            </div>
+          </div>
+          <div style="flex-shrink:0;">
+            <svg viewBox="0 0 180 120" width="180" xmlns="http://www.w3.org/2000/svg" aria-label="Satiety comparison chart: protein vs carbs vs fat">
+              <text x="90" y="12" text-anchor="middle" font-size="9" font-weight="600" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">Satiety per 100 kcal (approx)</text>
+              <!-- protein -->
+              <rect x="20" y="20" width="130" height="22" rx="3" fill="#1D9E75" opacity="0.85"/>
+              <text x="24" y="35" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">Protein ████████████</text>
+              <!-- fat -->
+              <rect x="20" y="50" width="90" height="22" rx="3" fill="#EF9F27" opacity="0.85"/>
+              <text x="24" y="65" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">Fat ████████</text>
+              <!-- carbs -->
+              <rect x="20" y="80" width="60" height="22" rx="3" fill="#378ADD" opacity="0.85"/>
+              <text x="24" y="95" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">Carbs ████</text>
+              <text x="20" y="113" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">Relative — varies by food type &amp; individual</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART C -->
     <div class="sec">Part C · reading real food — what's actually inside</div>
 
     <div style="margin-bottom: 1.2rem;">
@@ -103,50 +328,130 @@
       <p style="font-size: 12px; color: var(--color-text-secondary); margin: 6px 0 0;">That 27g of sugar = about 6–7 teaspoons. The WHO recommends ≤25g free sugar per day for an adult. One Snickers already exceeds it.</p>
     </div>
 
+    <!-- NEW: How to read a nutrition label -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:12px;">How to read a nutrition label — annotated</div>
+      <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start;">
+
+        <!-- Replica label -->
+        <div class="food-label" aria-label="Example nutrition facts label for a hypothetical food product">
+          <div class="fl-title">Nutrition Facts</div>
+          <div class="fl-serving">8 servings per container<br><strong>Serving size</strong> <span style="float:right;font-weight:700;">2/3 cup (55g)</span></div>
+          <div class="fl-cal-row">
+            <div>
+              <div class="fl-cal-label">Amount per serving</div>
+              <div style="font-size:13px;font-weight:700;">Calories</div>
+            </div>
+            <div class="fl-cal-num">230</div>
+          </div>
+          <div style="text-align:right;font-size:10px;font-weight:700;border-bottom:0.5px solid #ccc;padding-bottom:2px;">% Daily Value*</div>
+          <div class="fl-row fl-row-bold"><span>Total Fat 8g</span><span>10%</span></div>
+          <div class="fl-row fl-row-indent"><span>Saturated Fat 1g</span><span>5%</span></div>
+          <div class="fl-row fl-row-indent"><span><em>Trans</em> Fat 0g</span><span></span></div>
+          <div class="fl-row fl-row-bold"><span>Cholesterol 0mg</span><span>0%</span></div>
+          <div class="fl-row fl-row-bold"><span>Sodium 160mg</span><span>7%</span></div>
+          <div class="fl-row fl-row-bold"><span>Total Carbohydrate 37g</span><span>13%</span></div>
+          <div class="fl-row fl-row-indent"><span>Dietary Fiber 4g</span><span>14%</span></div>
+          <div class="fl-row fl-row-indent"><span>Total Sugars 12g</span><span></span></div>
+          <div class="fl-row fl-row-indent" style="padding-left:20px;"><span>Includes 10g Added Sugars</span><span>20%</span></div>
+          <div class="fl-row fl-row-bold" style="border-bottom:4px solid #000;"><span>Protein 3g</span><span></span></div>
+          <div class="fl-row"><span>Vitamin D 2mcg</span><span>10%</span></div>
+          <div class="fl-row"><span>Calcium 260mg</span><span>20%</span></div>
+          <div class="fl-row"><span>Iron 8mg</span><span>45%</span></div>
+          <div class="fl-row"><span>Potassium 235mg</span><span>6%</span></div>
+          <div class="fl-dv">* % Daily Values based on a 2,000 kcal diet. Your daily values may be higher or lower depending on your calorie needs.</div>
+        </div>
+
+        <!-- Annotations -->
+        <div style="flex:1; min-width:200px; font-size:12px; color:var(--color-text-secondary); line-height:1.8;">
+          <div style="margin-bottom:8px;"><strong style="color:var(--color-text-primary)">① Serving size is the key trap.</strong> Everything on this label is <em>per serving</em>. This container has 8 servings. Eat the whole box = multiply everything by 8. Most people don't.</div>
+          <div style="margin-bottom:8px;"><strong style="color:var(--color-text-primary)">② Calories = the headline number.</strong> 230 kcal per serving. Quick mental check: is this a meal or a snack? 230 kcal is a light snack for most adults.</div>
+          <div style="margin-bottom:8px;"><strong style="color:var(--color-text-primary)">③ % Daily Value is based on 2,000 kcal/day.</strong> 5% DV = low. 20% DV = high. Use it to compare products, not as gospel — your needs differ.</div>
+          <div style="margin-bottom:8px;"><strong style="color:var(--color-text-primary)">④ Added Sugars vs Total Sugars.</strong> "Total Sugars" includes naturally occurring sugar (fruit, milk). "Added Sugars" is the dangerous one — 10g here = 40% of the WHO daily max in one serving.</div>
+          <div><strong style="color:var(--color-text-primary)">⑤ Protein has no % DV.</strong> Regulators consider deficiency rare in Western diets. For active people, aim for body weight in kg × 1.2–2.0g daily.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: Sugar visualiser -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Sugar in teaspoons — a visual gut-check</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px;">Each cube = 1 teaspoon (~4g) of sugar. WHO daily max for adults = 6 teaspoons (25g).</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;" role="radiogroup" aria-label="Select a food to see its sugar content">
+        <button class="macro-btn active" onclick="showSugar('coke','Can of Coke (330ml)',9,'#E24B4A')" aria-pressed="true">Coke (330ml)</button>
+        <button class="macro-btn" onclick="showSugar('snickers','Snickers (52g)',7,'#EF9F27')" aria-pressed="false">Snickers</button>
+        <button class="macro-btn" onclick="showSugar('oj','Orange juice (250ml)',6,'#F4A823')" aria-pressed="false">Orange juice</button>
+        <button class="macro-btn" onclick="showSugar('yogurt','Flavoured yogurt (150g)',4,'#1D9E75')" aria-pressed="false">Yogurt</button>
+        <button class="macro-btn" onclick="showSugar('ketchup','Ketchup (3 tbsp ~45g)',2,'#C0392B')" aria-pressed="false">Ketchup</button>
+        <button class="macro-btn" onclick="showSugar('apple','Apple (medium ~182g)',5,'#4E99A3')" aria-pressed="false">Apple</button>
+      </div>
+      <div id="sugar-cubes" style="margin-bottom:8px; min-height:32px;" aria-live="polite"></div>
+      <div id="sugar-label" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART D -->
     <div class="sec">Part D · how far does 100 kcal go?</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How far does 100 kcal go? (exercise to burn it off)</div>
-      <div class="trow"><span class="tl">Running (fast)</span><div class="tb" style="width:20%; background:#1D9E75;"><span class="tv" style="color:#fff;">~8 min</span></div></div>
-      <div class="trow"><span class="tl">Cycling</span><div class="tb" style="width:30%; background:#5DCAA5;"><span class="tv" style="color:#04342C;">~15 min</span></div></div>
-      <div class="trow"><span class="tl">Brisk walking</span><div class="tb" style="width:50%; background:#9FE1CB;"><span class="tv" style="color:#04342C;">~25 min</span></div></div>
-      <div class="trow"><span class="tl">Sitting at a desk</span><div class="tb" style="width:100%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="tv" style="color:#085041;">~75 min</span></div></div>
+      <div class="bar-row">
+        <span class="bl">Running (fast)</span>
+        <div class="bb" style="width:20%; background:#1D9E75;"><span class="bv" style="color:#fff;">~8 min</span></div>
+      </div>
+      <div class="bar-row">
+        <span class="bl">Cycling</span>
+        <div class="bb" style="width:30%; background:#5DCAA5;"><span class="bv" style="color:#04342C;">~15 min</span></div>
+      </div>
+      <div class="bar-row">
+        <span class="bl">Brisk walking</span>
+        <div class="bb" style="width:50%; background:#9FE1CB;"><span class="bv" style="color:#04342C;">~25 min</span></div>
+      </div>
+      <div class="bar-row">
+        <span class="bl">Sitting at a desk</span>
+        <div class="bb" style="width:100%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="bv" style="color:#085041;">~75 min</span></div>
+      </div>
       <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">100 kcal = roughly a small apple, a plain rice cake with peanut butter, or 3 squares of dark chocolate. Exercise burns less than most people think — that croissant (250 kcal) needs 30 min of running to offset.</p>
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════ PART E -->
     <div class="sec">Part E · energy in the world — from food to nuclear weapons</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Energy released — logarithmic scale (in joules, J)</div>
       <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Each step up is ~1,000× more energy. 1 food calorie = 4,184 joules.</div>
-      <div class="trow"><span class="tl">Lifting 1 kg by 1 metre</span><div class="tb" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="tv" style="color:#0C447C; margin-left:4px; font-size:10px;">~10 J</span></div></div>
-      <div class="trow"><span class="tl">1 food calorie (1 kcal)</span><div class="tb" style="width:0.6%; background:#B5D4F4;"><span class="tv" style="color:#042C53; margin-left:4px; font-size:10px;">~4,200 J</span></div></div>
-      <div class="trow"><span class="tl">Human daily food (2,000 kcal)</span><div class="tb" style="width:2%; background:#85B7EB;"><span class="tv" style="color:#042C53; font-size:10px;">~8.4 MJ</span></div></div>
-      <div class="trow"><span class="tl">1 litre of petrol (burned)</span><div class="tb" style="width:4%; background:#378ADD;"><span class="tv" style="color:#fff; font-size:10px;">~34 MJ</span></div></div>
-      <div class="trow"><span class="tl">Lightning bolt</span><div class="tb" style="width:6%; background:#185FA5;"><span class="tv" style="color:#fff; font-size:10px;">~1–5 GJ (1–5 billion J)</span></div></div>
-      <div class="trow"><span class="tl">Full tank of car petrol (~50L)</span><div class="tb" style="width:8%; background:#0C447C;"><span class="tv" style="color:#E6F1FB; font-size:10px;">~1.7 GJ</span></div></div>
-      <div class="trow"><span class="tl">Hiroshima bomb (Little Boy)</span><div class="tb" style="width:30%; background:#633806;"><span class="tv" style="color:#fff;">~63 TJ (63 trillion J)</span></div></div>
-      <div class="trow"><span class="tl">Largest H-bomb ever (Tsar Bomba)</span><div class="tb" style="width:100%; background:#3C3489;"><span class="tv" style="color:#EEEDFE;">~210 PJ — 3,300× Hiroshima</span></div></div>
-      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Surprising fact: a lightning bolt (~1 billion joules) contains less total energy than a full car petrol tank (~1.7 billion joules). The difference is delivery speed — a lightning bolt releases its energy in microseconds. Your petrol tank releases it over hours. Energy rate (power) matters as much as total energy.</p>
+      <div class="energy-chart">
+        <div class="bar-row" data-val="~10 J"><span class="bl">Lifting 1 kg by 1 metre</span><div class="bb" style="width:0.4%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="bv" style="color:#0C447C; margin-left:4px; font-size:10px;">~10 J</span></div></div>
+        <div class="bar-row" data-val="~4,200 J"><span class="bl">1 food calorie (1 kcal)</span><div class="bb" style="width:0.6%; background:#B5D4F4;"><span class="bv" style="color:#042C53; margin-left:4px; font-size:10px;">~4,200 J</span></div></div>
+        <div class="bar-row" data-val="~8.4 MJ"><span class="bl">Human daily food (2,000 kcal)</span><div class="bb" style="width:2%; background:#85B7EB;"><span class="bv" style="color:#042C53; font-size:10px;">~8.4 MJ</span></div></div>
+        <div class="bar-row" data-val="~34 MJ"><span class="bl">1 litre of petrol (burned)</span><div class="bb" style="width:4%; background:#378ADD;"><span class="bv" style="color:#fff; font-size:10px;">~34 MJ</span></div></div>
+        <div class="bar-row" data-val="~250 MJ–1 GJ"><span class="bl">Lightning bolt</span><div class="bb" style="width:6%; background:#185FA5;"><span class="bv" style="color:#fff; font-size:10px;">~250 MJ–1 GJ</span></div></div>
+        <div class="bar-row" data-val="~1.7 GJ"><span class="bl">Full tank of car petrol (~50L)</span><div class="bb" style="width:8%; background:#0C447C;"><span class="bv" style="color:#E6F1FB; font-size:10px;">~1.7 GJ</span></div></div>
+        <div class="bar-row" data-val="~63 TJ"><span class="bl">Hiroshima bomb (Little Boy)</span><div class="bb" style="width:30%; background:#633806;"><span class="bv" style="color:#fff;">~63 TJ (63 trillion J)</span></div></div>
+        <div class="bar-row" data-val="~210 PJ — 3,300× Hiroshima"><span class="bl">Largest H-bomb ever (Tsar Bomba)</span><div class="bb" style="width:100%; background:#3C3489;"><span class="bv" style="color:#EEEDFE;">~210 PJ — 3,300× Hiroshima</span></div></div>
+      </div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Surprising fact: a typical lightning bolt (~250 MJ to ~1 GJ) contains <em>less</em> total energy than a full car petrol tank (~1.7 GJ). The difference is delivery speed — a lightning bolt releases its energy in microseconds. Your petrol tank releases it over hours. Energy rate (power) matters as much as total energy.</p>
     </div>
 
+    <!-- ═══════════════════════════════════════════════════════ PART F -->
     <div class="sec">Part F · interactive calorie calculator</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How long to burn off any food?</div>
       <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
-        <select id="food-sel" style="flex:1; min-width:160px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <label for="food-sel" class="sr-only">Choose a food</label>
+        <select id="food-sel" style="flex:1; min-width:160px;">
           <option value="52">Small apple (52 kcal)</option>
           <option value="250">Croissant (250 kcal)</option>
           <option value="300">Cheeseburger (300 kcal)</option>
           <option value="550">Big Mac (550 kcal)</option>
-          <option value="240">Can of Coke (240 kcal)</option>
-          <option value="160">Snickers bar (160 kcal)</option>
-          <option value="80">Glass of wine (80 kcal)</option>
+          <option value="140">Can of Coke (140 kcal)</option>
+          <option value="250">Snickers bar (250 kcal)</option>
+          <option value="130">Glass of wine (130 kcal)</option>
           <option value="100">Banana (100 kcal)</option>
           <option value="700">Pizza slice, large (700 kcal)</option>
         </select>
-        <select id="activity-sel" style="flex:1; min-width:160px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <label for="activity-sel" class="sr-only">Choose an activity</label>
+        <select id="activity-sel" style="flex:1; min-width:160px;">
           <option value="11.5">Running fast (11.5 kcal/min)</option>
           <option value="7">Cycling moderate (7 kcal/min)</option>
           <option value="4">Brisk walking (4 kcal/min)</option>
@@ -155,19 +460,193 @@
           <option value="0.9">Sleeping (0.9 kcal/min)</option>
         </select>
       </div>
-      <div id="calorie-result" style="font-size:14px; color:var(--color-text-primary); background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; line-height:1.8;"></div>
+      <div id="calorie-result" style="font-size:14px; color:var(--color-text-primary); background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; line-height:1.8;" aria-live="polite"></div>
     </div>
 
-    <div class="sec">Part G · anchor numbers to memorize</div>
+    <!-- ═══════════════════════════════════════════════════════ PART G (NEW) -->
+    <div class="sec">Part G · fibre — the forgotten macronutrient</div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">Why fibre deserves its own section</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        Fibre is a carbohydrate the body cannot digest — it passes through mostly intact, but does critical work on the way. It is not "inert bulk." It feeds gut bacteria (your microbiome), slows glucose absorption, lowers cholesterol, and keeps bowel movements regular. Most adults in wealthy countries eat about half the recommended amount.
+      </div>
+    </div>
+
+    <div class="cgrid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
+      <div class="card">
+        <p class="clabel">Recommended daily fibre</p>
+        <p class="cval">25–30 g</p>
+        <p class="cnote">WHO / dietary guidelines. Average Western adult gets ~15g. A 50% shortfall is typical.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Fibre in an apple (medium)</p>
+        <p class="cval">~4.5 g</p>
+        <p class="cnote">Apple juice has almost zero — the fibre is in the pulp. Whole fruit, not juice.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Fibre in white bread (slice)</p>
+        <p class="cval">~0.6 g</p>
+        <p class="cnote">Vs ~2g in a slice of wholegrain. Processing strips most of the fibre out.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Fibre in lentils (100g cooked)</p>
+        <p class="cval">~8 g</p>
+        <p class="cnote">One of the best sources. Legumes, oats, and vegetables are the practical high-fibre staples.</p>
+      </div>
+    </div>
+
+    <!-- Fibre sources comparison chart SVG -->
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Fibre content per serving — common foods compared</div>
+      <div class="bar-row"><span class="bl">Lentils, 100g cooked</span><div class="bb" style="width:80%; background:#1D9E75;"><span class="bv" style="color:#fff;">8 g</span></div></div>
+      <div class="bar-row"><span class="bl">Black beans, 100g cooked</span><div class="bb" style="width:75%; background:#2AAB80;"><span class="bv" style="color:#fff;">7.5 g</span></div></div>
+      <div class="bar-row"><span class="bl">Oats, 40g dry (1 serving)</span><div class="bb" style="width:40%; background:#5DCAA5;"><span class="bv" style="color:#04342C;">4 g</span></div></div>
+      <div class="bar-row"><span class="bl">Apple, medium (~182g)</span><div class="bb" style="width:45%; background:#9FE1CB;"><span class="bv" style="color:#04342C;">4.5 g</span></div></div>
+      <div class="bar-row"><span class="bl">Broccoli, 100g</span><div class="bb" style="width:26%; background:#B8ECD8;"><span class="bv" style="color:#085041;">2.6 g</span></div></div>
+      <div class="bar-row"><span class="bl">Wholegrain bread, 1 slice</span><div class="bb" style="width:20%; background:#D4F4EA;"><span class="bv" style="color:#085041;">2 g</span></div></div>
+      <div class="bar-row"><span class="bl">White bread, 1 slice</span><div class="bb" style="width:6%; background:#E1F5EE; border:0.5px solid #9FE1CB;"><span class="bv" style="color:#085041;">0.6 g</span></div></div>
+      <p style="font-size:11px; color:var(--color-text-secondary); margin:10px 0 0;">Rule of thumb: ≥5g fibre per serving = "high fibre." ≥3g = "source of fibre" (EU labelling). Legumes beat everything else by a wide margin.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART H (NEW) -->
+    <div class="sec">Part H · food label estimation game</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Guess the calories — 5 rounds</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">You'll be shown a real food and a quantity. Pick the closest calorie estimate.</div>
+      <div id="cg-progress" style="font-size:11px; color:var(--color-text-tertiary); margin-bottom:8px;"></div>
+      <div id="cg-question" style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;"></div>
+      <div id="cg-options" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;"></div>
+      <div id="cg-feedback" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; min-height:36px;"></div>
+      <div id="cg-score-board" style="display:none; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:13px;"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART I (NEW) -->
+    <div class="sec">Part I · the glycaemic index — why not all carbs are equal</div>
+
+    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 11px 14px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">What is the glycaemic index (GI)?</div>
+      <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7;">
+        GI measures how fast a carbohydrate food raises blood glucose, on a scale of 0–100 (pure glucose = 100). High-GI foods cause a rapid spike and subsequent crash. Low-GI foods cause a slower, steadier rise. GI matters most for diabetics and athletes, but it's a useful mental model for everyone: it explains why you're hungry 90 minutes after white toast but not after oats.
+      </div>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 640 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Glycaemic index scale showing foods from low GI to high GI">
+        <!-- Background -->
+        <rect width="640" height="200" fill="none"/>
+        <!-- GI scale bar -->
+        <defs>
+          <linearGradient id="gi-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#1D9E75" stop-opacity="0.8"/>
+            <stop offset="50%" stop-color="#EF9F27" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#E24B4A" stop-opacity="0.8"/>
+          </linearGradient>
+        </defs>
+        <rect x="40" y="60" width="560" height="18" rx="4" fill="url(#gi-grad)"/>
+        <!-- Zone labels -->
+        <text x="40" y="55" font-size="9" fill="var(--color-text-success)" font-family="system-ui,sans-serif" font-weight="600">LOW (&lt;55)</text>
+        <text x="266" y="55" font-size="9" fill="var(--color-text-warning)" font-family="system-ui,sans-serif" font-weight="600">MEDIUM (55–69)</text>
+        <text x="526" y="55" font-size="9" fill="var(--color-text-danger)" font-family="system-ui,sans-serif" font-weight="600">HIGH (≥70)</text>
+        <!-- Scale numbers -->
+        <text x="40" y="94" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">0</text>
+        <text x="320" y="94" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">50</text>
+        <text x="600" y="94" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">100</text>
+        <!-- Food markers: x = 40 + (gi/100)*560 -->
+        <!-- Lentils GI=29 → x=202 -->
+        <line x1="202" y1="62" x2="202" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="202" y="112" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">Lentils</text>
+        <text x="202" y="122" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 29</text>
+        <!-- Oats GI=55 → x=348 -->
+        <line x1="348" y1="62" x2="348" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="348" y="138" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">Oats</text>
+        <text x="348" y="148" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 55</text>
+        <!-- Brown rice GI=50 → x=320 -->
+        <line x1="320" y1="62" x2="320" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="320" y="112" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">Brown rice</text>
+        <text x="320" y="122" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 50</text>
+        <!-- White bread GI=75 → x=460 -->
+        <line x1="460" y1="62" x2="460" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="460" y="138" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">White bread</text>
+        <text x="460" y="148" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 75</text>
+        <!-- Banana GI=62 → x=387 -->
+        <line x1="387" y1="62" x2="387" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="387" y="112" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">Banana</text>
+        <text x="387" y="122" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 62</text>
+        <!-- White rice GI=72 → x=443 -->
+        <line x1="443" y1="62" x2="443" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <!-- slightly nudge label to avoid overlap with white bread -->
+        <text x="443" y="165" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">White rice</text>
+        <text x="443" y="175" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 72</text>
+        <!-- Watermelon GI=80 → x=488 -->
+        <line x1="488" y1="62" x2="488" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="488" y="112" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">Watermelon</text>
+        <text x="488" y="122" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 80</text>
+        <!-- Glucose GI=100 → x=600 -->
+        <line x1="598" y1="62" x2="598" y2="78" stroke="#fff" stroke-width="1.2"/>
+        <text x="598" y="138" font-size="9" fill="var(--color-text-primary)" font-family="system-ui,sans-serif" text-anchor="middle">Glucose</text>
+        <text x="598" y="148" font-size="8" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif" text-anchor="middle">GI 100</text>
+        <!-- note -->
+        <text x="320" y="193" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui,sans-serif">GI is measured in isolation. Combining foods (fat, protein, fibre with carbs) lowers effective GI of the meal.</text>
+      </svg>
+    </div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">GI — the nuances that matter</div>
+      <div class="anchor-row">
+        <span class="pill p-amber">GL &gt; GI</span>
+        <div><div class="atext">Glycaemic Load = GI × carb amount ÷ 100</div><div class="asub">Watermelon has a high GI (80) but a low GL (~5 per serving) because it's mostly water. GL is a better real-world metric than GI alone.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-green">Context</span>
+        <div><div class="atext">Fat and protein lower a meal's effective GI</div><div class="asub">Eating white rice alone spikes blood sugar fast. Eating it with chicken and olive oil slows digestion considerably. This is why isolated GI numbers can mislead.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-blue">Cooking</span>
+        <div><div class="atext">Cooking method changes GI</div><div class="asub">Al dente pasta has a lower GI than overcooked pasta. Cooled, then reheated rice has a lower GI than freshly cooked (resistant starch forms on cooling).</div></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART J (NEW) -->
+    <div class="sec">Part J · food label decoder — interactive</div>
+
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Calculate calories from a label</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">Enter the macros from any nutrition label and see the calorie breakdown.</div>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:10px; margin-bottom:12px;">
+        <div>
+          <label for="ld-fat" style="font-size:11px; color:var(--color-text-secondary); display:block; margin-bottom:3px;">Fat (g)</label>
+          <input type="number" id="ld-fat" min="0" max="200" value="8" step="0.5">
+        </div>
+        <div>
+          <label for="ld-carb" style="font-size:11px; color:var(--color-text-secondary); display:block; margin-bottom:3px;">Carbohydrate (g)</label>
+          <input type="number" id="ld-carb" min="0" max="200" value="37" step="0.5">
+        </div>
+        <div>
+          <label for="ld-protein" style="font-size:11px; color:var(--color-text-secondary); display:block; margin-bottom:3px;">Protein (g)</label>
+          <input type="number" id="ld-protein" min="0" max="200" value="3" step="0.5">
+        </div>
+        <div>
+          <label for="ld-servings" style="font-size:11px; color:var(--color-text-secondary); display:block; margin-bottom:3px;">Servings eaten</label>
+          <input type="number" id="ld-servings" min="0.5" max="20" value="1" step="0.5">
+        </div>
+      </div>
+      <button onclick="calcLabel()" style="margin-bottom:12px;">Calculate</button>
+      <div id="ld-result" aria-live="polite"></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════ PART K (anchor) -->
+    <div class="sec">Part K · anchor numbers to memorize</div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1.2rem;">
       <div class="anchor-row">
         <span class="pill p-red">2,000 kcal</span>
-        <div><div class="atext">Average human daily energy need</div><div class="asub">Fat = 9 kcal/g. Carbs & protein = 4 kcal/g each.</div></div>
+        <div><div class="atext">Average human daily energy need</div><div class="asub">Fat = 9 kcal/g. Carbs &amp; protein = 4 kcal/g each.</div></div>
       </div>
       <div class="anchor-row">
         <span class="pill p-purple">~80 W</span>
-        <div><div class="atext">Resting human heat output</div><div class="asub">A human body radiates as much as a dim light bulb, continuously.</div></div>
+        <div><div class="atext">Resting human heat output</div><div class="asub">A human body radiates as much as a standard incandescent light bulb, continuously.</div></div>
       </div>
       <div class="anchor-row">
         <span class="pill p-blue">23%</span>
@@ -177,9 +656,18 @@
         <span class="pill p-amber">25 g</span>
         <div><div class="atext">WHO recommended maximum free sugar per day</div><div class="asub">About 6 teaspoons. One Snickers bar (27g sugar) already exceeds this.</div></div>
       </div>
+      <div class="anchor-row">
+        <span class="pill p-green">25–30 g</span>
+        <div><div class="atext">Daily fibre target</div><div class="asub">Most Western adults get only ~15g. Legumes, oats, and whole vegetables are the practical solutions.</div></div>
+      </div>
+      <div class="anchor-row">
+        <span class="pill p-teal">GI &lt;55</span>
+        <div><div class="atext">Low glycaemic index threshold</div><div class="asub">Lentils (29), oats (55), brown rice (50). Combines with GL for real-world usefulness.</div></div>
+      </div>
     </div>
 
-    <div class="sec">Part H · test yourself</div>
+    <!-- ═══════════════════════════════════════════════════════ PART L (test yourself) -->
+    <div class="sec">Part L · test yourself</div>
 
     <div class="qa">
       <p class="qa-q">1. You eat 300g of chicken breast for dinner. How much protein is that?</p>
@@ -190,7 +678,7 @@
     <div class="qa">
       <p class="qa-q">2. A person eats 3 Snickers bars. How many teaspoons of sugar is that?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">About 20 teaspoons. Each bar has ~27g sugar, three bars = ~81g. One teaspoon of sugar ≈ 4g, so 81 ÷ 4 ≈ 20 teaspoons. That's more than 3x the WHO daily recommended limit in a single snack.</div>
+      <div class="qa-ans">About 20 teaspoons. Each bar has ~27g sugar, three bars = ~81g. One teaspoon of sugar ≈ 4g, so 81 ÷ 4 ≈ 20 teaspoons. That's more than 3× the WHO daily recommended limit in a single snack.</div>
     </div>
 
     <div class="qa">
@@ -205,14 +693,64 @@
       <div class="qa-ans">About 347 kcal. Fat: 15g × 9 kcal/g = 135 kcal. Carbs: 45g × 4 kcal/g = 180 kcal. Protein: 8g × 4 kcal/g = 32 kcal. Total: 135 + 180 + 32 = 347 kcal per 100g. The fat contributes the most calories despite being only 15g — because fat is 9 kcal/g, more than double carbs or protein. This is the fundamental label-reading skill: multiply and add.</div>
     </div>
 
+    <div class="qa">
+      <p class="qa-q">5. You see two cereals. Cereal A: 30g serving, GI 70, 22g carbs. Cereal B: 40g serving, GI 40, 28g carbs. Which has the higher glycaemic load?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Cereal A: GL = 70 × 22 ÷ 100 = 15.4. Cereal B: GL = 40 × 28 ÷ 100 = 11.2. Cereal A has the higher GL despite its smaller serving size. The high GI (70) overwhelms the lower carb quantity. This is why GL is more useful than GI alone — it accounts for how much carbohydrate you're actually eating.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">6. A bag of chips lists "per 30g serving: 10g fat, 17g carbs, 2g protein." You eat 90g (the whole bag). How many kcal did you consume?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The label is per 30g, so multiply everything by 3: 30g fat, 51g carbs, 6g protein. Now apply kcal/g: 30 × 9 = 270 kcal (fat) + 51 × 4 = 204 kcal (carbs) + 6 × 4 = 24 kcal (protein) = 498 kcal total. Nearly 500 kcal for a bag of chips most people eat as a snack. The serving size trap is real.</div>
+    </div>
+
     <script>
+/* ─── Macronutrient tab switcher ─── */
+function showMacro(id) {
+  ['carb','fat','protein'].forEach(function(k) {
+    document.getElementById('macro-'+k).classList.toggle('show', k===id);
+    var btn = document.getElementById('tab-'+k);
+    btn.classList.toggle('active', k===id);
+    btn.setAttribute('aria-selected', k===id ? 'true' : 'false');
+  });
+}
+
+/* ─── Sugar visualiser ─── */
+var sugarBtns = document.querySelectorAll('[onclick^="showSugar"]');
+function showSugar(id, name, teaspoons, color) {
+  sugarBtns.forEach(function(b){ b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+  event.target.classList.add('active'); event.target.setAttribute('aria-pressed','true');
+  var max = 12, container = document.getElementById('sugar-cubes');
+  var html = '';
+  for (var i = 0; i < max; i++) {
+    var isFilled = i < teaspoons;
+    var isLimit  = i === 5; // 6th cube = WHO limit line
+    html += '<span class="sugar-cube" style="background:' + (isFilled ? color : 'var(--color-background-tertiary)') + '; border:0.5px solid var(--color-border-tertiary);' + (isLimit ? ' outline:2px solid var(--color-text-secondary); outline-offset:1px;' : '') + '" title="' + (i < teaspoons ? 'Sugar' : 'Empty') + '"></span>';
+    if (isLimit) {
+      html += '<span style="font-size:9px; color:var(--color-text-tertiary); margin:0 3px; vertical-align:middle;">← WHO max</span>';
+    }
+  }
+  document.getElementById('sugar-cubes').innerHTML = html;
+  var overUnder = teaspoons > 6
+    ? '<strong style="color:var(--color-text-danger);">' + (teaspoons-6) + ' teaspoon' + (teaspoons-6!==1?'s':'') + ' over</strong> the WHO daily maximum.'
+    : teaspoons === 6
+    ? '<strong>Exactly at</strong> the WHO daily maximum.'
+    : '<strong style="color:var(--color-text-success);">' + (6-teaspoons) + ' teaspoon' + (6-teaspoons!==1?'s':'') + ' under</strong> the WHO daily maximum.';
+  document.getElementById('sugar-label').innerHTML =
+    '<strong>' + name + '</strong> contains approximately <strong>' + teaspoons + ' teaspoon' + (teaspoons!==1?'s':'') + '</strong> (~' + (teaspoons*4) + 'g) of sugar. That is ' + overUnder;
+}
+// Init
+showSugar('coke','Can of Coke (330ml)',9,'#E24B4A');
+
+/* ─── Calorie calculator ─── */
 function updateCalc() {
-  const kcal = parseInt(document.getElementById('food-sel').value);
-  const rate = parseFloat(document.getElementById('activity-sel').value);
-  const mins = kcal / rate;
-  const foodLabel = document.getElementById('food-sel').selectedOptions[0].text;
-  const actLabel  = document.getElementById('activity-sel').selectedOptions[0].text.split(' (')[0];
-  let timeStr;
+  var kcal = parseInt(document.getElementById('food-sel').value);
+  var rate = parseFloat(document.getElementById('activity-sel').value);
+  var mins = kcal / rate;
+  var foodLabel = document.getElementById('food-sel').selectedOptions[0].text;
+  var actLabel  = document.getElementById('activity-sel').selectedOptions[0].text.split(' (')[0];
+  var timeStr;
   if (mins < 60) timeStr = Math.round(mins) + ' minutes';
   else timeStr = Math.floor(mins/60) + ' hr ' + Math.round(mins%60) + ' min';
   document.getElementById('calorie-result').innerHTML =
@@ -220,10 +758,129 @@ function updateCalc() {
     actLabel + ': <strong>' + timeStr + '</strong> to burn it off.<br>' +
     '<span style="color:var(--color-text-secondary); font-size:12px;">That\'s ' + (kcal/rate).toFixed(1) + ' minutes at ' + rate + ' kcal/min.</span>';
 }
-
 document.getElementById('food-sel').addEventListener('change', updateCalc);
 document.getElementById('activity-sel').addEventListener('change', updateCalc);
 updateCalc();
+
+/* ─── Label decoder ─── */
+function calcLabel() {
+  var fat      = parseFloat(document.getElementById('ld-fat').value)     || 0;
+  var carb     = parseFloat(document.getElementById('ld-carb').value)    || 0;
+  var protein  = parseFloat(document.getElementById('ld-protein').value) || 0;
+  var servings = parseFloat(document.getElementById('ld-servings').value) || 1;
+  var fatKcal  = fat * 9;
+  var carbKcal = carb * 4;
+  var protKcal = protein * 4;
+  var totalPerServing = fatKcal + carbKcal + protKcal;
+  var totalEaten = totalPerServing * servings;
+  var pctFat  = totalPerServing > 0 ? Math.round(fatKcal/totalPerServing*100) : 0;
+  var pctCarb = totalPerServing > 0 ? Math.round(carbKcal/totalPerServing*100) : 0;
+  var pctProt = totalPerServing > 0 ? 100 - pctFat - pctCarb : 0;
+  // mini SVG pie-ish (stacked horizontal bar)
+  var barW = 280;
+  var fatW  = Math.round(barW * pctFat/100);
+  var carbW = Math.round(barW * pctCarb/100);
+  var protW = barW - fatW - carbW;
+  var svgBar = '<svg viewBox="0 0 280 28" width="100%" style="max-width:280px;display:block;margin:10px 0;" xmlns="http://www.w3.org/2000/svg" aria-label="Calorie breakdown bar">'
+    + (fatW  > 0 ? '<rect x="0" y="4" width="'+fatW+'" height="20" fill="#EF9F27" rx="3"/>' : '')
+    + (carbW > 0 ? '<rect x="'+fatW+'" y="4" width="'+carbW+'" height="20" fill="#378ADD"/>' : '')
+    + (protW > 0 ? '<rect x="'+(fatW+carbW)+'" y="4" width="'+protW+'" height="20" fill="#1D9E75" rx="3"/>' : '')
+    + '<text x="4" y="17" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">' + (fatW>28?'Fat '+pctFat+'%':'') + '</text>'
+    + '<text x="'+(fatW+4)+'" y="17" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">' + (carbW>38?'Carbs '+pctCarb+'%':'') + '</text>'
+    + '<text x="'+(fatW+carbW+4)+'" y="17" font-size="9" fill="#fff" font-weight="600" font-family="system-ui,sans-serif">' + (protW>44?'Protein '+pctProt+'%':'') + '</text>'
+    + '</svg>';
+  var daily = Math.round(totalEaten/2000*100);
+  document.getElementById('ld-result').innerHTML =
+    '<div style="font-size:13px; color:var(--color-text-primary);">'
+    + '<strong>' + Math.round(totalPerServing) + ' kcal</strong> per serving'
+    + (servings !== 1 ? ' &nbsp;·&nbsp; <strong>' + Math.round(totalEaten) + ' kcal</strong> total (' + servings + ' servings)' : '')
+    + '</div>'
+    + svgBar
+    + '<div style="font-size:12px; color:var(--color-text-secondary); margin-top:4px;">'
+    + 'Fat: ' + Math.round(fatKcal*servings) + ' kcal &nbsp;·&nbsp; '
+    + 'Carbs: ' + Math.round(carbKcal*servings) + ' kcal &nbsp;·&nbsp; '
+    + 'Protein: ' + Math.round(protKcal*servings) + ' kcal'
+    + '</div>'
+    + '<div style="font-size:12px; color:var(--color-text-secondary); margin-top:4px;">'
+    + 'That\'s <strong>' + daily + '%</strong> of a 2,000 kcal daily target.'
+    + '</div>';
+}
+calcLabel();
+
+/* ─── Calorie guessing game ─── */
+var cgQuestions = [
+  { q: '1 tablespoon of olive oil (15 ml)', answer: 120, choices: [40, 80, 120, 190], fact: 'Fat is 9 kcal/g — denser than any other macro. 15ml of olive oil weighs ~14g, so 14 × 9 ≈ 126 kcal. Cooking oils add calories faster than almost anything.' },
+  { q: '100g of boiled white rice', answer: 130, choices: [55, 130, 210, 340], fact: 'Cooked rice is mostly water — about 70% by weight. That dilutes the calories significantly. Raw rice would be ~360 kcal per 100g.' },
+  { q: 'A medium avocado (~150g)', answer: 240, choices: [80, 150, 240, 380], fact: 'Avocados are ~15% fat by weight — unusually high for a fruit. But it\'s mostly unsaturated fat. At 9 kcal/g, fat adds up even in "healthy" foods.' },
+  { q: 'A glass of whole milk (250ml)', answer: 150, choices: [60, 150, 230, 310], fact: 'Whole milk is ~3.5% fat and 4.7% lactose (sugar). 250ml ≈ 150 kcal. Skimmed milk is ~85 kcal for the same volume.' },
+  { q: '2 large eggs (scrambled, no butter)', answer: 150, choices: [80, 150, 220, 300], fact: 'Each large egg is roughly 75 kcal — mostly from protein (6g) and fat (5g). The yolk contains all the fat and most of the micronutrients.' }
+];
+var cgCurrent = 0, cgScore = 0, cgAnswered = false;
+
+function cgRender() {
+  if (cgCurrent >= cgQuestions.length) { cgShowScore(); return; }
+  var q = cgQuestions[cgCurrent];
+  cgAnswered = false;
+  document.getElementById('cg-progress').textContent = 'Question ' + (cgCurrent+1) + ' of ' + cgQuestions.length + ' · Score: ' + cgScore;
+  document.getElementById('cg-question').textContent = q.q;
+  document.getElementById('cg-feedback').textContent = '';
+  var opts = document.getElementById('cg-options');
+  opts.innerHTML = '';
+  q.choices.forEach(function(c) {
+    var btn = document.createElement('button');
+    btn.className = 'quiz-opt';
+    btn.textContent = c + ' kcal';
+    btn.setAttribute('aria-label', c + ' kilocalories');
+    btn.onclick = function() { cgAnswer(c, q, btn); };
+    opts.appendChild(btn);
+  });
+}
+
+function cgAnswer(chosen, q, btn) {
+  if (cgAnswered) return;
+  cgAnswered = true;
+  var allBtns = document.getElementById('cg-options').querySelectorAll('.quiz-opt');
+  allBtns.forEach(function(b) { b.onclick = null; });
+  var isCorrect = chosen === q.answer;
+  if (isCorrect) { cgScore++; btn.classList.add('correct'); }
+  else {
+    btn.classList.add('wrong');
+    allBtns.forEach(function(b) { if (parseInt(b.textContent) === q.answer) b.classList.add('correct'); });
+  }
+  var fb = document.getElementById('cg-feedback');
+  fb.style.display = 'block';
+  fb.style.color = isCorrect ? 'var(--color-text-success)' : 'var(--color-text-danger)';
+  fb.innerHTML = (isCorrect ? '✓ Correct! ' : '✗ The answer was ' + q.answer + ' kcal. ') + q.fact
+    + ' <button onclick="cgNext()" style="margin-left:8px; font-size:11px; padding:3px 10px;">'
+    + (cgCurrent < cgQuestions.length - 1 ? 'Next →' : 'See score →')
+    + '</button>';
+}
+
+function cgNext() {
+  cgCurrent++;
+  cgRender();
+}
+
+function cgShowScore() {
+  document.getElementById('cg-progress').textContent = '';
+  document.getElementById('cg-question').textContent = '';
+  document.getElementById('cg-options').innerHTML = '';
+  document.getElementById('cg-feedback').textContent = '';
+  var sb = document.getElementById('cg-score-board');
+  sb.style.display = 'block';
+  var msgs = ['Keep studying — the facts are worth knowing!', 'Decent start — the macro maths will click with practice.', 'Good — you have solid food number intuition.', 'Great — that\'s real nutritional literacy.', 'Perfect score — you\'ve got a genuine sense for food energy.'];
+  sb.innerHTML = '<strong>Score: ' + cgScore + ' / ' + cgQuestions.length + '</strong><br>'
+    + '<span style="color:var(--color-text-secondary); font-size:12px;">' + msgs[cgScore] + '</span><br><br>'
+    + '<button onclick="cgRestart()" style="font-size:12px;">↺ Play again</button>';
+}
+
+function cgRestart() {
+  cgCurrent = 0; cgScore = 0;
+  document.getElementById('cg-score-board').style.display = 'none';
+  cgRender();
+}
+
+cgRender();
     </script>
   </div>
   <script src="../files/shared.js"></script>
