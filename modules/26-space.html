@@ -414,7 +414,7 @@
     <div class="sec">Part D · Earth's Moon — everything worth knowing</div>
 
     <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-bottom:10px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:15px; margin-bottom:10px;">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Distance from Earth</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">384,400 km</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">Light: 1.3 sec. Varies: 356,500 (perigee) to 406,700 km (apogee)</p></div>
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Diameter</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">3,474 km</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">27% of Earth's. Largest moon relative to its planet (except Charon/Pluto)</p></div>
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;"><p class="clabel" style="text-align:center;">Orbital period</p><p style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin:0;">27.3 days</p><p style="font-size:11px; color:var(--color-text-secondary); margin:3px 0 0;">Sidereal (relative to stars). Lunar month (new moon to new moon): 29.5 days</p></div>
@@ -657,35 +657,11 @@
 
     <!-- Launchers grid -->
     <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-text-secondary); margin-bottom:8px;">Launch vehicles</div>
-    <div class="launcher-grid" style="margin-bottom:14px;">
-      <div class="launcher-card">
-        <div class="launcher-name">Falcon 1</div>
-        <div class="launcher-stat">First flight: <strong>2006</strong> (failed) → success: <strong>2008</strong></div>
-        <div class="launcher-stat">Payload to LEO: <strong>670 kg</strong></div>
-        <div style="font-size:11px; color:var(--color-text-secondary); margin-top:6px; line-height:1.4;">SpaceX's first rocket. Failed 3 times, nearly bankrupting the company. Flight 4 (Sep 2008) was the first privately developed liquid-fuelled rocket to reach orbit. Retired after 5 flights — succeeded by Falcon 9.</div>
-      </div>
-      <div class="launcher-card">
-        <div class="launcher-name">Falcon 9</div>
-        <div class="launcher-stat">First flight: <strong>2010</strong></div>
-        <div class="launcher-stat">Payload to LEO: <strong>22,800 kg</strong> (expendable)</div>
-        <div class="launcher-stat">Booster reuse record: <strong>25 flights</strong> (2024)</div>
-        <div style="font-size:11px; color:var(--color-text-secondary); margin-top:6px; line-height:1.4;">The workhorse of the commercial space era. First stage lands vertically (on drone ships or land) and is reused. Block 5 version (since 2018) designed for 10+ reuses with minimal refurbishment. Dramatically reduced the cost of reaching orbit.</div>
-      </div>
-      <div class="launcher-card">
-        <div class="launcher-name">Falcon Heavy</div>
-        <div class="launcher-stat">First flight: <strong>Feb 2018</strong></div>
-        <div class="launcher-stat">Payload to LEO: <strong>63,800 kg</strong></div>
-        <div class="launcher-stat">Payload to Mars: <strong>16,800 kg</strong></div>
-        <div style="font-size:11px; color:var(--color-text-secondary); margin-top:6px; line-height:1.4;">Three Falcon 9 first stages strapped together. Inaugural flight launched Elon Musk's personal Tesla Roadster toward Mars orbit (it's still out there). Most powerful operational rocket until Starship. Both side boosters land simultaneously in a choreographed dual touchdown.</div>
-      </div>
-      <div class="launcher-card" style="border-color:#4E99A3;">
-        <div class="launcher-name" style="color:#4E99A3;">Starship / Super Heavy</div>
-        <div class="launcher-stat">First integrated flight: <strong>Apr 2023</strong></div>
-        <div class="launcher-stat">Target payload to LEO: <strong>~150,000 kg</strong> (fully reusable)</div>
-        <div class="launcher-stat">Height: <strong>121 m</strong> (tallest rocket ever)</div>
-        <div style="font-size:11px; color:var(--color-text-secondary); margin-top:6px; line-height:1.4;">Fully stainless steel, fully reusable two-stage system. Super Heavy booster uses 33 Raptor engines (methane/LOX). The "chopstick" catch system at the launch tower catches the booster mid-air. Designed for point-to-point Earth travel, Moon landings (NASA Artemis contract), and eventually Mars colonisation. If cost targets are met, it would be transformative for all of spaceflight.</div>
-      </div>
-    </div>
+    <!-- Launch Vehicles - Tabbed Version -->
+    <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin:18px 0 8px;">Launch vehicles</div>
+    
+    <div class="tab-bar" id="launcher-tabs"></div>
+    <div class="tab-panel" id="launcher-panel" style="margin-bottom:1.5rem;"></div>
 
     <!-- SpaceX mission tabs -->
     <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-text-secondary); margin-bottom:8px;">Key missions &amp; programmes</div>
@@ -1105,6 +1081,67 @@
 
   buildMissionTabs();
 
+  /* ─────────────────────────────────────────────
+   SPACEX LAUNCH VEHICLES TABS
+  ───────────────────────────────────────────── */
+  const launchVehicles = [
+    {
+      tab: "Falcon 9",
+      content: `<div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Falcon 9 Block 5 — The Workhorse</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px;">
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">70 m</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">22,800 kg (reusable) / ~28 t expendable</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">9 Merlin 1D (first stage)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Reusability</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">First stage lands on drone ship or ground — flown 20+ times</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">The most flown orbital rocket in history. Powers almost all Starlink launches, ISS cargo/crew missions, and commercial satellites. Extremely high cadence (often >100 launches per year).</div>`
+    },
+    {
+      tab: "Falcon Heavy",
+      content: `<div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Falcon Heavy — Heavy-lift champion</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px;">
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">70 m</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">63,800 kg (expendable) / ~30+ t reusable</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">27 Merlin 1D (3 cores)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Notable</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">Side boosters land simultaneously — most powerful operational rocket until Starship</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">Used for high-energy missions (NASA Psyche, Europa Clipper, military payloads, and some Starlink batches). Side boosters can be reused on Falcon 9 missions.</div>`
+    },
+    {
+      tab: "Starship",
+      content: `<div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Starship / Super Heavy — The Future</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px;">
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">~120–130 m (stack)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">100–150 t fully reusable / up to 250 t expendable</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">33 Raptor (Super Heavy) + 3–9 Raptor (Starship)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Goal</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">Full reusability, Mars colonization, point-to-point Earth transport</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">SpaceX’s next-generation fully reusable system. Designed to replace Falcon 9/Heavy in the long term. Rapidly iterating through test flights with the goal of catching the booster mid-air and achieving orbital refueling.</div>`
+    }
+  ];
+  
+  function buildLauncherTabs() {
+    const tabBar = document.getElementById('launcher-tabs');
+    const panel = document.getElementById('launcher-panel');
+    
+    launchVehicles.forEach((v, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'tab-btn' + (i === 0 ? ' active' : '');
+      btn.textContent = v.tab;
+      btn.onclick = () => {
+        document.querySelectorAll('#launcher-tabs .tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        panel.innerHTML = v.content;
+      };
+      tabBar.appendChild(btn);
+    });
+    
+    // Show first tab by default
+    panel.innerHTML = launchVehicles[0].content;
+  }
+  
+  buildLauncherTabs();
+    
   /* ─────────────────────────────────────────────
      SPACEX MISSION TABS
   ───────────────────────────────────────────── */
