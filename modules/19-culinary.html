@@ -125,7 +125,7 @@
 .method-table tr:hover td { background: var(--color-background-secondary); }
 
 /* ── Pairing explorer ── */
-.pairing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-bottom: 1rem; }
+.pairing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-bottom: 1rem; }
 .pairing-btn { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 10px 12px; cursor: pointer; text-align: left; transition: all 0.12s; }
 .pairing-btn:hover, .pairing-btn.active { background: var(--color-background-secondary); border-color: var(--color-border-secondary); }
 .pairing-btn .pb-label { font-size: 12px; font-weight: 500; color: var(--color-text-primary); }
@@ -652,7 +652,7 @@
 
     <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Cutlery positions — universally understood by trained restaurant staff</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:10px; margin-bottom:10px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:12px; margin-bottom:10px;">
         <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #97C459;">
           <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">Still eating / resting</div>
           <div style="font-size:12px; color:#3B6D11; line-height:1.5;">Fork and knife placed in an inverted V on the plate (continental) — knife on the right, fork on the left, tips crossing at top. Signals "I am still eating, please don't clear my plate."</div>
@@ -672,7 +672,7 @@
       </div>
 
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Other essential table etiquette</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:8px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:12px;">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
           <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Bread</div>
           <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Tear bread with your hands, never cut it. Butter each small piece as you eat it, not the whole slice at once. Bread plate is to your left.</div>
@@ -1586,7 +1586,7 @@ function showPairing(key) {
   document.getElementById('flavour-result').innerHTML = `
     <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">${p.desc}</div>
     <div style="font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:8px;">Pairs well with:</div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:8px;">${pairsHtml}</div>`;
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:10px;">${pairsHtml}</div>`;
 }
 showPairing('chocolate');
 
