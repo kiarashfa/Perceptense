@@ -15,30 +15,232 @@
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-.def-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 10px; }
-.dh { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
-.dname { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
-.dbadge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
-.dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
-.dbox { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 8px 10px; }
-.dl { font-size: 11px; color: var(--color-text-secondary); margin-bottom: 2px; }
-.dv { font-size: 12px; font-weight: 500; color: var(--color-text-primary); line-height: 1.4; }
-.dnote { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+    /* Kinsey bar: scroll horizontally on narrow screens */
+    .kinsey-bar {
+      display: flex;
+      gap: 0;
+      margin-bottom: 10px;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 0.5px solid var(--color-border-tertiary);
+      min-width: 420px;
+    }
+    .kinsey-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: 10px;
+    }
+
+    /* Metric stat cards: 2-col grid on small screens */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 600px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Three-concept grid: stack on mobile */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 640px) {
+      .concept-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Part B metric grid: 2-col on mobile */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 640px) {
+      .bio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* Two-col distinction grid */
+    .dist-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    @media (max-width: 540px) {
+      .dist-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Spectrum slider panel */
+    .spectrum-panel {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .spectrum-track {
+      position: relative;
+      height: 18px;
+      border-radius: 9px;
+      margin: 10px 0 6px;
+    }
+    .spectrum-dot {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--color-text-primary);
+      border: 3px solid var(--color-background-primary);
+      box-shadow: 0 0 0 2px var(--color-text-primary);
+      transition: left 0.1s;
+      cursor: grab;
+      z-index: 2;
+    }
+
+    /* Timeline rows */
+    .timeline-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 9px 0;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+    .timeline-row:last-child { border-bottom: none; }
+    .timeline-year {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4E99A3;
+      min-width: 48px;
+      padding-top: 1px;
+    }
+    .timeline-text {
+      font-size: 12px;
+      color: var(--color-text-primary);
+      line-height: 1.55;
+    }
+    .timeline-sub {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-top: 1px;
+    }
+
+    /* Comparison table */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .comp-table th {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      padding: 6px 10px;
+      text-align: left;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      background: var(--color-background-secondary);
+    }
+    .comp-table td {
+      padding: 7px 10px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.45;
+      vertical-align: top;
+    }
+    .comp-table tr:last-child td { border-bottom: none; }
+
+    /* SVG axis label */
+    .axis-label {
+      font-size: 11px;
+      fill: var(--color-text-secondary);
+    }
+
+    /* Two-axis model interactive */
+    .twoaxis-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .twoaxis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    @media (max-width: 560px) {
+      .twoaxis-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Country law map legend */
+    .law-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .law-swatch {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    .law-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Dot grid for population viz */
+    .dot-grid-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin: 8px 0;
+    }
+    .dot-pop {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Explorer btn active state */
+    .exp-btn.active {
+      background: var(--color-text-primary);
+      color: var(--color-background-primary);
+      border-color: var(--color-text-primary);
+    }
   </style>
 </head>
 <body>
   <div class="page-wrap">
-<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-  <i class="fa-solid fa-venus-mars" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-  <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 23: Sex, Gender & Orientation</h1>
-</div>
+
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
+      <i class="fa-solid fa-venus-mars" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
+      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 23: Sex, Gender & Orientation</h1>
+    </div>
     <p class="module-subtitle">Biology, identity, and social constructs</p>
 
-    <div class="sec">Part A · the three distinct concepts — often conflated, fundamentally different</div>
+    <!-- ============================================================
+         PART A — THREE DISTINCT CONCEPTS
+         ============================================================ -->
+    <div class="sec">Part A · three distinct concepts — often conflated, fundamentally different</div>
 
     <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Three separate dimensions — each independently variable</div>
-      <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:10px;">
+      <div class="concept-grid">
         <div style="background:#E6F1FB; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #85B7EB;">
           <div style="font-size:13px; font-weight:500; color:#042C53; margin-bottom:4px;">Biological sex</div>
           <div style="font-size:12px; color:#0C447C; line-height:1.6; margin-bottom:6px;">The biological characteristics: chromosomes, hormones, gonads, and anatomy. Primarily determined at conception; develops through fetal development and puberty. Mostly binary in distribution but includes variation (intersex).</div>
@@ -60,13 +262,65 @@
       </div>
     </div>
 
+    <!-- SVG: Three-axis independence diagram -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; overflow-x:auto;">
+      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.06em; font-size:10px;">Three independent axes — any combination is possible</div>
+      <svg viewBox="0 0 780 100" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:520px; height:auto; display:block;">
+        <!-- Axis 1: Biological sex -->
+        <text x="2" y="18" font-size="10" font-weight="600" fill="#0C447C" letter-spacing="0.08em" text-transform="uppercase">BIOLOGICAL SEX</text>
+        <rect x="2" y="25" width="234" height="14" rx="7" fill="#E6F1FB" stroke="#85B7EB" stroke-width="0.5"/>
+        <text x="6" y="36" font-size="9" fill="#185FA5">Male</text>
+        <text x="110" y="36" font-size="9" fill="#185FA5" text-anchor="middle">Intersex variation</text>
+        <text x="228" y="36" font-size="9" fill="#185FA5" text-anchor="end">Female</text>
+
+        <!-- Axis 2: Gender identity -->
+        <text x="272" y="18" font-size="10" font-weight="600" fill="#3C3489" letter-spacing="0.08em">GENDER IDENTITY</text>
+        <defs>
+          <linearGradient id="genderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#AFA9EC;stop-opacity:0.4"/>
+            <stop offset="50%" style="stop-color:#EEEDFE;stop-opacity:0.9"/>
+            <stop offset="100%" style="stop-color:#AFA9EC;stop-opacity:0.4"/>
+          </linearGradient>
+        </defs>
+        <rect x="272" y="25" width="234" height="14" rx="7" fill="url(#genderGrad)" stroke="#AFA9EC" stroke-width="0.5"/>
+        <text x="276" y="36" font-size="9" fill="#3C3489">Man</text>
+        <text x="389" y="36" font-size="9" fill="#3C3489" text-anchor="middle">Non-binary spectrum</text>
+        <text x="498" y="36" font-size="9" fill="#3C3489" text-anchor="end">Woman</text>
+
+        <!-- Axis 3: Sexual orientation -->
+        <text x="542" y="18" font-size="10" font-weight="600" fill="#085041" letter-spacing="0.08em">SEXUAL ORIENTATION</text>
+        <defs>
+          <linearGradient id="orientGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#5DCAA5;stop-opacity:0.5"/>
+            <stop offset="50%" style="stop-color:#E1F5EE;stop-opacity:0.9"/>
+            <stop offset="100%" style="stop-color:#5DCAA5;stop-opacity:0.5"/>
+          </linearGradient>
+        </defs>
+        <rect x="542" y="25" width="234" height="14" rx="7" fill="url(#orientGrad)" stroke="#5DCAA5" stroke-width="0.5"/>
+        <text x="546" y="36" font-size="9" fill="#085041">Same-sex</text>
+        <text x="659" y="36" font-size="9" fill="#085041" text-anchor="middle">Bi / Pan / Asexual</text>
+        <text x="772" y="36" font-size="9" fill="#085041" text-anchor="end">Opposite</text>
+
+        <!-- Labels at bottom -->
+        <text x="119" y="72" font-size="9" fill="#888780" text-anchor="middle">Bimodal — most clearly M or F</text>
+        <text x="119" y="83" font-size="9" fill="#888780" text-anchor="middle">with ~1.7% intersex variation</text>
+        <text x="389" y="72" font-size="9" fill="#888780" text-anchor="middle">Psychologically determined;</text>
+        <text x="389" y="83" font-size="9" fill="#888780" text-anchor="middle">independent of biological sex</text>
+        <text x="659" y="72" font-size="9" fill="#888780" text-anchor="middle">Pattern of attraction; independent</text>
+        <text x="659" y="83" font-size="9" fill="#888780" text-anchor="middle">of both sex and gender identity</text>
+      </svg>
+    </div>
+
+    <!-- ============================================================
+         PART B — BIOLOGICAL SEX
+         ============================================================ -->
     <div class="sec">Part B · biological sex — the biology in detail</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="bio-grid">
       <div class="card">
         <p class="clabel">Chromosomal sex</p>
         <p class="cval">XX, XY, and variations</p>
-        <p class="cnote">Typically: XX = female, XY = male. The Y chromosome carries the SRY gene which triggers male development. But chromosomal variations exist: XXY (Klinefelter syndrome, ~1 in 650 males), XYY, X0 (Turner syndrome), XXX. Chromosomes determine initial gonadal development but are not the whole story — all subsequent sex characteristics depend on hormones.</p>
+        <p class="cnote">Typically: XX = female, XY = male. The Y chromosome carries the SRY gene which triggers male development. But chromosomal variations exist: XXY (Klinefelter syndrome, ~1 in 500–650 males), XYY, X0 (Turner syndrome, ~1 in 2,500 females), XXX. Chromosomes determine initial gonadal development but are not the whole story — all subsequent sex characteristics depend on hormones.</p>
       </div>
       <div class="card">
         <p class="clabel">Hormonal sex</p>
@@ -85,72 +339,147 @@
       </div>
       <div class="card">
         <p class="clabel">Sex determination — the timeline</p>
-        <p class="cval">Genetically determined, anatomically expressed later</p>
-        <p class="cnote">Chromosomal sex is set at fertilisation. The embryo is anatomically "undifferentiated" until about week 6–7. SRY triggers testes development ~week 7; testosterone from fetal testes drives male anatomy week 8–12. Without this hormonal cascade, female anatomy develops. External genitalia differentiate from the same embryonic structures (homologous organs).</p>
+        <p class="cval">Genetically set, anatomically expressed later</p>
+        <p class="cnote">Chromosomal sex is set at fertilisation. The embryo is anatomically undifferentiated until about week 6–7. SRY triggers testes development ~week 7; testosterone from fetal testes drives male anatomy week 8–12. Without this hormonal cascade, female anatomy develops. External genitalia differentiate from the same embryonic structures (homologous organs).</p>
       </div>
       <div class="card">
         <p class="clabel">Sex is mostly binary, not entirely</p>
         <p class="cval">Bimodal distribution, not a strict binary</p>
-        <p class="cnote">The statement "biological sex is binary" is approximately true — the vast majority of people are clearly chromosomally, hormonally, and anatomically male or female. But variations exist at every level, and the ~1.7% intersex estimate (though disputed — some narrow definitions give ~0.018%) is comparable in scale to red hair. Biology accommodates the spectrum even if the distribution is strongly bimodal.</p>
+        <p class="cnote">The statement "biological sex is binary" is approximately true — the vast majority of people are clearly chromosomally, hormonally, and anatomically male or female. But variations exist at every level. The ~1.7% intersex estimate (narrower clinical definitions give ~0.018%) is comparable in scale to red hair. Biology accommodates the spectrum even if the distribution is strongly bimodal.</p>
       </div>
     </div>
 
+    <!-- SVG: Fetal sex development timeline -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; overflow-x:auto;">
+      <div style="font-size:10px; font-weight:600; letter-spacing:0.06em; color:var(--color-text-secondary); text-transform:uppercase; margin-bottom:10px;">Fetal sex differentiation timeline</div>
+      <svg viewBox="0 0 720 130" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:480px; height:auto; display:block;">
+        <!-- Timeline spine -->
+        <line x1="30" y1="50" x2="700" y2="50" stroke="var(--color-border-tertiary)" stroke-width="1.5"/>
+
+        <!-- Week markers -->
+        <line x1="30"  y1="45" x2="30"  y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <line x1="120" y1="45" x2="120" y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <line x1="210" y1="45" x2="210" y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <line x1="310" y1="45" x2="310" y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <line x1="430" y1="45" x2="430" y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <line x1="580" y1="45" x2="580" y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <line x1="700" y1="45" x2="700" y2="55" stroke="var(--color-border-secondary)" stroke-width="1"/>
+
+        <text x="30"  y="66" font-size="9" fill="#888780" text-anchor="middle">0</text>
+        <text x="120" y="66" font-size="9" fill="#888780" text-anchor="middle">wk 4</text>
+        <text x="210" y="66" font-size="9" fill="#888780" text-anchor="middle">wk 7</text>
+        <text x="310" y="66" font-size="9" fill="#888780" text-anchor="middle">wk 10</text>
+        <text x="430" y="66" font-size="9" fill="#888780" text-anchor="middle">wk 14</text>
+        <text x="580" y="66" font-size="9" fill="#888780" text-anchor="middle">wk 20</text>
+        <text x="700" y="66" font-size="9" fill="#888780" text-anchor="middle">Birth</text>
+
+        <!-- Events -->
+        <!-- Fertilisation: chromosomal sex set -->
+        <circle cx="30" cy="50" r="5" fill="#0C447C"/>
+        <text x="30" y="36" font-size="9" fill="#0C447C" text-anchor="middle">Chromosomal</text>
+        <text x="30" y="26" font-size="9" fill="#0C447C" text-anchor="middle">sex set</text>
+
+        <!-- Bipotential gonad forms -->
+        <circle cx="120" cy="50" r="5" fill="#888780"/>
+        <text x="120" y="36" font-size="9" fill="#888780" text-anchor="middle">Bipotential</text>
+        <text x="120" y="26" font-size="9" fill="#888780" text-anchor="middle">gonad forms</text>
+
+        <!-- SRY / gonadal differentiation -->
+        <circle cx="210" cy="50" r="5" fill="#4E99A3"/>
+        <text x="210" y="36" font-size="9" fill="#4E99A3" text-anchor="middle">SRY triggers</text>
+        <text x="210" y="26" font-size="9" fill="#4E99A3" text-anchor="middle">testes / ovaries</text>
+
+        <!-- Internal structures -->
+        <circle cx="310" cy="50" r="5" fill="#085041"/>
+        <text x="310" y="36" font-size="9" fill="#085041" text-anchor="middle">Internal anatomy</text>
+        <text x="310" y="26" font-size="9" fill="#085041" text-anchor="middle">differentiates</text>
+
+        <!-- External genitalia -->
+        <circle cx="430" cy="50" r="5" fill="#633806"/>
+        <text x="430" y="36" font-size="9" fill="#633806" text-anchor="middle">External genitalia</text>
+        <text x="430" y="26" font-size="9" fill="#633806" text-anchor="middle">differentiate</text>
+
+        <!-- Sex assigned at birth -->
+        <circle cx="700" cy="50" r="5" fill="#712B13"/>
+        <text x="700" y="36" font-size="9" fill="#712B13" text-anchor="middle">Sex assigned</text>
+        <text x="700" y="26" font-size="9" fill="#712B13" text-anchor="middle">at birth</text>
+
+        <!-- Hormone wave below -->
+        <text x="370" y="85" font-size="9" fill="#888780" text-anchor="middle">↑ Testosterone surge (if testes present) drives male development — without it, female anatomy is default</text>
+        <text x="370" y="99" font-size="9" fill="#888780" text-anchor="middle">Brain differentiation also occurs during this window — relevant to gender identity research</text>
+      </svg>
+    </div>
+
+    <!-- ============================================================
+         PART C — GENDER IDENTITY EXPLORER
+         ============================================================ -->
     <div class="sec">Part C · gender identity — the spectrum explored</div>
 
     <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showGender('cisgender')"     style="font-size:12px; padding:3px 10px;">Cisgender</button>
-      <button onclick="showGender('transgender')"   style="font-size:12px; padding:3px 10px;">Transgender</button>
-      <button onclick="showGender('nonbinary')"     style="font-size:12px; padding:3px 10px;">Non-binary</button>
-      <button onclick="showGender('genderfluid')"   style="font-size:12px; padding:3px 10px;">Genderfluid</button>
-      <button onclick="showGender('agender')"       style="font-size:12px; padding:3px 10px;">Agender</button>
-      <button onclick="showGender('genderqueer')"   style="font-size:12px; padding:3px 10px;">Genderqueer</button>
-      <button onclick="showGender('dysphoria')"     style="font-size:12px; padding:3px 10px;">Gender dysphoria</button>
-      <button onclick="showGender('transition')"    style="font-size:12px; padding:3px 10px;">Transition</button>
+      <button class="exp-btn" onclick="showGender('cisgender')"     style="font-size:12px; padding:3px 10px;">Cisgender</button>
+      <button class="exp-btn" onclick="showGender('transgender')"   style="font-size:12px; padding:3px 10px;">Transgender</button>
+      <button class="exp-btn" onclick="showGender('nonbinary')"     style="font-size:12px; padding:3px 10px;">Non-binary</button>
+      <button class="exp-btn" onclick="showGender('genderfluid')"   style="font-size:12px; padding:3px 10px;">Genderfluid</button>
+      <button class="exp-btn" onclick="showGender('agender')"       style="font-size:12px; padding:3px 10px;">Agender</button>
+      <button class="exp-btn" onclick="showGender('genderqueer')"   style="font-size:12px; padding:3px 10px;">Genderqueer</button>
+      <button class="exp-btn" onclick="showGender('dysphoria')"     style="font-size:12px; padding:3px 10px;">Gender dysphoria</button>
+      <button class="exp-btn" onclick="showGender('transition')"    style="font-size:12px; padding:3px 10px;">Transition</button>
     </div>
     <div id="gender-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
 
+    <!-- ============================================================
+         PART D — SEXUAL ORIENTATION EXPLORER
+         ============================================================ -->
     <div class="sec">Part D · sexual orientation — the full spectrum</div>
 
     <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showOrient('heterosexual')" style="font-size:12px; padding:3px 10px;">Heterosexual</button>
-      <button onclick="showOrient('homosexual')"  style="font-size:12px; padding:3px 10px;">Homosexual (gay/lesbian)</button>
-      <button onclick="showOrient('bisexual')"    style="font-size:12px; padding:3px 10px;">Bisexual</button>
-      <button onclick="showOrient('pansexual')"   style="font-size:12px; padding:3px 10px;">Pansexual</button>
-      <button onclick="showOrient('asexual')"     style="font-size:12px; padding:3px 10px;">Asexual</button>
-      <button onclick="showOrient('demisexual')"  style="font-size:12px; padding:3px 10px;">Demisexual</button>
-      <button onclick="showOrient('aromantic')"   style="font-size:12px; padding:3px 10px;">Aromantic</button>
-      <button onclick="showOrient('queer')"       style="font-size:12px; padding:3px 10px;">Queer</button>
+      <button class="exp-btn" onclick="showOrient('heterosexual')" style="font-size:12px; padding:3px 10px;">Heterosexual</button>
+      <button class="exp-btn" onclick="showOrient('homosexual')"   style="font-size:12px; padding:3px 10px;">Homosexual (gay/lesbian)</button>
+      <button class="exp-btn" onclick="showOrient('bisexual')"     style="font-size:12px; padding:3px 10px;">Bisexual</button>
+      <button class="exp-btn" onclick="showOrient('pansexual')"    style="font-size:12px; padding:3px 10px;">Pansexual</button>
+      <button class="exp-btn" onclick="showOrient('asexual')"      style="font-size:12px; padding:3px 10px;">Asexual</button>
+      <button class="exp-btn" onclick="showOrient('demisexual')"   style="font-size:12px; padding:3px 10px;">Demisexual</button>
+      <button class="exp-btn" onclick="showOrient('aromantic')"    style="font-size:12px; padding:3px 10px;">Aromantic</button>
+      <button class="exp-btn" onclick="showOrient('queer')"        style="font-size:12px; padding:3px 10px;">Queer</button>
     </div>
     <div id="orient-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
 
+    <!-- ============================================================
+         PART E — KINSEY SCALE
+         ============================================================ -->
     <div class="sec">Part E · the Kinsey scale — history and limitations</div>
 
     <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Alfred Kinsey's 0–6 scale (1948) — a landmark and a limitation</div>
-      <div style="display:flex; gap:0; margin-bottom:10px; border-radius:var(--border-radius-md); overflow:hidden; border:0.5px solid var(--color-border-tertiary);">
-        <div style="flex:1; background:#0C447C; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#E6F1FB;">0</div><div style="font-size:10px; color:#B5D4F4; margin-top:2px; line-height:1.3;">Exclusively heterosexual</div></div>
-        <div style="flex:1; background:#185FA5; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">1</div><div style="font-size:10px; color:#E6F1FB; margin-top:2px; line-height:1.3;">Mostly hetero, incidental same-sex</div></div>
-        <div style="flex:1; background:#378ADD; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">2</div><div style="font-size:10px; color:#E6F1FB; margin-top:2px; line-height:1.3;">Mostly hetero, more than incidental</div></div>
-        <div style="flex:1; background:#888780; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">3</div><div style="font-size:10px; color:#F1EFE8; margin-top:2px; line-height:1.3;">Equally hetero and homosexual</div></div>
-        <div style="flex:1; background:#D4537E; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">4</div><div style="font-size:10px; color:#FBEAF0; margin-top:2px; line-height:1.3;">Mostly homosexual, more than incidental</div></div>
-        <div style="flex:1; background:#993556; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">5</div><div style="font-size:10px; color:#FBEAF0; margin-top:2px; line-height:1.3;">Mostly homosexual, incidental hetero</div></div>
-        <div style="flex:1; background:#4B1528; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#F4C0D1;">6</div><div style="font-size:10px; color:#ED93B1; margin-top:2px; line-height:1.3;">Exclusively homosexual</div></div>
+      <div class="kinsey-wrap">
+        <div class="kinsey-bar">
+          <div style="flex:1; background:#0C447C; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#E6F1FB;">0</div><div style="font-size:10px; color:#B5D4F4; margin-top:2px; line-height:1.3;">Exclusively heterosexual</div></div>
+          <div style="flex:1; background:#185FA5; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">1</div><div style="font-size:10px; color:#E6F1FB; margin-top:2px; line-height:1.3;">Mostly hetero, incidental same-sex</div></div>
+          <div style="flex:1; background:#378ADD; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">2</div><div style="font-size:10px; color:#E6F1FB; margin-top:2px; line-height:1.3;">Mostly hetero, more than incidental</div></div>
+          <div style="flex:1; background:#888780; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">3</div><div style="font-size:10px; color:#F1EFE8; margin-top:2px; line-height:1.3;">Equally hetero and homosexual</div></div>
+          <div style="flex:1; background:#D4537E; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">4</div><div style="font-size:10px; color:#FBEAF0; margin-top:2px; line-height:1.3;">Mostly homosexual, more than incidental</div></div>
+          <div style="flex:1; background:#993556; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#fff;">5</div><div style="font-size:10px; color:#FBEAF0; margin-top:2px; line-height:1.3;">Mostly homosexual, incidental hetero</div></div>
+          <div style="flex:1; background:#4B1528; padding:8px 6px; text-align:center;"><div style="font-size:13px; font-weight:500; color:#F4C0D1;">6</div><div style="font-size:10px; color:#ED93B1; margin-top:2px; line-height:1.3;">Exclusively homosexual</div></div>
+        </div>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+      <div class="dist-grid">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
           <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">What it contributed</div>
           <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Kinsey's 1948 "Sexual Behavior in the Human Male" was groundbreaking: it quantified that non-heterosexual behaviour and attraction were far more common than society admitted, and challenged the idea that sexuality was simply binary. It introduced the idea of a spectrum of orientation. Revolutionised scientific and public understanding.</div>
         </div>
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
           <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Its limitations</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The scale only captures one dimension (same-sex vs opposite-sex attraction) and conflates behaviour with attraction. It doesn't capture asexuality (no attraction to anyone), pansexuality (attraction regardless of gender), or the distinction between romantic and sexual attraction. Modern models (Klein Sexual Orientation Grid, Storms model) attempt to address these gaps.</div>
+          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The scale only captures one dimension (same-sex vs opposite-sex attraction) and conflates behaviour with attraction. It doesn't capture asexuality (no attraction to anyone), pansexuality, or the distinction between romantic and sexual attraction. Modern models (Klein Sexual Orientation Grid, Storms model) attempt to address these gaps.</div>
         </div>
       </div>
     </div>
 
+    <!-- ============================================================
+         PART F — THREE IMPORTANT DISTINCTIONS
+         ============================================================ -->
     <div class="sec">Part F · three important distinctions</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="dist-grid">
       <div class="card">
         <p class="clabel">Orientation vs behaviour vs identity</p>
         <p class="cval">Three separate things</p>
@@ -159,12 +488,12 @@
       <div class="card">
         <p class="clabel">Romantic vs sexual attraction</p>
         <p class="cval">Separable components</p>
-        <p class="cnote">Sexual attraction: physical/sexual desire. Romantic attraction: desire for emotional intimacy, partnership, and romance. Most people experience both for the same gender(s). But some are romantically attracted to one gender and sexually to another (e.g., heteroromantic bisexual). Asexual people may have strong romantic attraction without sexual. The two-axis model captures this better than the Kinsey scale.</p>
+        <p class="cnote">Sexual attraction: physical/sexual desire. Romantic attraction: desire for emotional intimacy, partnership, and romance. Most people experience both for the same gender(s). But some are romantically attracted to one gender and sexually to another. Asexual people may have strong romantic attraction without sexual. The two-axis model captures this better than the Kinsey scale.</p>
       </div>
       <div class="card">
         <p class="clabel">Gender expression vs gender identity</p>
         <p class="cval">How you present vs who you are</p>
-        <p class="cnote">Gender expression is external: clothing, hair, mannerisms, pronoun preferences. Gender identity is internal: your sense of being a man, woman, neither, or other. These often align but don't have to. A cisgender man may have a feminine gender expression without this affecting his gender identity. A transgender woman may present in traditionally masculine ways in some contexts. Neither tells you about sexual orientation.</p>
+        <p class="cnote">Gender expression is external: clothing, hair, mannerisms, pronoun preferences. Gender identity is internal: your sense of being a man, woman, neither, or other. These often align but don't have to. A cisgender man may have a feminine gender expression without this affecting his gender identity. Neither tells you about sexual orientation.</p>
       </div>
       <div class="card">
         <p class="clabel">Sex assigned at birth vs gender</p>
@@ -173,11 +502,14 @@
       </div>
     </div>
 
+    <!-- ============================================================
+         PART G — PREVALENCE
+         ============================================================ -->
     <div class="sec">Part G · prevalence — what the numbers say</div>
 
     <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Population estimates — with important caveats about measurement</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:8px; margin-bottom:10px;">
+      <div class="stat-grid">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
           <div style="font-size:20px; font-weight:500; color:var(--color-text-primary);">~3–4%</div>
           <div style="font-size:11px; color:var(--color-text-secondary); margin-top:3px; line-height:1.4;">US adults identifying as gay or lesbian (Gallup 2023)</div>
@@ -187,7 +519,7 @@
           <div style="font-size:11px; color:var(--color-text-secondary); margin-top:3px; line-height:1.4;">US adults identifying as bisexual (largest LGB subgroup)</div>
         </div>
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
-          <div style="font-size:20px; font-weight:500; color:var(--color-text-primary);">~7.2%</div>
+          <div style="font-size:20px; font-weight:500; color:var(--color-text-primary);">~7.6%</div>
           <div style="font-size:11px; color:var(--color-text-secondary); margin-top:3px; line-height:1.4;">Gen Z adults in US identifying as LGBT+ (vs 2.6% of Baby Boomers)</div>
         </div>
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; text-align:center;">
@@ -199,12 +531,266 @@
           <div style="font-size:11px; color:var(--color-text-secondary); margin-top:3px; line-height:1.4;">Population identifying as asexual (varies by study: 0.4–4%)</div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+
+      <!-- Dot grid visualisation -->
+      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:6px; margin-top:4px;">Dot visualisation — 100 representative people, US adult population (approximate)</div>
+      <div id="dotGridWrap" class="dot-grid-wrap"></div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;">
+        <div class="law-swatch"><div class="law-dot" style="background:#0C447C;"></div><span>Straight (≈87%)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#3C3489;"></div><span>Gay/lesbian (≈3.5%)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#4E99A3;"></div><span>Bisexual (≈5.5%)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#D4537E;"></div><span>Other LGBT+ (≈4%)</span></div>
+      </div>
+
+      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-top:10px;">
         <strong style="color:var(--color-text-primary);">Why numbers vary so much:</strong> Stigma causes underreporting in less accepting environments. Self-labelling varies — many people attracted to the same sex don't use the label "gay" or "bisexual." Gen Z's higher rates reflect both genuine differences and greater willingness to identify. Measurement method matters enormously: anonymous surveys consistently produce higher rates than face-to-face interviews. The underlying rates of same-sex attraction are higher than the rates of self-identification as gay/lesbian/bisexual.
       </div>
     </div>
 
-    <div class="sec">Part H · test yourself</div>
+    <!-- ============================================================
+         PART H — GENERATION & COHORT TREND (NEW)
+         ============================================================ -->
+    <div class="sec">Part H · generational trends — how identification has changed</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">LGBT+ identification by US generation — Gallup longitudinal tracking</div>
+
+      <!-- Bar chart SVG -->
+      <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:8px;">
+        <!-- Y axis labels -->
+        <text x="38" y="170" font-size="9" fill="#888780" text-anchor="end">0%</text>
+        <text x="38" y="138" font-size="9" fill="#888780" text-anchor="end">2%</text>
+        <text x="38" y="106" font-size="9" fill="#888780" text-anchor="end">4%</text>
+        <text x="38" y="74"  font-size="9" fill="#888780" text-anchor="end">6%</text>
+        <text x="38" y="42"  font-size="9" fill="#888780" text-anchor="end">8%</text>
+        <text x="38" y="18"  font-size="9" fill="#888780" text-anchor="end">10%</text>
+
+        <!-- Gridlines -->
+        <line x1="42" y1="170" x2="660" y2="170" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
+        <line x1="42" y1="138" x2="660" y2="138" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="42" y1="106" x2="660" y2="106" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="42" y1="74"  x2="660" y2="74"  stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="42" y1="42"  x2="660" y2="42"  stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3,3"/>
+        <line x1="42" y1="14"  x2="660" y2="14"  stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="3,3"/>
+
+        <!-- Bars: scale is 0–10%, 170 = 0%, each 1% = 16px -->
+        <!-- Silent Generation: 1.3% -->
+        <rect x="60"  y="149.2" width="70" height="20.8" rx="3" fill="#B5D4F4"/>
+        <text x="95"  y="180" font-size="9" fill="#888780" text-anchor="middle">Silent Gen</text>
+        <text x="95"  y="190" font-size="9" fill="#888780" text-anchor="middle">born 1928–45</text>
+        <text x="95"  y="145" font-size="9" fill="#0C447C" text-anchor="middle">1.3%</text>
+
+        <!-- Baby Boomers: 2.6% -->
+        <rect x="170" y="128.4" width="70" height="41.6" rx="3" fill="#85B7EB"/>
+        <text x="205" y="180" font-size="9" fill="#888780" text-anchor="middle">Baby Boomers</text>
+        <text x="205" y="190" font-size="9" fill="#888780" text-anchor="middle">born 1946–64</text>
+        <text x="205" y="124" font-size="9" fill="#0C447C" text-anchor="middle">2.6%</text>
+
+        <!-- Gen X: 4.5% -->
+        <rect x="280" y="98" width="70" height="72" rx="3" fill="#4E99A3"/>
+        <text x="315" y="180" font-size="9" fill="#888780" text-anchor="middle">Gen X</text>
+        <text x="315" y="190" font-size="9" fill="#888780" text-anchor="middle">born 1965–80</text>
+        <text x="315" y="94" font-size="9" fill="#085041" text-anchor="middle">4.5%</text>
+
+        <!-- Millennials: 7.1% -->
+        <rect x="390" y="56.4" width="70" height="113.6" rx="3" fill="#3C3489"/>
+        <text x="425" y="180" font-size="9" fill="#888780" text-anchor="middle">Millennials</text>
+        <text x="425" y="190" font-size="9" fill="#888780" text-anchor="middle">born 1981–96</text>
+        <text x="425" y="52" font-size="9" fill="#3C3489" text-anchor="middle">7.1%</text>
+
+        <!-- Gen Z: 7.6% -->
+        <rect x="500" y="48.4" width="70" height="121.6" rx="3" fill="#712B13"/>
+        <text x="535" y="180" font-size="9" fill="#888780" text-anchor="middle">Gen Z</text>
+        <text x="535" y="190" font-size="9" fill="#888780" text-anchor="middle">born 1997–2012</text>
+        <text x="535" y="44" font-size="9" fill="#712B13" text-anchor="middle">7.6%</text>
+
+        <!-- Trend arrow -->
+        <path d="M95 149 L205 128 L315 98 L425 56 L535 48" fill="none" stroke="#4E99A3" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+      </svg>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+          <strong style="color:var(--color-text-primary);">Why the trend is rising:</strong> The increase from Boomers to Gen Z is real and substantial. The leading explanations are: greater social acceptance and reduced stigma enabling honest self-reporting; wider awareness of identity labels (especially bisexual, non-binary, queer) enabling identification; possible genuine cohort effects from reduced social pressure against same-sex attraction. The full explanation is probably all three, with measurement playing a significant role.
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+          <strong style="color:var(--color-text-primary);">Bisexual identification leads growth:</strong> The biggest driver of the increase is rising bisexual identification, particularly among women. Among Gen Z women, bisexual is more common than straight + gay combined in some surveys. This does not mean sexual behaviour has changed as dramatically — the gap between same-sex attraction (behaviour/attraction) and bisexual identity has historically been larger than the gap for gay/lesbian identification.
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART I — THE TWO-AXIS MODEL (NEW — INTERACTIVE)
+         ============================================================ -->
+    <div class="sec">Part I · the two-axis model — romantic and sexual attraction separately</div>
+
+    <div class="twoaxis-wrap">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">The romantic–sexual split: why one axis isn't enough</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55; margin-bottom:12px;">The Kinsey scale treats attraction as one-dimensional. But sexual and romantic attraction are empirically separable — most people experience them together, but for a meaningful minority they diverge. Explore combinations below.</div>
+
+      <div class="twoaxis-grid">
+        <div>
+          <div style="font-size:11px; font-weight:600; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Sexual attraction axis</div>
+          <div style="display:flex; flex-direction:column; gap:5px;" id="sexAxisBtns">
+            <button class="exp-btn" onclick="setAxis('sex','heterosexual')" style="font-size:12px; padding:4px 10px; text-align:left;">Heterosexual (attracted to different gender)</button>
+            <button class="exp-btn" onclick="setAxis('sex','bisexual')"     style="font-size:12px; padding:4px 10px; text-align:left;">Bisexual / pansexual</button>
+            <button class="exp-btn" onclick="setAxis('sex','homosexual')"   style="font-size:12px; padding:4px 10px; text-align:left;">Homosexual (attracted to same gender)</button>
+            <button class="exp-btn" onclick="setAxis('sex','asexual')"      style="font-size:12px; padding:4px 10px; text-align:left;">Asexual (little/no sexual attraction)</button>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px; font-weight:600; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Romantic attraction axis</div>
+          <div style="display:flex; flex-direction:column; gap:5px;" id="romAxisBtns">
+            <button class="exp-btn" onclick="setAxis('rom','heteroromantic')"  style="font-size:12px; padding:4px 10px; text-align:left;">Heteroromantic (romantic attraction to different gender)</button>
+            <button class="exp-btn" onclick="setAxis('rom','biromantic')"      style="font-size:12px; padding:4px 10px; text-align:left;">Biromantic / panromantic</button>
+            <button class="exp-btn" onclick="setAxis('rom','homoromantic')"    style="font-size:12px; padding:4px 10px; text-align:left;">Homoromantic (romantic attraction to same gender)</button>
+            <button class="exp-btn" onclick="setAxis('rom','aromantic')"       style="font-size:12px; padding:4px 10px; text-align:left;">Aromantic (little/no romantic attraction)</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="twoaxis-result" style="margin-top:12px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+        Select one option from each axis to see how they combine.
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART J — SCIENCE OF ORIENTATION (NEW)
+         ============================================================ -->
+    <div class="sec">Part J · the science of sexual orientation — what research shows</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Lines of evidence — where the science points and its limits</div>
+
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+        <button class="exp-btn" onclick="showScience('twin')"     style="font-size:12px; padding:3px 10px;">Twin studies</button>
+        <button class="exp-btn" onclick="showScience('birth')"    style="font-size:12px; padding:3px 10px;">Fraternal birth order</button>
+        <button class="exp-btn" onclick="showScience('brain')"    style="font-size:12px; padding:3px 10px;">Brain structure</button>
+        <button class="exp-btn" onclick="showScience('genetics')" style="font-size:12px; padding:3px 10px;">Genetics (GWAS)</button>
+        <button class="exp-btn" onclick="showScience('hormones')" style="font-size:12px; padding:3px 10px;">Prenatal hormones</button>
+        <button class="exp-btn" onclick="showScience('limits')"   style="font-size:12px; padding:3px 10px;">Limits of research</button>
+      </div>
+      <div id="science-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:13px; color:var(--color-text-primary); line-height:1.6; min-height:60px;">
+        Select a line of evidence to explore the research.
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART K — MEDICAL & DIAGNOSTIC HISTORY (NEW)
+         ============================================================ -->
+    <div class="sec">Part K · medical and legal history — the key milestones</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How the medical and legal framing has evolved</div>
+
+      <div class="timeline-row">
+        <div class="timeline-year">1948</div>
+        <div><div class="timeline-text">Kinsey publishes <em>Sexual Behavior in the Human Male</em> — first large-scale quantitative study of sexual behaviour. Introduces the 0–6 scale and demonstrates that same-sex behaviour is far more common than publicly acknowledged.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1952</div>
+        <div><div class="timeline-text">APA's DSM-I lists "homosexuality" as a "sociopathic personality disturbance." This classification was not based on clinical evidence but on societal attitudes prevailing at the time.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1969</div>
+        <div><div class="timeline-text">Stonewall riots, New York — patrons of a gay bar resist police raids. Widely credited as catalysing the modern LGBTQ+ rights movement.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1973</div>
+        <div><div class="timeline-text">APA removes homosexuality from the DSM-II, citing lack of evidence that it constitutes a disorder. Replaced with "Sexual Orientation Disturbance" (distress about orientation), which was itself removed in 1987.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1990</div>
+        <div><div class="timeline-text">WHO removes homosexuality from the ICD-10. May 17 is now celebrated as International Day Against Homophobia, Transphobia and Biphobia (IDAHOTB) to mark this date.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">1991</div>
+        <div><div class="timeline-text">Simon LeVay publishes study finding structural differences in the INAH-3 region of the hypothalamus between heterosexual and homosexual men, suggesting neurobiological components to orientation. Findings subsequently replicated with some refinements.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2003</div>
+        <div><div class="timeline-text"><em>Lawrence v. Texas</em> — US Supreme Court strikes down sodomy laws, decriminalising same-sex activity across the United States.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2013</div>
+        <div><div class="timeline-text">DSM-5 replaces "Gender Identity Disorder" with "Gender Dysphoria" — shifting focus from identity (not a disorder) to clinically significant distress. Major conceptual and terminological shift in transgender healthcare.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2015</div>
+        <div><div class="timeline-text"><em>Obergefell v. Hodges</em> — US Supreme Court rules same-sex marriage is constitutionally protected. Similar milestones occurred earlier in Netherlands (2001, first country), Spain (2005), Canada (2005).</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2019</div>
+        <div><div class="timeline-text">ICD-11 (WHO) removes "Gender Incongruence" from the mental health chapter and reclassifies it under "Conditions related to sexual health." Formally establishes that being transgender is not a mental illness.</div></div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-year">2019</div>
+        <div><div class="timeline-text">Large genome-wide association study (GWAS) of ~470,000 people in <em>Science</em> finds no single "gay gene" — rather, dozens of genetic variants each with small effects, accounting for 8–25% of variance in same-sex behaviour. Genetic effects not sufficient for prediction at individual level.</div></div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART L — GLOBAL LEGAL LANDSCAPE (NEW)
+         ============================================================ -->
+    <div class="sec">Part L · global legal landscape — a snapshot</div>
+
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Same-sex relationships — legal status by region (approximate 2024)</div>
+
+      <!-- Legend -->
+      <div class="law-legend" style="margin-bottom:10px;">
+        <div class="law-swatch"><div class="law-dot" style="background:#27500A;"></div><span>Marriage legal (~36 countries)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#4E99A3;"></div><span>Civil unions / partial recognition (~20 countries)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#888780;"></div><span>No recognition, legal (~70 countries)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#D4537E;"></div><span>Criminalised (~60 countries)</span></div>
+        <div class="law-swatch"><div class="law-dot" style="background:#4B1528;"></div><span>Death penalty possible (~11 countries)</span></div>
+      </div>
+
+      <!-- SVG world bar chart showing approximate country counts -->
+      <svg viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:10px;">
+        <!-- Scale note: approx 195 countries total; bar widths proportional -->
+        <!-- Marriage: 36/195 = 18.5% → 126px -->
+        <text x="2" y="24" font-size="10" fill="#27500A" font-weight="500">Marriage legal</text>
+        <rect x="160" y="13" width="125" height="14" rx="4" fill="#27500A" opacity="0.8"/>
+        <text x="290" y="24" font-size="10" fill="#27500A" font-weight="600">~36</text>
+
+        <!-- Civil unions: 20/195 = 10.3% → 70px -->
+        <text x="2" y="46" font-size="10" fill="#085041" font-weight="500">Civil union / partial</text>
+        <rect x="160" y="35" width="70" height="14" rx="4" fill="#4E99A3" opacity="0.8"/>
+        <text x="236" y="46" font-size="10" fill="#4E99A3" font-weight="600">~20</text>
+
+        <!-- No recognition, legal: 70/195 = 35.9% → 244px -->
+        <text x="2" y="68" font-size="10" fill="#888780" font-weight="500">No recognition (legal)</text>
+        <rect x="160" y="57" width="244" height="14" rx="4" fill="#888780" opacity="0.7"/>
+        <text x="409" y="68" font-size="10" fill="#888780" font-weight="600">~70</text>
+
+        <!-- Criminalised: 60/195 = 30.8% → 209px -->
+        <text x="2" y="90" font-size="10" fill="#D4537E" font-weight="500">Criminalised</text>
+        <rect x="160" y="79" width="209" height="14" rx="4" fill="#D4537E" opacity="0.75"/>
+        <text x="375" y="90" font-size="10" fill="#D4537E" font-weight="600">~60</text>
+
+        <!-- Death penalty: 11/195 = 5.6% → 38px -->
+        <text x="2" y="112" font-size="10" fill="#791F1F" font-weight="500">Death penalty possible</text>
+        <rect x="160" y="101" width="38" height="14" rx="4" fill="#4B1528" opacity="0.9"/>
+        <text x="204" y="112" font-size="10" fill="#791F1F" font-weight="600">~11</text>
+
+        <text x="2" y="140" font-size="9" fill="#888780">Data: ILGA World State-Sponsored Homophobia 2023. Country counts are approximate; legal status is complex in federal systems.</text>
+        <text x="2" y="153" font-size="9" fill="#888780">Scale bar shows proportion of ≈195 UN member states. Trend: marriage equality has expanded from 1 country (Netherlands, 2001) to 36+ over two decades.</text>
+      </svg>
+
+      <div class="dist-grid">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+          <strong style="color:var(--color-text-primary);">Where marriage equality exists:</strong> Predominantly Western Europe, North and South America (notably including Brazil, Argentina, Colombia, Mexico), South Africa, Australia, New Zealand, and Taiwan (Asia's first, 2019). The pace of adoption has accelerated: from 1 country in 2001 to 36+ by 2024.
+        </div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
+          <strong style="color:var(--color-text-primary);">Where criminalisation remains:</strong> Primarily across sub-Saharan Africa, the Middle East, Central and Southeast Asia. Death penalty provisions exist in parts of Iran, Saudi Arabia, Yemen, Qatar, UAE, and under some interpretations of law in Nigeria and Pakistan. Over 60 countries still criminalise consensual same-sex activity.
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         PART M — TEST YOURSELF
+         ============================================================ -->
+    <div class="sec">Part M · test yourself</div>
 
     <div class="qa">
       <p class="qa-q">1. What is the difference between being transgender and being intersex?</p>
@@ -227,103 +813,234 @@
     <div class="qa">
       <p class="qa-q">4. What does medical transition involve, and what are the different steps?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">Medical transition is not a single event but a range of possible interventions that a transgender person may pursue — some, all, or none. They are generally described in stages. Social transition (not medical): changing name, pronouns, clothing, and social presentation — often the first step, can occur at any age. Hormonal transition: cross-sex hormone therapy — transgender women take oestrogen (and often anti-androgens) to feminise; transgender men take testosterone to masculinise. Effects include changes in body fat distribution, skin, body hair, voice (testosterone), breast development (oestrogen), and emotional changes. These happen over months to years. Puberty blockers: for adolescents, GnRH agonists pause puberty, buying time for decision-making. Effects are largely reversible. Surgical options: vary widely — for transgender women, options include orchiectomy (removal of testes), vaginoplasty (construction of vagina), facial feminisation surgery, breast augmentation. For transgender men: mastectomy (top surgery) is most common; phalloplasty or metoidioplasty for genital surgery. Not all transgender people pursue surgery — it is a personal decision based on dysphoria, health, finances, and individual needs. The medical standard of care is guided by WPATH (World Professional Association for Transgender Health) Standards of Care.</div>
+      <div class="qa-ans">Medical transition is not a single event but a range of possible interventions that a transgender person may pursue — some, all, or none. Social transition (not medical): changing name, pronouns, clothing, and social presentation — often the first step, can occur at any age. Hormonal transition: cross-sex hormone therapy — transgender women take oestrogen (and often anti-androgens) to feminise; transgender men take testosterone to masculinise. Effects include changes in body fat distribution, skin, body hair, voice (testosterone), breast development (oestrogen), and emotional changes. These happen over months to years. Puberty blockers: for adolescents, GnRH agonists pause puberty, buying time for decision-making. Effects are largely reversible. Surgical options vary widely — for transgender women: orchiectomy, vaginoplasty, facial feminisation surgery, breast augmentation. For transgender men: mastectomy (top surgery) is most common; phalloplasty or metoidioplasty for genital surgery. Not all transgender people pursue surgery — it is a personal decision based on dysphoria, health, finances, and individual needs. The medical standard of care is guided by WPATH (World Professional Association for Transgender Health) Standards of Care.</div>
     </div>
 
     <div class="qa">
       <p class="qa-q">5. Is sexual orientation a choice? What does the scientific evidence say?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">The scientific consensus is clear: sexual orientation is not a conscious choice. The evidence comes from multiple directions. Twin studies: identical twins show higher concordance for same-sex orientation than fraternal twins, suggesting a genetic component — but concordance is not 100%, indicating environment (likely prenatal) also plays a role. Prenatal hormonal exposure: the fraternal birth order effect (gay men statistically have more older brothers than heterosexual men) is explained by a maternal immune response to male-specific proteins that increases with each male pregnancy. The H-Y antigen hypothesis suggests this affects prenatal brain development. Brain structure: studies (beginning with LeVay 1991) found structural differences in the hypothalamus between heterosexual and homosexual men. Finger length ratios (2D:4D): a marker of prenatal androgen exposure, shows consistent differences between lesbian women and heterosexual women. The most important practical point: "conversion therapy" — attempts to change sexual orientation through psychological or religious intervention — is not only ineffective but causes documented psychological harm, and is banned by professional medical organisations worldwide on this basis.</div>
+      <div class="qa-ans">The scientific consensus is clear: sexual orientation is not a conscious choice. The evidence comes from multiple directions. Twin studies: identical twins show higher concordance for same-sex orientation than fraternal twins, suggesting a genetic component — but concordance is not 100%, indicating environment (likely prenatal) also plays a role. Prenatal hormonal exposure: the fraternal birth order effect (gay men statistically have more older brothers than heterosexual men) is explained by a maternal immune response to male-specific proteins that increases with each male pregnancy. The H-Y antigen hypothesis suggests this affects prenatal brain development. Brain structure: studies (beginning with LeVay 1991) found structural differences in the hypothalamus between heterosexual and homosexual men. Finger length ratios (2D:4D): a marker of prenatal androgen exposure, shows consistent differences between lesbian women and heterosexual women. Large-scale GWAS (2019, ~470,000 participants) found dozens of genetic variants associated with same-sex behaviour but no single "gay gene" — confirming a complex, polygenic, and partly environmental picture. The most important practical point: "conversion therapy" — attempts to change sexual orientation through psychological or religious intervention — is not only ineffective but causes documented psychological harm, and is banned by professional medical organisations worldwide on this basis.</div>
     </div>
 
-    <script>
-const genders = {
-  cisgender: { name:'Cisgender', badge:'Gender identity matches sex assigned at birth', bg:'#E6F1FB', col:'#0C447C',
-    def:'A person whose gender identity corresponds with the sex they were assigned at birth. A cisgender woman was assigned female at birth and identifies as a woman; a cisgender man was assigned male at birth and identifies as a man.',
-    prevalence:'The majority of people are cisgender. The prefix "cis-" comes from Latin meaning "on the same side" — as opposed to "trans-" meaning "across." The term was introduced to provide a neutral, non-default descriptor rather than treating cisgender as the unmarked norm.',
-    nuance:'Being cisgender says nothing about gender expression (a cisgender person may have non-conforming gender expression), sexual orientation (cisgender people are gay, straight, bisexual, etc. in the same range as anyone), or personality. It is one descriptor among many.' },
-  transgender: { name:'Transgender', badge:'Gender identity differs from sex assigned at birth', bg:'#EEEDFE', col:'#3C3489',
-    def:'An umbrella term for people whose gender identity differs from the sex they were assigned at birth. A transgender woman was assigned male at birth but identifies as a woman. A transgender man was assigned female at birth but identifies as a man.',
-    prevalence:'Estimates: 0.5–1.7% of the population, though estimates vary considerably by study design, country, and age group. Younger generations (Gen Z) report higher rates of transgender identification.',
-    nuance:'Being transgender is not contingent on medical transition. A person is transgender because of their gender identity, not because of surgery or hormones. Not all transgender people experience dysphoria to the same degree. Transgender identity is recognised as a normal human variation by all major medical and psychological organisations. Sexual orientation is independent — transgender people are straight, gay, bisexual, etc.' },
-  nonbinary: { name:'Non-binary', badge:'Gender identity outside male/female binary', bg:'#EAF3DE', col:'#27500A',
-    def:'An umbrella term for gender identities that don\'t fit exclusively into the categories of man or woman. Non-binary people may identify as between genders, as a blend of both, as neither, as a third gender, or as having a fluctuating gender.',
-    prevalence:'A significant subset of those who identify as transgender also identify as non-binary. Surveys suggest 0.3–0.5% of the general population, higher in younger generations.',
-    nuance:'Non-binary is a descriptive category, not a uniform experience. Some non-binary people use they/them pronouns; others use he/him, she/her, or neopronouns (xe/xem, ze/zir). Non-binary identity can exist alongside various levels of transition. Many cultures throughout history have recognised genders beyond two (hijra in South Asia, fa\'afafine in Samoa, Two-Spirit in some Indigenous North American cultures).' },
-  genderfluid: { name:'Genderfluid', badge:'Gender identity that shifts over time', bg:'#FBEAF0', col:'#72243E',
-    def:'A gender identity that is not fixed — it changes or shifts over time, sometimes between masculine and feminine, sometimes across other gender experiences. The fluidity may vary day to day, situationally, or over longer periods.',
-    prevalence:'A subset of non-binary experiences. No reliable separate prevalence data.',
-    nuance:'Genderfluid is distinct from being non-binary in that it explicitly describes movement — a non-binary person may have a stable identity that doesn\'t fit the binary, while a genderfluid person\'s identity itself shifts. The shifting is experienced as genuine changes in gender identity, not just changes in expression or mood.' },
-  agender: { name:'Agender', badge:'Absence of gender identity', bg:'#F1EFE8', col:'#444441',
-    def:'A person who identifies as having no gender, a neutral gender, or considers gender inapplicable to themselves. Agender people may also describe themselves as genderless or gender-neutral.',
-    prevalence:'A subset of non-binary identities. Prevalence not well-established separately.',
-    nuance:'Agender is distinct from non-binary in emphasis — it is specifically the absence or neutrality of gender rather than a third or alternative gender. Some agender people prefer gender-neutral pronouns; others are comfortable with any pronouns. Agender identity says nothing about sexual orientation or biological sex.' },
-  genderqueer: { name:'Genderqueer', badge:'Challenges or rejects gender norms', bg:'#EEEDFE', col:'#3C3489',
-    def:'An older term (predating "non-binary") describing a gender identity that challenges or rejects conventional gender norms. Some use it interchangeably with non-binary; others use it with a more explicitly political connotation — queering gender as a social construct.',
-    prevalence:'Overlaps significantly with non-binary. Often used by older people who adopted the term before "non-binary" became widespread.',
-    nuance:'Genderqueer carries a more explicitly activist or political history — it emerged from queer theory and gender studies. Some prefer it for its challenge to the gender system itself rather than just claiming a position outside the binary. The terms non-binary and genderqueer are often used interchangeably in everyday speech.' },
-  dysphoria: { name:'Gender dysphoria', badge:'Clinical term for distress from gender-sex mismatch', bg:'#FAECE7', col:'#712B13',
-    def:'Gender dysphoria (DSM-5) describes significant distress or impairment arising from an incongruence between one\'s experienced gender and sex assigned at birth. It is the clinical distress, not the identity itself, that constitutes the diagnosis.',
-    prevalence:'Not all transgender or non-binary people experience clinical-level gender dysphoria. Many experience gender incongruence without the degree of distress required for the clinical diagnosis.',
-    nuance:'The ICD-11 (WHO 2019) reclassified what was "Transsexualism" as "Gender Incongruence" and moved it out of the mental health chapter into sexual health. This reflects the consensus that being transgender is not a mental illness. Dysphoria can manifest as body dysphoria (distress about physical characteristics), social dysphoria (distress at being gendered incorrectly), or both. Effective treatment is gender-affirming care, which reduces dysphoria and is associated with significantly improved mental health outcomes.' },
-  transition: { name:'Transition', badge:'Process of aligning life with gender identity', bg:'#E1F5EE', col:'#085041',
-    def:'Transition is the process by which transgender people align their social roles, bodies, and/or legal documents with their gender identity. It is not one event but a range of steps, each chosen individually.',
-    prevalence:'Transition is common among transgender people who experience dysphoria but varies enormously in what it involves.',
-    nuance:'Social transition: name, pronouns, presentation, relationships. Legal transition: changing name and gender marker on documents (varies by country — some are simple, some require medical certification or surgery). Medical transition: hormones and/or surgery (see module Q&A for detail). Not every transgender person pursues every step. Detransition (returning to a previous gender identity or presentation) occurs in a minority of people who transition — studies estimate 1–8%, often due to family/social pressure rather than certainty about identity. The vast majority who medically transition report improved quality of life and reduced dysphoria.' }
-};
+    <div class="qa">
+      <p class="qa-q">6. What does research suggest about the origins of gender identity?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Research on the biological underpinnings of gender identity is ongoing but points to neurobiological and developmental factors. Key lines of evidence: Brain studies have found that certain brain regions in transgender women more closely resemble those of cisgender women than cisgender men, and similarly for transgender men — suggesting that brain development may be partially discordant with birth sex in transgender people. Twin studies show higher concordance for transgender identity among identical vs. fraternal twins, suggesting a heritable component. Prenatal hormone exposure: conditions that alter prenatal androgen exposure (e.g., congenital adrenal hyperplasia in XX individuals) are associated with higher rates of gender dysphoria and gender-nonconforming behaviour, though most affected individuals identify as women. Stability: gender identity is typically stable from early childhood (age 3–4) and does not change with social exposure. The consensus across APA, AMA, WPATH, and other major medical bodies is that being transgender reflects a normal variation in human development with biological underpinnings — not a choice, a pathology, or a social contagion. Childhood social desistance (children who identify as transgender and later identify as cisgender) is real but the statistics are contested — methodological problems in earlier studies mean earlier estimates (suggesting majority desistance) are now considered unreliable by most researchers.</div>
+    </div>
 
-function showGender(key) {
-  const g = genders[key];
-  document.getElementById('gender-display').innerHTML = `
-    <div style="display:inline-block; background:${g.bg}; color:${g.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${g.name} — ${g.badge}</div>
-    <div style="display:grid; grid-template-columns:1fr; gap:8px;">
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Definition</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${g.def}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Prevalence and context</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${g.prevalence}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Important nuance</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${g.nuance}</div></div>
-    </div>`;
-}
+    <div class="qa">
+      <p class="qa-q">7. What is the fraternal birth order effect and what explains it?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">The fraternal birth order effect (FBOE) is one of the most replicated findings in the biology of sexual orientation: gay men, as a group, have a statistically greater number of older brothers than heterosexual men. For each older brother, the odds of a younger male sibling being gay increase by approximately 33%. This effect is specific to biological older brothers — it doesn't appear for adopted brothers, suggesting it's not a socialisation effect but a biological one. The leading explanation (Bogaert, Blanchard, and colleagues) is a maternal immune hypothesis: when a mother carries male fetuses, small amounts of a Y-linked protein called NLGN4Y (previously called HYYY antigen) cross the placental barrier into the mother's bloodstream. Some mothers develop an immune response. With each subsequent male pregnancy, the antibody response strengthens. These antibodies may cross back into the fetal brain and affect development of brain regions involved in sexual attraction — the INAH-3 region of the anterior hypothalamus specifically. A 2017 study (Bogaert et al.) found that mothers of gay sons with older brothers had significantly higher anti-NLGN4Y antibody levels than other mothers, providing the first direct biochemical evidence for the mechanism. The FBOE accounts for roughly 15–29% of gay men (those with older brothers) — meaning most same-sex orientation has other causes, but the effect is a clear, repeatable, and now mechanistically supported example of a prenatal biological influence on sexual orientation.</div>
+    </div>
 
-const orientations = {
-  heterosexual: { name:'Heterosexual / straight', badge:'Attraction to a different gender', bg:'#E6F1FB', col:'#0C447C',
-    def:'Emotional, romantic, and/or sexual attraction primarily to people of a different gender than oneself. The most common orientation in the population. In its simplest form: men attracted to women and women attracted to men — though this framing requires updating for non-binary contexts.',
-    nuance:'Even "straight" orientation has gradations and variation in attraction, relationship structures, and expression. The term "mostly straight" has emerged in research to describe people who identify as heterosexual but acknowledge occasional same-sex attraction — studies suggest this is a stable, distinct orientation rather than a transition state.' },
-  homosexual: { name:'Homosexual / gay / lesbian', badge:'Attraction to the same gender', bg:'#EEEDFE', col:'#3C3489',
-    def:'"Gay" typically refers to men attracted to men; "lesbian" to women attracted to women; "homosexual" is the clinical/older term covering both. The word "gay" is also used as a broader umbrella term for all LGB people in some contexts.',
-    nuance:'The word "homosexual" has clinical connotations and is sometimes felt to be pathologising given its association with its medical history (it was listed as a mental disorder until 1973 in the DSM, and 1990 in the ICD). "Gay" and "lesbian" are the most commonly preferred self-descriptors. Same-sex attraction exists across all cultures and throughout recorded history.' },
-  bisexual: { name:'Bisexual', badge:'Attraction to one\'s own and other genders', bg:'#E1F5EE', col:'#085041',
-    def:'Attraction to people of one\'s own gender and other genders. The most common LGB+ orientation by self-identification in current surveys. The "bi" prefix is understood broadly — not limited to exactly two genders.',
-    nuance:'Bisexuality is frequently misunderstood. Common misconceptions: that it requires "equal" attraction to multiple genders (it doesn\'t — attraction can be weighted), that it is a "phase" (research shows bisexual identity is stable), that bisexual people in monogamous relationships "become" straight or gay (they don\'t — orientation doesn\'t change with relationship status). Bisexual people experience higher rates of mental health challenges than either gay/lesbian or straight people — partly attributed to "bisexual erasure" and lack of recognition within both straight and gay communities.' },
-  pansexual: { name:'Pansexual', badge:'Attraction regardless of gender', bg:'#FAEEDA', col:'#633806',
-    def:'Attraction to people of any gender or regardless of gender — the "pan" (all) prefix emphasises that gender is not a determining factor in attraction. Sometimes described as being attracted to the person regardless of their gender.',
-    nuance:'The distinction from bisexual is discussed under Part H Q3. Pansexuality explicitly names attraction to non-binary and genderfluid people. Some pansexual people describe experiencing "gender-blind" attraction; others describe attraction to people of all genders specifically. The two terms overlap significantly in lived experience.' },
-  asexual: { name:'Asexual (ace)', badge:'Little or no sexual attraction', bg:'#F1EFE8', col:'#444441',
-    def:'A person who experiences little or no sexual attraction to others. Asexuality is an orientation, not a behavioural choice or medical condition. Asexual people can and do have romantic attractions, relationships, and sometimes engage in sexual activity for reasons unrelated to sexual attraction (partner desire, physical sensation).',
-    nuance:'The asexual spectrum (ace spectrum) includes: graysexual (experiences sexual attraction rarely or weakly), demisexual (see below). Asexuality is distinct from celibacy (a choice not to act) and from low libido (which is a clinical condition). The Asexuality Visibility and Education Network (AVEN) estimates 1% of the population is asexual, though methodological challenges make this uncertain.' },
-  demisexual: { name:'Demisexual', badge:'Sexual attraction only after emotional bond', bg:'#EEEDFE', col:'#3C3489',
-    def:'A person who experiences sexual attraction only after forming a strong emotional connection with someone. Without this bond, sexual attraction is absent, regardless of the person\'s physical appearance or social desirability.',
-    nuance:'Demisexuality sits on the asexual spectrum. The emotional bond required is genuine and deep — typically friendship, trust, or love — not just acquaintance. It is not simply "wanting to know someone first" or a preference, but an actual absence of sexual attraction without the bond. Demisexuality can combine with any romantic orientation: a demisexual person may be romantically attracted to the same gender, different gender, or multiple genders.' },
-  aromantic: { name:'Aromantic (aro)', badge:'Little or no romantic attraction', bg:'#EAF3DE', col:'#27500A',
-    def:'A person who experiences little or no romantic attraction — the desire for emotional intimacy, partnership, and romance typical of romantic relationships. Aromantic people may still experience sexual attraction (aro allo), or be both aromantic and asexual (aroace).',
-    nuance:'Romantic and sexual attraction are separable (see Part F). Being aromantic is not about being "emotionally closed off" or incapable of love — aromantic people can have deep friendships, familial love, and close bonds. They simply don\'t experience the specific type of attraction that drives romantic partnership. Aromantic is an orientation under the broader aromantic spectrum, which includes greyromantic (rarely experiences romantic attraction) and demiromantic (only after emotional bond).' },
-  queer: { name:'Queer', badge:'Umbrella term; also a reclaimed identity', bg:'#FAECE7', col:'#712B13',
-    def:'Originally a slur, largely reclaimed from the 1980s–90s by LGBTQ+ people as a self-descriptor. Used as an umbrella term for any non-heterosexual, non-cisgender identity, and also used by some as a specific personal identity when other labels feel too constraining.',
-    nuance:'Not everyone is comfortable with "queer" — for older generations who experienced it primarily as a slur, it may still feel offensive. Its use as an academic term (queer theory) and community umbrella term (LGBTQ+) has made it widely accepted. Some people prefer "queer" specifically because it rejects the need for precise labelling and allows for fluid, complex identities. It is both an orientation/identity label and a political/cultural stance.' }
-};
+  </div><!-- /page-wrap -->
 
-function showOrient(key) {
-  const o = orientations[key];
-  document.getElementById('orient-display').innerHTML = `
-    <div style="display:inline-block; background:${o.bg}; color:${o.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${o.name} — ${o.badge}</div>
-    <div style="display:grid; grid-template-columns:1fr; gap:8px;">
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Definition</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${o.def}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Nuance and context</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${o.nuance}</div></div>
-    </div>`;
-}
+  <script>
+    /* ============================================================
+       DATA: GENDER IDENTITY EXPLORER
+       ============================================================ */
+    const genders = {
+      cisgender: { name:'Cisgender', badge:'Gender identity matches sex assigned at birth', bg:'#E6F1FB', col:'#0C447C',
+        def:'A person whose gender identity corresponds with the sex they were assigned at birth. A cisgender woman was assigned female at birth and identifies as a woman; a cisgender man was assigned male at birth and identifies as a man.',
+        prevalence:'The majority of people are cisgender. The prefix "cis-" comes from Latin meaning "on the same side" — as opposed to "trans-" meaning "across." The term was introduced to provide a neutral, non-default descriptor rather than treating cisgender as the unmarked norm.',
+        nuance:'Being cisgender says nothing about gender expression (a cisgender person may have non-conforming gender expression), sexual orientation (cisgender people are gay, straight, bisexual, etc. in the same range as anyone), or personality. It is one descriptor among many.' },
+      transgender: { name:'Transgender', badge:'Gender identity differs from sex assigned at birth', bg:'#EEEDFE', col:'#3C3489',
+        def:'An umbrella term for people whose gender identity differs from the sex they were assigned at birth. A transgender woman was assigned male at birth but identifies as a woman. A transgender man was assigned female at birth but identifies as a man.',
+        prevalence:'Estimates: 0.5–1.7% of the population, though estimates vary considerably by study design, country, and age group. Younger generations (Gen Z) report higher rates of transgender identification.',
+        nuance:'Being transgender is not contingent on medical transition. A person is transgender because of their gender identity, not because of surgery or hormones. Not all transgender people experience dysphoria to the same degree. Transgender identity is recognised as a normal human variation by all major medical and psychological organisations. Sexual orientation is independent — transgender people are straight, gay, bisexual, etc.' },
+      nonbinary: { name:'Non-binary', badge:'Gender identity outside male/female binary', bg:'#EAF3DE', col:'#27500A',
+        def:'An umbrella term for gender identities that don\'t fit exclusively into the categories of man or woman. Non-binary people may identify as between genders, as a blend of both, as neither, as a third gender, or as having a fluctuating gender.',
+        prevalence:'Surveys suggest 0.3–0.5% of the general population, higher in younger generations. A significant subset of those who identify as transgender also identify as non-binary.',
+        nuance:'Non-binary is a descriptive category, not a uniform experience. Some non-binary people use they/them pronouns; others use he/him, she/her, or neopronouns (xe/xem, ze/zir). Many cultures throughout history have recognised genders beyond two (hijra in South Asia, fa\'afafine in Samoa, Two-Spirit in some Indigenous North American cultures).' },
+      genderfluid: { name:'Genderfluid', badge:'Gender identity that shifts over time', bg:'#FBEAF0', col:'#72243E',
+        def:'A gender identity that is not fixed — it changes or shifts over time, sometimes between masculine and feminine, sometimes across other gender experiences. The fluidity may vary day to day, situationally, or over longer periods.',
+        prevalence:'A subset of non-binary experiences. No reliable separate prevalence data.',
+        nuance:'Genderfluid is distinct from being non-binary in that it explicitly describes movement — a non-binary person may have a stable identity that doesn\'t fit the binary, while a genderfluid person\'s identity itself shifts. The shifting is experienced as genuine changes in gender identity, not just changes in expression or mood.' },
+      agender: { name:'Agender', badge:'Absence of gender identity', bg:'#F1EFE8', col:'#444441',
+        def:'A person who identifies as having no gender, a neutral gender, or considers gender inapplicable to themselves. Agender people may also describe themselves as genderless or gender-neutral.',
+        prevalence:'A subset of non-binary identities. Prevalence not well-established separately.',
+        nuance:'Agender is distinct from non-binary in emphasis — it is specifically the absence or neutrality of gender rather than a third or alternative gender. Some agender people prefer gender-neutral pronouns; others are comfortable with any pronouns. Agender identity says nothing about sexual orientation or biological sex.' },
+      genderqueer: { name:'Genderqueer', badge:'Challenges or rejects gender norms', bg:'#EEEDFE', col:'#3C3489',
+        def:'An older term (predating "non-binary") describing a gender identity that challenges or rejects conventional gender norms. Some use it interchangeably with non-binary; others use it with a more explicitly political connotation — queering gender as a social construct.',
+        prevalence:'Overlaps significantly with non-binary. Often used by older people who adopted the term before "non-binary" became widespread.',
+        nuance:'Genderqueer carries a more explicitly activist or political history — it emerged from queer theory and gender studies. Some prefer it for its challenge to the gender system itself rather than just claiming a position outside the binary. The terms non-binary and genderqueer are often used interchangeably in everyday speech.' },
+      dysphoria: { name:'Gender dysphoria', badge:'Clinical term for distress from gender-sex mismatch', bg:'#FAECE7', col:'#712B13',
+        def:'Gender dysphoria (DSM-5) describes significant distress or impairment arising from an incongruence between one\'s experienced gender and sex assigned at birth. It is the clinical distress, not the identity itself, that constitutes the diagnosis.',
+        prevalence:'Not all transgender or non-binary people experience clinical-level gender dysphoria. Many experience gender incongruence without the degree of distress required for the clinical diagnosis.',
+        nuance:'The ICD-11 (WHO 2019) reclassified the relevant condition as "Gender Incongruence" and moved it out of the mental health chapter into sexual health. This reflects the consensus that being transgender is not a mental illness. Effective treatment is gender-affirming care, which reduces dysphoria and is associated with significantly improved mental health outcomes.' },
+      transition: { name:'Transition', badge:'Process of aligning life with gender identity', bg:'#E1F5EE', col:'#085041',
+        def:'Transition is the process by which transgender people align their social roles, bodies, and/or legal documents with their gender identity. It is not one event but a range of steps, each chosen individually.',
+        prevalence:'Transition is common among transgender people who experience dysphoria but varies enormously in what it involves.',
+        nuance:'Social transition: name, pronouns, presentation, relationships. Legal transition: changing name and gender marker on documents (varies by country). Medical transition: hormones and/or surgery. Not every transgender person pursues every step. Detransition occurs in a minority — studies estimate 1–8%, often due to family/social pressure rather than change in gender identity. The vast majority who medically transition report improved quality of life and reduced dysphoria.' }
+    };
 
-showGender('cisgender');
-showOrient('heterosexual');
-    </script>
-  </div>
+    function showGender(key) {
+      const g = genders[key];
+      document.querySelectorAll('[onclick^="showGender"]').forEach(b => b.classList.remove('active'));
+      document.querySelector(`[onclick="showGender('${key}')"]`).classList.add('active');
+      document.getElementById('gender-display').innerHTML = `
+        <div style="display:inline-block; background:${g.bg}; color:${g.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${g.name} — ${g.badge}</div>
+        <div style="display:grid; grid-template-columns:1fr; gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Definition</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${g.def}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Prevalence and context</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${g.prevalence}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Important nuance</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${g.nuance}</div></div>
+        </div>`;
+    }
+
+    /* ============================================================
+       DATA: SEXUAL ORIENTATION EXPLORER
+       ============================================================ */
+    const orientations = {
+      heterosexual: { name:'Heterosexual / straight', badge:'Attraction to a different gender', bg:'#E6F1FB', col:'#0C447C',
+        def:'Emotional, romantic, and/or sexual attraction primarily to people of a different gender than oneself. The most common orientation in the population. In its simplest form: men attracted to women and women attracted to men — though this framing requires updating for non-binary contexts.',
+        nuance:'Even "straight" orientation has gradations and variation in attraction, relationship structures, and expression. The term "mostly straight" has emerged in research to describe people who identify as heterosexual but acknowledge occasional same-sex attraction — studies suggest this is a stable, distinct orientation rather than a transition state.' },
+      homosexual: { name:'Homosexual / gay / lesbian', badge:'Attraction to the same gender', bg:'#EEEDFE', col:'#3C3489',
+        def:'"Gay" typically refers to men attracted to men; "lesbian" to women attracted to women; "homosexual" is the clinical/older term covering both. The word "gay" is also used as a broader umbrella term for all LGB people in some contexts.',
+        nuance:'The word "homosexual" has clinical connotations and is sometimes felt to be pathologising given its association with its medical history (listed as a mental disorder until 1973 in the DSM, 1990 in the ICD). "Gay" and "lesbian" are the most commonly preferred self-descriptors. Same-sex attraction exists across all cultures and throughout recorded history.' },
+      bisexual: { name:'Bisexual', badge:'Attraction to one\'s own and other genders', bg:'#E1F5EE', col:'#085041',
+        def:'Attraction to people of one\'s own gender and other genders. The most common LGB+ orientation by self-identification in current surveys. The "bi" prefix is understood broadly — not limited to exactly two genders.',
+        nuance:'Bisexuality is frequently misunderstood. Common misconceptions: that it requires "equal" attraction (it doesn\'t — attraction can be weighted); that it\'s a "phase" (research shows bisexual identity is stable); that bisexual people in monogamous relationships "become" straight or gay (orientation doesn\'t change with relationship status). Bisexual people experience higher rates of mental health challenges than either gay/lesbian or straight people — partly attributed to "bisexual erasure."' },
+      pansexual: { name:'Pansexual', badge:'Attraction regardless of gender', bg:'#FAEEDA', col:'#633806',
+        def:'Attraction to people of any gender or regardless of gender — the "pan" (all) prefix emphasises that gender is not a determining factor in attraction. Sometimes described as being attracted to the person regardless of their gender.',
+        nuance:'The distinction from bisexual is discussed in the Q&A. Pansexuality explicitly names attraction to non-binary and genderfluid people. Some pansexual people describe experiencing "gender-blind" attraction; others describe attraction to people of all genders specifically. The two terms overlap significantly in lived experience.' },
+      asexual: { name:'Asexual (ace)', badge:'Little or no sexual attraction', bg:'#F1EFE8', col:'#444441',
+        def:'A person who experiences little or no sexual attraction to others. Asexuality is an orientation, not a behavioural choice or medical condition. Asexual people can and do have romantic attractions, relationships, and sometimes engage in sexual activity for reasons unrelated to sexual attraction (partner desire, physical sensation).',
+        nuance:'The asexual spectrum (ace spectrum) includes: graysexual (experiences sexual attraction rarely or weakly) and demisexual (only after emotional bond). Asexuality is distinct from celibacy (a behavioural choice) and from low libido (a clinical condition involving distress). AVEN estimates ~1% of the population is asexual, though methodological challenges make this uncertain.' },
+      demisexual: { name:'Demisexual', badge:'Sexual attraction only after emotional bond', bg:'#EEEDFE', col:'#3C3489',
+        def:'A person who experiences sexual attraction only after forming a strong emotional connection with someone. Without this bond, sexual attraction is absent, regardless of the person\'s physical appearance or social desirability.',
+        nuance:'Demisexuality sits on the asexual spectrum. The emotional bond required is genuine and deep — typically friendship, trust, or love — not just acquaintance. It is not simply "wanting to know someone first" or a preference, but an actual absence of sexual attraction without the bond. Demisexuality can combine with any romantic orientation.' },
+      aromantic: { name:'Aromantic (aro)', badge:'Little or no romantic attraction', bg:'#EAF3DE', col:'#27500A',
+        def:'A person who experiences little or no romantic attraction — the desire for emotional intimacy, partnership, and romance typical of romantic relationships. Aromantic people may still experience sexual attraction (aro allo), or be both aromantic and asexual (aroace).',
+        nuance:'Being aromantic is not about being emotionally closed off or incapable of love — aromantic people can have deep friendships and familial love. They simply don\'t experience the specific type of attraction that drives romantic partnership. The broader aromantic spectrum includes greyromantic (rarely experiences romantic attraction) and demiromantic (only after emotional bond).' },
+      queer: { name:'Queer', badge:'Umbrella term; also a reclaimed identity', bg:'#FAECE7', col:'#712B13',
+        def:'Originally a slur, largely reclaimed from the 1980s–90s by LGBTQ+ people as a self-descriptor. Used as an umbrella term for any non-heterosexual, non-cisgender identity, and also used by some as a specific personal identity when other labels feel too constraining.',
+        nuance:'Not everyone is comfortable with "queer" — for older generations who experienced it primarily as a slur, it may still feel offensive. Its use as an academic term (queer theory) and community umbrella (LGBTQ+) has made it widely accepted. Some people prefer "queer" specifically because it rejects the need for precise labelling and allows for fluid, complex identities. It is both an orientation/identity label and a political/cultural stance.' }
+    };
+
+    function showOrient(key) {
+      const o = orientations[key];
+      document.querySelectorAll('[onclick^="showOrient"]').forEach(b => b.classList.remove('active'));
+      document.querySelector(`[onclick="showOrient('${key}')"]`).classList.add('active');
+      document.getElementById('orient-display').innerHTML = `
+        <div style="display:inline-block; background:${o.bg}; color:${o.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${o.name} — ${o.badge}</div>
+        <div style="display:grid; grid-template-columns:1fr; gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Definition</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${o.def}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Nuance and context</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${o.nuance}</div></div>
+        </div>`;
+    }
+
+    /* ============================================================
+       TWO-AXIS INTERACTIVE MODEL
+       ============================================================ */
+    let twoAxisState = { sex: null, rom: null };
+
+    const twoAxisCombinations = {
+      'heterosexual|heteroromantic': { label:'Heterosexual heteroromantic', desc:'The most common combination — sexual and romantic attraction both directed toward people of a different gender. This is what most people mean by "straight." The two axes align fully.' },
+      'heterosexual|biromantic':     { label:'Heterosexual biromantic', desc:'Experiences sexual attraction only to people of a different gender, but develops romantic feelings toward people of multiple genders. A person might fall in love more broadly than they experience sexual desire.' },
+      'heterosexual|homoromantic':   { label:'Heterosexual homoromantic', desc:'A rare but documented split — sexual attraction toward the opposite gender, but romantic/emotional attraction primarily toward the same gender. Can make navigating relationships complex since the two axes diverge.' },
+      'heterosexual|aromantic':      { label:'Heterosexual aromantic', desc:'Experiences sexual attraction to a different gender but little or no romantic attraction to anyone. May prefer casual sexual relationships or simply has no drive toward romantic partnership — this is not loneliness or avoidance but a genuine orientation.' },
+      'bisexual|heteroromantic':     { label:'Bisexual heteroromantic', desc:'Experiences sexual attraction to people of multiple genders, but romantic/emotional attraction primarily toward a different gender. Sexual and romantic desires can feel different — this person might seek different-gender long-term partners while experiencing broader sexual attraction.' },
+      'bisexual|biromantic':         { label:'Bisexual biromantic', desc:'Both sexual and romantic attraction span multiple genders — the axes align on a broad, multi-gender orientation. Often simply described as bisexual with no qualification.' },
+      'bisexual|homoromantic':       { label:'Bisexual homoromantic', desc:'Sexual attraction is broad (multiple genders) but romantic/emotional desire is primarily toward the same gender. Might pursue same-gender romantic relationships while experiencing sexual attraction more broadly.' },
+      'bisexual|aromantic':          { label:'Bisexual aromantic', desc:'Experiences sexual attraction to multiple genders but little or no romantic attraction. Can have sexual desire and connections with people of any gender but doesn\'t experience the pull toward romantic partnership.' },
+      'homosexual|homoromantic':     { label:'Homosexual homoromantic', desc:'Both sexual and romantic attraction are directed toward the same gender — the two axes align. This is the classic description of a gay man or lesbian woman.' },
+      'homosexual|biromantic':       { label:'Homosexual biromantic', desc:'Sexual attraction is same-sex only, but romantic feelings can develop toward people of multiple genders. Might fall in love more broadly than they experience sexual desire.' },
+      'homosexual|heteroromantic':   { label:'Homosexual heteroromantic', desc:'A notable split — sexual attraction toward the same gender, but romantic attraction toward a different gender. Creates real tension in forming satisfying relationships, as sexual and romantic needs point in different directions.' },
+      'homosexual|aromantic':        { label:'Homosexual aromantic', desc:'Sexual attraction toward the same gender, but little or no romantic attraction. May prefer non-romantic same-gender sexual relationships or simply doesn\'t experience the drive toward partnership.' },
+      'asexual|heteroromantic':      { label:'Asexual heteroromantic', desc:'Little or no sexual attraction, but experiences romantic attraction toward a different gender. Can want all the elements of a romantic relationship — emotional intimacy, partnership, love — without the sexual component. Sometimes called "straight ace."' },
+      'asexual|biromantic':          { label:'Asexual biromantic', desc:'Little or no sexual attraction, but romantic feelings can develop toward people of multiple genders. The romantic and relational axes are active; the sexual axis is quiet or absent.' },
+      'asexual|homoromantic':        { label:'Asexual homoromantic', desc:'Little or no sexual attraction, but romantic attraction toward the same gender. May want a same-gender romantic partnership in all non-sexual senses — sometimes called "gay ace" or "lesbian ace."' },
+      'asexual|aromantic':           { label:'Asexual aromantic (aroace)', desc:'Little or no sexual attraction and little or no romantic attraction. Both the sexual and romantic axes are largely absent. Aroace people can still experience deep platonic love, aesthetic attraction, and close relationships — just not the romantic or sexual variants. A fully valid orientation that many find freeing.' }
+    };
+
+    function setAxis(axis, value) {
+      twoAxisState[axis] = value;
+
+      // Update button active states
+      const prefix = axis === 'sex' ? 'setAxis(\'sex\'' : 'setAxis(\'rom\'';
+      document.querySelectorAll(`[onclick^="${prefix}"]`).forEach(b => b.classList.remove('active'));
+      document.querySelector(`[onclick="setAxis('${axis}','${value}')"]`).classList.add('active');
+
+      if (twoAxisState.sex && twoAxisState.rom) {
+        const key = `${twoAxisState.sex}|${twoAxisState.rom}`;
+        const combo = twoAxisCombinations[key];
+        if (combo) {
+          document.getElementById('twoaxis-result').innerHTML = `
+            <strong style="color:var(--color-text-primary);">${combo.label}</strong><br>
+            <span style="color:var(--color-text-secondary);">${combo.desc}</span>`;
+        }
+      } else {
+        document.getElementById('twoaxis-result').innerHTML = 'Select one option from each axis to see how they combine.';
+      }
+    }
+
+    /* ============================================================
+       SCIENCE EXPLORER
+       ============================================================ */
+    const scienceData = {
+      twin: {
+        title: 'Twin studies',
+        content: 'Twin studies compare concordance rates for same-sex orientation between identical (monozygotic, MZ) and fraternal (dizygotic, DZ) twins. If MZ twins — who share 100% of their DNA — show higher concordance than DZ twins (who share ~50%), this points to a genetic component. Key findings: MZ twins show higher concordance than DZ twins consistently across studies (e.g., Bailey & Pillard 1991: ~52% MZ vs ~22% DZ for male homosexuality). However, concordance is not 100% even for MZ twins — if orientation were purely genetic, identical twins would always share it. The incomplete concordance implies non-genetic factors (most likely prenatal environment, not post-natal socialization) also play a role. Later studies using population registries (e.g., Santtila et al. 2008 in Finland) have found somewhat lower concordance rates but still significantly higher for MZ than DZ twins. The heritability of same-sex orientation has been estimated at 30–50% in different studies.'
+      },
+      birth: {
+        title: 'Fraternal birth order effect',
+        content: 'One of the most replicated findings in orientation research: gay men have, on average, more older brothers than heterosexual men. Each older biological brother increases the odds of a later male being gay by approximately 33%. The key evidence that this is biological, not social: the effect holds for older biological brothers raised separately (adopted away at birth), but not for non-biological older brothers raised together. This rules out a socialisation or role-model explanation. The leading mechanism (Bogaert, Blanchard): maternal immune response. The Y-linked protein NLGN4Y crosses the placental barrier during male pregnancies. Some mothers develop antibodies. Each subsequent male pregnancy may strengthen this immune response. Antibodies crossing back into the fetal brain may alter development of the INAH-3 region, affecting sexual attraction. A 2017 study directly measured NLGN4Y antibody levels and found them significantly elevated in mothers of gay sons with older brothers — the first direct biochemical evidence for the mechanism. The FBOE accounts for ~15–29% of gay men — most same-sex orientation has other causes, but this is a clear, replicated, and now mechanistically supported example of a prenatal biological influence.'
+      },
+      brain: {
+        title: 'Brain structure research',
+        content: 'Simon LeVay\'s 1991 Science paper reported that the INAH-3 region of the anterior hypothalamus (an area involved in sexual behaviour in mammals) was significantly smaller in gay men and heterosexual women than in heterosexual men. This was the first published neuroanatomical study of sexual orientation and generated enormous scientific and public interest. The findings have been partially replicated by Byne et al. (2001) and others, though with some methodological refinements. More recently, neuroimaging studies have found that brain organisation in gay men and lesbians shows partial resemblance to that of the other sex (e.g., in the pattern of connections in the amygdala, cerebral asymmetry). Studies of transgender people have found that certain brain characteristics (regional volume, white matter tracts, neural response patterns) are intermediate between or resemble those of their identified gender rather than birth sex — supporting the idea of neurological underpinnings of gender identity independent of sex assigned at birth. Caution: all these studies are small, and brain structure is influenced by experience throughout life, not just prenatal development. Direction of causality is not always clear.'
+      },
+      genetics: {
+        title: 'Genetics (GWAS)',
+        content: 'A 2019 genome-wide association study (GWAS) published in Science — the largest of its kind, involving ~477,000 participants from US and UK biobanks — looked for genetic variants associated with ever having had a same-sex sexual partner. Key findings: No single "gay gene" exists. Multiple genetic variants (SNPs), each with small effect sizes, are associated with same-sex behaviour. The strongest single variants showed tiny effects. Collectively, the identified variants explained only 8–25% of the variance in same-sex behaviour. Genetic effects are not sufficient for individual prediction — you cannot tell from someone\'s genome whether they will be gay or straight. The study also found that genetic factors for same-sex behaviour partly overlap with variants associated with risk-taking, openness to experience, and other personality traits. Among the identified loci were variants near genes involved in olfaction and sex hormone regulation. This is consistent with a polygenic, complex picture where many genes each contribute a small amount to orientation, alongside significant non-genetic (likely prenatal biological) factors.'
+      },
+      hormones: {
+        title: 'Prenatal hormones',
+        content: 'Evidence for prenatal hormonal influence on sexual orientation and gender identity comes from several sources. The 2D:4D digit ratio: the ratio of the index to ring finger length is influenced by prenatal androgen exposure during fetal development. Lesbian women as a group show lower (more masculinised) 2D:4D ratios than heterosexual women — consistent with higher prenatal androgen exposure. This effect has been replicated in many studies. Congenital adrenal hyperplasia (CAH): XX individuals with CAH have elevated prenatal androgens due to a genetic enzyme deficiency. CAH women show higher rates of same-sex attraction and gender-nonconforming behaviour than non-CAH women, though the majority still identify as heterosexual women. This provides a natural experiment supporting a role for prenatal androgens. The diethylstilbestrol (DES) natural experiment: DES was a synthetic oestrogen prescribed to pregnant women from the 1940s–1970s. Daughters exposed prenatally to DES showed higher rates of same-sex orientation than unexposed women, suggesting prenatal oestrogen exposure also affects orientation. Taken together, the evidence strongly suggests that prenatal hormone levels — influenced by genetics, maternal immune factors, and chance — shape the developing brain in ways that influence sexual orientation.'
+      },
+      limits: {
+        title: 'Limits and caveats of the research',
+        content: 'Understanding the limitations is as important as understanding the findings. Key limits: (1) Small samples: Many early brain studies and twin studies involved fewer than 100 participants — too small to establish reliable effect sizes. (2) Publication bias: Positive results are more likely to be published. Null findings exist but are underrepresented. (3) Self-selected samples: Early studies often recruited participants through gay community organisations, potentially skewing results. (4) Behaviour ≠ orientation: GWAS studies often measure "ever had a same-sex sexual partner" rather than orientation or attraction — these are related but distinct variables. (5) Causality: Brain differences between groups could be caused by orientation-related life experiences, not just predate them. (6) Replication challenges: Some findings (e.g., early concordance rates in twin studies) have not fully replicated with population-based samples. (7) Intersectionality: Most research has focused on male homosexuality; much less is known about female same-sex orientation, bisexuality, or the biology of gender identity. (8) The "born this way" framing: Even if orientation has biological roots, this doesn\'t fully explain why social and legal equality depend on biology — a person\'s rights don\'t require biological justification. The scientific evidence for biological contributions to orientation is substantial but complex, and the mechanisms are not fully understood.'
+      }
+    };
+
+    function showScience(key) {
+      const s = scienceData[key];
+      document.querySelectorAll('[onclick^="showScience"]').forEach(b => b.classList.remove('active'));
+      document.querySelector(`[onclick="showScience('${key}')"]`).classList.add('active');
+      document.getElementById('science-display').innerHTML = `<strong style="color:var(--color-text-primary); display:block; margin-bottom:6px;">${s.title}</strong>${s.content}`;
+    }
+
+    /* ============================================================
+       DOT GRID POPULATION VIZ
+       ============================================================ */
+    function buildDotGrid() {
+      const wrap = document.getElementById('dotGridWrap');
+      if (!wrap) return;
+      // 100 dots: 87 straight, 3.5 gay (rounded 4), 5.5 bi (rounded 5), 4 other
+      const dots = [
+        ...Array(87).fill('#0C447C'),
+        ...Array(4).fill('#3C3489'),
+        ...Array(5).fill('#4E99A3'),
+        ...Array(4).fill('#D4537E')
+      ];
+      // Shuffle
+      for (let i = dots.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [dots[i], dots[j]] = [dots[j], dots[i]];
+      }
+      wrap.innerHTML = dots.map(c => `<div class="dot-pop" style="background:${c};"></div>`).join('');
+    }
+    buildDotGrid();
+
+    /* ============================================================
+       INIT: show defaults
+       ============================================================ */
+    showGender('cisgender');
+    showOrient('heterosexual');
+  </script>
+
   <script src="../files/shared.js"></script>
 </body>
 </html>
