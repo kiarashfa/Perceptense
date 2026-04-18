@@ -1468,7 +1468,7 @@ function showDoneness(idx, el) {
   el.classList.add('sel');
   const d = donenessData[idx];
   document.getElementById('doneness-detail').innerHTML = `
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(190px,1fr)); gap:8px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:10px;">
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
         <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Internal temp</div>
         <div style="font-size:18px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">${d.temp}</div>
