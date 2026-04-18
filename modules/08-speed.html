@@ -942,7 +942,7 @@ function showCars(btn, cat) {
       '<div class="car-time" style="color:' + barColor + ';">' + timeLabel + '</div>';
 
     // Expand note on click
-    row.addEventListener('click', () => {
+    row.addEventListener('click', (e) => {
       const existing = row.nextElementSibling;
       if (existing && existing.classList.contains('car-note-row')) {
         existing.remove();
@@ -1082,7 +1082,7 @@ coasters.forEach((c, i) => {
     document.getElementById('rc-gauge-label').textContent = c.speed;
     document.getElementById('rc-gauge-label').setAttribute('fill', c.color);
     document.getElementById('rc-gauge-needle').setAttribute('transform', 'rotate(' + (-90 + pct * 180) + ',110,105)');
-    document.getElementById('rc-detail-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (e.isTrusted) {document.getElementById('rc-detail-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });}
   });
   rcList.appendChild(row);
 });
