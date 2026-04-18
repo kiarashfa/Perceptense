@@ -655,8 +655,6 @@
       <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;">SpaceX entered an industry dominated by governments and legacy contractors, with the explicit goal of making humanity multiplanetary. Its core innovation was vertical integration (building almost everything in-house) and reusability — the two factors that have driven launch costs from ~$50,000/kg (Space Shuttle) toward a target of &lt;$100/kg with Starship. As of 2025, SpaceX conducts more orbital launches per year than all other countries combined.</div>
     </div>
 
-    <!-- Launchers grid -->
-    <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-text-secondary); margin-bottom:8px;">Launch vehicles</div>
     <!-- Launch Vehicles - Tabbed Version -->
     <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin:18px 0 8px;">Launch vehicles</div>
     
@@ -1086,15 +1084,26 @@
   ───────────────────────────────────────────── */
   const launchVehicles = [
     {
+      tab: "Falcon 1",
+      content: `<div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Falcon 1 — The First Step</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px;">
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">21.3 m</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">~670 kg</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">First flight</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">2006 (failed) — succeeded on 4th attempt in 2008</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Historical note</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">First privately developed liquid-fueled rocket to reach orbit</div></div>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">Falcon 1 was SpaceX’s proving ground. After three failures that nearly bankrupted the company, the fourth flight succeeded on 28 September 2008. This was the first time a privately developed rocket reached orbit. It paved the way for the much larger Falcon 9.</div>`
+    },
+    {
       tab: "Falcon 9",
       content: `<div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Falcon 9 Block 5 — The Workhorse</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px;">
           <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">70 m</div></div>
           <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">22,800 kg (reusable) / ~28 t expendable</div></div>
           <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">9 Merlin 1D (first stage)</div></div>
-          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Reusability</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">First stage lands on drone ship or ground — flown 20+ times</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Reusability</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">First stage landed and reflown more than 20 times on some boosters</div></div>
         </div>
-        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">The most flown orbital rocket in history. Powers almost all Starlink launches, ISS cargo/crew missions, and commercial satellites. Extremely high cadence (often >100 launches per year).</div>`
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">The most reliable and frequently flown orbital rocket in history. It carries most Starlink satellites, NASA cargo and crew to the ISS, and commercial payloads. High launch cadence makes it extremely cost-effective.</div>`
     },
     {
       tab: "Falcon Heavy",
@@ -1103,20 +1112,20 @@
           <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">70 m</div></div>
           <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">63,800 kg (expendable) / ~30+ t reusable</div></div>
           <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">27 Merlin 1D (3 cores)</div></div>
-          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Notable</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">Side boosters land simultaneously — most powerful operational rocket until Starship</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Notable flights</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">Psyche, Europa Clipper, and synchronized booster landings</div></div>
         </div>
-        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">Used for high-energy missions (NASA Psyche, Europa Clipper, military payloads, and some Starlink batches). Side boosters can be reused on Falcon 9 missions.</div>`
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">Three Falcon 9 cores strapped together. The most powerful operational rocket until Starship. Side boosters often land together, creating spectacular synchronized landings.</div>`
     },
     {
       tab: "Starship",
       content: `<div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Starship / Super Heavy — The Future</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin-bottom:10px;">
-          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">~120–130 m (stack)</div></div>
-          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">100–150 t fully reusable / up to 250 t expendable</div></div>
-          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">33 Raptor (Super Heavy) + 3–9 Raptor (Starship)</div></div>
-          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Goal</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">Full reusability, Mars colonization, point-to-point Earth transport</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Height</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">~120–130 m (full stack)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Payload to LEO</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">100–150 t fully reusable (target)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Engines</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">33 Raptor (booster) + 3–9 Raptor (ship)</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div style="font-size:11px;color:var(--color-text-secondary);">Goal</div><div style="font-size:12px;font-weight:500;color:var(--color-text-primary);">Full reusability, Mars missions, and Earth point-to-point travel</div></div>
         </div>
-        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">SpaceX’s next-generation fully reusable system. Designed to replace Falcon 9/Heavy in the long term. Rapidly iterating through test flights with the goal of catching the booster mid-air and achieving orbital refueling.</div>`
+        <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6;">SpaceX’s fully reusable next-generation system. Designed to eventually replace Falcon 9 and Falcon Heavy. Currently in rapid prototyping with test flights focused on booster catch and orbital refueling.</div>`
     }
   ];
   
