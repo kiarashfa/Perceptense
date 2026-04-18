@@ -108,17 +108,50 @@
   background: var(--color-background-primary);
   border: 0.5px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-lg);
-  padding: 16px 18px; margin-bottom: 1.2rem;
+  padding: 13px 15px;
+  margin-bottom: 1rem;
 }
-.planet-input-row { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
-.planet-input-row label { font-size: 13px; color: var(--color-text-secondary); white-space: nowrap; }
-.planet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
-@media (max-width: 480px) { .planet-grid { grid-template-columns: repeat(2, 1fr); } }
-.planet-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; text-align: center; }
-.planet-emoji { font-size: 20px; display: block; margin-bottom: 3px; }
-.planet-name  { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 3px; }
-.planet-wt    { font-size: 16px; font-weight: 600; color: var(--color-text-primary); margin: 0 0 1px; }
-.planet-note  { font-size: 10px; color: var(--color-text-tertiary); margin: 0; }
+.planet-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.planet-input-row label { font-size: 12px; color: var(--color-text-secondary); }
+.planet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+}
+.planet-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 11px 9px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.planet-color-bar {
+  height: 4px;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 8px;
+}
+.planet-card-name {
+  font-size: 11px; font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+.planet-card-val {
+  font-size: 22px; font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+.planet-card-unit { font-size: 11px; font-weight: 400; color: var(--color-text-tertiary); margin-left: 2px; }
+.planet-card-sub  { font-size: 10px; color: var(--color-text-tertiary); margin-top: 3px; line-height: 1.35; }
   </style>
 </head>
 <body>
@@ -379,16 +412,15 @@
       <p>In everyday speech, "weight" and "mass" are used interchangeably — and that's fine. But technically: <strong>mass</strong> is the amount of matter in an object (measured in kg), while <strong>weight</strong> is the force gravity exerts on that mass (measured in newtons). Your mass is the same on the Moon as on Earth; your weight is about 6× less on the Moon because gravity is weaker there. When you stand on a bathroom scale, it's technically measuring force and displaying it as kg — a convenient convention. In this module and in daily life, "weight" and "mass" mean the same thing.</p>
     </div>
 
-    <div class="planet-calc" id="solar-mass">
+    <div class="planet-calc">
       <div style="font-size: 12px; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Your weight across the solar system</div>
       <div class="planet-input-row">
         <label for="planetMassInput">Enter your mass:</label>
-        <input type="number" id="planetMassInput" value="70" min="1" max="500" step="1" style="width:90px !important;">
-        <button class="conv-unit-btn active" id="pUnitKg" onclick="setPlanetUnit('kg')">kg</button>
-        <button class="conv-unit-btn"        id="pUnitLb" onclick="setPlanetUnit('lb')">lb</button>
+        <input type="number" id="planetMassInput" value="70" min="1" max="500" step="1" style="width:90px !important;" oninput="renderPlanets()">
+        <span style="font-size:12px; color:var(--color-text-tertiary);">kg on Earth</span>
       </div>
       <div class="planet-grid" id="planetGrid"></div>
-      <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 10px 0 0;">Values shown as equivalent kg on a bathroom scale (force ÷ 9.807 m/s²). Your mass never changes — only the gravitational pull does.</p>
+      <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 10px 0 0;">Values shown as equivalent weight on a bathroom scale (mass × planet gravity). Your mass never changes — only the gravitational pull does.</p>
     </div>
 
     <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1.2rem;">
@@ -879,17 +911,17 @@
   ════════════════════════════════════════════════════ */
   var planetMassUnit = 'kg';
 
-  var PLANETS = [
-    { name: 'Mercury', emoji: '🪨', g: 0.38,  note: '38% of Earth' },
-    { name: 'Venus',   emoji: '🌅', g: 0.91,  note: '91% of Earth' },
-    { name: 'Earth',   emoji: '🌍', g: 1.00,  note: 'Baseline' },
-    { name: 'Moon',    emoji: '🌕', g: 0.165, note: '16.5% of Earth' },
-    { name: 'Mars',    emoji: '🔴', g: 0.38,  note: '38% of Earth' },
-    { name: 'Jupiter', emoji: '🟠', g: 2.53,  note: '2.53× Earth' },
-    { name: 'Saturn',  emoji: '💛', g: 1.07,  note: '107% of Earth' },
-    { name: 'Uranus',  emoji: '🔵', g: 0.89,  note: '89% of Earth' },
-    { name: 'Neptune', emoji: '🌀', g: 1.14,  note: '114% of Earth' },
-    { name: 'Pluto',   emoji: '⚫', g: 0.063, note: '6.3% of Earth' },
+  const PLANETS = [
+    { name: 'Mercury', g: 0.38,  color: '#9E9E9E', note: '38% of Earth gravity' },
+    { name: 'Venus',   g: 0.91,  color: '#D4A843', note: '91% of Earth gravity' },
+    { name: 'Earth',   g: 1.00,  color: '#4E99A3', note: 'Your reference' },
+    { name: 'Moon',    g: 0.165, color: '#D3D3D3', note: '16.5% of Earth gravity' },
+    { name: 'Mars',    g: 0.38,  color: '#C1440E', note: '38% of Earth gravity' },
+    { name: 'Jupiter', g: 2.53,  color: '#C88B3A', note: '2.53× Earth gravity' },
+    { name: 'Saturn',  g: 1.07,  color: '#B5A26A', note: '107% of Earth gravity' },
+    { name: 'Uranus',  g: 0.89,  color: '#7DE8E8', note: '89% of Earth gravity' },
+    { name: 'Neptune', g: 1.14,  color: '#5B6FE4', note: '114% of Earth gravity' },
+    { name: 'Pluto',   g: 0.063, color: '#6B6B6B', note: '6.3% of Earth gravity' }
   ];
 
   function setPlanetUnit(u) {
@@ -900,26 +932,23 @@
   }
 
   function renderPlanets() {
-    var raw = parseFloat(document.getElementById('planetMassInput').value);
-    if (isNaN(raw) || raw <= 0) return;
-    var massKg = planetMassUnit === 'lb' ? raw * 0.45359237 : raw;
-
-    document.getElementById('planetGrid').innerHTML = PLANETS.map(function (p) {
-      var wtKg = massKg * p.g;
-      var display = wtKg >= 1
-        ? wtKg.toLocaleString(undefined, { maximumFractionDigits: 1 }) + ' kg'
-        : (wtKg * 1000).toLocaleString(undefined, { maximumFractionDigits: 0 }) + ' g';
-      return '<div class="planet-card">' +
-        '<span class="planet-emoji">' + p.emoji + '</span>' +
-        '<p class="planet-name">' + p.name + '</p>' +
-        '<p class="planet-wt">' + display + '</p>' +
-        '<p class="planet-note">' + p.note + '</p>' +
-        '</div>';
-    }).join('');
+    const mass = parseFloat(document.getElementById('planetMassInput').value);
+    if (isNaN(mass) || mass <= 0) return;
+    const grid = document.getElementById('planetGrid');
+    let html = '';
+    PLANETS.forEach(p => {
+      const wt = mass * p.g;
+      const display = wt >= 1 ? wt.toFixed(1) + ' kg' : (wt * 1000).toFixed(0) + ' g';
+      html += `<div class="planet-card">
+        <div class="planet-color-bar" style="background:${p.color}"></div>
+        <div class="planet-card-name">${p.name}</div>
+        <div class="planet-card-val">${display}</div>
+        <div class="planet-card-sub">${p.note}</div>
+      </div>`;
+    });
+    grid.innerHTML = html;
   }
-
-  document.getElementById('planetMassInput').addEventListener('input', renderPlanets);
-  renderPlanets();
+  renderPlanets();   // initial render
 
   </script>
 </body>
