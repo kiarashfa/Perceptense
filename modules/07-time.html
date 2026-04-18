@@ -99,8 +99,14 @@
   background: var(--color-background-secondary);
   border-radius: var(--border-radius-md);
   padding: 10px 11px 9px;
+  text-align: center;
   position: relative;
   overflow: hidden;
+}
+.planet-color-bar {
+  height: 4px;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 8px;
 }
 .planet-card-name {
   font-size: 11px; font-weight: 500;
@@ -108,7 +114,7 @@
   text-transform: uppercase; letter-spacing: 0.05em;
   margin-bottom: 2px;
 }
-.planet-card-age {
+.planet-card-val {
   font-size: 22px; font-weight: 500;
   color: var(--color-text-primary);
   letter-spacing: -0.5px;
@@ -117,18 +123,6 @@
 }
 .planet-card-unit { font-size: 11px; font-weight: 400; color: var(--color-text-tertiary); margin-left: 2px; }
 .planet-card-sub  { font-size: 10px; color: var(--color-text-tertiary); margin-top: 3px; line-height: 1.35; }
-.planet-card-bar  { position: absolute; bottom: 0; left: 0; height: 3px; border-radius: 0 0 0 var(--border-radius-md); transition: width 0.4s ease; }
-.conv-unit-btn {
-  font-size: 12px; padding: 3px 10px;
-  border-radius: var(--border-radius-md);
-  border: 0.5px solid var(--color-border-secondary);
-  background: none; color: var(--color-text-secondary); cursor: pointer;
-}
-.conv-unit-btn.active {
-  background: var(--color-background-tertiary);
-  color: var(--color-text-primary);
-  border-color: var(--color-border-primary);
-}
   </style>
 </head>
 <body>
@@ -311,7 +305,7 @@
     </div>
 
     <!-- Planet age calc -->
-    <div class="planet-calc" id="solar-age">
+    <div class="planet-calc">
       <div style="font-size: 12px; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px;">Your age across the solar system</div>
       <div class="planet-input-row">
         <label for="planetAgeInput">Enter your age:</label>
@@ -319,7 +313,7 @@
         <span style="font-size:12px; color:var(--color-text-tertiary);">Earth years</span>
       </div>
       <div class="planet-grid" id="planetAgeGrid"></div>
-      <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 10px 0 0;">Each planet's year = the time it takes to orbit the Sun. Your age in "planet years" = how many of those orbits have passed since you were born. Your biological age doesn't change — only the unit does.</p>
+      <p style="font-size: 11px; color: var(--color-text-tertiary); margin: 10px 0 0;">Each planet's year = the time it takes to orbit the Sun. Your biological age doesn't change — only the unit does.</p>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ PART D -->
@@ -808,24 +802,23 @@ const PLANETS = [
   { name: 'Mercury', orbitalDays: 87.97,   color: '#9E9E9E', note: 'A Mercury year is just 88 Earth days' },
   { name: 'Venus',   orbitalDays: 224.70,  color: '#D4A843', note: 'One Venus year ≈ 7.5 months on Earth' },
   { name: 'Earth',   orbitalDays: 365.25,  color: '#4E99A3', note: 'Your biological reference' },
+  { name: 'Moon',    orbitalDays: 27.3,    color: '#D3D3D3', note: 'One Moon "year" = 27.3 Earth days' },
   { name: 'Mars',    orbitalDays: 686.97,  color: '#C1440E', note: 'A Mars year ≈ 22.5 Earth months' },
   { name: 'Jupiter', orbitalDays: 4332.59, color: '#C88B3A', note: 'One Jupiter year ≈ 11.9 Earth years' },
   { name: 'Saturn',  orbitalDays: 10759.22,color: '#B5A26A', note: 'One Saturn year ≈ 29.5 Earth years' },
   { name: 'Uranus',  orbitalDays: 30688.5, color: '#7DE8E8', note: 'One Uranus year ≈ 84 Earth years' },
   { name: 'Neptune', orbitalDays: 60195.0, color: '#5B6FE4', note: 'One Neptune year ≈ 164.8 Earth years' },
+  { name: 'Pluto',   orbitalDays: 90560,   color: '#6B6B6B', note: 'One Pluto year ≈ 248 Earth years' }
 ];
-// Max planet-age for bar scale = Earth age × (365.25 / shortest orbital) = huge for Mercury
-// So bar is relative to Earth age = 100%
+      
 function renderPlanetAges() {
   const earthAge = parseFloat(document.getElementById('planetAgeInput').value);
   if (isNaN(earthAge) || earthAge <= 0) return;
   const earthDays = earthAge * 365.25;
   const grid = document.getElementById('planetAgeGrid');
   let html = '';
-  const maxAge = earthDays / PLANETS[0].orbitalDays; // Mercury is always highest
-  PLANETS.forEach(function(p) {
+  PLANETS.forEach(p => {
     const planetAge = earthDays / p.orbitalDays;
-    const barPct = Math.min(100, (planetAge / maxAge) * 100);
     let display, unit;
     if (planetAge >= 1) {
       display = planetAge.toFixed(1);
@@ -835,16 +828,16 @@ function renderPlanetAges() {
       unit = 'mo';
     }
     const isEarth = p.name === 'Earth';
-    html += '<div class="planet-card"' + (isEarth ? ' style="border:0.5px solid var(--color-border-info);background:var(--color-background-info);"' : '') + '>' +
-      '<div class="planet-card-name">' + p.name + '</div>' +
-      '<div class="planet-card-age">' + display + '<span class="planet-card-unit">' + unit + '</span></div>' +
-      '<div class="planet-card-sub">' + p.note + '</div>' +
-      '<div class="planet-card-bar" style="width:' + barPct.toFixed(1) + '%;background:' + p.color + ';"></div>' +
-      '</div>';
+    html += `<div class="planet-card" ${isEarth ? 'style="border:0.5px solid var(--color-border-info);background:var(--color-background-info);"' : ''}>
+      <div class="planet-color-bar" style="background:${p.color}"></div>
+      <div class="planet-card-name">${p.name}</div>
+      <div class="planet-card-val">${display}<span class="planet-card-unit">${unit}</span></div>
+      <div class="planet-card-sub">${p.note}</div>
+    </div>`;
   });
   grid.innerHTML = html;
 }
-renderPlanetAges();
+renderPlanetAges();   // initial render
 
 /* ─── Part D: Analyze Number ─────────────────────── */
 function analyzeNumber() {
