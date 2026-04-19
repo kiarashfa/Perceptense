@@ -36,8 +36,18 @@ var MODULES = [
   { id: 26, file: '26-space.html',         name: 'Space & the Solar System' },
   { id: 27, file: '27-psychology.html',    name: 'Psychology' },
   { id: 28, file: '28-philosophy.html',    name: 'Philosophy' },
-  { id: 29, file: '29-art.html',           name: 'Art' },
-  { id: 30, file: '30-demographics.html',  name: 'World Population & Demographics' }
+  { id: 29, file: '29-demographics.html',  name: 'World Population & Demographics' },
+  { id: 30, file: '30-art.html',           name: 'Art' },
+  { id: 31, file: '31-literature.html',    name: 'Literature' },
+  { id: 32, file: '32-painting.html',      name: 'Painting' },
+  { id: 33, file: '33-music.html',         name: 'Music' },
+  { id: 34, file: '34-cinema.html',        name: 'Cinema' },
+  { id: 35, file: '35-management.html',    name: 'Management' },
+  { id: 36, file: '36-technology.html',    name: 'Technology' },
+  { id: 37, file: '37-crypto.html',        name: 'Crypto' },
+  { id: 38, file: '38-law.html',           name: 'Law & Legal Systems' },
+  { id: 39, file: '39-language.html',      name: 'Language' },
+  { id: 40, file: '40-sports.html',        name: 'Sports' }
 ];
 
   /* --- SVG icons --- */
