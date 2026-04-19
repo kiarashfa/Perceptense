@@ -901,7 +901,7 @@
         note:'The central question conceptual art poses is still unanswered: if the concept is all that matters, what is the role of craftsmanship, visual pleasure, and the unique physical object? The market has resolved it by paying enormous sums for conceptual objects anyway, restoring the commodity status conceptualism sought to undermine.' }
     };
 
-    function showMovement(key) {
+    function showMovement(key, clickedElement = null) {
       const m = movements[key];
       document.getElementById('movement-display').innerHTML = `
         <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
@@ -916,6 +916,16 @@
           <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key artists and works</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.artists}</div></div>
         </div>
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">${m.note}</div>`;
+      
+      // Update button styling if clicked from a button
+      if (clickedElement) {
+        document.querySelectorAll('[onclick^="showMovement"]').forEach(btn => {
+          btn.style.background = '';
+          btn.style.fontWeight = 'normal';
+        });
+        clickedElement.style.background = 'var(--color-background-secondary)';
+        clickedElement.style.fontWeight = '600';
+      }
     }
 
     /* ════════════════════════════════════
@@ -954,7 +964,7 @@
         value:'A 2004 poll of 500 arts professionals voted it the most influential artwork of the 20th century. The original would be priceless if it existed. The significance is entirely conceptual — the physical object is a $5 piece of plumbing hardware. This paradox is precisely the point.' }
     };
 
-    function showWork(key) {
+    function showWork(key, clickedElement = null) {
       const w = works[key];
       document.getElementById('work-display').innerHTML = `
         <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
@@ -968,6 +978,16 @@
           <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Historical context</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${w.context}</div></div>
           <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Value and significance</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${w.value}</div></div>
         </div>`;
+      
+      // Update button styling
+      if (clickedElement) {
+        document.querySelectorAll('[onclick^="showWork"]').forEach(btn => {
+          btn.style.background = '';
+          btn.style.fontWeight = 'normal';
+        });
+        clickedElement.style.background = 'var(--color-background-secondary)';
+        clickedElement.style.fontWeight = '600';
+      }
     }
 
     /* ════════════════════════════════════
@@ -1096,10 +1116,21 @@
       }
     };
 
-    function showElement(key) {
+    function showElement(key, clickedElement = null) {
       // Update card active state
       document.querySelectorAll('.elem-card').forEach(c => c.classList.remove('active'));
-      event.currentTarget.classList.add('active');
+      if (clickedElement) {
+        clickedElement.classList.add('active');
+      } else {
+        // Find the card by its onclick content
+        document.querySelectorAll('.elem-card').forEach(card => {
+          const onclick = card.getAttribute('onclick');
+          if (onclick && onclick.includes(`'${key}'`)) {
+            card.classList.add('active');
+          }
+        });
+      }
+      
       const e = elements[key];
       const detail = document.getElementById('elem-detail');
       detail.innerHTML = `
@@ -1110,8 +1141,6 @@
         </div>`;
       detail.classList.add('show');
     }
-    // Show first element on load
-    showElement('line');
 
     /* ════════════════════════════════════
        MEDIUM & TECHNIQUE
@@ -1175,7 +1204,7 @@
       }
     };
 
-    function showMedium(key) {
+    function showMedium(key, clickedElement = null) {
       const m = mediums[key];
       document.getElementById('medium-display').innerHTML = `
         <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
@@ -1188,8 +1217,17 @@
           <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key artists</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.artists}</div></div>
           <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key insight</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.note}</div></div>
         </div>`;
+      
+      // Update button styling
+      if (clickedElement) {
+        document.querySelectorAll('[onclick^="showMedium"]').forEach(btn => {
+          btn.style.background = '';
+          btn.style.fontWeight = 'normal';
+        });
+        clickedElement.style.background = 'var(--color-background-secondary)';
+        clickedElement.style.fontWeight = '600';
+      }
     }
-    showMedium('oil');
 
     /* ════════════════════════════════════
        SCALE VISUALISER
@@ -1211,15 +1249,25 @@
         const btn = document.createElement('button');
         btn.textContent = w.name;
         btn.style.cssText = 'font-size:11px; padding:3px 9px;';
-        btn.onclick = () => renderScale(i, btn);
+        btn.onclick = (e) => renderScale(i, e.currentTarget);
         btns.appendChild(btn);
       });
-      renderScale(0, btns.children[0]);
+      // Wait for buttons to be added before rendering first one
+      setTimeout(() => {
+        renderScale(0, btns.children[0]);
+      }, 0);
     }
 
     function renderScale(idx, btn) {
-      document.querySelectorAll('#scaleButtons button').forEach(b => b.style.background = '');
-      btn.style.background = 'var(--color-background-secondary)';
+      document.querySelectorAll('#scaleButtons button').forEach(b => {
+        b.style.background = '';
+        b.style.fontWeight = 'normal';
+      });
+      if (btn) {
+        btn.style.background = 'var(--color-background-secondary)';
+        btn.style.fontWeight = '600';
+      }
+      
       const w = scaleWorks[idx];
       // person height in cm: 170. Max display height: 180px
       const personH = 170;
@@ -1245,13 +1293,60 @@
         </div>`;
       document.getElementById('scaleInfo').textContent = w.note;
     }
-    buildScaleViz();
+
+    /* ════════════════════════════════════
+       FIX BUTTON ONCLICK HANDLERS
+    ════════════════════════════════════ */
+    // Override the inline onclick handlers to pass the event
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fix movement buttons
+      document.querySelectorAll('[onclick^="showMovement"]').forEach(btn => {
+        const match = btn.getAttribute('onclick').match(/showMovement\('([^']+)'\)/);
+        if (match) {
+          const key = match[1];
+          btn.onclick = (e) => showMovement(key, e.currentTarget);
+        }
+      });
+      
+      // Fix work buttons
+      document.querySelectorAll('[onclick^="showWork"]').forEach(btn => {
+        const match = btn.getAttribute('onclick').match(/showWork\('([^']+)'\)/);
+        if (match) {
+          const key = match[1];
+          btn.onclick = (e) => showWork(key, e.currentTarget);
+        }
+      });
+      
+      // Fix element cards
+      document.querySelectorAll('.elem-card').forEach(card => {
+        const match = card.getAttribute('onclick').match(/showElement\('([^']+)'\)/);
+        if (match) {
+          const key = match[1];
+          card.onclick = (e) => showElement(key, e.currentTarget);
+        }
+      });
+      
+      // Fix medium buttons
+      document.querySelectorAll('[onclick^="showMedium"]').forEach(btn => {
+        const match = btn.getAttribute('onclick').match(/showMedium\('([^']+)'\)/);
+        if (match) {
+          const key = match[1];
+          btn.onclick = (e) => showMedium(key, e.currentTarget);
+        }
+      });
+    });
 
     /* ════════════════════════════════════
        INIT DEFAULTS
     ════════════════════════════════════ */
-    showMovement('impressionism');
-    showWork('mona');
+    // Initialize all displays after DOM is ready
+    window.addEventListener('DOMContentLoaded', function() {
+      showMovement('impressionism');
+      showWork('mona');
+      showElement('line');
+      showMedium('oil');
+      buildScaleViz();
+    });
     </script>
   </div>
   <script src="../files/shared.js"></script>
