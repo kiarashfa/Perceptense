@@ -14,23 +14,244 @@
   <meta property="og:description" content="Module 28: Ethics, logic, epistemology, and big questions. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
+  <style>
+    /* ── philosopher / movement tab buttons ── */
+    .phil-btn-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .phil-btn {
+      font-size: 12px;
+      padding: 4px 11px;
+      border-radius: 99px;
+      border: 0.5px solid var(--color-border-secondary);
+      background: none;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      transition: all 0.12s;
+      font-family: inherit;
+    }
+    .phil-btn:hover {
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+    }
+    .phil-btn.active {
+      background: var(--color-text-primary);
+      color: var(--color-background-primary);
+      border-color: var(--color-text-primary);
+    }
+
+    /* ── explorer display panel ── */
+    .explorer-panel {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px;
+      margin-bottom: 1rem;
+      min-height: 80px;
+    }
+
+    /* ── 2-col grid used inside panels, collapses on mobile ── */
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    @media (max-width: 560px) {
+      .panel-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── timeline bar (Part A visual) ── */
+    .timeline-bar {
+      position: relative;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--color-background-secondary);
+      margin: 6px 0 2px;
+      overflow: visible;
+    }
+    .timeline-fill {
+      position: absolute;
+      top: 0; left: 0;
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    /* ── influence meter ── */
+    .influence-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 7px;
+    }
+    .influence-label {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      width: 130px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .influence-track {
+      flex: 1;
+      height: 18px;
+      background: var(--color-background-secondary);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .influence-fill {
+      height: 100%;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding-left: 7px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #fff;
+      transition: width 0.6s ease;
+    }
+
+    /* ── ethics spectrum slider ── */
+    .spectrum-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px;
+      margin-bottom: 1rem;
+    }
+    .spectrum-track {
+      height: 10px;
+      border-radius: 5px;
+      background: linear-gradient(to right, #0C447C, #4E99A3, #27500A);
+      margin: 10px 0 4px;
+      position: relative;
+    }
+    .spectrum-tick {
+      position: absolute;
+      top: -18px;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+    }
+
+    /* ── comparison table ── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 1rem;
+    }
+    .compare-table th {
+      padding: 7px 10px;
+      background: var(--color-background-secondary);
+      color: var(--color-text-secondary);
+      font-weight: 500;
+      text-align: left;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+    .compare-table td {
+      padding: 7px 10px;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      color: var(--color-text-primary);
+      line-height: 1.45;
+      vertical-align: top;
+    }
+    .compare-table tr:last-child td { border-bottom: none; }
+    .compare-table tr:hover td { background: var(--color-background-secondary); }
+
+    /* ── logical fallacy cards ── */
+    .fallacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .fallacy-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+    }
+    .fallacy-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 3px;
+    }
+    .fallacy-latin {
+      font-size: 10px;
+      font-style: italic;
+      color: var(--color-text-tertiary);
+      margin-bottom: 5px;
+    }
+    .fallacy-def {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .fallacy-example {
+      font-size: 11px;
+      color: var(--color-text-primary);
+      margin-top: 5px;
+      padding: 4px 7px;
+      background: var(--color-background-secondary);
+      border-radius: 4px;
+      line-height: 1.45;
+    }
+
+    /* ── philosopher era badge ── */
+    .era-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 99px;
+      margin-right: 6px;
+    }
+
+    /* ── dot-matrix consciousness viz ── */
+    .dot-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+      margin: 8px 0;
+    }
+    .dot-grid span {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
   <div class="page-wrap">
-<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-  <i class="fa-solid fa-scale-balanced" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-  <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 28: Philosophy</h1>
-</div>
+
+    <!-- ══════════════════════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════════════════════ -->
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
+      <i class="fa-solid fa-scale-balanced" style="font-size:42px; color:#4E99A3; flex-shrink:0;"></i>
+      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 28: Philosophy</h1>
+    </div>
     <p class="module-subtitle">Ethics, logic, epistemology, and big questions</p>
 
+
+    <!-- ══════════════════════════════════════════════════════
+         PART A — WHAT PHILOSOPHY IS
+    ══════════════════════════════════════════════════════ -->
     <div class="sec">Part A · what philosophy is — and why it still matters</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+    <div class="card" style="margin-bottom:1rem;">
       <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The discipline that questions its own foundations</div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-bottom:10px; font-style:italic;">
         "The unexamined life is not worth living." — Socrates (at his trial, choosing death over exile and silence)
       </div>
-      <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:8px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
         <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
           <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">What philosophy does</div>
           <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Examines the most fundamental questions: What exists? What can we know? How should we live? What is justice? What is beauty? What is a valid argument? It questions assumptions that other disciplines simply accept.</div>
@@ -46,325 +267,888 @@
       </div>
     </div>
 
+    <!-- Visual: disciplines born from philosophy -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.06em;">How disciplines were born from philosophy</div>
+      <div id="phil-born-bars"></div>
+      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:6px;">Bar width = rough century of disciplinary independence from philosophy</div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART B — SIX BRANCHES
+    ══════════════════════════════════════════════════════ -->
     <div class="sec">Part B · the six branches of philosophy</div>
 
-    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px; margin-bottom:1rem;">
       <div style="background:#EEEDFE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #AFA9EC;">
         <div style="font-size:13px; font-weight:500; color:#26215C; margin-bottom:4px;">Metaphysics</div>
         <div style="font-size:12px; color:#3C3489; margin-bottom:6px; font-style:italic;">"What exists?"</div>
-        <div style="font-size:12px; color:#534AB7; line-height:1.5;">Questions: Does God exist? Do numbers exist? Do we have free will? What is time? What is consciousness? What makes you the same person you were 10 years ago? Does the external world exist independently of perception?</div>
+        <div style="font-size:12px; color:#534AB7; line-height:1.5;">Does God exist? Do numbers exist? Do we have free will? What is time? What is consciousness? What makes you the same person you were 10 years ago?</div>
       </div>
       <div style="background:#E6F1FB; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #85B7EB;">
         <div style="font-size:13px; font-weight:500; color:#042C53; margin-bottom:4px;">Epistemology</div>
         <div style="font-size:12px; color:#0C447C; margin-bottom:6px; font-style:italic;">"What can we know?"</div>
-        <div style="font-size:12px; color:#185FA5; line-height:1.5;">Questions: What is knowledge (justified true belief)? How do we know anything beyond our immediate sensory experience? Can we trust our senses? Is there a priori knowledge (knowable without experience)? What is the relationship between belief and evidence?</div>
+        <div style="font-size:12px; color:#185FA5; line-height:1.5;">What is knowledge (justified true belief)? How do we know anything beyond immediate experience? Can we trust our senses? Is there a priori knowledge?</div>
       </div>
       <div style="background:#E1F5EE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #5DCAA5;">
         <div style="font-size:13px; font-weight:500; color:#04342C; margin-bottom:4px;">Ethics (moral philosophy)</div>
         <div style="font-size:12px; color:#085041; margin-bottom:6px; font-style:italic;">"How should we live?"</div>
-        <div style="font-size:12px; color:#0F6E56; line-height:1.5;">Questions: What makes actions right or wrong? Are moral facts objective or culturally relative? What do we owe each other? Is it ever right to lie? What are our obligations to future generations and animals?</div>
+        <div style="font-size:12px; color:#0F6E56; line-height:1.5;">What makes actions right or wrong? Are moral facts objective or culturally relative? What do we owe each other? What are our obligations to future generations?</div>
       </div>
       <div style="background:#FAEEDA; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #EF9F27;">
         <div style="font-size:13px; font-weight:500; color:#412402; margin-bottom:4px;">Political philosophy</div>
         <div style="font-size:12px; color:#633806; margin-bottom:6px; font-style:italic;">"How should we organise society?"</div>
-        <div style="font-size:12px; color:#854F0B; line-height:1.5;">Questions: What justifies political authority? What are the limits of government power? What is justice? Are there natural rights? What do we owe to future generations, immigrants, or the global poor? Is democracy intrinsically valuable or only instrumentally?</div>
+        <div style="font-size:12px; color:#854F0B; line-height:1.5;">What justifies political authority? What are the limits of government? What is justice? Are there natural rights? Is democracy intrinsically valuable or only instrumentally?</div>
       </div>
       <div style="background:#FBEAF0; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #ED93B1;">
         <div style="font-size:13px; font-weight:500; color:#4B1528; margin-bottom:4px;">Aesthetics</div>
         <div style="font-size:12px; color:#72243E; margin-bottom:6px; font-style:italic;">"What is beauty and art?"</div>
-        <div style="font-size:12px; color:#993556; line-height:1.5;">Questions: Is beauty objective or subjective? What makes something art? Can there be bad taste? What is the relationship between art and morality? Why does fiction move us emotionally if we know it isn't real? What is the sublime?</div>
+        <div style="font-size:12px; color:#993556; line-height:1.5;">Is beauty objective or subjective? What makes something art? Can there be bad taste? What is the relationship between art and morality?</div>
       </div>
       <div style="background:#F1EFE8; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #D3D1C7;">
         <div style="font-size:13px; font-weight:500; color:#2C2C2A; margin-bottom:4px;">Logic</div>
         <div style="font-size:12px; color:#444441; margin-bottom:6px; font-style:italic;">"What counts as valid reasoning?"</div>
-        <div style="font-size:12px; color:#5F5E5A; line-height:1.5;">The study of correct inference — what conclusions follow necessarily from what premises. Formal logic (Aristotle's syllogisms → mathematical logic → computation) underpins mathematics, computer science, and the structure of all rigorous argument.</div>
+        <div style="font-size:12px; color:#5F5E5A; line-height:1.5;">The study of correct inference. Formal logic (Aristotle → mathematical logic → computation) underpins mathematics, computer science, and all rigorous argument.</div>
       </div>
     </div>
 
+    <!-- Ethics Spectrum Interactive -->
+    <div class="spectrum-wrap">
+      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Ethical framework spectrum — where does your intuition land?</div>
+      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">Drag to explore the spectrum from pure rule-following to pure outcome-maximising.</div>
+      <input type="range" id="ethicsSlider" min="0" max="100" value="50" style="width:100%; margin-bottom:6px;">
+      <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--color-text-tertiary); margin-bottom:10px;">
+        <span>Deontology<br>(rules first)</span>
+        <span style="text-align:center;">Virtue ethics<br>(character first)</span>
+        <span style="text-align:right;">Consequentialism<br>(outcomes first)</span>
+      </div>
+      <div id="ethics-explain" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:13px; color:var(--color-text-primary); line-height:1.6;"></div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART C — ANCIENT GREEKS
+    ══════════════════════════════════════════════════════ -->
     <div class="sec">Part C · the ancient Greeks — where Western philosophy begins</div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showPhil('socrates')"   style="font-size:12px; padding:3px 10px;">Socrates</button>
-      <button onclick="showPhil('plato')"      style="font-size:12px; padding:3px 10px;">Plato</button>
-      <button onclick="showPhil('aristotle')"  style="font-size:12px; padding:3px 10px;">Aristotle</button>
-      <button onclick="showPhil('epicurus')"   style="font-size:12px; padding:3px 10px;">Epicurus</button>
-      <button onclick="showPhil('zeno')"       style="font-size:12px; padding:3px 10px;">Zeno (Stoicism)</button>
-      <button onclick="showPhil('heraclitus')" style="font-size:12px; padding:3px 10px;">Heraclitus</button>
-      <button onclick="showPhil('democritus')" style="font-size:12px; padding:3px 10px;">Democritus</button>
+    <div class="phil-btn-row" id="greek-btns"></div>
+    <div class="explorer-panel" id="phil-display"></div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART D — LATE ANTIQUITY & MEDIEVAL
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part D · late antiquity &amp; medieval philosophy (4th–17th century)</div>
+
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
+      After Aristotle's death, Greek philosophy spread across the Roman world. When Rome fell, Aristotle's major works were preserved in the Islamic world and reintroduced to Europe in the 12th century — triggering Scholasticism: the project of synthesising Greek philosophy with Christian (and Islamic and Jewish) theology. Medieval philosophers were not mere theologians doing philosophy — they developed original logic, metaphysics, and theory of knowledge.
     </div>
-    <div id="phil-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
 
-    <div class="sec">Part D · the major movements — from rationalism to existentialism</div>
+    <div class="phil-btn-row" id="medieval-btns"></div>
+    <div class="explorer-panel" id="medieval-display"></div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showMovement('stoicism')"       style="font-size:12px; padding:3px 10px;">Stoicism</button>
-      <button onclick="showMovement('rationalism')"    style="font-size:12px; padding:3px 10px;">Rationalism</button>
-      <button onclick="showMovement('empiricism')"     style="font-size:12px; padding:3px 10px;">Empiricism</button>
-      <button onclick="showMovement('kant')"           style="font-size:12px; padding:3px 10px;">Kantian synthesis</button>
-      <button onclick="showMovement('utilitarianism')" style="font-size:12px; padding:3px 10px;">Utilitarianism</button>
-      <button onclick="showMovement('existentialism')" style="font-size:12px; padding:3px 10px;">Existentialism</button>
-      <button onclick="showMovement('analytic')"       style="font-size:12px; padding:3px 10px;">Analytic philosophy</button>
-      <button onclick="showMovement('socialcontract')" style="font-size:12px; padding:3px 10px;">Social contract</button>
+
+    <!-- ══════════════════════════════════════════════════════
+         PART E — EARLY MODERN
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part E · early modern philosophy (17th–early 18th century)</div>
+
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
+      The Scientific Revolution shattered the Aristotelian-scholastic worldview. New questions arose: If the medieval synthesis was wrong, what can we know? What is the right method? Descartes, Spinoza, and Leibniz (the Rationalists) said reason. Locke, Berkeley, and Hume (the Empiricists) said experience. Their debate set the agenda for modern philosophy — and was not resolved until Kant.
     </div>
-    <div id="movement-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
 
-    <div class="sec">Part E · the great thought experiments</div>
+    <div class="phil-btn-row" id="earlymod-btns"></div>
+    <div class="explorer-panel" id="earlymod-display"></div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showThought('cave')"      style="font-size:12px; padding:3px 10px;">Plato's cave</button>
-      <button onclick="showThought('demon')"     style="font-size:12px; padding:3px 10px;">Descartes' demon</button>
-      <button onclick="showThought('trolley')"   style="font-size:12px; padding:3px 10px;">Trolley problem</button>
-      <button onclick="showThought('theseus')"   style="font-size:12px; padding:3px 10px;">Ship of Theseus</button>
-      <button onclick="showThought('veil')"      style="font-size:12px; padding:3px 10px;">Veil of ignorance</button>
-      <button onclick="showThought('chinese')"   style="font-size:12px; padding:3px 10px;">Chinese Room</button>
-      <button onclick="showThought('experience')'" style="font-size:12px; padding:3px 10px;">Experience machine</button>
-      <button onclick="showThought('mary')"      style="font-size:12px; padding:3px 10px;">Mary's room</button>
+
+    <!-- ══════════════════════════════════════════════════════
+         PART F — ENLIGHTENMENT & 19th CENTURY
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part F · enlightenment &amp; 19th-century transformations</div>
+
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
+      The 18th and 19th centuries saw philosophy reshape politics, economics, religion, and history. The Enlightenment produced modern democracy, human rights, and capitalism. German Idealism produced the most ambitious philosophical system ever attempted. The 19th century ended with Nietzsche announcing the death of God — and philosophy fracturing into the analytic and continental traditions.
     </div>
-    <div id="thought-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
 
-    <div class="sec">Part F · essential philosophical vocabulary</div>
+    <div class="phil-btn-row" id="enlightenment-btns"></div>
+    <div class="explorer-panel" id="enlightenment-display"></div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+
+    <!-- ══════════════════════════════════════════════════════
+         PART G — 20th CENTURY & CONTEMPORARY
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part G · 20th-century &amp; contemporary philosophy</div>
+
+    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
+      The 20th century split Western philosophy into two traditions: analytic (dominant in Britain, USA, and Australia — logical rigour, philosophy of language, mind, and science) and continental (dominant in France and Germany — phenomenology, existentialism, critical theory, poststructuralism). Both engage with the same problems; they differ radically in method and style.
+    </div>
+
+    <div class="phil-btn-row" id="c20-btns"></div>
+    <div class="explorer-panel" id="c20-display"></div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART H — MAJOR MOVEMENTS
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part H · the major movements — from rationalism to existentialism</div>
+
+    <div class="phil-btn-row" id="movement-btns"></div>
+    <div class="explorer-panel" id="movement-display"></div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART I — GREAT THOUGHT EXPERIMENTS
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part I · the great thought experiments</div>
+
+    <div class="phil-btn-row" id="thought-btns"></div>
+    <div class="explorer-panel" id="thought-display"></div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART J — LOGICAL FALLACIES
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part J · logical fallacies everyone should know</div>
+
+    <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px; line-height:1.6;">A fallacy is an argument that appears to support a conclusion but doesn't actually succeed. Recognising them is one of the most practically useful skills philosophy gives you.</div>
+
+    <div class="fallacy-grid">
+      <div class="fallacy-card">
+        <div class="fallacy-name">Ad hominem</div>
+        <div class="fallacy-latin">against the person</div>
+        <div class="fallacy-def">Attacking the arguer rather than the argument. Even if the speaker is dishonest or hypocritical, their argument must be addressed on its own terms.</div>
+        <div class="fallacy-example">Example: "You can't trust his climate science — he drives an SUV."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Straw man</div>
+        <div class="fallacy-latin">homo stramineus</div>
+        <div class="fallacy-def">Misrepresenting someone's position to make it easier to attack — then defeating the misrepresentation rather than the actual view.</div>
+        <div class="fallacy-example">Example: "Environmentalists want us to go back to living in caves."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">False dilemma</div>
+        <div class="fallacy-latin">bifurcatio</div>
+        <div class="fallacy-def">Presenting only two options as if they're exhaustive, when other possibilities exist.</div>
+        <div class="fallacy-example">Example: "You're either with us or against us."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Appeal to authority</div>
+        <div class="fallacy-latin">argumentum ad verecundiam</div>
+        <div class="fallacy-def">Claiming something is true because an authority figure said so — without evaluating the evidence. Legitimate when the authority is genuinely expert in the relevant domain.</div>
+        <div class="fallacy-example">Example: "A Nobel laureate says homeopathy works."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Slippery slope</div>
+        <div class="fallacy-latin">camel's nose</div>
+        <div class="fallacy-def">Claiming that one event will inevitably lead to extreme consequences without showing why each step in the chain is probable.</div>
+        <div class="fallacy-example">Example: "Legalising cannabis will lead to everyone taking heroin."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Post hoc ergo propter hoc</div>
+        <div class="fallacy-latin">after this, therefore because of this</div>
+        <div class="fallacy-def">Inferring causation from correlation: A happened, then B happened, therefore A caused B.</div>
+        <div class="fallacy-example">Example: "I wore my lucky socks and we won the match."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Begging the question</div>
+        <div class="fallacy-latin">petitio principii</div>
+        <div class="fallacy-def">Assuming the conclusion in one of the premises — circular reasoning. The argument is valid only if you already accept what you're trying to prove.</div>
+        <div class="fallacy-example">Example: "The Bible is true because it says so in the Bible."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Appeal to nature</div>
+        <div class="fallacy-latin">argumentum ad naturam</div>
+        <div class="fallacy-def">Assuming that what is natural is good and what is artificial is bad. Nature contains arsenic, viruses, and parasites; artificial penicillin saves lives.</div>
+        <div class="fallacy-example">Example: "This supplement is safe — it's all natural."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Is-ought fallacy</div>
+        <div class="fallacy-latin">Hume's guillotine</div>
+        <div class="fallacy-def">Deriving a normative "ought" from a descriptive "is" without justification. Facts alone cannot determine values (see Hume, Part G).</div>
+        <div class="fallacy-example">Example: "Humans evolved to eat meat, so we ought to eat meat."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Modus tollens (valid)</div>
+        <div class="fallacy-latin">denying the consequent</div>
+        <div class="fallacy-def">Not a fallacy — a valid form. If P→Q and ¬Q, then ¬P. Crucial for falsifying scientific hypotheses. Karl Popper built his philosophy of science on this form.</div>
+        <div class="fallacy-example">Example: "If the drug works, patients improve. Patients didn't improve. The drug doesn't work."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Affirming the consequent</div>
+        <div class="fallacy-latin">fallacy of the converse</div>
+        <div class="fallacy-def">If P→Q and Q, one cannot conclude P. This is a logical fallacy that looks deceptively valid — and is the basis of most conspiracy reasoning.</div>
+        <div class="fallacy-example">Example: "If it rains, the ground is wet. The ground is wet. Therefore it rained."</div>
+      </div>
+      <div class="fallacy-card">
+        <div class="fallacy-name">Hasty generalisation</div>
+        <div class="fallacy-latin">secundum quid</div>
+        <div class="fallacy-def">Drawing a broad conclusion from an insufficient sample. The larger the generalisation, the more evidence is required.</div>
+        <div class="fallacy-example">Example: "I met two rude Parisians. Parisians are rude."</div>
+      </div>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART K — ESSENTIAL VOCABULARY
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part K · essential philosophical vocabulary</div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px; margin-bottom:1rem;">
       <div class="card">
         <p class="clabel">A priori vs a posteriori</p>
         <p class="cval">Before vs after experience</p>
-        <p class="cnote">A priori knowledge is knowable through reason alone, independent of experience: "All bachelors are unmarried," "2+2=4." A posteriori knowledge requires experience: "Water boils at 100°C," "Napoleon was exiled." Kant argued the most interesting philosophical questions concern whether there is synthetic a priori knowledge (claims that are both informative and knowable without experience).</p>
+        <p class="cnote">A priori knowledge is knowable through reason alone: "All bachelors are unmarried," "2+2=4." A posteriori requires experience: "Water boils at 100°C." Kant argued the most interesting philosophical questions concern whether there is synthetic a priori knowledge — claims that are both informative and knowable without experience.</p>
       </div>
       <div class="card">
         <p class="clabel">Analytic vs synthetic</p>
         <p class="cval">True by definition vs by fact</p>
-        <p class="cnote">Analytic propositions are true by the meaning of their terms: "All triangles have three sides." The predicate is contained in the subject. Synthetic propositions add new information: "The cat is on the mat." Hume's fork: all meaningful claims are either analytic (relations of ideas) or synthetic (matters of fact). Claims that are neither — including much traditional metaphysics — are meaningless.</p>
+        <p class="cnote">Analytic propositions are true by the meaning of their terms: "All triangles have three sides." Synthetic propositions add new information: "The cat is on the mat." Hume's fork: all meaningful claims are either analytic or synthetic. Claims that are neither are meaningless — which eliminated much traditional metaphysics.</p>
       </div>
       <div class="card">
         <p class="clabel">Ontology</p>
         <p class="cval">The study of what exists</p>
-        <p class="cnote">A branch of metaphysics concerned with the fundamental categories of existence: Do numbers exist? Do properties exist? Do abstract objects (justice, redness) exist? Ontological commitments are the entities your theory says must exist. "To be is to be the value of a variable" — Quine's criterion for ontological commitment.</p>
+        <p class="cnote">A branch of metaphysics concerned with the fundamental categories of existence. Do numbers exist? Do properties exist? Do abstract objects (justice, redness) exist? Ontological commitments are the entities your theory says must exist. "To be is to be the value of a variable" — Quine's criterion.</p>
       </div>
       <div class="card">
         <p class="clabel">Empiricism vs rationalism</p>
         <p class="cval">The great epistemological split</p>
-        <p class="cnote">Rationalists (Descartes, Leibniz, Spinoza): reason is the primary source of knowledge; some knowledge is innate. Empiricists (Locke, Hume, Berkeley): all knowledge derives from sensory experience; the mind starts as a blank slate (tabula rasa). Kant's critical philosophy attempted a synthesis: both contribute — experience provides content, reason provides structure.</p>
+        <p class="cnote">Rationalists (Descartes, Leibniz, Spinoza): reason is the primary source of knowledge; some knowledge is innate. Empiricists (Locke, Hume, Berkeley): all knowledge derives from sensory experience. Kant's critical philosophy synthesised both: experience provides content, reason provides structure.</p>
       </div>
       <div class="card">
         <p class="clabel">Dialectic</p>
         <p class="cval">Reasoning through contradiction</p>
-        <p class="cnote">The Socratic method: reaching truth through question and answer, exposing contradictions in the interlocutor's beliefs. Hegel's dialectic: thesis → antithesis → synthesis. History progresses through the clash of opposing ideas. Marx inverted Hegel's idealist dialectic into a materialist one: history progresses through class conflict, not the clash of ideas.</p>
+        <p class="cnote">The Socratic method: reaching truth through question and answer, exposing contradictions. Hegel's dialectic: thesis → antithesis → synthesis. Marx inverted Hegel's idealist dialectic into a materialist one: history progresses through class conflict, not the clash of ideas.</p>
       </div>
       <div class="card">
         <p class="clabel">Phenomenology</p>
         <p class="cval">The study of conscious experience</p>
-        <p class="cnote">Founded by Edmund Husserl; developed by Heidegger and Merleau-Ponty. Describes the structure of experience from the first-person perspective — the how of experience rather than the what. Heidegger: we don't first perceive a hammer then decide to use it — we encounter it as already "ready-to-hand," embedded in a context of purposes. Existence precedes understanding.</p>
+        <p class="cnote">Founded by Husserl; developed by Heidegger and Merleau-Ponty. Describes the structure of experience from the first-person perspective. Heidegger: we don't first perceive a hammer then decide to use it — we encounter it as already "ready-to-hand," embedded in a context of purposes.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Qualia</p>
+        <p class="cval">The "what it is like" of experience</p>
+        <p class="cnote">The subjective, intrinsic properties of conscious experience: the redness of red, the painfulness of pain, the taste of coffee. Even a complete physical description of a brain state seems to leave something out — the felt quality. This explanatory gap is the "hard problem of consciousness" (Chalmers, 1995).</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Teleology</p>
+        <p class="cval">Purpose-directed explanation</p>
+        <p class="cnote">Explaining things in terms of their ends or purposes. Aristotle's final cause. Biology and ethics are heavily teleological. The modern scientific revolution largely replaced teleological with mechanistic explanation in physics and chemistry — but teleology resists elimination in biology (what is the heart for?) and ethics (what is the good life for?).</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Reductionism vs holism</p>
+        <p class="cval">Parts vs wholes</p>
+        <p class="cnote">Reductionism: complex phenomena can be fully explained by their simpler components (consciousness = brain states = neural firing = chemistry = physics). Holism: wholes have properties that cannot be derived from their parts alone. The mind-body problem turns partly on whether mental states are reducible to physical states.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Supervenience</p>
+        <p class="cval">No change without physical change</p>
+        <p class="cnote">Mental properties supervene on physical properties: there can be no mental difference without a physical difference. You cannot hold everything physical constant and change someone's beliefs or emotions. Supervenience is weaker than reduction — it doesn't say mental states are identical to physical ones, only that they co-vary with them.</p>
       </div>
     </div>
 
-    <div class="sec">Part G · test yourself</div>
+
+    <!-- Ethics framework comparison table -->
+    <div class="sec" style="margin-top:1.5rem;">Comparing the three major ethical frameworks</div>
+    <div style="overflow-x:auto; margin-bottom:1rem;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:14%;">Framework</th>
+            <th style="width:16%;">Core claim</th>
+            <th style="width:16%;">Key thinkers</th>
+            <th style="width:18%;">Strengths</th>
+            <th style="width:18%;">Weaknesses</th>
+            <th style="width:18%;">Applied to trolley problem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Consequentialism</strong><br><span style="color:var(--color-text-tertiary); font-size:11px;">Utilitarianism</span></td>
+            <td>Right action = maximises overall good (welfare, happiness, preference satisfaction)</td>
+            <td>Bentham, Mill, Singer, Sidgwick</td>
+            <td>Impartial (every person counts equally); outcome-focused (what actually matters); quantifiable</td>
+            <td>Can justify atrocities if the numbers are right; ignores rights; demands impartiality that conflicts with personal commitments</td>
+            <td>Pull the lever, push the person — the arithmetic is the same in both cases; five lives outweigh one</td>
+          </tr>
+          <tr>
+            <td><strong>Deontology</strong><br><span style="color:var(--color-text-tertiary); font-size:11px;">Kantian ethics</span></td>
+            <td>Right action = follows moral rules / duties, regardless of consequences</td>
+            <td>Kant, Ross, Korsgaard</td>
+            <td>Respects rights and dignity; consistent; non-manipulable; matches strong moral intuitions about murder</td>
+            <td>Inflexible (lying is wrong even to a murderer?); conflicts between duties (W.D. Ross: prima facie duties); no guidance on how to weigh conflicting rules</td>
+            <td>Pull the lever (a foreseen side-effect); but do not push the person (using them as a means violates their dignity)</td>
+          </tr>
+          <tr>
+            <td><strong>Virtue ethics</strong><br><span style="color:var(--color-text-tertiary); font-size:11px;">Aristotelian</span></td>
+            <td>Right action = what a virtuous person would do; focus on character, not rules or outcomes</td>
+            <td>Aristotle, Aquinas, MacIntyre, Foot</td>
+            <td>Accommodates moral complexity; rich account of the good life; emphasises moral development; handles agent-relative obligations</td>
+            <td>No clear action-guidance in novel situations; "what would a virtuous person do?" is not always obvious; culturally variable conceptions of virtue</td>
+            <td>What would a person of practical wisdom (phronesis) do? Probably pull the lever — but the virtue approach focuses on what this reveals about the agent's character, not just the act</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <!-- ══════════════════════════════════════════════════════
+         PART L — TEST YOURSELF
+    ══════════════════════════════════════════════════════ -->
+    <div class="sec">Part L · test yourself</div>
 
     <div class="qa">
       <p class="qa-q">1. What is the Trolley Problem, and why has it become so central to modern ethics and AI ethics?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">The trolley problem: a runaway trolley is heading toward five people tied to the tracks who will be killed. You can pull a lever to divert it to a side track where only one person is tied. Do you pull the lever? Most people say yes — killing one to save five seems justified. The footbridge variant: you're on a bridge above the tracks. The only way to stop the trolley is to push a large man off the bridge — he will die but stop the trolley. Most people say no — even though the arithmetic is identical. The thought experiment was introduced by Philippa Foot (1967) and extended by Judith Jarvis Thomson. It exposes the conflict between two fundamental ethical frameworks: consequentialism (the outcome is all that matters — pull the lever, save five) and deontological ethics (there are moral constraints on action regardless of consequences — you cannot use a person merely as a means). The footbridge variant produces a different response because the action (pushing) is more direct, more intimate, and uses the person as a tool. It's central to AI ethics because self-driving cars face structurally similar decisions — and AI companies actually had to decide what policy to program. The MIT Moral Machine project surveyed 2.3 million people across 233 countries and found significant cultural variation in these judgements.</div>
+      <div class="qa-ans">The trolley problem: a runaway trolley is heading toward five people tied to the tracks who will be killed. You can pull a lever to divert it to a side track where only one person is tied. Do you pull the lever? Most people say yes — killing one to save five seems justified. The footbridge variant: you're on a bridge above the tracks. The only way to stop the trolley is to push a large man off the bridge — he will die but stop the trolley. Most people say no — even though the arithmetic is identical. The thought experiment was introduced by Philippa Foot (1967) and extended by Judith Jarvis Thomson. It exposes the conflict between consequentialism (pull the lever, save five) and deontological ethics (you cannot use a person merely as a means). The footbridge variant produces a different response because the action is more direct and uses the person as a tool. It's central to AI ethics because self-driving cars face structurally similar decisions. The MIT Moral Machine project surveyed 2.3 million people across 233 countries and found significant cultural variation in these judgements.</div>
     </div>
 
     <div class="qa">
       <p class="qa-q">2. What is Kant's categorical imperative, and how does it differ from "the golden rule"?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">Kant's categorical imperative (from Groundwork of the Metaphysics of Morals, 1785) has several formulations. The most famous: "Act only according to that maxim by which you can at the same time will that it should become a universal law." That is: before acting, ask whether you could consistently wish that everyone acted on the same principle. If you lie: could lying become a universal law? No — if everyone lied, the institution of communication would collapse, and lying would become impossible. Therefore lying is categorically wrong. A second formulation: "Act so that you treat humanity, whether in your own person or in that of another, always as an end and never as a means only." Never use people merely as tools. The golden rule (treat others as you wish to be treated) is different in important ways. The golden rule is about your preferences — it essentially says "be empathetic." A masochist could consistently justify hurting others by the golden rule. Kant's categorical imperative is about universalisability and rational consistency — it's not about what you want but about what reason demands. It's deontological (rule-based) rather than consequentialist: the rightness of an action depends on its conformity to duty, not its consequences.</div>
+      <div class="qa-ans">Kant's categorical imperative (Groundwork of the Metaphysics of Morals, 1785) has several formulations. The most famous: "Act only according to that maxim by which you can at the same time will that it should become a universal law." Before acting, ask whether you could consistently wish that everyone acted on the same principle. If you lie: could lying become a universal law? No — if everyone lied, the institution of communication would collapse. Therefore lying is categorically wrong. A second formulation: "Act so that you treat humanity, whether in your own person or in that of another, always as an end and never as a means only." The golden rule (treat others as you wish to be treated) is different: it is about your preferences and empathy. A masochist could justify hurting others by the golden rule. Kant's categorical imperative is about universalisability and rational consistency — not what you want but what reason demands. It's deontological: the rightness of an action depends on conformity to duty, not its consequences.</div>
     </div>
 
     <div class="qa">
       <p class="qa-q">3. What is Plato's allegory of the cave, and what is it actually arguing?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">From Book VII of the Republic: prisoners are chained in a cave, facing a wall, unable to turn. Behind them is a fire. Objects are carried past the fire, casting shadows on the wall — the only reality the prisoners can see. They become expert at predicting shadow patterns and believe this is all there is. One prisoner is freed, turns toward the fire (painful), is dragged outside (agonising), and eventually sees the sun — the source of all light and truth. If he returns to tell the others, they mock him; his eyes have adjusted to bright light and he can't see shadows well anymore. The allegory operates on multiple levels. As epistemology: ordinary experience (shadows = sense perception) is a pale reflection of true knowledge (the sun = the Form of the Good). As political philosophy: the philosopher, who has seen the Form of the Good, has the obligation to return to the cave and govern, even though they'd rather contemplate. The Guardians of Plato's Republic are philosopher-kings. As a critique of democracy: the prisoners (voters) will always prefer the shadow-expert who knows how they live to the returning philosopher who speaks of things they can't perceive. The allegory remains one of philosophy's most compact arguments for Plato's entire metaphysical and political programme.</div>
+      <div class="qa-ans">From Book VII of the Republic: prisoners are chained in a cave, facing a wall, unable to turn. Behind them is a fire. Objects are carried past the fire, casting shadows on the wall — the only reality the prisoners can see. One prisoner is freed, turns toward the fire (painful), is dragged outside (agonising), and eventually sees the sun. If he returns to tell the others, they mock him. The allegory operates on multiple levels. As epistemology: ordinary experience (shadows = sense perception) is a pale reflection of true knowledge (the sun = the Form of the Good). As political philosophy: the philosopher has the obligation to return and govern. As a critique of democracy: the prisoners (voters) will always prefer the shadow-expert who knows how they live to the returning philosopher who speaks of things they can't perceive. The allegory remains one of philosophy's most compact arguments for Plato's entire metaphysical and political programme.</div>
     </div>
 
     <div class="qa">
       <p class="qa-q">4. What did Hume mean by the "is-ought problem," and why is it philosophically significant?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">In A Treatise of Human Nature (1739), David Hume observed that moral arguments often slip imperceptibly from descriptive statements ("is") to normative ones ("ought") without justifying the transition. Examples: "Humans evolved to be aggressive [is], therefore aggression is natural and acceptable [ought]." "God created the universe [is], therefore we ought to obey God's commands [ought]." "Women have historically cared for children [is], therefore women ought to care for children [ought]." Hume's point: no amount of factual information about how things are logically entails how things should be. The gap between fact and value cannot be crossed by logic alone. This is sometimes called the naturalistic fallacy (G.E. Moore's term). The significance: it demands that moral claims be justified on moral grounds, not merely empirical or theological ones. Much political and ethical argument commits this fallacy — stating facts about human nature, evolution, or divine will and drawing moral conclusions without any stated bridge principle. To avoid it, you must explicitly state the normative premise that connects the facts to the conclusion. Hume's observation remains one of the most contested and consequential in all of moral philosophy.</div>
+      <div class="qa-ans">In A Treatise of Human Nature (1739), David Hume observed that moral arguments often slip imperceptibly from descriptive statements ("is") to normative ones ("ought") without justifying the transition. Examples: "Humans evolved to be aggressive, therefore aggression is natural and acceptable." "God created the universe, therefore we ought to obey God's commands." Hume's point: no amount of factual information about how things are logically entails how things should be. The gap between fact and value cannot be crossed by logic alone. This is sometimes called the naturalistic fallacy (G.E. Moore's term). The significance: it demands that moral claims be justified on moral grounds, not merely empirical or theological ones. Much political and ethical argument commits this fallacy — stating facts about human nature, evolution, or divine will and drawing moral conclusions without any stated bridge principle.</div>
     </div>
 
     <div class="qa">
       <p class="qa-q">5. What is existentialism saying when it claims "existence precedes essence"?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
-      <div class="qa-ans">The phrase is Sartre's (Being and Nothingness, 1943; "Existentialism is a Humanism," 1946). Traditional philosophy (and especially religion) held that humans have a fixed essence — a nature, a purpose, a soul — that defines what we are and what we should do. God created humans with a specific nature in mind, as a craftsman creates a tool with a purpose (essence precedes existence). Sartre inverts this: humans first exist — we find ourselves thrown into the world, conscious, without any pre-given nature or purpose — and only then do we define ourselves through our choices and actions. There is no human nature that determines what you must be; you are condemned to be free. This sounds liberating but Sartre emphasises the weight: you cannot blame your upbringing, your society, your genes, or God for who you are. Radical freedom entails radical responsibility. Bad faith (mauvaise foi) is the self-deception of pretending you are determined — "I had no choice," "That's just how I am." Authenticity means acknowledging your freedom and choosing deliberately. The implications: no objective meaning exists — meaning must be created. Anxiety (Angst) is the dizzying recognition of freedom. The movement influenced therapy (existential therapy), literature (Camus, Kafka), and political theory, and remains the most influential 20th-century response to the death of God as a source of objective meaning.</div>
+      <div class="qa-ans">The phrase is Sartre's (Being and Nothingness, 1943). Traditional philosophy held that humans have a fixed essence — a nature, a purpose — that defines what we are and what we should do. Sartre inverts this: humans first exist — we find ourselves thrown into the world without any pre-given nature or purpose — and only then do we define ourselves through our choices and actions. There is no human nature that determines what you must be; you are condemned to be free. This entails radical responsibility. Bad faith (mauvaise foi) is the self-deception of pretending you are determined — "I had no choice," "That's just how I am." Authenticity means acknowledging your freedom and choosing deliberately. The movement influenced therapy (existential therapy), literature, and political theory, and remains the most influential 20th-century response to the death of God as a source of objective meaning.</div>
     </div>
 
-    <script>
-const philosophers = {
-  socrates: { name:'Socrates', years:'~470–399 BCE', origin:'Athens, Greece', col:'#3C3489', bg:'#EEEDFE',
-    wrote:'Nothing — all we know comes through Plato\'s dialogues, Xenophon\'s writings, and Aristophanes\' comedy.',
-    contribution:'Invented philosophical method: systematic questioning (the Socratic method / elenchus) to expose contradictions and reach clarity. Established that knowledge requires justified reasoning, not mere opinion. Shifted philosophy from cosmology (nature) to ethics (how to live).',
-    keyideas:'"I know that I know nothing" (intellectual humility). The Socratic method: expose false certainties through questioning. The soul is more important than the body or worldly goods. Philosophy as a way of life, not a theory. Virtue is knowledge — wrongdoing results from ignorance.',
-    legacy:'Condemned to death in 399 BCE for impiety and corrupting youth. Chose death over exile, refusing to abandon philosophy. His death became philosophy\'s founding martyrdom. Plato and Aristotle\'s entire philosophical projects are responses to Socrates.' },
-  plato: { name:'Plato', years:'~428–348 BCE', origin:'Athens, Greece', col:'#3C3489', bg:'#EEEDFE',
-    wrote:'The dialogues — ~30 surviving works including the Republic, Symposium, Phaedo, Meno, Apology. The most complete surviving body of work from ancient philosophy.',
-    contribution:'Founded the Academy (~387 BCE) — the first European university. Developed the Theory of Forms, the most systematic metaphysics of ancient philosophy. His Republic is the first major work of political philosophy.',
-    keyideas:'Theory of Forms: the physical world is a shadowy imitation of a realm of perfect, eternal Forms (the Form of Beauty, Justice, Goodness). Knowledge is recollection of Forms encountered before birth. The allegory of the cave. The tripartite soul (reason, spirit, appetite). Philosopher-kings should govern. Eros (love) as a path toward the Beautiful itself.',
-    legacy:'Alfred North Whitehead: "The safest general characterization of the European philosophical tradition is that it consists of a series of footnotes to Plato." Plato\'s influence spans philosophy, theology, mathematics, and political theory. Neoplatonism shaped early Christianity. His idealism (ideas/forms are more real than matter) remains a live position.' },
-  aristotle: { name:'Aristotle', years:'384–322 BCE', origin:'Stagira, Macedon (worked in Athens)', col:'#27500A', bg:'#EAF3DE',
-    wrote:'~200 works, 31 surviving: Nicomachean Ethics, Politics, Metaphysics, Physics, De Anima, Poetics, Prior Analytics, Rhetoric. The most encyclopaedic mind in Western philosophy.',
-    contribution:'Student of Plato, tutor of Alexander the Great. Systematised logic (syllogism). Founded empirical investigation of the natural world. Classified sciences and arts. His works were lost to the West after Rome\'s fall and reintroduced via Islamic scholars in the 12th century — triggering the Scholastic synthesis.',
-    keyideas:'Eudaimonia (flourishing/happiness) as the highest good. Virtue ethics: virtues are mean between extremes (courage = between cowardice and recklessness). Substance and form are not separate — there is no separate realm of Forms. The four causes (material, formal, efficient, final). Logic: the categorical syllogism. Classification of political systems.',
-    legacy:'His logic dominated Western thought for 2,000 years. His biology was the most advanced until Darwin. Thomas Aquinas built Catholic theology on Aristotle\'s metaphysics. The tension between Plato (idealism) and Aristotle (realism, empiricism) continues to structure Western philosophy.' },
-  epicurus: { name:'Epicurus', years:'341–270 BCE', origin:'Samos / Athens, Greece', col:'#085041', bg:'#E1F5EE',
-    wrote:'300 works — only fragments survive, plus three letters and two collections of maxims.',
-    contribution:'Founded Epicureanism — one of the great Hellenistic schools. His school (the Garden) was radical for admitting women and slaves. Provided an influential account of happiness as the cultivation of simple pleasures and freedom from anxiety.',
-    keyideas:'The highest good is pleasure (ataraxia — tranquillity, absence of anxiety and pain). But pleasures of the mind outweigh physical pleasures; simple pleasures (friendship, philosophical conversation, modest food) are better than intense ones that lead to subsequent pain. Fear of death is irrational: "When death is, I am not; when I am, death is not." Atomism: the world consists of atoms and void; gods do not intervene in human life.',
-    legacy:'"Epicurean" now means pleasure-seeking, which misrepresents his austere vision. Epicurus actually advocated moderation. His death-argument has been used by philosophers ever since. Lucretius\'s De Rerum Natura transmitted Epicurean atomism, which later influenced the Scientific Revolution.' },
-  zeno: { name:'Zeno of Citium', years:'~334–262 BCE', origin:'Citium, Cyprus (worked in Athens)', col:'#633806', bg:'#FAEEDA',
-    wrote:'Nothing survives directly — Stoic philosophy reconstructed from later sources (Epictetus, Marcus Aurelius, Seneca).',
-    contribution:'Founded Stoicism (~301 BCE) in the Stoa Poikile (Painted Porch) in Athens. Stoicism became the dominant philosophy of educated Romans and directly influenced early Christianity.',
-    keyideas:'The highest good is virtue (living in accordance with reason and nature). External goods (wealth, health, pleasure) are "preferred indifferents" — worth seeking but not necessary for the good life. The dichotomy of control: some things are in our power (judgements, desires, impulses), some are not (body, reputation, external events). Focus only on what is in your control. The sage is free even in chains.',
-    legacy:'Marcus Aurelius (Roman Emperor), Epictetus (former slave), and Seneca wrote the most influential Stoic texts. Stoicism directly influenced CBT (Ellis, Beck). Modern Stoicism ("New Stoicism") has become a global movement. The Meditations of Marcus Aurelius is one of history\'s most widely read philosophy books.' },
-  heraclitus: { name:'Heraclitus', years:'~535–475 BCE', origin:'Ephesus, Asia Minor', col:'#712B13', bg:'#FAECE7',
-    wrote:'"On Nature" — only ~130 fragments survive. Famous for deliberate obscurity (called "the obscure" in antiquity).',
-    contribution:'One of the Pre-Socratics — philosophers who attempted to explain the cosmos through rational principles rather than myth. First major philosopher of change and process.',
-    keyideas:'"You cannot step into the same river twice" — constant change (Panta Rhei: everything flows). The Logos (reason, cosmic principle) governs all change. Opposites are unified: "The road up and the road down are the same." Fire as the fundamental element — the cosmos is an eternal, living fire. War (strife, tension between opposites) is the father of all things.',
-    legacy:'His emphasis on process and becoming influenced Hegel (dialectic as the clash of opposites), Nietzsche (eternal recurrence, amor fati), and process philosophy. His fragments remain among philosophy\'s most poetic and cryptic texts.' },
-  democritus: { name:'Democritus', years:'~460–370 BCE', origin:'Abdera, Thrace', col:'#444441', bg:'#F1EFE8',
-    wrote:'72 works cited by later authors — none survive. Known primarily through fragments and secondary sources.',
-    contribution:'Developed (with Leucippus) the first atomic theory: all matter consists of tiny, indivisible particles (atomos = uncuttable) moving through void. An astonishing anticipation of modern physics by 2,400 years.',
-    keyideas:'Atoms are eternal, solid, indivisible, and differ only in shape, size, and position. All change is the rearrangement of atoms. The soul is also made of atoms (fine, spherical ones). There is no teleology — no purpose in nature, only atoms and void. Ethical teaching: cheerfulness (euthymia) as the goal of life.',
-    legacy:'"Everything that exists is the result of atoms and void — the rest is opinion." Epicurus adopted and extended his atomism. Lucretius transmitted it to Rome. The Scientific Revolution rediscovered atomism in the 17th century. Democritus\'s insight that the apparent qualities of things (colour, smell, taste) are not in the atoms themselves but in the interaction with us prefigures Locke\'s distinction between primary and secondary qualities.' }
-};
-
-function showPhil(key) {
-  const p = philosophers[key];
-  document.getElementById('phil-display').innerHTML = `
-    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
-      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${p.name}</div>
-      <div style="font-size:11px; font-weight:500; background:${p.bg}; color:${p.col}; border-radius:99px; padding:2px 9px;">${p.years} · ${p.origin}</div>
+    <div class="qa">
+      <p class="qa-q">6. What is Aquinas's "Five Ways," and what do they actually prove (or not prove)?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Thomas Aquinas (Summa Theologica, c.1265–74) offered five cosmological and teleological arguments for God's existence. The first three are variations on the cosmological argument: (1) The Argument from Motion — everything in motion was moved by something else; there cannot be an infinite regress, so there must be an Unmoved Mover. (2) The Argument from Causation — the same logic applied to efficient causes: there must be a First Cause. (3) The Argument from Contingency — contingent things (which could not exist) exist, so there must be a Necessary Being whose existence is not contingent. (4) The Argument from Degree — things possess properties to varying degrees; there must be a maximum, a being of maximum goodness, truth, and being. (5) The Argument from Design (Teleological) — natural things that lack intelligence act for ends; something intelligent must direct them. The standard objections: Hume asked why the series of causes cannot be infinite, and why the First Cause must be the God of any particular religion. Kant argued all five fail because they apply concepts (causation, existence, contingency) beyond their legitimate domain of experience. The cosmological argument remains live in philosophy of religion, with contemporary defenders (Kalam argument, Leibnizian cosmological argument) and critics (Mackie, Sobel).</div>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Wrote / sources</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.wrote}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Main contribution</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.contribution}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key ideas</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.keyideas}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Legacy and influence</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.legacy}</div></div>
-    </div>`;
-}
 
-const movements = {
-  stoicism: { name:'Stoicism', period:'~301 BCE – 200 CE', figures:'Zeno, Epictetus, Seneca, Marcus Aurelius', col:'#633806', bg:'#FAEEDA',
-    core:'Virtue is the only good; everything else (health, wealth, reputation) is "preferred indifferent." Happiness depends entirely on internal states, not external circumstances. The dichotomy of control: focus only on what is in your power (judgements, will), accept what is not.',
-    reacted:'Against Platonic otherworldliness and against the Epicurean withdrawal from public life. The Stoic sage acts in the world, fulfils social obligations, while remaining emotionally unshaken.',
-    thinkers:'Epictetus (Enchiridion): "Men are disturbed not by things, but by their opinions about things." Marcus Aurelius (Meditations): the most powerful man in the world practising Stoic philosophy in private journals. Seneca: Stoic ethics applied to Roman aristocratic life.',
-    modern:'Stoicism is one of the most influential philosophical movements in the modern world. CBT (cognitive therapy) explicitly derives from Stoic ideas. The modern Stoicism movement has millions of practitioners. The Meditations is one of the world\'s most widely read books.' },
-  rationalism: { name:'Rationalism', period:'17th–18th century', figures:'Descartes, Leibniz, Spinoza', col:'#3C3489', bg:'#EEEDFE',
-    core:'Reason is the primary source of knowledge. Some knowledge is innate — knowable through pure reason without sensory experience. Mathematical truth is the model: we know "2+2=4" not by experiment but by reason alone.',
-    reacted:'Against scholastic Aristotelianism (authority of Aristotle and the Church). Against scepticism — if we doubt everything, what can we know for certain?',
-    thinkers:'Descartes: Cogito ergo sum ("I think therefore I am") — the indubitable foundation after radical doubt. Mind-body dualism. Leibniz: monads, the best of all possible worlds. Spinoza: God is identical with nature (Deus sive Natura); everything follows necessarily from God\'s essence.',
-    modern:'Rationalism influenced mathematics, linguistics (Chomsky\'s innate language faculty), and AI (rule-based systems). The debate between rationalism and empiricism was eventually transcended by Kant, who argued both are necessary.' },
-  empiricism: { name:'Empiricism', period:'17th–18th century', figures:'Locke, Hume, Berkeley', col:'#27500A', bg:'#EAF3DE',
-    core:'All knowledge derives from sensory experience. The mind at birth is a blank slate (tabula rasa — Locke). There are no innate ideas. If you cannot trace a concept back to sensory experience, it is meaningless.',
-    reacted:'Against the rationalist claim of innate ideas. Against metaphysical speculation untethered from experience.',
-    thinkers:'Locke: tabula rasa; primary (objective) vs secondary (subjective) qualities. Berkeley: esse est percipi — "to be is to be perceived" — only minds and their ideas exist (idealism). Hume: causation is a habit of mind, not an objective feature of reality. The problem of induction. His Enquiry essentially dissolved the rationalist project.',
-    modern:'Empiricism underpins the scientific method. Hume\'s problem of induction has never been fully solved. The Vienna Circle and logical positivism in the 20th century were a radical empiricist movement: only empirically verifiable or analytic statements are meaningful — which eliminated most traditional philosophy.' },
-  kant: { name:'Kant\'s critical philosophy', period:'Late 18th century', figures:'Immanuel Kant (1724–1804)', col:'#534AB7', bg:'#EEEDFE',
-    core:'Kant attempted to resolve the rationalism/empiricism debate. His Copernican revolution in philosophy: rather than asking how the mind conforms to reality, ask how reality conforms to the mind. The mind imposes structure (space, time, causality) on raw experience — these are the conditions of possible experience, not features of reality itself.',
-    reacted:'Against Hume, who "woke me from my dogmatic slumber" (Kant\'s words). Against rationalist metaphysics that claimed knowledge beyond possible experience.',
-    thinkers:'Critique of Pure Reason (1781): what can reason know? Groundwork of the Metaphysics of Morals (1785): the categorical imperative. Critique of Judgment (1790): aesthetics and teleology.',
-    modern:'Kant is perhaps the most influential philosopher since Aristotle. The distinction between phenomena (things as they appear) and noumena (things in themselves, unknowable) shaped subsequent philosophy. His ethics influenced Rawls (justice as fairness) and much of modern deontological ethics. German Idealism (Fichte, Schelling, Hegel) was a direct response.' },
-  utilitarianism: { name:'Utilitarianism', period:'18th–19th century', figures:'Bentham, Mill, Singer', col:'#085041', bg:'#E1F5EE',
-    core:'The right action is the one that produces the greatest good for the greatest number. Moral worth is determined entirely by consequences — outcomes, not motives or rules. Pleasure and pain are the fundamental values.',
-    reacted:'Against deontological ethics (Kant): why should rules override better outcomes? Against aristocratic and theological ethics that privileged some interests over others.',
-    thinkers:'Bentham: hedonistic calculus — pleasure and pain differ only in quantity. Each person counts for one. Mill: pleasures differ in quality as well as quantity — poetry is better than pushpin. Freedom as a utility-maximising principle. Peter Singer: effective altruism; the suffering of animals counts equally with human suffering.',
-    modern:'Utilitarianism underlies welfare economics, cost-benefit analysis, public health policy, and effective altruism. Its implications can be counterintuitive: it seems to permit or require sacrificing one person for many (the Trolley Problem). Modern utilitarianism (preference utilitarianism, rule utilitarianism) attempts to address the most troubling implications.' },
-  existentialism: { name:'Existentialism', period:'19th–20th century', figures:'Kierkegaard, Nietzsche, Heidegger, Sartre, Camus, Beauvoir', col:'#712B13', bg:'#FAECE7',
-    core:'Existence precedes essence — humans first exist and then define themselves through choices. There is no pre-given human nature or cosmic purpose. We are condemned to be free, which creates profound anxiety (Angst). Authentic existence means accepting this freedom and its responsibility.',
-    reacted:'Against the Enlightenment view that reason provides objective foundations for meaning. Against Hegel\'s historical determinism. Against religious accounts that give life pre-given purpose. Against the bourgeois "bad faith" of treating one\'s role as fixed.',
-    thinkers:'Kierkegaard: the leap of faith; subjective truth. Nietzsche: God is dead; will to power; eternal recurrence; the Übermensch. Heidegger: being-in-the-world; thrownness; authenticity; being-toward-death. Sartre: radical freedom and responsibility; bad faith. Camus: absurdism — life is meaningless but we must rebel against this with full awareness. Simone de Beauvoir: applied existentialism to feminism — "one is not born, but rather becomes, a woman."',
-    modern:'Existentialism permeated 20th-century literature (Kafka, Dostoevsky, Camus), film, and psychotherapy. Existential therapy (Yalom, Frankl) addresses mortality, freedom, isolation, and meaning. Sartre\'s political engagement fused existentialism with Marxism.' },
-  analytic: { name:'Analytic philosophy', period:'Early 20th century – present', figures:'Frege, Russell, Wittgenstein, Quine, Rawls, Kripke', col:'#0C447C', bg:'#E6F1FB',
-    core:'Philosophy should be rigorous, precise, and continuous with science. Philosophical problems arise from linguistic confusion — clarifying language dissolves them. Logic is the proper method of philosophy.',
-    reacted:'Against Hegelian idealism (obscure, speculative). Against traditional metaphysics that made claims beyond what could be meaningfully stated. For clarity, argument, and connection to empirical science.',
-    thinkers:'Frege: modern mathematical logic. Russell: logical analysis; paradoxes; logical atomism. Wittgenstein (early): the picture theory of meaning; the limits of language. Wittgenstein (later): meaning as use; language games. Quine: "Two Dogmas of Empiricism" — attacked the analytic/synthetic distinction. Rawls: A Theory of Justice — the most influential 20th-century work of political philosophy. Kripke: rigid designators; possible worlds.',
-    modern:'Dominant in Anglophone philosophy. Analytic philosophy of mind, language, and ethics have been highly productive. The analytic/continental divide (analytic: rigour, logic; continental: Hegel, Heidegger, Sartre) is one of philosophy\'s most important institutional and stylistic divisions.' },
-  socialcontract: { name:'Social contract theory', period:'17th–18th century', figures:'Hobbes, Locke, Rousseau, Rawls', col:'#444441', bg:'#F1EFE8',
-    core:'Political authority is legitimate only if it rests on (actual or hypothetical) consent of the governed. Without society, humans exist in a "state of nature." The social contract explains both the origin and limits of government.',
-    reacted:'Against divine right of kings. Against pure force as the basis of political authority.',
-    thinkers:'Hobbes (Leviathan, 1651): state of nature = "war of all against all" — life is "solitary, poor, nasty, brutish, and short." Absolute sovereignty is necessary to prevent this. Locke (Two Treatises, 1689): state of nature is peaceful but insecure; natural rights (life, liberty, property) precede government; government that violates them may be overthrown (justifying the Glorious Revolution, influencing the American Declaration of Independence). Rousseau: "Man is born free, but everywhere he is in chains." General will. Rawls (A Theory of Justice, 1971): the veil of ignorance — principles of justice are those rational people would choose if they didn\'t know their place in society.',
-    modern:'Rawls\'s veil of ignorance is the most influential modern social contract thought experiment. Social contract theory underlies modern constitutionalism and human rights. Locke\'s ideas directly shaped the American founding documents.' }
-};
-
-function showMovement(key) {
-  const m = movements[key];
-  document.getElementById('movement-display').innerHTML = `
-    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
-      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${m.name}</div>
-      <div style="font-size:11px; color:var(--color-text-secondary);">${m.period}</div>
-      <div style="font-size:11px; font-weight:500; background:${m.bg}; color:${m.col}; border-radius:99px; padding:2px 9px;">${m.figures}</div>
+    <div class="qa">
+      <p class="qa-q">7. What is Hegel's dialectic, and why did Marx call himself a "materialist" in opposition to it?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">Hegel's dialectic (Phenomenology of Spirit, 1807; Science of Logic, 1812–16) is a method and a theory of history. History is the progressive self-realisation of Spirit (Geist) — an Absolute Mind coming to know itself through history. The mechanism is dialectical: every idea (thesis) generates its own contradiction (antithesis), and the tension resolves into a higher synthesis that preserves what was true in both. For Hegel, the real is rational and the rational is real — history has a direction and a goal: the realisation of freedom. Marx's inversion: he found Hegel's method profound but his idealism (the claim that Spirit/Mind drives history) backwards. Marx kept the dialectical structure but made it materialist — history is driven not by the clash of ideas but by the clash of material forces: technology, property relations, and class conflict. This is dialectical materialism (the term is actually Engels's). The Communist Manifesto's famous opening — "The history of all hitherto existing society is the history of class struggles" — is a materialist dialectic in a single sentence. Marx said he found Hegel "standing on his head" and set him "right side up."</div>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Core claim</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.core}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">What it reacted against</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.reacted}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key thinkers and texts</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.thinkers}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Modern significance</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.modern}</div></div>
-    </div>`;
-}
 
-const thoughts = {
-  cave: { name:'Plato\'s allegory of the cave', source:'Plato, Republic Book VII (~380 BCE)', col:'#3C3489', bg:'#EEEDFE',
-    setup:'Prisoners chained in a cave since birth, facing a blank wall. Behind them, a fire illuminates objects carried past — they see only shadows on the wall and believe the shadows are reality. One prisoner is freed: turns, sees the fire (painful), is dragged outside, sees the sun. Returns to tell the others; they mock him.',
-    question:'What is the relationship between appearance and reality? Between ordinary perception and genuine knowledge?',
-    philosophical_point:'The shadows = everyday sensory experience (doxa, opinion). The objects casting shadows = mathematical and logical truths. The sun = the Form of the Good, the highest object of knowledge (episteme). The escaped prisoner = the philosopher. The return = the obligation of the philosopher-king to rule despite preferring contemplation. The allegory encodes Plato\'s entire metaphysics (Forms are more real than sensory objects) and political philosophy (philosophers must govern).',
-    modern:'Still used to discuss: media reality vs lived reality; simulation hypotheses; scientific realism (do our theories describe reality or just save the appearances?); the philosopher\'s obligation to engage with society.' },
-  demon: { name:'Descartes\' evil demon (malicious genius)', source:'Descartes, Meditations on First Philosophy (1641)', col:'#534AB7', bg:'#EEEDFE',
-    setup:'Suppose an all-powerful evil demon is deceiving you in everything — all your senses, all your memories, all mathematical truths are fabrications of this demon. What can you know with certainty?',
-    question:'What is the foundation of certain knowledge after radical doubt?',
-    philosophical_point:'The demon hypothesis is the strongest possible form of scepticism — a general doubt about everything. Descartes uses it to strip away all beliefs that could possibly be doubted. What survives: "I think therefore I am" (Cogito ergo sum). Even a deceiving demon cannot make it false that there is a thinking thing being deceived. The Cogito is the indubitable foundation. Everything else must be rebuilt on this. (This is the modern "brain in a vat" or simulation hypothesis.)',
-    modern:'The demon is logically equivalent to: you are a brain in a vat being fed simulated experiences, or you are living in a simulation (Bostrom\'s simulation argument). The question of whether we can know we\'re not in a simulation is a live philosophical and now scientific/technological question.' },
-  trolley: { name:'The trolley problem', source:'Philippa Foot (1967) and Judith Jarvis Thomson (1985)', col:'#712B13', bg:'#FAECE7',
-    setup:'A runaway trolley will kill five people. You can pull a lever to divert it to a side track, killing one person. Do you pull the lever? (Most say yes.) Footbridge variant: you must push a large person off a bridge onto the tracks — he will die but stop the trolley. Do you push? (Most say no, despite identical arithmetic.)',
-    question:'What is the moral difference between killing and letting die? Between using a person as a means and as a side effect?',
-    philosophical_point:'Exposes the conflict between consequentialism (outcomes determine right action — both scenarios produce the same outcome, so they should be equally permissible) and deontology (there are moral constraints on action — using a person as a means to an end is categorically wrong). The different intuitions about the two scenarios suggest deontological constraints are built into our moral psychology. The doctrine of double effect (Aquinas): an action is permissible if the harm is a foreseen but unintended side effect of achieving a good outcome (lever case) but not if it is the means to the good outcome (footbridge case).',
-    modern:'Self-driving car ethics. Triage decisions in medicine. Military targeting decisions. The MIT Moral Machine project surveyed 2.3M people globally, finding significant cultural variation.' },
-  theseus: { name:'The Ship of Theseus', source:'Plutarch (~100 CE)', col:'#633806', bg:'#FAEEDA',
-    setup:'The Athenians preserved the ship of Theseus in a harbour. As planks rotted, they were replaced one by one with new wood. Eventually all the original planks had been replaced. Is it still the Ship of Theseus? A collector gathered all the original planks and reassembled them. Which ship is the real Ship of Theseus?',
-    question:'What constitutes the identity of an object over time? What makes something the same thing as it was?',
-    philosophical_point:'Personal identity version: your body\'s atoms are almost entirely replaced over years. Your beliefs, personality, and memories change continuously. Are you the same person you were at age 5? Two answers: continuity of matter (the reassembled ship is the original), continuity of form and function (the maintained ship is the original). Locke: personal identity consists in continuity of consciousness (memory). Hume: there is no permanent self, only a bundle of perceptions.',
-    modern:'Applies to: personal identity and moral responsibility (is a reformed criminal the same person who committed the crime?), gradual replacement in technology (when does a company become a different company?), organ transplantation and genetic identity, AI consciousness and identity.' },
-  veil: { name:'Rawls\' veil of ignorance', source:'John Rawls, A Theory of Justice (1971)', col:'#0C447C', bg:'#E6F1FB',
-    setup:'Imagine you must design the principles of justice for a society, but you don\'t know your place in it — your class, race, sex, natural abilities, or conception of the good. Behind this "veil of ignorance," what principles would rational people choose?',
-    question:'What is a just society? How can we identify principles of justice that are truly impartial?',
-    philosophical_point:'Rawls argues people behind the veil would choose: (1) Equal basic liberties for all (liberty principle). (2) Social and economic inequalities are only permissible if they benefit the least advantaged (difference principle — a Maximin strategy: maximise the minimum position). The veil prevents self-interest from contaminating our principles. The result is a liberal egalitarian theory of justice that has been enormously influential.',
-    modern:'The veil of ignorance is one of philosophy\'s most useful practical tools. It operationalises fairness: "would you support this rule if you didn\'t know which side of it you\'d be on?" Used in policy design, constitutional law, medical ethics, and international relations.' },
-  chinese: { name:'The Chinese Room', source:'John Searle, Minds, Brains, and Programs (1980)', col:'#27500A', bg:'#EAF3DE',
-    setup:'Imagine you are locked in a room with Chinese symbols and a rulebook (in English) that tells you how to manipulate them. Chinese speakers pass in questions; you look up the rules and pass back answers that are, to the Chinese speakers, perfectly correct. You understand no Chinese whatsoever. Does the room "understand" Chinese?',
-    question:'Is the computational simulation of understanding the same as genuine understanding? Can a machine truly understand?',
-    philosophical_point:'Searle\'s argument: the room (a computer program) produces the correct outputs from inputs but has no semantic understanding — no meaning, no intentionality. Syntax is not sufficient for semantics. Therefore, no matter how sophisticated a computer program is, it doesn\'t genuinely understand or think. This is an argument against "strong AI" — the claim that an appropriately programmed computer literally has mental states.',
-    modern:'One of the most debated thought experiments in philosophy of mind and AI. Responses: (1) The Systems Reply: the whole system (room + book + person) understands even if no component does. (2) The Robot Reply: if the program were embedded in a robot interacting with the world, it would understand. Searle\'s argument bears directly on questions about GPT and large language models: do they understand, or are they extremely sophisticated Chinese rooms?' },
-  experience: { name:'The experience machine', source:'Robert Nozick, Anarchy, State, and Utopia (1974)', col:'#085041', bg:'#E1F5EE',
-    setup:'Suppose a machine can give you any experience you desire — pleasure, achievement, love, creativity — indistinguishable from the real thing. You could plug in for life. Would you? If not, why not?',
-    question:'Is pleasure (or subjective experience) the only thing that matters? Or do other things have intrinsic value?',
-    philosophical_point:'Nozick designed this to refute hedonistic utilitarianism: if pleasure were all that mattered, everyone would plug in. Most people refuse — they want to actually do things, actually be certain kinds of people, actually be in contact with a deeper reality. This suggests: (1) We value things other than our own experience. (2) Authenticity matters. (3) We want to be, not just seem to be. The argument against experience machines also undermines simple preference-satisfaction theories — our preferences include wanting certain things to actually be the case, not just believing they are.',
-    modern:'Directly relevant to virtual reality ethics, deep fake relationships, and simulation philosophy. If life in a perfect simulation could be subjectively identical to "real" life, would it be equally valuable? Most intuitions say no — but why?' },
-  mary: { name:'Mary\'s room', source:'Frank Jackson, Epiphenomenal Qualia (1982)', col:'#712B13', bg:'#FAECE7',
-    setup:'Mary is a brilliant scientist who knows all the physical facts about colour vision — the wavelengths, the neural processes, everything. But she has lived her entire life in a black-and-white room and has never seen colour. When she leaves and sees red for the first time, does she learn something new?',
-    question:'Is physical knowledge complete knowledge? Or is there something about conscious experience (qualia) that physical science cannot capture?',
-    philosophical_point:'Jackson\'s argument: yes, Mary learns something new — what it\'s like to see red. Therefore, physicalism (the view that all facts are physical facts) is false. There is an "explanatory gap" between the physical facts and the subjective experience (qualia). This is the "hard problem of consciousness" (Chalmers): even a complete physical account of the brain cannot explain why there is something it is like to see red.',
-    modern:'One of the most debated arguments in philosophy of mind. Responses: (1) Mary learns a new ability (to recognise red), not a new fact. (2) She learns a physical fact she didn\'t know (the phenomenal concept). The thought experiment captures why consciousness is philosophically special: you can physically describe everything about pain but the description leaves out what pain actually feels like.' }
-};
-
-function showThought(key) {
-  const t = thoughts[key];
-  document.getElementById('thought-display').innerHTML = `
-    <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
-      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${t.name}</div>
-      <div style="font-size:11px; font-weight:500; background:${t.bg}; color:${t.col}; border-radius:99px; padding:2px 9px;">${t.source}</div>
+    <div class="qa">
+      <p class="qa-q">8. What is Wittgenstein's private language argument, and why does it matter?</p>
+      <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
+      <div class="qa-ans">In Philosophical Investigations (1953), Wittgenstein asks whether a language that only one person can understand — a "private language" for inner experiences — is possible. His argument: language requires rules, and rules require the possibility of following them correctly or incorrectly. But if only I can access my private sensations, no one (including me) can verify whether I'm applying my private terms correctly. There is no standard for correctness, and therefore no genuine rule, and therefore no genuine language. "A wheel that can be turned though nothing else moves with it, is not part of the mechanism." This is an attack on Cartesian inner theatre: the idea that the mind is a private realm containing definite inner objects (pains, images, thoughts) that language labels. Language for mental states gets its meaning from the public circumstances of its use, not from inner ostensive definition. The argument matters because it challenges the picture of mind that underlies much of psychology, AI, and philosophy of mind: the idea that there is a determinate mental content that behaviour merely expresses. If Wittgenstein is right, the very grammar of "inner states" needs philosophical therapy.</div>
     </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:8px;">
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The scenario</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.setup}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The question it poses</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.question}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The philosophical point</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.philosophical_point}</div></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Modern relevance</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.modern}</div></div>
-    </div>`;
-}
 
-showPhil('socrates');
-showMovement('stoicism');
-showThought('trolley');
-    </script>
-  </div>
+  </div><!-- end .page-wrap -->
+
+  <!-- ══════════════════════════════════════════════════════
+       ALL JAVASCRIPT
+  ══════════════════════════════════════════════════════ -->
+  <script>
+  /* ──────────────────────────────────────────
+     UTILITY: generic explorer builder
+  ────────────────────────────────────────── */
+  function buildExplorer(btnContainerId, displayId, dataObj, defaultKey) {
+    const container = document.getElementById(btnContainerId);
+    const display   = document.getElementById(displayId);
+    let activeKey   = null;
+
+    Object.keys(dataObj).forEach(function(key) {
+      const btn = document.createElement('button');
+      btn.className   = 'phil-btn';
+      btn.textContent = dataObj[key].name;
+      btn.addEventListener('click', function() {
+        container.querySelectorAll('.phil-btn').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeKey = key;
+        renderDisplay(key);
+      });
+      container.appendChild(btn);
+    });
+
+    function renderDisplay(key) {
+      const d = dataObj[key];
+      display.innerHTML = d.render(d);
+    }
+
+    // activate default
+    if (defaultKey && dataObj[defaultKey]) {
+      const btns = container.querySelectorAll('.phil-btn');
+      btns.forEach(function(b){
+        if (b.textContent === dataObj[defaultKey].name) b.classList.add('active');
+      });
+      renderDisplay(defaultKey);
+    }
+  }
+
+  /* ──────────────────────────────────────────
+     SHARED RENDER FUNCTIONS
+  ────────────────────────────────────────── */
+  function renderPhilosopher(p) {
+    return `
+      <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+        <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${p.name}</div>
+        <div style="font-size:11px; font-weight:500; background:${p.bg}; color:${p.col}; border-radius:99px; padding:2px 9px;">${p.years} · ${p.origin}</div>
+      </div>
+      <div class="panel-grid">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Wrote / sources</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.wrote}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Main contribution</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.contribution}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key ideas</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.keyideas}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Legacy and influence</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${p.legacy}</div></div>
+      </div>`;
+  }
+
+  function renderMovement(m) {
+    return `
+      <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+        <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${m.name}</div>
+        <div style="font-size:11px; color:var(--color-text-secondary);">${m.period}</div>
+        <div style="font-size:11px; font-weight:500; background:${m.bg}; color:${m.col}; border-radius:99px; padding:2px 9px;">${m.figures}</div>
+      </div>
+      <div class="panel-grid">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Core claim</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.core}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">What it reacted against</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.reacted}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key thinkers and texts</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.thinkers}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Modern significance</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${m.modern}</div></div>
+      </div>`;
+  }
+
+  function renderThought(t) {
+    return `
+      <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+        <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${t.name}</div>
+        <div style="font-size:11px; font-weight:500; background:${t.bg}; color:${t.col}; border-radius:99px; padding:2px 9px;">${t.source}</div>
+      </div>
+      <div class="panel-grid">
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The scenario</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.setup}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The question it poses</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.question}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The philosophical point</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.philosophical_point}</div></div>
+        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Modern relevance</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${t.modern}</div></div>
+      </div>`;
+  }
+
+  /* ──────────────────────────────────────────
+     PART A VISUAL: born-from-philosophy bars
+  ────────────────────────────────────────── */
+  const bornBarsData = [
+    { label:'Mathematics',      parent:'Logic / Aristotle',    century:'~300 BCE',  pct:85, col:'#4E99A3' },
+    { label:'Physics',          parent:'Natural philosophy',   century:'~1600s',    pct:72, col:'#5DAAB4' },
+    { label:'Biology',          parent:'Aristotle\'s zoology', century:'~1850s',    pct:55, col:'#63BE98' },
+    { label:'Psychology',       parent:'Phil. of mind',        century:'~1880s',    pct:48, col:'#7BBF67' },
+    { label:'Economics',        parent:'Moral philosophy',     century:'~1770s',    pct:60, col:'#9AC252' },
+    { label:'Political science',parent:'Political philosophy', century:'~1900s',    pct:42, col:'#BCC94B' },
+    { label:'Computer science', parent:'Mathematical logic',   century:'~1940s',    pct:38, col:'#D4B84A' },
+    { label:'Linguistics',      parent:'Phil. of language',    century:'~1960s',    pct:33, col:'#D4844A' },
+  ];
+
+  const barsContainer = document.getElementById('phil-born-bars');
+  bornBarsData.forEach(function(d) {
+    barsContainer.innerHTML += `
+      <div class="influence-row">
+        <div class="influence-label">${d.label}</div>
+        <div class="influence-track">
+          <div class="influence-fill" style="width:${d.pct}%; background:${d.col};">
+            <span style="color:rgba(255,255,255,0.9);">${d.parent} · indep. ${d.century}</span>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  /* ──────────────────────────────────────────
+     PART B: ethics spectrum slider
+  ────────────────────────────────────────── */
+  const ethicsExplains = [
+    { min:0,  max:15, text:'<strong>Pure deontology</strong> — Kant\'s categorical imperative: act only according to rules you could universalise. Consequences are morally irrelevant. The wrongness of murder does not depend on outcomes; it violates a rational being\'s dignity unconditionally. Lying is always wrong, even to a murderer asking where your friend is hiding.' },
+    { min:15, max:35, text:'<strong>Moderate deontology (W.D. Ross)</strong> — we have a set of prima facie duties (keep promises, tell truth, do not harm, repay debts). When they conflict, we use judgement. This is less rigid than Kant\'s absolute rules — sometimes consequences inform which duty takes priority — but the duties are not derived from outcomes.' },
+    { min:35, max:65, text:'<strong>Virtue ethics (Aristotle)</strong> — right action is what a virtuous person of practical wisdom (phronesis) would do. There are no fixed rules; character and context determine the answer. The good life (eudaimonia) is flourishing — exercising distinctly human capacities (reason, relationship, civic life) with excellence. Ask not "what is the right rule?" or "what maximises welfare?" but "what kind of person should I be?"' },
+    { min:65, max:85, text:'<strong>Moderate consequentialism (Mill)</strong> — pleasure and pain are what ultimately matter, but pleasures differ in quality as well as quantity. Mental and moral pleasures are "higher" than physical ones. Individual rights function as rules of thumb that generally maximise welfare, so respecting them is usually the right strategy — not a deontological constraint but a consequence of experience.' },
+    { min:85, max:100, text:'<strong>Pure consequentialism (Bentham / Singer)</strong> — the right act is whatever maximises the sum of welfare across all affected sentient beings. Every person (and animal) counts for one, none for more than one. No action is intrinsically wrong — only instrumentally, if it produces worse outcomes. This logic, taken seriously, demands radical impartiality: you must give to effective charities until the marginal disutility of giving equals the marginal good you produce.' },
+  ];
+
+  function updateEthicsSlider() {
+    const v = parseInt(document.getElementById('ethicsSlider').value);
+    const entry = ethicsExplains.find(function(e){ return v >= e.min && v <= e.max; });
+    if (entry) document.getElementById('ethics-explain').innerHTML = entry.text;
+  }
+  document.getElementById('ethicsSlider').addEventListener('input', updateEthicsSlider);
+  updateEthicsSlider();
+
+  /* ──────────────────────────────────────────
+     PART C: ANCIENT GREEKS
+  ────────────────────────────────────────── */
+  var greekPhilosophers = {
+    socrates: { name:'Socrates', years:'~470–399 BCE', origin:'Athens, Greece', col:'#3C3489', bg:'#EEEDFE',
+      wrote:'Nothing — all we know comes through Plato\'s dialogues, Xenophon\'s writings, and Aristophanes\' comedy.',
+      contribution:'Invented philosophical method: systematic questioning (the Socratic method / elenchus) to expose contradictions and reach clarity. Established that knowledge requires justified reasoning, not mere opinion. Shifted philosophy from cosmology (nature) to ethics (how to live).',
+      keyideas:'"I know that I know nothing" (intellectual humility). The Socratic method: expose false certainties through questioning. The soul is more important than the body or worldly goods. Philosophy as a way of life. Virtue is knowledge — wrongdoing results from ignorance.',
+      legacy:'Condemned to death in 399 BCE for impiety and corrupting youth. Chose death over exile, refusing to abandon philosophy. His death became philosophy\'s founding martyrdom. Plato and Aristotle\'s entire philosophical projects are responses to Socrates.',
+      render: renderPhilosopher },
+    plato: { name:'Plato', years:'~428–348 BCE', origin:'Athens, Greece', col:'#3C3489', bg:'#EEEDFE',
+      wrote:'The dialogues — ~30 surviving works including the Republic, Symposium, Phaedo, Meno, Apology. The most complete surviving body of work from ancient philosophy.',
+      contribution:'Founded the Academy (~387 BCE) — the first European university. Developed the Theory of Forms, the most systematic metaphysics of ancient philosophy. His Republic is the first major work of political philosophy.',
+      keyideas:'Theory of Forms: the physical world is a shadowy imitation of a realm of perfect, eternal Forms (the Form of Beauty, Justice, Goodness). Knowledge is recollection of Forms. The allegory of the cave. The tripartite soul (reason, spirit, appetite). Philosopher-kings should govern.',
+      legacy:'Alfred North Whitehead: "The safest general characterization of the European philosophical tradition is that it consists of a series of footnotes to Plato." His idealism (ideas/forms are more real than matter) remains a live position in philosophy and mathematics.',
+      render: renderPhilosopher },
+    aristotle: { name:'Aristotle', years:'384–322 BCE', origin:'Stagira, Macedon (worked in Athens)', col:'#27500A', bg:'#EAF3DE',
+      wrote:'~200 works, 31 surviving: Nicomachean Ethics, Politics, Metaphysics, Physics, De Anima, Poetics, Prior Analytics, Rhetoric.',
+      contribution:'Student of Plato, tutor of Alexander the Great. Systematised logic (syllogism). Founded empirical investigation of the natural world. Classified sciences and arts. His works were lost to the West and reintroduced via Islamic scholars in the 12th century — triggering Scholasticism.',
+      keyideas:'Eudaimonia (flourishing) as the highest good. Virtue ethics: virtues are the mean between extremes (courage = between cowardice and recklessness). Substance and form are not separate — no separate realm of Forms. The four causes. Logic: the categorical syllogism.',
+      legacy:'His logic dominated Western thought for 2,000 years. His biology was the most advanced until Darwin. Thomas Aquinas built Catholic theology on Aristotle\'s metaphysics.',
+      render: renderPhilosopher },
+    epicurus: { name:'Epicurus', years:'341–270 BCE', origin:'Samos / Athens, Greece', col:'#085041', bg:'#E1F5EE',
+      wrote:'300 works — only fragments survive, plus three letters and collections of maxims.',
+      contribution:'Founded Epicureanism — one of the great Hellenistic schools. His school (the Garden) was radical for admitting women and slaves. Provided an influential account of happiness as simple pleasures and freedom from anxiety.',
+      keyideas:'The highest good is ataraxia (tranquillity, absence of anxiety). Simple pleasures (friendship, philosophical conversation) are better than intense ones. "When death is, I am not; when I am, death is not." Atomism: the world consists of atoms and void; gods do not intervene in human life.',
+      legacy:'"Epicurean" now means pleasure-seeking, which misrepresents his austere vision. Epicurus actually advocated moderation. His death-argument has been used by philosophers ever since. Lucretius\'s De Rerum Natura transmitted Epicurean atomism.',
+      render: renderPhilosopher },
+    zeno: { name:'Zeno of Citium', years:'~334–262 BCE', origin:'Citium, Cyprus (worked in Athens)', col:'#633806', bg:'#FAEEDA',
+      wrote:'Nothing survives directly — Stoic philosophy reconstructed from Epictetus, Marcus Aurelius, and Seneca.',
+      contribution:'Founded Stoicism (~301 BCE) in the Stoa Poikile (Painted Porch) in Athens. Stoicism became the dominant philosophy of educated Romans and directly influenced early Christianity.',
+      keyideas:'The highest good is virtue (living in accordance with reason and nature). External goods are "preferred indifferents." The dichotomy of control: some things are in our power (judgements, desires), some are not (body, reputation, external events). Focus only on what is in your control.',
+      legacy:'Marcus Aurelius (Roman Emperor), Epictetus (former slave), and Seneca wrote the most influential Stoic texts. Stoicism directly influenced CBT. The Meditations of Marcus Aurelius is one of history\'s most widely read philosophy books.',
+      render: renderPhilosopher },
+    heraclitus: { name:'Heraclitus', years:'~535–475 BCE', origin:'Ephesus, Asia Minor', col:'#712B13', bg:'#FAECE7',
+      wrote:'"On Nature" — only ~130 fragments survive. Famous for deliberate obscurity ("the obscure" in antiquity).',
+      contribution:'One of the Pre-Socratics. First major philosopher of change and process. His emphasis on the tension of opposites anticipates dialectical thinking.',
+      keyideas:'"You cannot step into the same river twice" — constant change (Panta Rhei). The Logos (reason, cosmic principle) governs all change. "Opposites are unified: the road up and the road down are the same." Fire as the fundamental element.',
+      legacy:'His emphasis on process and becoming influenced Hegel (dialectic), Nietzsche (eternal recurrence), and process philosophy. His fragments remain among philosophy\'s most poetic and cryptic texts.',
+      render: renderPhilosopher },
+    democritus: { name:'Democritus', years:'~460–370 BCE', origin:'Abdera, Thrace', col:'#444441', bg:'#F1EFE8',
+      wrote:'72 works cited by later authors — none survive. Known through fragments and secondary sources.',
+      contribution:'Developed (with Leucippus) the first atomic theory: all matter consists of tiny, indivisible particles (atomos) moving through void. An astonishing anticipation of modern physics by 2,400 years.',
+      keyideas:'Atoms are eternal, solid, indivisible, differing only in shape, size, and position. All change is the rearrangement of atoms. The soul is also made of atoms (fine, spherical ones). No teleology — no purpose in nature, only atoms and void.',
+      legacy:'"Everything is the result of atoms and void — the rest is opinion." Epicurus adopted his atomism. The Scientific Revolution rediscovered atomism in the 17th century. His insight that apparent qualities of things are not in the atoms prefigures Locke\'s primary/secondary qualities.',
+      render: renderPhilosopher },
+  };
+
+  buildExplorer('greek-btns', 'phil-display', greekPhilosophers, 'socrates');
+
+
+  /* ──────────────────────────────────────────
+     PART D: LATE ANTIQUITY & MEDIEVAL
+  ────────────────────────────────────────── */
+  var medievalPhilosophers = {
+    augustine: { name:'Augustine of Hippo', years:'354–430 CE', origin:'Thagaste, Numidia (North Africa)', col:'#712B13', bg:'#FAECE7',
+      wrote:'Confessions (397 CE), The City of God (413–426 CE), On Christian Doctrine, On the Trinity. One of the most prolific authors of antiquity.',
+      contribution:'The most important philosopher-theologian of the early Christian Church. Synthesised Neoplatonism (especially Plotinus) with Christian doctrine. Developed doctrines of original sin, predestination, divine grace, and just war that dominated Western theology for a millennium.',
+      keyideas:'God is eternal, unchanging, and the source of all being and truth. Time is subjective — a "distension of the soul" (anticipating Kant on time). Evil is not a substance but the absence of good (privatio boni). The will is the key faculty — sin is the will turning away from God. The City of God vs the City of Man: history is the conflict between two loves, love of God vs love of self.',
+      legacy:'Calvin, Luther, and the Reformation drew heavily on Augustine\'s doctrine of grace and predestination. His Confessions is considered the first autobiography in Western literature. His analysis of time in Confessions Book XI anticipates themes in Husserl and Heidegger.',
+      render: renderPhilosopher },
+    aquinas: { name:'Thomas Aquinas', years:'1225–1274', origin:'Aquino, Kingdom of Sicily', col:'#0C447C', bg:'#E6F1FB',
+      wrote:'Summa Theologica (1265–74, unfinished), Summa Contra Gentiles, Commentary on Aristotle\'s Nicomachean Ethics, On Being and Essence.',
+      contribution:'The central figure of Scholasticism. Systematically synthesised Aristotle\'s philosophy with Christian theology, creating the most comprehensive philosophical-theological system of the Middle Ages. His metaphysics is still the official philosophy of the Catholic Church.',
+      keyideas:'The Five Ways (cosmological and teleological arguments for God\'s existence). Distinction between essence and existence — only in God are they identical. Natural law: morality is grounded in human nature and reason, and ultimately in divine reason. Faith and reason are compatible and complementary — reason can lead to God, faith goes beyond. Hylomorphism: things are composites of form (what they are) and matter (what they are made of).',
+      legacy:'"Thomism" remains a major school of Catholic philosophy. His natural law theory directly influenced international law (Grotius, Vitoria) and modern human rights theory. He rehabilitated Aristotle for the Christian West — an intellectual act with enormous consequences.',
+      render: renderPhilosopher },
+    scotus: { name:'John Duns Scotus', years:'c.1265–1308', origin:'Duns, Scotland', col:'#3C3489', bg:'#EEEDFE',
+      wrote:'Ordinatio (Commentary on Lombard\'s Sentences), De Primo Principio, Quaestiones Subtilissimae on Aristotle\'s Metaphysics.',
+      contribution:'Called "the Subtle Doctor." One of the most technically precise thinkers of the Middle Ages. Challenged Aquinas on several key points and developed original positions in metaphysics, epistemology, and ethics that influenced Descartes and later philosophy.',
+      keyideas:'Haecceity ("thisness") — what makes an individual thing this particular thing rather than any other. A fine-grained metaphysical distinction lacking in Aristotle. Formal distinction — a third category between real and conceptual distinction. The univocity of being — "being" means the same thing when applied to God and creatures (against Aquinas\'s analogical predication). Divine voluntarism — moral law is what God wills, not necessary truths about human nature.',
+      legacy:'The word "dunce" derives (unfairly) from "Duns-man" — followers of Scotus mocked by Renaissance humanists who thought Scholastic subtlety was pointless. His concept of haecceity influenced Peirce, and his univocity of being influenced Deleuze. His voluntarism anticipates later debates about divine command theory in ethics.',
+      render: renderPhilosopher },
+    ockham: { name:'William of Ockham', years:'c.1287–1347', origin:'Ockham, Surrey, England', col:'#27500A', bg:'#EAF3DE',
+      wrote:'Summa Logicae, Quodlibetal Questions, Commentary on Lombard\'s Sentences.',
+      contribution:'Called "the Venerable Inceptor." Devastatingly effective critic of Scholastic metaphysics. Ockham\'s Razor — "entities should not be multiplied beyond necessity" (entia non sunt multiplicanda praeter necessitatem) — became one of the most famous principles in all of philosophy. He denied the existence of universal properties.',
+      keyideas:'Nominalism: only individual things exist; universal concepts (redness, humanity) are just names (nomina) — mental or linguistic labels with no corresponding entities in the world. This challenged the Platonic/Aristotelian realism that dominated Scholasticism. Sharp distinction between faith and reason — reason can prove very little about God; much must be accepted by faith alone. This separation prepared the ground for empirical science.',
+      legacy:'Ockham\'s Razor is the most widely cited methodological principle in science and philosophy. His nominalism anticipates Locke, Hume, and modern empiricism. His separation of faith and reason helped end the medieval synthesis and opened space for independent natural philosophy (later science).',
+      render: renderPhilosopher },
+    suarez: { name:'Francisco Suárez', years:'1548–1617', origin:'Granada, Spain', col:'#633806', bg:'#FAEEDA',
+      wrote:'Disputationes Metaphysicae (1597) — the first systematic metaphysics written as an independent work rather than a commentary on Aristotle. De Legibus (1612).',
+      contribution:'The most important scholastic philosopher of the early modern period. His Disputationes Metaphysicae was the standard philosophy textbook in European universities for over a century, including Protestant ones. A crucial intermediary between medieval Scholasticism and early modern philosophy.',
+      keyideas:'Individuals exist primarily; universal properties are conceptual. The formal distinction (from Scotus) is merely conceptual. Natural law: laws bind in conscience because of their rational content, not merely because they are commanded — anticipating Grotius and the international law tradition. Suárez argued that political authority derives from the people (popular sovereignty), not directly from God — an important pre-democratic argument.',
+      legacy:'Descartes, Leibniz, and Grotius all engaged with his Disputationes. He influenced the development of international law (his "Law of Nations" work). His natural law theory fed into the foundations of modern human rights. He is a major but underappreciated bridge between Aristotle and modernity.',
+      render: renderPhilosopher },
+  };
+
+  buildExplorer('medieval-btns', 'medieval-display', medievalPhilosophers, 'aquinas');
+
+
+  /* ──────────────────────────────────────────
+     PART E: EARLY MODERN
+  ────────────────────────────────────────── */
+  var earlyModPhilosophers = {
+    descartes: { name:'René Descartes', years:'1596–1650', origin:'La Haye en Touraine, France', col:'#3C3489', bg:'#EEEDFE',
+      wrote:'Discourse on the Method (1637), Meditations on First Philosophy (1641), Principles of Philosophy (1644).',
+      contribution:'The father of modern philosophy. Broke from Scholastic Aristotelianism entirely. Applied mathematical method to philosophy. His radical doubt and the Cogito established a new starting point for all subsequent epistemology. Developed mind-body dualism (Cartesian dualism) — the view that mind and body are fundamentally distinct substances.',
+      keyideas:'Methodological doubt: doubt everything that can possibly be doubted to find what is indubitable. Cogito ergo sum: "I think therefore I am" — the indubitable foundation. Mind-body dualism: res cogitans (thinking substance) vs res extensa (extended substance). The problem this creates (how do mind and body interact?) has never been solved. Clear and distinct perception as the criterion of truth. God\'s existence as a guarantee of clear and distinct ideas.',
+      legacy:'Cartesian dualism shaped Western understanding of mind and body for centuries — it\'s the default folk psychology even now. The mind-body problem it creates is still central to philosophy of mind. His method (start from certain foundations, build up) defined the rationalist tradition. He also invented analytical geometry (Cartesian coordinates) and made major advances in optics.',
+      render: renderPhilosopher },
+    hobbes: { name:'Thomas Hobbes', years:'1588–1679', origin:'Westport, Wiltshire, England', col:'#444441', bg:'#F1EFE8',
+      wrote:'Leviathan (1651) — one of the most important and provocative works in political philosophy. De Cive (1642), De Corpore (1655).',
+      contribution:'The first systematic materialist philosopher of the modern period. Applied mechanistic explanation (the new science of Galileo) to human nature and politics. His Leviathan founded modern political philosophy by deriving the necessity of the state from human nature and rational self-interest.',
+      keyideas:'Materialism: everything that exists is matter in motion, including thought and sensation. The state of nature: without political authority, human life is "solitary, poor, nasty, brutish, and short" — a war of all against all. Social contract: individuals rationally agree to surrender natural freedom to a sovereign (the Leviathan) in exchange for security. The sovereign\'s power must be absolute — divided authority leads back to the state of nature. Subjects have no right to rebel except to defend their own lives.',
+      legacy:'Hobbes\'s bleak account of human nature (rational self-interest, competitive) directly challenged both Christian optimism and classical virtue ethics. His social contract theory (though different in conclusions) set the framework for Locke and Rousseau. His materialism about mind anticipated eliminative materialism and neuroscience by centuries. Realists in international relations theory often cite Hobbes.',
+      render: renderPhilosopher },
+    spinoza: { name:'Baruch Spinoza', years:'1632–1677', origin:'Amsterdam, Dutch Republic', col:'#085041', bg:'#E1F5EE',
+      wrote:'Ethics (published posthumously 1677 — written more geometrico, in Euclidean style), Tractatus Theologico-Politicus (1670), On the Improvement of the Understanding.',
+      contribution:'The most systematic and rigorous rationalist. Excommunicated from the Amsterdam Jewish community at age 23 — the harshest such excommunication (cherem) on record. His pantheism (God = Nature) and biblical criticism were revolutionary. Widely regarded as one of the most profound metaphysicians in the Western tradition.',
+      keyideas:'Substance monism: there is only one substance, which Spinoza calls both God and Nature (Deus sive Natura). Mind and body are two attributes of the same substance — not two substances (solving Descartes\'s interaction problem). Determinism: everything follows necessarily from God\'s nature; free will is an illusion arising from ignorance of causes. Human freedom consists in understanding necessity and acting from reason rather than passion. Sub specie aeternitatis: seeing things "under the aspect of eternity."',
+      legacy:'Einstein said he believed in "Spinoza\'s God" — an impersonal God identical with the laws of nature. Hegel and the German Idealists were deeply influenced by his monism. He provided the first serious argument for democracy based on freedom of thought. His biblical criticism pioneered modern historical scholarship of religious texts.',
+      render: renderPhilosopher },
+    locke: { name:'John Locke', years:'1632–1704', origin:'Wrington, Somerset, England', col:'#0C447C', bg:'#E6F1FB',
+      wrote:'An Essay Concerning Human Understanding (1689), Two Treatises of Government (1689), A Letter Concerning Toleration (1689).',
+      contribution:'The founder of British empiricism and liberal political philosophy. His political theory directly shaped the American Declaration of Independence and Constitution, and French Revolutionary thought. His epistemology influenced Hume and Kant.',
+      keyideas:'Tabula rasa: the mind is a blank slate at birth; all knowledge derives from experience (sensation and reflection) — no innate ideas. Primary qualities (shape, motion) exist in objects; secondary qualities (colour, taste) are in us. Political: natural rights (life, liberty, property) exist prior to government. Government is a trust — if it violates these rights, citizens have the right to revolution. Separation of powers. Toleration: the state has no authority over private religious belief.',
+      legacy:'Thomas Jefferson directly used Locke\'s language in the Declaration of Independence (replacing Locke\'s "property" with "pursuit of happiness"). His toleration arguments are the foundation of liberal democratic theory. His epistemology generated Hume\'s radical empiricism and ultimately led to Kant\'s synthesis.',
+      render: renderPhilosopher },
+    leibniz: { name:'Gottfried Wilhelm Leibniz', years:'1646–1716', origin:'Leipzig, Holy Roman Empire', col:'#534AB7', bg:'#EEEDFE',
+      wrote:'Monadology (1714), Theodicy (1710), New Essays on Human Understanding, Discourse on Metaphysics. He did not publish a magnum opus — his philosophy is reconstructed from essays and letters.',
+      contribution:'The other co-inventor of calculus (simultaneously with Newton, independently — the notation we use today is Leibniz\'s). The greatest rationalist metaphysician. Polymathic: he also contributed to logic (anticipating Boolean logic and computer science), history, law, physics, and linguistics.',
+      keyideas:'Monads: the world consists of infinitely many indivisible, immaterial substances (monads), each a "windowless" unit that mirrors the entire universe from its perspective. There is no causal interaction between monads — God established "pre-established harmony." This is the best of all possible worlds (God chose to create the world with the greatest possible ratio of perfection to imperfection). The principle of sufficient reason: everything has a reason why it is so rather than otherwise.',
+      legacy:'Voltaire savagely mocked his theodicy in Candide ("all is for the best in the best of all possible worlds") — Leibniz became a target for Enlightenment optimism. His logic anticipates Boolean algebra and computation. The principle of sufficient reason is a live and contested principle in analytic metaphysics. His monadology influenced phenomenology (each monad\'s perspective) and Whitehead\'s process philosophy.',
+      render: renderPhilosopher },
+    berkeley: { name:'George Berkeley', years:'1685–1753', origin:'County Kilkenny, Ireland', col:'#712B13', bg:'#FAECE7',
+      wrote:'A Treatise Concerning the Principles of Human Knowledge (1710), Three Dialogues between Hylas and Philonous (1713).',
+      contribution:'Developed one of philosophy\'s most radical and counterintuitive positions: subjective idealism. Material objects do not exist independently of minds that perceive them. This sounds eccentric but is actually a rigorous response to the problems Locke\'s empiricism raised about the external world.',
+      keyideas:'Esse est percipi: "to be is to be perceived." Objects are collections of ideas in minds. There is no material substance underlying perceptible qualities. But why do objects persist when no one perceives them? Because God eternally perceives everything — Berkeley\'s idealism is a theistic proof. "Dr Johnson, I refute it thus!" (kicking a stone) — Johnson\'s response misses the point: Berkeley never denied we have real experiences of hard objects, only that there is a mind-independent material substance behind those experiences.',
+      legacy:'Hume extended Berkeley\'s empiricism to its sceptical conclusion (even the self is a bundle of perceptions, not a substance). Kant\'s philosophy is partly a response to Berkeley. His idealism is deeply unfashionable in analytic philosophy but resurfaces in philosophy of physics (quantum mechanics raises genuine questions about observer-independence).',
+      render: renderPhilosopher },
+    hume: { name:'David Hume', years:'1711–1776', origin:'Edinburgh, Scotland', col:'#633806', bg:'#FAEEDA',
+      wrote:'A Treatise of Human Nature (1739–40), An Enquiry Concerning Human Understanding (1748), An Enquiry Concerning the Principles of Morals (1751), Dialogues Concerning Natural Religion (published posthumously 1779).',
+      contribution:'The most radical empiricist and most penetrating sceptic in the Western tradition. His Treatise "fell dead-born from the press" — but its ideas gradually transformed modern philosophy. Kant said Hume "woke me from my dogmatic slumber." His critiques of causation, induction, and the self remain live and unsolved.',
+      keyideas:'All ideas derive from impressions (sensory experience). Causation: we never perceive necessary connection between events — only constant conjunction. Our belief in causation is a habit of the mind. The problem of induction: no number of observed instances logically entails a general law. The is-ought problem (Hume\'s guillotine). The self is a bundle of perceptions — there is no permanent, unified self. Critique of miracles: testimony for miracles is less probable than the natural laws they allegedly violate.',
+      legacy:'Hume\'s problem of induction has never been solved — Karl Popper\'s falsificationism was an attempt. His bundle theory of the self was developed in Buddhist philosophy and anticipates neuroscience (Metzinger\'s "no-self" view). His account of causation raised by Kant into the transcendental idealism project. His religious scepticism made him one of the first major figures to articulate a coherent secular ethics.',
+      render: renderPhilosopher },
+  };
+
+  buildExplorer('earlymod-btns', 'earlymod-display', earlyModPhilosophers, 'descartes');
+
+
+  /* ──────────────────────────────────────────
+     PART F: ENLIGHTENMENT & 19TH CENTURY
+  ────────────────────────────────────────── */
+  var enlightenmentPhilosophers = {
+    montesquieu: { name:'Montesquieu', years:'1689–1755', origin:'La Brède, France', col:'#0C447C', bg:'#E6F1FB',
+      wrote:'The Persian Letters (1721 — satirical epistolary novel), The Spirit of the Laws (1748) — one of the most influential works in political theory.',
+      contribution:'The philosopher who made comparative political sociology possible. He studied forms of government empirically and argued that legal and political institutions must fit the natural and social environment of a people. He identified and named the separation of powers (executive, legislative, judicial) that became the model for constitutional democracies worldwide.',
+      keyideas:'Three forms of government: republic (virtue as its principle), monarchy (honour), despotism (fear). Separation of powers: the three branches must be separate to prevent tyranny — liberty exists only when power checks power. Laws must be adapted to climate, geography, religion, commerce, and manners. England\'s constitution is the model for political liberty. Critique of slavery and of religious fanaticism.',
+      legacy:'The US Constitution\'s separation of powers is directly traceable to Montesquieu. His empirical, comparative approach influenced modern political science and sociology. Tocqueville\'s Democracy in America is a Montesquieuian work.',
+      render: renderPhilosopher },
+    rousseau: { name:'Jean-Jacques Rousseau', years:'1712–1778', origin:'Geneva (worked in France)', col:'#085041', bg:'#E1F5EE',
+      wrote:'Discourse on Inequality (1755), The Social Contract (1762), Emile (1762), Confessions (posthumous 1782).',
+      contribution:'The most radical and influential Enlightenment critic of the Enlightenment. He questioned whether civilisation, science, and the arts had improved morality. His political philosophy inspired the French Revolution. His educational theory (child-led, natural development) influenced progressive education for 250 years.',
+      keyideas:'"Man is born free, but everywhere he is in chains." The general will: the genuine will of the political community as a whole (not merely the will of the majority). Sovereignty belongs inalienably to the people. Property is the origin of inequality and most social ills. Natural goodness: humans are naturally good; society corrupts. Education should protect the child\'s natural development from social corruption (Emile).',
+      legacy:'The French Revolution\'s ideology drew on the general will — with troubling consequences: Robespierre justified the Terror through the general will. Kant was profoundly influenced by Rousseau\'s moral egalitarianism. His Confessions pioneered modern autobiography and the Romantic movement. His critique of inequality and property influenced socialist thought.',
+      render: renderPhilosopher },
+    adamsmith: { name:'Adam Smith', years:'1723–1790', origin:'Kirkcaldy, Scotland', col:'#27500A', bg:'#EAF3DE',
+      wrote:'The Theory of Moral Sentiments (1759), An Inquiry into the Nature and Causes of the Wealth of Nations (1776).',
+      contribution:'Often called the father of modern economics — though he was primarily a moral philosopher. The Wealth of Nations (1776) is the founding text of classical economics. It is widely misread: Smith did not advocate unlimited self-interest but argued that in well-regulated markets, self-interested behaviour often (not always) produces socially beneficial outcomes.',
+      keyideas:'Moral Sentiments: sympathy and the impartial spectator are the foundations of morality — we judge our own actions by imagining how an impartial, well-informed observer would evaluate them. Wealth of Nations: division of labour, market prices, the "invisible hand" (the unintended social benefit of individual exchange), labour theory of value. Markets require institutions, legal frameworks, and public goods that only government can provide — Smith was not a libertarian.',
+      legacy:'"The father of capitalism" — though Smith would be appalled at many uses of his name. Laissez-faire economics selectively reads Wealth of Nations and ignores Theory of Moral Sentiments. Contemporary economists (Sen, Sandel) have returned to Smith\'s moral philosophy to recover a richer picture. He is one of the Enlightenment\'s most consequential thinkers.',
+      render: renderPhilosopher },
+    bentham: { name:'Jeremy Bentham', years:'1748–1832', origin:'Houndsditch, London, England', col:'#444441', bg:'#F1EFE8',
+      wrote:'Introduction to the Principles of Morals and Legislation (1789), A Fragment on Government, Constitutional Code.',
+      contribution:'Founder of utilitarianism and a radical legal and social reformer. He advocated universal suffrage, freedom of the press, the abolition of slavery, and decriminalisation of homosexuality — all radical positions in his time. His auto-icon (his preserved skeleton and wax head, dressed in his clothes) sits in a cabinet at UCL, London, as he requested.',
+      keyideas:'The principle of utility (greatest happiness principle): the right action is the one that maximises pleasure and minimises pain. The hedonic calculus: pleasures and pains can be quantified and compared by intensity, duration, probability, propinquity, fecundity, purity, and extent. "Each to count for one, and none for more than one." The Panopticon: a prison design in which inmates can never know if they are being watched, making constant surveillance unnecessary — Foucault\'s Discipline and Punish made this central to analysis of modern power.',
+      legacy:'Utilitarianism became the dominant framework for public policy and economics (welfare economics, cost-benefit analysis). His Panopticon became one of the most discussed architectural metaphors in social theory. Mill\'s more sophisticated utilitarianism was developed partly to address weaknesses in Bentham\'s crude hedonic calculus.',
+      render: renderPhilosopher },
+    kant: { name:'Immanuel Kant', years:'1724–1804', origin:'Königsberg, Prussia', col:'#534AB7', bg:'#EEEDFE',
+      wrote:'Critique of Pure Reason (1781/1787), Groundwork of the Metaphysics of Morals (1785), Critique of Practical Reason (1788), Critique of Judgment (1790).',
+      contribution:'Perhaps the most important philosopher since Aristotle. Attempted a Copernican revolution in philosophy: instead of asking how the mind conforms to reality, he asked how reality conforms to the mind. The mind imposes structure (space, time, causality) on experience. He synthesised rationalism and empiricism and transformed both ethics and aesthetics.',
+      keyideas:'The synthetic a priori: knowledge that is both informative (synthetic) and knowable without experience (a priori) — e.g., "every event has a cause." Phenomena vs noumena: we know things only as they appear to us (structured by the mind\'s categories), never as they are in themselves. The categorical imperative (see Part B). The sublime and the beautiful in aesthetics. Moral autonomy: rational beings legislate moral law to themselves.',
+      legacy:'German Idealism (Fichte, Schelling, Hegel) was a direct response to Kant. Rawls\'s theory of justice is Kantian. Korsgaard\'s constitutivism in ethics is Kantian. The analytic/continental divide partly traces to different readings of Kant. His critique of the traditional proofs for God\'s existence is still decisive for many philosophers.',
+      render: renderPhilosopher },
+    hegel: { name:'Georg Wilhelm Friedrich Hegel', years:'1770–1831', origin:'Stuttgart, Württemberg', col:'#0C447C', bg:'#E6F1FB',
+      wrote:'Phenomenology of Spirit (1807), Science of Logic (1812–16), Encyclopedia of the Philosophical Sciences (1817), Philosophy of Right (1820).',
+      contribution:'The most systematic and ambitious philosopher of the modern era. Attempted to construct an all-encompassing philosophical system in which everything — nature, history, art, religion, philosophy — is understood as the progressive self-realisation of the Absolute (Spirit / Geist). Deeply difficult to read — possibly deliberately so.',
+      keyideas:'The dialectic: history progresses through the tension of opposites (thesis → antithesis → synthesis / Aufhebung — "sublation" preserves and transforms both). "The real is rational and the rational is real" — the structure of history is rational. The owl of Minerva: philosophy only understands a historical epoch when it is over. The master-slave dialectic (Phenomenology Ch. IV): a seminal analysis of how self-consciousness requires recognition from another, and how the relationship inverts over time.',
+      legacy:'Marx inverted Hegel\'s idealism into dialectical materialism. Kierkegaard reacted against Hegel\'s system by insisting on the irreducibility of subjective, individual existence. The master-slave dialectic influenced Sartre, Fanon, and postcolonial theory. Hegel\'s philosophy of history (history has a goal: freedom) shaped liberal and Marxist historical thought.',
+      render: renderPhilosopher },
+    kierkegaard: { name:'Søren Kierkegaard', years:'1813–1855', origin:'Copenhagen, Denmark', col:'#712B13', bg:'#FAECE7',
+      wrote:'Either/Or (1843), Fear and Trembling (1843), Philosophical Fragments (1844), Concluding Unscientific Postscript (1846), The Sickness Unto Death (1849). Many under pseudonyms.',
+      contribution:'The father of existentialism, though he was a profoundly Christian thinker. He attacked Hegel\'s systematic rationalism from within, insisting that the existing individual cannot be captured in any system. He invented indirect communication — using pseudonyms and irony to force readers to work out their own truths.',
+      keyideas:'Three stages of existence: aesthetic (the pursuit of pleasure and immediacy — Don Juan), ethical (duty, social norms — the judge), religious (the leap of faith — Abraham). Truth is subjectivity: the most important truths cannot be objectively demonstrated but must be personally appropriated. The leap of faith: belief in God cannot be rationally justified; it requires a paradoxical leap beyond reason. Anxiety (Angst): the dizzying awareness of freedom; the "dizziness of freedom." Despair: the failure to become one\'s true self.',
+      legacy:'Kierkegaard is the foundational figure for both 20th-century existentialism (Sartre, Heidegger acknowledge him) and Protestant neo-orthodoxy (Barth, Tillich). His pseudonymous method influenced the novel. His concept of anxiety is appropriated by Heidegger and Sartre. He is studied as much in theology as in philosophy.',
+      render: renderPhilosopher },
+    marx: { name:'Karl Marx', years:'1818–1883', origin:'Trier, Rhine Province, Prussia', col:'#712B13', bg:'#FAECE7',
+      wrote:'Economic and Philosophic Manuscripts (1844, unpublished), The Communist Manifesto (1848, with Engels), Das Kapital Vol. I (1867). Volumes II and III published posthumously by Engels.',
+      contribution:'One of the most influential thinkers in human history — for better and worse. Founded historical materialism: the view that history is driven by material forces (technology, property relations, class conflict), not ideas. His analysis of capitalism — alienation, commodity fetishism, surplus value, class struggle — generated both revolutionary movements and major academic traditions.',
+      keyideas:'Historical materialism: the base (economic structure — forces and relations of production) determines the superstructure (legal, political, cultural institutions). Alienation: workers are alienated from their labour (they do not own or control its product), from other workers (competition), and from their species-being (social, creative nature). The labour theory of value. Class struggle: "The history of all hitherto existing society is the history of class struggles." Ideology: the ruling ideas of any epoch are the ideas of the ruling class.',
+      legacy:'Marxism shaped the 20th century more than any other philosophical tradition — through communist states, labour movements, and academic traditions (Frankfurt School, structuralism, postcolonial theory). His critique of capitalism remains analytically powerful even for non-Marxists. Few would deny that his analysis of commodity fetishism and ideology are illuminating.',
+      render: renderPhilosopher },
+    nietzsche: { name:'Friedrich Nietzsche', years:'1844–1900', origin:'Röcken, Kingdom of Prussia', col:'#633806', bg:'#FAEEDA',
+      wrote:'Thus Spoke Zarathustra (1883–85), Beyond Good and Evil (1886), On the Genealogy of Morality (1887), The Birth of Tragedy (1872), The Gay Science (1882).',
+      contribution:'The most provocative philosopher of the 19th century. Declared the death of God and its consequences for morality and culture. Developed a radical critique of traditional morality, systematic philosophy, and the ascetic ideal. His influence spans philosophy, literature, psychology (Freud, Jung acknowledged him), and politics (grotesquely misappropriated by the Nazis).',
+      keyideas:'"God is dead and we have killed him" — not an argument but a cultural diagnosis. The will to power: the fundamental drive of all life is not self-preservation but expansion, creation, overcoming. The Übermensch (Overman): the ideal of a person who creates their own values rather than inheriting them. Eternal recurrence: what if you had to live your life over infinite times? Would you embrace it (amor fati)? The genealogy of morals: "slave morality" (Christianity, utilitarianism) inverts the noble values of strength and affirmation into resentment of strength.',
+      legacy:'Nietzsche is one of the most widely read philosophers in the world but also one of the most misread. His sister Elisabeth falsified his manuscripts for Nazi purposes. Existentialism (Heidegger, Sartre, Camus) is largely a response to the death of God problem he posed. Foucault\'s genealogical method is explicitly Nietzschean.',
+      render: renderPhilosopher },
+  };
+
+  buildExplorer('enlightenment-btns', 'enlightenment-display', enlightenmentPhilosophers, 'kant');
+
+
+  /* ──────────────────────────────────────────
+     PART G: 20TH CENTURY & CONTEMPORARY
+  ────────────────────────────────────────── */
+  var c20Philosophers = {
+    russell: { name:'Bertrand Russell', years:'1872–1970', origin:'Trellech, Wales', col:'#0C447C', bg:'#E6F1FB',
+      wrote:'Principia Mathematica (1910–13, with Whitehead), The Problems of Philosophy (1912), History of Western Philosophy (1945), Why I Am Not a Christian (1927).',
+      contribution:'Co-founder of analytic philosophy with Frege and Moore. Discovered Russell\'s Paradox (undermining Frege\'s set theory). With Whitehead, attempted to derive all of mathematics from logic alone (logicism) — Gödel\'s incompleteness theorems showed this cannot be completed. Won the Nobel Prize in Literature (1950).',
+      keyideas:'Theory of descriptions ("the present King of France is bald" — how can this be false rather than meaningless if there is no referent? The logical form is "there exists an x such that x is a present King of France, and x is bald, and for all y, if y is a present King of France then y=x"). Logical atomism: the world consists of atomic facts; ideal language maps directly onto these. Russell\'s Paradox: the set of all sets that do not contain themselves — does it contain itself? Robust advocacy of empiricism, secularism, and nuclear disarmament.',
+      legacy:'Russell\'s theory of descriptions is one of the most celebrated pieces of philosophical analysis. His paradox forced the reconstruction of the foundations of mathematics. His popular History of Western Philosophy introduced millions of readers to philosophy. He cofounded CND and was arrested at 89 for nuclear disarmament protests.',
+      render: renderPhilosopher },
+    wittgenstein: { name:'Ludwig Wittgenstein', years:'1889–1951', origin:'Vienna, Austria-Hungary', col:'#534AB7', bg:'#EEEDFE',
+      wrote:'Tractatus Logico-Philosophicus (1921 — his only book published in his lifetime), Philosophical Investigations (1953 — posthumous). These two works represent radically different philosophies.',
+      contribution:'The only philosopher widely regarded as having created two distinct major philosophical positions. The early Wittgenstein (Tractatus) founded logical atomism. The later Wittgenstein (Investigations) dismantled it and much of the tradition. Arguably the 20th century\'s most influential philosopher on the practice of analytic philosophy.',
+      keyideas:'Early: the world is all that is the case — a totality of facts, not things. Language pictures facts. "Whereof one cannot speak, thereof one must be silent" — ethics, aesthetics, and metaphysics are unspeakable. Late: "Meaning is use" — words get their meaning from their role in language games and forms of life, not from picturing facts. The private language argument (see Part L). Family resemblance: concepts often share overlapping similarities without a single common feature (games). Philosophical problems arise from misuses of language; the task is philosophical therapy.',
+      legacy:'The Tractatus influenced logical positivism (the Vienna Circle misread it as endorsing their views — Wittgenstein did not). The Investigations shaped Oxford ordinary language philosophy, philosophy of mind, social science methodology, and philosophy of psychology. His PI is the most discussed text in analytic philosophy of the 20th century.',
+      render: renderPhilosopher },
+    heidegger: { name:'Martin Heidegger', years:'1889–1976', origin:'Meßkirch, Germany', col:'#27500A', bg:'#EAF3DE',
+      wrote:'Being and Time (1927), "The Origin of the Work of Art" (1935), "The Question Concerning Technology" (1954), Introduction to Metaphysics (1953).',
+      contribution:'The most important and most controversial philosopher of the continental tradition. His analysis of human existence (Dasein) in Being and Time is the most systematic phenomenological ontology. His thought profoundly influenced existentialism, hermeneutics, deconstruction, and environmental philosophy. His involvement with the Nazi Party (he was rector of Freiburg University under the Nazis in 1933–34 and never unambiguously retracted) remains deeply troubling and debated.',
+      keyideas:'Being-in-the-world (In-der-Welt-sein): humans are not subjects facing an objective world — we are always already embedded in a world of purposes, tools, and relationships. Dasein (being-there): the mode of being that questions its own being. Thrownness (Geworfenheit): we are thrown into a world we did not choose — language, history, culture. Being-toward-death: Dasein is the being for which its own death is always a possibility; authentic existence means owning this. They-self (das Man): the inauthentic mode of losing oneself in what "one does," what "they say." The ready-to-hand (Zuhandenheit) vs present-at-hand (Vorhandenheit): a hammer in use vanishes into its function; it becomes conspicuous (present-at-hand) only when it breaks.',
+      legacy:'His influence on 20th-century philosophy is unparalleled in the continental tradition. Sartre, Merleau-Ponty, Derrida, Gadamer, and Habermas all engage centrally with Heidegger. His analysis of technology as "enframing" (Gestell) — reducing all beings to resources to be optimised — is now central to philosophy of technology. The question of how to read his philosophy in light of his Nazism is unresolved.',
+      render: renderPhilosopher },
+    sartre: { name:'Jean-Paul Sartre', years:'1905–1980', origin:'Paris, France', col:'#712B13', bg:'#FAECE7',
+      wrote:'Being and Nothingness (1943), Existentialism is a Humanism (1946), Critique of Dialectical Reason (1960), Nausea (novel, 1938), No Exit (play, 1944).',
+      contribution:'The most famous philosopher of the 20th century. Brought existentialism to a global audience. His lecture "Existentialism is a Humanism" sold out repeatedly on delivery. Unlike Heidegger, he was politically engaged — a committed leftist who signed manifestos, visited Castro\'s Cuba, and refused the Nobel Prize (1964) to avoid institutionalisation.',
+      keyideas:'Existence precedes essence (see Part L, Q5). Bad faith (mauvaise foi): self-deception about one\'s freedom. Radical freedom and radical responsibility — "condemned to be free." The Other as constitutive of self-consciousness: "Hell is other people" (No Exit) — other consciousnesses threaten to reduce me to an object, to define me from the outside. Being-in-itself (en-soi): inert, thing-like being. Being-for-itself (pour-soi): conscious being — always a step ahead of itself, a negation of mere being. Later work attempted to synthesise existentialism with Marxism.',
+      legacy:'Sartre\'s influence on literature, psychotherapy, feminist philosophy (de Beauvoir\'s application of existentialism to the situation of women), and political theory is enormous. His public intellectual model — philosopher as engaged public commentator — shaped academic and journalistic culture. "Bad faith" has entered ordinary language.',
+      render: renderPhilosopher },
+    arendt: { name:'Hannah Arendt', years:'1906–1975', origin:'Hannover, Germany (later USA)', col:'#3C3489', bg:'#EEEDFE',
+      wrote:'The Origins of Totalitarianism (1951), The Human Condition (1958), Eichmann in Jerusalem (1963), The Life of the Mind (posthumous 1978).',
+      contribution:'The most important political philosopher of the 20th century. A Jewish philosopher who fled Nazi Germany for the US. Her analysis of totalitarianism was the first systematic account of Nazism and Stalinism as a new form of political evil. Her concept of the "banality of evil" from her Eichmann reporting transformed how we think about moral responsibility and bureaucratic complicity.',
+      keyideas:'The banality of evil: Adolf Eichmann was not a monster but a thoughtless bureaucrat — evil can be perpetrated by ordinary people who simply stop thinking. The vita activa (active life) has three modes: labour (biological reproduction), work (building a durable world of things), and action (political speech and deed in the public realm). Action is the highest human activity — it is through political participation that we disclose who we are. Totalitarianism annihilates plurality and spontaneity — the two conditions of political life. The public/private distinction. Natality (the capacity to begin something new) as the political counterpart to mortality.',
+      legacy:'Her concept of the banality of evil is one of the most used and debated in moral philosophy. Her work on totalitarianism remained ahead of its time — it described phenomena whose full implications are still being absorbed. Feminist philosophers have engaged extensively with her distinction between public and private. She is one of the few philosophers whose work is cited equally in philosophy, political theory, and history.',
+      render: renderPhilosopher },
+    baudrillard: { name:'Jean Baudrillard', years:'1929–2007', origin:'Reims, France', col:'#444441', bg:'#F1EFE8',
+      wrote:'The System of Objects (1968), Consumer Society (1970), Simulacra and Simulation (1981), The Gulf War Did Not Take Place (1991).',
+      contribution:'The major theorist of postmodernism, hyperreality, and simulation. He argued that in advanced consumer societies, signs no longer refer to any underlying reality — they refer only to other signs. The map precedes the territory. The Gulf War title was deliberately provocative: not that no war occurred, but that the media spectacle had replaced the event itself.',
+      keyideas:'Simulacra: copies without originals. Four stages of the image: (1) reflects a basic reality, (2) masks and perturbs a basic reality, (3) masks the absence of a basic reality, (4) bears no relation to any reality. Hyperreality: Disneyland exists to make us believe the rest of America is real — when in fact "real" America is hyperreal. Seduction vs production: postmodern culture moves from a logic of production (things have use-value and exchange-value) to seduction (signs circulate without referents). The desert of the real.',
+      legacy:'The Matrix (1999) drew directly on Simulacra and Simulation — the book appears in the film. His concept of hyperreality is now indispensable for analysing social media, reality television, political spectacle, and advertising. He remains controversial: critics argue his provocations are themselves a form of spectacular intellectual seduction.',
+      render: renderPhilosopher },
+    zizek: { name:'Slavoj Žižek', years:'1949–', origin:'Ljubljana, Slovenia', col:'#085041', bg:'#E1F5EE',
+      wrote:'The Sublime Object of Ideology (1989), The Plague of Fantasies (1997), The Parallax View (2006), Less Than Nothing (2012 — 1000 pages on Hegel).',
+      contribution:'The most widely read continental philosopher of the early 21st century. Synthesises Lacanian psychoanalysis, Hegelian dialectics, and Marxist political theory to analyse contemporary ideology, culture, and politics. Famous for finding philosophical depth in popular culture (Hollywood films, jokes, toilet design) and for his provocations.',
+      keyideas:'Ideology is not false consciousness — it is a structural necessity of symbolic reality. The big Other: the symbolic order (language, social norms, law) that structures social reality, but which exists only insofar as subjects believe in it. Fantasy structures reality rather than escaping it. The "parallax view": the same object viewed from two incompatible perspectives, where both perspectives are necessary and neither is correct. Hegelian parallax: contradictions are not to be synthesised away but held in productive tension.',
+      legacy:'His public intellectual presence has done more than any living philosopher to popularise continental theory. His analysis of ideology, enjoyment, and the big Other draws on Lacan in ways that have influenced cultural studies, film theory, and political theory. He remains as controversial as he is widely read — some regard him as a profound thinker, others as a brilliant performer whose arguments are ultimately evasive.',
+      render: renderPhilosopher },
+  };
+
+  buildExplorer('c20-btns', 'c20-display', c20Philosophers, 'arendt');
+
+
+  /* ──────────────────────────────────────────
+     PART H: MOVEMENTS
+  ────────────────────────────────────────── */
+  var movements = {
+    stoicism: { name:'Stoicism', period:'~301 BCE – 200 CE', figures:'Zeno, Epictetus, Seneca, Marcus Aurelius', col:'#633806', bg:'#FAEEDA',
+      core:'Virtue is the only good; everything else (health, wealth, reputation) is "preferred indifferent." Happiness depends entirely on internal states, not external circumstances. The dichotomy of control: focus only on what is in your power.',
+      reacted:'Against Platonic otherworldliness and against the Epicurean withdrawal from public life. The Stoic sage acts in the world while remaining emotionally unshaken.',
+      thinkers:'Epictetus (Enchiridion): "Men are disturbed not by things, but by their opinions about things." Marcus Aurelius (Meditations): the most powerful man in the world practising Stoic philosophy in private journals. Seneca: Stoic ethics applied to Roman aristocratic life.',
+      modern:'Stoicism is one of the most influential philosophical movements in the modern world. CBT (cognitive therapy) explicitly derives from Stoic ideas. The modern Stoicism movement has millions of practitioners. The Meditations is one of the world\'s most widely read books.',
+      render: renderMovement },
+    rationalism: { name:'Rationalism', period:'17th–18th century', figures:'Descartes, Leibniz, Spinoza', col:'#3C3489', bg:'#EEEDFE',
+      core:'Reason is the primary source of knowledge. Some knowledge is innate — knowable through pure reason without sensory experience. Mathematical truth is the model.',
+      reacted:'Against scholastic Aristotelianism. Against scepticism — if we doubt everything, what can we know for certain?',
+      thinkers:'Descartes: Cogito ergo sum — the indubitable foundation after radical doubt. Mind-body dualism. Leibniz: monads, the best of all possible worlds. Spinoza: God is identical with nature (Deus sive Natura).',
+      modern:'Rationalism influenced mathematics, linguistics (Chomsky\'s innate language faculty), and AI (rule-based systems). The debate between rationalism and empiricism was eventually transcended by Kant.',
+      render: renderMovement },
+    empiricism: { name:'Empiricism', period:'17th–18th century', figures:'Locke, Hume, Berkeley', col:'#27500A', bg:'#EAF3DE',
+      core:'All knowledge derives from sensory experience. The mind at birth is a blank slate (tabula rasa). There are no innate ideas. If you cannot trace a concept back to sensory experience, it is meaningless.',
+      reacted:'Against the rationalist claim of innate ideas. Against metaphysical speculation untethered from experience.',
+      thinkers:'Locke: tabula rasa; primary vs secondary qualities. Berkeley: esse est percipi — "to be is to be perceived." Hume: causation is a habit of mind, not an objective feature of reality. The problem of induction.',
+      modern:'Empiricism underpins the scientific method. Hume\'s problem of induction has never been fully solved. The Vienna Circle and logical positivism were a radical empiricist movement.',
+      render: renderMovement },
+    kant_syn: { name:'Kantian synthesis', period:'Late 18th century', figures:'Immanuel Kant (1724–1804)', col:'#534AB7', bg:'#EEEDFE',
+      core:'Kant attempted to resolve the rationalism/empiricism debate. His Copernican revolution: rather than asking how the mind conforms to reality, ask how reality conforms to the mind. The mind imposes structure (space, time, causality) on raw experience.',
+      reacted:'Against Hume, who "woke me from my dogmatic slumber." Against rationalist metaphysics that claimed knowledge beyond possible experience.',
+      thinkers:'Critique of Pure Reason (1781): what can reason know? Groundwork of the Metaphysics of Morals (1785): the categorical imperative. Critique of Judgment (1790): aesthetics and teleology.',
+      modern:'Kant is perhaps the most influential philosopher since Aristotle. His ethics influenced Rawls and modern deontological ethics. German Idealism (Fichte, Schelling, Hegel) was a direct response.',
+      render: renderMovement },
+    utilitarianism: { name:'Utilitarianism', period:'18th–19th century', figures:'Bentham, Mill, Singer', col:'#085041', bg:'#E1F5EE',
+      core:'The right action is the one that produces the greatest good for the greatest number. Moral worth is determined entirely by consequences. Pleasure and pain are the fundamental values.',
+      reacted:'Against deontological ethics: why should rules override better outcomes? Against aristocratic and theological ethics that privileged some interests over others.',
+      thinkers:'Bentham: hedonic calculus. Each person counts for one. Mill: pleasures differ in quality — poetry is better than pushpin. Freedom as utility-maximising. Peter Singer: effective altruism; animal suffering counts equally.',
+      modern:'Utilitarianism underlies welfare economics, cost-benefit analysis, public health policy, and effective altruism. Modern variants (preference utilitarianism, rule utilitarianism) address the most troubling implications.',
+      render: renderMovement },
+    existentialism: { name:'Existentialism', period:'19th–20th century', figures:'Kierkegaard, Nietzsche, Heidegger, Sartre, Camus, Beauvoir', col:'#712B13', bg:'#FAECE7',
+      core:'Existence precedes essence — humans first exist and then define themselves through choices. There is no pre-given human nature or cosmic purpose. We are condemned to be free, creating profound anxiety (Angst). Authentic existence means accepting this freedom and its responsibility.',
+      reacted:'Against the Enlightenment view that reason provides objective foundations for meaning. Against Hegel\'s historical determinism. Against religious accounts that give life pre-given purpose.',
+      thinkers:'Kierkegaard: the leap of faith; subjective truth. Nietzsche: God is dead; will to power; eternal recurrence. Heidegger: being-in-the-world; thrownness; being-toward-death. Sartre: radical freedom; bad faith. Camus: absurdism. Beauvoir: "one is not born, but rather becomes, a woman."',
+      modern:'Existentialism permeated 20th-century literature, film, and psychotherapy. Existential therapy (Yalom, Frankl) addresses mortality, freedom, isolation, and meaning.',
+      render: renderMovement },
+    analytic: { name:'Analytic philosophy', period:'Early 20th century – present', figures:'Frege, Russell, Wittgenstein, Quine, Rawls, Kripke', col:'#0C447C', bg:'#E6F1FB',
+      core:'Philosophy should be rigorous, precise, and continuous with science. Philosophical problems arise from linguistic confusion — clarifying language dissolves them. Logic is the proper method of philosophy.',
+      reacted:'Against Hegelian idealism (obscure, speculative). Against traditional metaphysics that made claims beyond what could be meaningfully stated.',
+      thinkers:'Frege: modern mathematical logic. Russell: logical analysis, paradoxes. Wittgenstein (early): picture theory of meaning. Wittgenstein (later): meaning as use; language games. Quine: "Two Dogmas of Empiricism." Rawls: A Theory of Justice. Kripke: rigid designators; possible worlds.',
+      modern:'Dominant in Anglophone philosophy. The analytic/continental divide (analytic: rigour, logic; continental: Hegel, Heidegger, Sartre) is one of philosophy\'s most important institutional divisions.',
+      render: renderMovement },
+    socialcontract: { name:'Social contract theory', period:'17th–18th century', figures:'Hobbes, Locke, Rousseau, Rawls', col:'#444441', bg:'#F1EFE8',
+      core:'Political authority is legitimate only if it rests on (actual or hypothetical) consent of the governed. The social contract explains both the origin and limits of government.',
+      reacted:'Against divine right of kings. Against pure force as the basis of political authority.',
+      thinkers:'Hobbes: state of nature = "war of all against all." Absolute sovereignty necessary. Locke: natural rights (life, liberty, property) precede government; government that violates them may be overthrown. Rousseau: general will. Rawls: the veil of ignorance.',
+      modern:'Rawls\'s veil of ignorance is the most influential modern social contract thought experiment. Social contract theory underlies modern constitutionalism and human rights. Locke\'s ideas directly shaped the American founding documents.',
+      render: renderMovement },
+  };
+
+  buildExplorer('movement-btns', 'movement-display', movements, 'stoicism');
+
+
+  /* ──────────────────────────────────────────
+     PART I: THOUGHT EXPERIMENTS
+  ────────────────────────────────────────── */
+  var thoughts = {
+    cave: { name:'Plato\'s allegory of the cave', source:'Plato, Republic Book VII (~380 BCE)', col:'#3C3489', bg:'#EEEDFE',
+      setup:'Prisoners chained in a cave since birth, facing a blank wall. Behind them, a fire illuminates objects carried past — they see only shadows. One prisoner is freed: turns, sees the fire (painful), dragged outside, sees the sun. Returns to tell the others; they mock him.',
+      question:'What is the relationship between appearance and reality? Between ordinary perception and genuine knowledge?',
+      philosophical_point:'Shadows = everyday sensory experience. Objects = mathematical and logical truths. The sun = the Form of the Good. The escaped prisoner = the philosopher. The return = the philosopher-king\'s obligation to rule. The allegory encodes Plato\'s entire metaphysics and political philosophy.',
+      modern:'Still used to discuss: media reality vs lived reality; simulation hypotheses; scientific realism (do our theories describe reality or just save the appearances?); the philosopher\'s obligation to engage with society.',
+      render: renderThought },
+    demon: { name:'Descartes\' evil demon', source:'Descartes, Meditations on First Philosophy (1641)', col:'#534AB7', bg:'#EEEDFE',
+      setup:'Suppose an all-powerful evil demon is deceiving you in everything — all your senses, all your memories, all mathematical truths are fabrications. What can you know with certainty?',
+      question:'What is the foundation of certain knowledge after radical doubt?',
+      philosophical_point:'The demon is the strongest possible form of scepticism. What survives radical doubt: "I think therefore I am" — even a deceiving demon cannot make it false that there is a thinking thing being deceived. The Cogito is the indubitable foundation.',
+      modern:'Logically equivalent to the brain-in-a-vat scenario or Bostrom\'s simulation argument. Whether we can know we\'re not in a simulation is a live philosophical and now scientific/technological question.',
+      render: renderThought },
+    trolley: { name:'The trolley problem', source:'Philippa Foot (1967) and Judith Jarvis Thomson (1985)', col:'#712B13', bg:'#FAECE7',
+      setup:'A runaway trolley will kill five people. You can pull a lever to divert it, killing one. Most say: pull. Footbridge variant: you must push a large person off a bridge to stop the trolley. Same arithmetic, different intuitions — most say: don\'t push.',
+      question:'What is the moral difference between killing and letting die? Between using a person as a means and as a side effect?',
+      philosophical_point:'Exposes the conflict between consequentialism (outcomes alone determine right action — identical in both cases) and deontology (there are constraints on action — using a person as a means is categorically wrong). The doctrine of double effect: a foreseen but unintended harm is different from harm as a means.',
+      modern:'Self-driving car ethics. Triage decisions in medicine. MIT Moral Machine: 2.3M people surveyed globally — significant cultural variation found.',
+      render: renderThought },
+    theseus: { name:'Ship of Theseus', source:'Plutarch (~100 CE)', col:'#633806', bg:'#FAEEDA',
+      setup:'The Athenians preserved Theseus\'s ship, replacing each plank as it rotted. Eventually all original planks are replaced. A collector reassembled the original planks. Which is the real Ship of Theseus?',
+      question:'What constitutes the identity of an object over time?',
+      philosophical_point:'Two theories: continuity of matter (reassembled ship is original) vs continuity of form and function (maintained ship is original). Personal identity version: your body\'s atoms are almost entirely replaced; beliefs and memories change. Locke: identity consists in continuity of consciousness (memory). Hume: there is no permanent self.',
+      modern:'Personal identity and moral responsibility; gradual replacement in technology; organ transplantation; corporate identity; what makes a "remake" the same or different work.',
+      render: renderThought },
+    veil: { name:'Veil of ignorance', source:'John Rawls, A Theory of Justice (1971)', col:'#0C447C', bg:'#E6F1FB',
+      setup:'Design principles of justice for a society, not knowing your place in it — your class, race, sex, natural abilities, or conception of the good. What principles would rational people choose?',
+      question:'What is a just society? How can we identify principles of justice that are truly impartial?',
+      philosophical_point:'Rawls argues people behind the veil would choose: (1) equal basic liberties for all; (2) the difference principle — social inequalities are only permissible if they benefit the least advantaged. The veil prevents self-interest from contaminating principles.',
+      modern:'One of philosophy\'s most useful practical tools for policy and constitutional design. "Would you support this rule if you didn\'t know which side of it you\'d be on?"',
+      render: renderThought },
+    chinese: { name:'The Chinese Room', source:'John Searle, Minds, Brains, and Programs (1980)', col:'#27500A', bg:'#EAF3DE',
+      setup:'You are locked in a room with Chinese symbols and a rulebook. Chinese speakers pass in questions; you manipulate the symbols per the rules and pass back correct answers. You understand no Chinese whatsoever. Does the room "understand" Chinese?',
+      question:'Is the computational simulation of understanding the same as genuine understanding?',
+      philosophical_point:'Searle: the room produces correct outputs but has no semantic understanding. Syntax is not sufficient for semantics. Therefore no matter how sophisticated a program is, it does not genuinely understand. Systems Reply: the whole system understands even if no component does.',
+      modern:'Directly relevant to large language models: do they understand, or are they extremely sophisticated Chinese rooms? The question of machine understanding remains unresolved.',
+      render: renderThought },
+    experience: { name:'Experience machine', source:'Robert Nozick, Anarchy, State, and Utopia (1974)', col:'#085041', bg:'#E1F5EE',
+      setup:'A machine can give you any experience you desire — pleasure, achievement, love — indistinguishable from the real thing. You could plug in for life. Would you? If not, why not?',
+      question:'Is pleasure (or subjective experience) the only thing that matters? Or do other things have intrinsic value?',
+      philosophical_point:'Designed to refute hedonistic utilitarianism: if pleasure were all that mattered, everyone would plug in. Most refuse — they want to actually do things, actually be certain kinds of people, actually be in contact with reality. This suggests: authenticity matters; we value things beyond our own experience.',
+      modern:'Virtual reality ethics, deep fake relationships, simulation philosophy. If life in a perfect simulation could be subjectively identical to "real" life, would it be equally valuable? Most intuitions say no — but why?',
+      render: renderThought },
+    mary: { name:'Mary\'s room', source:'Frank Jackson, Epiphenomenal Qualia (1982)', col:'#712B13', bg:'#FAECE7',
+      setup:'Mary is a brilliant scientist who knows all physical facts about colour vision — wavelengths, neural processes, everything. But she has lived in a black-and-white room and has never seen colour. When she sees red for the first time, does she learn something new?',
+      question:'Is physical knowledge complete knowledge? Or is there something about conscious experience (qualia) that physical science cannot capture?',
+      philosophical_point:'Jackson: yes, Mary learns something new — what it is like to see red. Therefore physicalism is false. There is an "explanatory gap" between physical facts and subjective experience. This is the "hard problem of consciousness" (Chalmers): a complete physical account of the brain cannot explain why there is something it is like to see red.',
+      modern:'One of the most debated arguments in philosophy of mind. Responses: (1) Mary learns a new ability, not a new fact; (2) she learns a physical fact she didn\'t know. The thought experiment captures why consciousness is philosophically special.',
+      render: renderThought },
+  };
+
+  buildExplorer('thought-btns', 'thought-display', thoughts, 'trolley');
+
+  </script>
+
   <script src="../files/shared.js"></script>
 </body>
 </html>
