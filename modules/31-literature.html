@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-module="31">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 31: Literature — Have a Sense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="description" content="Module 31: Language, narrative, and the literary tradition.">
+  <link rel="stylesheet" href="../files/shared.css">
+
+  <style>
+    .part-nav { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.5rem; }
+    .part-nav-btn {
+      font-size:12px; padding:4px 12px;
+      border-radius:var(--border-radius-md);
+      border:0.5px solid var(--color-border-secondary);
+      background:none; color:var(--color-text-secondary); cursor:pointer;
+      transition:background 0.12s;
+    }
+    .part-nav-btn.active, .part-nav-btn:hover {
+      background:var(--color-background-secondary);
+      color:var(--color-text-primary);
+    }
+
+    /* Genre explorer */
+    .genre-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+      gap:8px; margin-bottom:10px;
+    }
+    .genre-card {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:11px 12px; cursor:pointer; text-align:center;
+      transition:background 0.12s, border-color 0.12s;
+    }
+    .genre-card:hover { background:var(--color-background-secondary); }
+    .genre-card.active {
+      background:var(--color-background-secondary);
+      border-color:var(--color-border-secondary);
+    }
+    .genre-icon { font-size:22px; margin-bottom:5px; }
+    .genre-name { font-size:12px; font-weight:600; color:var(--color-text-primary); }
+    .genre-sub  { font-size:10px; color:var(--color-text-secondary); margin-top:2px; line-height:1.3; }
+    .genre-detail {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; margin-bottom:1rem; display:none;
+    }
+    .genre-detail.show { display:block; }
+
+    /* Timeline period bar (reuse pc- pattern from art module) */
+    .pc-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+    .pc-label {
+      font-size:11px; color:var(--color-text-secondary);
+      width:140px; flex-shrink:0; text-align:right;
+    }
+    .pc-track {
+      flex:1; height:16px; background:var(--color-background-secondary);
+      border-radius:3px; position:relative; min-width:200px;
+    }
+    .pc-fill {
+      position:absolute; top:0; height:100%; border-radius:3px;
+      display:flex; align-items:center; padding:0 5px;
+    }
+    .pc-fill-label { font-size:9px; font-weight:600; white-space:nowrap; overflow:hidden; }
+    .pc-axis { display:flex; margin-left:148px; margin-bottom:4px; position:relative; height:14px; }
+    .pc-axis-mark {
+      font-size:9px; color:var(--color-text-tertiary);
+      position:absolute; transform:translateX(-50%);
+    }
+
+    /* Prose vs poetry slider */
+    .slider-demo {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; margin-bottom:1rem;
+    }
+
+    /* Roadmap */
+    .roadmap-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:10px; margin-bottom:1rem;
+    }
+    .roadmap-card {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; display:flex; flex-direction:column; gap:5px;
+    }
+    .roadmap-card.current {
+      border-color:var(--color-border-secondary);
+      background:var(--color-background-secondary);
+    }
+    .roadmap-part-label {
+      font-size:10px; font-weight:600; letter-spacing:0.06em;
+      text-transform:uppercase; color:#8A6DB5;
+    }
+    .roadmap-part-title { font-size:13px; font-weight:600; color:var(--color-text-primary); }
+    .roadmap-part-desc { font-size:12px; color:var(--color-text-secondary); line-height:1.5; }
+    .roadmap-sections { margin-top:4px; display:flex; flex-wrap:wrap; gap:4px; }
+    .roadmap-tag {
+      font-size:10px; background:var(--color-background-secondary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:99px; padding:2px 8px; color:var(--color-text-tertiary);
+    }
+
+    /* Pie-style distribution bar */
+    .dist-bar {
+      display:flex; height:28px; border-radius:var(--border-radius-md);
+      overflow:hidden; margin-bottom:8px;
+    }
+    .dist-seg { display:flex; align-items:center; justify-content:center; }
+    .dist-legend {
+      display:flex; flex-wrap:wrap; gap:8px; margin-bottom:1rem;
+    }
+    .dist-leg-item { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--color-text-secondary); }
+    .dist-leg-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+    .coming-card {
+      background:var(--color-background-secondary);
+      border:0.5px dashed var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:22px 18px; text-align:center; color:var(--color-text-tertiary);
+      font-size:13px; margin-bottom:1rem;
+    }
+    .coming-card i { font-size:22px; margin-bottom:8px; display:block; opacity:0.4; }
+
+    @media (max-width:500px) {
+      .pc-label { width:90px; font-size:10px; }
+      .pc-axis  { margin-left:98px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
+      <i class="fa-solid fa-book-open" style="font-size:42px; color:#8A6DB5; flex-shrink:0;"></i>
+      <div>
+        <div style="font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#8A6DB5; margin-bottom:2px;">Module 31 — Deep Dive</div>
+        <h1 class="module-title" style="margin:0; line-height:1.05;">Literature</h1>
+      </div>
+    </div>
+    <p class="module-subtitle">Language, narrative, and the written word as art form</p>
+
+    <nav class="part-nav" aria-label="Parts">
+      <button class="part-nav-btn active">Part A · What Literature Is</button>
+      <button class="part-nav-btn">Part B · Poetry &amp; Verse</button>
+      <button class="part-nav-btn">Part C · The Novel</button>
+      <button class="part-nav-btn">Part D · Drama &amp; Playwriting</button>
+      <button class="part-nav-btn">Part E · Literary Movements</button>
+      <button class="part-nav-btn">Part F · The Canon &amp; Its Discontents</button>
+      <button class="part-nav-btn">Part G · How to Read Well</button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════
+         PART A · WHAT LITERATURE IS
+    ══════════════════════════════════════════════════ -->
+    <div class="sec">Part A · what literature is — the foundations</div>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <p class="clabel">Language used as art</p>
+      <p class="cval">The art form made of the medium of thought itself</p>
+      <p class="cnote">Literature is language organised beyond its purely informational function — shaped for aesthetic effect, emotional resonance, and the creation of worlds. It is the only art form made of the same material as human thought. A painting or a symphony is experienced through the senses; literature works through language, which is already structured by concepts, grammar, and meaning. This makes it simultaneously the most intimate art form (it happens inside the reader's mind) and the most culturally contingent (it requires deep knowledge of a specific language). Homer's Iliad has been read for 2,800 years not because it provides information but because it tells the truth about war, glory, grief, and mortality in ways that transcend its original context.</p>
+    </div>
+
+    <!-- What counts as literature? -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">What makes writing "literary"? — the key properties</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+        <div style="background:#EEEDFE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #AFA9EC;">
+          <div style="font-size:11px; font-weight:500; color:#3C3489; margin-bottom:4px;">Density of language</div>
+          <div style="font-size:12px; color:#534AB7; line-height:1.5;">Literary writing earns re-reading. Each sentence is chosen, not merely adequate. Poetry maximises this: the poem is untranslatable because every word, sound, and position contributes. A news article communicates its content; a poem is its form.</div>
+        </div>
+        <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #5DCAA5;">
+          <div style="font-size:11px; font-weight:500; color:#04342C; margin-bottom:4px;">Ambiguity and depth</div>
+          <div style="font-size:12px; color:#0F6E56; line-height:1.5;">Literary language carries multiple meanings simultaneously. "To be or not to be" is not a question that has a single correct answer. The ambiguity is the point. Richness of interpretation is a sign of quality, not of vagueness. The text doesn't tell you what to think; it gives you something to think with.</div>
+        </div>
+        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #EF9F27;">
+          <div style="font-size:11px; font-weight:500; color:#412402; margin-bottom:4px;">Attention to form</div>
+          <div style="font-size:12px; color:#854F0B; line-height:1.5;">Literature is conscious of how it says things, not just what. The shape of a sonnet (14 lines, iambic pentameter, a volta, a couplet) creates a specific pressure that shapes meaning. The way Faulkner's sentences sprawl and double back enacts the consciousness they describe.</div>
+        </div>
+        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB;">
+          <div style="font-size:11px; font-weight:500; color:#042C53; margin-bottom:4px;">Cultural durability</div>
+          <div style="font-size:12px; color:#185FA5; line-height:1.5;">Literary works accrue meaning through time. Hamlet means something different in 1601, 1900, and 2025 — each era finds new resonances. This accretion of interpretation distinguishes literature from entertainment, which is consumed and discarded. The canon is, in part, a list of works that have survived this test.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Genre explorer -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The major literary genres — click to explore</div>
+      <div class="genre-grid">
+        <div class="genre-card active" onclick="showGenre('poetry', this)">
+          <div class="genre-icon">📜</div>
+          <div class="genre-name">Poetry</div>
+          <div class="genre-sub">The oldest and densest</div>
+        </div>
+        <div class="genre-card" onclick="showGenre('novel', this)">
+          <div class="genre-icon">📗</div>
+          <div class="genre-name">Novel</div>
+          <div class="genre-sub">The modern form</div>
+        </div>
+        <div class="genre-card" onclick="showGenre('shortstory', this)">
+          <div class="genre-icon">📄</div>
+          <div class="genre-name">Short story</div>
+          <div class="genre-sub">Concentrated prose</div>
+        </div>
+        <div class="genre-card" onclick="showGenre('drama', this)">
+          <div class="genre-icon">🎭</div>
+          <div class="genre-name">Drama</div>
+          <div class="genre-sub">Writing for performance</div>
+        </div>
+        <div class="genre-card" onclick="showGenre('essay', this)">
+          <div class="genre-icon">✍️</div>
+          <div class="genre-name">Essay</div>
+          <div class="genre-sub">Thought made visible</div>
+        </div>
+        <div class="genre-card" onclick="showGenre('epic', this)">
+          <div class="genre-icon">⚔️</div>
+          <div class="genre-name">Epic</div>
+          <div class="genre-sub">The founding form</div>
+        </div>
+      </div>
+    </div>
+    <div id="genre-display" class="genre-detail show"></div>
+
+    <!-- Timeline: forms of literature across history -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Literary forms across time — approximate dominance</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Each era is dominated by different forms. These are rough centres of gravity, not rigid boundaries.</div>
+      <div class="pc-axis">
+        <span class="pc-axis-mark" style="left:0%">–800 BCE</span>
+        <span class="pc-axis-mark" style="left:20%">500 CE</span>
+        <span class="pc-axis-mark" style="left:45%">1500</span>
+        <span class="pc-axis-mark" style="left:65%">1700</span>
+        <span class="pc-axis-mark" style="left:80%">1850</span>
+        <span class="pc-axis-mark" style="left:100%">Now</span>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Oral epic &amp; lyric poetry</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:0%; width:30%; background:#EEEDFE;">
+            <span class="pc-fill-label" style="color:#3C3489;">Homer, Sappho, Virgil</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Drama (stage)</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:5%; width:55%; background:#FAEEDA;">
+            <span class="pc-fill-label" style="color:#633806;">Sophocles → Shakespeare → Ibsen</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Lyric &amp; narrative poetry</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:0%; width:80%; background:#E6F1FB;">
+            <span class="pc-fill-label" style="color:#0C447C;">Dominant through Romantic era</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Novel</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:58%; width:42%; background:#EAF3DE;">
+            <span class="pc-fill-label" style="color:#27500A;">Defoe, Austen → Present</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Personal essay</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:40%; width:60%; background:#FAECE7;">
+            <span class="pc-fill-label" style="color:#712B13;">Montaigne (1580) → Now</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Short story</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:68%; width:32%; background:#FCEBEB;">
+            <span class="pc-fill-label" style="color:#791F1F;">Poe, Chekhov → Now</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Distribution: the literary world today -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Where readers spend their time — approximate distribution of literary reading</div>
+      <div class="dist-bar">
+        <div class="dist-seg" style="width:52%; background:#8A6DB5;"><span style="font-size:10px; color:white; font-weight:600;">52% Novels</span></div>
+        <div class="dist-seg" style="width:15%; background:#4E99A3;"><span style="font-size:10px; color:white; font-weight:600;">15% SS</span></div>
+        <div class="dist-seg" style="width:12%; background:#E07B5A;"><span style="font-size:10px; color:white; font-weight:600;">12% NF</span></div>
+        <div class="dist-seg" style="width:10%; background:#5DCAA5;"><span style="font-size:10px; color:white; font-weight:600;">10% Drama</span></div>
+        <div class="dist-seg" style="width:7%; background:#EF9F27;"><span style="font-size:9px; color:white; font-weight:600;">7% Poetry</span></div>
+        <div class="dist-seg" style="width:4%; background:#AFA9EC;"><span style="font-size:9px; color:white; font-weight:600;">4%+</span></div>
+      </div>
+      <div class="dist-legend">
+        <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#8A6DB5;"></div>Novel</div>
+        <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#4E99A3;"></div>Short story</div>
+        <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#E07B5A;"></div>Literary non-fiction</div>
+        <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#5DCAA5;"></div>Drama / Play</div>
+        <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#EF9F27;"></div>Poetry</div>
+        <div class="dist-leg-item"><div class="dist-leg-dot" style="background:#AFA9EC;"></div>Other (essay, etc.)</div>
+      </div>
+      <div style="font-size:11px; color:var(--color-text-secondary);">Rough indicative estimates based on sales and reading surveys. Poetry's small share understates its cultural presence — most people who don't "read poetry" quote it without knowing.</div>
+    </div>
+
+    <!-- Roadmap -->
+    <div class="sec">Module roadmap — what each part covers</div>
+    <div class="roadmap-grid">
+      <div class="roadmap-card current">
+        <div class="roadmap-part-label">Part A · Now</div>
+        <div class="roadmap-part-title">What Literature Is</div>
+        <div class="roadmap-part-desc">Genre explorer, literary properties, historical timeline of forms, and the fundamental question of what makes writing literary.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Genre explorer</span>
+          <span class="roadmap-tag">Forms timeline</span>
+          <span class="roadmap-tag">Literary properties</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part B</div>
+        <div class="roadmap-part-title">Poetry &amp; Verse</div>
+        <div class="roadmap-part-desc">Metre, rhyme, form, and the difference between what a poem says and what it does. Close readings of canonical poems.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Metre explorer</span>
+          <span class="roadmap-tag">Form types</span>
+          <span class="roadmap-tag">Poem anatomy</span>
+          <span class="roadmap-tag">Traditions</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part C</div>
+        <div class="roadmap-part-title">The Novel</div>
+        <div class="roadmap-part-desc">How the novel was invented, how it works as a form, the major traditions (British, Russian, American, French), and what distinguishes good novels from great ones.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Novel history</span>
+          <span class="roadmap-tag">Narrative elements</span>
+          <span class="roadmap-tag">Traditions map</span>
+          <span class="roadmap-tag">Unreliable narrator</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part D</div>
+        <div class="roadmap-part-title">Drama &amp; Playwriting</div>
+        <div class="roadmap-part-desc">Greek tragedy, Shakespeare, Ibsen, Chekhov, Beckett — and the unique challenge of writing for bodies in space before a live audience.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Greek tragedy structure</span>
+          <span class="roadmap-tag">Dramatic arcs</span>
+          <span class="roadmap-tag">Playwright explorer</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part E</div>
+        <div class="roadmap-part-title">Literary Movements</div>
+        <div class="roadmap-part-desc">Romanticism, Realism, Naturalism, Modernism, Postmodernism — what each reacted against and what it invented.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Movement timeline</span>
+          <span class="roadmap-tag">Movement explorer</span>
+          <span class="roadmap-tag">Key texts</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part F</div>
+        <div class="roadmap-part-title">The Canon &amp; Its Discontents</div>
+        <div class="roadmap-part-desc">What the Western canon is, how it was formed, the critiques against it, and what an educated reader actually needs.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Canon formation</span>
+          <span class="roadmap-tag">Global traditions</span>
+          <span class="roadmap-tag">Reading list</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part G</div>
+        <div class="roadmap-part-title">How to Read Well</div>
+        <div class="roadmap-part-desc">Practical techniques for close reading, literary analysis, and getting more out of every page you read.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Close reading</span>
+          <span class="roadmap-tag">Annotation methods</span>
+          <span class="roadmap-tag">Analysis toolkit</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q&A -->
+    <div class="sec">Sanity-check questions</div>
+    <div class="qa">
+      <div class="qa-q">Is literary criticism just subjective opinion?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">No — though it's not purely objective either. Literary criticism occupies a middle space: it makes claims that can be supported by evidence from the text, argued, challenged, and refined. "Hamlet is about indecision" is not a fact, but it's not simply an opinion either — it's a claim with textual support that can be made more or less convincingly. The discipline trains readers to make better arguments about literary meaning, not to discover pre-existing correct interpretations.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why does literature matter when we can just read history for facts?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Literature doesn't compete with history on factual grounds — it does something different. It gives you access to the interior of another consciousness: what it felt like to be a 19th-century Russian serf (Chekhov), to live through a war (Remarque, Hemingway, Tolstoy), to be a woman in a patriarchal society (Austen, Woolf, Plath). Martha Nussbaum argues that literature cultivates moral imagination — the ability to inhabit another perspective — which is constitutive of ethical reasoning, not supplementary to it.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What's the difference between literary fiction and genre fiction?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Genre fiction (mystery, thriller, romance, science fiction, fantasy) foregrounds plot and formula — the reader knows the basic shape in advance and is satisfied when it's delivered. Literary fiction foregrounds language, character, and ambiguity — it resists formula and leaves questions open. But the distinction is not a quality judgment: the best genre fiction transcends the category (Dostoevsky writes thrillers; Kafka writes science fiction; Austen writes romance). And a lot of self-styled literary fiction is as formulaic as the genre it disdains.</div>
+    </div>
+
+    <div class="coming-card">
+      <i class="fa-regular fa-clock"></i>
+      Parts B–G are being developed. This module currently covers Part A only.
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <script>
+    /* ════════════════════════════════════
+       GENRE DATA
+    ════════════════════════════════════ */
+    const genres = {
+      poetry: {
+        name: 'Poetry', icon: '📜',
+        what: 'Language at its maximum density. Every word earns its place; sound, rhythm, and meaning work simultaneously. Poetry predates prose literature — Homer, the Rigveda, the Epic of Gilgamesh were all verse. The line break, not the sentence, is the basic unit.',
+        forms: 'Lyric (expressing feeling), narrative (telling a story), dramatic (voiced by a character), epic (long narrative poem), sonnet (14 lines, a specific argument structure), haiku (compressed image), free verse (no fixed metre), concrete poetry (visual arrangement as meaning).',
+        challenge: 'Poetry resists paraphrase: the meaning is inseparable from the form. To say "Keats is writing about the permanence of art versus the transience of life" is to say something true about the Ode on a Grecian Urn but to lose everything that matters about it. Reading poetry well means slowing down, reading aloud, and letting sound precede sense.',
+        key: 'Homer (Iliad, Odyssey), Sappho, Virgil (Aeneid), Dante (Divina Commedia), Shakespeare (Sonnets), Milton (Paradise Lost), Keats, Shelley, Whitman (Leaves of Grass), Dickinson, Eliot (The Waste Land), Neruda, Celan, Seamus Heaney.',
+        col: '#534AB7', bg: '#EEEDFE'
+      },
+      novel: {
+        name: 'Novel', icon: '📗',
+        what: 'The dominant literary form since ~1750. An extended prose narrative, typically 60,000–200,000 words, creating an immersive world with developed characters over sustained time. The novel is the art form of the modern individual — its subject is the interior life of particular people in social worlds.',
+        forms: 'Realist novel (19th century — Tolstoy, Eliot, Dickens), psychological novel (James, Woolf — interior consciousness), modernist novel (fragmented, stream-of-consciousness), postmodern novel (self-referential, unreliable narrators), the Bildungsroman (coming-of-age), the epistolary novel (told in letters).',
+        challenge: 'The novel\'s length is its challenge and its gift. A novel can develop a character over decades, build a world in granular detail, hold multiple perspectives simultaneously. But it requires sustained attention — something increasingly rare. The 19th-century novel was written for a leisured reading class; the 21st-century novel competes with every other form of distraction.',
+        key: 'Cervantes (Don Quixote — the first novel), Austen, Tolstoy (War and Peace, Anna Karenina), Dostoevsky, George Eliot (Middlemarch), Flaubert (Madame Bovary), Henry James, Proust (In Search of Lost Time), Kafka, Joyce (Ulysses), Woolf, Faulkner, García Márquez (One Hundred Years of Solitude), Toni Morrison.',
+        col: '#27500A', bg: '#EAF3DE'
+      },
+      shortstory: {
+        name: 'Short story', icon: '📄',
+        what: 'Concentrated prose fiction, typically 1,000–15,000 words. The short story does not attempt what the novel does — it achieves its effects by compression and implication. What is left out matters as much as what is put in. Chekhov and Hemingway established the modern form: a moment, a character, something unspoken.',
+        forms: 'The epiphany story (Joyce\'s "epiphany" — a moment of sudden realisation), the slice-of-life story (no dramatic arc — Chekhov), the O. Henry twist ending (a once-fashionable formula now considered cheap), flash fiction (under 1,000 words), the novella (the intermediate form, 20,000–50,000 words).',
+        challenge: 'Economy: every sentence must earn its place. Chekhov\'s famous principle — if you show a gun in Act 1, it must fire by Act 3 — is a principle of compression: nothing is wasted. The best short stories feel both complete and unresolved — they end before they explain themselves.',
+        key: 'Chekhov (the master — The Lady with the Dog, Ward No. 6), Poe (invented the form), Joyce (Dubliners — each story an epiphany), Hemingway (The Snows of Kilimanjaro), Flannery O\'Connor, Borges (conceptual short stories — labyrinths, libraries), Alice Munro, Raymond Carver, Alice Walker.',
+        col: '#0C447C', bg: '#E6F1FB'
+      },
+      drama: {
+        name: 'Drama', icon: '🎭',
+        what: 'Writing designed for performance: bodies in space, voice, and action before a live audience. Drama is the most social of literary forms — it requires collaboration (writer, director, actors, designer) and communal reception. Its special power is the live present tense: it is happening now, before you, and cannot be stopped.',
+        forms: 'Tragedy (the fall of a great person through a fatal flaw — Greek conception), comedy (social reconciliation through marriage or reintegration), tragicomedy, farce (physical comedy, confusion), absurdist drama (Beckett — characters trapped in meaningless waiting), well-made play (tightly constructed 19th-century form), naturalistic drama, verbatim theatre (documentary theatre using real speech).',
+        challenge: 'Drama cannot use interior monologue directly (unlike the novel). Everything must be externalised — shown through action, dialogue, and physical conflict. This is a severe constraint that forces dramatic precision. A novelist can tell us a character is angry; a playwright must show it through what they do and say.',
+        key: 'Aeschylus, Sophocles (Oedipus Rex), Euripides, Aristophanes, Shakespeare (Hamlet, King Lear, A Midsummer Night\'s Dream), Molière, Ibsen (A Doll\'s House — modern realism), Chekhov (The Cherry Orchard), Brecht (Mother Courage), Beckett (Waiting for Godot), Arthur Miller, Tennessee Williams, Harold Pinter, Caryl Churchill.',
+        col: '#712B13', bg: '#FAECE7'
+      },
+      essay: {
+        name: 'Essay', icon: '✍️',
+        what: 'Prose non-fiction of a personal, exploratory kind — literally "attempt" (French essai). Montaigne invented the form in 1580: short, first-person prose pieces exploring an idea through personal digression, without pretending to arrive at a definitive conclusion. The essay is thought in process, not thought concluded.',
+        forms: 'The personal essay (Montaigne, Woolf, Baldwin — the self as instrument), the critical essay (arguing an interpretation), the familiar essay (Lamb, Hazlitt — conversational), literary journalism (the New Journalism — Wolfe, Didion), the lyric essay (essay that uses poetic techniques), the manifesto (argument as art form — Woolf\'s A Room of One\'s Own).',
+        challenge: 'The essay must earn the reader\'s trust. It promises personal sincerity but must also be artfully constructed. The best essayists (Montaigne, Woolf, Baldwin, Didion) achieve a quality of mind — a particular way of paying attention — that makes their essays worth reading not just for their arguments but for the experience of thinking alongside them.',
+        key: 'Montaigne (Essays — the original), Francis Bacon, Samuel Johnson (The Rambler), Charles Lamb, William Hazlitt, Ralph Waldo Emerson (Self-Reliance), Virginia Woolf (A Room of One\'s Own), George Orwell (Politics and the English Language), James Baldwin (Notes of a Native Son), Joan Didion (Slouching Towards Bethlehem), David Foster Wallace.',
+        col: '#633806', bg: '#FAEEDA'
+      },
+      epic: {
+        name: 'Epic', icon: '⚔️',
+        what: 'The founding form of Western literature — a long narrative poem dealing with heroic deeds, divine intervention, and the founding of peoples. The epic was originally oral: performed from memory at length, passed down through generations. Literacy and the printing press made it a written form, and eventually displaced it with the novel.',
+        forms: 'Primary epics (oral, anonymous, Homeric): the Iliad, Odyssey, Gilgamesh, Beowulf, the Mahabharata. Literary (secondary) epics (composed in writing by a named poet): Virgil\'s Aeneid (Roman founding myth), Dante\'s Commedia, Milton\'s Paradise Lost. Epic conventions: invocation of the Muse, in medias res beginning, catalogue of warriors, epic simile, divine machinery.',
+        challenge: 'Reading an epic requires patience with an entirely different concept of narrative time. Nothing happens quickly. The epic digresses, catalogues, repeats, describes at length. This is not a failure of technique; it is a different conception of what narrative is for — establishing the world fully before moving through it.',
+        key: 'Homer (Iliad c.750 BCE — the Trojan War; Odyssey — the homecoming), Anonymous (Epic of Gilgamesh c.2100 BCE — the oldest surviving narrative), Virgil (Aeneid 19 BCE), Dante (Divina Commedia c.1308–1320), Milton (Paradise Lost 1667), William Blake (prophetic books as secular epics), Walt Whitman (Song of Myself as democratic epic).',
+        col: '#2C2C2A', bg: '#F1EFE8'
+      }
+    };
+
+    function showGenre(key, clickedCard) {
+      const g = genres[key];
+      document.getElementById('genre-display').innerHTML = `
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+          <div style="font-size:22px;">${g.icon}</div>
+          <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${g.name}</div>
+          <div style="font-size:11px; font-weight:500; background:${g.bg}; color:${g.col}; border-radius:99px; padding:2px 9px;">literary form</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:10px; margin-bottom:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">What it is</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${g.what}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Sub-forms &amp; variants</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${g.forms}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The challenge</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${g.challenge}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key works &amp; writers</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${g.key}</div></div>
+        </div>`;
+      document.getElementById('genre-display').classList.add('show');
+
+      document.querySelectorAll('.genre-card').forEach(c => c.classList.remove('active'));
+      if (clickedCard) clickedCard.classList.add('active');
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      showGenre('poetry', document.querySelector('.genre-card'));
+    });
+  </script>
+  <script src="../files/shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-module="32">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 32: Painting — Have a Sense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="description" content="Module 32: From pigment to meaning — a deep dive into painting.">
+  <link rel="stylesheet" href="../files/shared.css">
+
+  <style>
+    /* ── Part nav ── */
+    .part-nav {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem;
+    }
+    .part-nav-btn {
+      font-size: 12px; padding: 4px 12px;
+      border-radius: var(--border-radius-md);
+      border: 0.5px solid var(--color-border-secondary);
+      background: none; color: var(--color-text-secondary); cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+    }
+    .part-nav-btn.active, .part-nav-btn:hover {
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+    }
+
+    /* ── Roadmap cards ── */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px; margin-bottom: 1rem;
+    }
+    .roadmap-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      display: flex; flex-direction: column; gap: 5px;
+    }
+    .roadmap-part-label {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #4E99A3;
+    }
+    .roadmap-part-title {
+      font-size: 13px; font-weight: 600; color: var(--color-text-primary);
+    }
+    .roadmap-part-desc {
+      font-size: 12px; color: var(--color-text-secondary); line-height: 1.5;
+    }
+    .roadmap-sections {
+      margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px;
+    }
+    .roadmap-tag {
+      font-size: 10px; background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: 99px; padding: 2px 8px; color: var(--color-text-tertiary);
+    }
+    .roadmap-card.current {
+      border-color: var(--color-border-secondary);
+      background: var(--color-background-secondary);
+    }
+    .roadmap-card.current .roadmap-part-label { color: #4E99A3; }
+
+    /* ── Dimension explorer ── */
+    .dim-tabs {
+      display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;
+    }
+    .dim-tab {
+      font-size: 12px; padding: 4px 12px;
+      border-radius: var(--border-radius-md);
+      border: 0.5px solid var(--color-border-secondary);
+      background: none; color: var(--color-text-secondary); cursor: pointer;
+    }
+    .dim-tab.active {
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary); font-weight: 600;
+    }
+    .dim-panel { display: none; }
+    .dim-panel.show { display: block; }
+
+    /* ── Tradition bars ── */
+    .trad-row {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+    }
+    .trad-label {
+      font-size: 11px; color: var(--color-text-secondary);
+      width: 140px; flex-shrink: 0; text-align: right; padding-right: 8px; line-height: 1.3;
+    }
+    .trad-track {
+      flex: 1; height: 18px; background: var(--color-background-secondary);
+      border-radius: 3px; position: relative; min-width: 180px;
+    }
+    .trad-fill {
+      position: absolute; top: 0; height: 100%; border-radius: 3px;
+      display: flex; align-items: center; padding: 0 7px;
+    }
+    .trad-fill-label {
+      font-size: 10px; font-weight: 600; white-space: nowrap; overflow: hidden;
+    }
+
+    /* ── Comparison scale ── */
+    .cscale-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px; margin-bottom: 1rem;
+    }
+    .cscale-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; }
+    .cscale-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .cscale-name { font-size: 12px; color: var(--color-text-primary); width: 130px; flex-shrink: 0; }
+    .cscale-track {
+      flex: 1; height: 8px; background: var(--color-background-secondary);
+      border-radius: 4px; position: relative;
+    }
+    .cscale-dot {
+      position: absolute; top: 50%; transform: translate(-50%, -50%);
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid var(--color-background-primary);
+    }
+    .cscale-poles {
+      display: flex; justify-content: space-between;
+      font-size: 10px; color: var(--color-text-tertiary); margin-top: 6px;
+    }
+
+    /* ── Coming soon card ── */
+    .coming-card {
+      background: var(--color-background-secondary);
+      border: 0.5px dashed var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 22px 18px; text-align: center; color: var(--color-text-tertiary);
+      font-size: 13px; margin-bottom: 1rem;
+    }
+    .coming-card i { font-size: 22px; margin-bottom: 8px; display: block; opacity: 0.4; }
+
+    @media (max-width: 500px) {
+      .trad-label { width: 90px; font-size: 10px; }
+      .cscale-name { width: 90px; font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <!-- Header -->
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
+      <i class="fa-solid fa-brush" style="font-size:42px; color:#4E99A3; flex-shrink:0;"></i>
+      <div>
+        <div style="font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#4E99A3; margin-bottom:2px;">Module 29 — Deep Dive</div>
+        <h1 class="module-title" style="margin:0; line-height:1.05;">Painting</h1>
+      </div>
+    </div>
+    <p class="module-subtitle">From pigment to meaning — the oldest and deepest visual art</p>
+
+    <!-- Part nav -->
+    <nav class="part-nav" aria-label="Parts">
+      <button class="part-nav-btn active">Part A · What Painting Is</button>
+      <button class="part-nav-btn">Part B · Materials &amp; Technique</button>
+      <button class="part-nav-btn">Part C · How to Read a Painting</button>
+      <button class="part-nav-btn">Part D · Movements in Depth</button>
+      <button class="part-nav-btn">Part E · The Masterworks</button>
+      <button class="part-nav-btn">Part F · The Market &amp; Value</button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════
+         PART A · WHAT PAINTING IS
+    ══════════════════════════════════════════════════ -->
+    <div class="sec">Part A · what painting is — the foundations</div>
+
+    <!-- Intro card -->
+    <div class="card" style="margin-bottom:1rem;">
+      <p class="clabel">The oldest surviving art form</p>
+      <p class="cval">Pigment, surface, and human intention</p>
+      <p class="cnote">Painting is the application of pigment — suspended in a binder — to a surface with the intention of creating an image, pattern, or expressive mark. The oldest known paintings are cave paintings in Lascaux, France (~17,000 BCE) and El Castillo, Spain (~40,800 BCE). The act of marking a surface deliberately is one of the most fundamental human behaviours: before writing, before agriculture, there was painting. Understanding painting means understanding how material constraints, cultural context, available technology, and individual genius interact to produce images that outlast civilisations.</p>
+    </div>
+
+    <!-- Three fundamental dimensions explorer -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Three dimensions that define every painting</div>
+      <div class="dim-tabs">
+        <button class="dim-tab active" onclick="showDim('material',this)">Material</button>
+        <button class="dim-tab" onclick="showDim('formal',this)">Formal</button>
+        <button class="dim-tab" onclick="showDim('iconographic',this)">Iconographic</button>
+      </div>
+      <div id="dim-material" class="dim-panel show">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Pigment</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">The colouring substance — mineral, organic, or synthetic. Lapis lazuli for ultramarine blue (more expensive than gold), lead white, vermilion from mercury sulphide. Modern synthetic pigments give painters thousands of reliable options unavailable to the Old Masters.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Binder</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Holds pigment together and adheres it to the surface. Egg yolk (tempera), linseed oil, gum arabic (watercolour), acrylic polymer. The binder determines the working time, the surface texture, and how the colour reads over centuries.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Support</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">The surface painted on. Cave wall, wooden panel (primed with gesso), canvas (linen or cotton, sized and primed), paper, metal plate, plaster (fresco). Each support imposes constraints: canvas can roll up; fresco binds permanently to wet plaster.</div>
+          </div>
+        </div>
+      </div>
+      <div id="dim-formal" class="dim-panel">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Composition</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">The arrangement of elements within the picture plane. How the eye is led, which elements dominate, what is emphasised by placement. Rule of thirds, golden ratio, triangular compositions, diagonal axes — formal structures with emotional consequences.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Colour relationships</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Hue, saturation, value (lightness/darkness), temperature (warm/cool). Complementary colours vibrate against each other. Analogous harmonies feel unified. Simultaneous contrast: a grey looks different next to red than next to blue.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Mark and surface</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Brushstroke, palette knife, finger, poured paint, spray. Visible marks record the gesture of making; smooth surfaces deny the process. The presence or absence of mark-evidence is a statement about the relationship between artist, process, and viewer.</div>
+          </div>
+        </div>
+      </div>
+      <div id="dim-iconographic" class="dim-panel">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Subject &amp; narrative</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">What is depicted — or deliberately not depicted. The classical hierarchy of genres: history painting (religious, mythological, historical) at the top; portrait; genre (everyday scenes); landscape; still life at the bottom. Abstract painting abandons recognisable subject matter entirely.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Symbols &amp; iconography</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Objects, animals, plants, colours that carry shared meanings within a tradition. Skull = memento mori. Lily = purity. Hourglass = fleeting time. Reading a painting iconographically means knowing its symbolic vocabulary — a skill that was once widespread but has largely been lost.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Historical context</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Who commissioned it and why. For what space. In what social and political moment. Goya's Third of May is incomprehensible without the Napoleonic invasion. Context does not determine meaning but it is always present, shaping what could be said and how.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Painting traditions comparison -->
+    <div class="cscale-wrap">
+      <div class="cscale-title">Major world painting traditions — key emphases compared</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:12px;">Each tradition has a characteristic orientation. These are tendencies, not absolute rules.</div>
+
+      <!-- Realistic vs Expressive scale -->
+      <div style="font-size:11px; font-weight:600; color:var(--color-text-secondary); margin-bottom:6px;">Realistic ←————————————→ Expressive / Symbolic</div>
+      <div class="cscale-row">
+        <div class="cscale-name">Dutch Golden Age</div>
+        <div class="cscale-track">
+          <div class="cscale-dot" style="left:10%; background:#0C447C;"></div>
+        </div>
+      </div>
+      <div class="cscale-row">
+        <div class="cscale-name">Chinese ink painting</div>
+        <div class="cscale-track">
+          <div class="cscale-dot" style="left:60%; background:#27500A;"></div>
+        </div>
+      </div>
+      <div class="cscale-row">
+        <div class="cscale-name">Byzantine icon</div>
+        <div class="cscale-track">
+          <div class="cscale-dot" style="left:88%; background:#633806;"></div>
+        </div>
+      </div>
+      <div class="cscale-row">
+        <div class="cscale-name">Impressionism</div>
+        <div class="cscale-track">
+          <div class="cscale-dot" style="left:35%; background:#712B13;"></div>
+        </div>
+      </div>
+      <div class="cscale-row">
+        <div class="cscale-name">Abstract Expressionism</div>
+        <div class="cscale-track">
+          <div class="cscale-dot" style="left:95%; background:#534AB7;"></div>
+        </div>
+      </div>
+      <div class="cscale-poles">
+        <span>← Optical fidelity to the visible world</span>
+        <span>Internal emotion / spiritual meaning →</span>
+      </div>
+    </div>
+
+    <!-- What this module covers — Roadmap -->
+    <div class="sec">Module roadmap — what each part covers</div>
+    <div class="roadmap-grid">
+      <div class="roadmap-card current">
+        <div class="roadmap-part-label">Part A · Now</div>
+        <div class="roadmap-part-title">What Painting Is</div>
+        <div class="roadmap-part-desc">Foundations: materials, dimensions, world traditions, and why painting matters as a distinct art form.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Pigment &amp; binder</span>
+          <span class="roadmap-tag">Three dimensions</span>
+          <span class="roadmap-tag">Traditions</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part B</div>
+        <div class="roadmap-part-title">Materials &amp; Technique</div>
+        <div class="roadmap-part-desc">Deep dives into fresco, egg tempera, oil, watercolour, and acrylic — how each medium shapes what can be painted.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Medium explorer</span>
+          <span class="roadmap-tag">Drying time scale</span>
+          <span class="roadmap-tag">Canvas vs panel</span>
+          <span class="roadmap-tag">Pigment chemistry</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part C</div>
+        <div class="roadmap-part-title">How to Read a Painting</div>
+        <div class="roadmap-part-desc">The toolkit art historians actually use: composition, light, colour symbolism, iconography, and the gaze.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Composition types</span>
+          <span class="roadmap-tag">Chiaroscuro</span>
+          <span class="roadmap-tag">Symbol lexicon</span>
+          <span class="roadmap-tag">Panofsky's levels</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part D</div>
+        <div class="roadmap-part-title">Movements in Depth</div>
+        <div class="roadmap-part-desc">The key movements from Renaissance to Contemporary — what each reacted against and what it invented.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Timeline explorer</span>
+          <span class="roadmap-tag">Movement data</span>
+          <span class="roadmap-tag">Influence chains</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part E</div>
+        <div class="roadmap-part-title">The Masterworks</div>
+        <div class="roadmap-part-desc">Twenty canonical paintings every educated person should know — why they matter and what to actually see in them.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Work explorer</span>
+          <span class="roadmap-tag">Scale visualiser</span>
+          <span class="roadmap-tag">Context cards</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part F</div>
+        <div class="roadmap-part-title">The Market &amp; Value</div>
+        <div class="roadmap-part-desc">How the art market works, what drives auction prices, authentication, fakes, and the economics of galleries.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Price drivers</span>
+          <span class="roadmap-tag">Auction records</span>
+          <span class="roadmap-tag">Forgery cases</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why painting specifically? -->
+    <div class="sec">Why painting specifically? — what distinguishes it from other visual arts</div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Singular object</p>
+        <p class="cval">The unique original</p>
+        <p class="cnote">Unlike printmaking, photography, or film, a painting is typically a single unrepeatable object. The Mona Lisa is one panel of poplar wood in one room in the Louvre. This singularity drives the economics — scarcity is structural. Walter Benjamin called this quality "aura": the presence of an original work in time and space that copies cannot replicate.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Time collapsed</p>
+        <p class="cval">A frozen moment that accumulates time</p>
+        <p class="cnote">A painting does not unfold in time like music, literature, or film. You can read it in any order, return to any detail, move closer or further. Yet it also accumulates time — you can see the years of pentimento (the painted-over earlier decisions), the cracks of centuries, the fading of pigments. The object embodies its own history.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Material trace</p>
+        <p class="cval">The direct mark of a human hand</p>
+        <p class="cnote">A painting retains the physical traces of its making: the directional drag of a brush, the pressure of a palette knife, the hesitation and revision. Rembrandt's impasto — paint so thick it casts shadows — is the direct record of his gesture. This indexical quality (the mark is caused by the maker) distinguishes painting from photography, where the light itself exposes the film.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Two dimensions, implied three</p>
+        <p class="cval">The fundamental illusion</p>
+        <p class="cnote">The core technical challenge of painting for most of Western history: creating the convincing illusion of three-dimensional space on a two-dimensional flat surface. Linear perspective (Brunelleschi, c.1420), aerial perspective (Leonardo), foreshortening, and chiaroscuro are all solutions to this problem. Modernism largely rejected this problem as a premise rather than solving it.</p>
+      </div>
+    </div>
+
+    <!-- Quick Q&A -->
+    <div class="sec">Sanity-check questions</div>
+    <div class="qa">
+      <div class="qa-q">What is the difference between a painting and a drawing?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Conventionally: drawing uses dry media (pencil, charcoal, ink line) and painting uses wet media (paint) applied to a support. But the boundary is porous — ink washes are both drawing and painting; many "drawings" use colour; many "paintings" depend fundamentally on drawn line. The distinction is institutional as much as technical: the same mark reads differently depending on whether it's labelled a drawing or a painting.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why did Western painting take over a century to develop accurate perspective, when the mathematics is not complex?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Because perspective was not a solution to a technical problem but a shift in cultural premise. Byzantine and medieval painting was deliberately flat — figures were sized by spiritual importance, not spatial position. The Virgin was large because she was important, not because she was close. Perspective assumes the viewer's eye is the organising principle of visual reality, which is a distinctly Renaissance humanist assumption. The "discovery" of perspective was really the adoption of a new value system about what painting should do.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Is there painting outside the Western tradition that is equally significant?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Absolutely. Chinese ink painting (水墨画, shuǐmò huà) has a continuous tradition of over 1,000 years with its own sophisticated theory of brushwork, tone, and space — and a conception of what painting is that has nothing to do with illusionistic depth. Japanese yamato-e, Mughal miniature painting, Persian manuscript illumination, and Aboriginal Australian dot painting are all fully developed traditions. Western art education has historically marginalised these — a limitation being actively corrected.</div>
+    </div>
+
+    <!-- Coming parts placeholder -->
+    <div class="coming-card">
+      <i class="fa-regular fa-clock"></i>
+      Parts B–F are being developed. This module currently covers Part A only.<br>
+      <span style="font-size:11px; margin-top:4px; display:inline-block;">Use the part navigation above to return when they are complete.</span>
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <script>
+    /* ════════════════════════════════════
+       DIM TABS
+    ════════════════════════════════════ */
+    function showDim(key, btn) {
+      document.querySelectorAll('.dim-panel').forEach(p => p.classList.remove('show'));
+      document.querySelectorAll('.dim-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById('dim-' + key).classList.add('show');
+      btn.classList.add('active');
+    }
+  </script>
+  <script src="../files/shared.js"></script>
+</body>
+</html>

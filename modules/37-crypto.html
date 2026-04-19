@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-module="37">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 37: Crypto — Have a Sense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+    .stub {
+      background: var(--color-background-secondary);
+      border: 0.5px dashed var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px; margin-bottom: 10px;
+    }
+    .stub-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin: 0 0 6px; }
+    .stub-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .stub-tag {
+      font-size: 11px; padding: 2px 9px; border-radius: 99px;
+      background: var(--color-background-tertiary);
+      border: 0.5px solid var(--color-border-tertiary);
+      color: var(--color-text-tertiary);
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
+      <i class="fa-brands fa-bitcoin" style="font-size:42px; color:#E07B2A; flex-shrink:0;"></i>
+      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 37: Crypto</h1>
+    </div>
+    <p class="module-subtitle">Blockchain, Bitcoin, DeFi, and the promises and problems of decentralised finance</p>
+
+    <!-- ── PART A ── -->
+    <div class="sec">Part A · the problem crypto tries to solve — trust without intermediaries</div>
+    <div class="stub"><div class="stub-title">The double-spend problem — why digital money is hard</div><div class="stub-tags"><span class="stub-tag">Digital scarcity</span><span class="stub-tag">Why banks exist</span><span class="stub-tag">The Byzantine generals problem</span></div></div>
+    <div class="stub"><div class="stub-title">Cryptography basics — the maths underpinning all of crypto</div><div class="stub-tags"><span class="stub-tag">Hash functions</span><span class="stub-tag">Public/private key cryptography</span><span class="stub-tag">Digital signatures</span><span class="stub-tag">Merkle trees</span></div></div>
+    <div class="stub"><div class="stub-title">What Satoshi's Bitcoin whitepaper actually said — and what it proposed</div><div class="stub-tags"><span class="stub-tag">Whitepaper summary</span><span class="stub-tag">Satoshi's identity</span><span class="stub-tag">The original vision</span></div></div>
+
+    <!-- ── PART B ── -->
+    <div class="sec">Part B · how blockchain works</div>
+    <div class="stub"><div class="stub-title">The blockchain data structure — blocks, chains, and immutability</div><div class="stub-tags"><span class="stub-tag">Block anatomy</span><span class="stub-tag">Chaining via hashes</span><span class="stub-tag">Why tampering is expensive</span><span class="stub-tag">Visual diagram</span></div></div>
+    <div class="stub"><div class="stub-title">Consensus mechanisms — how a decentralised network agrees</div><div class="stub-tags"><span class="stub-tag">Proof of Work</span><span class="stub-tag">Proof of Stake</span><span class="stub-tag">Other consensus types</span><span class="stub-tag">Energy comparison chart</span></div></div>
+    <div class="stub"><div class="stub-title">Mining and validators — who maintains the blockchain and why</div><div class="stub-tags"><span class="stub-tag">Mining economics</span><span class="stub-tag">Hash rate</span><span class="stub-tag">51% attack</span><span class="stub-tag">Validator staking</span></div></div>
+    <div class="stub"><div class="stub-title">Wallets, keys, and addresses — how ownership works in crypto</div><div class="stub-tags"><span class="stub-tag">Public address</span><span class="stub-tag">Private key</span><span class="stub-tag">Seed phrase</span><span class="stub-tag">Custodial vs non-custodial</span></div></div>
+    <div class="stub"><div class="stub-title">The blockchain trilemma — security, scalability, and decentralisation</div><div class="stub-tags"><span class="stub-tag">Trilemma diagram</span><span class="stub-tag">Layer 2 solutions</span><span class="stub-tag">Sharding</span></div></div>
+
+    <!-- ── PART C ── -->
+    <div class="sec">Part C · Bitcoin — the original and what it is (and isn't)</div>
+    <div class="stub"><div class="stub-title">Bitcoin as digital gold — the store of value thesis</div><div class="stub-tags"><span class="stub-tag">Fixed supply (21M)</span><span class="stub-tag">Halving cycles</span><span class="stub-tag">Inflation hedge argument</span><span class="stub-tag">Counterarguments</span></div></div>
+    <div class="stub"><div class="stub-title">Bitcoin's price history — bubbles, crashes, and cycles</div><div class="stub-tags"><span class="stub-tag">Major price chart</span><span class="stub-tag">Bull/bear cycles</span><span class="stub-tag">Institutional adoption</span><span class="stub-tag">ETF approval</span></div></div>
+    <div class="stub"><div class="stub-title">Bitcoin's limitations as currency — why it mostly isn't used for payments</div><div class="stub-tags"><span class="stub-tag">Volatility problem</span><span class="stub-tag">Transaction speed & fees</span><span class="stub-tag">Lightning Network</span></div></div>
+
+    <!-- ── PART D ── -->
+    <div class="sec">Part D · Ethereum and smart contracts</div>
+    <div class="stub"><div class="stub-title">What Ethereum added — programmable blockchain and smart contracts</div><div class="stub-tags"><span class="stub-tag">Smart contract concept</span><span class="stub-tag">The EVM</span><span class="stub-tag">Solidity basics</span><span class="stub-tag">Gas fees</span></div></div>
+    <div class="stub"><div class="stub-title">The Ethereum ecosystem — tokens, protocols, and applications</div><div class="stub-tags"><span class="stub-tag">ERC-20 tokens</span><span class="stub-tag">ERC-721 (NFTs)</span><span class="stub-tag">DApps</span><span class="stub-tag">The Merge (PoS transition)</span></div></div>
+    <div class="stub"><div class="stub-title">Other major chains — and the multi-chain landscape</div><div class="stub-tags"><span class="stub-tag">Solana</span><span class="stub-tag">BNB Chain</span><span class="stub-tag">Layer 2s (Arbitrum, Optimism)</span><span class="stub-tag">Chain comparison chart</span></div></div>
+
+    <!-- ── PART E ── -->
+    <div class="sec">Part E · DeFi — decentralised finance</div>
+    <div class="stub"><div class="stub-title">What DeFi is — replacing banks with code</div><div class="stub-tags"><span class="stub-tag">DeFi vs TradFi</span><span class="stub-tag">Permissionless access</span><span class="stub-tag">Composability ("money legos")</span></div></div>
+    <div class="stub"><div class="stub-title">DEXs, lending protocols, and yield farming</div><div class="stub-tags"><span class="stub-tag">Uniswap & AMMs</span><span class="stub-tag">Aave & Compound</span><span class="stub-tag">Liquidity pools</span><span class="stub-tag">APY reality vs advertising</span></div></div>
+    <div class="stub"><div class="stub-title">Stablecoins — the connective tissue of crypto</div><div class="stub-tags"><span class="stub-tag">Fiat-backed (USDC, USDT)</span><span class="stub-tag">Algorithmic stablecoins</span><span class="stub-tag">UST collapse case study</span><span class="stub-tag">CBDC comparison</span></div></div>
+    <div class="stub"><div class="stub-title">DeFi risks — hacks, exploits, rug pulls, and smart contract bugs</div><div class="stub-tags"><span class="stub-tag">Major hacks timeline</span><span class="stub-tag">Rug pull mechanics</span><span class="stub-tag">Impermanent loss</span><span class="stub-tag">Audits & their limits</span></div></div>
+
+    <!-- ── PART F ── -->
+    <div class="sec">Part F · NFTs, DAOs, and other crypto applications</div>
+    <div class="stub"><div class="stub-title">NFTs — what they are, what they aren't, and what happened</div><div class="stub-tags"><span class="stub-tag">Non-fungibility explained</span><span class="stub-tag">2021 boom & bust chart</span><span class="stub-tag">What you actually own</span><span class="stub-tag">Legitimate use cases</span></div></div>
+    <div class="stub"><div class="stub-title">DAOs — decentralised autonomous organisations</div><div class="stub-tags"><span class="stub-tag">DAO governance mechanics</span><span class="stub-tag">Token voting</span><span class="stub-tag">Real examples</span><span class="stub-tag">Limitations</span></div></div>
+    <div class="stub"><div class="stub-title">Web3 — the vision of a decentralised internet</div><div class="stub-tags"><span class="stub-tag">Web1 / Web2 / Web3</span><span class="stub-tag">The promise</span><span class="stub-tag">The criticism</span></div></div>
+
+    <!-- ── PART G ── -->
+    <div class="sec">Part G · regulation, risks, and the bigger picture</div>
+    <div class="stub"><div class="stub-title">The regulatory landscape — how governments are responding to crypto</div><div class="stub-tags"><span class="stub-tag">US SEC approach</span><span class="stub-tag">EU MiCA</span><span class="stub-tag">China ban</span><span class="stub-tag">El Salvador</span><span class="stub-tag">Global map</span></div></div>
+    <div class="stub"><div class="stub-title">Major collapses — FTX, Terra/Luna, and what they reveal</div><div class="stub-tags"><span class="stub-tag">FTX case study</span><span class="stub-tag">Terra/Luna collapse</span><span class="stub-tag">Common failure patterns</span></div></div>
+    <div class="stub"><div class="stub-title">The environmental impact of crypto — energy, e-waste, and PoS transition</div><div class="stub-tags"><span class="stub-tag">Bitcoin energy use</span><span class="stub-tag">Country comparisons</span><span class="stub-tag">PoS reduction</span><span class="stub-tag">Renewable mining</span></div></div>
+    <div class="stub"><div class="stub-title">The honest balance sheet — what crypto has and hasn't delivered</div><div class="stub-tags"><span class="stub-tag">Genuine innovations</span><span class="stub-tag">Failed promises</span><span class="stub-tag">Emerging real use cases</span><span class="stub-tag">Sanity check</span></div></div>
+
+  </div>
+  <script src="../files/shared.js"></script>
+</body>
+</html>

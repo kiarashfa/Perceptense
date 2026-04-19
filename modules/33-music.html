@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-module="33">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 33: Music — Have a Sense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="description" content="Module 33: Sound, time, and the art of organised listening.">
+  <link rel="stylesheet" href="../files/shared.css">
+
+  <style>
+    .part-nav { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.5rem; }
+    .part-nav-btn {
+      font-size:12px; padding:4px 12px;
+      border-radius:var(--border-radius-md);
+      border:0.5px solid var(--color-border-secondary);
+      background:none; color:var(--color-text-secondary); cursor:pointer;
+      transition:background 0.12s;
+    }
+    .part-nav-btn.active, .part-nav-btn:hover {
+      background:var(--color-background-secondary);
+      color:var(--color-text-primary);
+    }
+
+    /* ── Pitch dot grid ── */
+    .pitch-grid {
+      display:flex; gap:4px; flex-wrap:wrap;
+      align-items:flex-end; margin-bottom:10px;
+    }
+    .pitch-col { display:flex; flex-direction:column; align-items:center; gap:3px; }
+    .pitch-bar {
+      width:28px; border-radius:3px 3px 0 0;
+      transition:height 0.3s; cursor:pointer;
+    }
+    .pitch-label { font-size:9px; color:var(--color-text-tertiary); }
+
+    /* ── Element explorer tabs ── */
+    .elem-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+    .elem-tab {
+      font-size:12px; padding:4px 12px;
+      border-radius:var(--border-radius-md);
+      border:0.5px solid var(--color-border-secondary);
+      background:none; color:var(--color-text-secondary); cursor:pointer;
+    }
+    .elem-tab.active {
+      background:var(--color-background-secondary);
+      color:var(--color-text-primary); font-weight:600;
+    }
+    .elem-panel { display:none; }
+    .elem-panel.show { display:block; }
+
+    /* ── Period timeline (reuse pc- pattern) ── */
+    .pc-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+    .pc-label {
+      font-size:11px; color:var(--color-text-secondary);
+      width:140px; flex-shrink:0; text-align:right;
+    }
+    .pc-track {
+      flex:1; height:16px; background:var(--color-background-secondary);
+      border-radius:3px; position:relative; min-width:200px;
+    }
+    .pc-fill {
+      position:absolute; top:0; height:100%; border-radius:3px;
+      display:flex; align-items:center; padding:0 5px;
+    }
+    .pc-fill-label { font-size:9px; font-weight:600; white-space:nowrap; overflow:hidden; }
+    .pc-axis { display:flex; margin-left:148px; margin-bottom:4px; position:relative; height:14px; }
+    .pc-axis-mark {
+      font-size:9px; color:var(--color-text-tertiary);
+      position:absolute; transform:translateX(-50%);
+    }
+
+    /* ── Composer explorer ── */
+    .composer-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));
+      gap:8px; margin-bottom:10px;
+    }
+    .composer-card {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:10px 11px; cursor:pointer; transition:background 0.12s, border-color 0.12s;
+    }
+    .composer-card:hover { background:var(--color-background-secondary); }
+    .composer-card.active {
+      background:var(--color-background-secondary);
+      border-color:var(--color-border-secondary);
+    }
+    .composer-name { font-size:12px; font-weight:600; color:var(--color-text-primary); margin-bottom:2px; }
+    .composer-era { font-size:10px; color:var(--color-text-secondary); }
+    .composer-detail {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; margin-bottom:1rem; display:none;
+    }
+    .composer-detail.show { display:block; }
+
+    /* ── Frequency visualiser ── */
+    .freq-bars { display:flex; align-items:flex-end; gap:2px; height:80px; margin-bottom:8px; }
+    .freq-bar {
+      flex:1; border-radius:2px 2px 0 0; background:#4E99A3;
+      transition:height 0.4s cubic-bezier(.34,1.56,.64,1);
+      cursor:pointer; min-width:8px;
+    }
+    .freq-bar:hover { filter:brightness(1.15); }
+
+    /* ── Roadmap ── */
+    .roadmap-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:10px; margin-bottom:1rem;
+    }
+    .roadmap-card {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; display:flex; flex-direction:column; gap:5px;
+    }
+    .roadmap-card.current {
+      border-color:var(--color-border-secondary);
+      background:var(--color-background-secondary);
+    }
+    .roadmap-part-label {
+      font-size:10px; font-weight:600; letter-spacing:0.06em;
+      text-transform:uppercase; color:#E07B5A;
+    }
+    .roadmap-part-title { font-size:13px; font-weight:600; color:var(--color-text-primary); }
+    .roadmap-part-desc { font-size:12px; color:var(--color-text-secondary); line-height:1.5; }
+    .roadmap-sections { margin-top:4px; display:flex; flex-wrap:wrap; gap:4px; }
+    .roadmap-tag {
+      font-size:10px; background:var(--color-background-secondary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:99px; padding:2px 8px; color:var(--color-text-tertiary);
+    }
+
+    .coming-card {
+      background:var(--color-background-secondary);
+      border:0.5px dashed var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:22px 18px; text-align:center; color:var(--color-text-tertiary);
+      font-size:13px; margin-bottom:1rem;
+    }
+    .coming-card i { font-size:22px; margin-bottom:8px; display:block; opacity:0.4; }
+
+    @media (max-width:500px) {
+      .pc-label { width:90px; font-size:10px; }
+      .pc-axis  { margin-left:98px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
+      <i class="fa-solid fa-music" style="font-size:42px; color:#E07B5A; flex-shrink:0;"></i>
+      <div>
+        <div style="font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#E07B5A; margin-bottom:2px;">Module 29 — Deep Dive</div>
+        <h1 class="module-title" style="margin:0; line-height:1.05;">Music</h1>
+      </div>
+    </div>
+    <p class="module-subtitle">Sound, time, and the art of organised listening</p>
+
+    <nav class="part-nav" aria-label="Parts">
+      <button class="part-nav-btn active">Part A · What Music Is</button>
+      <button class="part-nav-btn">Part B · Elements of Music</button>
+      <button class="part-nav-btn">Part C · Western Classical</button>
+      <button class="part-nav-btn">Part D · Non-Western Traditions</button>
+      <button class="part-nav-btn">Part E · Jazz, Blues &amp; Popular Music</button>
+      <button class="part-nav-btn">Part F · How to Listen</button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════
+         PART A · WHAT MUSIC IS
+    ══════════════════════════════════════════════════ -->
+    <div class="sec">Part A · what music is — the foundations</div>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <p class="clabel">Organised sound in time</p>
+      <p class="cval">The art form made of physics, mathematics, and human feeling simultaneously</p>
+      <p class="cnote">Music is sound organised in time. That deceptively simple definition conceals its full strangeness: music works through physics (vibrations at specific frequencies), mathematics (rhythmic relationships, harmonic ratios), culture (learned systems of expectation), and biology (emotional responses hardwired into the auditory system). A symphony is acoustic waves in air, integer ratios of frequency, centuries of convention, and — if it works — something that makes you weep, or march, or feel less alone. Music is universal in that every known human culture makes it; it is not universal in that what counts as music, what sounds "right," and what emotions are evoked differ radically across cultures and historical periods.</p>
+    </div>
+
+    <!-- The four elements explorer -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The four dimensions of sound — what music is made of</div>
+      <div class="elem-tabs">
+        <button class="elem-tab active" onclick="showElem('pitch',this)">Pitch</button>
+        <button class="elem-tab" onclick="showElem('rhythm',this)">Rhythm</button>
+        <button class="elem-tab" onclick="showElem('timbre',this)">Timbre</button>
+        <button class="elem-tab" onclick="showElem('dynamics',this)">Dynamics</button>
+      </div>
+
+      <div id="elem-pitch" class="elem-panel show">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">What it is</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Pitch is the perceived frequency of a sound. A string vibrating 440 times per second (440 Hz) produces the note A4 — the tuning standard. Double the frequency (880 Hz) produces A5, an octave higher. The relationship between frequencies is not arbitrary: notes that share simple integer ratios (2:1, 3:2, 4:3) sound consonant to most listeners. This is physics, not culture — though which precise pitches are used and how they relate is highly cultural.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Scale systems</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Western music divides the octave into 12 equal semitones (equal temperament — a compromise allowing the same piece to be played in all keys). Indian classical music (raga) uses microtones between those 12. Arabic maqam uses quarter-tones. Pentatonic scales (5 notes per octave) appear in music from China, Scotland, West Africa, and the Andes. The 12-tone Western system is one solution, not the natural order.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Harmony</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Multiple pitches sounded simultaneously. The study of which combinations sound consonant (stable) or dissonant (unstable, requiring resolution) forms the basis of Western harmonic theory. Tonality — organising music around a "home" key — dominated Western music from ~1600 to ~1900. Atonality (Schoenberg, 1908) abandoned this system entirely, producing music with no harmonic "home."</div>
+          </div>
+        </div>
+        <!-- Visual: frequency bars -->
+        <div style="margin-top:12px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:6px;">Interactive: the chromatic scale — 12 semitones (hover over bars)</div>
+          <div class="freq-bars" id="freqBars"></div>
+          <div style="font-size:10px; color:var(--color-text-tertiary);" id="freqLabel">C4 = 261.63 Hz · middle C, the reference point of Western keyboard music</div>
+          <div style="display:flex; justify-content:space-between; font-size:9px; color:var(--color-text-tertiary); margin-top:4px;">
+            <span>C4</span><span>C#4</span><span>D4</span><span>D#4</span><span>E4</span><span>F4</span>
+            <span>F#4</span><span>G4</span><span>G#4</span><span>A4</span><span>A#4</span><span>B4</span>
+          </div>
+        </div>
+      </div>
+
+      <div id="elem-rhythm" class="elem-panel">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Pulse and metre</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Rhythm is the organisation of sound in time. The pulse (beat) is the underlying regular heartbeat of music. Metre groups beats into recurring patterns: 4/4 (four beats per bar — the most common in Western popular music), 3/4 (waltz time — three beats), 6/8 (compound duple — six eighth-notes in two groups of three), 5/4 (Dave Brubeck's Take Five), 7/8 (Balkan folk music).</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Syncopation</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Emphasis on the weak beats rather than the strong ones. The foundation of jazz, blues, funk, and most African-derived popular music. A 4/4 bar normally stresses beats 1 and 3; syncopation stresses 2 and 4 (the backbeat of rock and roll), or inserts accents between the main beats. Syncopation creates rhythmic tension — the "groove" — by placing emphasis where the listener doesn't expect it.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Tempo</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">How fast the pulse moves. Measured in beats per minute (BPM). Marked in Italian: Largo (very slow, 40–60 BPM), Andante (walking pace, 76–108 BPM), Allegro (fast, 120–156 BPM), Presto (very fast, 168–200 BPM). Human resting heart rate is ~60–80 BPM — music at this tempo feels "natural"; faster tempos excite; slower tempos calm or create solemnity.</div>
+          </div>
+        </div>
+        <!-- Rhythm pattern visualiser -->
+        <div style="margin-top:12px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:8px;">Rhythm patterns — click to animate</div>
+          <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px;">
+            <button style="font-size:11px; padding:3px 10px;" onclick="animateRhythm([1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0], this)">4/4 basic</button>
+            <button style="font-size:11px; padding:3px 10px;" onclick="animateRhythm([1,0,0,1,0,0,1,0,0,0,1,0,0,0,0,0], this)">Syncopated</button>
+            <button style="font-size:11px; padding:3px 10px;" onclick="animateRhythm([1,0,0,1,0,0,1,0,0,1,0,1,0,0,1,0], this)">Afro-Cuban clave</button>
+          </div>
+          <div id="rhythmGrid" style="display:flex; gap:4px;"></div>
+        </div>
+      </div>
+
+      <div id="elem-timbre" class="elem-panel">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">What it is</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Timbre (from French "tambour") is the quality or colour of a sound — what distinguishes a violin from a flute playing the same note at the same volume. It is determined by the harmonic overtones present in the sound. Every instrument produces not just the fundamental frequency but a series of overtones above it — the relative strength of these overtones creates the characteristic sound.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Orchestration</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">The art of combining different timbres. Which instruments play which notes, in which register, with what articulation. Berlioz, Rimsky-Korsakov, Debussy, and Ravel were masters of orchestration — colouring music with the distinctive timbres of different instrument combinations. Debussy described orchestration as "painting in sound"; the same note played by a horn, a flute, and a violin are three different compositional choices.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Extended techniques</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">20th and 21st century music expanded the timbre palette dramatically: prepared piano (Cage — objects placed on or between piano strings), sul ponticello (bowing very close to the bridge — glassy, harsh), multiphonics (wind players producing two or more pitches simultaneously), electronic synthesis, and digital sampling. Electronic music expands the timbral universe to any imaginable sound.</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="elem-dynamics" class="elem-panel">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Volume and expression</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Dynamics is the variation in loudness. Marked in Italian: ppp (pianississimo — very very soft), pp (pianissimo), p (piano — soft), mp (mezzo-piano), mf (mezzo-forte), f (forte — loud), ff (fortissimo), fff. Crescendo (gradually louder), diminuendo/decrescendo (gradually softer). Dynamic contrast is one of music's most powerful expressive tools — the Mannheim crescendo (18th-century innovation) was considered startling and thrilling.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Articulation</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">How notes are begun and ended. Staccato (short, detached), legato (smooth, connected), marcato (heavily accented), tenuto (held for full value), sforzando (sudden forceful accent). A melody played staccato versus legato is the same pitches at the same rhythm — but it feels completely different. Articulation is the difference between a mechanical performance and a musical one.</div>
+          </div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
+            <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Silence</div>
+            <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Silence is not the absence of music but a musical element in itself. Rests are notated, not incidental. John Cage's 4'33" (1952) — four minutes and thirty-three seconds during which the pianist makes no sounds — argues that silence does not exist: the ambient sounds of the environment constitute the music. Beethoven's pregnant silences before a dramatic outburst are as composed as the notes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Period timeline -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Western classical music periods</div>
+      <div class="pc-axis">
+        <span class="pc-axis-mark" style="left:0%">1400</span>
+        <span class="pc-axis-mark" style="left:25%">1600</span>
+        <span class="pc-axis-mark" style="left:50%">1750</span>
+        <span class="pc-axis-mark" style="left:72%">1850</span>
+        <span class="pc-axis-mark" style="left:88%">1920</span>
+        <span class="pc-axis-mark" style="left:100%">Now</span>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Renaissance</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:0%; width:25%; background:#FAEEDA;">
+            <span class="pc-fill-label" style="color:#633806;">Palestrina, Monteverdi</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Baroque</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:25%; width:25%; background:#E6F1FB;">
+            <span class="pc-fill-label" style="color:#0C447C;">Bach, Handel, Vivaldi</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Classical</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:50%; width:16%; background:#EAF3DE;">
+            <span class="pc-fill-label" style="color:#27500A;">Haydn, Mozart, early Beethoven</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Romantic</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:66%; width:22%; background:#EEEDFE;">
+            <span class="pc-fill-label" style="color:#3C3489;">Beethoven, Brahms, Wagner, Mahler</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">20th century</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:88%; width:12%; background:#FCEBEB;">
+            <span class="pc-fill-label" style="color:#791F1F;">Stravinsky, Schoenberg, Cage</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Composer explorer -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Essential composers — click to explore</div>
+      <div class="composer-grid" id="composerGrid"></div>
+    </div>
+    <div id="composerDetail" class="composer-detail"></div>
+
+    <!-- Roadmap -->
+    <div class="sec">Module roadmap — what each part covers</div>
+    <div class="roadmap-grid">
+      <div class="roadmap-card current">
+        <div class="roadmap-part-label">Part A · Now</div>
+        <div class="roadmap-part-title">What Music Is</div>
+        <div class="roadmap-part-desc">The four dimensions of sound, the pitch system, rhythm basics, and a period timeline of Western classical music.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Pitch &amp; harmony</span>
+          <span class="roadmap-tag">Rhythm visualiser</span>
+          <span class="roadmap-tag">Period timeline</span>
+          <span class="roadmap-tag">Composer explorer</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part B</div>
+        <div class="roadmap-part-title">Elements of Music</div>
+        <div class="roadmap-part-desc">Melody, harmony, counterpoint, form (sonata, fugue, rondo), texture (monophony to polyphony), and orchestration in depth.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Form explorer</span>
+          <span class="roadmap-tag">Texture scale</span>
+          <span class="roadmap-tag">Harmony calculator</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part C</div>
+        <div class="roadmap-part-title">Western Classical</div>
+        <div class="roadmap-part-desc">The full arc from Gregorian chant to Modernism — what changed, why, and what each period actually sounds like.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Period explorer</span>
+          <span class="roadmap-tag">Key works list</span>
+          <span class="roadmap-tag">Style comparison</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part D</div>
+        <div class="roadmap-part-title">Non-Western Traditions</div>
+        <div class="roadmap-part-desc">Indian raga, Arabic maqam, West African polyrhythm, Chinese guqin, and what these traditions reveal about Western assumptions.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Scale systems</span>
+          <span class="roadmap-tag">Tradition explorer</span>
+          <span class="roadmap-tag">World map</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part E</div>
+        <div class="roadmap-part-title">Jazz, Blues &amp; Popular</div>
+        <div class="roadmap-part-desc">The African-American roots of modern popular music — blues, jazz, rock, soul — and how they transformed the world.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Blues scale</span>
+          <span class="roadmap-tag">Jazz harmony</span>
+          <span class="roadmap-tag">Influence tree</span>
+          <span class="roadmap-tag">Genre timeline</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part F</div>
+        <div class="roadmap-part-title">How to Listen</div>
+        <div class="roadmap-part-desc">Practical techniques for active listening — following a score, what to attend to, how to build a listening vocabulary.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Listening guide</span>
+          <span class="roadmap-tag">Score basics</span>
+          <span class="roadmap-tag">Recommended playlist</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q&A -->
+    <div class="sec">Sanity-check questions</div>
+    <div class="qa">
+      <div class="qa-q">Why does music produce emotions when it is "just" sound waves?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Partly neurological, partly cultural, and partly structural. The auditory system has direct connections to the limbic system (emotion processing) — not mediated through the "rational" cortex the way most sensory input is. Sudden loud sounds trigger threat responses; slow, regular rhythms mimic a calm heartbeat and activate relaxation responses. But much of music's emotional meaning is learned: a minor key sounds "sad" in Western music because we've spent years hearing sad music in minor keys. The relationship between musical structure and emotion is real but not simple — it is both hardwired and culturally constructed simultaneously.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Is the Western musical system natural or arbitrary?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Both. The octave (2:1 frequency ratio) is found in virtually every musical culture and appears to have a physical basis — instruments and voices naturally produce overtones at the octave. The perfect fifth (3:2) is also nearly universal. But the 12-note equal-tempered chromatic scale, and the specific system of keys and harmony that Western music built on it, are historical and cultural constructions, not acoustical necessities. Most of the world's music operates on different scale systems; Western ears find Indian microtones "out of tune" not because they are physically wrong but because they violate learned expectations.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What separates "serious" music from popular music?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">The distinction is partly institutional, partly structural, and substantially ideological. Classical music has associated institutions (conservatories, concert halls, music journals) and a notational tradition that enables complex long-range formal structures that ephemeral pop typically doesn't attempt. But the line is porous: Bach was popular music in the 18th century; The Beatles' late albums are studied at music schools. Duke Ellington and Miles Davis produced music as formally sophisticated as much classical composition. The hierarchy is real but the basis for it is much less stable than its institutional power suggests.</div>
+    </div>
+
+    <div class="coming-card">
+      <i class="fa-regular fa-clock"></i>
+      Parts B–F are being developed. This module currently covers Part A only.
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <script>
+    /* ════════════════════════════════════
+       ELEMENT TABS
+    ════════════════════════════════════ */
+    function showElem(key, btn) {
+      document.querySelectorAll('.elem-panel').forEach(p => p.classList.remove('show'));
+      document.querySelectorAll('.elem-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById('elem-' + key).classList.add('show');
+      btn.classList.add('active');
+    }
+
+    /* ════════════════════════════════════
+       FREQUENCY BARS
+    ════════════════════════════════════ */
+    const notes = [
+      {n:'C4',  f:261.63, desc:'Middle C — the reference note of keyboard music. Located at the centre of a standard piano.'},
+      {n:'C#4', f:277.18, desc:'C-sharp / D-flat. A semitone above C4. The black key above middle C.'},
+      {n:'D4',  f:293.66, desc:'D4 — a major second above C4. Fundamental note in many folk traditions.'},
+      {n:'D#4', f:311.13, desc:'D-sharp / E-flat. The blue note — slightly flattened in blues and jazz for expressive effect.'},
+      {n:'E4',  f:329.63, desc:'E4 — a major third above C4. Consonant with C4; they form the foundation of a C major chord.'},
+      {n:'F4',  f:349.23, desc:'F4 — a perfect fourth above C4. The interval that defines Gregorian chant\'s characteristic sound.'},
+      {n:'F#4', f:369.99, desc:'F-sharp — the tritone above C4. The most dissonant interval in Western music; nicknamed "diabolus in musica" (the devil in music).'},
+      {n:'G4',  f:392.00, desc:'G4 — a perfect fifth above C4. The most consonant interval after the octave; forms the basis of Western harmonic structure.'},
+      {n:'G#4', f:415.30, desc:'G-sharp / A-flat. The minor sixth — characteristic of a minor tonality.'},
+      {n:'A4',  f:440.00, desc:'A4 — 440 Hz, the international tuning standard since 1939. The note orchestras tune to.'},
+      {n:'A#4', f:466.16, desc:'A-sharp / B-flat — the minor seventh, characteristic of blues and jazz harmonics.'},
+      {n:'B4',  f:493.88, desc:'B4 — a major seventh above C4. Highly dissonant against C4; creates strong tension requiring resolution to C5.'}
+    ];
+
+    function buildFreqBars() {
+      const container = document.getElementById('freqBars');
+      const minF = 261, maxF = 494;
+      notes.forEach((note, i) => {
+        const bar = document.createElement('div');
+        bar.className = 'freq-bar';
+        const heightPct = ((note.f - minF) / (maxF - minF)) * 70 + 10;
+        bar.style.height = heightPct + 'px';
+        const hue = (i / 12) * 240;
+        bar.style.background = `hsl(${hue}, 55%, 55%)`;
+        bar.onmouseenter = () => {
+          document.getElementById('freqLabel').textContent = `${note.n} = ${note.f} Hz · ${note.desc}`;
+        };
+        bar.onmouseleave = () => {
+          document.getElementById('freqLabel').textContent = 'Hover over a bar to learn about each note';
+        };
+        container.appendChild(bar);
+      });
+    }
+
+    /* ════════════════════════════════════
+       RHYTHM GRID
+    ════════════════════════════════════ */
+    let rhythmTimer = null;
+    let currentPattern = [];
+    let beatIdx = 0;
+
+    function buildRhythmGrid(pattern) {
+      const g = document.getElementById('rhythmGrid');
+      g.innerHTML = '';
+      pattern.forEach((beat, i) => {
+        const cell = document.createElement('div');
+        cell.id = 'rb-' + i;
+        cell.style.cssText = `width:22px; height:22px; border-radius:4px; background:${beat ? '#E07B5A' : 'var(--color-background-secondary)'}; border:0.5px solid var(--color-border-tertiary); transition:background 0.1s;`;
+        g.appendChild(cell);
+      });
+    }
+
+    function animateRhythm(pattern, btn) {
+      if (rhythmTimer) clearInterval(rhythmTimer);
+      currentPattern = pattern;
+      beatIdx = 0;
+      buildRhythmGrid(pattern);
+      document.querySelectorAll('.elem-panel button').forEach(b => {
+        b.style.background = '';
+        b.style.fontWeight = 'normal';
+      });
+      if (btn) { btn.style.background = 'var(--color-background-secondary)'; btn.style.fontWeight = '600'; }
+      rhythmTimer = setInterval(() => {
+        // Reset all
+        pattern.forEach((_, i) => {
+          const cell = document.getElementById('rb-' + i);
+          if (cell) cell.style.background = pattern[i] ? '#E07B5A' : 'var(--color-background-secondary)';
+        });
+        // Light up current
+        const cell = document.getElementById('rb-' + beatIdx);
+        if (cell) cell.style.background = '#ff9c7a';
+        beatIdx = (beatIdx + 1) % pattern.length;
+      }, 200);
+    }
+
+    /* ════════════════════════════════════
+       COMPOSER DATA
+    ════════════════════════════════════ */
+    const composers = [
+      { name:'J.S. Bach', years:'1685–1750', era:'Baroque', col:'#0C447C', bg:'#E6F1FB',
+        why:'The supreme master of counterpoint — music in which multiple independent melodic lines interweave according to strict harmonic logic. The Well-Tempered Clavier (48 preludes and fugues in all 24 major and minor keys) was both a technical tour de force and a philosophical statement about the nature of music.',
+        key:'Well-Tempered Clavier, St Matthew Passion, Mass in B minor, Goldberg Variations, Brandenburg Concertos.',
+        listen:'Start with the Goldberg Variations (Glenn Gould, 1981 recording) — a theme and 30 variations that demonstrate every technique of keyboard writing.' },
+      { name:'Mozart', years:'1756–1791', era:'Classical', col:'#27500A', bg:'#EAF3DE',
+        why:'The most naturally gifted melodist in Western music — his melodies feel inevitable, as if they could not be otherwise. Mastery of every form he touched: opera, symphony, chamber music, concerto. Extraordinary formal clarity combined with emotional depth that his Classical contemporaries rarely matched.',
+        key:'Symphony No. 40 in G minor, Piano Concerto No. 21, Don Giovanni, The Magic Flute, Requiem.',
+        listen:'Start with the Piano Concerto No. 21 (the "Elvira Madigan" slow movement). Or the String Quartet No. 19 in C major (the "Dissonance" quartet) to hear him push beyond his period.' },
+      { name:'Beethoven', years:'1770–1827', era:'Classical/Romantic', col:'#534AB7', bg:'#EEEDFE',
+        why:'The pivotal figure in the history of Western music — the composer who expanded every form he worked in and transformed the relationship between composer, performer, and audience. His late works are so advanced that they were not fully understood for decades after his death. The 9th Symphony, composed when he was completely deaf, is one of history\'s most audacious acts of imagination.',
+        key:'9th Symphony (Choral), 5th Symphony, "Moonlight" Sonata, String Quartet Op. 131, Missa Solemnis.',
+        listen:'The late string quartets (Op. 131, 132, 135) are the summit — begin with Op. 131 in C# minor.' },
+      { name:'Wagner', years:'1813–1883', era:'Late Romantic', col:'#712B13', bg:'#FAECE7',
+        why:'The most controversial and consequential composer in the history of opera. Invented the concept of the Gesamtkunstwerk (total artwork) in which music, text, staging, lighting, and acting are unified into a single whole. His harmonic language pushed tonality to its limits, directly preparing the way for the atonality of the 20th century.',
+        key:'The Ring Cycle (four operas — ~16 hours total), Tristan und Isolde, Parsifal, The Flying Dutchman.',
+        listen:'The Prelude to Tristan und Isolde (c.12 min) — the famous "Tristan chord" that opened the door to 20th century harmony.' },
+      { name:'Debussy', years:'1862–1918', era:'Impressionist', col:'#085041', bg:'#E1F5EE',
+        why:'Liberated Western music from German harmonic dominance. Used whole-tone and pentatonic scales (drawn partly from exposure to Javanese gamelan at the 1889 Paris Exposition), parallel chords, and sensuous orchestration to create an entirely new sonic world — music concerned with atmosphere, texture, and colour rather than harmonic argument.',
+        key:'Clair de Lune, Prélude à l\'après-midi d\'un faune, La Mer, Pelléas et Mélisande, Images.',
+        listen:'Start with the Prélude à l\'après-midi d\'un faune (11 min) — the work that Pierre Boulez called the beginning of modern music.' },
+      { name:'Stravinsky', years:'1882–1971', era:'20th century', col:'#633806', bg:'#FAEEDA',
+        why:'The most versatile and stylistically adventurous composer of the 20th century. Three key periods: the Russian ballets (savage primitivism), the Neoclassical period (ironic reworking of earlier styles), and the late Serial period (adoption of 12-tone technique). The Rite of Spring caused a riot at its 1913 premiere; it is now one of the most frequently performed orchestral works.',
+        key:'The Rite of Spring, Petrushka, The Firebird, Pulcinella, Symphony of Psalms.',
+        listen:'The Rite of Spring — if possible, see the Joffrey Ballet\'s reconstruction of the original Nijinsky choreography.' }
+    ];
+
+    function buildComposerGrid() {
+      const grid = document.getElementById('composerGrid');
+      composers.forEach((c, i) => {
+        const card = document.createElement('div');
+        card.className = 'composer-card' + (i === 0 ? ' active' : '');
+        card.innerHTML = `<div class="composer-name">${c.name}</div><div class="composer-era" style="color:${c.col};">${c.era} · ${c.years}</div>`;
+        card.onclick = (e) => showComposer(i, e.currentTarget);
+        grid.appendChild(card);
+      });
+    }
+
+    function showComposer(idx, card) {
+      const c = composers[idx];
+      document.getElementById('composerDetail').innerHTML = `
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+          <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${c.name}</div>
+          <div style="font-size:11px; color:var(--color-text-secondary);">${c.years}</div>
+          <div style="font-size:11px; font-weight:500; background:${c.bg}; color:${c.col}; border-radius:99px; padding:2px 9px;">${c.era}</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px; margin-bottom:8px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Why they matter</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.why}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key works</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.key}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Where to start listening</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${c.listen}</div></div>
+        </div>`;
+      document.getElementById('composerDetail').classList.add('show');
+      document.querySelectorAll('.composer-card').forEach(c => c.classList.remove('active'));
+      if (card) card.classList.add('active');
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      buildFreqBars();
+      buildRhythmGrid([1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]);
+      buildComposerGrid();
+      showComposer(0, document.querySelector('.composer-card'));
+    });
+  </script>
+  <script src="../files/shared.js"></script>
+</body>
+</html>

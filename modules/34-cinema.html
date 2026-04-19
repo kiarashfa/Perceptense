@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-module="34">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 34: Cinema — Have a Sense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="description" content="Module 34: The youngest art — moving images, time, and the grammar of film.">
+  <link rel="stylesheet" href="../files/shared.css">
+
+  <style>
+    .part-nav { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:1.5rem; }
+    .part-nav-btn {
+      font-size:12px; padding:4px 12px;
+      border-radius:var(--border-radius-md);
+      border:0.5px solid var(--color-border-secondary);
+      background:none; color:var(--color-text-secondary); cursor:pointer;
+      transition:background 0.12s;
+    }
+    .part-nav-btn.active, .part-nav-btn:hover {
+      background:var(--color-background-secondary);
+      color:var(--color-text-primary);
+    }
+
+    /* ── Shot type visual grid ── */
+    .shot-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+      gap:8px; margin-bottom:10px;
+    }
+    .shot-card {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:0; overflow:hidden; cursor:pointer;
+      transition:border-color 0.12s;
+    }
+    .shot-card:hover { border-color:var(--color-border-secondary); }
+    .shot-card.active { border-color:var(--color-border-secondary); }
+    .shot-diagram {
+      width:100%; aspect-ratio:16/9;
+      background:var(--color-background-secondary);
+      position:relative; overflow:hidden;
+    }
+    .shot-label-inner {
+      padding:8px 10px;
+    }
+    .shot-name { font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:2px; }
+    .shot-abbr { font-size:10px; color:var(--color-text-secondary); }
+    .shot-detail {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; margin-bottom:1rem; display:none;
+    }
+    .shot-detail.show { display:block; }
+
+    /* ── Movement explorer tabs ── */
+    .mov-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px; }
+    .mov-tab {
+      font-size:12px; padding:4px 12px;
+      border-radius:var(--border-radius-md);
+      border:0.5px solid var(--color-border-secondary);
+      background:none; color:var(--color-text-secondary); cursor:pointer;
+    }
+    .mov-tab.active {
+      background:var(--color-background-secondary);
+      color:var(--color-text-primary); font-weight:600;
+    }
+    .mov-panel { display:none; }
+    .mov-panel.show { display:block; }
+
+    /* ── Timeline (reuse pc- pattern) ── */
+    .pc-row { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+    .pc-label {
+      font-size:11px; color:var(--color-text-secondary);
+      width:140px; flex-shrink:0; text-align:right;
+    }
+    .pc-track {
+      flex:1; height:16px; background:var(--color-background-secondary);
+      border-radius:3px; position:relative; min-width:200px;
+    }
+    .pc-fill {
+      position:absolute; top:0; height:100%; border-radius:3px;
+      display:flex; align-items:center; padding:0 5px;
+    }
+    .pc-fill-label { font-size:9px; font-weight:600; white-space:nowrap; overflow:hidden; }
+    .pc-axis { display:flex; margin-left:148px; margin-bottom:4px; position:relative; height:14px; }
+    .pc-axis-mark {
+      font-size:9px; color:var(--color-text-tertiary);
+      position:absolute; transform:translateX(-50%);
+    }
+
+    /* ── Film anatomy comparison scale ── */
+    .cscale-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+    .cscale-name { font-size:12px; color:var(--color-text-primary); width:130px; flex-shrink:0; }
+    .cscale-track {
+      flex:1; height:8px; background:var(--color-background-secondary);
+      border-radius:4px; position:relative;
+    }
+    .cscale-dot {
+      position:absolute; top:50%; transform:translate(-50%, -50%);
+      width:12px; height:12px; border-radius:50%;
+      border:2px solid var(--color-background-primary);
+    }
+    .cscale-poles {
+      display:flex; justify-content:space-between;
+      font-size:10px; color:var(--color-text-tertiary); margin-top:6px;
+    }
+
+    /* ── Roadmap ── */
+    .roadmap-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:10px; margin-bottom:1rem;
+    }
+    .roadmap-card {
+      background:var(--color-background-primary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:13px 15px; display:flex; flex-direction:column; gap:5px;
+    }
+    .roadmap-card.current {
+      border-color:var(--color-border-secondary);
+      background:var(--color-background-secondary);
+    }
+    .roadmap-part-label {
+      font-size:10px; font-weight:600; letter-spacing:0.06em;
+      text-transform:uppercase; color:#5DCAA5;
+    }
+    .roadmap-part-title { font-size:13px; font-weight:600; color:var(--color-text-primary); }
+    .roadmap-part-desc { font-size:12px; color:var(--color-text-secondary); line-height:1.5; }
+    .roadmap-sections { margin-top:4px; display:flex; flex-wrap:wrap; gap:4px; }
+    .roadmap-tag {
+      font-size:10px; background:var(--color-background-secondary);
+      border:0.5px solid var(--color-border-tertiary);
+      border-radius:99px; padding:2px 8px; color:var(--color-text-tertiary);
+    }
+
+    /* ── Aspect ratio visualiser ── */
+    .ar-wrap {
+      background:var(--color-background-secondary);
+      border-radius:var(--border-radius-md);
+      padding:12px; margin-bottom:8px; text-align:center;
+    }
+    .ar-frame {
+      background:#1c1c1a; display:inline-block;
+      border:1.5px solid var(--color-border-secondary);
+      border-radius:2px; position:relative; margin:0 auto 6px;
+    }
+
+    .coming-card {
+      background:var(--color-background-secondary);
+      border:0.5px dashed var(--color-border-tertiary);
+      border-radius:var(--border-radius-lg);
+      padding:22px 18px; text-align:center; color:var(--color-text-tertiary);
+      font-size:13px; margin-bottom:1rem;
+    }
+    .coming-card i { font-size:22px; margin-bottom:8px; display:block; opacity:0.4; }
+
+    @media (max-width:500px) {
+      .pc-label { width:90px; font-size:10px; }
+      .pc-axis  { margin-left:98px; }
+      .cscale-name { width:90px; font-size:11px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
+      <i class="fa-solid fa-film" style="font-size:42px; color:#5DCAA5; flex-shrink:0;"></i>
+      <div>
+        <div style="font-size:10px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#5DCAA5; margin-bottom:2px;">Module 29 — Deep Dive</div>
+        <h1 class="module-title" style="margin:0; line-height:1.05;">Cinema</h1>
+      </div>
+    </div>
+    <p class="module-subtitle">The youngest art — moving images, time, and the grammar of film</p>
+
+    <nav class="part-nav" aria-label="Parts">
+      <button class="part-nav-btn active">Part A · What Cinema Is</button>
+      <button class="part-nav-btn">Part B · Film Language</button>
+      <button class="part-nav-btn">Part C · History &amp; Movements</button>
+      <button class="part-nav-btn">Part D · Genre</button>
+      <button class="part-nav-btn">Part E · The Auteurs</button>
+      <button class="part-nav-btn">Part F · World Cinema</button>
+      <button class="part-nav-btn">Part G · How to Watch</button>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════
+         PART A · WHAT CINEMA IS
+    ══════════════════════════════════════════════════ -->
+    <div class="sec">Part A · what cinema is — the foundations</div>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <p class="clabel">The synthesis art</p>
+      <p class="cval">An art form that contains all others — and adds something new</p>
+      <p class="cnote">Cinema is the youngest of the major art forms — invented in 1895 by the Lumière brothers — and the most synthetic: it combines image (painting, photography), movement, time, narrative (literature), sound (music), and performance. Nothing else can do all of these simultaneously. But cinema is not simply the sum of its ingredients: the cut — the instantaneous jump from one image to another — is a technique unique to film, with no equivalent in any other art. Eisenstein called it the primary unit of cinematic meaning: not the shot itself but the collision between shots. A film is built from photographs (24 per second) but it is not photography; from stories but it is not literature; from music but it is not music. It is something new: images in time, experienced collectively in darkness.</p>
+    </div>
+
+    <!-- What cinema uniquely does -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:10px; margin-bottom:1rem;">
+      <div class="card">
+        <p class="clabel">Control of attention</p>
+        <p class="cval">The camera tells you what to see</p>
+        <p class="cnote">Unlike theatre or painting, cinema absolutely controls what the viewer sees and when. The close-up of a hand reaching for a gun, the cutaway to a reaction, the decision to hold on a face for five seconds or half a second — all of these are choices that determine meaning. The director and editor decide what exists in the viewer's consciousness at every moment. This totalitarian control of attention is cinema's most fundamental property.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Controlled time</p>
+        <p class="cval">The only art form that controls its own duration</p>
+        <p class="cnote">A novel is read at the reader's pace; a painting can be looked at for seconds or hours. Cinema runs at a fixed rate — 24 (or 25 or 30) frames per second — and the viewer has no control over duration. Slow motion extends time; fast motion compresses it; the cut eliminates it entirely. Cinema can show you ten years in ten seconds (a montage) or ten seconds in ten minutes (Tarkovsky). No other art form manipulates the experience of time so directly.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Collective experience</p>
+        <p class="cval">Darkness, a crowd, and a projected light</p>
+        <p class="cnote">Cinema was designed for collective experience in a darkened room — unlike literature (private) or painting (variable). The theatre of the cinema screening, with its shared reactions, its communal darkness, and the sheer scale of projection, is part of the art form. Watching a film alone on a laptop is a different experience from watching it in a cinema — not just in quality but in kind. The experience of not being able to look away, surrounded by strangers who react as you do, is specific to cinema.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">Indexical reality</p>
+        <p class="cval">Light actually reflected from the real world</p>
+        <p class="cnote">A film is made of photographs: light physically reflected from the world exposed onto a light-sensitive surface (or its digital equivalent). This gives cinema a different relationship to reality than painting or drawing — a photograph of a face is (in some sense) caused by that face. Bazin argued that cinema has an "ontological realism": even fiction films contain an irreducible residue of the real. CGI complicates this but does not eliminate it — audiences still experience a difference between live action and animation.</p>
+      </div>
+    </div>
+
+    <!-- Shot types explorer -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Shot types — the basic vocabulary of film language</div>
+      <div class="shot-grid" id="shotGrid"></div>
+    </div>
+    <div id="shotDetail" class="shot-detail"></div>
+
+    <!-- Aspect ratio visualiser -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Aspect ratios — the shape of the frame</div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;" id="arButtons"></div>
+      <div style="display:flex; align-items:flex-end; gap:16px; flex-wrap:wrap;">
+        <div id="arFrameWrap" class="ar-wrap" style="min-width:180px; flex:1;">
+          <div id="arFrame" class="ar-frame"></div>
+          <div id="arLabel" style="font-size:11px; color:var(--color-text-secondary);"></div>
+        </div>
+        <div id="arDesc" style="flex:1; min-width:200px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;"></div>
+      </div>
+    </div>
+
+    <!-- Cinema timeline -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Cinema history — major periods and movements</div>
+      <div class="pc-axis">
+        <span class="pc-axis-mark" style="left:0%">1895</span>
+        <span class="pc-axis-mark" style="left:20%">1927</span>
+        <span class="pc-axis-mark" style="left:38%">1950</span>
+        <span class="pc-axis-mark" style="left:58%">1970</span>
+        <span class="pc-axis-mark" style="left:78%">1990</span>
+        <span class="pc-axis-mark" style="left:100%">Now</span>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Silent era</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:0%; width:20%; background:#F1EFE8;">
+            <span class="pc-fill-label" style="color:#444441;">Méliès, Griffith, Chaplin, Keaton</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Studio system</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:20%; width:35%; background:#FAEEDA;">
+            <span class="pc-fill-label" style="color:#633806;">Hollywood Golden Age</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Italian Neorealism</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:35%; width:15%; background:#FCEBEB;">
+            <span class="pc-fill-label" style="color:#791F1F;">De Sica, Rossellini</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">French New Wave</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:42%; width:16%; background:#E6F1FB;">
+            <span class="pc-fill-label" style="color:#0C447C;">Godard, Truffaut, Chabrol</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">New Hollywood</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:58%; width:12%; background:#EAF3DE;">
+            <span class="pc-fill-label" style="color:#27500A;">Coppola, Scorsese, Kubrick</span>
+          </div>
+        </div>
+      </div>
+      <div class="pc-row">
+        <div class="pc-label">Contemporary / Digital</div>
+        <div class="pc-track">
+          <div class="pc-fill" style="left:78%; width:22%; background:#EEEDFE;">
+            <span class="pc-fill-label" style="color:#3C3489;">Global auteurs + streaming</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison scales -->
+    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Filmmaking approaches — where major directors sit</div>
+      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:12px;">Approximate positions on key cinematic dimensions. Tendencies, not definitions.</div>
+
+      <div style="font-size:11px; font-weight:600; color:var(--color-text-secondary); margin-bottom:6px;">Style: Classical ←———→ Experimental / Formal</div>
+      <div class="cscale-row"><div class="cscale-name">Spielberg</div><div class="cscale-track"><div class="cscale-dot" style="left:12%; background:#5DCAA5;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Kubrick</div><div class="cscale-track"><div class="cscale-dot" style="left:55%; background:#E07B5A;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Godard</div><div class="cscale-track"><div class="cscale-dot" style="left:88%; background:#8A6DB5;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Tarkovsky</div><div class="cscale-track"><div class="cscale-dot" style="left:80%; background:#0C447C;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Hitchcock</div><div class="cscale-track"><div class="cscale-dot" style="left:35%; background:#633806;"></div></div></div>
+      <div class="cscale-poles">
+        <span>← Genre entertainment, invisible technique</span>
+        <span>Self-conscious form, art cinema →</span>
+      </div>
+
+      <div style="font-size:11px; font-weight:600; color:var(--color-text-secondary); margin:14px 0 6px;">Pace: Fast-cut / Dynamic ←———→ Long takes / Contemplative</div>
+      <div class="cscale-row"><div class="cscale-name">Michael Bay</div><div class="cscale-track"><div class="cscale-dot" style="left:3%; background:#E07B5A;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Scorsese</div><div class="cscale-track"><div class="cscale-dot" style="left:30%; background:#5DCAA5;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Wong Kar-wai</div><div class="cscale-track"><div class="cscale-dot" style="left:65%; background:#8A6DB5;"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Tarkovsky</div><div class="cscale-track"><div class="cscale-dot" style="left:96%; background:#0C447C;"></div></div></div>
+      <div class="cscale-poles">
+        <span>← High-energy editing, constant motion</span>
+        <span>Stillness, duration as meaning →</span>
+      </div>
+    </div>
+
+    <!-- Roadmap -->
+    <div class="sec">Module roadmap — what each part covers</div>
+    <div class="roadmap-grid">
+      <div class="roadmap-card current">
+        <div class="roadmap-part-label">Part A · Now</div>
+        <div class="roadmap-part-title">What Cinema Is</div>
+        <div class="roadmap-part-desc">What makes cinema distinct from other arts, shot vocabulary, aspect ratios, a historical timeline, and director style comparisons.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Shot explorer</span>
+          <span class="roadmap-tag">Aspect ratios</span>
+          <span class="roadmap-tag">Period timeline</span>
+          <span class="roadmap-tag">Style scales</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part B</div>
+        <div class="roadmap-part-title">Film Language</div>
+        <div class="roadmap-part-desc">The grammar of cinema — editing (montage, continuity, jump cuts), camera movement, mise-en-scène, lighting, and sound design.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Editing types</span>
+          <span class="roadmap-tag">Camera movement</span>
+          <span class="roadmap-tag">Lighting setup</span>
+          <span class="roadmap-tag">Sound design</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part C</div>
+        <div class="roadmap-part-title">History &amp; Movements</div>
+        <div class="roadmap-part-desc">Silent cinema to streaming: the major movements (Italian Neorealism, French New Wave, New Hollywood), what each changed, and why.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Movement explorer</span>
+          <span class="roadmap-tag">Key films</span>
+          <span class="roadmap-tag">Influence chains</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part D</div>
+        <div class="roadmap-part-title">Genre</div>
+        <div class="roadmap-part-desc">How genres work as conventions and promises, the major genres (noir, Western, melodrama, horror, sci-fi), and genre subversion.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Genre explorer</span>
+          <span class="roadmap-tag">Convention maps</span>
+          <span class="roadmap-tag">Genre mixing</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part E</div>
+        <div class="roadmap-part-title">The Auteurs</div>
+        <div class="roadmap-part-desc">The auteur theory and its limits — the twenty directors every serious film-watcher should know, and what distinguishes their vision.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Director profiles</span>
+          <span class="roadmap-tag">Signature elements</span>
+          <span class="roadmap-tag">Essential films</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part F</div>
+        <div class="roadmap-part-title">World Cinema</div>
+        <div class="roadmap-part-desc">Beyond Hollywood — Iranian, South Korean, Japanese, African, Latin American cinema and what each tradition contributes.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">World map</span>
+          <span class="roadmap-tag">Tradition explorer</span>
+          <span class="roadmap-tag">Key films</span>
+        </div>
+      </div>
+      <div class="roadmap-card">
+        <div class="roadmap-part-label">Part G</div>
+        <div class="roadmap-part-title">How to Watch</div>
+        <div class="roadmap-part-desc">Practical techniques for active film viewing — what to attend to, how to rewatch productively, basic film analysis.</div>
+        <div class="roadmap-sections">
+          <span class="roadmap-tag">Viewing guide</span>
+          <span class="roadmap-tag">Analysis toolkit</span>
+          <span class="roadmap-tag">Watchlist</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q&A -->
+    <div class="sec">Sanity-check questions</div>
+    <div class="qa">
+      <div class="qa-q">Is cinema art or entertainment? Can it be both?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">The distinction is partly false. The Godfather is simultaneously one of the most critically acclaimed films in history and one of the most entertaining. Hitchcock made enormously popular thrillers that are also formally sophisticated works of cinematic art. The "art vs entertainment" binary tends to map onto "European art cinema vs Hollywood commercial cinema" — a geographic and economic distinction that's real but doesn't map cleanly onto quality. The more useful question is: does this film do what it's trying to do with intelligence and intention? A brilliant genre film can achieve more than a pretentious "serious" film.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">What is the auteur theory and why is it controversial?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">The auteur theory (coined by French critic François Truffaut in 1954) holds that the director is the primary author of a film, in the same way a novelist is the author of a book — and that the best directors maintain consistent themes, styles, and preoccupations across their work that constitute a personal vision. It's controversial because filmmaking is intensely collaborative: the screenwriter, director of photography, editor, and actors all shape the final film profoundly. But the theory is useful as a critical tool: it gives you a framework for comparing films and tracking the development of a vision. It becomes problematic when it's used to erase the contributions of collaborators.</div>
+    </div>
+    <div class="qa">
+      <div class="qa-q">Why do old films look "wrong" to modern eyes?</div>
+      <button class="qa-btn" onclick="this.nextElementSibling.classList.toggle('show'); this.textContent = this.nextElementSibling.classList.contains('show') ? 'hide' : 'show answer'">show answer</button>
+      <div class="qa-ans">Because film language is learned, not natural. Modern viewers have been trained by thousands of hours of contemporary cinema to expect certain cutting speeds, camera distances, and performance styles. Early sound-era films typically had slower editing, more theatrical staging (the camera was positioned like a theatre audience), and acting styles descended from stage performance. Silent film acting, which looks "exaggerated" to modern eyes, was calibrated for an audience that couldn't hear the dialogue. What reads as wrong is actually a different, earlier grammar — fluent and natural to its original audiences.</div>
+    </div>
+
+    <div class="coming-card">
+      <i class="fa-regular fa-clock"></i>
+      Parts B–G are being developed. This module currently covers Part A only.
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <script>
+    /* ════════════════════════════════════
+       SHOT DATA
+    ════════════════════════════════════ */
+    const shots = [
+      { name:'Extreme wide', abbr:'EWS', col:'#0C447C', bg:'#E6F1FB',
+        what:'The camera is placed so far from the subject that people are dwarfed by environment. Used to establish scale, geography, and isolation. Often called an "establishing shot." David Lean was a master — Lawrence of Arabia opens with vast desert establishing shots that say everything about scale and emptiness before a word is spoken.',
+        when:'Opening a sequence to orient the viewer, showing the scale of an environment, creating feelings of isolation or insignificance, or contrasting human smallness against nature.',
+        examples:'The Monument Valley shots in John Ford Westerns. The opening of 2001: A Space Odyssey. Tarkovsky\'s Andrei Rublev. The ice fields in The Revenant (Iñárritu).',
+        diagram: 'ews' },
+      { name:'Wide shot', abbr:'WS',  col:'#27500A', bg:'#EAF3DE',
+        what:'The subject (a person or group) is visible in full, within their environment. The character is identifiable but context is equally important. The wide shot establishes spatial relationships — where characters are in relation to each other and their setting.',
+        when:'Showing a character entering a space, establishing geography within a scene, showing action that requires the whole body, or emphasising a character\'s relationship to their environment.',
+        examples:'The final shot of The 400 Blows (Truffaut) — Antoine running to the sea, the camera pulling back to wide. Shane (1953). The walking sequences in Westerns.',
+        diagram: 'ws' },
+      { name:'Medium shot', abbr:'MS', col:'#533489', bg:'#EEEDFE',
+        what:'Typically shows a person from the waist up. The workhorse of narrative cinema — close enough to read expressions, wide enough to show gesture and body language. Most dialogue scenes use a series of medium shots and medium close-ups.',
+        when:'Dialogue scenes, character interaction, showing both face and gesture, establishing the neutral observational distance that lets acting work.',
+        examples:'Most of the dialogue scenes in any Hollywood film. The "grammar" position — what you cut to when you don\'t want the shot to draw attention to itself.',
+        diagram: 'ms' },
+      { name:'Close-up', abbr:'CU',   col:'#712B13', bg:'#FAECE7',
+        what:'Face fills the frame, or a specific object is foregrounded. The close-up is the most distinctively cinematic shot — it doesn\'t exist in theatre. D.W. Griffith "invented" it (arguably) by being among the first to cut to a face in extreme proximity. The close-up creates intimacy, reveals interiority, and signals importance.',
+        when:'Emotional peak moments, revealing a character\'s reaction, showing that an object is important (Chekhov\'s gun), creating identification or discomfort.',
+        examples:'Falconetti\'s face in The Passion of Joan of Arc (Dreyer, 1928) — the entire film is essentially a series of close-ups. The "eyeline shots" in Sergio Leone\'s spaghetti westerns before the gunfight.',
+        diagram: 'cu' },
+      { name:'Extreme close-up', abbr:'ECU', col:'#633806', bg:'#FAEEDA',
+        what:'A detail — an eye, a hand, a key in a lock — fills the frame. The extreme close-up abstracts the subject from its context, creating disorientation, intimacy, or emphasis. It demands the viewer\'s attention to a specific detail.',
+        when:'Building suspense (a finger on a trigger), creating abstraction, erotic charge, horror (the eye in Un Chien Andalou), or showing that a small detail is of enormous narrative importance.',
+        examples:'The opening of Sergio Leone\'s The Good, the Bad and the Ugly — three minutes of escalating close-ups (hands, eyes, faces) before the gunfight. Un Chien Andalou\'s eye-slicing (Buñuel/Dalí, 1929).',
+        diagram: 'ecu' },
+      { name:'Two-shot', abbr:'2S',   col:'#085041', bg:'#E1F5EE',
+        what:'Two characters in the same frame. The two-shot establishes the spatial and relational distance between characters without cutting. A wide two-shot feels less intimate than a tight two-shot. The "over-the-shoulder shot" is a variant that places one character\'s shoulder in frame while focusing on the other.',
+        when:'Dialogue scenes where showing both characters simultaneously is important — to show power dynamics, physical distance, or mutual reaction.',
+        examples:'Hitchcock\'s use of two-shots to show the psychological dynamics between characters — the shot often tells you more about the relationship than the dialogue.',
+        diagram: '2s' },
+    ];
+
+    function buildShotGrid() {
+      const grid = document.getElementById('shotGrid');
+      shots.forEach((s, i) => {
+        const card = document.createElement('div');
+        card.className = 'shot-card' + (i === 0 ? ' active' : '');
+        const diag = makeShotDiagram(s.diagram);
+        card.innerHTML = `<div class="shot-diagram">${diag}</div><div class="shot-label-inner"><div class="shot-name">${s.name}</div><div class="shot-abbr">${s.abbr}</div></div>`;
+        card.onclick = (e) => showShot(i, e.currentTarget);
+        grid.appendChild(card);
+      });
+    }
+
+    function makeShotDiagram(type) {
+      // SVG diagrams representing camera framing as silhouettes
+      const svgs = {
+        ews: `<svg viewBox="0 0 120 68" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <rect width="120" height="68" fill="var(--color-background-secondary)"/>
+          <rect x="0" y="45" width="120" height="23" fill="var(--color-border-tertiary)" opacity="0.4"/>
+          <ellipse cx="30" cy="38" rx="20" ry="10" fill="var(--color-border-tertiary)" opacity="0.3"/>
+          <circle cx="60" cy="42" r="2" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="58" y="44" width="4" height="5" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <circle cx="90" cy="40" r="1.5" fill="var(--color-text-tertiary)" opacity="0.4"/>
+        </svg>`,
+        ws: `<svg viewBox="0 0 120 68" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <rect width="120" height="68" fill="var(--color-background-secondary)"/>
+          <rect x="0" y="50" width="120" height="18" fill="var(--color-border-tertiary)" opacity="0.3"/>
+          <circle cx="60" cy="28" r="7" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="54" y="35" width="12" height="18" rx="2" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="52" y="53" width="5" height="10" rx="1" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="63" y="53" width="5" height="10" rx="1" fill="var(--color-text-tertiary)" opacity="0.5"/>
+        </svg>`,
+        ms: `<svg viewBox="0 0 120 68" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <rect width="120" height="68" fill="var(--color-background-secondary)"/>
+          <circle cx="60" cy="18" r="9" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="51" y="27" width="18" height="22" rx="2" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="44" y="29" width="8" height="15" rx="3" fill="var(--color-text-tertiary)" opacity="0.4"/>
+          <rect x="68" y="29" width="8" height="15" rx="3" fill="var(--color-text-tertiary)" opacity="0.4"/>
+          <line x1="0" y1="49" x2="120" y2="49" stroke="var(--color-border-secondary)" stroke-width="0.5" stroke-dasharray="4,3"/>
+        </svg>`,
+        cu: `<svg viewBox="0 0 120 68" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <rect width="120" height="68" fill="var(--color-background-secondary)"/>
+          <circle cx="60" cy="34" r="26" fill="var(--color-text-tertiary)" opacity="0.15"/>
+          <circle cx="60" cy="30" r="20" fill="var(--color-text-tertiary)" opacity="0.3"/>
+          <ellipse cx="52" cy="28" rx="5" ry="4" fill="var(--color-text-secondary)" opacity="0.6"/>
+          <ellipse cx="68" cy="28" rx="5" ry="4" fill="var(--color-text-secondary)" opacity="0.6"/>
+          <path d="M 50 40 Q 60 46 70 40" stroke="var(--color-text-secondary)" stroke-width="1.5" fill="none" opacity="0.5"/>
+          <line x1="2" y1="2" x2="18" y2="2" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="2" y1="2" x2="2" y2="14" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="118" y1="2" x2="102" y2="2" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="118" y1="2" x2="118" y2="14" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="2" y1="66" x2="18" y2="66" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="2" y1="66" x2="2" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="118" y1="66" x2="102" y2="66" stroke="var(--color-border-secondary)" stroke-width="1"/>
+          <line x1="118" y1="66" x2="118" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        </svg>`,
+        ecu: `<svg viewBox="0 0 120 68" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <rect width="120" height="68" fill="var(--color-background-secondary)"/>
+          <ellipse cx="60" cy="34" rx="45" ry="24" fill="var(--color-text-tertiary)" opacity="0.12"/>
+          <ellipse cx="60" cy="34" rx="18" ry="13" fill="var(--color-text-secondary)" opacity="0.35"/>
+          <circle cx="60" cy="34" r="7" fill="var(--color-text-primary)" opacity="0.4"/>
+          <circle cx="62" cy="32" r="2" fill="white" opacity="0.3"/>
+        </svg>`,
+        '2s': `<svg viewBox="0 0 120 68" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+          <rect width="120" height="68" fill="var(--color-background-secondary)"/>
+          <rect x="0" y="50" width="120" height="18" fill="var(--color-border-tertiary)" opacity="0.25"/>
+          <circle cx="40" cy="22" r="8" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <rect x="33" y="30" width="14" height="18" rx="2" fill="var(--color-text-tertiary)" opacity="0.5"/>
+          <circle cx="80" cy="22" r="8" fill="#5DCAA5" opacity="0.4"/>
+          <rect x="73" y="30" width="14" height="18" rx="2" fill="#5DCAA5" opacity="0.4"/>
+        </svg>`
+      };
+      return svgs[type] || '';
+    }
+
+    function showShot(idx, card) {
+      const s = shots[idx];
+      document.getElementById('shotDetail').innerHTML = `
+        <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:10px; flex-wrap:wrap;">
+          <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${s.name} (${s.abbr})</div>
+          <div style="font-size:11px; font-weight:500; background:${s.bg}; color:${s.col}; border-radius:99px; padding:2px 9px;">shot type</div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:10px;">
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">What it is</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.what}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">When to use it</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.when}</div></div>
+          <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Examples</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${s.examples}</div></div>
+        </div>`;
+      document.getElementById('shotDetail').classList.add('show');
+      document.querySelectorAll('.shot-card').forEach(c => c.classList.remove('active'));
+      if (card) card.classList.add('active');
+    }
+
+    /* ════════════════════════════════════
+       ASPECT RATIO VISUALISER
+    ════════════════════════════════════ */
+    const aspectRatios = [
+      { label:'1.33:1 (4:3)', w:133, h:100, ratio:'4:3 (Academy)',
+        desc:'The original film ratio from the silent era, standardised by the Academy in 1932. Also the ratio of most television until widescreen. Roughly square — feels intimate, theatrical. Still used by directors deliberately (The Artist, Beau Is Afraid) for nostalgic or claustrophobic effect.' },
+      { label:'1.66:1', w:166, h:100, ratio:'1.66:1 (European widescreen)',
+        desc:'A mild widescreen used commonly in European cinema. Slightly wider than the Academy ratio. Used by many French New Wave films and Italian features. Feels more cinematic than 4:3 without the panoramic quality of wider ratios.' },
+      { label:'1.85:1', w:185, h:100, ratio:'1.85:1 (US flat widescreen)',
+        desc:'The standard American theatrical widescreen format since the 1950s. The most common film ratio in Hollywood. Wide enough to feel cinematic, not so extreme that it demands a truly panoramic image. The "normal" cinema experience.' },
+      { label:'2.39:1', w:239, h:100, ratio:'2.39:1 (CinemaScope / Scope)',
+        desc:'The "Scope" format — extremely wide, requiring an anamorphic lens. Used for epics, Westerns, science fiction, and any film where the landscape or environment is as important as the characters. Lawrence of Arabia, 2001: A Space Odyssey, Once Upon a Time in Hollywood. The widest mainstream theatrical format.' },
+      { label:'2.76:1 (Ultra Panavision)', w:276, h:100, ratio:'2.76:1 (Ultra Panavision)',
+        desc:'The widest mainstream commercial format, used for truly panoramic images. Ben-Hur (1959), 2001: A Space Odyssey partially, The Hateful Eight (Tarantino, 2015 — a deliberate anachronism). The image is so wide that close-ups of faces fill the entire frame with the subject\'s head, creating a different sense of scale.' },
+    ];
+
+    function buildARButtons() {
+      const wrap = document.getElementById('arButtons');
+      aspectRatios.forEach((ar, i) => {
+        const btn = document.createElement('button');
+        btn.textContent = ar.ratio;
+        btn.style.cssText = 'font-size:11px; padding:3px 10px;';
+        btn.onclick = (e) => renderAR(i, e.currentTarget);
+        wrap.appendChild(btn);
+      });
+    }
+
+    function renderAR(idx, btn) {
+      document.querySelectorAll('#arButtons button').forEach(b => {
+        b.style.background = '';
+        b.style.fontWeight = 'normal';
+      });
+      if (btn) { btn.style.background = 'var(--color-background-secondary)'; btn.style.fontWeight = '600'; }
+      const ar = aspectRatios[idx];
+      const maxW = 260;
+      const scale = maxW / ar.w;
+      const dW = Math.round(ar.w * scale);
+      const dH = Math.round(ar.h * scale);
+      document.getElementById('arFrame').style.width = dW + 'px';
+      document.getElementById('arFrame').style.height = dH + 'px';
+      document.getElementById('arLabel').textContent = ar.ratio;
+      document.getElementById('arDesc').textContent = ar.desc;
+    }
+
+    window.addEventListener('DOMContentLoaded', function() {
+      buildShotGrid();
+      showShot(0, document.querySelector('.shot-card'));
+      buildARButtons();
+      renderAR(0, document.querySelector('#arButtons button'));
+    });
+  </script>
+  <script src="../files/shared.js"></script>
+</body>
+</html>
