@@ -42,12 +42,13 @@ var MODULES = [
   { id: 32, file: '32-painting.html',      name: 'Painting' },
   { id: 33, file: '33-music.html',         name: 'Music' },
   { id: 34, file: '34-cinema.html',        name: 'Cinema' },
-  { id: 35, file: '35-management.html',    name: 'Management' },
-  { id: 36, file: '36-technology.html',    name: 'Technology' },
-  { id: 37, file: '37-crypto.html',        name: 'Crypto' },
-  { id: 38, file: '38-law.html',           name: 'Law & Legal Systems' },
-  { id: 39, file: '39-language.html',      name: 'Language' },
-  { id: 40, file: '40-sports.html',        name: 'Sports' }
+  { id: 35, file: '35-game.html',          name: 'Game' },
+  { id: 36, file: '36-management.html',    name: 'Management' },
+  { id: 37, file: '37-technology.html',    name: 'Technology' },
+  { id: 38, file: '38-crypto.html',        name: 'Crypto' },
+  { id: 39, file: '39-law.html',           name: 'Law & Legal Systems' },
+  { id: 40, file: '40-language.html',      name: 'Language' },
+  { id: 41, file: '41-sports.html',        name: 'Sports' }
 ];
 
   /* --- SVG icons --- */
