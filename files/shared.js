@@ -8,7 +8,7 @@
 
   /* --- Module registry (order matters for prev/next) --- */
 var MODULES = [
-  { id: 1,  file: '01-everyday.html',      name: 'Weight & Mass' },
+  { id: 1,  file: '01-weight.html',        name: 'Weight & Mass' },
   { id: 2,  file: '02-biology.html',       name: 'The Human Body' },
   { id: 3,  file: '03-geography.html',     name: 'Geography & Distance' },
   { id: 4,  file: '04-food.html',          name: 'Nutrition & Food Labels' },
@@ -30,7 +30,7 @@ var MODULES = [
   { id: 20, file: '20-drinks.html',        name: 'Drinks' },
   { id: 21, file: '21-fashion.html',       name: 'Fashion' },
   { id: 22, file: '22-sleep.html',         name: 'Sleep' },
-  { id: 23, file: '23-gender.html',        name: 'Sex, Gender & Orientation' },
+  { id: 23, file: '23-sex.html',           name: 'Sex, Gender & Orientation' },
   { id: 24, file: '24-fitness.html',       name: 'Fitness & Exercise' },
   { id: 25, file: '25-weather.html',       name: 'Weather' },
   { id: 26, file: '26-space.html',         name: 'Space & the Solar System' },
@@ -48,7 +48,16 @@ var MODULES = [
   { id: 38, file: '38-crypto.html',        name: 'Crypto' },
   { id: 39, file: '39-law.html',           name: 'Law & Legal Systems' },
   { id: 40, file: '40-language.html',      name: 'Language' },
-  { id: 41, file: '41-sports.html',        name: 'Sports' }
+  { id: 41, file: '41-sports.html',        name: 'Sports' },
+  { id: 42, file: '42-animals.html',       name: 'Animals' },
+  { id: 43, file: '43-physics.html',       name: 'Physics' },
+  { id: 44, file: '44-media.html',         name: 'Media' },
+  { id: 45, file: '45-religions.html',     name: 'Religions' },
+  { id: 46, file: '46-fear.html',          name: 'Fear' },
+  { id: 47, file: '47-logic.html',         name: 'Logic' },
+  { id: 48, file: '48-fire.html',          name: 'FIRE' },
+  { id: 49, file: '49-health.html',        name: 'Health & Medicine' },
+  { id: 50, file: '50-ecosystems.html',    name: 'Ecosystems, Climate & Sustainability' }
 ];
 
   /* --- SVG icons --- */
