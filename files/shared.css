@@ -147,6 +147,15 @@ body {
 }
 
 
+/* === TWO COLUMN GRID === */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
 /* === CARD GRID === */
 .cgrid {
   display: grid;
@@ -154,6 +163,231 @@ body {
   gap: 10px;
   margin-bottom: 1rem;
 }
+
+
+/* === SHARED MODULE HELPERS === */
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0.6rem;
+}
+.module-header-icon {
+  font-size: 42px;
+  color: #4E99A3;
+  flex-shrink: 0;
+}
+.module-heading {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.content-panel {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 13px 15px;
+  margin-bottom: 1rem;
+}
+.content-card {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 13px 15px;
+  margin-bottom: 10px;
+}
+.content-card-static {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 13px 15px;
+}
+.scroll-panel {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 13px 15px;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+.sub-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 9px 11px;
+}
+.sub-card-roomy {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 12px;
+}
+.sub-card-compact {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 8px 10px;
+}
+.teaser-card,
+.elem-detail-panel,
+.calc-wrap {
+  background: var(--color-background-primary);
+  border: 0.5px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 13px 15px;
+}
+.elem-detail-panel,
+.calc-wrap {
+  margin-bottom: 1rem;
+}
+.elem-detail-panel {
+  display: none;
+}
+.elem-detail.show {
+  display: block;
+}
+.info-block,
+.warning-block {
+  border-radius: var(--border-radius-lg);
+  padding: 12px 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.info-block {
+  background: var(--color-background-info);
+  border: 0.5px solid var(--color-border-info);
+  color: var(--color-text-info);
+}
+.warning-block {
+  background: var(--color-background-warning);
+  border: 0.5px solid var(--color-border-warning);
+  color: var(--color-text-warning);
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+.panel-title-spaced {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+.inline-card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+.compact-card-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 6px;
+}
+.mini-card-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+.detail-label-spaced {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 3px;
+}
+.muted-copy {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.muted-copy-tight {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+.muted-copy-large {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+.muted-text-small {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.button-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.button-row-compact {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.button-row-spaced {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+.is-hidden { display: none; }
+
+
+/* === TYPOGRAPHY UTILITIES === */
+.u-fs-10px { font-size: 10px; }
+.u-fs-11px { font-size: 11px; }
+.u-fs-12px { font-size: 12px; }
+.u-fs-13px { font-size: 13px; }
+.u-fs-14px { font-size: 14px; }
+.u-fs-15px { font-size: 15px; }
+.u-fs-18px { font-size: 18px; }
+.u-fs-42px { font-size: 42px; }
+.u-fw-500 { font-weight: 500; }
+.u-lh-1-05 { line-height: 1.05; }
+.u-lh-1-5 { line-height: 1.5; }
+.u-lh-1-6 { line-height: 1.6; }
+.u-lh-1-7 { line-height: 1.7; }
+.u-lh-1-8 { line-height: 1.8; }
+
+
+/* === SPACING UTILITIES === */
+.u-m-0 { margin: 0; }
+.u-mb-xs { margin-bottom: 4px; }
+.u-mb-sm { margin-bottom: 8px; }
+.u-mb-md { margin-bottom: 10px; }
+.u-mb-lg { margin-bottom: 1rem; }
+.u-mt-sm { margin-top: 8px; }
+.u-mt-md { margin-top: 10px; }
+.u-gap-sm { gap: 8px; }
+.u-gap-md { gap: 10px; }
+
+
+/* === LAYOUT UTILITIES === */
+.u-display-flex { display: flex; }
+.u-display-grid { display: grid; }
+.u-display-block { display: block; }
+.u-display-none { display: none; }
+.u-flex-1 { flex: 1; }
+.u-shrink-0 { flex-shrink: 0; }
+.u-flex-wrap { flex-wrap: wrap; }
+.u-gap-14px { gap: 14px; }
+.u-items-center { align-items: center; }
+.u-justify-space-between { justify-content: space-between; }
+.u-overflow-x-auto { overflow-x: auto; }
+.u-white-space-nowrap { white-space: nowrap; }
+.u-gridcols-auto-fit-120px-1fr { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+.u-gridcols-auto-fit-130px-1fr { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+.u-gridcols-auto-fit-150px-1fr { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.u-gridcols-auto-fit-200px-1fr { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 
 
 /* === METRIC CARD PARTS === */
@@ -275,6 +509,7 @@ button:active { transform: scale(0.98); }
 /* === FORM INPUTS === */
 input[type="number"],
 input[type="text"],
+input[type="time"],
 select {
   height: 36px;
   padding: 0 10px;
