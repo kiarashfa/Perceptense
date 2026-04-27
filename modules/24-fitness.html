@@ -52,7 +52,7 @@
 .rep-table tr:hover td { background:var(--color-background-secondary); }
 
 /* ── one-rep-max table ── */
-.orm-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); gap:6px; }
+.orm-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(75px,1fr)); gap:6px; }
 .orm-cell { background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px; text-align:center; }
 .orm-pct  { font-size:10px; color:var(--color-text-tertiary); margin-bottom:1px; }
 .orm-val  { font-size:14px; font-weight:500; color:var(--color-text-primary); }
@@ -61,14 +61,545 @@
 /* ── body composition visual ── */
 .bcomp-bar { height:28px; border-radius:4px; overflow:hidden; display:flex; margin-bottom:6px; }
 .bcomp-seg { display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:600; white-space:nowrap; transition:width 0.4s ease; overflow:hidden; }
+
+/* === Shared-ready extracted styles === */
+
+.bar-row-tight {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:6px;
+}
+
+.detail-label {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:2px;
+}
+
+.item-title {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary);
+}
+
+.text-danger {
+  color:var(--color-text-danger);
+}
+
+.text-success {
+  color:var(--color-text-success);
+}
+
+.text-warning {
+  color:var(--color-text-warning);
+}
+
+/* === Module-specific extracted styles === */
+
+.fitness-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.fitness-panel {
+  background:#E1F5EE;
+  border:0.5px solid #5DCAA5;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+}
+
+.fitness-label {
+  font-size:14px;
+  font-weight:500;
+  color:#04342C;
+  margin-bottom:6px;
+}
+
+.fitness-text {
+  font-size:12px;
+  color:#085041;
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.fitness-row {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  margin-bottom:8px;
+}
+
+.fitness-panel-2 {
+  background:#9FE1CB;
+  border-radius:3px;
+  padding:5px 8px;
+  font-size:11px;
+  color:#04342C;
+}
+
+.fitness-text-2 {
+  font-size:11px;
+  color:#085041;
+  line-height:1.5;
+}
+
+.fitness-panel-3 {
+  background:#FAECE7;
+  border:0.5px solid #F0997B;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+}
+
+.fitness-label-2 {
+  font-size:14px;
+  font-weight:500;
+  color:#4A1B0C;
+  margin-bottom:6px;
+}
+
+.fitness-text-3 {
+  font-size:12px;
+  color:#712B13;
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+.fitness-panel-4 {
+  background:#F5C4B3;
+  border-radius:3px;
+  padding:5px 8px;
+  font-size:11px;
+  color:#4A1B0C;
+}
+
+.fitness-text-4 {
+  font-size:11px;
+  color:#712B13;
+  line-height:1.5;
+}
+
+.fitness-panel-5 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:1rem;
+}
+
+.fitness-label-3 {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:12px;
+}
+
+.fitness-row-2 {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:5px;
+}
+
+.fitness-text-5 {
+  font-size:10px;
+  color:var(--color-text-tertiary);
+  width:80px;
+  flex-shrink:0;
+  text-align:right;
+}
+
+.fitness-media {
+  flex:1;
+  height:22px;
+  border-radius:3px;
+  overflow:hidden;
+}
+
+.fitness-row-3 {
+  width:50%;
+  height:100%;
+  background:#9FE1CB;
+  display:flex;
+  align-items:center;
+  padding-left:8px;
+}
+
+.fitness-text-6 {
+  font-size:10px;
+  font-weight:600;
+  color:#04342C;
+}
+
+.fitness-text-7 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  width:200px;
+  flex-shrink:0;
+  line-height:1.35;
+}
+
+.fitness-row-4 {
+  width:62%;
+  height:100%;
+  background:#5DCAA5;
+  display:flex;
+  align-items:center;
+  padding-left:8px;
+}
+
+.fitness-row-5 {
+  width:74%;
+  height:100%;
+  background:#EF9F27;
+  display:flex;
+  align-items:center;
+  padding-left:8px;
+}
+
+.fitness-text-8 {
+  font-size:10px;
+  font-weight:600;
+  color:#2A1A03;
+}
+
+.fitness-row-6 {
+  width:86%;
+  height:100%;
+  background:#F0997B;
+  display:flex;
+  align-items:center;
+  padding-left:8px;
+}
+
+.fitness-text-9 {
+  font-size:10px;
+  font-weight:600;
+  color:#4A1B0C;
+}
+
+.fitness-row-7 {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.fitness-row-8 {
+  width:100%;
+  height:100%;
+  background:#F09595;
+  display:flex;
+  align-items:center;
+  padding-left:8px;
+}
+
+.fitness-text-10 {
+  font-size:10px;
+  font-weight:600;
+  color:#791F1F;
+}
+
+.fitness-panel-6 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+}
+
+.fitness-row-9 {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  margin-bottom:12px;
+}
+
+.fitness-row-10 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  flex:1;
+  min-width:100px;
+}
+
+.fitness-row-11 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  flex:1;
+  min-width:80px;
+}
+
+.met-sex {
+  height:36px;
+  padding:0 10px;
+  border-radius:var(--border-radius-md);
+  border:0.5px solid var(--color-border-secondary);
+  background:var(--color-background-primary);
+  color:var(--color-text-primary);
+  font-size:13px;
+}
+
+.fitness-row-12 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  flex:1;
+  min-width:130px;
+}
+
+.calcmet-control {
+  height:36px;
+  padding:0 16px;
+  font-size:13px;
+}
+
+.met-result {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.9;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+}
+
+.fitness-panel-7 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-top:8px;
+}
+
+.fitness-text-12 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:12px;
+  line-height:1.5;
+}
+
+.fitness-grid-2 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:14px;
+}
+
+.fitness-text-13 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:4px;
+}
+
+.bcomp-cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:8px;
+}
+
+.bcomp-note {
+  margin-top:10px;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.fitness-panel-8 {
+  background:#E1F5EE;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #5DCAA5;
+}
+
+.fitness-label-5 {
+  font-size:13px;
+  font-weight:500;
+  color:#04342C;
+  margin-bottom:4px;
+}
+
+.fitness-text-14 {
+  font-size:12px;
+  color:#085041;
+  line-height:1.5;
+}
+
+.fitness-panel-9 {
+  background:#FAECE7;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #F0997B;
+}
+
+.fitness-label-6 {
+  font-size:13px;
+  font-weight:500;
+  color:#4A1B0C;
+  margin-bottom:4px;
+}
+
+.fitness-text-15 {
+  font-size:12px;
+  color:#712B13;
+  line-height:1.5;
+}
+
+.fitness-panel-10 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.fitness-grid-4 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:8px;
+}
+
+.fitness-text-17 {
+  font-size:12px;
+  color:var(--color-text-primary);
+  line-height:1.4;
+}
+
+.fitness-row-13 {
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+
+.fitness-row-14 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  flex:1;
+  min-width:120px;
+}
+
+.prot-result {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.9;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  margin-bottom:10px;
+}
+
+.fitness-grid-5 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(270px,1fr));
+  gap:10px;
+}
+
+.fitness-text-18 {
+  font-size:12px;
+  color:var(--color-text-primary);
+  line-height:1.5;
+}
+
+.fitness-panel-13 {
+  margin-top:10px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+}
+
+.fitness-text-19 {
+  margin-top:8px;
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  line-height:1.5;
+}
+
+.fitness-grid-6 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:12px;
+  margin-bottom:1rem;
+}
+
+.fitness-text-20 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:12px;
+}
+
+.fitness-row-15 {
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:14px;
+}
+
+.fitness-svg-style {
+  flex-shrink:0;
+}
+
+.ant-chest {
+  cursor:pointer;
+}
+
+.fitness-text-21 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  text-align:center;
+  margin-bottom:12px;
+}
+
+.muscle-display {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  min-height:80px;
+}
+
+.fitness-grid-7 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.fitness-text-22 {
+  font-size:16px;
+}
+
+.fitness-text-23 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.55;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-dumbbell" style="font-size:42px; color:#4E99A3; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 24: Fitness &amp; Exercise</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-dumbbell module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 24: Fitness &amp; Exercise</h1>
     </div>
     <p class="module-subtitle">Lifts, cardio, programming, and body mechanics</p>
 
@@ -77,87 +608,87 @@
     ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part A · aerobic vs anaerobic — the fundamental split</div>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
-      <div style="background:#E1F5EE; border:0.5px solid #5DCAA5; border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:14px; font-weight:500; color:#04342C; margin-bottom:6px;">Aerobic exercise</div>
-        <div style="font-size:12px; color:#085041; margin-bottom:8px; line-height:1.6;">"With oxygen." At moderate intensities where oxygen supply meets demand. Fat and glycogen are the fuels. Can be sustained for long periods.</div>
-        <div style="display:flex; flex-direction:column; gap:4px; margin-bottom:8px;">
-          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Fuel:</strong> Fat (primary at low intensity) + glycogen</div>
-          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Heart rate:</strong> 50–80% of max HR (roughly 220 − age)</div>
-          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Duration:</strong> Minutes to hours. Improves cardiovascular fitness, endurance, fat metabolism.</div>
-          <div style="background:#9FE1CB; border-radius:3px; padding:5px 8px; font-size:11px; color:#04342C;"><strong>Examples:</strong> Walking, jogging, cycling, swimming, rowing, elliptical</div>
+    <div class="fitness-grid">
+      <div class="fitness-panel">
+        <div class="fitness-label">Aerobic exercise</div>
+        <div class="fitness-text">"With oxygen." At moderate intensities where oxygen supply meets demand. Fat and glycogen are the fuels. Can be sustained for long periods.</div>
+        <div class="fitness-row">
+          <div class="fitness-panel-2"><strong>Fuel:</strong> Fat (primary at low intensity) + glycogen</div>
+          <div class="fitness-panel-2"><strong>Heart rate:</strong> 50–80% of max HR (roughly 220 − age)</div>
+          <div class="fitness-panel-2"><strong>Duration:</strong> Minutes to hours. Improves cardiovascular fitness, endurance, fat metabolism.</div>
+          <div class="fitness-panel-2"><strong>Examples:</strong> Walking, jogging, cycling, swimming, rowing, elliptical</div>
         </div>
-        <div style="font-size:11px; color:#085041; line-height:1.5;">Benefits: improved VO2 max, heart health, mitochondrial density, fat oxidation capacity, mood (endorphins, BDNF), longevity. The single best-studied intervention for long-term health is regular moderate aerobic exercise.</div>
+        <div class="fitness-text-2">Benefits: improved VO2 max, heart health, mitochondrial density, fat oxidation capacity, mood (endorphins, BDNF), longevity. The single best-studied intervention for long-term health is regular moderate aerobic exercise.</div>
       </div>
-      <div style="background:#FAECE7; border:0.5px solid #F0997B; border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:14px; font-weight:500; color:#4A1B0C; margin-bottom:6px;">Anaerobic exercise</div>
-        <div style="font-size:12px; color:#712B13; margin-bottom:8px; line-height:1.6;">"Without oxygen." At high intensities where oxygen demand exceeds supply. Glucose is the primary fuel. Cannot be sustained long — produces lactate and fatigue.</div>
-        <div style="display:flex; flex-direction:column; gap:4px; margin-bottom:8px;">
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Fuel:</strong> Glucose (glycolysis) + ATP-PCr system (very short bursts)</div>
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Heart rate:</strong> 80–100% of max HR. Can only be sustained seconds to ~2 minutes.</div>
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Duration:</strong> Seconds (sprint, max lift) to ~2 min. Builds strength, power, muscle mass.</div>
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;"><strong>Examples:</strong> Weightlifting, sprinting, HIIT, plyometrics, max-effort anything</div>
+      <div class="fitness-panel-3">
+        <div class="fitness-label-2">Anaerobic exercise</div>
+        <div class="fitness-text-3">"Without oxygen." At high intensities where oxygen demand exceeds supply. Glucose is the primary fuel. Cannot be sustained long — produces lactate and fatigue.</div>
+        <div class="fitness-row">
+          <div class="fitness-panel-4"><strong>Fuel:</strong> Glucose (glycolysis) + ATP-PCr system (very short bursts)</div>
+          <div class="fitness-panel-4"><strong>Heart rate:</strong> 80–100% of max HR. Can only be sustained seconds to ~2 minutes.</div>
+          <div class="fitness-panel-4"><strong>Duration:</strong> Seconds (sprint, max lift) to ~2 min. Builds strength, power, muscle mass.</div>
+          <div class="fitness-panel-4"><strong>Examples:</strong> Weightlifting, sprinting, HIIT, plyometrics, max-effort anything</div>
         </div>
-        <div style="font-size:11px; color:#712B13; line-height:1.5;">Benefits: increased muscle mass, strength, bone density, metabolic rate, testosterone and growth hormone response, insulin sensitivity. After heavy resistance exercise, metabolic rate stays elevated for hours (EPOC — excess post-exercise oxygen consumption).</div>
+        <div class="fitness-text-4">Benefits: increased muscle mass, strength, bone density, metabolic rate, testosterone and growth hormone response, insulin sensitivity. After heavy resistance exercise, metabolic rate stays elevated for hours (EPOC — excess post-exercise oxygen consumption).</div>
       </div>
     </div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
-      <strong style="color:var(--color-text-primary);">The lactate threshold:</strong> The intensity at which lactate production exceeds the body's ability to clear it — the transition from aerobic to predominantly anaerobic. Training this threshold (tempo runs, sustained efforts just below max) is the most powerful tool for improving athletic performance. World-class endurance athletes have extremely high lactate thresholds — they operate aerobically at intensities that would be anaerobic for most people.
+    <div class="fitness-panel-5">
+      <strong class="text-primary">The lactate threshold:</strong> The intensity at which lactate production exceeds the body's ability to clear it — the transition from aerobic to predominantly anaerobic. Training this threshold (tempo runs, sustained efforts just below max) is the most powerful tool for improving athletic performance. World-class endurance athletes have extremely high lactate thresholds — they operate aerobically at intensities that would be anaerobic for most people.
     </div>
 
     <!-- Heart rate zone visual -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:12px;">The five heart rate training zones — what's happening physiologically</div>
+    <div class="content-panel">
+      <div class="fitness-label-3">The five heart rate training zones — what's happening physiologically</div>
 
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
-        <div style="font-size:10px; color:var(--color-text-tertiary); width:80px; flex-shrink:0; text-align:right;">Zone 1</div>
-        <div style="flex:1; height:22px; border-radius:3px; overflow:hidden;">
-          <div style="width:50%; height:100%; background:#9FE1CB; display:flex; align-items:center; padding-left:8px;">
-            <span style="font-size:10px; font-weight:600; color:#04342C;">50–60% max HR</span>
+      <div class="fitness-row-2">
+        <div class="fitness-text-5">Zone 1</div>
+        <div class="fitness-media">
+          <div class="fitness-row-3">
+            <span class="fitness-text-6">50–60% max HR</span>
           </div>
         </div>
-        <div style="font-size:11px; color:var(--color-text-secondary); width:200px; flex-shrink:0; line-height:1.35;">Active recovery. Fat is dominant fuel. Can hold a full conversation.</div>
+        <div class="fitness-text-7">Active recovery. Fat is dominant fuel. Can hold a full conversation.</div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
-        <div style="font-size:10px; color:var(--color-text-tertiary); width:80px; flex-shrink:0; text-align:right;">Zone 2</div>
-        <div style="flex:1; height:22px; border-radius:3px; overflow:hidden;">
-          <div style="width:62%; height:100%; background:#5DCAA5; display:flex; align-items:center; padding-left:8px;">
-            <span style="font-size:10px; font-weight:600; color:#04342C;">60–70% max HR</span>
+      <div class="fitness-row-2">
+        <div class="fitness-text-5">Zone 2</div>
+        <div class="fitness-media">
+          <div class="fitness-row-4">
+            <span class="fitness-text-6">60–70% max HR</span>
           </div>
         </div>
-        <div style="font-size:11px; color:var(--color-text-secondary); width:200px; flex-shrink:0; line-height:1.35;">Aerobic base. Builds mitochondria and fat metabolism. "Endurance zone." Can hold a conversation.</div>
+        <div class="fitness-text-7">Aerobic base. Builds mitochondria and fat metabolism. "Endurance zone." Can hold a conversation.</div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
-        <div style="font-size:10px; color:var(--color-text-tertiary); width:80px; flex-shrink:0; text-align:right;">Zone 3</div>
-        <div style="flex:1; height:22px; border-radius:3px; overflow:hidden;">
-          <div style="width:74%; height:100%; background:#EF9F27; display:flex; align-items:center; padding-left:8px;">
-            <span style="font-size:10px; font-weight:600; color:#2A1A03;">70–80% max HR</span>
+      <div class="fitness-row-2">
+        <div class="fitness-text-5">Zone 3</div>
+        <div class="fitness-media">
+          <div class="fitness-row-5">
+            <span class="fitness-text-8">70–80% max HR</span>
           </div>
         </div>
-        <div style="font-size:11px; color:var(--color-text-secondary); width:200px; flex-shrink:0; line-height:1.35;">Tempo/threshold. Glycogen is major fuel. Short sentences only. The zone where lactate begins accumulating.</div>
+        <div class="fitness-text-7">Tempo/threshold. Glycogen is major fuel. Short sentences only. The zone where lactate begins accumulating.</div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:5px;">
-        <div style="font-size:10px; color:var(--color-text-tertiary); width:80px; flex-shrink:0; text-align:right;">Zone 4</div>
-        <div style="flex:1; height:22px; border-radius:3px; overflow:hidden;">
-          <div style="width:86%; height:100%; background:#F0997B; display:flex; align-items:center; padding-left:8px;">
-            <span style="font-size:10px; font-weight:600; color:#4A1B0C;">80–90% max HR</span>
+      <div class="fitness-row-2">
+        <div class="fitness-text-5">Zone 4</div>
+        <div class="fitness-media">
+          <div class="fitness-row-6">
+            <span class="fitness-text-9">80–90% max HR</span>
           </div>
         </div>
-        <div style="font-size:11px; color:var(--color-text-secondary); width:200px; flex-shrink:0; line-height:1.35;">Hard aerobic / above threshold. Can't speak comfortably. VO2 max improvement zone.</div>
+        <div class="fitness-text-7">Hard aerobic / above threshold. Can't speak comfortably. VO2 max improvement zone.</div>
       </div>
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-        <div style="font-size:10px; color:var(--color-text-tertiary); width:80px; flex-shrink:0; text-align:right;">Zone 5</div>
-        <div style="flex:1; height:22px; border-radius:3px; overflow:hidden;">
-          <div style="width:100%; height:100%; background:#F09595; display:flex; align-items:center; padding-left:8px;">
-            <span style="font-size:10px; font-weight:600; color:#791F1F;">90–100% max HR</span>
+      <div class="fitness-row-7">
+        <div class="fitness-text-5">Zone 5</div>
+        <div class="fitness-media">
+          <div class="fitness-row-8">
+            <span class="fitness-text-10">90–100% max HR</span>
           </div>
         </div>
-        <div style="font-size:11px; color:var(--color-text-secondary); width:200px; flex-shrink:0; line-height:1.35;">Max effort. Sprints, all-out intervals. Anaerobic. Seconds to a couple of minutes only.</div>
+        <div class="fitness-text-7">Max effort. Sprints, all-out intervals. Anaerobic. Seconds to a couple of minutes only.</div>
       </div>
 
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-        <strong style="color:var(--color-text-primary);">The 80/20 rule:</strong> Elite endurance athletes spend roughly 80% of training time in Zones 1–2 and only 20% at Zone 4–5. Most recreational athletes do the opposite — they go moderately hard every session (Zone 3–4), which accumulates fatigue without developing either the aerobic base or the high-end capacity effectively. Zone 2 is boring but transformative over months. Zone 3 is the "grey zone" — hard enough to be fatiguing, not hard enough to maximise adaptation.
+      <div class="fitness-panel-6">
+        <strong class="text-primary">The 80/20 rule:</strong> Elite endurance athletes spend roughly 80% of training time in Zones 1–2 and only 20% at Zone 4–5. Most recreational athletes do the opposite — they go moderately hard every session (Zone 3–4), which accumulates fatigue without developing either the aerobic base or the high-end capacity effectively. Zone 2 is boring but transformative over months. Zone 3 is the "grey zone" — hard enough to be fatiguing, not hard enough to maximise adaptation.
       </div>
     </div>
 
@@ -166,31 +697,31 @@
     ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part B · metabolism — how your body accounts for energy</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Calculate your estimated daily energy needs</div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-bottom:12px;">
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Weight (kg)</label>
-          <input type="number" id="met-weight" value="75" style="font-size:13px;">
+    <div class="content-panel">
+      <div class="panel-title">Calculate your estimated daily energy needs</div>
+      <div class="fitness-row-9">
+        <div class="fitness-row-10">
+          <label class="muted-text-small">Weight (kg)</label>
+          <input class="u-fs-13px" type="number" id="u-fs-13px" value="75">
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Height (cm)</label>
-          <input type="number" id="met-height" value="175" style="font-size:13px;">
+        <div class="fitness-row-10">
+          <label class="muted-text-small">Height (cm)</label>
+          <input class="u-fs-13px" type="number" id="met-height" value="175">
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:80px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Age</label>
-          <input type="number" id="met-age" value="30" style="font-size:13px;">
+        <div class="fitness-row-11">
+          <label class="muted-text-small">Age</label>
+          <input class="u-fs-13px" type="number" id="met-age" value="30">
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:80px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Sex</label>
-          <select id="met-sex" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <div class="fitness-row-11">
+          <label class="muted-text-small">Sex</label>
+          <select class="met-sex" id="met-sex">
             <option value="m">Male</option>
             <option value="f">Female</option>
           </select>
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:130px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Activity level</label>
-          <select id="met-activity" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <div class="fitness-row-12">
+          <label class="muted-text-small">Activity level</label>
+          <select class="met-sex" id="met-activity">
             <option value="1.2">Sedentary (desk job, no exercise)</option>
             <option value="1.375">Light (1–3x/week)</option>
             <option value="1.55" selected>Moderate (3–5x/week)</option>
@@ -198,37 +729,37 @@
             <option value="1.9">Very active (2x/day, hard training)</option>
           </select>
         </div>
-        <button onclick="calcMet()" style="height:36px; padding:0 16px; font-size:13px;">Calculate</button>
+        <button class="calcmet-control" onclick="calcMet()">Calculate</button>
       </div>
-      <div id="met-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.9; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-top:8px;">
-        <strong style="color:var(--color-text-primary);">The calorie balance equation:</strong> Weight change = calories in − calories out. 1 kg of body fat ≈ 7,700 kcal stored energy. A 500 kcal/day deficit = ~0.5 kg/week loss. A 500 kcal/day surplus = ~0.5 kg/week gain. This is the physics — but metabolism adapts (BMR drops with sustained deficit, rises with sustained surplus), so the relationship is not perfectly linear over time.
+      <div class="met-result" id="met-result"></div>
+      <div class="fitness-panel-7">
+        <strong class="text-primary">The calorie balance equation:</strong> Weight change = calories in − calories out. 1 kg of body fat ≈ 7,700 kcal stored energy. A 500 kcal/day deficit = ~0.5 kg/week loss. A 500 kcal/day surplus = ~0.5 kg/week gain. This is the physics — but metabolism adapts (BMR drops with sustained deficit, rises with sustained surplus), so the relationship is not perfectly linear over time.
       </div>
     </div>
 
     <!-- Body composition visual -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Body composition explorer — adjust sliders to see the breakdown</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.5;">Body composition is more informative than bodyweight alone. Two people with the same weight can have radically different physiques depending on muscle-to-fat ratio.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Body composition explorer — adjust sliders to see the breakdown</div>
+      <div class="fitness-text-12">Body composition is more informative than bodyweight alone. Two people with the same weight can have radically different physiques depending on muscle-to-fat ratio.</div>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:14px;">
+      <div class="fitness-grid-2">
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">Body fat % — <span id="bf-val">18</span>%</div>
+          <div class="fitness-text-13">Body fat % — <span id="bf-val">18</span>%</div>
           <input type="range" id="bf-slider" min="5" max="45" value="18" oninput="updateBComp()">
         </div>
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">Body weight — <span id="bw-val">75</span> kg</div>
+          <div class="fitness-text-13">Body weight — <span id="bw-val">75</span> kg</div>
           <input type="range" id="bw-slider" min="45" max="130" value="75" oninput="updateBComp()">
         </div>
       </div>
 
       <div class="bcomp-bar" id="bcomp-bar"></div>
 
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;" id="bcomp-legend"></div>
+      <div class="button-row-spaced" id="button-row-spaced"></div>
 
-      <div id="bcomp-cards" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:8px;"></div>
+      <div class="bcomp-cards" id="bcomp-cards"></div>
 
-      <div style="margin-top:10px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;" id="bcomp-note"></div>
+      <div class="bcomp-note" id="bcomp-note"></div>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════
@@ -246,40 +777,40 @@
       <button onclick="showLift('rdl')"                 >Romanian deadlift</button>
       <button onclick="showLift('dip')"                 >Dip</button>
     </div>
-    <div id="lift-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="lift-display"></div>
 
     <!-- ══════════════════════════════════════════════════════════
          PART D · BREATHING
     ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part D · breathing — when to inhale, when to exhale, why it matters</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The universal rule for resistance training</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
-        <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #5DCAA5;">
-          <div style="font-size:13px; font-weight:500; color:#04342C; margin-bottom:4px;">Inhale on the eccentric phase</div>
-          <div style="font-size:12px; color:#085041; line-height:1.5;">The eccentric is the lowering/lengthening/easier phase — where you're resisting gravity. Breathe in here. Examples: lowering the bar to chest in bench press; descending into a squat; lowering yourself on a pull-up; descending in a deadlift.</div>
+    <div class="content-panel">
+      <div class="panel-title">The universal rule for resistance training</div>
+      <div class="two-col-grid">
+        <div class="fitness-panel-8">
+          <div class="fitness-label-5">Inhale on the eccentric phase</div>
+          <div class="fitness-text-14">The eccentric is the lowering/lengthening/easier phase — where you're resisting gravity. Breathe in here. Examples: lowering the bar to chest in bench press; descending into a squat; lowering yourself on a pull-up; descending in a deadlift.</div>
         </div>
-        <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #F0997B;">
-          <div style="font-size:13px; font-weight:500; color:#4A1B0C; margin-bottom:4px;">Exhale on the concentric phase</div>
-          <div style="font-size:12px; color:#712B13; line-height:1.5;">The concentric is the lifting/shortening/harder phase — where you're doing the work against gravity. Breathe out here. Examples: pressing the bar up in bench; standing up from a squat; pulling yourself up on a pull-up; lifting the bar in a deadlift.</div>
+        <div class="fitness-panel-9">
+          <div class="fitness-label-6">Exhale on the concentric phase</div>
+          <div class="fitness-text-15">The concentric is the lifting/shortening/harder phase — where you're doing the work against gravity. Breathe out here. Examples: pressing the bar up in bench; standing up from a squat; pulling yourself up on a pull-up; lifting the bar in a deadlift.</div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">
-        <strong style="color:var(--color-text-primary);">Why this matters — intra-abdominal pressure (IAP):</strong> Exhaling during the hardest part of a lift (concentric) reduces intra-abdominal pressure, which reduces spinal stability — making the lift weaker and increasing injury risk. The technical technique for heavy lifting is the Valsalva manoeuvre: take a deep breath, brace your core hard (like you're about to be punched), hold the breath through the sticking point of the lift (the hardest moment), then exhale as you complete the rep. This creates maximum IAP and spinal stability.
+      <div class="fitness-panel-10">
+        <strong class="text-primary">Why this matters — intra-abdominal pressure (IAP):</strong> Exhaling during the hardest part of a lift (concentric) reduces intra-abdominal pressure, which reduces spinal stability — making the lift weaker and increasing injury risk. The technical technique for heavy lifting is the Valsalva manoeuvre: take a deep breath, brace your core hard (like you're about to be punched), hold the breath through the sticking point of the lift (the hardest moment), then exhale as you complete the rep. This creates maximum IAP and spinal stability.
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:8px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Squat breathing cue</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Inhale and brace before descent. Hold breath through the bottom and begin exhale as you drive up. Complete exhale at top. Reset breath each rep for heavy sets.</div>
+      <div class="fitness-grid-4">
+        <div class="sub-card">
+          <div class="detail-label">Squat breathing cue</div>
+          <div class="fitness-text-17">Inhale and brace before descent. Hold breath through the bottom and begin exhale as you drive up. Complete exhale at top. Reset breath each rep for heavy sets.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Deadlift breathing cue</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Stand tall, take a deep breath, brace 360° around your torso. Initiate the pull. Begin exhale as bar passes knees. Exhale fully at lockout. Lower the bar, reset.</div>
+        <div class="sub-card">
+          <div class="detail-label">Deadlift breathing cue</div>
+          <div class="fitness-text-17">Stand tall, take a deep breath, brace 360° around your torso. Initiate the pull. Begin exhale as bar passes knees. Exhale fully at lockout. Lower the bar, reset.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Light/cardio breathing</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">For lighter weights and cardio: breathe naturally in rhythm with the movement. Don't hold breath. For running: try 2-count or 3-count breathing (inhale for 2–3 strides, exhale for 2–3 strides).</div>
+        <div class="sub-card">
+          <div class="detail-label">Light/cardio breathing</div>
+          <div class="fitness-text-17">For lighter weights and cardio: breathe naturally in rhythm with the movement. Don't hold breath. For running: try 2-count or 3-count breathing (inhale for 2–3 strides, exhale for 2–3 strides).</div>
         </div>
       </div>
     </div>
@@ -289,43 +820,43 @@
     ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part E · protein — how much, why, and when</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Protein target calculator — enter your weight</div>
-      <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px;">
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:120px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Body weight (kg)</label>
-          <input type="number" id="prot-weight" value="75" style="font-size:13px;">
+    <div class="content-panel">
+      <div class="panel-title">Protein target calculator — enter your weight</div>
+      <div class="fitness-row-13">
+        <div class="fitness-row-14">
+          <label class="muted-text-small">Body weight (kg)</label>
+          <input class="u-fs-13px" type="number" id="prot-weight" value="75">
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:120px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Goal</label>
-          <select id="prot-goal" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <div class="fitness-row-14">
+          <label class="muted-text-small">Goal</label>
+          <select class="met-sex" id="prot-goal">
             <option value="maintain">Maintain / general health</option>
             <option value="build" selected>Build muscle (resistance training)</option>
             <option value="cut">Build/maintain muscle in calorie deficit</option>
             <option value="athlete">Endurance athlete</option>
           </select>
         </div>
-        <button onclick="calcProtein()" style="height:36px; padding:0 16px; font-size:13px;">Calculate</button>
+        <button class="calcmet-control" onclick="calcProtein()">Calculate</button>
       </div>
-      <div id="prot-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.9; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-bottom:10px;"></div>
+      <div class="prot-result" id="prot-result"></div>
 
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The science of muscle growth — what actually drives it</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:10px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The signal: mechanical tension</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Mechanical tension (load on the muscle, especially under stretch) is the primary driver of hypertrophy. When a loaded muscle is stretched under tension (the eccentric phase), mechanosensors in the muscle fibre detect this and trigger the anabolic signalling cascade (mTOR pathway).</div>
+      <div class="panel-title-spaced">The science of muscle growth — what actually drives it</div>
+      <div class="fitness-grid-5">
+        <div class="sub-card">
+          <div class="detail-label">The signal: mechanical tension</div>
+          <div class="fitness-text-18">Mechanical tension (load on the muscle, especially under stretch) is the primary driver of hypertrophy. When a loaded muscle is stretched under tension (the eccentric phase), mechanosensors in the muscle fibre detect this and trigger the anabolic signalling cascade (mTOR pathway).</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The process: muscle protein synthesis</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Exercise triggers muscle protein synthesis (MPS) — the construction of new protein to repair and add to muscle fibres. MPS is elevated for 24–48h after resistance exercise. Without adequate dietary protein, the body can't build the new tissue regardless of training stimulus.</div>
+        <div class="sub-card">
+          <div class="detail-label">The process: muscle protein synthesis</div>
+          <div class="fitness-text-18">Exercise triggers muscle protein synthesis (MPS) — the construction of new protein to repair and add to muscle fibres. MPS is elevated for 24–48h after resistance exercise. Without adequate dietary protein, the body can't build the new tissue regardless of training stimulus.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">The limit: genetics and testosterone</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">Natural muscle gain: ~0.5–1 kg/month for beginners, ~0.25–0.5 kg/month intermediate, ~0.1–0.25 kg/month advanced. Men gain faster than women (testosterone). Genetic ceiling exists — "natural" bodybuilders hit a ceiling set by their genetics and hormone profile.</div>
+        <div class="sub-card">
+          <div class="detail-label">The limit: genetics and testosterone</div>
+          <div class="fitness-text-18">Natural muscle gain: ~0.5–1 kg/month for beginners, ~0.25–0.5 kg/month intermediate, ~0.1–0.25 kg/month advanced. Men gain faster than women (testosterone). Genetic ceiling exists — "natural" bodybuilders hit a ceiling set by their genetics and hormone profile.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Protein timing — does it matter?</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">The "anabolic window" (eat protein immediately post-workout) is largely a myth for people eating adequate daily protein. Total daily intake matters far more than timing. That said, distributing protein over 3–4 meals maximises MPS — each meal should contain ~20–40g protein to optimally stimulate MPS.</div>
+        <div class="sub-card">
+          <div class="detail-label">Protein timing — does it matter?</div>
+          <div class="fitness-text-18">The "anabolic window" (eat protein immediately post-workout) is largely a myth for people eating adequate daily protein. Total daily intake matters far more than timing. That said, distributing protein over 3–4 meals maximises MPS — each meal should contain ~20–40g protein to optimally stimulate MPS.</div>
         </div>
       </div>
     </div>
@@ -371,11 +902,11 @@
     <!-- ══════════════════════════════════════════════════════════
          PART H (NEW) · REP RANGES, SETS & PROGRAMMING LOGIC
     ═══════════════════════════════════════════════════════════ -->
-    <div class="sec">Part H · rep ranges, sets &amp; the logic of programming</div>
+    <div class="sec">Part G · rep ranges, sets &amp; the logic of programming</div>
 
     <!-- Rep range table -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; overflow-x:auto;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Rep ranges and what they train — the fundamental programming table</div>
+    <div class="scroll-panel">
+      <div class="panel-title">Rep ranges and what they train — the fundamental programming table</div>
       <table class="rep-table">
         <thead>
           <tr>
@@ -390,67 +921,67 @@
           <tr>
             <td><strong>1–3</strong></td>
             <td>93–100%</td>
-            <td style="color:var(--color-text-danger);">Max strength (neural)</td>
+            <td class="text-danger">Max strength (neural)</td>
             <td>3–5 min</td>
             <td>Trains the nervous system to recruit more motor units. Very low fatigue per rep but high CNS demand. Best for strength athletes. Injury risk is highest — requires perfect technique.</td>
           </tr>
           <tr>
             <td><strong>4–6</strong></td>
             <td>85–93%</td>
-            <td style="color:var(--color-text-danger);">Strength + hypertrophy</td>
+            <td class="text-danger">Strength + hypertrophy</td>
             <td>2–4 min</td>
             <td>The strength-hypertrophy overlap. Used in powerlifting accessory work and by athletes wanting both adaptation types. High mechanical tension stimulus.</td>
           </tr>
           <tr>
             <td><strong>6–12</strong></td>
             <td>67–85%</td>
-            <td style="color:var(--color-text-warning);">Hypertrophy (primary)</td>
+            <td class="text-warning">Hypertrophy (primary)</td>
             <td>60–120 sec</td>
             <td>The classic bodybuilding range. Optimal balance of mechanical tension, metabolic stress, and volume. Most hypertrophy research is conducted in this range.</td>
           </tr>
           <tr>
             <td><strong>12–20</strong></td>
             <td>60–67%</td>
-            <td style="color:var(--color-text-success);">Hypertrophy + muscular endurance</td>
+            <td class="text-success">Hypertrophy + muscular endurance</td>
             <td>45–90 sec</td>
             <td>Effective for hypertrophy when sets are taken close to failure. Higher metabolic stress. Good for isolation exercises and joints that prefer lighter loads (knees, elbows).</td>
           </tr>
           <tr>
             <td><strong>20+</strong></td>
             <td>&lt;60%</td>
-            <td style="color:var(--color-text-success);">Muscular endurance</td>
+            <td class="text-success">Muscular endurance</td>
             <td>30–60 sec</td>
             <td>Minimal hypertrophy unless taken to absolute failure. Develops capillary density and lactate tolerance. Useful for conditioning work, high-rep bodyweight movements.</td>
           </tr>
         </tbody>
       </table>
-      <div style="margin-top:10px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-        <strong style="color:var(--color-text-primary);">The range is less important than proximity to failure.</strong> Research by James Krieger and others shows hypertrophy occurs across all rep ranges (6–30) when sets are taken close to failure (1–3 reps in reserve). A set of 20 reps with 2 reps left in the tank is roughly as effective for muscle growth as a set of 8 reps with 2 reps in reserve — as long as the load is sufficient. What this means practically: don't worry too much about hitting exact rep targets. Stop when form breaks down or 1–2 reps remain, whatever the number.
+      <div class="fitness-panel-13">
+        <strong class="text-primary">The range is less important than proximity to failure.</strong> Research by James Krieger and others shows hypertrophy occurs across all rep ranges (6–30) when sets are taken close to failure (1–3 reps in reserve). A set of 20 reps with 2 reps left in the tank is roughly as effective for muscle growth as a set of 8 reps with 2 reps in reserve — as long as the load is sufficient. What this means practically: don't worry too much about hitting exact rep targets. Stop when form breaks down or 1–2 reps remain, whatever the number.
       </div>
     </div>
 
     <!-- 1RM calculator -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">One-rep max (1RM) estimator — and what each percentage means for training</div>
-      <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px;">
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:120px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Weight lifted (kg)</label>
-          <input type="number" id="orm-weight" value="100" style="font-size:13px;">
+    <div class="content-panel">
+      <div class="panel-title">One-rep max (1RM) estimator — and what each percentage means for training</div>
+      <div class="fitness-row-13">
+        <div class="fitness-row-14">
+          <label class="muted-text-small">Weight lifted (kg)</label>
+          <input class="u-fs-13px" type="number" id="orm-weight" value="100">
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Reps completed</label>
-          <input type="number" id="orm-reps" value="5" min="1" max="30" style="font-size:13px;">
+        <div class="fitness-row-10">
+          <label class="muted-text-small">Reps completed</label>
+          <input class="u-fs-13px" type="number" id="orm-reps" value="5" min="1" max="30">
         </div>
-        <button onclick="calcORM()" style="height:36px; padding:0 16px; font-size:13px;">Estimate 1RM</button>
+        <button class="calcmet-control" onclick="calcORM()">Estimate 1RM</button>
       </div>
       <div id="orm-result"></div>
-      <div style="margin-top:8px; font-size:11px; color:var(--color-text-tertiary); line-height:1.5;">Formula: Brzycki (1RM = weight × 36 / (37 − reps)). Most accurate for 1–10 reps. Estimates become less reliable above 10 reps. Never attempt a true 1RM without a spotter and substantial training experience.</div>
+      <div class="fitness-text-19">Formula: Brzycki (1RM = weight × 36 / (37 − reps)). Most accurate for 1–10 reps. Estimates become less reliable above 10 reps. Never attempt a true 1RM without a spotter and substantial training experience.</div>
     </div>
 
     <!-- Training programme explorer -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Training programme structures — which split is right for you?</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.5;">How you distribute training across the week matters less than total weekly volume per muscle group. The best split is the one you'll actually do consistently.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Training programme structures — which split is right for you?</div>
+      <div class="fitness-text-12">How you distribute training across the week matters less than total weekly volume per muscle group. The best split is the one you'll actually do consistently.</div>
 
       <div class="prog-tabs" id="prog-tabs">
         <button onclick="showProg('fullbody')" class="active">Full body (3×/week)</button>
@@ -464,9 +995,9 @@
     <!-- ══════════════════════════════════════════════════════════
          PART I (NEW) · CARDIO PROGRAMMING
     ═══════════════════════════════════════════════════════════ -->
-    <div class="sec">Part I · cardio programming — distance, intervals, and the VO2 max</div>
+    <div class="sec">Part H · cardio programming — distance, intervals, and the VO2 max</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:12px; margin-bottom:1rem;">
+    <div class="fitness-grid-6">
       <div class="card">
         <p class="clabel">VO2 max — what it actually measures</p>
         <p class="cval">mL of O₂ per kg per minute</p>
@@ -490,37 +1021,37 @@
     </div>
 
     <!-- Calorie burn estimator -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Cardio calorie burn estimator — compare activities</div>
-      <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-bottom:12px;">
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Body weight (kg)</label>
-          <input type="number" id="cardio-weight" value="75" style="font-size:13px;">
+    <div class="content-panel">
+      <div class="panel-title">Cardio calorie burn estimator — compare activities</div>
+      <div class="fitness-row-13">
+        <div class="fitness-row-10">
+          <label class="muted-text-small">Body weight (kg)</label>
+          <input class="u-fs-13px" type="number" id="cardio-weight" value="75">
         </div>
-        <div style="display:flex; flex-direction:column; gap:4px; flex:1; min-width:100px;">
-          <label style="font-size:11px; color:var(--color-text-secondary);">Duration (minutes)</label>
-          <input type="number" id="cardio-dur" value="30" style="font-size:13px;">
+        <div class="fitness-row-10">
+          <label class="muted-text-small">Duration (minutes)</label>
+          <input class="u-fs-13px" type="number" id="cardio-dur" value="30">
         </div>
-        <button onclick="calcCardio()" style="height:36px; padding:0 16px; font-size:13px;">Estimate</button>
+        <button class="calcmet-control" onclick="calcCardio()">Estimate</button>
       </div>
       <div id="cardio-result"></div>
-      <div style="margin-top:8px; font-size:11px; color:var(--color-text-tertiary); line-height:1.5;">MET-based estimates (metabolic equivalents). Accuracy ±20% — heart rate, fitness level, and individual metabolism all affect the true number. These figures do not include EPOC.</div>
+      <div class="fitness-text-19">MET-based estimates (metabolic equivalents). Accuracy ±20% — heart rate, fitness level, and individual metabolism all affect the true number. These figures do not include EPOC.</div>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════
          PART J (NEW) · MUSCLE ANATOMY AT A GLANCE
     ═══════════════════════════════════════════════════════════ -->
-    <div class="sec">Part J · major muscle groups — anatomy, function, and how to train them</div>
+    <div class="sec">Part I · major muscle groups — anatomy, function, and how to train them</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Select a muscle group to explore</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">Understanding which muscle does what helps you train with intent, not just go through the motions.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Select a muscle group to explore</div>
+      <div class="fitness-text-20">Understanding which muscle does what helps you train with intent, not just go through the motions.</div>
 
       <!-- Schematic SVG body diagram — anterior & posterior -->
-      <div style="display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:14px;">
+      <div class="fitness-row-15">
 
         <!-- Anterior (front) -->
-        <svg viewBox="0 0 140 280" width="140" height="280" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <svg class="fitness-svg-style" viewBox="0 0 140 280" width="140" height="280" xmlns="http://www.w3.org/2000/svg">
           <text x="70" y="12" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui">ANTERIOR</text>
           <!-- Body outline -->
           <ellipse cx="70" cy="36" rx="18" ry="20" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="0.8"/>
@@ -547,29 +1078,29 @@
 
           <!-- Clickable muscle overlays — anterior -->
           <!-- Chest (pectorals) -->
-          <rect id="ant-chest" x="48" y="57" width="44" height="28" rx="4" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="chest" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('chest')"/>
+          <rect id="ant-chest" x="48" y="57" width="44" height="28" rx="4" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="chest" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('chest')"/>
           <!-- Shoulders (anterior deltoid) -->
-          <ellipse id="ant-shoulder-l" cx="33" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="shoulders" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
-          <ellipse id="ant-shoulder-r" cx="107" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="shoulders" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
+          <ellipse id="ant-shoulder-l" cx="33" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="shoulders" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
+          <ellipse id="ant-shoulder-r" cx="107" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="shoulders" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
           <!-- Biceps -->
-          <rect id="ant-bicep-l" x="24" y="62" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="biceps" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('biceps')"/>
-          <rect id="ant-bicep-r" x="98" y="62" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="biceps" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('biceps')"/>
+          <rect id="ant-bicep-l" x="24" y="62" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="biceps" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('biceps')"/>
+          <rect id="ant-bicep-r" x="98" y="62" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="biceps" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('biceps')"/>
           <!-- Abs -->
-          <rect id="ant-abs" x="52" y="88" width="36" height="32" rx="3" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="abs" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('abs')"/>
+          <rect id="ant-abs" x="52" y="88" width="36" height="32" rx="3" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="abs" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('abs')"/>
           <!-- Quads -->
-          <rect id="ant-quad-l" x="47" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="quads" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('quads')"/>
-          <rect id="ant-quad-r" x="72" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="quads" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('quads')"/>
+          <rect id="ant-quad-l" x="47" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="quads" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('quads')"/>
+          <rect id="ant-quad-r" x="72" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="quads" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('quads')"/>
           <!-- Calves front -->
-          <rect id="ant-calf-l" x="48" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="calves" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
-          <rect id="ant-calf-r" x="75" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="calves" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
+          <rect id="ant-calf-l" x="48" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="calves" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
+          <rect id="ant-calf-r" x="75" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="calves" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
 
           <!-- Forearms -->
-          <rect id="ant-forearm-l" x="21" y="122" width="16" height="48" rx="6" fill="#4E99A3" opacity="0.15" class="muscle-hit" data-muscle="forearms" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('forearms')"/>
-          <rect id="ant-forearm-r" x="103" y="122" width="16" height="48" rx="6" fill="#4E99A3" opacity="0.15" class="muscle-hit" data-muscle="forearms" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('forearms')"/>
+          <rect id="ant-forearm-l" x="21" y="122" width="16" height="48" rx="6" fill="#4E99A3" opacity="0.15" class="muscle-hit ant-chest" data-muscle="forearms" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('forearms')"/>
+          <rect id="ant-forearm-r" x="103" y="122" width="16" height="48" rx="6" fill="#4E99A3" opacity="0.15" class="muscle-hit ant-chest" data-muscle="forearms" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('forearms')"/>
         </svg>
 
         <!-- Posterior (back) -->
-        <svg viewBox="0 0 140 280" width="140" height="280" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <svg class="fitness-svg-style" viewBox="0 0 140 280" width="140" height="280" xmlns="http://www.w3.org/2000/svg">
           <text x="70" y="12" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui">POSTERIOR</text>
           <!-- Body outline (same) -->
           <ellipse cx="70" cy="36" rx="18" ry="20" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="0.8"/>
@@ -586,86 +1117,86 @@
 
           <!-- Clickable muscle overlays — posterior -->
           <!-- Traps -->
-          <path id="post-traps" d="M52,56 Q70,50 88,56 L84,78 Q70,74 56,78 Z" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="traps" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('traps')"/>
+          <path id="post-traps" d="M52,56 Q70,50 88,56 L84,78 Q70,74 56,78 Z" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="traps" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('traps')"/>
           <!-- Lats -->
-          <path id="post-lats" d="M50,70 L46,125 L70,115 L70,70 Z" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="lats" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('lats')"/>
-          <path id="post-lats-r" d="M90,70 L94,125 L70,115 L70,70 Z" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="lats" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('lats')"/>
+          <path id="post-lats" d="M50,70 L46,125 L70,115 L70,70 Z" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="lats" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('lats')"/>
+          <path id="post-lats-r" d="M90,70 L94,125 L70,115 L70,70 Z" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="lats" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('lats')"/>
           <!-- Rear delts -->
-          <ellipse id="post-rdelt-l" cx="33" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="shoulders" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
-          <ellipse id="post-rdelt-r" cx="107" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="shoulders" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
+          <ellipse id="post-rdelt-l" cx="33" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="shoulders" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
+          <ellipse id="post-rdelt-r" cx="107" cy="64" rx="10" ry="9" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="shoulders" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('shoulders')"/>
           <!-- Triceps -->
-          <rect id="post-tri-l" x="24" y="65" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="triceps" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('triceps')"/>
-          <rect id="post-tri-r" x="98" y="65" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="triceps" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('triceps')"/>
+          <rect id="post-tri-l" x="24" y="65" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="triceps" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('triceps')"/>
+          <rect id="post-tri-r" x="98" y="65" width="18" height="32" rx="7" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="triceps" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('triceps')"/>
           <!-- Glutes -->
-          <rect id="post-glutes" x="46" y="123" width="48" height="22" rx="5" fill="#4E99A3" opacity="0.3" class="muscle-hit" data-muscle="glutes" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('glutes')"/>
+          <rect id="post-glutes" x="46" y="123" width="48" height="22" rx="5" fill="#4E99A3" opacity="0.3" class="muscle-hit ant-chest" data-muscle="glutes" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('glutes')"/>
           <!-- Hamstrings -->
-          <rect id="post-ham-l" x="47" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="hamstrings" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('hamstrings')"/>
-          <rect id="post-ham-r" x="72" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit" data-muscle="hamstrings" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('hamstrings')"/>
+          <rect id="post-ham-l" x="47" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="hamstrings" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('hamstrings')"/>
+          <rect id="post-ham-r" x="72" y="146" width="21" height="58" rx="8" fill="#4E99A3" opacity="0.25" class="muscle-hit ant-chest" data-muscle="hamstrings" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('hamstrings')"/>
           <!-- Calves (gastrocnemius) -->
-          <rect id="post-calf-l" x="48" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.3" class="muscle-hit" data-muscle="calves" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
-          <rect id="post-calf-r" x="75" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.3" class="muscle-hit" data-muscle="calves" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
+          <rect id="post-calf-l" x="48" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.3" class="muscle-hit ant-chest" data-muscle="calves" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
+          <rect id="post-calf-r" x="75" y="211" width="17" height="48" rx="6" fill="#4E99A3" opacity="0.3" class="muscle-hit ant-chest" data-muscle="calves" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('calves')"/>
           <!-- Lower back -->
-          <rect id="post-lback" x="55" y="100" width="30" height="20" rx="3" fill="#4E99A3" opacity="0.2" class="muscle-hit" data-muscle="lowerback" style="cursor:pointer;" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('lowerback')"/>
+          <rect id="post-lback" x="55" y="100" width="30" height="20" rx="3" fill="#4E99A3" opacity="0.2" class="muscle-hit ant-chest" data-muscle="lowerback" onmouseenter="hoverMuscle(this)" onmouseleave="unhoverMuscle(this)" onclick="selectMuscle('lowerback')"/>
         </svg>
       </div>
 
-      <div style="font-size:11px; color:var(--color-text-tertiary); text-align:center; margin-bottom:12px;">Tap / hover any muscle to explore it</div>
-      <div id="muscle-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:13px 15px; min-height:80px;"></div>
+      <div class="fitness-text-21">Tap / hover any muscle to explore it</div>
+      <div class="muscle-display" id="muscle-display"></div>
     </div>
 
     <!-- ══════════════════════════════════════════════════════════
          PART K (NEW) · COMMON MYTHS & MISCONCEPTIONS
     ═══════════════════════════════════════════════════════════ -->
-    <div class="sec">Part K · common myths &amp; what the evidence actually says</div>
+    <div class="sec">Part J · common myths &amp; what the evidence actually says</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="fitness-grid-7">
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">"Lifting makes women bulky"</div>
+      <div class="content-card-static">
+        <div class="bar-row-tight">
+          <span class="fitness-text-22">❌</span>
+          <div class="item-title">"Lifting makes women bulky"</div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55;">Women have ~10–20× less testosterone than men and significantly less growth hormone. The hormonal environment for dramatic muscle growth simply doesn't exist. Female competitive bodybuilders achieve their physique after years of specific, high-volume training often combined with performance-enhancing drugs. Resistance training for women produces strength, bone density, improved body composition, and metabolic benefit — not bulk.</div>
+        <div class="fitness-text-23">Women have ~10–20× less testosterone than men and significantly less growth hormone. The hormonal environment for dramatic muscle growth simply doesn't exist. Female competitive bodybuilders achieve their physique after years of specific, high-volume training often combined with performance-enhancing drugs. Resistance training for women produces strength, bone density, improved body composition, and metabolic benefit — not bulk.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">"You can spot-reduce fat"</div>
+      <div class="content-card-static">
+        <div class="bar-row-tight">
+          <span class="fitness-text-22">❌</span>
+          <div class="item-title">"You can spot-reduce fat"</div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55;">Doing 500 sit-ups will not burn the fat on your stomach. Fat loss is systemic — the body decides where to draw down fat stores based on genetics and hormones, not which muscles you work. The stomach, hips, and thighs tend to store fat preferentially (especially in women) and are the last places to lean out. Core exercises build core muscles; they do not "burn" overlying fat. Only a calorie deficit reduces fat, and where it comes off first is not controllable.</div>
+        <div class="fitness-text-23">Doing 500 sit-ups will not burn the fat on your stomach. Fat loss is systemic — the body decides where to draw down fat stores based on genetics and hormones, not which muscles you work. The stomach, hips, and thighs tend to store fat preferentially (especially in women) and are the last places to lean out. Core exercises build core muscles; they do not "burn" overlying fat. Only a calorie deficit reduces fat, and where it comes off first is not controllable.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">"Muscle turns into fat when you stop training"</div>
+      <div class="content-card-static">
+        <div class="bar-row-tight">
+          <span class="fitness-text-22">❌</span>
+          <div class="item-title">"Muscle turns into fat when you stop training"</div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55;">Muscle and fat are different tissues — one cannot convert into the other. When you stop training: muscle undergoes atrophy (the fibres shrink) due to lack of mechanical stimulus. Simultaneously, if you continue eating the same amount without the energy expenditure of training, you gain fat. These two things happen at the same time, giving the appearance of one "turning into" the other. They are independent processes.</div>
+        <div class="fitness-text-23">Muscle and fat are different tissues — one cannot convert into the other. When you stop training: muscle undergoes atrophy (the fibres shrink) due to lack of mechanical stimulus. Simultaneously, if you continue eating the same amount without the energy expenditure of training, you gain fat. These two things happen at the same time, giving the appearance of one "turning into" the other. They are independent processes.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">"Cardio kills your gains"</div>
+      <div class="content-card-static">
+        <div class="bar-row-tight">
+          <span class="fitness-text-22">❌</span>
+          <div class="item-title">"Cardio kills your gains"</div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55;">The "interference effect" (cardio blunting muscle growth) exists but is heavily overstated by the fitness internet. Meta-analyses show that concurrent training (cardio + weights in the same program) reduces hypertrophy by only ~5–10% compared to resistance training alone — and only when cardio volume is excessive (long sessions, same day as lifting, same muscle groups). 3–4 moderate cardio sessions per week alongside resistance training does not meaningfully impair muscle growth and improves health markers significantly.</div>
+        <div class="fitness-text-23">The "interference effect" (cardio blunting muscle growth) exists but is heavily overstated by the fitness internet. Meta-analyses show that concurrent training (cardio + weights in the same program) reduces hypertrophy by only ~5–10% compared to resistance training alone — and only when cardio volume is excessive (long sessions, same day as lifting, same muscle groups). 3–4 moderate cardio sessions per week alongside resistance training does not meaningfully impair muscle growth and improves health markers significantly.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">"You need to feel the burn / soreness to have trained well"</div>
+      <div class="content-card-static">
+        <div class="bar-row-tight">
+          <span class="fitness-text-22">❌</span>
+          <div class="item-title">"You need to feel the burn / soreness to have trained well"</div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55;">The burn (metabolic acidosis from lactate accumulation) and soreness (DOMS from eccentric damage) are both side effects of training, not measures of effectiveness. An experienced lifter can have a highly productive session with minimal soreness. Chasing the burn leads to prioritising metabolic stress over mechanical tension, which is a less effective stimulus for strength and hypertrophy. Quality of movement and progressive overload matter far more than how much something hurts.</div>
+        <div class="fitness-text-23">The burn (metabolic acidosis from lactate accumulation) and soreness (DOMS from eccentric damage) are both side effects of training, not measures of effectiveness. An experienced lifter can have a highly productive session with minimal soreness. Chasing the burn leads to prioritising metabolic stress over mechanical tension, which is a less effective stimulus for strength and hypertrophy. Quality of movement and progressive overload matter far more than how much something hurts.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">"Static stretching before exercise prevents injury"</div>
+      <div class="content-card-static">
+        <div class="bar-row-tight">
+          <span class="fitness-text-22">❌</span>
+          <div class="item-title">"Static stretching before exercise prevents injury"</div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.55;">Static stretching (hold a stretch for 30–60 seconds) before exercise has been shown to temporarily reduce muscle force output, reduce peak power, and reduce sprint performance — the opposite of what you want before lifting or sprinting. The evidence for injury prevention from pre-exercise static stretching is weak. The effective warm-up approach: dynamic movements (arm circles, leg swings, bodyweight squats, light sets of the exercise you're about to perform). Static stretching is valuable — just save it for after training, or as a standalone flexibility session.</div>
+        <div class="fitness-text-23">Static stretching (hold a stretch for 30–60 seconds) before exercise has been shown to temporarily reduce muscle force output, reduce peak power, and reduce sprint performance — the opposite of what you want before lifting or sprinting. The evidence for injury prevention from pre-exercise static stretching is weak. The effective warm-up approach: dynamic movements (arm circles, leg swings, bodyweight squats, light sets of the exercise you're about to perform). Static stretching is valuable — just save it for after training, or as a standalone flexibility session.</div>
       </div>
 
     </div>
@@ -673,7 +1204,7 @@
     <!-- ══════════════════════════════════════════════════════════
          PART G (original) · TEST YOURSELF
     ═══════════════════════════════════════════════════════════ -->
-    <div class="sec">Part L · test yourself</div>
+    <div class="sec">Part K · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. You weigh 80 kg and want to build muscle. You're currently eating 100g of protein per day. Is this enough, and what foods get you to the right amount?</p>
@@ -724,7 +1255,7 @@
    PART B · Metabolism calculator
 ═══════════════════════════════════════════════════════════ */
 function calcMet() {
-  const w = parseFloat(document.getElementById('met-weight').value);
+  const w = parseFloat(document.getElementById('u-fs-13px').value);
   const h = parseFloat(document.getElementById('met-height').value);
   const a = parseFloat(document.getElementById('met-age').value);
   const s = document.getElementById('met-sex').value;
@@ -775,7 +1306,7 @@ function updateBComp() {
     return `<div class="bcomp-seg" style="width:${pct}%;background:${s.color};color:${s.textCol};">${pct > 8 ? s.label : ''}</div>`;
   }).join('');
 
-  document.getElementById('bcomp-legend').innerHTML = segs.map(s =>
+  document.getElementById('button-row-spaced').innerHTML = segs.map(s =>
     `<div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-secondary);">
       <span style="width:10px;height:10px;border-radius:2px;background:${s.color};display:inline-block;flex-shrink:0;"></span>
       <strong style="color:var(--color-text-primary);">${s.label}</strong> ${s.kg} kg
@@ -1054,7 +1585,12 @@ function showProg(key) {
   const sessionsHTML = p.sessions.map(s => `
     <div style="margin-bottom:8px;">
       <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:5px;">${s.day}</div>
-      <table style="width:100%; border-collapse:collapse; font-size:12px;">
+      <table style="width:100%; table-layout:fixed; border-collapse:collapse; font-size:12px;">
+        <colgroup>
+          <col style="width:34%;">
+          <col style="width:18%;">
+          <col style="width:48%;">
+        </colgroup>
         <thead><tr>
           <th style="font-size:10px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--color-text-tertiary); text-align:left; padding:4px 8px; border-bottom:0.5px solid var(--color-border-tertiary);">Exercise</th>
           <th style="font-size:10px; font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--color-text-tertiary); text-align:left; padding:4px 8px; border-bottom:0.5px solid var(--color-border-tertiary);">Sets × Reps</th>

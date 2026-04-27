@@ -137,14 +137,7 @@
     }
 
     /* ── Heat index / wind chill calculator ── */
-    .calc-wrap {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-    }
-    .calc-row {
+.calc-row {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -321,14 +314,509 @@
       color: var(--color-text-secondary);
       min-width: 34px;
     }
+
+/* === Shared-ready extracted styles === */
+
+.caption-tiny {
+  font-size:10px;
+  color:var(--color-text-tertiary);
+}
+
+.muted-text {
+  font-size:12px;
+  color:var(--color-text-secondary);
+}
+
+.text-amber-500 {
+  color:#EF9F27;
+}
+
+.text-amber-900 {
+  color:#633806;
+}
+
+.text-blue-900 {
+  color:#0C447C;
+}
+
+.text-green-900 {
+  color:#085041;
+}
+
+.text-orange-600 {
+  color:#D85A30;
+}
+
+.text-orange-900 {
+  color:#712B13;
+}
+
+.text-red-900 {
+  color:#791F1F;
+}
+
+.text-teal-500 {
+  color:#4E99A3;
+}
+
+.u-text-center {
+  text-align:center;
+}
+
+.u-text-right {
+  text-align:right;
+}
+
+/* === Module-specific extracted styles === */
+
+.atm-layer-style {
+  background:#0c2540;
+  color:#85b7eb;
+}
+
+.atm-layer-style-2 {
+  background:#0e2d50;
+  color:#7fb8e8;
+}
+
+.atm-layer-style-3 {
+  background:#12386a;
+  color:#85b7eb;
+}
+
+.atm-layer-style-4 {
+  background:#1a5490;
+  color:#b5d4f4;
+}
+
+.atm-layer-style-5 {
+  background:#4E99A3;
+  color:#ffffff;
+}
+
+.weather-label {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:3px;
+}
+
+.pressure-scale-style {
+  background:linear-gradient(to right, #712B13, #F09595, #E6F1FB, #85B7EB, #042C53);
+}
+
+.btn-row-style {
+  margin-top:8px;
+  margin-bottom:0;
+}
+
+.weather-panel-2 {
+  background:#E6F1FB;
+  border:0.5px solid #85B7EB;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+}
+
+.weather-label-2 {
+  font-size:14px;
+  font-weight:500;
+  color:#042C53;
+  margin-bottom:6px;
+}
+
+.weather-text {
+  font-size:12px;
+  color:#0C447C;
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.weather-row {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.weather-panel-3 {
+  background:#B5D4F4;
+  border-radius:3px;
+  padding:5px 8px;
+  font-size:11px;
+  color:#042C53;
+}
+
+.weather-panel-4 {
+  background:#FAECE7;
+  border:0.5px solid #F0997B;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+}
+
+.weather-label-3 {
+  font-size:14px;
+  font-weight:500;
+  color:#4A1B0C;
+  margin-bottom:6px;
+}
+
+.weather-text-2 {
+  font-size:12px;
+  color:#712B13;
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.weather-panel-5 {
+  background:#F5C4B3;
+  border-radius:3px;
+  padding:5px 8px;
+  font-size:11px;
+  color:#4A1B0C;
+}
+
+.cval-style {
+  font-size:14px;
+}
+
+.cloud-badge-style {
+  background:#E6F1FB;
+  color:#0C447C;
+}
+
+.cloud-badge-style-2 {
+  background:#E1F5EE;
+  color:#085041;
+}
+
+.cloud-badge-style-3 {
+  background:#FAEEDA;
+  color:#633806;
+}
+
+.cloud-badge-style-4 {
+  background:#FCEBEB;
+  color:#791F1F;
+}
+
+.cloud-badge-style-5 {
+  background:#FAECE7;
+  color:#712B13;
+}
+
+.comfort-seg-style {
+  width:12%;
+  background:#0C447C;
+}
+
+.comfort-seg-style-2 {
+  width:15%;
+  background:#085041;
+}
+
+.comfort-seg-style-3 {
+  width:18%;
+  background:#4E99A3;
+}
+
+.comfort-seg-style-4 {
+  width:18%;
+  background:#EF9F27;
+  color:#4A2800;
+}
+
+.comfort-seg-style-5 {
+  width:18%;
+  background:#D85A30;
+}
+
+.comfort-seg-style-6 {
+  width:19%;
+  background:#791F1F;
+}
+
+.weather-row-2 {
+  display:flex;
+  justify-content:space-between;
+  font-size:10px;
+  color:var(--color-text-tertiary);
+  margin-bottom:8px;
+}
+
+.weather-panel-6 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #F09595;
+}
+
+.weather-label-4 {
+  font-size:12px;
+  font-weight:500;
+  color:#791F1F;
+  margin-bottom:4px;
+}
+
+.weather-text-4 {
+  font-size:12px;
+  color:#A32D2D;
+  line-height:1.6;
+}
+
+.weather-panel-7 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #97C459;
+}
+
+.weather-label-5 {
+  font-size:12px;
+  font-weight:500;
+  color:#27500A;
+  margin-bottom:4px;
+}
+
+.weather-text-5 {
+  font-size:12px;
+  color:#3B6D11;
+  line-height:1.6;
+}
+
+.weather-label-7 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:6px;
+}
+
+.card-style-2 {
+  margin-bottom:1rem;
+  overflow-x:auto;
+}
+
+.tornado-display {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+}
+
+.instrument-display {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  margin-top:8px;
+}
+
+.weather-panel-9 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #85B7EB;
+}
+
+.weather-label-8 {
+  font-size:12px;
+  font-weight:500;
+  color:#042C53;
+  margin-bottom:4px;
+}
+
+.weather-text-7 {
+  font-size:12px;
+  color:#185FA5;
+  line-height:1.5;
+}
+
+.weather-panel-10 {
+  background:#FAECE7;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #F0997B;
+}
+
+.weather-label-9 {
+  font-size:12px;
+  font-weight:500;
+  color:#4A1B0C;
+  margin-bottom:4px;
+}
+
+.weather-text-8 {
+  font-size:12px;
+  color:#712B13;
+  line-height:1.5;
+}
+
+.weather-panel-11 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  margin-bottom:10px;
+}
+
+.weather-row-3 {
+  display:flex;
+  align-items:flex-end;
+  gap:2px;
+  height:60px;
+  margin-bottom:4px;
+}
+
+.weather-media {
+  flex:1;
+  background:#85B7EB;
+  height:20%;
+}
+
+.weather-media-2 {
+  flex:1;
+  background:#85B7EB;
+  height:15%;
+}
+
+.weather-media-3 {
+  flex:1;
+  background:#85B7EB;
+  height:30%;
+}
+
+.weather-media-4 {
+  flex:1;
+  background:#85B7EB;
+  height:10%;
+}
+
+.weather-media-5 {
+  flex:1;
+  background:#85B7EB;
+  height:25%;
+}
+
+.weather-media-6 {
+  flex:1;
+  background:#85B7EB;
+  height:18%;
+}
+
+.weather-media-7 {
+  flex:1;
+  background:#85B7EB;
+  height:35%;
+}
+
+.weather-media-8 {
+  flex:1;
+  background:#85B7EB;
+  height:28%;
+}
+
+.weather-media-9 {
+  flex:1;
+  background:#EF9F27;
+  height:42%;
+}
+
+.weather-media-10 {
+  flex:1;
+  background:#EF9F27;
+  height:38%;
+}
+
+.weather-media-11 {
+  flex:1;
+  background:#EF9F27;
+  height:55%;
+}
+
+.weather-media-12 {
+  flex:1;
+  background:#D85A30;
+  height:62%;
+}
+
+.weather-media-13 {
+  flex:1;
+  background:#D85A30;
+  height:58%;
+}
+
+.weather-media-14 {
+  flex:1;
+  background:#D85A30;
+  height:70%;
+}
+
+.weather-media-15 {
+  flex:1;
+  background:#D85A30;
+  height:65%;
+}
+
+.weather-media-16 {
+  flex:1;
+  background:#D85A30;
+  height:75%;
+}
+
+.weather-media-17 {
+  flex:1;
+  background:#A32D2D;
+  height:80%;
+}
+
+.weather-media-18 {
+  flex:1;
+  background:#A32D2D;
+  height:85%;
+}
+
+.weather-media-19 {
+  flex:1;
+  background:#A32D2D;
+  height:90%;
+}
+
+.weather-media-20 {
+  flex:1;
+  background:#A32D2D;
+  height:88%;
+}
+
+.weather-media-21 {
+  flex:1;
+  background:#A32D2D;
+  height:95%;
+}
+
+.weather-media-22 {
+  flex:1;
+  background:#791F1F;
+  height:100%;
+}
+
+.weather-row-4 {
+  display:flex;
+  justify-content:space-between;
+  font-size:10px;
+  color:var(--color-text-secondary);
+}
+
+.callout-style-2 {
+  margin-bottom:0;
+}
+
+.callout-style-3 {
+  margin-top:10px;
+  margin-bottom:0;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-cloud-sun" style="font-size:42px; color:#4E99A3; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 25: Weather</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-cloud-sun module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 25: Weather</h1>
     </div>
     <p class="module-subtitle">Fronts, clouds, pressure, and forecasting</p>
 
@@ -338,42 +826,42 @@
     <div class="sec">Part A · what weather actually is — energy redistribution in the troposphere</div>
 
     <!-- Atmosphere layers diagram (new visual) -->
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The atmosphere — layers and what happens in each</div>
-      <div class="atm-layer" style="background:#0c2540; color:#85b7eb;">
+    <div class="card u-mb-lg">
+      <div class="panel-title">The atmosphere — layers and what happens in each</div>
+      <div class="atm-layer atm-layer-style">
         <div class="atm-alt">500 km+</div>
         <div><div class="atm-name">Exosphere</div><div class="atm-note">Fades into space. Satellites orbit here. Negligible density.</div></div>
       </div>
-      <div class="atm-layer" style="background:#0e2d50; color:#7fb8e8;">
+      <div class="atm-layer atm-layer-style-2">
         <div class="atm-alt">80–500 km</div>
         <div><div class="atm-name">Thermosphere / Ionosphere</div><div class="atm-note">Extremely thin, very high temperatures. Aurora borealis forms here. ISS orbits at ~400 km.</div></div>
       </div>
-      <div class="atm-layer" style="background:#12386a; color:#85b7eb;">
+      <div class="atm-layer atm-layer-style-3">
         <div class="atm-alt">50–80 km</div>
         <div><div class="atm-name">Mesosphere</div><div class="atm-note">Coldest part of the atmosphere (–90°C). Meteors burn up here. Noctilucent clouds form at the top.</div></div>
       </div>
-      <div class="atm-layer" style="background:#1a5490; color:#b5d4f4;">
+      <div class="atm-layer atm-layer-style-4">
         <div class="atm-alt">12–50 km</div>
         <div><div class="atm-name">Stratosphere</div><div class="atm-note">Ozone layer (20–30 km) absorbs UV. Temperature rises with altitude. Very stable — no weather, but aircraft cruise here. Commercial planes fly at 10–12 km, just at the tropopause.</div></div>
       </div>
-      <div class="atm-layer" style="background:#4E99A3; color:#ffffff;">
+      <div class="atm-layer atm-layer-style-5">
         <div class="atm-alt">0–12 km</div>
         <div><div class="atm-name">Troposphere ← all weather here</div><div class="atm-note">Contains 75% of atmospheric mass and ~99% of water vapour. Temperature falls ~6.5°C/km. Ends at the tropopause (higher in tropics ~16 km, lower at poles ~8 km).</div></div>
       </div>
     </div>
 
     <div class="grid-3">
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The engine</div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">The Sun heats the Earth's surface unevenly (equator more than poles, land more than sea). This creates temperature differences → density differences → pressure differences → wind. Weather is the atmosphere attempting to redistribute this energy imbalance.</div>
+      <div class="sub-card">
+        <div class="weather-label">The engine</div>
+        <div class="muted-copy-tight">The Sun heats the Earth's surface unevenly (equator more than poles, land more than sea). This creates temperature differences → density differences → pressure differences → wind. Weather is the atmosphere attempting to redistribute this energy imbalance.</div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The water cycle's role</div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Water evaporates (absorbs energy) → rises (cools) → condenses into clouds (releases latent heat — this powers storms) → falls as precipitation → evaporates again. This cycle moves enormous amounts of energy — more than direct convection alone.</div>
+      <div class="sub-card">
+        <div class="weather-label">The water cycle's role</div>
+        <div class="muted-copy-tight">Water evaporates (absorbs energy) → rises (cools) → condenses into clouds (releases latent heat — this powers storms) → falls as precipitation → evaporates again. This cycle moves enormous amounts of energy — more than direct convection alone.</div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The Coriolis effect</div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Earth's rotation deflects moving air to the right in the N. Hemisphere, left in the S. Hemisphere. Low-pressure systems spin anticlockwise in the N. Hemisphere. The effect is zero at the equator — why hurricanes can't form within ~5° of it.</div>
+      <div class="sub-card">
+        <div class="weather-label">The Coriolis effect</div>
+        <div class="muted-copy-tight">Earth's rotation deflects moving air to the right in the N. Hemisphere, left in the S. Hemisphere. Low-pressure systems spin anticlockwise in the N. Hemisphere. The effect is zero at the equator — why hurricanes can't form within ~5° of it.</div>
       </div>
     </div>
 
@@ -383,20 +871,20 @@
     <div class="sec">Part B · pressure systems — high and low, what they mean and why</div>
 
     <!-- Pressure scale visual (new) -->
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The pressure scale — where common situations sit (hPa)</div>
-      <div class="pressure-scale" style="background: linear-gradient(to right, #712B13, #F09595, #E6F1FB, #85B7EB, #042C53);">
+    <div class="card u-mb-lg">
+      <div class="panel-title">The pressure scale — where common situations sit (hPa)</div>
+      <div class="pressure-scale pressure-scale-style">
         <!-- markers injected by JS -->
         <div id="pressure-markers"></div>
       </div>
       <div class="pressure-label-row">
-        <span>880 hPa<br><span style="color:#791F1F">Super-typhoon</span></span>
-        <span style="text-align:center">960 hPa<br><span style="color:#712B13">Severe storm</span></span>
-        <span style="text-align:center">1013 hPa<br><span>Standard sea level</span></span>
-        <span style="text-align:right">1040+ hPa<br><span style="color:#0C447C">Strong high</span></span>
+        <span>880 hPa<br><span class="text-red-900">Super-typhoon</span></span>
+        <span class="u-text-center">960 hPa<br><span class="text-orange-900">Severe storm</span></span>
+        <span class="u-text-center">1013 hPa<br><span>Standard sea level</span></span>
+        <span class="u-text-right">1040+ hPa<br><span class="text-blue-900">Strong high</span></span>
       </div>
-      <div id="pressure-events" style="margin-top:8px;"></div>
-      <div class="btn-row" style="margin-top:8px; margin-bottom:0;">
+      <div class="u-mt-sm" id="u-mt-8px"></div>
+      <div class="btn-row btn-row-style">
         <button onclick="showPressureEvent('typhoon')">Typhoon Tip (record)</button>
         <button onclick="showPressureEvent('katrina')">Hurricane Katrina</button>
         <button onclick="showPressureEvent('standard')">Standard sea level</button>
@@ -406,24 +894,24 @@
     </div>
 
     <div class="grid-2">
-      <div style="background:#E6F1FB; border:0.5px solid #85B7EB; border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:14px; font-weight:500; color:#042C53; margin-bottom:6px;">High pressure (anticyclone)</div>
-        <div style="font-size:12px; color:#0C447C; line-height:1.6; margin-bottom:8px;">Air sinks from above → warms as it descends (compression) → reduces relative humidity → clouds evaporate → fair weather. Winds spiral outward (clockwise in N. Hemisphere).</div>
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">Typical weather: clear skies, sunshine, light winds</div>
-          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">In summer: heatwaves (blocking high pressure traps warm air)</div>
-          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">In winter: cold, frost, fog (clear skies = rapid radiative cooling)</div>
-          <div style="background:#B5D4F4; border-radius:3px; padding:5px 8px; font-size:11px; color:#042C53;">Typical pressure: 1,020–1,040+ hPa (standard sea level: 1,013 hPa)</div>
+      <div class="weather-panel-2">
+        <div class="weather-label-2">High pressure (anticyclone)</div>
+        <div class="weather-text">Air sinks from above → warms as it descends (compression) → reduces relative humidity → clouds evaporate → fair weather. Winds spiral outward (clockwise in N. Hemisphere).</div>
+        <div class="weather-row">
+          <div class="weather-panel-3">Typical weather: clear skies, sunshine, light winds</div>
+          <div class="weather-panel-3">In summer: heatwaves (blocking high pressure traps warm air)</div>
+          <div class="weather-panel-3">In winter: cold, frost, fog (clear skies = rapid radiative cooling)</div>
+          <div class="weather-panel-3">Typical pressure: 1,020–1,040+ hPa (standard sea level: 1,013 hPa)</div>
         </div>
       </div>
-      <div style="background:#FAECE7; border:0.5px solid #F0997B; border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:14px; font-weight:500; color:#4A1B0C; margin-bottom:6px;">Low pressure (cyclone / depression)</div>
-        <div style="font-size:12px; color:#712B13; line-height:1.6; margin-bottom:8px;">Air rises → cools as it ascends → relative humidity increases → water vapour condenses → clouds form → precipitation. Winds spiral inward (anticlockwise in N. Hemisphere).</div>
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Typical weather: cloud, rain, strong winds</div>
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Deep lows: storms, gales, heavy rain</div>
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Tropical cyclones: extreme low pressure, catastrophic winds</div>
-          <div style="background:#F5C4B3; border-radius:3px; padding:5px 8px; font-size:11px; color:#4A1B0C;">Typical pressure: 980–1,010 hPa. Severe storm: below 960 hPa</div>
+      <div class="weather-panel-4">
+        <div class="weather-label-3">Low pressure (cyclone / depression)</div>
+        <div class="weather-text-2">Air rises → cools as it ascends → relative humidity increases → water vapour condenses → clouds form → precipitation. Winds spiral inward (anticlockwise in N. Hemisphere).</div>
+        <div class="weather-row">
+          <div class="weather-panel-5">Typical weather: cloud, rain, strong winds</div>
+          <div class="weather-panel-5">Deep lows: storms, gales, heavy rain</div>
+          <div class="weather-panel-5">Tropical cyclones: extreme low pressure, catastrophic winds</div>
+          <div class="weather-panel-5">Typical pressure: 980–1,010 hPa. Severe storm: below 960 hPa</div>
         </div>
       </div>
     </div>
@@ -436,22 +924,22 @@
     <div class="grid-4">
       <div class="card">
         <p class="clabel">Cold front</p>
-        <p class="cval" style="font-size:14px;">Cold air undercuts warm air — sharp, fast</p>
+        <p class="cval cval-style">Cold air undercuts warm air — sharp, fast</p>
         <p class="cnote">A wedge of cold air advances and undercuts warmer air ahead. Warm air is forced sharply upward → tall cumulonimbus clouds → intense but brief rain, thunderstorms, gusty winds. After passage: rapid clearance, temperature drops sharply, pressure rises. On a map: <strong>blue line with triangular teeth</strong> pointing in the direction of travel.</p>
       </div>
       <div class="card">
         <p class="clabel">Warm front</p>
-        <p class="cval" style="font-size:14px;">Warm air overrides cold air — gradual, wide</p>
+        <p class="cval cval-style">Warm air overrides cold air — gradual, wide</p>
         <p class="cnote">Warm air slides up and over retreating cold air. Gradual lifting → clouds over 500–1,000 km ahead → prolonged steady rain. Arrival sequence: cirrus (24h+ before) → altostratus → nimbostratus (rain). After: temperature rises, pressure stabilises. On a map: <strong>red line with rounded bumps</strong> pointing forward.</p>
       </div>
       <div class="card">
         <p class="clabel">Occluded front</p>
-        <p class="cval" style="font-size:14px;">Cold overtakes warm — complex, often intense</p>
+        <p class="cval cval-style">Cold overtakes warm — complex, often intense</p>
         <p class="cnote">The faster-moving cold front catches the warm front. Warm air is lifted entirely off the surface → persistent rain and unsettled weather. Marks where a depression is weakening. On a map: <strong>purple line</strong> with alternating triangles and semicircles.</p>
       </div>
       <div class="card">
         <p class="clabel">Stationary front</p>
-        <p class="cval" style="font-size:14px;">No movement — prolonged same weather</p>
+        <p class="cval cval-style">No movement — prolonged same weather</p>
         <p class="cnote">Neither air mass advances. Can produce days of persistent rain or fog. Responsible for many prolonged flooding events. On a map: <strong>alternating cold and warm symbols</strong> facing opposite directions.</p>
       </div>
     </div>
@@ -465,96 +953,96 @@
       Clouds are classified by <strong>altitude</strong> (high, middle, low) and <strong>form</strong> (cumulus = heaped/convective; stratus = layered/stable; cirrus = wispy/ice crystal). The prefix <em>nimbo-</em> or suffix <em>-nimbus</em> means rain-producing. Knowing cloud types lets you forecast the next few hours without any instruments.
     </div>
 
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The ten principal cloud genera</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title">The ten principal cloud genera</div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#0C447C;">HIGH<br>6–12 km</div>
+        <div class="cloud-alt text-blue-900">HIGH<br>6–12 km</div>
         <div>
           <div class="cloud-name">Cirrus (Ci)</div>
           <div class="cloud-desc">Wispy, hair-like streaks of ice crystals. The first sign of an approaching warm front. Appear like white brushstrokes on blue. "Mare's tails" point in the direction of upper winds.</div>
-          <span class="cloud-badge" style="background:#E6F1FB; color:#0C447C;">Fair now · front 24h+ away</span>
+          <span class="cloud-badge cloud-badge-style">Fair now · front 24h+ away</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#0C447C;">HIGH<br>6–12 km</div>
+        <div class="cloud-alt text-blue-900">HIGH<br>6–12 km</div>
         <div>
           <div class="cloud-name">Cirrostratus (Cs)</div>
           <div class="cloud-desc">Thin, milky veil covering the whole sky. Halos around the Sun or Moon form here (22° ring from ice crystal refraction). Sky looks milky-white. The halo is a reliable indicator of approaching precipitation.</div>
-          <span class="cloud-badge" style="background:#E6F1FB; color:#0C447C;">Halo · rain within 12–24 h</span>
+          <span class="cloud-badge cloud-badge-style">Halo · rain within 12–24 h</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#0C447C;">HIGH<br>6–12 km</div>
+        <div class="cloud-alt text-blue-900">HIGH<br>6–12 km</div>
         <div>
           <div class="cloud-name">Cirrocumulus (Cc)</div>
           <div class="cloud-desc">Small, white puffs in rows or ripples ("mackerel sky"). Pure white — no grey. Rare. Indicates high-altitude instability. Traditional sailors' warning: "mackerel sky and mares' tails make tall ships carry low sails."</div>
-          <span class="cloud-badge" style="background:#E6F1FB; color:#0C447C;">Short-lived · possible deterioration</span>
+          <span class="cloud-badge cloud-badge-style">Short-lived · possible deterioration</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#085041;">MID<br>2–6 km</div>
+        <div class="cloud-alt text-green-900">MID<br>2–6 km</div>
         <div>
           <div class="cloud-name">Altostratus (As)</div>
           <div class="cloud-desc">Grey or blue-grey sheet covering the whole sky. The Sun appears as through ground glass — no halo (water droplets, not ice crystals). Follows cirrostratus. Steady, continuous rain imminent.</div>
-          <span class="cloud-badge" style="background:#E1F5EE; color:#085041;">Continuous rain soon</span>
+          <span class="cloud-badge cloud-badge-style-2">Continuous rain soon</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#085041;">MID<br>2–6 km</div>
+        <div class="cloud-alt text-green-900">MID<br>2–6 km</div>
         <div>
           <div class="cloud-name">Altocumulus (Ac)</div>
           <div class="cloud-desc">White and grey patches or rolls, larger than cirrocumulus. Often shows iridescence (rainbow colours at edges from diffraction). "Altocumulus castellanus" — turret-shaped tops — signals instability and possible afternoon thunderstorms.</div>
-          <span class="cloud-badge" style="background:#E1F5EE; color:#085041;">Variable · possible afternoon storms</span>
+          <span class="cloud-badge cloud-badge-style-2">Variable · possible afternoon storms</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#633806;">LOW<br>0–2 km</div>
+        <div class="cloud-alt text-amber-900">LOW<br>0–2 km</div>
         <div>
           <div class="cloud-name">Stratus (St)</div>
           <div class="cloud-desc">Uniform grey layer, like fog that isn't quite at the surface. May produce drizzle but rarely heavy rain. Creates grey, overcast days without dramatic weather. Fog lifting off the ground becomes stratus.</div>
-          <span class="cloud-badge" style="background:#FAEEDA; color:#633806;">Drizzle possible · dull overcast</span>
+          <span class="cloud-badge cloud-badge-style-3">Drizzle possible · dull overcast</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#633806;">LOW<br>0–2 km</div>
+        <div class="cloud-alt text-amber-900">LOW<br>0–2 km</div>
         <div>
           <div class="cloud-name">Stratocumulus (Sc)</div>
           <div class="cloud-desc">The most common cloud type globally. Low, grey, lumpy rolls or patches with some blue sky between. Usually produces little or no rain. Covers vast areas under anticyclones. The "grey British sky" is typically stratocumulus.</div>
-          <span class="cloud-badge" style="background:#FAEEDA; color:#633806;">Most common cloud · usually dry</span>
+          <span class="cloud-badge cloud-badge-style-3">Most common cloud · usually dry</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#633806;">LOW<br>0–2 km</div>
+        <div class="cloud-alt text-amber-900">LOW<br>0–2 km</div>
         <div>
           <div class="cloud-name">Nimbostratus (Ns)</div>
           <div class="cloud-desc">Dark, thick grey layer — the "rain cloud." Produces continuous, steady precipitation (rain, snow, or sleet). So thick it blocks sunlight completely. Typically 3–4 km deep. Associated with warm fronts.</div>
-          <span class="cloud-badge" style="background:#FCEBEB; color:#791F1F;">Continuous rain or snow</span>
+          <span class="cloud-badge cloud-badge-style-4">Continuous rain or snow</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#712B13;">VERT.<br>500m–12km</div>
+        <div class="cloud-alt text-orange-900">VERT.<br>500m–12km</div>
         <div>
           <div class="cloud-name">Cumulus (Cu)</div>
           <div class="cloud-desc">Flat base, cauliflower top. The "fair weather" cloud when small ("cumulus humilis"). When they grow tall ("cumulus congestus"), they signal increasing instability and may develop into cumulonimbus. Key sign: if cumulus keep growing through the afternoon, take shelter.</div>
-          <span class="cloud-badge" style="background:#FAECE7; color:#712B13;">Fair if small · watch if growing</span>
+          <span class="cloud-badge cloud-badge-style-5">Fair if small · watch if growing</span>
         </div>
       </div>
 
       <div class="cloud-row">
-        <div class="cloud-alt" style="color:#712B13;">VERT.<br>500m–15km</div>
+        <div class="cloud-alt text-orange-900">VERT.<br>500m–15km</div>
         <div>
           <div class="cloud-name">Cumulonimbus (Cb)</div>
           <div class="cloud-desc">The king of clouds. Towering from near the surface to the tropopause. The classic "anvil" top forms when the top spreads sideways at the tropopause (ice crystals). Contains hail, lightning, extreme turbulence, downbursts. Can contain energy equivalent to several atomic bombs. Generates its own mesoscale circulation.</div>
-          <span class="cloud-badge" style="background:#FCEBEB; color:#791F1F;">Heavy rain · hail · lightning · danger</span>
+          <span class="cloud-badge cloud-badge-style-4">Heavy rain · hail · lightning · danger</span>
         </div>
       </div>
     </div>
@@ -575,7 +1063,7 @@
       <button onclick="showPhen('heatlight')">Heat lightning</button>
       <button onclick="showPhen('virga')">Virga</button>
     </div>
-    <div id="phen-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="phen-display"></div>
 
     <!-- ══════════════════════════════════════════
          PART F — Wind (new)
@@ -586,15 +1074,15 @@
       The <strong>Beaufort scale</strong> (1805, Admiral Francis Beaufort) was designed to estimate wind speed from observable effects at sea — no instruments needed. It runs from 0 (dead calm) to 12 (hurricane force). Each step doubles the approximate wind energy. Understanding it lets you interpret forecasts and assess conditions without checking an app.
     </div>
 
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The Beaufort Wind Scale</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title">The Beaufort Wind Scale</div>
       <div id="beaufort-list"></div>
     </div>
 
     <!-- Wind chill / feels-like calculator (new interactive) -->
     <div class="calc-wrap">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Wind chill calculator — what temperature "feels like"</div>
-      <div class="callout" style="margin-bottom:10px;">
+      <div class="panel-title">Wind chill calculator — what temperature "feels like"</div>
+      <div class="callout u-mb-md">
         Wind chill (the "feels like" temperature) is calculated from the <strong>Steadman formula</strong> used by US/Canadian weather services. It only applies when air temperature is ≤10°C and wind speed is ≥5 km/h — at higher temperatures, evaporative cooling and solar gain dominate, which is where the <em>heat index</em> applies instead.
       </div>
 
@@ -616,8 +1104,8 @@
 
     <!-- Heat index calculator (new interactive) -->
     <div class="calc-wrap">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Heat index calculator — how humidity amplifies heat</div>
-      <div class="callout" style="margin-bottom:10px;">
+      <div class="panel-title">Heat index calculator — how humidity amplifies heat</div>
+      <div class="callout u-mb-md">
         The <strong>heat index</strong> (Rothfusz equation) measures apparent temperature when humidity prevents effective sweat evaporation. Valid when temperature ≥ 27°C and relative humidity ≥ 40%. At high humidity, your body can't cool itself efficiently — you feel significantly hotter than the thermometer shows.
       </div>
       <div class="calc-row">
@@ -637,29 +1125,29 @@
     </div>
 
     <!-- Dew point comfort (new) -->
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Dew point — the most honest measure of humidity discomfort</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title-spaced">Dew point — the most honest measure of humidity discomfort</div>
       <div class="callout">
         Relative humidity is misleading — 90% humidity at 5°C feels fine; 60% humidity at 35°C feels oppressive. The <strong>dew point temperature</strong> is a better measure of how muggy the air actually feels, because it's an absolute measure of moisture content and doesn't change with temperature.
       </div>
-      <div class="comfort-bar" style="margin-bottom:4px;">
-        <div class="comfort-seg" style="width:12%; background:#0C447C;">Dry</div>
-        <div class="comfort-seg" style="width:15%; background:#085041;">Comfort</div>
-        <div class="comfort-seg" style="width:18%; background:#4E99A3;">Comfort</div>
-        <div class="comfort-seg" style="width:18%; background:#EF9F27; color:#4A2800;">Sticky</div>
-        <div class="comfort-seg" style="width:18%; background:#D85A30;">Oppressive</div>
-        <div class="comfort-seg" style="width:19%; background:#791F1F;">Dangerous</div>
+      <div class="comfort-bar u-mb-xs">
+        <div class="comfort-seg comfort-seg-style">Dry</div>
+        <div class="comfort-seg comfort-seg-style-2">Comfort</div>
+        <div class="comfort-seg comfort-seg-style-3">Comfort</div>
+        <div class="comfort-seg comfort-seg-style-4">Sticky</div>
+        <div class="comfort-seg comfort-seg-style-5">Oppressive</div>
+        <div class="comfort-seg comfort-seg-style-6">Dangerous</div>
       </div>
-      <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--color-text-tertiary); margin-bottom:8px;">
+      <div class="weather-row-2">
         <span>&lt;5°C</span><span>5–10°C</span><span>10–15°C</span><span>15–18°C</span><span>18–21°C</span><span>&gt;21°C</span>
       </div>
-      <div style="display:flex; flex-direction:column; gap:4px;">
-        <div style="font-size:12px; color:var(--color-text-secondary);"><strong style="color:#0C447C;">Below 5°C:</strong> Very dry. Skin dries out, static electricity. Desert and winter air.</div>
-        <div style="font-size:12px; color:var(--color-text-secondary);"><strong style="color:#085041;">5–10°C:</strong> Dry but comfortable. Good hiking weather.</div>
-        <div style="font-size:12px; color:var(--color-text-secondary);"><strong style="color:#4E99A3;">10–15°C:</strong> Comfortable. Most people feel fine. UK summer average.</div>
-        <div style="font-size:12px; color:var(--color-text-secondary);"><strong style="color:#EF9F27;">15–18°C:</strong> Noticeably sticky. Southeast USA in summer.</div>
-        <div style="font-size:12px; color:var(--color-text-secondary);"><strong style="color:#D85A30;">18–21°C:</strong> Oppressive. Uncomfortable for most. Tropical cities.</div>
-        <div style="font-size:12px; color:var(--color-text-secondary);"><strong style="color:#791F1F;">Above 21°C:</strong> Dangerous. Human thermoregulation becomes impaired. Can cause heat death in sustained exposure. Wet bulb globe temperature over 35°C is considered survivability limit.</div>
+      <div class="weather-row">
+        <div class="muted-text"><strong class="text-blue-900">Below 5°C:</strong> Very dry. Skin dries out, static electricity. Desert and winter air.</div>
+        <div class="muted-text"><strong class="text-green-900">5–10°C:</strong> Dry but comfortable. Good hiking weather.</div>
+        <div class="muted-text"><strong class="text-teal-500">10–15°C:</strong> Comfortable. Most people feel fine. UK summer average.</div>
+        <div class="muted-text"><strong class="text-amber-500">15–18°C:</strong> Noticeably sticky. Southeast USA in summer.</div>
+        <div class="muted-text"><strong class="text-orange-600">18–21°C:</strong> Oppressive. Uncomfortable for most. Tropical cities.</div>
+        <div class="muted-text"><strong class="text-red-900">Above 21°C:</strong> Dangerous. Human thermoregulation becomes impaired. Can cause heat death in sustained exposure. Wet bulb globe temperature over 35°C is considered survivability limit.</div>
       </div>
     </div>
 
@@ -668,35 +1156,35 @@
          ══════════════════════════════════════════ -->
     <div class="sec">Part G · what "60% chance of rain" actually means</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Forecast probability of precipitation (PoP) — the most misunderstood number in meteorology</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">Forecast probability of precipitation (PoP) — the most misunderstood number in meteorology</div>
 
-      <div class="grid-2" style="margin-bottom:8px;">
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #F09595;">
-          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">What 60% does NOT mean</div>
-          <div style="font-size:12px; color:#A32D2D; line-height:1.6;">It does NOT mean "it will rain for 60% of the day." It does NOT mean "60% of the area will get rain." It does NOT mean "there's a 60% chance it rains somewhere at some point."</div>
+      <div class="grid-2 u-mb-sm">
+        <div class="weather-panel-6">
+          <div class="weather-label-4">What 60% does NOT mean</div>
+          <div class="weather-text-4">It does NOT mean "it will rain for 60% of the day." It does NOT mean "60% of the area will get rain." It does NOT mean "there's a 60% chance it rains somewhere at some point."</div>
         </div>
-        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #97C459;">
-          <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">What 60% actually means</div>
-          <div style="font-size:12px; color:#3B6D11; line-height:1.6;">PoP = C × A, where C = confidence (probability that rain occurs) and A = area coverage fraction. A 60% PoP means: 60% probability that ≥0.25mm of precipitation falls at any specific point in the forecast area during the forecast period.</div>
+        <div class="weather-panel-7">
+          <div class="weather-label-5">What 60% actually means</div>
+          <div class="weather-text-5">PoP = C × A, where C = confidence (probability that rain occurs) and A = area coverage fraction. A 60% PoP means: 60% probability that ≥0.25mm of precipitation falls at any specific point in the forecast area during the forecast period.</div>
         </div>
       </div>
 
-      <div class="grid-2" style="margin-bottom:8px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Practical interpretation</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">If you experienced this forecast 10 times, it would rain on about 6 of those days at your specific location. It says nothing about duration or intensity. 5 minutes of drizzle or 2 hours of heavy rain — the probability is the same.</div>
+      <div class="grid-2 u-mb-sm">
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">Practical interpretation</div>
+          <div class="muted-copy-tight">If you experienced this forecast 10 times, it would rain on about 6 of those days at your specific location. It says nothing about duration or intensity. 5 minutes of drizzle or 2 hours of heavy rain — the probability is the same.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Coverage language</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">"Isolated showers" = &lt;25% area coverage. "Scattered showers" = 25–54%. "Numerous" or "widespread" = 55%+. These give area context the PoP number alone doesn't provide.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">Coverage language</div>
+          <div class="muted-copy-tight">"Isolated showers" = &lt;25% area coverage. "Scattered showers" = 25–54%. "Numerous" or "widespread" = 55%+. These give area context the PoP number alone doesn't provide.</div>
         </div>
       </div>
 
       <!-- New: forecast skill by lead time visual -->
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">How far ahead can we reliably forecast? (approximate skill levels)</div>
+      <div class="weather-label-7">How far ahead can we reliably forecast? (approximate skill levels)</div>
       <div id="skill-bars"></div>
-      <div class="callout" style="margin-top:8px; margin-bottom:0;">
+      <div class="callout btn-row-style">
         <strong>The 10-day limit:</strong> Chaotic sensitivity to initial conditions (the "butterfly effect") means deterministic weather forecasts become essentially useless beyond ~10 days. Modern ensemble forecasts (running the model ~50 times with slightly different starting conditions) can give probabilistic guidance out to ~2 weeks, but uncertainty grows rapidly. For periods beyond 2 weeks, only broad seasonal tendencies can be forecast — not specific weather events.
       </div>
     </div>
@@ -707,8 +1195,8 @@
     <div class="sec">Part H · severe weather — tropical cyclones, tornadoes, and other extremes</div>
 
     <!-- Storm comparison table -->
-    <div class="card" style="margin-bottom:1rem; overflow-x:auto;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Major severe weather types compared</div>
+    <div class="card card-style-2">
+      <div class="panel-title">Major severe weather types compared</div>
       <table class="storm-table">
         <thead>
           <tr>
@@ -721,14 +1209,14 @@
         </thead>
         <tbody>
           <tr>
-            <td>Tropical cyclone<br><span style="font-size:10px; color:var(--color-text-tertiary);">(hurricane / typhoon)</span></td>
+            <td>Tropical cyclone<br><span class="caption-tiny">(hurricane / typhoon)</span></td>
             <td>Cat 1: 119–153 km/h winds<br>Cat 5: &gt;252 km/h</td>
             <td>200–900 km diameter</td>
             <td>Days to weeks</td>
             <td>Warm ocean (&gt;26°C to 50m depth), Coriolis effect, low vertical wind shear. Latent heat from massive ocean evaporation drives the engine.</td>
           </tr>
           <tr>
-            <td>Extratropical cyclone<br><span style="font-size:10px; color:var(--color-text-tertiary);">(mid-latitude depression)</span></td>
+            <td>Extratropical cyclone<br><span class="caption-tiny">(mid-latitude depression)</span></td>
             <td>Winds 50–120 km/h typically; major storms to 150 km/h</td>
             <td>1,000–4,000 km</td>
             <td>Days</td>
@@ -767,8 +1255,8 @@
     </div>
 
     <!-- Tornado scale interactive (new) -->
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Enhanced Fujita (EF) Scale — tornado intensity</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title">Enhanced Fujita (EF) Scale — tornado intensity</div>
       <div class="btn-row">
         <button onclick="showTornado(0)">EF0</button>
         <button onclick="showTornado(1)">EF1</button>
@@ -777,12 +1265,12 @@
         <button onclick="showTornado(4)">EF4</button>
         <button onclick="showTornado(5)">EF5</button>
       </div>
-      <div id="tornado-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+      <div class="tornado-display" id="tornado-display"></div>
     </div>
 
     <!-- Hurricane category interactive (new) -->
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Saffir–Simpson Hurricane Wind Scale</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title">Saffir–Simpson Hurricane Wind Scale</div>
       <div class="btn-row">
         <button onclick="showHurricane(1)">Category 1</button>
         <button onclick="showHurricane(2)">Category 2</button>
@@ -790,7 +1278,7 @@
         <button onclick="showHurricane(4)">Category 4</button>
         <button onclick="showHurricane(5)">Category 5</button>
       </div>
-      <div id="hurricane-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+      <div class="tornado-display" id="hurricane-display"></div>
     </div>
 
     <!-- ══════════════════════════════════════════
@@ -807,15 +1295,15 @@
       <button onclick="showClimate('mediterranean')">Mediterranean</button>
       <button onclick="showClimate('polar')">Polar / subarctic</button>
     </div>
-    <div id="climate-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="climate-display"></div>
 
     <!-- ══════════════════════════════════════════
          PART J — Weather instruments (new)
          ══════════════════════════════════════════ -->
     <div class="sec">Part J · weather instruments — how we measure the atmosphere</div>
 
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The standard meteorological instrument suite</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title">The standard meteorological instrument suite</div>
       <div class="btn-row">
         <button onclick="showInstrument('barometer')">Barometer</button>
         <button onclick="showInstrument('thermometer')">Thermometer / Stevenson screen</button>
@@ -826,7 +1314,7 @@
         <button onclick="showInstrument('doppler')">Doppler radar</button>
         <button onclick="showInstrument('satellite')">Weather satellite</button>
       </div>
-      <div id="instrument-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-top:8px;"></div>
+      <div class="instrument-display" id="instrument-display"></div>
     </div>
 
     <!-- ══════════════════════════════════════════
@@ -834,54 +1322,54 @@
          ══════════════════════════════════════════ -->
     <div class="sec">Part K · weather vs climate — and the global warming question</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The most important distinction in climate science</div>
-      <div class="grid-2" style="margin-bottom:10px;">
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB;">
-          <div style="font-size:12px; font-weight:500; color:#042C53; margin-bottom:4px;">Weather</div>
-          <div style="font-size:12px; color:#185FA5; line-height:1.5;">The state of the atmosphere at a specific place and time. Highly variable — day to day, week to week, year to year. Cannot be reliably forecast more than ~10 days ahead. A single hot summer, cold winter, or unusual storm is weather.</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">The most important distinction in climate science</div>
+      <div class="grid-2 u-mb-md">
+        <div class="weather-panel-9">
+          <div class="weather-label-8">Weather</div>
+          <div class="weather-text-7">The state of the atmosphere at a specific place and time. Highly variable — day to day, week to week, year to year. Cannot be reliably forecast more than ~10 days ahead. A single hot summer, cold winter, or unusual storm is weather.</div>
         </div>
-        <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F0997B;">
-          <div style="font-size:12px; font-weight:500; color:#4A1B0C; margin-bottom:4px;">Climate</div>
-          <div style="font-size:12px; color:#712B13; line-height:1.5;">The statistical average of weather over long periods — the WMO standard is 30 years. Climate describes the pattern, not any individual event. "Climate is what you expect; weather is what you get."</div>
+        <div class="weather-panel-10">
+          <div class="weather-label-9">Climate</div>
+          <div class="weather-text-8">The statistical average of weather over long periods — the WMO standard is 30 years. Climate describes the pattern, not any individual event. "Climate is what you expect; weather is what you get."</div>
         </div>
       </div>
 
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-bottom:10px;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Global temperature anomaly — the trend (illustrative)</div>
-        <div style="margin-bottom:8px;">
-          <div style="display:flex; align-items:flex-end; gap:2px; height:60px; margin-bottom:4px;">
-            <div style="flex:1; background:#85B7EB; height:20%;"></div>
-            <div style="flex:1; background:#85B7EB; height:15%;"></div>
-            <div style="flex:1; background:#85B7EB; height:30%;"></div>
-            <div style="flex:1; background:#85B7EB; height:10%;"></div>
-            <div style="flex:1; background:#85B7EB; height:25%;"></div>
-            <div style="flex:1; background:#85B7EB; height:18%;"></div>
-            <div style="flex:1; background:#85B7EB; height:35%;"></div>
-            <div style="flex:1; background:#85B7EB; height:28%;"></div>
-            <div style="flex:1; background:#EF9F27; height:42%;"></div>
-            <div style="flex:1; background:#EF9F27; height:38%;"></div>
-            <div style="flex:1; background:#EF9F27; height:55%;"></div>
-            <div style="flex:1; background:#D85A30; height:62%;"></div>
-            <div style="flex:1; background:#D85A30; height:58%;"></div>
-            <div style="flex:1; background:#D85A30; height:70%;"></div>
-            <div style="flex:1; background:#D85A30; height:65%;"></div>
-            <div style="flex:1; background:#D85A30; height:75%;"></div>
-            <div style="flex:1; background:#A32D2D; height:80%;"></div>
-            <div style="flex:1; background:#A32D2D; height:85%;"></div>
-            <div style="flex:1; background:#A32D2D; height:90%;"></div>
-            <div style="flex:1; background:#A32D2D; height:88%;"></div>
-            <div style="flex:1; background:#A32D2D; height:95%;"></div>
-            <div style="flex:1; background:#791F1F; height:100%;"></div>
+      <div class="weather-panel-11">
+        <div class="weather-label-7">Global temperature anomaly — the trend (illustrative)</div>
+        <div class="u-mb-sm">
+          <div class="weather-row-3">
+            <div class="weather-media"></div>
+            <div class="weather-media-2"></div>
+            <div class="weather-media-3"></div>
+            <div class="weather-media-4"></div>
+            <div class="weather-media-5"></div>
+            <div class="weather-media-6"></div>
+            <div class="weather-media-7"></div>
+            <div class="weather-media-8"></div>
+            <div class="weather-media-9"></div>
+            <div class="weather-media-10"></div>
+            <div class="weather-media-11"></div>
+            <div class="weather-media-12"></div>
+            <div class="weather-media-13"></div>
+            <div class="weather-media-14"></div>
+            <div class="weather-media-15"></div>
+            <div class="weather-media-16"></div>
+            <div class="weather-media-17"></div>
+            <div class="weather-media-18"></div>
+            <div class="weather-media-19"></div>
+            <div class="weather-media-20"></div>
+            <div class="weather-media-21"></div>
+            <div class="weather-media-22"></div>
           </div>
-          <div style="display:flex; justify-content:space-between; font-size:10px; color:var(--color-text-secondary);">
+          <div class="weather-row-4">
             <span>1900</span><span>1930</span><span>1960</span><span>1990</span><span>2010</span><span>2024</span>
           </div>
         </div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;">Global average surface temperature has risen approximately +1.1–1.2°C since the pre-industrial baseline (1850–1900). The 10 warmest years on record globally have all occurred since 2005. 2023 and 2024 set successive all-time global temperature records.</div>
+        <div class="muted-copy">Global average surface temperature has risen approximately +1.1–1.2°C since the pre-industrial baseline (1850–1900). The 10 warmest years on record globally have all occurred since 2005. 2023 and 2024 set successive all-time global temperature records.</div>
       </div>
 
-      <div class="callout" style="margin-bottom:0;">
+      <div class="callout callout-style-2">
         <strong>The loaded dice analogy (James Hansen, NASA):</strong> Before climate change, rolling a die gave roughly equal chances of a hot, average, or cold summer. Climate change loads the die — you still get variety (some cool summers), but hot summers come up far more often. Statistical attribution science can now calculate how much more likely a specific heatwave was due to climate change. For recent European heatwaves, the multiplier has ranged from 2× to 5×.
       </div>
     </div>
@@ -891,8 +1379,8 @@
          ══════════════════════════════════════════ -->
     <div class="sec">Part L · reading a synoptic weather map</div>
 
-    <div class="card" style="margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The symbols, lines, and numbers that professional forecasters use</div>
+    <div class="card u-mb-lg">
+      <div class="panel-title-spaced">The symbols, lines, and numbers that professional forecasters use</div>
 
       <div class="btn-row">
         <button onclick="showMapSymbol('isobars')">Isobars</button>
@@ -902,9 +1390,9 @@
         <button onclick="showMapSymbol('trough')">Trough / col</button>
         <button onclick="showMapSymbol('wind_barb')">Wind barbs</button>
       </div>
-      <div id="map-symbol-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; margin-top:8px;"></div>
+      <div class="instrument-display" id="map-symbol-display"></div>
 
-      <div class="callout" style="margin-top:10px; margin-bottom:0;">
+      <div class="callout callout-style-3">
         <strong>The 5-step map reading process:</strong>
         (1) Find the pressure centres (L and H) to understand the broad flow.
         (2) Identify fronts and their direction of travel.
@@ -917,7 +1405,7 @@
     <!-- ══════════════════════════════════════════
          PART M — Test yourself (original Part H)
          ══════════════════════════════════════════ -->
-    <div class="sec">Part M · test yourself</div>
+    <div class="sec">Part M · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. It's a clear night in summer and the forecast says no rain, but in the morning there's moisture on your car and grass. Where did it come from, and why does it appear overnight?</p>
@@ -1030,7 +1518,7 @@ const pressureEvents = {
 
 function showPressureEvent(key) {
   const e = pressureEvents[key];
-  document.getElementById('pressure-events').innerHTML = `
+  document.getElementById('u-mt-8px').innerHTML = `
     <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
       <strong style="color:${e.col};">${e.label}: ${e.hpa} hPa</strong> — ${e.note}
     </div>`;

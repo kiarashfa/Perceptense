@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="auto" data-module="42">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 42: Animals - Have a Sense</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../files/shared.css">
+  <style>
+    :root {
+      --accent: #7DAA3C;
+      --accent-bg: #EAF3DE;
+      --accent-border: #97C459;
+    }
+
+    .module-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 0.6rem;
+    }
+    .module-head .fa-paw {
+      font-size: 42px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .module-head .module-title {
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+.teaser-num {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .teaser-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+    .teaser-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .dense-grid {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+    .compact-grid {
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    }
+    .micro-grid {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .success-block {
+      background: var(--color-background-success);
+      border: 0.5px solid var(--color-border-success);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-text-success);
+      padding: 12px 14px;
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .explorer-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 10px;
+    }
+    .explorer-tabs button {
+      font-size: 12px;
+      padding: 3px 10px;
+    }
+    .explorer-tabs button.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      color: var(--color-text-success);
+      font-weight: 600;
+    }
+    .detail-panel {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .detail-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 7px;
+    }
+    .detail-body {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .detail-facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .fact-box {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 9px 10px;
+    }
+    .fact-k {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 2px;
+    }
+    .fact-v {
+      font-size: 12px;
+      color: var(--color-text-primary);
+      line-height: 1.45;
+    }
+
+    .period-chart {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .pc-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+    }
+    .pc-inner {
+      min-width: 560px;
+    }
+    .pc-axis {
+      position: relative;
+      height: 18px;
+      margin-left: 148px;
+      margin-bottom: 5px;
+    }
+    .pc-axis-mark {
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: 9px;
+      color: var(--color-text-tertiary);
+      white-space: nowrap;
+    }
+    .pc-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .pc-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      width: 140px;
+      flex-shrink: 0;
+      text-align: right;
+      line-height: 1.25;
+    }
+    .pc-track {
+      flex: 1;
+      height: 18px;
+      background: var(--color-background-secondary);
+      border-radius: 3px;
+      position: relative;
+      min-width: 220px;
+      overflow: hidden;
+    }
+    .pc-fill {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 0 6px;
+    }
+    .pc-fill-label {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--color-text-success);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pc-note {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+
+    .elem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .elem-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 11px 12px;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+      text-align: left;
+    }
+    .elem-card:hover,
+    .elem-card.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+    }
+    .elem-icon {
+      color: var(--accent);
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    .elem-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    .elem-sub {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      line-height: 1.35;
+      margin-top: 2px;
+    }
+
+    .distribution-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .dist-title,
+    .chart-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+    }
+    .dist-bar {
+      display: flex;
+      overflow: hidden;
+      height: 28px;
+      border-radius: var(--border-radius-md);
+      background: var(--color-background-secondary);
+      margin-bottom: 9px;
+    }
+    .dist-seg {
+      min-width: 2px;
+      height: 100%;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 12px;
+      margin-bottom: 6px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    .legend-swatch {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+    .chart-note {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+      margin-top: 6px;
+    }
+
+    .chart-box {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+
+    .slider-card,
+    .calc-card,
+    .scale-card,
+    .diagram-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .slider-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 9px;
+    }
+    .slider-value {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .range-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin-top: 3px;
+    }
+    .slider-output {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.55;
+    }
+
+    .cscale-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .cscale-name {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      text-align: right;
+      line-height: 1.25;
+    }
+    .cscale-track {
+      position: relative;
+      height: 18px;
+      background: var(--color-background-secondary);
+      border-radius: 99px;
+    }
+    .cscale-dot {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--color-background-primary);
+      transform: translate(-50%, -50%);
+    }
+    .cscale-axis {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 150px;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .calc-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 10px;
+    }
+    .calc-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 3px;
+    }
+    .calc-output {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      min-height: 44px;
+    }
+
+    .diagram-card svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .svg-label {
+      font-family: var(--font-sans);
+      fill: var(--color-text-primary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .svg-small {
+      font-family: var(--font-sans);
+      fill: var(--color-text-secondary);
+      font-size: 10px;
+    }
+    .svg-node {
+      fill: var(--color-background-secondary);
+      stroke: var(--color-border-secondary);
+      stroke-width: 1;
+    }
+    .svg-accent {
+      fill: var(--accent-bg);
+      stroke: var(--accent-border);
+      stroke-width: 1;
+    }
+    .svg-line {
+      stroke: var(--color-border-secondary);
+      stroke-width: 1.4;
+      fill: none;
+    }
+
+    @media (max-width: 500px) {
+      .bl { width: 92px; font-size: 11px; }
+      .pc-label { width: 92px; font-size: 10px; }
+      .pc-axis { margin-left: 100px; }
+      .cscale-row { grid-template-columns: 92px 1fr; }
+      .cscale-name { font-size: 11px; }
+      .cscale-axis { margin-left: 102px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+
+    <div class="module-head">
+      <i class="fa-solid fa-paw" aria-hidden="true"></i>
+      <h1 class="module-title">Module 42: Animals</h1>
+    </div>
+    <p class="module-subtitle">The diversity, biology, behaviour, and human relationship with the animal kingdom</p>
+
+    <div class="sec">Part A &middot; the animal kingdom - what animals are and how they're classified</div>
+
+    <div class="teaser-grid">
+      <div class="teaser-card">
+        <div class="teaser-num">overview</div>
+        <div class="teaser-name">Animals are not just "things that move"</div>
+        <div class="teaser-desc">This module builds a working map of animal life: how animals are defined, why vertebrates feel familiar but are a small branch, why invertebrates carry most of the diversity, how bodies solve movement and sensing, how behaviour emerges, how ecology links everything, and how human choices now shape the future of many lineages.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">parts A-C</div>
+        <div class="teaser-name">The catalogue</div>
+        <div class="teaser-desc">You will learn the classification logic, the major phyla, the vertebrate classes, and the invertebrate groups that actually dominate animal life. The point is not memorising Latin names; it is knowing what kind of body plan you are looking at.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">parts D-F</div>
+        <div class="teaser-name">Bodies, minds, worlds</div>
+        <div class="teaser-desc">Animals are engineering experiments under selection pressure. Wings, gills, venom, echolocation, eusocial colonies, migration, food webs, and population cycles all make more sense when you see the tradeoffs underneath them.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">part G-H</div>
+        <div class="teaser-name">The human entanglement</div>
+        <div class="teaser-desc">Humans domesticate, eat, protect, worship, study, and displace animals. Conservation is not sentimentality; it is system maintenance, ethical judgement, economics, and humility about living machinery we barely understand.</div>
+      </div>
+    </div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">What makes an animal</div>
+        <div class="cval">cells that eat</div>
+        <p class="cnote">Animals are multicellular eukaryotes whose cells lack rigid walls, use collagen as a structural material, and ingest other organisms or organic matter rather than photosynthesising. Almost all pass through a blastula stage early in development, and almost all can move at least during one life stage. Sponges are animals even though adults look plantlike; they pump water through pores and filter bacteria. Coral is animal too: each coral polyp is a cnidarian, and the reef is a colonial skeleton built by generations of tiny mouths.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Taxonomy</div>
+        <div class="cval">family trees, not filing cabinets</div>
+        <p class="cnote">Linnaeus gave biology a naming system in 1735: genus plus species, as in Homo sapiens or Canis lupus. Modern taxonomy is cladistic, meaning groups should represent common ancestry. "Fish" is useful everyday language but not a clean clade, because the descendants of ancient lobe-finned fishes include amphibians, reptiles, birds, and mammals. A good animal classification tells you what evolved from what, not just what looks similar.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Scale</div>
+        <div class="cval">millions of designs</div>
+        <p class="cnote">About 1.5 to 2 million animal species have been formally described, but estimates of actual animal diversity run several times higher. Insects alone account for roughly half or more of named animal species. The imbalance is extreme: humans notice elephants, wolves, and whales, yet a beetle lineage can contain more species than all mammals combined. Biodiversity is not evenly spread across charisma.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Body plans</div>
+        <div class="cval">old inventions, endless variants</div>
+        <p class="cnote">The biggest animal phyla are not ranked by intelligence or size but by repeatable construction rules: arthropods use jointed legs and an exoskeleton, molluscs use a muscular foot and often a shell, chordates use a notochord and dorsal nerve cord, cnidarians use stinging cells, and annelids use segmented bodies. Once a plan works, evolution modifies it for hundreds of millions of years.</p>
+      </div>
+    </div>
+
+    <div class="period-chart">
+      <div class="pc-title">Animal evolution, shown as time spans in millions of years before present</div>
+      <div class="pc-inner">
+        <div class="pc-axis" id="animalTimelineAxis"></div>
+        <div id="animalTimelineRows"></div>
+      </div>
+      <div class="pc-note">Dates are approximate. Fossils mark minimum ages; the actual origins of lineages are usually older than the oldest rock record we have found.</div>
+    </div>
+
+    <div class="explorer-tabs" id="phylaTabs">
+      <button type="button" data-key="arthropoda">Arthropoda</button>
+      <button type="button" data-key="chordata">Chordata</button>
+      <button type="button" data-key="mollusca">Mollusca</button>
+      <button type="button" data-key="annelida">Annelida</button>
+      <button type="button" data-key="cnidaria">Cnidaria</button>
+    </div>
+    <div class="detail-panel" id="phylaDisplay"></div>
+
+    <div class="qa">
+      <p class="qa-q">If humans are animals, why does biology still separate "humans and animals" in ordinary speech?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">It is cultural shorthand, not biological accuracy. Biologically, humans are animals, mammals, primates, apes, hominins, and Homo sapiens. The everyday phrase usually means "humans and non-human animals," but it smuggles in a false separation. A good mental model keeps both truths: humans are biologically continuous with other animals, yet culturally and technologically unusual.</div>
+    </div>
+
+    <div class="sec">Part B &middot; vertebrates - the animals we know best</div>
+
+    <div class="explorer-tabs" id="vertebrateTabs">
+      <button type="button" data-key="fish">Fish</button>
+      <button type="button" data-key="amphibians">Amphibians</button>
+      <button type="button" data-key="reptiles">Reptiles</button>
+      <button type="button" data-key="birds">Birds</button>
+      <button type="button" data-key="mammals">Mammals</button>
+    </div>
+    <div class="detail-panel" id="vertebrateDisplay"></div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">The vertebrate trick</div>
+        <div class="cval">internal skeleton</div>
+        <p class="cnote">Vertebrates carry the main support structure inside the body: spine, skull, ribs, limbs, and cartilage. This allows continuous growth without moulting, protects the nervous system, and gives muscles strong levers. The price is slower reproduction and higher construction cost. A mouse, tuna, eagle, crocodile, and human are variations on a deep shared plan: head, backbone, paired appendages, gut tube, sensory front end.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Why fish matter</div>
+        <div class="cval">the root stock</div>
+        <p class="cnote">Fish are not primitive leftovers. Jawless lampreys, cartilaginous sharks, ray-finned fish, and lobe-finned fish represent different ancient solutions to water life. The lobe-finned branch gave rise to tetrapods, so your upper arm bone is historically a modified fin element. Salmon use smell and magnetic cues to return to natal streams; eels travel from European rivers to the Sargasso Sea to spawn.</p>
+      </div>
+    </div>
+
+    <div class="diagram-card">
+      <div class="chart-title">A simplified vertebrate body plan</div>
+      <svg viewBox="0 0 760 250" role="img" aria-label="Simplified vertebrate body plan diagram">
+        <path class="svg-line" d="M88 124 C180 82, 330 82, 510 124 C610 148, 676 142, 714 110" />
+        <ellipse class="svg-accent" cx="120" cy="124" rx="60" ry="38"></ellipse>
+        <ellipse class="svg-node" cx="328" cy="124" rx="150" ry="56"></ellipse>
+        <path class="svg-node" d="M456 112 C530 92, 612 92, 700 108 C640 132, 545 144, 456 136 Z"></path>
+        <line class="svg-line" x1="180" y1="124" x2="478" y2="124"></line>
+        <circle class="svg-node" cx="93" cy="116" r="8"></circle>
+        <path class="svg-line" d="M278 172 L230 218"></path>
+        <path class="svg-line" d="M372 172 L420 218"></path>
+        <path class="svg-line" d="M278 76 L230 32"></path>
+        <path class="svg-line" d="M372 76 L420 32"></path>
+        <text class="svg-label" x="82" y="63">skull</text>
+        <text class="svg-small" x="59" y="78">sensory front end</text>
+        <text class="svg-label" x="281" y="116">vertebral column</text>
+        <text class="svg-small" x="261" y="139">protects spinal cord</text>
+        <text class="svg-label" x="214" y="234">paired limbs or fins</text>
+        <text class="svg-label" x="539" y="84">tail propulsion</text>
+        <text class="svg-small" x="511" y="158">same plan, modified into tuna, frog, lizard, eagle, whale, human</text>
+      </svg>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Are birds really dinosaurs, or is that just a catchy comparison?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">Birds are living theropod dinosaurs, not merely dinosaur-like. Feathers, wishbones, hollow bones, nesting behaviour, and many skeletal details link them to small meat-eating dinosaurs such as dromaeosaurs and troodontids. The asteroid impact 66 million years ago eliminated non-avian dinosaurs, but one dinosaur branch survived as birds. A pigeon is therefore closer to Tyrannosaurus than a crocodile is.</div>
+    </div>
+
+    <div class="sec">Part C &middot; invertebrates - 97% of all animal species</div>
+
+    <div class="distribution-wrap">
+      <div class="dist-title">Approximate distribution of described animal species by broad group</div>
+      <div class="dist-bar" id="speciesDist"></div>
+      <div class="legend" id="speciesLegend"></div>
+      <div class="chart-note">These proportions are rounded and shift as taxonomists describe new species. The main lesson is stable: vertebrates are conspicuous, but invertebrates carry most animal diversity.</div>
+    </div>
+
+    <div class="elem-grid" id="invertGrid">
+      <div class="elem-card" data-key="insects">
+        <div class="elem-icon"><i class="fa-solid fa-bug"></i></div>
+        <div class="elem-name">Insects</div>
+        <div class="elem-sub">six legs, exoskeleton, metamorphosis</div>
+      </div>
+      <div class="elem-card" data-key="arachnids">
+        <div class="elem-icon"><i class="fa-solid fa-spider"></i></div>
+        <div class="elem-name">Arachnids</div>
+        <div class="elem-sub">spiders, scorpions, mites, ticks</div>
+      </div>
+      <div class="elem-card" data-key="molluscs">
+        <div class="elem-icon"><i class="fa-solid fa-water"></i></div>
+        <div class="elem-name">Molluscs</div>
+        <div class="elem-sub">snails, clams, squid, octopuses</div>
+      </div>
+      <div class="elem-card" data-key="marine">
+        <div class="elem-icon"><i class="fa-solid fa-star"></i></div>
+        <div class="elem-name">Marine invertebrates</div>
+        <div class="elem-sub">coral, jellyfish, sea stars, urchins</div>
+      </div>
+    </div>
+    <div class="elem-detail elem-detail-panel" id="invertDetail"></div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">Exoskeleton economics</div>
+        <div class="cval">armour outside</div>
+        <p class="cnote">Arthropods wear their skeleton as a suit. It protects, anchors muscles, prevents drying, and can become claws, wings, mouthparts, or camouflage. The catch is moulting: to grow, the animal must split the old cuticle and spend a vulnerable period soft-bodied. This constraint helps explain why insects can be tiny masters of specialisation but cannot simply scale up to horse size.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Octopus exception</div>
+        <div class="cval">soft body, sharp mind</div>
+        <p class="cnote">Octopuses are molluscs, related to snails and clams, yet they solve problems, open jars, use coconut shells as shelters, and change skin texture and colour in fractions of a second. Their intelligence evolved on a separate path from vertebrate intelligence. Much of an octopus's nervous system is distributed into its arms, so control is partly local: each arm is not just a cable, but a semi-autonomous explorer.</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">If insects are so successful, why do people often treat them as biologically "simple"?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">Because small size tricks human intuition. Insects have compact nervous systems, but their behaviour can be astonishingly sophisticated: honeybees communicate food direction, ants farm fungi, and dragonflies intercept prey using predictive flight control. Evolution rewards fit between body and problem, not similarity to mammals. A fly is not a failed bird; it is a highly tuned six-legged aircraft with a life history built for speed.</div>
+    </div>
+
+    <div class="sec">Part D &middot; animal biology - how bodies work across the kingdom</div>
+
+    <div class="chart-box">
+      <div class="chart-title">Fastest animal movements, approximate peak speeds</div>
+      <div id="speedBars"></div>
+      <div class="chart-note">Units are kilometres per hour. Burst speeds are hard to compare: a diving bird, swimming fish, sprinting mammal, and flying insect move through different media and are measured with different confidence.</div>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-head">
+        <div class="chart-title">Body mass and metabolism</div>
+        <div class="slider-value"><span id="massValue">10 kg</span></div>
+      </div>
+      <input id="massSlider" type="range" min="-3" max="5" step="0.1" value="1">
+      <div class="range-labels">
+        <span>1 g insect</span>
+        <span>100,000 kg whale</span>
+      </div>
+      <div class="slider-output" id="massOutput"></div>
+    </div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">Locomotion</div>
+        <div class="cval">movement is physics</div>
+        <p class="cnote">Water is dense, so fish use streamlined bodies and side-to-side muscle waves; air is thin, so birds need lift, low mass, and high power; land punishes bad leverage, so legs become springs, stilts, shovels, paddles, or graspers. A cheetah is fast because its spine flexes like a bow, its claws grip like cleats, and its long tail acts as a balance rudder. Speed is never one trait.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Senses</div>
+        <div class="cval">many worlds at once</div>
+        <p class="cnote">A dog's smell, a bat's echolocation, a shark's electroreception, a bee's ultraviolet vision, and a migratory bird's magnetic sense are not superpowers; they are normal sensory channels in other bodies. Humans see a narrow slice of reality and mistake it for the whole. The philosopher Jakob von Uexkull called each animal's perceived world its Umwelt, and that idea is essential: the same forest is different information to a tick, owl, frog, and deer.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Reproduction</div>
+        <div class="cval">quantity versus care</div>
+        <p class="cnote">An oyster can release millions of eggs; an elephant usually invests nearly two years of gestation in one calf. Both strategies can work. Parthenogenesis lets some lizards, aphids, and sharks reproduce without fertilisation; hermaphroditism lets earthworms and many snails mate flexibly; parental care turns fewer offspring into better odds. Reproduction is not one process but a portfolio of risk strategies.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Defence and attack</div>
+        <div class="cval">venom is not poison</div>
+        <p class="cnote">Venom is delivered by bite, sting, spine, or harpoon; poison harms when touched or eaten. A cobra is venomous, a poison dart frog is poisonous, and a blue-ringed octopus is venomous with tetrodotoxin-bearing saliva. Camouflage hides, armour resists, mimicry deceives, and warning colour advertises cost. The most elegant defences often change the predator's decision before contact ever happens.</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Does "cold-blooded" mean reptiles and fish are always cold and sluggish?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">No. "Cold-blooded" is a misleading everyday term for ectothermy, meaning body temperature is strongly shaped by external heat. A lizard basking on a rock can run at a high body temperature, and a tuna can keep parts of its swimming muscles warmer than surrounding water. Ectotherms often spend less energy on heat production, so they can survive on far less food than similar-sized mammals. The tradeoff is dependence on environmental temperature.</div>
+    </div>
+
+    <div class="sec">Part E &middot; animal behaviour and intelligence</div>
+
+    <div class="scale-card">
+      <div class="chart-title">Behaviour spectrum: from hard-wired routines to flexible cognition</div>
+      <div class="cscale-axis">
+        <span>mostly inherited trigger-response</span>
+        <span>more flexible problem-solving</span>
+      </div>
+      <div id="cognitionScale"></div>
+      <div class="chart-note">The scale is conceptual, not a league table. Each animal is brilliant at problems its ecology actually poses.</div>
+    </div>
+
+    <div class="explorer-tabs" id="behaviourTabs">
+      <button type="button" data-key="instinct">Instinct and learning</button>
+      <button type="button" data-key="intelligence">Intelligence</button>
+      <button type="button" data-key="communication">Communication</button>
+      <button type="button" data-key="social">Social structures</button>
+      <button type="button" data-key="migration">Migration</button>
+    </div>
+    <div class="detail-panel" id="behaviourDisplay"></div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">The honeybee waggle dance</div>
+        <div class="cval">direction as motion</div>
+        <p class="cnote">A returning honeybee can encode food direction and distance by vibrating through a figure-eight dance on the comb. The angle of the waggle relative to vertical corresponds to the angle from the sun; the duration gives distance. Karl von Frisch decoded this in the 20th century and won a Nobel Prize in 1973. It is communication, but not language in the human grammar-rich sense.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Migration</div>
+        <div class="cval">navigation without maps</div>
+        <p class="cnote">Arctic terns may travel roughly pole to pole each year, monarch butterflies use a multi-generation relay across North America, and wildebeest follow rain-driven grass cycles across the Serengeti-Mara ecosystem. Navigation can combine sun angle, stars, smell, landmarks, currents, and magnetic fields. The astonishing part is not just distance, but timing: arriving two weeks late can mean missing food, mates, or safe weather.</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Is mirror self-recognition the gold standard for animal consciousness?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">It is useful, but far too narrow. Great apes, dolphins, elephants, and magpies have produced striking mirror-test results, but the test privileges vision, body-mark interest, and human-like self-inspection. A dog may understand identity more through smell than reflection, so failing a mirror test does not mean lacking inner experience. Consciousness is probably a bundle of capacities, not a single exam.</div>
+    </div>
+
+    <div class="sec">Part F &middot; ecology - animals in their environments</div>
+
+    <div class="diagram-card">
+      <div class="chart-title">Food webs are networks, not ladders</div>
+      <svg viewBox="0 0 760 330" role="img" aria-label="Food web diagram">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-border-secondary)"></path>
+          </marker>
+        </defs>
+        <rect class="svg-accent" x="40" y="236" width="145" height="52" rx="8"></rect>
+        <text class="svg-label" x="112" y="258" text-anchor="middle">plants and algae</text>
+        <text class="svg-small" x="112" y="274" text-anchor="middle">capture sunlight</text>
+        <rect class="svg-node" x="232" y="216" width="132" height="48" rx="8"></rect>
+        <text class="svg-label" x="298" y="239" text-anchor="middle">herbivores</text>
+        <text class="svg-small" x="298" y="254" text-anchor="middle">grazers, larvae</text>
+        <rect class="svg-node" x="416" y="170" width="132" height="48" rx="8"></rect>
+        <text class="svg-label" x="482" y="193" text-anchor="middle">mesopredators</text>
+        <text class="svg-small" x="482" y="208" text-anchor="middle">foxes, small fish</text>
+        <rect class="svg-node" x="586" y="92" width="132" height="48" rx="8"></rect>
+        <text class="svg-label" x="652" y="115" text-anchor="middle">apex predators</text>
+        <text class="svg-small" x="652" y="130" text-anchor="middle">wolves, sharks</text>
+        <rect class="svg-node" x="230" y="68" width="154" height="48" rx="8"></rect>
+        <text class="svg-label" x="307" y="91" text-anchor="middle">decomposers</text>
+        <text class="svg-small" x="307" y="106" text-anchor="middle">fungi, beetles, bacteria</text>
+        <path class="svg-line" marker-end="url(#arrow)" d="M185 252 C205 248, 215 244, 232 240"></path>
+        <path class="svg-line" marker-end="url(#arrow)" d="M364 232 C390 220, 398 205, 416 196"></path>
+        <path class="svg-line" marker-end="url(#arrow)" d="M548 180 C575 160, 586 136, 606 126"></path>
+        <path class="svg-line" marker-end="url(#arrow)" d="M482 218 C438 260, 362 288, 200 278"></path>
+        <path class="svg-line" marker-end="url(#arrow)" d="M652 140 C604 242, 470 292, 342 116"></path>
+        <path class="svg-line" marker-end="url(#arrow)" d="M112 236 C138 154, 190 100, 230 92"></path>
+        <text class="svg-small" x="396" y="305" text-anchor="middle">energy thins upward; nutrients cycle back through decay</text>
+      </svg>
+    </div>
+
+    <div class="calc-card">
+      <div class="chart-title">Trophic energy calculator</div>
+      <div class="calc-row">
+        <div>
+          <div class="calc-label">Plant biomass or energy entering the web</div>
+          <input id="energyInput" type="number" min="0" step="100" value="10000">
+        </div>
+        <div>
+          <div class="calc-label">Transfer efficiency per level (%)</div>
+          <input id="efficiencyInput" type="number" min="1" max="50" step="1" value="10">
+        </div>
+        <button id="energyCalc" type="button">Calculate</button>
+      </div>
+      <div class="calc-output" id="energyOutput"></div>
+    </div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">Keystone species</div>
+        <div class="cval">small cause, large system</div>
+        <p class="cnote">A keystone species has effects disproportionate to its abundance. Sea otters eat sea urchins; without otters, urchins can overgraze kelp forests into barrens. Wolves in Yellowstone changed elk behaviour after reintroduction in 1995, allowing some riparian vegetation to recover. The point is not that every predator is magic, but that relationships can amplify through a network.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Predator-prey cycles</div>
+        <div class="cval">feedback with delay</div>
+        <p class="cnote">The classic Canada lynx and snowshoe hare records from the Hudson's Bay Company show roughly 10-year cycles, though the real system includes food plants, weather, and disease. Predator-prey equations capture the core feedback: prey rise, predators later rise, prey fall, predators later fall. Nature rarely follows a clean sine wave, but the delay logic is real.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Invasive species</div>
+        <div class="cval">context makes the villain</div>
+        <p class="cnote">A species is not inherently invasive; it becomes invasive when moved into a community that lacks its usual controls. Cane toads introduced to Australia in 1935 spread widely and poisoned predators. Zebra mussels reached the Great Lakes in ballast water and clogged infrastructure while filtering plankton. Feral cats are beloved pets in houses and severe predators on islands.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Biomes</div>
+        <div class="cval">climate sets the stage</div>
+        <p class="cnote">Rainforests favour climbing, camouflage, and specialisation; savannas favour running, herding, and grazing; tundra rewards insulation and seasonal timing; coral reefs pack competition into bright three-dimensional cities; the deep ocean rewards pressure tolerance, patience, and bioluminescence. Animal forms are not random costumes. They are local answers to temperature, water, oxygen, food, and risk.</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Is the "10 percent rule" of food webs literally true?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">It is a useful average, not a law of physics. Energy transfer between trophic levels can be lower or higher depending on body temperature, digestibility, activity, and ecosystem type. Mammal predators lose much energy as heat; some aquatic food chains transfer energy more efficiently. The rule matters because it explains why ecosystems can support far more plant biomass than large predators.</div>
+    </div>
+
+    <div class="sec">Part G &middot; extinction, conservation, and humans</div>
+
+    <div class="chart-box">
+      <div class="chart-title">Human pressures on wild animal populations, ranked by typical global importance</div>
+      <div id="threatBars"></div>
+      <div class="chart-note">This is a conceptual index, not a single measured percentage. For many threatened terrestrial and freshwater species, habitat loss and direct exploitation dominate; climate change rises sharply as warming continues.</div>
+    </div>
+
+    <div class="explorer-tabs" id="humanTabs">
+      <button type="button" data-key="extinction">Sixth extinction</button>
+      <button type="button" data-key="conservation">What works</button>
+      <button type="button" data-key="domestication">Domestication</button>
+      <button type="button" data-key="ethics">Welfare and ethics</button>
+      <button type="button" data-key="culture">Culture</button>
+    </div>
+    <div class="detail-panel" id="humanDisplay"></div>
+
+    <div class="cgrid dense-grid">
+      <div class="card">
+        <div class="clabel">Domestication is co-evolution</div>
+        <div class="cval">not simple taming</div>
+        <p class="cnote">A tamed tiger is still genetically wild; a domestic cat belongs to a lineage shaped over generations around humans. Dogs likely emerged from wolves at least 15,000 years ago, and perhaps earlier. Cattle, sheep, goats, pigs, chickens, horses, and camels transformed human food, transport, warfare, disease, wealth, and landscape. Domesticated animals also changed themselves: smaller brains, altered coats, earlier breeding, and tolerance of human proximity.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Conservation is practical</div>
+        <div class="cval">space plus governance</div>
+        <p class="cnote">Protected areas work best when they are large enough, connected enough, enforced enough, and legitimate to local people. Captive breeding helped save the California condor after numbers fell to 27 birds in 1987. Anti-poaching patrols, fishing limits, wildlife corridors, vaccination, invasive species removal, and habitat restoration can all work, but none is a spell. Conservation is long-term institutional competence applied to living systems.</p>
+      </div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Is de-extinction a serious conservation strategy?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">It is scientifically interesting but should not be treated as a substitute for protecting living species. Even if a mammoth-like elephant or passenger-pigeon-like bird were produced, it would not automatically restore the lost animal's culture, microbiome, habitat, or ecological role. The hard part of conservation is usually not DNA; it is land, conflict, incentives, and time. De-extinction may become useful in narrow cases, but it is not an escape hatch from extinction.</div>
+    </div>
+
+    <div class="sec">Part H · Q&A</div>
+
+    <div class="qa">
+      <p class="qa-q">Why do animal species counts vary so much from source to source?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">Because "species" is a biological concept, a naming practice, and a measurement problem all at once. Some groups are intensely studied, while many mites, nematodes, deep-sea animals, and tropical insects are barely sampled. Genetic tools also split some old species into multiple cryptic species while merging others that looked different but interbreed. Treat exact totals as moving estimates, not census numbers.</div>
+    </div>
+    <div class="qa">
+      <p class="qa-q">Do animals have emotions, or are humans projecting?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">Both errors are possible: naive projection and excessive denial. Mammals and birds share many neural and hormonal systems involved in fear, reward, attachment, stress, and play; it would be strange if those systems produced no felt states. The safest claim is graded: many animals have affective experiences, but not necessarily human-style narratives about them. Good science asks what evidence fits the species, rather than pretending either that animals are tiny people or that they are machines.</div>
+    </div>
+    <div class="qa">
+      <p class="qa-q">What is the single most useful habit for understanding an unfamiliar animal?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">Ask what problem its body is solving. Where does it get energy, what eats it, how does it move, how does it find mates, and what information can it sense? A giraffe's neck, a beetle's shell, a whale's blubber, and a frog's skin all become clearer when treated as tradeoffs. Anatomy is ecology made visible.</div>
+    </div>
+    <div class="qa">
+      <p class="qa-q">Are humans the most successful animal?</p>
+      <button class="qa-btn" type="button">show answer</button>
+      <div class="qa-ans">It depends on the metric. Humans dominate energy use, landscape transformation, technology, and global influence; ants may rival or exceed wild birds and mammals in combined biomass; beetles win spectacularly on species count; nematodes are everywhere in soil and sediment. "Success" in evolution means persistence and reproduction in a niche, not moral superiority. Humans are uniquely powerful, but not the only winners.</div>
+    </div>
+
+  </div>
+
+  <script>
+    (function() {
+    function initAnimalsModule() {
+      function each(list, fn) {
+        for (var i = 0; i < list.length; i += 1) fn(list[i], i);
+      }
+
+      var phyla = {
+        arthropoda: {
+          title: 'Arthropoda - jointed legs, segmented bodies, external skeletons',
+          body: 'Arthropods include insects, spiders, crabs, centipedes, and extinct trilobites. Their exoskeleton is both armour and muscle anchor, and their segmented plan lets evolution modify parts into antennae, claws, wings, gills, and mouthparts. Insects are the great radiation: beetles alone include hundreds of thousands of described species. The limitation is growth by moulting, a dangerous reset that softens the body before the new cuticle hardens.',
+          facts: [['Signature', 'Exoskeleton made largely of chitin'], ['Examples', 'Ants, lobsters, butterflies, scorpions'], ['Common misconception', 'Small does not mean simple; arthropod behaviour can be highly specialised']]
+        },
+        chordata: {
+          title: 'Chordata - the lineage with a nerve cord and notochord',
+          body: 'Chordates include vertebrates plus less famous animals such as lancelets and tunicates. The key early features are a dorsal nerve cord, notochord, pharyngeal slits, and a post-anal tail at some life stage. Vertebrates elaborate this plan into skulls, backbones, jaws, limbs, and large brains. The surprise is that sea squirts, which look like rubbery sacs as adults, are chordates because their larvae reveal the ancestral plan.',
+          facts: [['Signature', 'Dorsal nerve cord and notochord'], ['Examples', 'Tuna, frogs, eagles, whales, humans'], ['Deep clue', 'Tunicate larvae look more chordate than their adults']]
+        },
+        mollusca: {
+          title: 'Mollusca - soft bodies with hard options',
+          body: 'Molluscs usually have a muscular foot, a mantle that can secrete shell, and a feeding structure called a radula, though bivalves lost the radula and filter-feed instead. Snails crawl, clams bury, squid jet, and octopuses explore. The phylum shows how one body plan can range from armour-heavy to almost liquid. Cephalopods prove that intelligence does not require a backbone.',
+          facts: [['Signature', 'Mantle, foot, often a shell'], ['Examples', 'Snails, mussels, squid, octopuses'], ['Counterintuitive fact', 'An octopus is closer to a clam than to a fish']]
+        },
+        annelida: {
+          title: 'Annelida - segmented worms with hydraulic bodies',
+          body: 'Annelids include earthworms, leeches, and many marine bristle worms. Their bodies are made of repeated segments, which lets muscles work against fluid pressure inside the body like a flexible hydraulic skeleton. Earthworms are ecosystem engineers because they mix soil, aerate it, and move organic matter underground. Leeches are not just horror props; some are used medically because their saliva contains anticoagulants.',
+          facts: [['Signature', 'Repeated ring-like body segments'], ['Examples', 'Earthworms, leeches, polychaetes'], ['Ecological role', 'Soil mixing and sediment turnover']]
+        },
+        cnidaria: {
+          title: 'Cnidaria - stinging cells and radial bodies',
+          body: 'Cnidarians include jellyfish, sea anemones, hydras, and corals. Their defining weapon is the cnidocyte, a microscopic capsule that can fire a barbed thread into prey. Many alternate between polyp and medusa forms, essentially a stalked form and a free-swimming bell form. Reef-building corals are animals partnered with photosynthetic algae, which is why warm-water coral reefs need sunlight as well as seawater.',
+          facts: [['Signature', 'Cnidocytes: explosive stinging cells'], ['Examples', 'Coral, jellyfish, anemones'], ['Common misconception', 'Coral reefs are built by animals, not rocks or plants']]
+        }
+      };
+
+      var vertebrates = {
+        fish: {
+          title: 'Fish - the most diverse vertebrates',
+          body: 'Fish are a set of water-adapted vertebrate lineages, not one neat evolutionary box. Jawless lampreys, sharks and rays, ray-finned fish, and lobe-finned fish diverged deep in time. Bony fish use swim bladders for buoyancy; sharks rely on oily livers, lift from fins, and constant movement in many species. Roughly half of all living vertebrate species are fish, and they range from 8 millimetre miniature cyprinids to whale sharks longer than a city bus.',
+          facts: [['Key adaptation', 'Gills extract oxygen from water'], ['Named example', 'Atlantic salmon imprint on river chemistry'], ['Number anchor', 'Roughly 36,000 described living species']]
+        },
+        amphibians: {
+          title: 'Amphibians - the permeable pioneers',
+          body: 'Amphibians include frogs, salamanders, and caecilians. Their ancestors were among the first vertebrates to make land a serious habitat, but most living amphibians remain tied to water or damp places because eggs lack shells and skin is permeable. Metamorphosis is a life-history split: a tadpole can be an aquatic grazer before becoming an air-breathing insect hunter. That skin also makes amphibians sensitive indicators of pollution, fungal disease, and climate shifts.',
+          facts: [['Key adaptation', 'Moist skin can exchange gases'], ['Named example', 'Axolotls can retain larval traits as adults'], ['Conservation note', 'They are among the most threatened vertebrate groups']]
+        },
+        reptiles: {
+          title: 'Reptiles - scales, eggs, and energy thrift',
+          body: 'Reptiles include lizards, snakes, turtles, crocodilians, and tuatara; birds evolved inside the broader reptile lineage, though everyday language often separates them. The amniotic egg was revolutionary because embryos could develop away from open water. Scales reduce water loss, and ectothermy keeps food requirements low. A large crocodile can go months between substantial meals, a metabolic option unavailable to most mammals of similar size.',
+          facts: [['Key adaptation', 'Amniotic egg and water-saving skin'], ['Named example', 'Komodo dragons combine serrated teeth, venom effects, and ambush'], ['Misconception', 'Ectothermic does not mean inactive']]
+        },
+        birds: {
+          title: 'Birds - feathered dinosaurs with flight-specialised bodies',
+          body: 'Birds are living dinosaurs whose bodies are reorganised around feathers, high metabolism, air sacs, hollow bones, and precise motor control. Feathers first evolved before modern flight and served insulation, display, or brooding before becoming aerodynamic surfaces. Migration can be extreme: bar-tailed godwits can fly nonstop across the Pacific for more than 10,000 kilometres. Flightless birds such as ostriches and penguins are not failures; they redirected bird engineering toward running or swimming.',
+          facts: [['Key adaptation', 'Feathers plus air-sac breathing'], ['Named example', 'Peregrine falcons exceed 300 km/h in steep dives'], ['Deep ancestry', 'Theropod dinosaurs, not separate from dinosaurs']]
+        },
+        mammals: {
+          title: 'Mammals - milk, hair, and sustained heat',
+          body: 'Mammals are defined by mammary glands, hair or fur, three middle-ear bones, and a jaw joint different from reptiles. Monotremes lay eggs, marsupials give birth to tiny young that finish development in a pouch or attached to a teat, and placental mammals nourish embryos through a placenta. Endothermy allows night activity, cold climates, and long endurance, but it is expensive. A shrew may need to eat close to its body weight per day; a snake can wait.',
+          facts: [['Key adaptation', 'Milk plus endothermy'], ['Named example', 'Blue whales nurse calves on fat-rich milk'], ['Number anchor', 'Roughly 6,500 to 6,700 living species']]
+        }
+      };
+
+      var invertebrates = {
+        insects: {
+          title: 'Insects - the six-legged majority',
+          body: 'Insects combine three body regions, six legs, antennae, compound eyes, and often wings. Complete metamorphosis separates larval and adult jobs: a caterpillar is a feeding machine, a butterfly is a dispersal and mating machine. Eusocial insects such as ants, termites, and some bees push cooperation so far that colonies behave like distributed organisms. Their ecological services include pollination, decomposition, soil turnover, and becoming food for almost everything else.'
+        },
+        arachnids: {
+          title: 'Arachnids - predators, silk engineers, and parasites',
+          body: 'Arachnids have eight legs and no antennae. Spiders use silk for webs, draglines, egg sacs, traps, shelters, and even ballooning through the air; by weight, some spider silks combine high tensile strength with remarkable toughness. Scorpions fluoresce under ultraviolet light, probably due to compounds in the cuticle. Ticks are arachnids too, and their importance to humans comes less from bites than from the pathogens some species transmit.'
+        },
+        molluscs: {
+          title: 'Molluscs - shells, siphons, tentacles, and intelligence',
+          body: 'Molluscs are the great soft-bodied alternative to arthropods. Gastropods twist their bodies during development; bivalves turn the shell into a two-part filter-feeding device; cephalopods convert the foot into arms and siphons. Shells grow by mineral deposition at the mantle edge, recording chemistry and stress like a biological archive. Octopus camouflage works through chromatophores, iridophores, papillae, and fast neural control of skin.'
+        },
+        marine: {
+          title: 'Marine invertebrates - the ocean\'s hidden architecture',
+          body: 'Coral polyps build reefs that shelter a huge share of marine species despite covering a tiny fraction of the seafloor. Jellyfish are mostly water but can be efficient predators with nerve nets instead of brains. Echinoderms such as sea stars and urchins use a water vascular system with tube feet for movement and feeding. Deep-sea invertebrates around hydrothermal vents can rely on chemosynthetic bacteria rather than sunlight-driven food chains.'
+        }
+      };
+
+      var behaviours = {
+        instinct: {
+          title: 'Instinct and learning - the false opposition',
+          body: 'Real behaviour is usually a braid of inherited bias and experience. Greylag geese rolling eggs back to the nest show a fixed action pattern, while young birds learning song need both genetic templates and auditory practice. Konrad Lorenz showed imprinting in goslings: a short early window can lock social following onto a parent-like object. Learning matters most when environments vary; instinct matters when hesitation is costly.'
+        },
+        intelligence: {
+          title: 'Animal intelligence - different tools for different worlds',
+          body: 'Chimpanzees use sticks to fish for termites, New Caledonian crows bend hooks, octopuses solve containers, elephants cooperate, and dolphins understand complex social relationships. Intelligence is not a single ladder with humans at the top and everything else below. It is a set of capacities: memory, inhibition, causal reasoning, social inference, planning, and flexible motor control. A squirrel\'s spatial memory can be more ecologically relevant than a laboratory puzzle score.'
+        },
+        communication: {
+          title: 'Communication - signals shaped by receivers',
+          body: 'Animal signals work only if another animal can detect and respond to them. Vervet monkeys use different alarm calls for eagles, leopards, and snakes; humpback whales sing structured songs that change over years; cuttlefish can send visual signals through skin. Communication need not be honest: anglerfish lures, firefly mimicry, and harmless flies that resemble wasps all exploit receiver expectations. Language is a special case, not the baseline.'
+        },
+        social: {
+          title: 'Social structures - cooperation has math underneath',
+          body: 'Solitary, pair-bonded, herd, pack, and colony lifestyles solve different problems. Hamilton\'s rule, often written as rB > C, explains why helping relatives can evolve when the genetic benefit outweighs the cost. Naked mole-rats, ants, termites, and honeybees are eusocial: overlapping generations, cooperative brood care, and reproductive division of labour. Dominance hierarchies are not just aggression; they can reduce repeated fights by making expectations predictable.'
+        },
+        migration: {
+          title: 'Migration - moving the body to move the odds',
+          body: 'Migration is not tourism. It is a strategy for tracking food, breeding sites, weather, or predator escape across space and time. Arctic terns, monarch butterflies, salmon, wildebeest, caribou, and eels show that navigation can be inherited, learned, or socially transmitted. The route can be as important as the destination: stopover wetlands, wind corridors, river mouths, and safe calving grounds become invisible infrastructure.'
+        }
+      };
+
+      var humans = {
+        extinction: {
+          title: 'The sixth mass extinction - fast loss in human time',
+          body: 'Earth has had five widely recognised mass extinctions, including the end-Cretaceous event 66 million years ago. The current crisis is different because one species is driving habitat conversion, overharvest, pollution, invasive transfers, and climate change at once. Background extinction is slow on human scales; modern losses in many groups are far above that baseline. The tragedy is not only species disappearing, but ecological relationships being torn before anyone has described them.'
+        },
+        conservation: {
+          title: 'What actually works - boring competence saves animals',
+          body: 'Conservation succeeds when biology, enforcement, money, and local legitimacy line up. The California condor, Mauritius kestrel, Arabian oryx, and black-footed ferret show that captive breeding can work when paired with release habitat and long monitoring. Marine protected areas can increase fish biomass when they are real no-take zones rather than paper boundaries. The unglamorous details - fences, rangers, veterinary screening, land rights, and incentives - decide outcomes.'
+        },
+        domestication: {
+          title: 'Domestication - animals redesigned by living near us',
+          body: 'Domestication selects for reduced fear, altered reproduction, tolerance of crowding, and usefulness to humans. Dogs came first, long before agriculture; goats, sheep, pigs, and cattle followed with settled farming; horses changed transport and warfare after about 3500 BCE on the Eurasian steppe. Domestication also redesigned humans, making milk digestion valuable in some populations and tying economies to animal labour, manure, meat, fibre, and disease.'
+        },
+        ethics: {
+          title: 'Animal welfare and ethics - sentience changes the question',
+          body: 'Modern welfare science asks whether animals can suffer, anticipate, bond, play, fear, and recover, not whether they can speak. Factory farming scale makes this ethically unavoidable: billions of chickens, pigs, cattle, and fish are raised and killed each year. Peter Singer\'s 1975 Animal Liberation argued that suffering deserves consideration regardless of species. You need not accept every philosophical conclusion to see that sentience creates obligations.'
+        },
+        culture: {
+          title: 'Animals in culture - symbols with bodies behind them',
+          body: 'Animals carry human meanings: lions stand for power, owls for wisdom, snakes for danger or renewal, doves for peace, ravens for prophecy, cows for wealth, and dogs for loyalty. But symbols can flatten real animals into props. Working animals pulled ploughs, carried messages, detected mines, guided blind people, guarded homes, and provided companionship. Culture is part of the relationship, but it should not erase the living creature underneath.'
+        }
+      };
+
+      function renderDetail(container, item) {
+        var facts = '';
+        if (item.facts) {
+          for (var i = 0; i < item.facts.length; i += 1) {
+            var f = item.facts[i];
+            facts += '<div class="fact-box"><div class="fact-k">' + f[0] + '</div><div class="fact-v">' + f[1] + '</div></div>';
+          }
+        }
+        container.innerHTML =
+          '<div class="detail-title">' + item.title + '</div>' +
+          '<div class="detail-body">' + item.body + '</div>' +
+          (facts ? '<div class="detail-facts">' + facts + '</div>' : '');
+      }
+
+      function attachExplorer(tabsId, displayId, data, initialKey) {
+        var tabs = document.getElementById(tabsId);
+        var display = document.getElementById(displayId);
+        if (!tabs || !display) return;
+        function show(key, btn) {
+          each(tabs.querySelectorAll('button'), function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          renderDetail(display, data[key]);
+        }
+        each(tabs.querySelectorAll('button'), function(btn) {
+          btn.addEventListener('click', function() { show(btn.getAttribute('data-key'), btn); });
+        });
+        var initial = tabs.querySelector('[data-key="' + initialKey + '"]') || tabs.querySelector('button');
+        if (initial) show(initial.getAttribute('data-key'), initial);
+      }
+
+      function buildAnimalTimeline() {
+        var rows = document.getElementById('animalTimelineRows');
+        var axis = document.getElementById('animalTimelineAxis');
+        var max = 650;
+        var items = [
+          { label: 'Ediacaran animals', start: 635, end: 541, bg: 'var(--color-background-info)' },
+          { label: 'Cambrian diversification', start: 541, end: 485, bg: 'var(--accent-bg)' },
+          { label: 'Jawed fishes expand', start: 430, end: 360, bg: 'var(--color-background-warning)' },
+          { label: 'First land vertebrates', start: 375, end: 320, bg: 'var(--color-background-success)' },
+          { label: 'Dinosaurs dominate land', start: 230, end: 66, bg: 'var(--color-background-danger)' },
+          { label: 'Mammals radiate', start: 66, end: 0, bg: 'var(--color-background-info)' }
+        ];
+        each([650, 541, 400, 250, 66, 0], function(mark) {
+          var el = document.createElement('div');
+          el.className = 'pc-axis-mark';
+          el.style.left = ((max - mark) / max * 100) + '%';
+          el.textContent = mark === 0 ? 'today' : mark + ' mya';
+          axis.appendChild(el);
+        });
+        each(items, function(item) {
+          var row = document.createElement('div');
+          row.className = 'pc-row';
+          var label = document.createElement('div');
+          label.className = 'pc-label';
+          label.textContent = item.label;
+          var track = document.createElement('div');
+          track.className = 'pc-track';
+          var fill = document.createElement('div');
+          fill.className = 'pc-fill';
+          fill.style.left = ((max - item.start) / max * 100) + '%';
+          fill.style.width = ((item.start - item.end) / max * 100) + '%';
+          fill.style.background = item.bg;
+          var fillLabel = document.createElement('span');
+          fillLabel.className = 'pc-fill-label';
+          fillLabel.textContent = item.start + '-' + item.end;
+          fill.appendChild(fillLabel);
+          track.appendChild(fill);
+          row.appendChild(label);
+          row.appendChild(track);
+          rows.appendChild(row);
+        });
+      }
+
+      function buildDistribution() {
+        var data = [
+          { label: 'Insects', value: 56, bg: 'var(--accent-bg)' },
+          { label: 'Other arthropods', value: 17, bg: 'var(--color-background-warning)' },
+          { label: 'Molluscs', value: 7, bg: 'var(--color-background-info)' },
+          { label: 'Other invertebrates', value: 15, bg: 'var(--color-background-secondary)' },
+          { label: 'Vertebrates', value: 5, bg: 'var(--color-background-danger)' }
+        ];
+        var bar = document.getElementById('speciesDist');
+        var legend = document.getElementById('speciesLegend');
+        each(data, function(d) {
+          var seg = document.createElement('div');
+          seg.className = 'dist-seg';
+          seg.style.width = d.value + '%';
+          seg.style.background = d.bg;
+          seg.title = d.label + ': ' + d.value + '%';
+          bar.appendChild(seg);
+          var item = document.createElement('div');
+          item.className = 'legend-item';
+          var swatch = document.createElement('span');
+          swatch.className = 'legend-swatch';
+          swatch.style.background = d.bg;
+          var text = document.createElement('span');
+          text.textContent = d.label + ' ' + d.value + '%';
+          item.appendChild(swatch);
+          item.appendChild(text);
+          legend.appendChild(item);
+        });
+      }
+
+      function buildBarChart(id, data) {
+        var wrap = document.getElementById(id);
+        each(data, function(d) {
+          var row = document.createElement('div');
+          row.className = 'bar-row';
+          var label = document.createElement('div');
+          label.className = 'bl';
+          label.textContent = d.label;
+          var bar = document.createElement('div');
+          bar.className = 'bb';
+          bar.style.width = d.width + '%';
+          bar.style.background = d.bg;
+          var value = document.createElement('span');
+          value.className = 'bv';
+          value.textContent = d.value;
+          bar.appendChild(value);
+          row.appendChild(label);
+          row.appendChild(bar);
+          wrap.appendChild(row);
+        });
+      }
+
+      function updateMass() {
+        var exponent = Number(document.getElementById('massSlider').value);
+        var kg = Math.pow(10, exponent);
+        var display = kg < 1 ? Math.round(kg * 1000) + ' g' : kg >= 1000 ? Math.round(kg).toLocaleString() + ' kg' : Number(kg.toFixed(1)).toLocaleString() + ' kg';
+        var relativeTotal = Math.pow(kg / 10, 0.75);
+        var relativePerKg = Math.pow(kg / 10, -0.25);
+        document.getElementById('massValue').textContent = display;
+        document.getElementById('massOutput').innerHTML =
+          'Using Kleiber-style scaling, this animal would use about ' + relativeTotal.toFixed(2) +
+          ' times the total resting energy of a 10 kg animal, but about ' + relativePerKg.toFixed(2) +
+          ' times the energy per kilogram. Tiny animals burn hot per gram; large animals are efficient per kilogram but expensive in total.';
+      }
+
+      function buildCognitionScale() {
+        var data = [
+          { name: 'Tick questing', pos: 8 },
+          { name: 'Sea turtle hatchling', pos: 23 },
+          { name: 'Honeybee foraging', pos: 45 },
+          { name: 'Octopus puzzle solving', pos: 70 },
+          { name: 'Crow tool bending', pos: 82 },
+          { name: 'Chimp social strategy', pos: 88 }
+        ];
+        var wrap = document.getElementById('cognitionScale');
+        each(data, function(d) {
+          var row = document.createElement('div');
+          row.className = 'cscale-row';
+          var name = document.createElement('div');
+          name.className = 'cscale-name';
+          name.textContent = d.name;
+          var track = document.createElement('div');
+          track.className = 'cscale-track';
+          var dot = document.createElement('div');
+          dot.className = 'cscale-dot';
+          dot.style.left = d.pos + '%';
+          track.appendChild(dot);
+          row.appendChild(name);
+          row.appendChild(track);
+          wrap.appendChild(row);
+        });
+      }
+
+      function attachInvertExplorer() {
+        var grid = document.getElementById('invertGrid');
+        var detail = document.getElementById('invertDetail');
+        if (!grid || !detail) return;
+        function show(card) {
+          each(grid.querySelectorAll('.elem-card'), function(c) { c.classList.remove('active'); });
+          card.classList.add('active');
+          var item = invertebrates[card.getAttribute('data-key')];
+          detail.classList.add('show');
+          detail.innerHTML = '<div class="detail-title">' + item.title + '</div><div class="detail-body">' + item.body + '</div>';
+        }
+        each(grid.querySelectorAll('.elem-card'), function(card) {
+          card.addEventListener('click', function() { show(card); });
+        });
+        var first = grid.querySelector('.elem-card');
+        if (first) show(first);
+      }
+
+      function calculateEnergy() {
+        var base = Number(document.getElementById('energyInput').value);
+        var eff = Number(document.getElementById('efficiencyInput').value) / 100;
+        var out = document.getElementById('energyOutput');
+        if (!isFinite(base) || !isFinite(eff) || base <= 0 || eff <= 0 || eff > 0.5) {
+          out.textContent = 'Enter a positive starting amount and an efficiency from 1% to 50%. Most food-web examples use around 10%.';
+          return;
+        }
+        var herb = base * eff;
+        var meso = herb * eff;
+        var apex = meso * eff;
+        out.innerHTML = base.toLocaleString() + ' units at the producer level becomes about ' +
+          Math.round(herb).toLocaleString() + ' for herbivores, ' +
+          Math.round(meso).toLocaleString() + ' for mid-level predators, and ' +
+          Math.round(apex).toLocaleString() + ' for apex predators. That thinning is why large top predators need large territories.';
+      }
+
+      function attachQa() {
+        each(document.querySelectorAll('.qa-btn'), function(btn) {
+          btn.addEventListener('click', function() {
+            var ans = btn.nextElementSibling;
+            var showing = ans.classList.toggle('show');
+            btn.textContent = showing ? 'hide' : 'show answer';
+          });
+        });
+      }
+
+      buildAnimalTimeline();
+      buildDistribution();
+      buildBarChart('speedBars', [
+        { label: 'Peregrine dive', value: '320+ km/h', width: 100, bg: 'var(--accent-bg)' },
+        { label: 'Cheetah sprint', value: '95-105', width: 32, bg: 'var(--color-background-warning)' },
+        { label: 'Sailfish burst', value: '80-100', width: 29, bg: 'var(--color-background-info)' },
+        { label: 'Pronghorn run', value: '85-90', width: 28, bg: 'var(--color-background-success)' },
+        { label: 'Dragonfly flight', value: '45-55', width: 17, bg: 'var(--color-background-danger)' }
+      ]);
+      buildBarChart('threatBars', [
+        { label: 'Habitat loss', value: 'very high', width: 96, bg: 'var(--color-background-danger)' },
+        { label: 'Overexploitation', value: 'high', width: 82, bg: 'var(--color-background-warning)' },
+        { label: 'Invasive species', value: 'high on islands', width: 67, bg: 'var(--color-background-info)' },
+        { label: 'Pollution', value: 'regional to global', width: 58, bg: 'var(--color-background-secondary)' },
+        { label: 'Climate change', value: 'rising fast', width: 74, bg: 'var(--accent-bg)' }
+      ]);
+      buildCognitionScale();
+      attachExplorer('phylaTabs', 'phylaDisplay', phyla, 'arthropoda');
+      attachExplorer('vertebrateTabs', 'vertebrateDisplay', vertebrates, 'birds');
+      attachExplorer('behaviourTabs', 'behaviourDisplay', behaviours, 'intelligence');
+      attachExplorer('humanTabs', 'humanDisplay', humans, 'conservation');
+      attachInvertExplorer();
+      document.getElementById('massSlider').addEventListener('input', updateMass);
+      updateMass();
+      document.getElementById('energyCalc').addEventListener('click', calculateEnergy);
+      calculateEnergy();
+      attachQa();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAnimalsModule);
+    } else {
+      initAnimalsModule();
+    }
+    }());
+  </script>
+  <script src="../files/shared.js"></script>
+</body>
+</html>

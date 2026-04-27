@@ -90,7 +90,6 @@
 .meat-name { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
 .meat-badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 99px; }
 .row2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 4px; }
-.sub-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px; }
 .sub-label { font-size: 11px; color: var(--color-text-secondary); margin: 0 0 2px; }
 .sub-val { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
 .sub-note { font-size: 11px; color: var(--color-text-secondary); margin: 2px 0 0; }
@@ -157,14 +156,381 @@
 .heat-bar { height: 18px; border-radius: 4px; background: linear-gradient(to right, #FFF8E1, #FFCC02, #FF6B00, #CC0000, #6B0000); margin: 8px 0; position: relative; }
 .heat-marker { position: absolute; top: -4px; width: 4px; height: 26px; background: var(--color-text-primary); border-radius: 2px; transform: translateX(-50%); }
 .heat-label { position: absolute; top: 28px; transform: translateX(-50%); font-size: 10px; color: var(--color-text-secondary); white-space: nowrap; }
-</style>
+
+/* === Shared-ready extracted styles === */
+
+.detail-label {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:2px;
+}
+
+.item-title {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary);
+}
+
+.text-white {
+  color:#fff;
+}
+
+/* === Module-specific extracted styles === */
+
+.showcuisine-control {
+  font-size:12px;
+  padding:3px 10px;
+}
+
+.culinary-label {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:12px;
+}
+
+.culinary-media {
+  width:100%;
+  min-width:340px;
+  display:block;
+}
+
+.culinary-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px,1fr));
+  gap:8px;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.culinary-spacing {
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:2px;
+}
+
+.culinary-text {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-top:8px;
+}
+
+.showdoneness-control {
+  background:#8B1A1A;
+}
+
+.ds-temp-style {
+  color:rgba(255,255,255,0.8);
+}
+
+.showdoneness-control-2 {
+  background:#C0392B;
+}
+
+.showdoneness-control-3 {
+  background:#E74C3C;
+}
+
+.showdoneness-control-4 {
+  background:#E67E22;
+}
+
+.showdoneness-control-5 {
+  background:#D35400;
+}
+
+.showdoneness-control-6 {
+  background:#784212;
+}
+
+.ds-temp-style-2 {
+  color:rgba(255,255,255,0.9);
+}
+
+.meat-badge-style {
+  background:#FAECE7;
+  color:#712B13;
+}
+
+.meat-badge-style-2 {
+  background:#FAEEDA;
+  color:#633806;
+}
+
+.meat-badge-style-3 {
+  background:#EAF3DE;
+  color:#27500A;
+}
+
+.meat-badge-style-4 {
+  background:#E6F1FB;
+  color:#0C447C;
+}
+
+.culinary-panel-2 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:12px 14px;
+  margin-bottom:1rem;
+}
+
+.culinary-panel-3 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:1rem;
+}
+
+.culinary-text-3 {
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:0.08em;
+  color:var(--color-text-tertiary);
+  margin-bottom:6px;
+}
+
+.sbadge-style {
+  background:#E1F5EE;
+  color:#085041;
+}
+
+.sbadge-style-2 {
+  background:#FCEBEB;
+  color:#791F1F;
+}
+
+.culinary-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.tech-display {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:1rem;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.culinary-grid-3 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(270px,1fr));
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.culinary-panel-4 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #97C459;
+}
+
+.culinary-label-2 {
+  font-size:12px;
+  font-weight:500;
+  color:#27500A;
+  margin-bottom:4px;
+}
+
+.culinary-text-4 {
+  font-size:12px;
+  color:#3B6D11;
+  line-height:1.5;
+}
+
+.culinary-panel-5 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #F09595;
+}
+
+.culinary-label-3 {
+  font-size:12px;
+  font-weight:500;
+  color:#791F1F;
+  margin-bottom:4px;
+}
+
+.culinary-text-5 {
+  font-size:12px;
+  color:#A32D2D;
+  line-height:1.5;
+}
+
+.culinary-panel-6 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #EF9F27;
+}
+
+.culinary-label-4 {
+  font-size:12px;
+  font-weight:500;
+  color:#633806;
+  margin-bottom:4px;
+}
+
+.culinary-text-6 {
+  font-size:12px;
+  color:#854F0B;
+  line-height:1.5;
+}
+
+.culinary-panel-7 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  border:0.5px solid #85B7EB;
+}
+
+.culinary-label-5 {
+  font-size:12px;
+  font-weight:500;
+  color:#0C447C;
+  margin-bottom:4px;
+}
+
+.culinary-text-7 {
+  font-size:12px;
+  color:#185FA5;
+  line-height:1.5;
+}
+
+.culinary-grid-4 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(270px,1fr));
+  gap:12px;
+}
+
+.culinary-text-9 {
+  font-size:12px;
+  color:var(--color-text-primary);
+  line-height:1.4;
+}
+
+.culinary-spacing-2 {
+  overflow-x:auto;
+  margin-bottom:1rem;
+}
+
+.culinary-media-2 {
+  width:100%;
+  min-width:400px;
+  display:block;
+}
+
+.culinary-media-3 {
+  width:100%;
+  min-width:500px;
+  display:block;
+}
+
+.culinary-media-4 {
+  width:100%;
+  min-width:480px;
+  display:block;
+}
+
+.culinary-text-10 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+  line-height:1.6;
+}
+
+.culinary-grid-5 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:8px;
+}
+
+.culinary-text-12 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+}
+
+.culinary-spacing-3 {
+  position:relative;
+  margin:0 10px 40px;
+}
+
+.heat-marker-style {
+  left:2%;
+}
+
+.heat-marker-style-2 {
+  left:20%;
+}
+
+.heat-marker-style-3 {
+  left:38%;
+}
+
+.heat-marker-style-4 {
+  left:54%;
+}
+
+.heat-marker-style-5 {
+  left:70%;
+}
+
+.heat-marker-style-6 {
+  left:88%;
+}
+
+.culinary-text-13 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-top:8px;
+}
+
+.wine-dot-style {
+  background:#D4A0C0;
+}
+
+.wine-dot-style-2 {
+  background:#7B2D2D;
+}
+
+.wine-dot-style-3 {
+  background:#F7E48B;
+}
+
+.wine-dot-style-4 {
+  background:#C8A850;
+}
+
+.wine-dot-style-5 {
+  background:#3A6830;
+}
+
+.wine-row-style {
+  border-bottom:none;
+}
+
+.wine-dot-style-6 {
+  background:#E8C7A0;
+}
+  </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-utensils" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 19: Culinary Arts</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-utensils module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 19: Culinary Arts</h1>
     </div>
     <p class="module-subtitle">World cuisines, sauces, techniques, etiquette, and the science behind cooking</p>
 
@@ -173,19 +539,19 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part A · world cuisines — origins, philosophy, key flavours</div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showCuisine('french')"      style="font-size:12px; padding:3px 10px;">French</button>
-      <button onclick="showCuisine('italian')"     style="font-size:12px; padding:3px 10px;">Italian</button>
-      <button onclick="showCuisine('chinese')"     style="font-size:12px; padding:3px 10px;">Chinese</button>
-      <button onclick="showCuisine('japanese')"    style="font-size:12px; padding:3px 10px;">Japanese</button>
-      <button onclick="showCuisine('thai')"        style="font-size:12px; padding:3px 10px;">Thai</button>
-      <button onclick="showCuisine('indian')"      style="font-size:12px; padding:3px 10px;">Indian</button>
-      <button onclick="showCuisine('middle')"      style="font-size:12px; padding:3px 10px;">Middle Eastern</button>
-      <button onclick="showCuisine('mexican')"     style="font-size:12px; padding:3px 10px;">Mexican</button>
-      <button onclick="showCuisine('spanish')"     style="font-size:12px; padding:3px 10px;">Spanish</button>
-      <button onclick="showCuisine('westafrican')" style="font-size:12px; padding:3px 10px;">West African</button>
+    <div class="button-row">
+      <button class="showcuisine-control" onclick="showCuisine('french')"     >French</button>
+      <button class="showcuisine-control" onclick="showCuisine('italian')"    >Italian</button>
+      <button class="showcuisine-control" onclick="showCuisine('chinese')"    >Chinese</button>
+      <button class="showcuisine-control" onclick="showCuisine('japanese')"   >Japanese</button>
+      <button class="showcuisine-control" onclick="showCuisine('thai')"       >Thai</button>
+      <button class="showcuisine-control" onclick="showCuisine('indian')"     >Indian</button>
+      <button class="showcuisine-control" onclick="showCuisine('middle')"     >Middle Eastern</button>
+      <button class="showcuisine-control" onclick="showCuisine('mexican')"    >Mexican</button>
+      <button class="showcuisine-control" onclick="showCuisine('spanish')"    >Spanish</button>
+      <button class="showcuisine-control" onclick="showCuisine('westafrican')">West African</button>
     </div>
-    <div id="cuisine-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="cuisine-display"></div>
 
     <!-- ════════════════════════════════════════════
          PART B — MEAT TEMPERATURES
@@ -193,10 +559,10 @@
     <div class="sec">Part B · meat temperatures &amp; cooking times</div>
 
     <!-- Temperature danger zone diagram (SVG) -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">Internal temperature scale (°C) — what's happening inside the meat</div>
-      <div style="overflow-x:auto;">
-        <svg viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:340px; display:block;">
+    <div class="content-panel">
+      <div class="culinary-label">Internal temperature scale (°C) — what's happening inside the meat</div>
+      <div class="u-overflow-x-auto">
+        <svg class="culinary-media" viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg">
           <!-- Temperature gradient bar -->
           <defs>
             <linearGradient id="tempGrad" x1="0" x2="1" y1="0" y2="0">
@@ -246,50 +612,50 @@
         </svg>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:8px; font-size:12px; margin-top:4px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
-          <div style="font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">0–40°C</div>
-          <div style="color:var(--color-text-secondary);">Danger zone. Bacteria multiply rapidly. Never leave raw meat here for long.</div>
+      <div class="culinary-grid">
+        <div class="sub-card-compact">
+          <div class="culinary-spacing">0–40°C</div>
+          <div class="text-secondary">Danger zone. Bacteria multiply rapidly. Never leave raw meat here for long.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
-          <div style="font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">60–74°C</div>
-          <div style="color:var(--color-text-secondary);">Proteins denature. Meat is "cooked." Most pathogens killed. Safe zone begins.</div>
+        <div class="sub-card-compact">
+          <div class="culinary-spacing">60–74°C</div>
+          <div class="text-secondary">Proteins denature. Meat is "cooked." Most pathogens killed. Safe zone begins.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;">
-          <div style="font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">74°C+</div>
-          <div style="color:var(--color-text-secondary);">Universally safe. All harmful bacteria destroyed. Poultry target.</div>
+        <div class="sub-card-compact">
+          <div class="culinary-spacing">74°C+</div>
+          <div class="text-secondary">Universally safe. All harmful bacteria destroyed. Poultry target.</div>
         </div>
       </div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-top:8px;">Water boils at 100°C. Meat cooked in boiling water reaches max 100°C internally — always safe, but can become tough if overdone.</div>
+      <div class="culinary-text">Water boils at 100°C. Meat cooked in boiling water reaches max 100°C internally — always safe, but can become tough if overdone.</div>
     </div>
 
     <!-- Beef doneness interactive -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Beef doneness explorer — tap to see what's happening inside</div>
+    <div class="content-panel">
+      <div class="panel-title">Beef doneness explorer — tap to see what's happening inside</div>
       <div class="doneness-strip">
-        <div class="doneness-swatch sel" style="background:#8B1A1A;" onclick="showDoneness(0,this)">
-          <div class="ds-name" style="color:#fff;">Blue</div>
-          <div class="ds-temp" style="color:rgba(255,255,255,0.8);">46–49°C</div>
+        <div class="doneness-swatch sel showdoneness-control" onclick="showDoneness(0,this)">
+          <div class="ds-name text-white">Blue</div>
+          <div class="ds-temp ds-temp-style">46–49°C</div>
         </div>
-        <div class="doneness-swatch" style="background:#C0392B;" onclick="showDoneness(1,this)">
-          <div class="ds-name" style="color:#fff;">Rare</div>
-          <div class="ds-temp" style="color:rgba(255,255,255,0.8);">50–52°C</div>
+        <div class="doneness-swatch showdoneness-control-2" onclick="showDoneness(1,this)">
+          <div class="ds-name text-white">Rare</div>
+          <div class="ds-temp ds-temp-style">50–52°C</div>
         </div>
-        <div class="doneness-swatch" style="background:#E74C3C;" onclick="showDoneness(2,this)">
-          <div class="ds-name" style="color:#fff;">Med-Rare</div>
-          <div class="ds-temp" style="color:rgba(255,255,255,0.8);">55–57°C</div>
+        <div class="doneness-swatch showdoneness-control-3" onclick="showDoneness(2,this)">
+          <div class="ds-name text-white">Med-Rare</div>
+          <div class="ds-temp ds-temp-style">55–57°C</div>
         </div>
-        <div class="doneness-swatch" style="background:#E67E22;" onclick="showDoneness(3,this)">
-          <div class="ds-name" style="color:#fff;">Medium</div>
-          <div class="ds-temp" style="color:rgba(255,255,255,0.8);">60–63°C</div>
+        <div class="doneness-swatch showdoneness-control-4" onclick="showDoneness(3,this)">
+          <div class="ds-name text-white">Medium</div>
+          <div class="ds-temp ds-temp-style">60–63°C</div>
         </div>
-        <div class="doneness-swatch" style="background:#D35400;" onclick="showDoneness(4,this)">
-          <div class="ds-name" style="color:#fff;">Med-Well</div>
-          <div class="ds-temp" style="color:rgba(255,255,255,0.8);">65–69°C</div>
+        <div class="doneness-swatch showdoneness-control-5" onclick="showDoneness(4,this)">
+          <div class="ds-name text-white">Med-Well</div>
+          <div class="ds-temp ds-temp-style">65–69°C</div>
         </div>
-        <div class="doneness-swatch" style="background:#784212;" onclick="showDoneness(5,this)">
-          <div class="ds-name" style="color:#fff;">Well Done</div>
-          <div class="ds-temp" style="color:rgba(255,255,255,0.9);">71°C+</div>
+        <div class="doneness-swatch showdoneness-control-6" onclick="showDoneness(5,this)">
+          <div class="ds-name text-white">Well Done</div>
+          <div class="ds-temp ds-temp-style-2">71°C+</div>
         </div>
       </div>
       <div id="doneness-detail"></div>
@@ -298,7 +664,7 @@
     <div class="meat-card">
       <div class="meat-header">
         <span class="meat-name">Chicken &amp; poultry</span>
-        <span class="meat-badge" style="background:#FAECE7; color:#712B13;">Most strict — no pink ever</span>
+        <span class="meat-badge meat-badge-style">Most strict — no pink ever</span>
       </div>
       <div class="row2">
         <div class="sub-card">
@@ -329,7 +695,7 @@
     <div class="meat-card">
       <div class="meat-header">
         <span class="meat-name">Beef</span>
-        <span class="meat-badge" style="background:#FAEEDA; color:#633806;">Flexible — doneness is personal</span>
+        <span class="meat-badge meat-badge-style-2">Flexible — doneness is personal</span>
       </div>
       <div class="row2">
         <div class="sub-card">
@@ -360,7 +726,7 @@
     <div class="meat-card">
       <div class="meat-header">
         <span class="meat-name">Pork</span>
-        <span class="meat-badge" style="background:#EAF3DE; color:#27500A;">Slightly pink is now fine (updated guidelines)</span>
+        <span class="meat-badge meat-badge-style-3">Slightly pink is now fine (updated guidelines)</span>
       </div>
       <div class="row2">
         <div class="sub-card">
@@ -391,7 +757,7 @@
     <div class="meat-card">
       <div class="meat-header">
         <span class="meat-name">Fish (salmon, cod, sea bass…)</span>
-        <span class="meat-badge" style="background:#E6F1FB; color:#0C447C;">Fastest — easy to overcook</span>
+        <span class="meat-badge meat-badge-style-4">Fastest — easy to overcook</span>
       </div>
       <div class="row2">
         <div class="sub-card">
@@ -419,8 +785,8 @@
       </div>
     </div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Key cooking temperature anchors</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">Key cooking temperature anchors</div>
       <div class="anchor-row">
         <span class="pill p-blue">100°C</span>
         <div><div class="atext">Water boils. Meat cooked in boiling water can never exceed this.</div></div>
@@ -447,9 +813,9 @@
       </div>
     </div>
 
-    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 12px 14px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;">The thickness rule — works for grilling any meat</div>
-      <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+    <div class="culinary-panel-2">
+      <div class="compact-card-title">The thickness rule — works for grilling any meat</div>
+      <div class="muted-copy-large">
         For every 1 cm of thickness, allow roughly 2–3 minutes per side on medium-high heat. A 2 cm chicken breast = 4–6 min per side. A 3 cm steak = 6–9 min per side for medium. This is a rough guide — always verify with a thermometer or the finger-press test.
       </div>
     </div>
@@ -459,12 +825,12 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part C · the 5 French mother sauces — the foundation of classical cooking</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+    <div class="culinary-panel-3">
       Codified by Auguste Escoffier in the early 20th century (building on Marie-Antoine Carême's earlier work). Every classical French sauce derives from one of these five bases. Master these and you can make thousands of sauces.
     </div>
 
     <!-- Sauce family tree -->
-    <div style="font-size:11px; font-weight:600; letter-spacing:0.08em; color:var(--color-text-tertiary); margin-bottom:6px;">
+    <div class="culinary-text-3">
       FRENCH MOTHER SAUCE FAMILY TREE
     </div>
     
@@ -540,7 +906,7 @@
     </div>
 
     <div class="sauce-card">
-      <div class="sh"><span class="sname">Béchamel</span><span class="sbadge" style="background:#E6F1FB; color:#0C447C;">milk + roux</span><span class="sbadge" style="background:#E1F5EE; color:#085041;">white sauce</span></div>
+      <div class="sh"><span class="sname">Béchamel</span><span class="sbadge meat-badge-style-4">milk + roux</span><span class="sbadge sbadge-style">white sauce</span></div>
       <div class="ssub">
         <div class="sbox"><p class="sl">Base</p><p class="sv">Butter + flour (roux) cooked until pale, then milk whisked in.</p></div>
         <div class="sbox"><p class="sl">Key derivatives</p><p class="sv">Mornay (+ cheese), Soubise (+ onion purée), Nantua (+ crayfish butter), cream sauce.</p></div>
@@ -550,7 +916,7 @@
     </div>
 
     <div class="sauce-card">
-      <div class="sh"><span class="sname">Velouté</span><span class="sbadge" style="background:#FAEEDA; color:#633806;">stock + roux</span><span class="sbadge" style="background:#E1F5EE; color:#085041;">blonde sauce</span></div>
+      <div class="sh"><span class="sname">Velouté</span><span class="sbadge meat-badge-style-2">stock + roux</span><span class="sbadge sbadge-style">blonde sauce</span></div>
       <div class="ssub">
         <div class="sbox"><p class="sl">Base</p><p class="sv">Blond roux (slightly coloured) + white stock (veal, chicken, or fish).</p></div>
         <div class="sbox"><p class="sl">Key derivatives</p><p class="sv">Allemande (+ egg yolk/cream), Suprême (+ chicken velouté + cream), Vin Blanc (fish velouté + white wine).</p></div>
@@ -560,7 +926,7 @@
     </div>
 
     <div class="sauce-card">
-      <div class="sh"><span class="sname">Espagnole</span><span class="sbadge" style="background:#FAECE7; color:#712B13;">brown stock + tomato + mirepoix</span><span class="sbadge" style="background:#FAEEDA; color:#633806;">brown sauce</span></div>
+      <div class="sh"><span class="sname">Espagnole</span><span class="sbadge meat-badge-style">brown stock + tomato + mirepoix</span><span class="sbadge meat-badge-style-2">brown sauce</span></div>
       <div class="ssub">
         <div class="sbox"><p class="sl">Base</p><p class="sv">Dark (brown) roux + rich brown veal stock + mirepoix (carrot, onion, celery) + tomato purée. Slow-cooked, skimmed repeatedly.</p></div>
         <div class="sbox"><p class="sl">Key derivatives</p><p class="sv">Demi-glace (espagnole reduced 50% + equal veal stock), Bordelaise (demi-glace + red wine + shallots + bone marrow), Chasseur, Robert, Madeira.</p></div>
@@ -570,7 +936,7 @@
     </div>
 
     <div class="sauce-card">
-      <div class="sh"><span class="sname">Sauce tomat</span><span class="sbadge" style="background:#FCEBEB; color:#791F1F;">tomatoes + pork + aromatics</span><span class="sbadge" style="background:#FAEEDA; color:#633806;">red sauce</span></div>
+      <div class="sh"><span class="sname">Sauce tomat</span><span class="sbadge sbadge-style-2">tomatoes + pork + aromatics</span><span class="sbadge meat-badge-style-2">red sauce</span></div>
       <div class="ssub">
         <div class="sbox"><p class="sl">Base</p><p class="sv">Pork fat (or butter) + mirepoix + tomatoes + stock. The classical version uses salt pork and veal stock — more complex than Italian tomato sauce.</p></div>
         <div class="sbox"><p class="sl">Key derivatives</p><p class="sv">Creole, Portuguese, Provençale. Also forms the base for pizza and pasta sauces in adapted form.</p></div>
@@ -580,7 +946,7 @@
     </div>
 
     <div class="sauce-card">
-      <div class="sh"><span class="sname">Hollandaise</span><span class="sbadge" style="background:#FAEEDA; color:#633806;">butter + egg yolks + acid</span><span class="sbadge" style="background:#FAECE7; color:#712B13;">emulsified butter sauce</span></div>
+      <div class="sh"><span class="sname">Hollandaise</span><span class="sbadge meat-badge-style-2">butter + egg yolks + acid</span><span class="sbadge meat-badge-style">emulsified butter sauce</span></div>
       <div class="ssub">
         <div class="sbox"><p class="sl">Base</p><p class="sv">Clarified butter whisked into egg yolks over gentle heat, with lemon juice or white wine vinegar. An emulsion — fat suspended in water by lecithin from egg yolks.</p></div>
         <div class="sbox"><p class="sl">Key derivatives</p><p class="sv">Béarnaise (+ tarragon + shallots — classic with steak), Choron (béarnaise + tomato), Foyot (béarnaise + meat glaze), Maltaise (+ blood orange).</p></div>
@@ -594,7 +960,7 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part D · global sauce foundations — beyond France</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="culinary-grid-2">
       <div class="card">
         <p class="clabel">Sofrito (Spain, Latin America)</p>
         <p class="cval">The Mediterranean base</p>
@@ -632,70 +998,70 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part E · essential techniques — what they mean and why they work</div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showTech('mise')"       style="font-size:12px; padding:3px 10px;">Mise en place</button>
-      <button onclick="showTech('maillard')"   style="font-size:12px; padding:3px 10px;">Maillard reaction</button>
-      <button onclick="showTech('caramel')"    style="font-size:12px; padding:3px 10px;">Caramelisation</button>
-      <button onclick="showTech('reduction')"  style="font-size:12px; padding:3px 10px;">Reduction</button>
-      <button onclick="showTech('emulsion')"   style="font-size:12px; padding:3px 10px;">Emulsion</button>
-      <button onclick="showTech('seasoning')"  style="font-size:12px; padding:3px 10px;">Seasoning</button>
-      <button onclick="showTech('resting')"    style="font-size:12px; padding:3px 10px;">Resting meat</button>
-      <button onclick="showTech('beurre')"     style="font-size:12px; padding:3px 10px;">Beurre blanc / monter</button>
-      <button onclick="showTech('deglaze')"    style="font-size:12px; padding:3px 10px;">Deglazing</button>
+    <div class="button-row">
+      <button class="showcuisine-control" onclick="showTech('mise')"      >Mise en place</button>
+      <button class="showcuisine-control" onclick="showTech('maillard')"  >Maillard reaction</button>
+      <button class="showcuisine-control" onclick="showTech('caramel')"   >Caramelisation</button>
+      <button class="showcuisine-control" onclick="showTech('reduction')" >Reduction</button>
+      <button class="showcuisine-control" onclick="showTech('emulsion')"  >Emulsion</button>
+      <button class="showcuisine-control" onclick="showTech('seasoning')" >Seasoning</button>
+      <button class="showcuisine-control" onclick="showTech('resting')"   >Resting meat</button>
+      <button class="showcuisine-control" onclick="showTech('beurre')"    >Beurre blanc / monter</button>
+      <button class="showcuisine-control" onclick="showTech('deglaze')"   >Deglazing</button>
     </div>
-    <div id="tech-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; font-size:13px; line-height:1.8;"></div>
+    <div class="tech-display" id="tech-display"></div>
 
     <!-- ════════════════════════════════════════════
          PART F — DINING ETIQUETTE
     ════════════════════════════════════════════ -->
     <div class="sec">Part F · dining etiquette — what your cutlery actually signals</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Cutlery positions — universally understood by trained restaurant staff</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:12px; margin-bottom:10px;">
-        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #97C459;">
-          <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">Still eating / resting</div>
-          <div style="font-size:12px; color:#3B6D11; line-height:1.5;">Fork and knife placed in an inverted V on the plate (continental) — knife on the right, fork on the left, tips crossing at top. Signals "I am still eating, please don't clear my plate."</div>
+    <div class="content-panel">
+      <div class="panel-title">Cutlery positions — universally understood by trained restaurant staff</div>
+      <div class="culinary-grid-3">
+        <div class="culinary-panel-4">
+          <div class="culinary-label-2">Still eating / resting</div>
+          <div class="culinary-text-4">Fork and knife placed in an inverted V on the plate (continental) — knife on the right, fork on the left, tips crossing at top. Signals "I am still eating, please don't clear my plate."</div>
         </div>
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #F09595;">
-          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">Finished</div>
-          <div style="font-size:12px; color:#A32D2D; line-height:1.5;">Fork and knife placed parallel on the plate at the 4 o'clock position (5:20 on a clock face), both pointing to top right, fork tines down. Signals "I am finished, you may clear." Most unambiguous signal.</div>
+        <div class="culinary-panel-5">
+          <div class="culinary-label-3">Finished</div>
+          <div class="culinary-text-5">Fork and knife placed parallel on the plate at the 4 o'clock position (5:20 on a clock face), both pointing to top right, fork tines down. Signals "I am finished, you may clear." Most unambiguous signal.</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #EF9F27;">
-          <div style="font-size:12px; font-weight:500; color:#633806; margin-bottom:4px;">I didn't like it (formal signal)</div>
-          <div style="font-size:12px; color:#854F0B; line-height:1.5;">Fork and knife crossed on the plate — fork over knife, X shape. In classical European service this signals displeasure or that the dish was not enjoyed. Not universally known; staff in top restaurants will notice.</div>
+        <div class="culinary-panel-6">
+          <div class="culinary-label-4">I didn't like it (formal signal)</div>
+          <div class="culinary-text-6">Fork and knife crossed on the plate — fork over knife, X shape. In classical European service this signals displeasure or that the dish was not enjoyed. Not universally known; staff in top restaurants will notice.</div>
         </div>
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:11px 13px; border:0.5px solid #85B7EB;">
-          <div style="font-size:12px; font-weight:500; color:#0C447C; margin-bottom:4px;">Pause (American style)</div>
-          <div style="font-size:12px; color:#185FA5; line-height:1.5;">In North American dining, resting is often signalled by placing fork and knife in a V like an upside-down roof, tips on the plate rim. Finished: same parallel as European. American style is slightly different from European for the pause signal.</div>
+        <div class="culinary-panel-7">
+          <div class="culinary-label-5">Pause (American style)</div>
+          <div class="culinary-text-7">In North American dining, resting is often signalled by placing fork and knife in a V like an upside-down roof, tips on the plate rim. Finished: same parallel as European. American style is slightly different from European for the pause signal.</div>
         </div>
       </div>
 
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Other essential table etiquette</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:12px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Bread</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Tear bread with your hands, never cut it. Butter each small piece as you eat it, not the whole slice at once. Bread plate is to your left.</div>
+      <div class="panel-title-spaced">Other essential table etiquette</div>
+      <div class="culinary-grid-4">
+        <div class="sub-card">
+          <div class="detail-label">Bread</div>
+          <div class="culinary-text-9">Tear bread with your hands, never cut it. Butter each small piece as you eat it, not the whole slice at once. Bread plate is to your left.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Cutlery order</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Work from the outside in. The fork and knife furthest from your plate are for the first course. You should never need to ask which to use.</div>
+        <div class="sub-card">
+          <div class="detail-label">Cutlery order</div>
+          <div class="culinary-text-9">Work from the outside in. The fork and knife furthest from your plate are for the first course. You should never need to ask which to use.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Wine glasses</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Hold by the stem (not the bowl) to avoid warming the wine and leaving fingerprints. Glasses are to your right. White wine glass is typically smaller; red is larger for aeration.</div>
+        <div class="sub-card">
+          <div class="detail-label">Wine glasses</div>
+          <div class="culinary-text-9">Hold by the stem (not the bowl) to avoid warming the wine and leaving fingerprints. Glasses are to your right. White wine glass is typically smaller; red is larger for aeration.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Napkin</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Unfold onto your lap when seated. If you leave the table temporarily, place loosely on your chair — not the table. At meal's end, place loosely left of plate (not refolded).</div>
+        <div class="sub-card">
+          <div class="detail-label">Napkin</div>
+          <div class="culinary-text-9">Unfold onto your lap when seated. If you leave the table temporarily, place loosely on your chair — not the table. At meal's end, place loosely left of plate (not refolded).</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Soup</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">Spoon away from you (European style). Tilt the bowl away from you to get the last spoonful. Never blow on soup to cool it — wait. No slurping (in Western dining — actively encouraged in Japan).</div>
+        <div class="sub-card">
+          <div class="detail-label">Soup</div>
+          <div class="culinary-text-9">Spoon away from you (European style). Tilt the bowl away from you to get the last spoonful. Never blow on soup to cool it — wait. No slurping (in Western dining — actively encouraged in Japan).</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Tipping norms</div>
-          <div style="font-size:12px; color:var(--color-text-primary); line-height:1.4;">USA: 18–22% expected. UK: 10–12.5% or service charge included. France: rounding up appreciated, not obligatory. Japan: tipping is considered rude. Scandinavia: not expected.</div>
+        <div class="sub-card">
+          <div class="detail-label">Tipping norms</div>
+          <div class="culinary-text-9">USA: 18–22% expected. UK: 10–12.5% or service charge included. France: rounding up appreciated, not obligatory. Japan: tipping is considered rude. Scandinavia: not expected.</div>
         </div>
       </div>
     </div>
@@ -705,7 +1071,7 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part G · the famous rules of cooking</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="culinary-grid-2">
       <div class="card">
         <p class="clabel">Salt is not just seasoning — it's chemistry</p>
         <p class="cval">Salt at every stage</p>
@@ -743,13 +1109,13 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part H · knife skills &amp; essential kitchen equipment</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+    <div class="culinary-panel-3">
       A sharp knife is safer than a dull one — a dull knife requires more force, which means less control. Honing (realigning the edge) should be done before every use. Sharpening (removing metal) is needed a few times a year for home cooks.
     </div>
 
     <!-- Knife SVG diagram -->
-    <div style="overflow-x:auto; margin-bottom:1rem;">
-      <svg viewBox="0 0 620 90" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:400px; display:block;">
+    <div class="culinary-spacing-2">
+      <svg class="culinary-media-2" viewBox="0 0 620 90" xmlns="http://www.w3.org/2000/svg">
         <!-- Chef's knife silhouette -->
         <path d="M30 48 L340 32 L360 38 L360 52 L340 58 L30 58 Z" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="0.8"/>
         <!-- Bolster -->
@@ -814,9 +1180,9 @@
     </div>
 
     <!-- Knife cuts reference -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Classic knife cuts — sizes matter in professional cooking</div>
-      <div style="overflow-x:auto;">
+    <div class="content-panel">
+      <div class="panel-title">Classic knife cuts — sizes matter in professional cooking</div>
+      <div class="u-overflow-x-auto">
         <table class="method-table">
           <thead>
             <tr>
@@ -872,8 +1238,8 @@
     <div class="sec">Part I · cooking methods — heat transfer, texture, and when to use each</div>
 
     <!-- Cooking methods SVG infographic -->
-    <div style="overflow-x:auto; margin-bottom:1rem;">
-      <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:500px; display:block;">
+    <div class="scroll-panel">
+      <svg class="culinary-media-3" viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <!-- heat intensity gradient legend -->
           <linearGradient id="heatLegend" x1="0" x2="1" y1="0" y2="0">
@@ -929,7 +1295,7 @@
     </div>
 
     <!-- Cooking method comparison table -->
-    <div style="overflow-x:auto; margin-bottom:1rem;">
+    <div class="scroll-panel">
       <table class="method-table">
         <thead>
           <tr>
@@ -991,13 +1357,13 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part J · flavour science — the five tastes, umami, and pairing logic</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+    <div class="culinary-panel-3">
       There are five scientifically recognised basic tastes: sweet, sour, salty, bitter, and umami. A sixth — "kokumi" (richness/mouthfeel) — is increasingly accepted. Flavour is taste + aroma: your nose contributes ~80% of what you perceive as flavour. This is why food tastes bland when you have a blocked nose.
     </div>
 
     <!-- Five tastes SVG diagram -->
-    <div style="overflow-x:auto; margin-bottom:1rem;">
-      <svg viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:480px; display:block;">
+    <div class="scroll-panel">
+      <svg class="culinary-media-4" viewBox="0 0 640 150" xmlns="http://www.w3.org/2000/svg">
         <!-- Sweet -->
         <circle cx="80" cy="65" r="40" fill="#FDE68A" opacity="0.7"/>
         <text x="80" y="60" text-anchor="middle" font-size="11" font-weight="600" fill="#92400E" font-family="IBM Plex Sans,system-ui,sans-serif">Sweet</text>
@@ -1040,7 +1406,7 @@
     </div>
 
     <!-- Flavour pairing explorer -->
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+    <div class="culinary-panel-3">
       The flavour pairing theory (Heston Blumenthal popularised it) suggests ingredients that share key volatile aroma compounds pair well together. Some famous unexpected pairings: strawberry + parmesan, chocolate + blue cheese, oysters + kiwi, white chocolate + caviar. Select an ingredient below to explore its pairing logic.
     </div>
 
@@ -1073,49 +1439,49 @@
     <div id="flavour-result"></div>
 
     <!-- Umami stacking concept -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Umami stacking — the chef's amplification trick</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px; line-height:1.6;">Glutamate (the umami compound in tomatoes, parmesan, miso) has a synergistic relationship with nucleotides (found in meat, fish, mushrooms). When combined, they amplify each other's umami effect by up to 8×. This is why certain combinations are so satisfying:</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:8px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary);">Classic combination</div>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">Tomato + parmesan</div>
-          <div style="font-size:11px; color:var(--color-text-secondary);">Glutamate + glutamate — pure umami layering. The reason Italian pasta with tomato + parmesan is addictive.</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">Umami stacking — the chef's amplification trick</div>
+      <div class="culinary-text-10">Glutamate (the umami compound in tomatoes, parmesan, miso) has a synergistic relationship with nucleotides (found in meat, fish, mushrooms). When combined, they amplify each other's umami effect by up to 8×. This is why certain combinations are so satisfying:</div>
+      <div class="culinary-grid-5">
+        <div class="sub-card">
+          <div class="muted-text-small">Classic combination</div>
+          <div class="item-title">Tomato + parmesan</div>
+          <div class="muted-text-small">Glutamate + glutamate — pure umami layering. The reason Italian pasta with tomato + parmesan is addictive.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary);">Japanese example</div>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">Kombu + bonito (dashi)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary);">Glutamate (kombu) + inosinate (bonito) — the synergistic combination. Dashi achieves remarkable depth with just two ingredients.</div>
+        <div class="sub-card">
+          <div class="muted-text-small">Japanese example</div>
+          <div class="item-title">Kombu + bonito (dashi)</div>
+          <div class="muted-text-small">Glutamate (kombu) + inosinate (bonito) — the synergistic combination. Dashi achieves remarkable depth with just two ingredients.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary);">Western steak sauce</div>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">Beef + Worcestershire</div>
-          <div style="font-size:11px; color:var(--color-text-secondary);">Meat's nucleotides + Worcestershire's fermented anchovy/tamarind glutamates. Why a splash makes a burger profoundly more satisfying.</div>
+        <div class="sub-card">
+          <div class="muted-text-small">Western steak sauce</div>
+          <div class="item-title">Beef + Worcestershire</div>
+          <div class="muted-text-small">Meat's nucleotides + Worcestershire's fermented anchovy/tamarind glutamates. Why a splash makes a burger profoundly more satisfying.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; color:var(--color-text-secondary);">Secret weapon</div>
-          <div style="font-size:13px; font-weight:500; color:var(--color-text-primary);">Anchovies in red sauce</div>
-          <div style="font-size:11px; color:var(--color-text-secondary);">Anchovies dissolve completely during cooking but leave intense glutamate behind. You can't taste "anchovy" — only profound depth. Bolognese, puttanesca, and tapenade all use this trick.</div>
+        <div class="sub-card">
+          <div class="muted-text-small">Secret weapon</div>
+          <div class="item-title">Anchovies in red sauce</div>
+          <div class="muted-text-small">Anchovies dissolve completely during cooking but leave intense glutamate behind. You can't taste "anchovy" — only profound depth. Bolognese, puttanesca, and tapenade all use this trick.</div>
         </div>
       </div>
     </div>
 
     <!-- Spice heat scale -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Scoville scale — measuring chilli heat</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px;">The Scoville Heat Unit (SHU) measures capsaicin concentration. Capsaicin doesn't cause chemical burns — it activates pain receptors (TRPV1) that normally respond to actual heat. Milk's casein protein binds and washes away capsaicin; water does not.</div>
-      <div style="position:relative; margin:0 10px 40px;">
+    <div class="content-panel">
+      <div class="panel-title-spaced">Scoville scale — measuring chilli heat</div>
+      <div class="culinary-text-12">The Scoville Heat Unit (SHU) measures capsaicin concentration. Capsaicin doesn't cause chemical burns — it activates pain receptors (TRPV1) that normally respond to actual heat. Milk's casein protein binds and washes away capsaicin; water does not.</div>
+      <div class="culinary-spacing-3">
         <div class="heat-bar"></div>
         <!-- Markers: log scale, bell pepper=0, jalapeño=8K, serrano=23K, cayenne=50K, habanero=300K, Carolina reaper=2.2M -->
         <!-- Compress to 0-100% for display. Using approximate positions -->
-        <div class="heat-marker" style="left:2%;"><span class="heat-label" style="left:2%;">Bell pepper<br>0 SHU</span></div>
-        <div class="heat-marker" style="left:20%;"><span class="heat-label" style="left:20%;">Jalapeño<br>2.5–8K</span></div>
-        <div class="heat-marker" style="left:38%;"><span class="heat-label" style="left:38%;">Serrano<br>10–23K</span></div>
-        <div class="heat-marker" style="left:54%;"><span class="heat-label" style="left:54%;">Cayenne<br>30–50K</span></div>
-        <div class="heat-marker" style="left:70%;"><span class="heat-label" style="left:70%;">Habanero<br>100–350K</span></div>
-        <div class="heat-marker" style="left:88%;"><span class="heat-label" style="left:88%;">Reaper<br>~2.2M</span></div>
+        <div class="heat-marker heat-marker-style"><span class="heat-label heat-marker-style">Bell pepper<br>0 SHU</span></div>
+        <div class="heat-marker heat-marker-style-2"><span class="heat-label heat-marker-style-2">Jalapeño<br>2.5–8K</span></div>
+        <div class="heat-marker heat-marker-style-3"><span class="heat-label heat-marker-style-3">Serrano<br>10–23K</span></div>
+        <div class="heat-marker heat-marker-style-4"><span class="heat-label heat-marker-style-4">Cayenne<br>30–50K</span></div>
+        <div class="heat-marker heat-marker-style-5"><span class="heat-label heat-marker-style-5">Habanero<br>100–350K</span></div>
+        <div class="heat-marker heat-marker-style-6"><span class="heat-label heat-marker-style-6">Reaper<br>~2.2M</span></div>
       </div>
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-top:8px;">
+      <div class="culinary-text-13">
         Cooking reduces heat slightly — capsaicin breaks down slowly with heat and time, which is why a long-cooked chilli dish is milder than the raw chilli. Removing seeds and the white pith (where most capsaicin concentrates) dramatically reduces heat without losing chilli flavour.
       </div>
     </div>
@@ -1125,45 +1491,45 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part K · wine &amp; food pairing — the logic behind the rules</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+    <div class="culinary-panel-3">
       Wine pairing isn't arbitrary. It's based on complementary or contrasting chemistry: acid in wine cuts fat; tannins bind proteins; sweetness balances spice; mineral notes amplify delicate flavours. The old "red with meat, white with fish" is a useful rough guide — but understanding why leads to much better choices.
     </div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Pairing principles</div>
+    <div class="content-panel">
+      <div class="panel-title">Pairing principles</div>
 
       <div class="wine-row">
-        <div class="wine-dot" style="background:#D4A0C0;"></div>
+        <div class="wine-dot wine-dot-style"></div>
         <div>
           <div class="wine-text"><strong>Acid cuts fat and richness.</strong> Chablis (high-acid Chardonnay) with oysters; Champagne with fried food; Sauvignon Blanc with goat's cheese. The acid refreshes the palate between bites.</div>
         </div>
       </div>
       <div class="wine-row">
-        <div class="wine-dot" style="background:#7B2D2D;"></div>
+        <div class="wine-dot wine-dot-style-2"></div>
         <div>
           <div class="wine-text"><strong>Tannins clash with fish oils but love protein.</strong> A tannic Cabernet Sauvignon with a rich beef steak — the tannins bind to the meat's proteins, creating a velvet texture. The same wine with fish makes the wine taste metallic and the fish taste bitter.</div>
         </div>
       </div>
       <div class="wine-row">
-        <div class="wine-dot" style="background:#F7E48B;"></div>
+        <div class="wine-dot wine-dot-style-3"></div>
         <div>
           <div class="wine-text"><strong>Sweet wine with spicy food.</strong> Off-dry Riesling with Thai food; Gewürztraminer with Indian curry. The residual sugar cools the heat and contrasts it pleasantly. Dry wine with very spicy food makes both taste harsh.</div>
         </div>
       </div>
       <div class="wine-row">
-        <div class="wine-dot" style="background:#C8A850;"></div>
+        <div class="wine-dot wine-dot-style-4"></div>
         <div>
           <div class="wine-text"><strong>Match weight to weight.</strong> A light Pinot Noir won't stand up to a rich beef bourguignon; a powerful Barolo will overwhelm a delicate sole. Match the body and intensity of the wine to the body and intensity of the dish.</div>
         </div>
       </div>
       <div class="wine-row">
-        <div class="wine-dot" style="background:#3A6830;"></div>
+        <div class="wine-dot wine-dot-style-5"></div>
         <div>
           <div class="wine-text"><strong>Regional pairings work almost always.</strong> Wines and foods from the same region evolved together over centuries. Burgundy Pinot Noir with coq au vin; Sancerre with Loire Valley goat's cheese; Barolo with Piedmontese white truffle pasta; Fino Sherry with jamón ibérico.</div>
         </div>
       </div>
-      <div class="wine-row" style="border-bottom:none;">
-        <div class="wine-dot" style="background:#E8C7A0;"></div>
+      <div class="wine-row wine-row-style">
+        <div class="wine-dot wine-dot-style-6"></div>
         <div>
           <div class="wine-text"><strong>Dessert wine must be sweeter than the dessert.</strong> If the dessert is sweeter, the wine tastes sour and unpleasant. Sauternes with crème brûlée; Pedro Ximénez Sherry with vanilla ice cream; Tokaji Aszú with foie gras (the classic sweet-fatty pairing).</div>
         </div>
@@ -1171,7 +1537,7 @@
     </div>
 
     <!-- Quick pairing reference -->
-    <div style="overflow-x:auto; margin-bottom:1rem;">
+    <div class="scroll-panel">
       <table class="method-table">
         <thead>
           <tr>
@@ -1220,12 +1586,12 @@
     ════════════════════════════════════════════ -->
     <div class="sec">Part L · the balance calculator — diagnose and fix any dish</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
+    <div class="culinary-panel-3">
       A dish is "finished" when all its components are in harmony. Use this interactive guide to identify what your dish is missing and what to add. Adjust the sliders to describe what you're tasting.
     </div>
 
     <div class="balance-wrap">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:12px;">What does your dish taste like right now?</div>
+      <div class="culinary-label">What does your dish taste like right now?</div>
       <div class="bal-row">
         <label class="bal-label" for="sl-salt">Saltiness</label>
         <input type="range" id="sl-salt" min="0" max="10" value="5" oninput="updateBalance()">
@@ -1257,7 +1623,7 @@
     <!-- ════════════════════════════════════════════
          PART M — TEST YOURSELF
     ════════════════════════════════════════════ -->
-    <div class="sec">Part M · test yourself</div>
+    <div class="sec">Part M · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. You're making a béchamel but it has lumps. What went wrong, and how do you fix it?</p>

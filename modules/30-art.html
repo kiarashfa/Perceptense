@@ -97,17 +97,7 @@
     .elem-icon { font-size: 20px; margin-bottom: 4px; }
     .elem-name { font-size: 12px; font-weight: 600; color: var(--color-text-primary); }
     .elem-sub  { font-size: 10px; color: var(--color-text-secondary); margin-top: 2px; }
-    .elem-detail {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-      display: none;
-    }
-    .elem-detail.show { display: block; }
-
-    /* ── Medium timeline bars (Part I) ── */
+/* ── Medium timeline bars (Part I) ── */
     .medium-btn-wrap { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
 
     /* ── Movement period chart ── */
@@ -296,13 +286,886 @@
       .pc-axis { margin-left: 98px; }
       .ps-artist { width: 90px; font-size: 10px; }
     }
+
+/* === Shared-ready extracted styles === */
+
+.muted-text {
+  font-size:12px;
+  color:var(--color-text-secondary);
+}
+
+.text-amber-900 {
+  color:#633806;
+}
+
+.text-blue-700 {
+  color:#185FA5;
+}
+
+.text-blue-900 {
+  color:#0C447C;
+}
+
+.text-green-800 {
+  color:#27500A;
+}
+
+.text-hex-72243e {
+  color:#72243E;
+}
+
+.text-hex-993556 {
+  color:#993556;
+}
+
+.text-indigo-900 {
+  color:#3C3489;
+}
+
+.text-orange-850 {
+  color:#854F0B;
+}
+
+.text-red-700 {
+  color:#A32D2D;
+}
+
+.text-red-900 {
+  color:#791F1F;
+}
+
+/* === Module-specific extracted styles === */
+
+.art-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(90px, 1fr));
+  gap:6px;
+  margin-bottom:10px;
+}
+
+.art-panel {
+  background:#EEEDFE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #AFA9EC;
+  text-align:center;
+}
+
+.art-label {
+  font-size:22px;
+  font-weight:500;
+  color:#26215C;
+  margin-bottom:2px;
+}
+
+.art-label-2 {
+  font-size:13px;
+  font-weight:500;
+  color:#3C3489;
+  margin-bottom:3px;
+}
+
+.art-text {
+  font-size:11px;
+  color:#534AB7;
+  line-height:1.4;
+}
+
+.art-panel-2 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #EF9F27;
+  text-align:center;
+}
+
+.art-label-3 {
+  font-size:22px;
+  font-weight:500;
+  color:#412402;
+  margin-bottom:2px;
+}
+
+.art-label-4 {
+  font-size:13px;
+  font-weight:500;
+  color:#633806;
+  margin-bottom:3px;
+}
+
+.art-text-2 {
+  font-size:11px;
+  color:#854F0B;
+  line-height:1.4;
+}
+
+.art-panel-3 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #85B7EB;
+  text-align:center;
+}
+
+.art-label-5 {
+  font-size:22px;
+  font-weight:500;
+  color:#042C53;
+  margin-bottom:2px;
+}
+
+.art-label-6 {
+  font-size:13px;
+  font-weight:500;
+  color:#0C447C;
+  margin-bottom:3px;
+}
+
+.art-text-3 {
+  font-size:11px;
+  color:#185FA5;
+  line-height:1.4;
+}
+
+.art-panel-4 {
+  background:#E1F5EE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #5DCAA5;
+  text-align:center;
+}
+
+.art-label-7 {
+  font-size:22px;
+  font-weight:500;
+  color:#04342C;
+  margin-bottom:2px;
+}
+
+.art-label-8 {
+  font-size:13px;
+  font-weight:500;
+  color:#085041;
+  margin-bottom:3px;
+}
+
+.art-text-4 {
+  font-size:11px;
+  color:#0F6E56;
+  line-height:1.4;
+}
+
+.art-panel-5 {
+  background:#FAECE7;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #F0997B;
+  text-align:center;
+}
+
+.art-label-9 {
+  font-size:22px;
+  font-weight:500;
+  color:#4A1B0C;
+  margin-bottom:2px;
+}
+
+.art-label-10 {
+  font-size:13px;
+  font-weight:500;
+  color:#712B13;
+  margin-bottom:3px;
+}
+
+.art-text-5 {
+  font-size:11px;
+  color:#993C1D;
+  line-height:1.4;
+}
+
+.art-panel-6 {
+  background:#FBEAF0;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #ED93B1;
+  text-align:center;
+}
+
+.art-label-11 {
+  font-size:22px;
+  font-weight:500;
+  color:#4B1528;
+  margin-bottom:2px;
+}
+
+.art-label-12 {
+  font-size:13px;
+  font-weight:500;
+  color:#72243E;
+  margin-bottom:3px;
+}
+
+.art-text-6 {
+  font-size:11px;
+  color:#993556;
+  line-height:1.4;
+}
+
+.art-panel-7 {
+  background:#F1EFE8;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #D3D1C7;
+  text-align:center;
+}
+
+.art-label-13 {
+  font-size:22px;
+  font-weight:500;
+  color:#2C2C2A;
+  margin-bottom:2px;
+}
+
+.art-label-14 {
+  font-size:13px;
+  font-weight:500;
+  color:#444441;
+  margin-bottom:3px;
+}
+
+.art-text-7 {
+  font-size:11px;
+  color:#5F5E5A;
+  line-height:1.4;
+}
+
+.art-panel-8 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.art-label-15 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:10px;
+}
+
+.pcaxis {
+  height:18px;
+}
+
+.art-text-8 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:6px;
+  line-height:1.5;
+}
+
+.art-row {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.showmovement-control {
+  font-size:11px;
+  padding:3px 9px;
+}
+
+.art-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.art-media {
+  position:absolute;
+  bottom:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;
+  height:0;
+  border-left:55px solid transparent;
+  border-right:55px solid transparent;
+  border-bottom:80px solid var(--color-border-tertiary);
+}
+
+.art-media-2 {
+  position:absolute;
+  bottom:88px;
+  left:50%;
+  transform:translateX(-50%);
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#4E99A3;
+}
+
+.art-media-3 {
+  position:absolute;
+  bottom:12px;
+  left:calc(50% - 52px);
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.6;
+}
+
+.art-media-4 {
+  position:absolute;
+  bottom:12px;
+  right:calc(50% - 52px);
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.6;
+}
+
+.art-text-9 {
+  font-size:11px;
+  font-weight:600;
+  color:var(--color-text-primary);
+  margin-bottom:3px;
+}
+
+.art-text-10 {
+  font-size:10px;
+  color:var(--color-text-secondary);
+  line-height:1.4;
+}
+
+.art-div-style {
+  position:absolute;
+  top:15px;
+  left:15px;
+  bottom:15px;
+  right:15px;
+  border:1px dashed var(--color-border-secondary);
+  border-radius:2px;
+}
+
+.art-media-5 {
+  position:absolute;
+  top:15px;
+  left:calc(33.3% + 15px);
+  bottom:15px;
+  width:0.5px;
+  background:var(--color-border-tertiary);
+}
+
+.art-media-6 {
+  position:absolute;
+  top:15px;
+  left:calc(66.6% + 15px);
+  bottom:15px;
+  width:0.5px;
+  background:var(--color-border-tertiary);
+}
+
+.art-media-7 {
+  position:absolute;
+  top:calc(33.3% + 15px);
+  left:15px;
+  right:15px;
+  height:0.5px;
+  background:var(--color-border-tertiary);
+}
+
+.art-media-8 {
+  position:absolute;
+  top:calc(66.6% + 15px);
+  left:15px;
+  right:15px;
+  height:0.5px;
+  background:var(--color-border-tertiary);
+}
+
+.art-media-9 {
+  position:absolute;
+  top:calc(33.3% + 10px);
+  left:calc(33.3% + 10px);
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#4E99A3;
+}
+
+.art-div-style-2 {
+  position:absolute;
+  top:12px;
+  right:18px;
+  bottom:30px;
+  left:30px;
+  border-bottom:1.5px solid var(--color-border-secondary);
+  border-left:1.5px solid var(--color-border-secondary);
+}
+
+.art-media-10 {
+  position:absolute;
+  top:14px;
+  left:15px;
+  width:0;
+  height:0;
+  transform:rotate(-45deg);
+  border-left:7px solid transparent;
+  border-right:7px solid transparent;
+  border-bottom:13px solid var(--color-text-tertiary);
+}
+
+.art-media-11 {
+  position:absolute;
+  bottom:16px;
+  right:14px;
+  width:0;
+  height:0;
+  transform:rotate(45deg);
+  border-left:7px solid transparent;
+  border-right:7px solid transparent;
+  border-bottom:13px solid var(--color-text-tertiary);
+}
+
+.art-media-12 {
+  position:absolute;
+  top:25px;
+  right:30px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.5;
+}
+
+.art-media-13 {
+  position:absolute;
+  bottom:38px;
+  left:48px;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#4E99A3;
+}
+
+.art-row-2 {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.art-media-14 {
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:1.5px solid var(--color-border-secondary);
+  position:relative;
+}
+
+.art-media-15 {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  border:1px solid var(--color-border-tertiary);
+}
+
+.art-media-16 {
+  position:absolute;
+  top:-5px;
+  left:50%;
+  transform:translateX(-50%);
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#4E99A3;
+}
+
+.art-media-17 {
+  position:absolute;
+  bottom:-5px;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.6;
+}
+
+.art-media-18 {
+  position:absolute;
+  left:-5px;
+  top:50%;
+  transform:translateY(-50%);
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.6;
+}
+
+.art-media-19 {
+  position:absolute;
+  right:-5px;
+  top:50%;
+  transform:translateY(-50%);
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.6;
+}
+
+.art-row-3 {
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:0;
+}
+
+.art-media-20 {
+  width:70%;
+  height:0.5px;
+  background:var(--color-border-secondary);
+  margin-bottom:20px;
+}
+
+.art-media-21 {
+  width:70%;
+  height:0.5px;
+  background:var(--color-border-secondary);
+  margin-top:20px;
+}
+
+.art-text-11 {
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:9px;
+  color:var(--color-text-tertiary);
+  white-space:nowrap;
+}
+
+.art-text-12 {
+  position:absolute;
+  bottom:14px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:9px;
+  color:var(--color-text-tertiary);
+  white-space:nowrap;
+}
+
+.art-media-22 {
+  position:absolute;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#4E99A3;
+  top:50%;
+  left:38%;
+}
+
+.art-media-23 {
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#4E99A3;
+  opacity:0.5;
+  top:50%;
+  left:58%;
+}
+
+.colour-swatch-style {
+  background:#E6F1FB;
+  border:0.5px solid #85B7EB;
+}
+
+.colour-swatch-style-2 {
+  background:#FCEBEB;
+  border:0.5px solid #F09595;
+}
+
+.colour-swatch-style-3 {
+  background:#FAEEDA;
+  border:0.5px solid #EF9F27;
+}
+
+.colour-swatch-style-4 {
+  background:#EAF3DE;
+  border:0.5px solid #97C459;
+}
+
+.colour-swatch-note-style-4 {
+  color:#3A6E10;
+}
+
+.colour-swatch-style-5 {
+  background:#FBEAF0;
+  border:0.5px solid #ED93B1;
+}
+
+.colour-swatch-style-6 {
+  background:#F5F5F4;
+  border:0.5px solid var(--color-border-tertiary);
+}
+
+.art-grid-3 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.art-panel-9 {
+  background:#EEEDFE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #AFA9EC;
+}
+
+.art-label-16 {
+  font-size:12px;
+  font-weight:500;
+  color:#26215C;
+  margin-bottom:4px;
+}
+
+.art-text-13 {
+  font-size:12px;
+  color:#534AB7;
+  line-height:1.5;
+}
+
+.art-panel-10 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #85B7EB;
+}
+
+.art-label-17 {
+  font-size:12px;
+  font-weight:500;
+  color:#042C53;
+  margin-bottom:4px;
+}
+
+.art-text-14 {
+  font-size:12px;
+  color:#185FA5;
+  line-height:1.5;
+}
+
+.art-panel-11 {
+  background:#E1F5EE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #5DCAA5;
+}
+
+.art-label-18 {
+  font-size:12px;
+  font-weight:500;
+  color:#04342C;
+  margin-bottom:4px;
+}
+
+.art-text-15 {
+  font-size:12px;
+  color:#0F6E56;
+  line-height:1.5;
+}
+
+.art-panel-12 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #EF9F27;
+}
+
+.art-label-19 {
+  font-size:12px;
+  font-weight:500;
+  color:#412402;
+  margin-bottom:4px;
+}
+
+.art-text-16 {
+  font-size:12px;
+  color:#854F0B;
+  line-height:1.5;
+}
+
+.art-panel-13 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #F09595;
+}
+
+.art-label-20 {
+  font-size:12px;
+  font-weight:500;
+  color:#791F1F;
+  margin-bottom:4px;
+}
+
+.art-text-17 {
+  font-size:12px;
+  color:#A32D2D;
+  line-height:1.5;
+}
+
+.art-panel-14 {
+  background:#F1EFE8;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #D3D1C7;
+}
+
+.art-label-21 {
+  font-size:12px;
+  font-weight:500;
+  color:#2C2C2A;
+  margin-bottom:4px;
+}
+
+.art-text-18 {
+  font-size:12px;
+  color:#444441;
+  line-height:1.5;
+}
+
+.art-label-22 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:8px;
+}
+
+.price-scale-style {
+  border:none;
+  padding:0;
+  margin-bottom:10px;
+}
+
+.art-span-style {
+  font-weight:400;
+  color:var(--color-text-tertiary);
+}
+
+.ps-bar-style {
+  width:100%;
+  background:#EEEDFE;
+}
+
+.ps-bar-style-2 {
+  width:43%;
+  background:#FCEBEB;
+}
+
+.ps-bar-style-3 {
+  width:40%;
+  background:#FAEEDA;
+}
+
+.ps-bar-style-4 {
+  width:34%;
+  background:#E6F1FB;
+}
+
+.ps-bar-style-5 {
+  width:33%;
+  background:#EAF3DE;
+}
+
+.ps-bar-style-6 {
+  width:20%;
+  background:#FBEAF0;
+}
+
+.art-panel-15 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.showwork-control {
+  font-size:12px;
+  padding:3px 10px;
+}
+
+.art-panel-16 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 13px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:12px;
+}
+
+.art-panel-17 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 13px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.scalebuttons {
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+.scaleviz {
+  display:flex;
+  align-items:flex-end;
+  gap:20px;
+  min-height:200px;
+  padding:10px 0;
+  flex-wrap:wrap;
+}
+
+.scaleinfo {
+  margin-top:10px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-palette" style="font-size:42px; color:#4E99A3; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 30: Art</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-palette module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 30: Art</h1>
     </div>
     <p class="module-subtitle">Movements, techniques, and visual literacy</p>
 
@@ -311,46 +1174,46 @@
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part A · the seven arts — the classical taxonomy</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The classical division</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:6px; margin-bottom:10px;">
-        <div style="background:#EEEDFE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #AFA9EC; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#26215C; margin-bottom:2px;">I</div>
-          <div style="font-size:13px; font-weight:500; color:#3C3489; margin-bottom:3px;">Architecture</div>
-          <div style="font-size:11px; color:#534AB7; line-height:1.4;">The art of designing built space. Utility + beauty. Parthenon, Hagia Sophia, Chartres Cathedral, Fallingwater.</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">The classical division</div>
+      <div class="art-grid">
+        <div class="art-panel">
+          <div class="art-label">I</div>
+          <div class="art-label-2">Architecture</div>
+          <div class="art-text">The art of designing built space. Utility + beauty. Parthenon, Hagia Sophia, Chartres Cathedral, Fallingwater.</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #EF9F27; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#412402; margin-bottom:2px;">II</div>
-          <div style="font-size:13px; font-weight:500; color:#633806; margin-bottom:3px;">Sculpture</div>
-          <div style="font-size:11px; color:#854F0B; line-height:1.4;">Three-dimensional form in space. Venus de Milo, Michelangelo's David, Rodin's Thinker, Brancusi's Bird in Space.</div>
+        <div class="art-panel-2">
+          <div class="art-label-3">II</div>
+          <div class="art-label-4">Sculpture</div>
+          <div class="art-text-2">Three-dimensional form in space. Venus de Milo, Michelangelo's David, Rodin's Thinker, Brancusi's Bird in Space.</div>
         </div>
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#042C53; margin-bottom:2px;">III</div>
-          <div style="font-size:13px; font-weight:500; color:#0C447C; margin-bottom:3px;">Painting</div>
-          <div style="font-size:11px; color:#185FA5; line-height:1.4;">Image-making on flat surfaces. The Mona Lisa, Sistine Chapel ceiling, Guernica, Starry Night, Les Demoiselles d'Avignon.</div>
+        <div class="art-panel-3">
+          <div class="art-label-5">III</div>
+          <div class="art-label-6">Painting</div>
+          <div class="art-text-3">Image-making on flat surfaces. The Mona Lisa, Sistine Chapel ceiling, Guernica, Starry Night, Les Demoiselles d'Avignon.</div>
         </div>
-        <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #5DCAA5; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#04342C; margin-bottom:2px;">IV</div>
-          <div style="font-size:13px; font-weight:500; color:#085041; margin-bottom:3px;">Literature</div>
-          <div style="font-size:11px; color:#0F6E56; line-height:1.4;">Written language as art. The Iliad, Divine Comedy, Hamlet, War and Peace, Ulysses, One Hundred Years of Solitude.</div>
+        <div class="art-panel-4">
+          <div class="art-label-7">IV</div>
+          <div class="art-label-8">Literature</div>
+          <div class="art-text-4">Written language as art. The Iliad, Divine Comedy, Hamlet, War and Peace, Ulysses, One Hundred Years of Solitude.</div>
         </div>
-        <div style="background:#FAECE7; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F0997B; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#4A1B0C; margin-bottom:2px;">V</div>
-          <div style="font-size:13px; font-weight:500; color:#712B13; margin-bottom:3px;">Music</div>
-          <div style="font-size:11px; color:#993C1D; line-height:1.4;">Organised sound in time. Bach's Well-Tempered Clavier, Beethoven's 9th, Miles Davis's Kind of Blue, The Beatles.</div>
+        <div class="art-panel-5">
+          <div class="art-label-9">V</div>
+          <div class="art-label-10">Music</div>
+          <div class="art-text-5">Organised sound in time. Bach's Well-Tempered Clavier, Beethoven's 9th, Miles Davis's Kind of Blue, The Beatles.</div>
         </div>
-        <div style="background:#FBEAF0; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #ED93B1; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#4B1528; margin-bottom:2px;">VI</div>
-          <div style="font-size:13px; font-weight:500; color:#72243E; margin-bottom:3px;">Performing arts</div>
-          <div style="font-size:11px; color:#993556; line-height:1.4;">Theatre, dance, opera, mime — live art that exists in time and disappears. Shakespeare's theatre, Nureyev's ballet, Noh drama.</div>
+        <div class="art-panel-6">
+          <div class="art-label-11">VI</div>
+          <div class="art-label-12">Performing arts</div>
+          <div class="art-text-6">Theatre, dance, opera, mime — live art that exists in time and disappears. Shakespeare's theatre, Nureyev's ballet, Noh drama.</div>
         </div>
-        <div style="background:#F1EFE8; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #D3D1C7; text-align:center;">
-          <div style="font-size:22px; font-weight:500; color:#2C2C2A; margin-bottom:2px;">VII</div>
-          <div style="font-size:13px; font-weight:500; color:#444441; margin-bottom:3px;">Cinema / film</div>
-          <div style="font-size:11px; color:#5F5E5A; line-height:1.4;">The seventh art (added by Ricciotto Canudo, 1911). Moving image + time + narrative. Citizen Kane, Bicycle Thieves, 2001, Rashomon.</div>
+        <div class="art-panel-7">
+          <div class="art-label-13">VII</div>
+          <div class="art-label-14">Cinema / film</div>
+          <div class="art-text-7">The seventh art (added by Ricciotto Canudo, 1911). Moving image + time + narrative. Citizen Kane, Bicycle Thieves, 2001, Rashomon.</div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+      <div class="art-panel-8">
         The classical division originates from ancient Greece. The "Muses" governed nine arts including poetry, music, and dance. The six-art schema was formalised in the Italian Renaissance; film was added in the 20th century. Photography (sometimes the 8th art), comics/graphic novels (the 9th), and video games are claimed as subsequent additions. The taxonomy reveals as much about cultural values as about art itself.
       </div>
     </div>
@@ -362,35 +1225,35 @@
 
     <!-- Movement period chart -->
     <div class="period-chart">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Approximate spans — Western painting movements, 1300–present</div>
-      <div class="pc-axis" id="pcAxis" style="height:18px;"></div>
+      <div class="art-label-15">Approximate spans — Western painting movements, 1300–present</div>
+      <div class="pc-axis pcaxis" id="pcAxis"></div>
       <div id="pcRows"></div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:6px; line-height:1.5;">Movements overlap; end dates indicate when each ceased to be the dominant avant-garde force, not when artists stopped working in the style.</div>
+      <div class="art-text-8">Movements overlap; end dates indicate when each ceased to be the dominant avant-garde force, not when artists stopped working in the style.</div>
     </div>
 
-    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showMovement('renaissance')"       style="font-size:11px; padding:3px 9px; ">Renaissance</button>
-      <button onclick="showMovement('baroque')"           style="font-size:11px; padding:3px 9px;">Baroque</button>
-      <button onclick="showMovement('neoclassicism')"     style="font-size:11px; padding:3px 9px;">Neoclassicism</button>
-      <button onclick="showMovement('romanticism')"       style="font-size:11px; padding:3px 9px;">Romanticism</button>
-      <button onclick="showMovement('realism')"           style="font-size:11px; padding:3px 9px;">Realism</button>
-      <button onclick="showMovement('impressionism')"     style="font-size:11px; padding:3px 9px;">Impressionism</button>
-      <button onclick="showMovement('postimpressionism')" style="font-size:11px; padding:3px 9px;">Post-impressionism</button>
-      <button onclick="showMovement('cubism')"            style="font-size:11px; padding:3px 9px;">Cubism</button>
-      <button onclick="showMovement('surrealism')"        style="font-size:11px; padding:3px 9px;">Surrealism</button>
-      <button onclick="showMovement('expressionism')"     style="font-size:11px; padding:3px 9px;">Expressionism</button>
-      <button onclick="showMovement('abstract')"          style="font-size:11px; padding:3px 9px;">Abstract expressionism</button>
-      <button onclick="showMovement('popart')"            style="font-size:11px; padding:3px 9px;">Pop art</button>
-      <button onclick="showMovement('contemporary')"      style="font-size:11px; padding:3px 9px;">Contemporary / conceptual</button>
+    <div class="art-row">
+      <button class="showmovement-control" onclick="showMovement('renaissance')"      >Renaissance</button>
+      <button class="showmovement-control" onclick="showMovement('baroque')"          >Baroque</button>
+      <button class="showmovement-control" onclick="showMovement('neoclassicism')"    >Neoclassicism</button>
+      <button class="showmovement-control" onclick="showMovement('romanticism')"      >Romanticism</button>
+      <button class="showmovement-control" onclick="showMovement('realism')"          >Realism</button>
+      <button class="showmovement-control" onclick="showMovement('impressionism')"    >Impressionism</button>
+      <button class="showmovement-control" onclick="showMovement('postimpressionism')">Post-impressionism</button>
+      <button class="showmovement-control" onclick="showMovement('cubism')"           >Cubism</button>
+      <button class="showmovement-control" onclick="showMovement('surrealism')"       >Surrealism</button>
+      <button class="showmovement-control" onclick="showMovement('expressionism')"    >Expressionism</button>
+      <button class="showmovement-control" onclick="showMovement('abstract')"         >Abstract expressionism</button>
+      <button class="showmovement-control" onclick="showMovement('popart')"           >Pop art</button>
+      <button class="showmovement-control" onclick="showMovement('contemporary')"     >Contemporary / conceptual</button>
     </div>
-    <div id="movement-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="movement-display"></div>
 
     <!-- ══════════════════════════════════════════════════
          PART C · HOW TO READ A PAINTING
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part C · how to read a painting — what art historians actually look at</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="art-grid-2">
       <div class="card">
         <p class="clabel">Composition</p>
         <p class="cval">How elements are arranged in the frame</p>
@@ -424,102 +1287,102 @@
     </div>
 
     <!-- Composition diagram explorer -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Classic composition types — what each communicates</div>
+    <div class="content-panel">
+      <div class="panel-title">Classic composition types — what each communicates</div>
       <div class="comp-grid">
         <div class="comp-card">
           <div class="comp-diagram" id="compTriangle">
             <!-- Pure CSS triangle diagram -->
-            <div style="position:absolute; bottom:10px; left:50%; transform:translateX(-50%); width:0; height:0; border-left:55px solid transparent; border-right:55px solid transparent; border-bottom:80px solid var(--color-border-tertiary);"></div>
-            <div style="position:absolute; bottom:88px; left:50%; transform:translateX(-50%); width:10px; height:10px; border-radius:50%; background:#4E99A3;"></div>
-            <div style="position:absolute; bottom:12px; left:calc(50% - 52px); width:10px; height:10px; border-radius:50%; background:#4E99A3; opacity:0.6;"></div>
-            <div style="position:absolute; bottom:12px; right:calc(50% - 52px); width:10px; height:10px; border-radius:50%; background:#4E99A3; opacity:0.6;"></div>
+            <div class="art-media"></div>
+            <div class="art-media-2"></div>
+            <div class="art-media-3"></div>
+            <div class="art-media-4"></div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Triangular</div>
-          <div style="font-size:10px; color:var(--color-text-secondary); line-height:1.4;">Stable, hierarchical, divine. Renaissance Madonnas. Central figure elevated above flanking figures. Conveys permanence and authority.</div>
+          <div class="art-text-9">Triangular</div>
+          <div class="art-text-10">Stable, hierarchical, divine. Renaissance Madonnas. Central figure elevated above flanking figures. Conveys permanence and authority.</div>
         </div>
         <div class="comp-card">
           <div class="comp-diagram">
-            <div style="position:absolute; top:15px; left:15px; bottom:15px; right:15px; border:1px dashed var(--color-border-secondary); border-radius:2px;"></div>
-            <div style="position:absolute; top:15px; left:calc(33.3% + 15px); bottom:15px; width:0.5px; background:var(--color-border-tertiary);"></div>
-            <div style="position:absolute; top:15px; left:calc(66.6% + 15px); bottom:15px; width:0.5px; background:var(--color-border-tertiary);"></div>
-            <div style="position:absolute; top:calc(33.3% + 15px); left:15px; right:15px; height:0.5px; background:var(--color-border-tertiary);"></div>
-            <div style="position:absolute; top:calc(66.6% + 15px); left:15px; right:15px; height:0.5px; background:var(--color-border-tertiary);"></div>
-            <div style="position:absolute; top:calc(33.3% + 10px); left:calc(33.3% + 10px); width:12px; height:12px; border-radius:50%; background:#4E99A3;"></div>
+            <div class="art-div-style"></div>
+            <div class="art-media-5"></div>
+            <div class="art-media-6"></div>
+            <div class="art-media-7"></div>
+            <div class="art-media-8"></div>
+            <div class="art-media-9"></div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Rule of thirds</div>
-          <div style="font-size:10px; color:var(--color-text-secondary); line-height:1.4;">Subject placed at intersection of dividing lines. More dynamic than dead-centre. Used intuitively by painters long before it was named.</div>
+          <div class="art-text-9">Rule of thirds</div>
+          <div class="art-text-10">Subject placed at intersection of dividing lines. More dynamic than dead-centre. Used intuitively by painters long before it was named.</div>
         </div>
         <div class="comp-card">
           <div class="comp-diagram">
-            <div style="position:absolute; top:12px; right:18px; bottom:30px; left:30px; border-bottom:1.5px solid var(--color-border-secondary); border-left:1.5px solid var(--color-border-secondary);"></div>
-            <div style="position:absolute; top:14px; left:15px; width:0; height:0; transform:rotate(-45deg); border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:13px solid var(--color-text-tertiary);"></div>
-            <div style="position:absolute; bottom:16px; right:14px; width:0; height:0; transform:rotate(45deg); border-left:7px solid transparent; border-right:7px solid transparent; border-bottom:13px solid var(--color-text-tertiary);"></div>
-            <div style="position:absolute; top:25px; right:30px; width:9px; height:9px; border-radius:50%; background:#4E99A3; opacity:0.5;"></div>
-            <div style="position:absolute; bottom:38px; left:48px; width:9px; height:9px; border-radius:50%; background:#4E99A3;"></div>
+            <div class="art-div-style-2"></div>
+            <div class="art-media-10"></div>
+            <div class="art-media-11"></div>
+            <div class="art-media-12"></div>
+            <div class="art-media-13"></div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Diagonal</div>
-          <div style="font-size:10px; color:var(--color-text-secondary); line-height:1.4;">Dynamic, unstable, dramatic. Baroque hallmark — Caravaggio, Rubens. Implies movement, conflict, or imminent action. The eye travels along the diagonal axis.</div>
+          <div class="art-text-9">Diagonal</div>
+          <div class="art-text-10">Dynamic, unstable, dramatic. Baroque hallmark — Caravaggio, Rubens. Implies movement, conflict, or imminent action. The eye travels along the diagonal axis.</div>
         </div>
         <div class="comp-card">
           <div class="comp-diagram">
-            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
-              <div style="width:60px; height:60px; border-radius:50%; border:1.5px solid var(--color-border-secondary); position:relative;">
-                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:30px; height:30px; border-radius:50%; border:1px solid var(--color-border-tertiary);"></div>
-                <div style="position:absolute; top:-5px; left:50%; transform:translateX(-50%); width:8px; height:8px; border-radius:50%; background:#4E99A3;"></div>
-                <div style="position:absolute; bottom:-5px; left:50%; transform:translateX(-50%); width:6px; height:6px; border-radius:50%; background:#4E99A3; opacity:0.6;"></div>
-                <div style="position:absolute; left:-5px; top:50%; transform:translateY(-50%); width:6px; height:6px; border-radius:50%; background:#4E99A3; opacity:0.6;"></div>
-                <div style="position:absolute; right:-5px; top:50%; transform:translateY(-50%); width:6px; height:6px; border-radius:50%; background:#4E99A3; opacity:0.6;"></div>
+            <div class="art-row-2">
+              <div class="art-media-14">
+                <div class="art-media-15"></div>
+                <div class="art-media-16"></div>
+                <div class="art-media-17"></div>
+                <div class="art-media-18"></div>
+                <div class="art-media-19"></div>
               </div>
             </div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Radial / circular</div>
-          <div style="font-size:10px; color:var(--color-text-secondary); line-height:1.4;">All elements revolve around a central point. Creates unity and focus. Used in Last Supper compositions, altarpieces, and many Renaissance group scenes.</div>
+          <div class="art-text-9">Radial / circular</div>
+          <div class="art-text-10">All elements revolve around a central point. Creates unity and focus. Used in Last Supper compositions, altarpieces, and many Renaissance group scenes.</div>
         </div>
         <div class="comp-card">
           <div class="comp-diagram">
-            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:0;">
-              <div style="width:70%; height:0.5px; background:var(--color-border-secondary); margin-bottom:20px;"></div>
-              <div style="width:70%; height:0.5px; background:var(--color-border-secondary); margin-top:20px;"></div>
-              <div style="position:absolute; top:20px; left:50%; transform:translateX(-50%); font-size:9px; color:var(--color-text-tertiary); white-space:nowrap;">sky</div>
-              <div style="position:absolute; bottom:14px; left:50%; transform:translateX(-50%); font-size:9px; color:var(--color-text-tertiary); white-space:nowrap;">foreground</div>
-              <div style="position:absolute; width:8px; height:8px; border-radius:50%; background:#4E99A3; top:50%; left:38%;"></div>
-              <div style="position:absolute; width:6px; height:6px; border-radius:50%; background:#4E99A3; opacity:0.5; top:50%; left:58%;"></div>
+            <div class="art-row-3">
+              <div class="art-media-20"></div>
+              <div class="art-media-21"></div>
+              <div class="art-text-11">sky</div>
+              <div class="art-text-12">foreground</div>
+              <div class="art-media-22"></div>
+              <div class="art-media-23"></div>
             </div>
           </div>
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Horizontal bands</div>
-          <div style="font-size:10px; color:var(--color-text-secondary); line-height:1.4;">Calm, expansive, eternal. Landscape painters (Constable, Dutch Golden Age). Horizon placement governs emphasis: low horizon = vast sky; high horizon = rich foreground.</div>
+          <div class="art-text-9">Horizontal bands</div>
+          <div class="art-text-10">Calm, expansive, eternal. Landscape painters (Constable, Dutch Golden Age). Horizon placement governs emphasis: low horizon = vast sky; high horizon = rich foreground.</div>
         </div>
       </div>
     </div>
 
     <!-- Colour symbolism reference -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Colour symbolism — Western art tradition</div>
+    <div class="content-panel">
+      <div class="panel-title">Colour symbolism — Western art tradition</div>
       <div class="colour-grid">
-        <div class="colour-swatch" style="background:#E6F1FB; border:0.5px solid #85B7EB;">
-          <div class="colour-swatch-name" style="color:#0C447C;">Blue</div>
-          <div class="colour-swatch-note" style="color:#185FA5;">Divinity, the Virgin Mary, heaven, truth, loyalty. Ultramarine (from lapis lazuli) was more expensive than gold — its use signalled a patron's wealth.</div>
+        <div class="colour-swatch colour-swatch-style">
+          <div class="colour-swatch-name text-blue-900">Blue</div>
+          <div class="colour-swatch-note text-blue-700">Divinity, the Virgin Mary, heaven, truth, loyalty. Ultramarine (from lapis lazuli) was more expensive than gold — its use signalled a patron's wealth.</div>
         </div>
-        <div class="colour-swatch" style="background:#FCEBEB; border:0.5px solid #F09595;">
-          <div class="colour-swatch-name" style="color:#791F1F;">Red</div>
-          <div class="colour-swatch-note" style="color:#A32D2D;">Passion, love, sacrifice, danger, martyrdom. Christ's robe in Passion scenes. Also royal power (vermilion was costly). Warm and advancing — pulls the eye.</div>
+        <div class="colour-swatch colour-swatch-style-2">
+          <div class="colour-swatch-name text-red-900">Red</div>
+          <div class="colour-swatch-note text-red-700">Passion, love, sacrifice, danger, martyrdom. Christ's robe in Passion scenes. Also royal power (vermilion was costly). Warm and advancing — pulls the eye.</div>
         </div>
-        <div class="colour-swatch" style="background:#FAEEDA; border:0.5px solid #EF9F27;">
-          <div class="colour-swatch-name" style="color:#633806;">Gold</div>
-          <div class="colour-swatch-note" style="color:#854F0B;">Divine light, the eternal, holiness. Byzantine icons use gold ground to remove figures from earthly time and space entirely. Not a colour but a metaphysical statement.</div>
+        <div class="colour-swatch colour-swatch-style-3">
+          <div class="colour-swatch-name text-amber-900">Gold</div>
+          <div class="colour-swatch-note text-orange-850">Divine light, the eternal, holiness. Byzantine icons use gold ground to remove figures from earthly time and space entirely. Not a colour but a metaphysical statement.</div>
         </div>
-        <div class="colour-swatch" style="background:#EAF3DE; border:0.5px solid #97C459;">
-          <div class="colour-swatch-name" style="color:#27500A;">Green</div>
-          <div class="colour-swatch-note" style="color:#3A6E10;">Hope, nature, spring, renewal, envy (Shakespeare's "green-eyed monster"). Verdigris was the most common green pigment but notoriously unstable — many painted greens have turned brown over centuries.</div>
+        <div class="colour-swatch colour-swatch-style-4">
+          <div class="colour-swatch-name text-green-800">Green</div>
+          <div class="colour-swatch-note colour-swatch-note-style-4">Hope, nature, spring, renewal, envy (Shakespeare's "green-eyed monster"). Verdigris was the most common green pigment but notoriously unstable — many painted greens have turned brown over centuries.</div>
         </div>
-        <div class="colour-swatch" style="background:#FBEAF0; border:0.5px solid #ED93B1;">
-          <div class="colour-swatch-name" style="color:#72243E;">Purple / violet</div>
-          <div class="colour-swatch-note" style="color:#993556;">Royalty, penitence, mourning, mourning. Tyrian purple was the most expensive dye in antiquity. In painting, it signals the highest status — emperors and high clergy only.</div>
+        <div class="colour-swatch colour-swatch-style-5">
+          <div class="colour-swatch-name text-hex-72243e">Purple / violet</div>
+          <div class="colour-swatch-note text-hex-993556">Royalty, penitence, mourning, mourning. Tyrian purple was the most expensive dye in antiquity. In painting, it signals the highest status — emperors and high clergy only.</div>
         </div>
-        <div class="colour-swatch" style="background:#F5F5F4; border:0.5px solid var(--color-border-tertiary);">
-          <div class="colour-swatch-name" style="color:var(--color-text-primary);">White / black</div>
-          <div class="colour-swatch-note" style="color:var(--color-text-secondary);">White = purity, death (in some Eastern traditions), light. Black = mourning, death, authority, the void. Goya's Black Paintings — monochrome as psychological state, not just colour choice.</div>
+        <div class="colour-swatch colour-swatch-style-6">
+          <div class="colour-swatch-name text-primary">White / black</div>
+          <div class="colour-swatch-note text-secondary">White = purity, death (in some Eastern traditions), light. Black = mourning, death, authority, the void. Goya's Black Paintings — monochrome as psychological state, not just colour choice.</div>
         </div>
       </div>
     </div>
@@ -529,91 +1392,91 @@
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part D · what determines the value of a work of art</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The art market — where economics and aesthetics collide</div>
+    <div class="content-panel">
+      <div class="panel-title">The art market — where economics and aesthetics collide</div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:8px; margin-bottom:10px;">
-        <div style="background:#EEEDFE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #AFA9EC;">
-          <div style="font-size:12px; font-weight:500; color:#26215C; margin-bottom:4px;">1. Artist reputation (primary driver)</div>
-          <div style="font-size:12px; color:#534AB7; line-height:1.5;">The single most important determinant. A Picasso and an equally beautiful painting by an unknown artist occupy completely different markets. Reputation is built through: critical recognition, museum exhibitions, auction history, scholarship, cultural influence. The auction record itself becomes part of the artist's "price history" that justifies future prices.</div>
+      <div class="art-grid-3">
+        <div class="art-panel-9">
+          <div class="art-label-16">1. Artist reputation (primary driver)</div>
+          <div class="art-text-13">The single most important determinant. A Picasso and an equally beautiful painting by an unknown artist occupy completely different markets. Reputation is built through: critical recognition, museum exhibitions, auction history, scholarship, cultural influence. The auction record itself becomes part of the artist's "price history" that justifies future prices.</div>
         </div>
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB;">
-          <div style="font-size:12px; font-weight:500; color:#042C53; margin-bottom:4px;">2. Provenance (ownership history)</div>
-          <div style="font-size:12px; color:#185FA5; line-height:1.5;">A documented chain of ownership from artist to present day adds value and authentication. Famous previous owners add prestige. Clean provenance (no theft, no Nazi looting) is legally and reputationally essential. Gaps in provenance raise suspicion. Many art restitution disputes (museums returning looted art) centre on provenance records.</div>
+        <div class="art-panel-10">
+          <div class="art-label-17">2. Provenance (ownership history)</div>
+          <div class="art-text-14">A documented chain of ownership from artist to present day adds value and authentication. Famous previous owners add prestige. Clean provenance (no theft, no Nazi looting) is legally and reputationally essential. Gaps in provenance raise suspicion. Many art restitution disputes (museums returning looted art) centre on provenance records.</div>
         </div>
-        <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #5DCAA5;">
-          <div style="font-size:12px; font-weight:500; color:#04342C; margin-bottom:4px;">3. Rarity and period</div>
-          <div style="font-size:12px; color:#0F6E56; line-height:1.5;">Works from an artist's most celebrated period command premiums. Late Rembrandt portraits vs early ones. A Picasso from his Blue Period vs a late work. When an artist has died, the supply is permanently fixed — prices can only go up if demand rises. A "last known in private hands" work commands a rarity premium.</div>
+        <div class="art-panel-11">
+          <div class="art-label-18">3. Rarity and period</div>
+          <div class="art-text-15">Works from an artist's most celebrated period command premiums. Late Rembrandt portraits vs early ones. A Picasso from his Blue Period vs a late work. When an artist has died, the supply is permanently fixed — prices can only go up if demand rises. A "last known in private hands" work commands a rarity premium.</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #EF9F27;">
-          <div style="font-size:12px; font-weight:500; color:#412402; margin-bottom:4px;">4. Condition</div>
-          <div style="font-size:12px; color:#854F0B; line-height:1.5;">Damage, restoration, fading, and overpainting all reduce value. A conservator's report is essential for major works. Sometimes excessive restoration (adding what was never there) is as damaging to value as deterioration. The "patina of age" is often valued — too-clean restorations can look wrong.</div>
+        <div class="art-panel-12">
+          <div class="art-label-19">4. Condition</div>
+          <div class="art-text-16">Damage, restoration, fading, and overpainting all reduce value. A conservator's report is essential for major works. Sometimes excessive restoration (adding what was never there) is as damaging to value as deterioration. The "patina of age" is often valued — too-clean restorations can look wrong.</div>
         </div>
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F09595;">
-          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">5. Subject matter</div>
-          <div style="font-size:12px; color:#A32D2D; line-height:1.5;">Within an artist's oeuvre, certain subjects command premiums. Picasso's women sell more than his landscapes. Monet's Water Lilies more than his Normandy houses. The nude retains permanent market appeal. Cultural figures or scenes that resonate with current buyers influence what sells well.</div>
+        <div class="art-panel-13">
+          <div class="art-label-20">5. Subject matter</div>
+          <div class="art-text-17">Within an artist's oeuvre, certain subjects command premiums. Picasso's women sell more than his landscapes. Monet's Water Lilies more than his Normandy houses. The nude retains permanent market appeal. Cultural figures or scenes that resonate with current buyers influence what sells well.</div>
         </div>
-        <div style="background:#F1EFE8; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #D3D1C7;">
-          <div style="font-size:12px; font-weight:500; color:#2C2C2A; margin-bottom:4px;">6. Authentication</div>
-          <div style="font-size:12px; color:#444441; line-height:1.5;">Is it genuinely by the named artist? Scholarly authentication (catalogue raisonné — the definitive list of an artist's works), technical analysis (pigment dating, canvas analysis, X-ray), and expert opinion all matter. Forgery is a major industry: the art market has no equivalent of hallmarking.</div>
+        <div class="art-panel-14">
+          <div class="art-label-21">6. Authentication</div>
+          <div class="art-text-18">Is it genuinely by the named artist? Scholarly authentication (catalogue raisonné — the definitive list of an artist's works), technical analysis (pigment dating, canvas analysis, X-ray), and expert opinion all matter. Forgery is a major industry: the art market has no equivalent of hallmarking.</div>
         </div>
       </div>
 
       <!-- Record prices bar chart -->
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Top auction records — selected works ($M at hammer)</div>
-      <div class="price-scale" style="border:none; padding:0; margin-bottom:10px;">
+      <div class="art-label-22">Top auction records — selected works ($M at hammer)</div>
+      <div class="price-scale price-scale-style">
         <div class="ps-row">
-          <div class="ps-artist">Salvator Mundi<br><span style="font-weight:400; color:var(--color-text-tertiary);">Leonardo (attr.)</span></div>
+          <div class="ps-artist">Salvator Mundi<br><span class="art-span-style">Leonardo (attr.)</span></div>
           <div class="ps-bar-wrap">
-            <div class="ps-bar" style="width:100%; background:#EEEDFE;">
-              <span class="ps-val" style="color:#3C3489;">$450M · Christie's 2017</span>
+            <div class="ps-bar ps-bar-style">
+              <span class="ps-val text-indigo-900">$450M · Christie's 2017</span>
             </div>
           </div>
         </div>
         <div class="ps-row">
-          <div class="ps-artist">Shot Sage Blue Marilyn<br><span style="font-weight:400; color:var(--color-text-tertiary);">Warhol</span></div>
+          <div class="ps-artist">Shot Sage Blue Marilyn<br><span class="art-span-style">Warhol</span></div>
           <div class="ps-bar-wrap">
-            <div class="ps-bar" style="width:43%; background:#FCEBEB;">
-              <span class="ps-val" style="color:#791F1F;">$195M · Christie's 2022</span>
+            <div class="ps-bar ps-bar-style-2">
+              <span class="ps-val text-red-900">$195M · Christie's 2022</span>
             </div>
           </div>
         </div>
         <div class="ps-row">
-          <div class="ps-artist">Les Femmes d'Alger<br><span style="font-weight:400; color:var(--color-text-tertiary);">Picasso</span></div>
+          <div class="ps-artist">Les Femmes d'Alger<br><span class="art-span-style">Picasso</span></div>
           <div class="ps-bar-wrap">
-            <div class="ps-bar" style="width:40%; background:#FAEEDA;">
-              <span class="ps-val" style="color:#633806;">$179M · Christie's 2015</span>
+            <div class="ps-bar ps-bar-style-3">
+              <span class="ps-val text-amber-900">$179M · Christie's 2015</span>
             </div>
           </div>
         </div>
         <div class="ps-row">
-          <div class="ps-artist">Interchange<br><span style="font-weight:400; color:var(--color-text-tertiary);">de Kooning</span></div>
+          <div class="ps-artist">Interchange<br><span class="art-span-style">de Kooning</span></div>
           <div class="ps-bar-wrap">
-            <div class="ps-bar" style="width:34%; background:#E6F1FB;">
-              <span class="ps-val" style="color:#0C447C;">$300M · private 2015</span>
+            <div class="ps-bar ps-bar-style-4">
+              <span class="ps-val text-blue-900">$300M · private 2015</span>
             </div>
           </div>
         </div>
         <div class="ps-row">
-          <div class="ps-artist">Nafea Faa Ipoipo<br><span style="font-weight:400; color:var(--color-text-tertiary);">Gauguin</span></div>
+          <div class="ps-artist">Nafea Faa Ipoipo<br><span class="art-span-style">Gauguin</span></div>
           <div class="ps-bar-wrap">
-            <div class="ps-bar" style="width:33%; background:#EAF3DE;">
-              <span class="ps-val" style="color:#27500A;">$300M · private 2015</span>
+            <div class="ps-bar ps-bar-style-5">
+              <span class="ps-val text-green-800">$300M · private 2015</span>
             </div>
           </div>
         </div>
         <div class="ps-row">
-          <div class="ps-artist">No. 6 (Violet, Green and Red)<br><span style="font-weight:400; color:var(--color-text-tertiary);">Rothko</span></div>
+          <div class="ps-artist">No. 6 (Violet, Green and Red)<br><span class="art-span-style">Rothko</span></div>
           <div class="ps-bar-wrap">
-            <div class="ps-bar" style="width:20%; background:#FBEAF0;">
-              <span class="ps-val" style="color:#72243E;">$186M · private 2014</span>
+            <div class="ps-bar ps-bar-style-6">
+              <span class="ps-val text-hex-72243e">$186M · private 2014</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
-        <strong style="color:var(--color-text-primary);">Artistic value vs market value:</strong> These are genuinely independent. Vermeer's work commands extraordinary prices; his contemporary Jan Steen (far more prolific) is worth a fraction. Fra Angelico's frescoes in the Monastery of San Marco, Florence are among the most spiritually and artistically significant paintings in existence — they cannot be bought at any price. Basquiat paintings sell for $100M+ while many consider his work of modest artistic depth. The market rewards cultural meaning, scarcity, and collector fashion — not necessarily what art historians or critics consider finest.
+      <div class="art-panel-15">
+        <strong class="text-primary">Artistic value vs market value:</strong> These are genuinely independent. Vermeer's work commands extraordinary prices; his contemporary Jan Steen (far more prolific) is worth a fraction. Fra Angelico's frescoes in the Monastery of San Marco, Florence are among the most spiritually and artistically significant paintings in existence — they cannot be bought at any price. Basquiat paintings sell for $100M+ while many consider his work of modest artistic depth. The market rewards cultural meaning, scarcity, and collector fashion — not necessarily what art historians or critics consider finest.
       </div>
     </div>
 
@@ -622,22 +1485,22 @@
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part E · six essential works — and what makes each significant</div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showWork('mona')"      style="font-size:12px; padding:3px 10px;">Mona Lisa</button>
-      <button onclick="showWork('sistine')"   style="font-size:12px; padding:3px 10px;">Sistine ceiling</button>
-      <button onclick="showWork('guernica')"  style="font-size:12px; padding:3px 10px;">Guernica</button>
-      <button onclick="showWork('starry')"    style="font-size:12px; padding:3px 10px;">Starry Night</button>
-      <button onclick="showWork('olympia')"   style="font-size:12px; padding:3px 10px;">Olympia</button>
-      <button onclick="showWork('fountain')"  style="font-size:12px; padding:3px 10px;">Fountain (Duchamp)</button>
+    <div class="button-row">
+      <button class="showwork-control" onclick="showWork('mona')"     >Mona Lisa</button>
+      <button class="showwork-control" onclick="showWork('sistine')"  >Sistine ceiling</button>
+      <button class="showwork-control" onclick="showWork('guernica')" >Guernica</button>
+      <button class="showwork-control" onclick="showWork('starry')"   >Starry Night</button>
+      <button class="showwork-control" onclick="showWork('olympia')"  >Olympia</button>
+      <button class="showwork-control" onclick="showWork('fountain')" >Fountain (Duchamp)</button>
     </div>
-    <div id="work-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="work-display"></div>
 
     <!-- ══════════════════════════════════════════════════
          PART F (NEW) · THE SEVEN ELEMENTS OF ART
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part F · the seven elements of art — the visual vocabulary</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:12px;">
+    <div class="art-panel-16">
       Before movements and history, there are the building blocks every visual work uses. Art educators identify seven fundamental elements: every painting, sculpture, and drawing can be analysed in terms of these seven. Click each to explore.
     </div>
 
@@ -679,51 +1542,95 @@
       </div>
     </div>
 
-    <div class="elem-detail show" id="elem-detail"></div>
+    <div class="elem-detail elem-detail-panel show" id="elem-detail"></div>
 
     <!-- ══════════════════════════════════════════════════
          PART G (NEW) · MEDIUM & TECHNIQUE EXPLORER
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part G · medium &amp; technique — what it's made of matters</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
+    <div class="art-panel-17">
       The physical medium — the stuff the artwork is made from — profoundly shapes what is possible. Oil paint allows glazing and decades of reworking. Fresco demands decisive, fast brushwork before plaster dries. Watercolour requires working light to dark. These constraints produced the distinctive look of each tradition.
     </div>
 
     <div class="medium-btn-wrap">
-      <button onclick="showMedium('fresco')"      style="font-size:11px; padding:3px 9px;">Fresco</button>
-      <button onclick="showMedium('tempera')"     style="font-size:11px; padding:3px 9px;">Egg tempera</button>
-      <button onclick="showMedium('oil')"         style="font-size:11px; padding:3px 9px;">Oil paint</button>
-      <button onclick="showMedium('watercolour')" style="font-size:11px; padding:3px 9px;">Watercolour</button>
-      <button onclick="showMedium('acrylic')"     style="font-size:11px; padding:3px 9px;">Acrylic</button>
-      <button onclick="showMedium('engraving')"   style="font-size:11px; padding:3px 9px;">Engraving / etching</button>
-      <button onclick="showMedium('screenprint')" style="font-size:11px; padding:3px 9px;">Screen printing</button>
-      <button onclick="showMedium('collage')"     style="font-size:11px; padding:3px 9px;">Collage / mixed media</button>
+      <button class="showmovement-control" onclick="showMedium('fresco')"     >Fresco</button>
+      <button class="showmovement-control" onclick="showMedium('tempera')"    >Egg tempera</button>
+      <button class="showmovement-control" onclick="showMedium('oil')"        >Oil paint</button>
+      <button class="showmovement-control" onclick="showMedium('watercolour')">Watercolour</button>
+      <button class="showmovement-control" onclick="showMedium('acrylic')"    >Acrylic</button>
+      <button class="showmovement-control" onclick="showMedium('engraving')"  >Engraving / etching</button>
+      <button class="showmovement-control" onclick="showMedium('screenprint')">Screen printing</button>
+      <button class="showmovement-control" onclick="showMedium('collage')"    >Collage / mixed media</button>
     </div>
-    <div id="medium-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="medium-display"></div>
 
     <!-- ══════════════════════════════════════════════════
          PART H (NEW) · SCALE EXPLORER
     ══════════════════════════════════════════════════ -->
     <div class="sec">Part H · the scale of famous works — size changes everything</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
+    <div class="art-panel-17">
       Scale is an artistic choice, not a practical one. The Mona Lisa is surprisingly small (the size of a large hardback book); Guernica is nearly 8 metres wide. Abstract Expressionists chose monumental scale to envelop the viewer. Move the slider to compare works at a consistent scale relative to an average adult figure (170 cm).
     </div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="margin-bottom:10px;">
-        <label style="font-size:12px; color:var(--color-text-secondary);">Select a work:</label>
-        <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:6px;" id="scaleButtons"></div>
+    <div class="content-panel">
+      <div class="u-mb-md">
+        <label class="muted-text">Select a work:</label>
+        <div class="scalebuttons" id="scaleButtons"></div>
       </div>
-      <div id="scaleViz" style="display:flex; align-items:flex-end; gap:20px; min-height:200px; padding:10px 0; flex-wrap:wrap;"></div>
-      <div id="scaleInfo" style="margin-top:10px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;"></div>
+      <div class="scaleviz" id="scaleViz"></div>
+      <div class="scaleinfo" id="scaleInfo"></div>
     </div>
+
+    <!-- ══════════════════════════════════════════════════
+         PART J (NEW) · COMING NEXT — TEASER CARDS
+    ══════════════════════════════════════════════════ -->
+    <div class="sec">Part I · going deeper — dedicated modules coming next</div>
+
+    <div class="art-panel-16">
+      This module covers art as a broad discipline. Four upcoming modules take a deep dive into the specific arts that most shape cultural life — each with its own techniques, history, and vocabulary.
+    </div>
+
+    <div class="teaser-grid">
+      <a href="http://kiarashfa.github.io/perceptense/modules/31-painting.html" class="teaser-card">
+        <div class="teaser-num">Module 31</div>
+        <div class="teaser-icon">🖼</div>
+        <div class="teaser-name">Painting</div>
+        <div class="teaser-desc">Technique in depth — pigments, supports, glazing, impasto, and how to look at any painting with trained eyes. From cave art to the present canvas.</div>
+        <div class="teaser-badge">Coming soon</div>
+      </a>
+      <a href="http://kiarashfa.github.io/perceptense/modules/32-literature.html" class="teaser-card">
+        <div class="teaser-num">Module 32</div>
+        <div class="teaser-icon">📖</div>
+        <div class="teaser-name">Literature</div>
+        <div class="teaser-desc">Narrative structure, genre, the Western canon, unreliable narrators, and why certain books changed how we understand consciousness itself.</div>
+        <div class="teaser-badge">Coming soon</div>
+      </a>
+      <a href="http://kiarashfa.github.io/perceptense/modules/33-music.html" class="teaser-card">
+        <div class="teaser-num">Module 33</div>
+        <div class="teaser-icon">🎵</div>
+        <div class="teaser-name">Music</div>
+        <div class="teaser-desc">Harmony, rhythm, form, and how to listen. From counterpoint to chord progressions — the theory that makes music make sense.</div>
+        <div class="teaser-badge">Coming soon</div>
+      </a>
+      <a href="http://kiarashfa.github.io/perceptense/modules/34-cinema.html" class="teaser-card">
+        <div class="teaser-num">Module 34</div>
+        <div class="teaser-icon">🎬</div>
+        <div class="teaser-name">Cinema</div>
+        <div class="teaser-desc">The grammar of film — shot types, editing, mise-en-scène, auteur theory, and the hundred years of visual storytelling that shaped how everyone sees the world.</div>
+        <div class="teaser-badge">Coming soon</div>
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════
+         SCRIPTS
+    ══════════════════════════════════════════════════ -->
 
     <!-- ══════════════════════════════════════════════════
          PART I (NEW) · THE ART CANON QUIZ
     ══════════════════════════════════════════════════ -->
-    <div class="sec">Part I · test yourself</div>
+    <div class="sec">Part J · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. What is Impressionism reacting against, and why was it considered shocking in 1874?</p>
@@ -773,49 +1680,6 @@
       <div class="qa-ans">Five reliable diagnostic features: (1) Light — Baroque uses extreme chiaroscuro, often a single dramatic light source from outside the frame; Neoclassical tends toward even, diffuse light that illuminates everything clearly. (2) Lines — Baroque is all diagonals, curves, S-shapes, and dynamic movement; Neoclassical prefers horizontals, verticals, and right angles — the geometry of architecture rather than nature. (3) Emotional register — Baroque figures show open-mouthed agony, transport, or sensual pleasure; Neoclassical figures show stoic restraint, even when facing death (see David's Horatii taking their oath with rigid composure). (4) Subject — Baroque favours saints in ecstasy, dramatic Biblical scenes, and lush portraiture; Neoclassical favours ancient Roman and Greek heroes making civic moral choices. (5) Surface — Baroque paint is often loose and rich, with visible brushwork and textured surfaces; Neoclassical (especially Ingres) aims for a porcelain-smooth surface where the painter's hand is entirely invisible. When uncertain: if the painting feels like a sermon and makes you feel something before you understand it, Baroque. If it looks like a lecture about civic virtue and makes you think before you feel, Neoclassical.</div>
     </div>
 
-    <!-- ══════════════════════════════════════════════════
-         PART J (NEW) · COMING NEXT — TEASER CARDS
-    ══════════════════════════════════════════════════ -->
-    <div class="sec">Part J · going deeper — dedicated modules coming next</div>
-
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:12px;">
-      This module covers art as a broad discipline. Four upcoming modules take a deep dive into the specific arts that most shape cultural life — each with its own techniques, history, and vocabulary.
-    </div>
-
-    <div class="teaser-grid">
-      <a href="http://kiarashfa.github.io/perceptense/modules/31-painting.html" class="teaser-card">
-        <div class="teaser-num">Module 31</div>
-        <div class="teaser-icon">🖼</div>
-        <div class="teaser-name">Painting</div>
-        <div class="teaser-desc">Technique in depth — pigments, supports, glazing, impasto, and how to look at any painting with trained eyes. From cave art to the present canvas.</div>
-        <div class="teaser-badge">Coming soon</div>
-      </a>
-      <a href="http://kiarashfa.github.io/perceptense/modules/32-literature.html" class="teaser-card">
-        <div class="teaser-num">Module 32</div>
-        <div class="teaser-icon">📖</div>
-        <div class="teaser-name">Literature</div>
-        <div class="teaser-desc">Narrative structure, genre, the Western canon, unreliable narrators, and why certain books changed how we understand consciousness itself.</div>
-        <div class="teaser-badge">Coming soon</div>
-      </a>
-      <a href="http://kiarashfa.github.io/perceptense/modules/33-music.html" class="teaser-card">
-        <div class="teaser-num">Module 33</div>
-        <div class="teaser-icon">🎵</div>
-        <div class="teaser-name">Music</div>
-        <div class="teaser-desc">Harmony, rhythm, form, and how to listen. From counterpoint to chord progressions — the theory that makes music make sense.</div>
-        <div class="teaser-badge">Coming soon</div>
-      </a>
-      <a href="http://kiarashfa.github.io/perceptense/modules/34-cinema.html" class="teaser-card">
-        <div class="teaser-num">Module 34</div>
-        <div class="teaser-icon">🎬</div>
-        <div class="teaser-name">Cinema</div>
-        <div class="teaser-desc">The grammar of film — shot types, editing, mise-en-scène, auteur theory, and the hundred years of visual storytelling that shaped how everyone sees the world.</div>
-        <div class="teaser-badge">Coming soon</div>
-      </a>
-    </div>
-
-    <!-- ══════════════════════════════════════════════════
-         SCRIPTS
-    ══════════════════════════════════════════════════ -->
     <script>
     /* ════════════════════════════════════
        MOVEMENT DATA

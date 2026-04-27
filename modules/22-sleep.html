@@ -145,14 +145,640 @@
     .comp-table td { padding: 8px 10px; border-bottom: 0.5px solid var(--color-border-tertiary, #e0e0e0); color: var(--color-text-primary, #1a1a1a); vertical-align: top; line-height: 1.4; }
     .comp-table tr:last-child td { border-bottom: none; }
     .comp-table tr:hover td { background: var(--color-background-secondary, #f5f5f5); }
+
+/* === Shared-ready extracted styles === */
+
+.bg-indigo-900 {
+  background:#3C3489;
+}
+
+.text-blue-700 {
+  color:#185FA5;
+}
+
+.text-blue-900 {
+  color:#0C447C;
+}
+
+.text-blue-950 {
+  color:#042C53;
+}
+
+.text-hex-72243e {
+  color:#72243E;
+}
+
+.text-hex-993556 {
+  color:#993556;
+}
+
+.text-indigo-200 {
+  color:#CECBF6;
+}
+
+.text-indigo-700 {
+  color:#534AB7;
+}
+
+.text-indigo-900 {
+  color:#3C3489;
+}
+
+.text-indigo-950 {
+  color:#26215C;
+}
+
+/* === Module-specific extracted styles === */
+
+.sleep-panel {
+  background:var(--color-background-primary, #fff);
+  border:0.5px solid var(--color-border-tertiary, #e0e0e0);
+  border-radius:var(--border-radius-lg, 12px);
+  padding:13px 15px;
+  margin-bottom:1rem;
+}
+
+.sleep-label {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+  margin-bottom:4px;
+}
+
+.sleep-text {
+  font-size:12px;
+  color:var(--color-text-secondary, #666);
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+.sleep-row {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:12px;
+}
+
+.sleep-text-2 {
+  font-size:11px;
+  color:var(--color-text-secondary, #666);
+  margin-bottom:2px;
+}
+
+.sleep-row-2 {
+  display:flex;
+  height:32px;
+  border-radius:var(--border-radius-md, 8px);
+  overflow:hidden;
+  border:0.5px solid var(--color-border-tertiary, #e0e0e0);
+}
+
+.sleep-row-3 {
+  flex:1;
+  background:#B5D4F4;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sleep-label-2 {
+  font-size:10px;
+  color:#042C53;
+  font-weight:500;
+}
+
+.sleep-row-4 {
+  flex:2;
+  background:#378ADD;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sleep-label-3 {
+  font-size:10px;
+  color:#fff;
+  font-weight:500;
+}
+
+.sleep-row-5 {
+  flex:2;
+  background:#26215C;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sleep-label-4 {
+  font-size:10px;
+  color:#CECBF6;
+  font-weight:500;
+}
+
+.sleep-row-6 {
+  flex:1;
+  background:#378ADD;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sleep-row-7 {
+  flex:2;
+  background:#D4537E;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.sleep-row-8 {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:4px;
+}
+
+.sleep-row-9 {
+  font-size:11px;
+  color:var(--color-text-secondary, #666);
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+
+.sleep-media {
+  width:10px;
+  height:10px;
+  background:#B5D4F4;
+  border-radius:2px;
+  display:inline-block;
+}
+
+.sleep-media-2 {
+  width:10px;
+  height:10px;
+  background:#378ADD;
+  border-radius:2px;
+  display:inline-block;
+}
+
+.sleep-media-3 {
+  width:10px;
+  height:10px;
+  background:#26215C;
+  border-radius:2px;
+  display:inline-block;
+}
+
+.sleep-media-4 {
+  width:10px;
+  height:10px;
+  background:#D4537E;
+  border-radius:2px;
+  display:inline-block;
+}
+
+.sleep-panel-2 {
+  background:var(--color-background-primary, #fff);
+  border:0.5px solid var(--color-border-tertiary, #e0e0e0);
+  border-radius:var(--border-radius-lg, 12px);
+  padding:11px 14px;
+  margin-bottom:8px;
+}
+
+.sleep-label-5 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+  margin-bottom:8px;
+}
+
+.sleep-row-10 {
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.sleep-text-3 {
+  font-size:11px;
+  color:var(--color-text-secondary, #666);
+  margin-bottom:3px;
+}
+
+.sleep-row-11 {
+  display:flex;
+  height:20px;
+  border-radius:3px;
+  overflow:hidden;
+}
+
+.sleep-div-style {
+  flex:0.5;
+  background:#B5D4F4;
+}
+
+.sleep-div-style-2 {
+  flex:2;
+  background:#378ADD;
+}
+
+.sleep-div-style-3 {
+  flex:3.5;
+  background:#26215C;
+}
+
+.sleep-div-style-4 {
+  flex:1;
+  background:#D4537E;
+}
+
+.sleep-text-4 {
+  font-size:10px;
+  color:var(--color-text-secondary, #666);
+  margin-top:2px;
+}
+
+.sleep-div-style-5 {
+  flex:2.5;
+  background:#26215C;
+}
+
+.sleep-div-style-6 {
+  flex:2;
+  background:#D4537E;
+}
+
+.sleep-div-style-7 {
+  flex:1;
+  background:#26215C;
+}
+
+.sleep-div-style-8 {
+  flex:3.5;
+  background:#D4537E;
+}
+
+.sleep-div-style-9 {
+  flex:0.2;
+  background:#26215C;
+}
+
+.sleep-div-style-10 {
+  flex:5;
+  background:#D4537E;
+}
+
+.sleep-panel-3 {
+  background:var(--color-background-secondary, #f5f5f5);
+  border-radius:var(--border-radius-md, 8px);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary, #666);
+  line-height:1.6;
+}
+
+.sleep-strong-style {
+  color:var(--color-text-primary, #1a1a1a);
+}
+
+.sleep-label-6 {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+  margin-bottom:8px;
+}
+
+.sleep-text-5 {
+  font-size:11px;
+  color:var(--color-text-secondary, #666);
+  margin-bottom:5px;
+}
+
+.wake-time {
+  height:36px;
+  padding:0 10px;
+  border-radius:var(--border-radius-md, 8px);
+  border:0.5px solid var(--color-border-secondary, #ccc);
+  background:var(--color-background-primary, #fff);
+  color:var(--color-text-primary, #1a1a1a);
+  font-size:13px;
+  width:100%;
+  font-family:var(--font-sans, sans-serif);
+}
+
+.sleep-panel-4 {
+  background:#E6F1FB;
+  border:0.5px solid #85B7EB;
+  border-radius:var(--border-radius-lg, 12px);
+  padding:13px 15px;
+  margin-bottom:10px;
+}
+
+.sbadge-style {
+  background:#B5D4F4;
+  color:#042C53;
+}
+
+.sbox-style {
+  background:#B5D4F4;
+}
+
+.sleep-panel-5 {
+  background:#EEEDFE;
+  border:0.5px solid #AFA9EC;
+  border-radius:var(--border-radius-lg, 12px);
+  padding:13px 15px;
+  margin-bottom:10px;
+}
+
+.sbadge-style-2 {
+  background:#CECBF6;
+  color:#26215C;
+}
+
+.sbox-style-2 {
+  background:#CECBF6;
+}
+
+.sleep-panel-6 {
+  background:#26215C;
+  border:0.5px solid #534AB7;
+  border-radius:var(--border-radius-lg, 12px);
+  padding:13px 15px;
+  margin-bottom:10px;
+}
+
+.sbadge-style-3 {
+  background:#534AB7;
+  color:#CECBF6;
+}
+
+.sl-style-3 {
+  color:#AFA9EC;
+}
+
+.sleep-panel-7 {
+  background:#FBEAF0;
+  border:0.5px solid #ED93B1;
+  border-radius:var(--border-radius-lg, 12px);
+  padding:13px 15px;
+  margin-bottom:10px;
+}
+
+.sname-style-4 {
+  color:#4B1528;
+}
+
+.sbadge-style-4 {
+  background:#F4C0D1;
+  color:#4B1528;
+}
+
+.sbox-style-4 {
+  background:#F4C0D1;
+}
+
+.sleep-panel-8 {
+  background:var(--color-background-primary, #fff);
+  border:0.5px solid var(--color-border-tertiary, #e0e0e0);
+  border-radius:var(--border-radius-lg, 12px);
+  padding:13px 15px;
+  margin-bottom:1rem;
+  overflow-x:auto;
+}
+
+.sleep-label-7 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+  margin-bottom:10px;
+}
+
+.sleep-span-style {
+  color:#042C53;
+  font-weight:500;
+}
+
+.sleep-span-style-2 {
+  color:#3C3489;
+  font-weight:500;
+}
+
+.sleep-panel-9 {
+  color:#CECBF6;
+  font-weight:500;
+  background:#26215C;
+  padding:1px 5px;
+  border-radius:3px;
+}
+
+.sleep-span-style-3 {
+  color:#72243E;
+  font-weight:500;
+}
+
+.sleep-label-8 {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+  margin-bottom:10px;
+}
+
+.sleep-row-12 {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+.sleep-text-6 {
+  font-size:12px;
+  color:var(--color-text-secondary, #666);
+  min-width:60px;
+}
+
+.time-out {
+  font-size:13px;
+  font-weight:500;
+  min-width:55px;
+  text-align:right;
+  color:var(--color-text-primary, #1a1a1a);
+}
+
+.hormone-display {
+  font-size:13px;
+  color:var(--color-text-primary, #1a1a1a);
+  line-height:1.8;
+  background:var(--color-background-secondary, #f5f5f5);
+  border-radius:var(--border-radius-md, 8px);
+  padding:11px 13px;
+  margin-bottom:10px;
+}
+
+.sleep-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:8px;
+}
+
+.sleep-panel-10 {
+  background:var(--color-background-secondary, #f5f5f5);
+  border-radius:var(--border-radius-md, 8px);
+  padding:9px 11px;
+}
+
+.sleep-label-9 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+  margin-bottom:3px;
+}
+
+.sleep-text-7 {
+  font-size:12px;
+  color:var(--color-text-secondary, #666);
+  line-height:1.5;
+}
+
+.sleep-text-8 {
+  font-size:12px;
+  color:var(--color-text-secondary, #666);
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+.sleep-row-13 {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  margin-bottom:12px;
+}
+
+.sleep-text-9 {
+  font-size:11px;
+  color:var(--color-text-secondary, #666);
+  margin-bottom:4px;
+}
+
+.caf-time {
+  height:34px;
+  padding:0 10px;
+  border-radius:var(--border-radius-md, 8px);
+  border:0.5px solid var(--color-border-secondary, #ccc);
+  background:var(--color-background-primary, #fff);
+  color:var(--color-text-primary, #1a1a1a);
+  font-size:13px;
+  font-family:var(--font-sans, sans-serif);
+}
+
+.caf-result {
+  font-size:13px;
+  color:var(--color-text-primary, #1a1a1a);
+  line-height:1.7;
+  background:var(--color-background-secondary, #f5f5f5);
+  border-radius:var(--border-radius-md, 8px);
+  padding:11px 13px;
+  margin-bottom:10px;
+}
+
+.window-control-2 {
+  font-size:12px;
+  padding:4px 11px;
+}
+
+.depriv-display {
+  font-size:13px;
+  color:var(--color-text-primary, #1a1a1a);
+  line-height:1.8;
+  background:var(--color-background-secondary, #f5f5f5);
+  border-radius:var(--border-radius-md, 8px);
+  padding:11px 13px;
+}
+
+.sleep-text-10 {
+  font-size:11px;
+  color:#999;
+  line-height:1.5;
+}
+
+.sleep-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(0,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.sleep-text-11 {
+  font-size:11px;
+  color:#999;
+  margin-top:4px;
+  line-height:1.5;
+}
+
+.sleep-row-15 {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.sleep-label-10 {
+  font-size:13px;
+  font-weight:500;
+  color:var(--color-text-primary, #1a1a1a);
+}
+
+.hygiene-score-bar {
+  height:6px;
+  border-radius:3px;
+  background:var(--color-background-secondary, #f5f5f5);
+  margin-bottom:14px;
+  overflow:hidden;
+}
+
+.hygiene-score-fill {
+  height:6px;
+  border-radius:3px;
+  background:#4E99A3;
+  width:0%;
+  transition:width 0.3s;
+}
+
+.hygiene-feedback {
+  font-size:12px;
+  color:var(--color-text-secondary, #666);
+  line-height:1.6;
+  margin-top:10px;
+  padding:10px 12px;
+  background:var(--color-background-secondary, #f5f5f5);
+  border-radius:var(--border-radius-md, 8px);
+  display:none;
+}
+
+.sleep-grid-3 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:12px;
+  margin-bottom:1rem;
+}
+
+.sleep-grid-4 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-moon" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 22: Sleep</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-moon module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 22: Sleep</h1>
     </div>
     <p class="module-subtitle">Cycles, stages, hygiene, and circadian rhythms</p>
 
@@ -161,96 +787,96 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part A · the architecture of a night's sleep — the 90-minute cycle</div>
 
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:4px;">A typical 8-hour night contains 4–5 complete cycles</div>
-      <div style="font-size:12px; color:var(--color-text-secondary, #666); margin-bottom:12px; line-height:1.6;">Each cycle lasts roughly 90 minutes. The composition changes across the night: early cycles are dominated by deep sleep (N3); later cycles contain more REM. This is why the last 2 hours of sleep are disproportionately rich in dreaming — and why cutting sleep short costs you mostly REM, not deep sleep.</div>
+    <div class="sleep-panel">
+      <div class="sleep-label">A typical 8-hour night contains 4–5 complete cycles</div>
+      <div class="sleep-text">Each cycle lasts roughly 90 minutes. The composition changes across the night: early cycles are dominated by deep sleep (N3); later cycles contain more REM. This is why the last 2 hours of sleep are disproportionately rich in dreaming — and why cutting sleep short costs you mostly REM, not deep sleep.</div>
 
-      <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
-        <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:2px;">A single 90-minute cycle — stages in order</div>
-        <div style="display:flex; height:32px; border-radius:var(--border-radius-md, 8px); overflow:hidden; border:0.5px solid var(--color-border-tertiary, #e0e0e0);">
-          <div style="flex:1; background:#B5D4F4; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#042C53; font-weight:500;">N1 (5 min)</span></div>
-          <div style="flex:2; background:#378ADD; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#fff; font-weight:500;">N2 (20–25 min)</span></div>
-          <div style="flex:2; background:#26215C; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#CECBF6; font-weight:500;">N3 deep (20–40 min)</span></div>
-          <div style="flex:1; background:#378ADD; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#fff; font-weight:500;">N2 brief</span></div>
-          <div style="flex:2; background:#D4537E; display:flex; align-items:center; justify-content:center;"><span style="font-size:10px; color:#fff; font-weight:500;">REM (10–60 min)</span></div>
+      <div class="sleep-row">
+        <div class="sleep-text-2">A single 90-minute cycle — stages in order</div>
+        <div class="sleep-row-2">
+          <div class="sleep-row-3"><span class="sleep-label-2">N1 (5 min)</span></div>
+          <div class="sleep-row-4"><span class="sleep-label-3">N2 (20–25 min)</span></div>
+          <div class="sleep-row-5"><span class="sleep-label-4">N3 deep (20–40 min)</span></div>
+          <div class="sleep-row-6"><span class="sleep-label-3">N2 brief</span></div>
+          <div class="sleep-row-7"><span class="sleep-label-3">REM (10–60 min)</span></div>
         </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;">
-          <span style="font-size:11px; color:var(--color-text-secondary, #666); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#B5D4F4; border-radius:2px; display:inline-block;"></span>N1 light</span>
-          <span style="font-size:11px; color:var(--color-text-secondary, #666); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#378ADD; border-radius:2px; display:inline-block;"></span>N2 true sleep</span>
-          <span style="font-size:11px; color:var(--color-text-secondary, #666); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#26215C; border-radius:2px; display:inline-block;"></span>N3 deep/slow-wave</span>
-          <span style="font-size:11px; color:var(--color-text-secondary, #666); display:flex; align-items:center; gap:4px;"><span style="width:10px; height:10px; background:#D4537E; border-radius:2px; display:inline-block;"></span>REM (dreaming)</span>
-        </div>
-      </div>
-
-      <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:11px 14px; margin-bottom:8px;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:8px;">How the cycle composition shifts across a full night</div>
-        <div style="display:flex; flex-direction:column; gap:5px;">
-          <div>
-            <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:3px;">Cycle 1 (~11pm–12:30am)</div>
-            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
-              <div style="flex:0.5; background:#B5D4F4;"></div>
-              <div style="flex:2; background:#378ADD;"></div>
-              <div style="flex:3.5; background:#26215C;"></div>
-              <div style="flex:1; background:#D4537E;"></div>
-            </div>
-            <div style="font-size:10px; color:var(--color-text-secondary, #666); margin-top:2px;">Heavy deep sleep, minimal REM</div>
-          </div>
-          <div>
-            <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:3px;">Cycle 2 (~12:30–2am)</div>
-            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
-              <div style="flex:0.5; background:#B5D4F4;"></div>
-              <div style="flex:2; background:#378ADD;"></div>
-              <div style="flex:2.5; background:#26215C;"></div>
-              <div style="flex:2; background:#D4537E;"></div>
-            </div>
-            <div style="font-size:10px; color:var(--color-text-secondary, #666); margin-top:2px;">Still substantial deep sleep, more REM</div>
-          </div>
-          <div>
-            <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:3px;">Cycle 3 (~2–3:30am)</div>
-            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
-              <div style="flex:0.5; background:#B5D4F4;"></div>
-              <div style="flex:2; background:#378ADD;"></div>
-              <div style="flex:1; background:#26215C;"></div>
-              <div style="flex:3.5; background:#D4537E;"></div>
-            </div>
-            <div style="font-size:10px; color:var(--color-text-secondary, #666); margin-top:2px;">Deep sleep diminishing, REM growing</div>
-          </div>
-          <div>
-            <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:3px;">Cycle 4–5 (~3:30–7am)</div>
-            <div style="display:flex; height:20px; border-radius:3px; overflow:hidden;">
-              <div style="flex:0.5; background:#B5D4F4;"></div>
-              <div style="flex:2; background:#378ADD;"></div>
-              <div style="flex:0.2; background:#26215C;"></div>
-              <div style="flex:5; background:#D4537E;"></div>
-            </div>
-            <div style="font-size:10px; color:var(--color-text-secondary, #666); margin-top:2px;">Almost entirely REM — the dream-heavy second half of sleep</div>
-          </div>
+        <div class="sleep-row-8">
+          <span class="sleep-row-9"><span class="sleep-media"></span>N1 light</span>
+          <span class="sleep-row-9"><span class="sleep-media-2"></span>N2 true sleep</span>
+          <span class="sleep-row-9"><span class="sleep-media-3"></span>N3 deep/slow-wave</span>
+          <span class="sleep-row-9"><span class="sleep-media-4"></span>REM (dreaming)</span>
         </div>
       </div>
 
-      <div style="background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:10px 12px; font-size:12px; color:var(--color-text-secondary, #666); line-height:1.6;">
-        <strong style="color:var(--color-text-primary, #1a1a1a);">The alarm clock problem:</strong> Most people set an alarm that cuts off the final 1–2 cycles. This disproportionately removes REM sleep — the stage most critical for emotional regulation, creativity, and memory consolidation. Waking up mid-REM (when you were dreaming) produces the grogginess called sleep inertia. The 90-minute rule: if you need to wake at 7am, count back in 90-minute increments — bedtimes of 11:30pm, 10pm, or 8:30pm all align with cycle boundaries and produce gentler waking.
+      <div class="sleep-panel-2">
+        <div class="sleep-label-5">How the cycle composition shifts across a full night</div>
+        <div class="sleep-row-10">
+          <div>
+            <div class="sleep-text-3">Cycle 1 (~11pm–12:30am)</div>
+            <div class="sleep-row-11">
+              <div class="sleep-div-style"></div>
+              <div class="sleep-div-style-2"></div>
+              <div class="sleep-div-style-3"></div>
+              <div class="sleep-div-style-4"></div>
+            </div>
+            <div class="sleep-text-4">Heavy deep sleep, minimal REM</div>
+          </div>
+          <div>
+            <div class="sleep-text-3">Cycle 2 (~12:30–2am)</div>
+            <div class="sleep-row-11">
+              <div class="sleep-div-style"></div>
+              <div class="sleep-div-style-2"></div>
+              <div class="sleep-div-style-5"></div>
+              <div class="sleep-div-style-6"></div>
+            </div>
+            <div class="sleep-text-4">Still substantial deep sleep, more REM</div>
+          </div>
+          <div>
+            <div class="sleep-text-3">Cycle 3 (~2–3:30am)</div>
+            <div class="sleep-row-11">
+              <div class="sleep-div-style"></div>
+              <div class="sleep-div-style-2"></div>
+              <div class="sleep-div-style-7"></div>
+              <div class="sleep-div-style-8"></div>
+            </div>
+            <div class="sleep-text-4">Deep sleep diminishing, REM growing</div>
+          </div>
+          <div>
+            <div class="sleep-text-3">Cycle 4–5 (~3:30–7am)</div>
+            <div class="sleep-row-11">
+              <div class="sleep-div-style"></div>
+              <div class="sleep-div-style-2"></div>
+              <div class="sleep-div-style-9"></div>
+              <div class="sleep-div-style-10"></div>
+            </div>
+            <div class="sleep-text-4">Almost entirely REM — the dream-heavy second half of sleep</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sleep-panel-3">
+        <strong class="sleep-strong-style">The alarm clock problem:</strong> Most people set an alarm that cuts off the final 1–2 cycles. This disproportionately removes REM sleep — the stage most critical for emotional regulation, creativity, and memory consolidation. Waking up mid-REM (when you were dreaming) produces the grogginess called sleep inertia. The 90-minute rule: if you need to wake at 7am, count back in 90-minute increments — bedtimes of 11:30pm, 10pm, or 8:30pm all align with cycle boundaries and produce gentler waking.
       </div>
     </div>
 
     <!-- ─── Interactive: Bedtime calculator ─── -->
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:8px;">Bedtime calculator — align with 90-min cycle boundaries</div>
+    <div class="sleep-panel">
+      <div class="sleep-label-6">Bedtime calculator — align with 90-min cycle boundaries</div>
       <div class="calc-grid">
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:5px;">Wake-up time</div>
-          <input type="time" id="wake-time" value="07:00" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md, 8px); border:0.5px solid var(--color-border-secondary, #ccc); background:var(--color-background-primary, #fff); color:var(--color-text-primary, #1a1a1a); font-size:13px; width:100%; font-family:var(--font-sans, sans-serif);">
+          <div class="sleep-text-5">Wake-up time</div>
+          <input class="wake-time" type="time" id="wake-time" value="07:00">
         </div>
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:5px;">Cycles wanted</div>
-          <select id="cycles-wanted" style="height:36px; padding:0 10px; border-radius:var(--border-radius-md, 8px); border:0.5px solid var(--color-border-secondary, #ccc); background:var(--color-background-primary, #fff); color:var(--color-text-primary, #1a1a1a); font-size:13px; width:100%; font-family:var(--font-sans, sans-serif);">
+          <div class="sleep-text-5">Cycles wanted</div>
+          <select class="wake-time" id="cycles-wanted">
             <option value="4">4 cycles (~6 hrs) — minimum</option>
             <option value="5" selected>5 cycles (~7.5 hrs) — good</option>
             <option value="6">6 cycles (~9 hrs) — recovery</option>
           </select>
         </div>
       </div>
-      <button onclick="window.calcBedtime()" style="margin-bottom:10px;">Calculate bedtimes</button>
+      <button class="u-mb-md" onclick="window.calcBedtime()">Calculate bedtimes</button>
       <div class="calc-result" id="bedtime-result">Enter your wake time and click calculate.</div>
     </div>
 
@@ -260,52 +886,52 @@
     <div class="sec">Part B · the four sleep stages — what happens in each</div>
 
     <!-- N1 -->
-    <div style="background:#E6F1FB; border:0.5px solid #85B7EB; border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:10px;">
-      <div class="sh"><span class="sname" style="color:#042C53;">Stage N1 — light sleep / hypnagogic state</span><span class="sbadge" style="background:#B5D4F4; color:#042C53;">1–7 min, ~5% of sleep</span></div>
+    <div class="sleep-panel-4">
+      <div class="sh"><span class="sname text-blue-950">Stage N1 — light sleep / hypnagogic state</span><span class="sbadge sbadge-style">1–7 min, ~5% of sleep</span></div>
       <div class="sgrid">
-        <div class="sbox" style="background:#B5D4F4;"><p class="sl" style="color:#0C447C;">Brain waves</p><p class="sv" style="color:#042C53;">Alpha waves slow to theta waves. Easily awakened — "not really asleep yet."</p></div>
-        <div class="sbox" style="background:#B5D4F4;"><p class="sl" style="color:#0C447C;">What happens</p><p class="sv" style="color:#042C53;">Muscle tone decreases. Eyes move slowly. Hypnic jerks (that sudden falling sensation) are common — a muscle twitch as the body releases tension.</p></div>
-        <div class="sbox" style="background:#B5D4F4;"><p class="sl" style="color:#0C447C;">Hypnagogia</p><p class="sv" style="color:#042C53;">The border state between waking and sleep. Vivid, dreamlike images, sounds, or sensations that are not yet full dreams. Salvador Dalí deliberately induced this state for creative inspiration.</p></div>
+        <div class="sbox sbox-style"><p class="sl text-blue-900">Brain waves</p><p class="sv text-blue-950">Alpha waves slow to theta waves. Easily awakened — "not really asleep yet."</p></div>
+        <div class="sbox sbox-style"><p class="sl text-blue-900">What happens</p><p class="sv text-blue-950">Muscle tone decreases. Eyes move slowly. Hypnic jerks (that sudden falling sensation) are common — a muscle twitch as the body releases tension.</p></div>
+        <div class="sbox sbox-style"><p class="sl text-blue-900">Hypnagogia</p><p class="sv text-blue-950">The border state between waking and sleep. Vivid, dreamlike images, sounds, or sensations that are not yet full dreams. Salvador Dalí deliberately induced this state for creative inspiration.</p></div>
       </div>
-      <p class="snote" style="color:#185FA5;">N1 is the twilight zone of consciousness. Woken from N1, most people deny having been asleep at all. This is why "I was just resting my eyes" is often literally true — the person was in N1, barely unconscious.</p>
+      <p class="snote text-blue-700">N1 is the twilight zone of consciousness. Woken from N1, most people deny having been asleep at all. This is why "I was just resting my eyes" is often literally true — the person was in N1, barely unconscious.</p>
     </div>
 
     <!-- N2 -->
-    <div style="background:#EEEDFE; border:0.5px solid #AFA9EC; border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:10px;">
-      <div class="sh"><span class="sname" style="color:#26215C;">Stage N2 — true sleep</span><span class="sbadge" style="background:#CECBF6; color:#26215C;">20–30 min per cycle, ~45–50% of total sleep</span></div>
+    <div class="sleep-panel-5">
+      <div class="sh"><span class="sname text-indigo-950">Stage N2 — true sleep</span><span class="sbadge sbadge-style-2">20–30 min per cycle, ~45–50% of total sleep</span></div>
       <div class="sgrid">
-        <div class="sbox" style="background:#CECBF6;"><p class="sl" style="color:#3C3489;">Brain waves</p><p class="sv" style="color:#26215C;">Sleep spindles (bursts of 12–14 Hz oscillations, 0.5–2 sec) and K-complexes (sharp negative waves). Both are unique to N2.</p></div>
-        <div class="sbox" style="background:#CECBF6;"><p class="sl" style="color:#3C3489;">What happens</p><p class="sv" style="color:#26215C;">Heart rate and body temperature drop. Sensory processing significantly reduced. Sleep spindles are thought to be the brain "gating" sensory input to maintain sleep.</p></div>
-        <div class="sbox" style="background:#CECBF6;"><p class="sl" style="color:#3C3489;">Memory function</p><p class="sv" style="color:#26215C;">Sleep spindles correlate strongly with motor memory consolidation. Learning a new physical skill (playing piano, typing) improves after N2-rich sleep.</p></div>
+        <div class="sbox sbox-style-2"><p class="sl text-indigo-900">Brain waves</p><p class="sv text-indigo-950">Sleep spindles (bursts of 12–14 Hz oscillations, 0.5–2 sec) and K-complexes (sharp negative waves). Both are unique to N2.</p></div>
+        <div class="sbox sbox-style-2"><p class="sl text-indigo-900">What happens</p><p class="sv text-indigo-950">Heart rate and body temperature drop. Sensory processing significantly reduced. Sleep spindles are thought to be the brain "gating" sensory input to maintain sleep.</p></div>
+        <div class="sbox sbox-style-2"><p class="sl text-indigo-900">Memory function</p><p class="sv text-indigo-950">Sleep spindles correlate strongly with motor memory consolidation. Learning a new physical skill (playing piano, typing) improves after N2-rich sleep.</p></div>
       </div>
-      <p class="snote" style="color:#534AB7;">A 20-minute "power nap" that stays in N2 (not reaching N3) leaves you refreshed, not groggy. The groggy nap problem is when you enter N3 and wake mid-cycle. The 20-minute cap is the practical application of this.</p>
+      <p class="snote text-indigo-700">A 20-minute "power nap" that stays in N2 (not reaching N3) leaves you refreshed, not groggy. The groggy nap problem is when you enter N3 and wake mid-cycle. The 20-minute cap is the practical application of this.</p>
     </div>
 
     <!-- N3 -->
-    <div style="background:#26215C; border:0.5px solid #534AB7; border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:10px;">
-      <div class="sh"><span class="sname" style="color:#CECBF6;">Stage N3 — deep sleep / slow-wave sleep (SWS)</span><span class="sbadge" style="background:#534AB7; color:#CECBF6;">20–40 min early, near zero later, ~20% of total</span></div>
+    <div class="sleep-panel-6">
+      <div class="sh"><span class="sname text-indigo-200">Stage N3 — deep sleep / slow-wave sleep (SWS)</span><span class="sbadge sbadge-style-3">20–40 min early, near zero later, ~20% of total</span></div>
       <div class="sgrid">
-        <div class="sbox" style="background:#3C3489;"><p class="sl" style="color:#AFA9EC;">Brain waves</p><p class="sv" style="color:#CECBF6;">Delta waves — the slowest, highest-amplitude brain waves. Less than 1 Hz. The brain is maximally synchronised and "quiet."</p></div>
-        <div class="sbox" style="background:#3C3489;"><p class="sl" style="color:#AFA9EC;">Physical repair</p><p class="sv" style="color:#CECBF6;">Growth hormone (GH) is secreted in its largest pulse of the day. Tissue repair, muscle growth, and immune strengthening all peak here. The body physically heals itself.</p></div>
-        <div class="sbox" style="background:#3C3489;"><p class="sl" style="color:#AFA9EC;">Brain cleaning</p><p class="sv" style="color:#CECBF6;">The glymphatic system (the brain's waste clearance network) is most active during N3. Cerebrospinal fluid flushes metabolic waste including amyloid-beta proteins associated with Alzheimer's disease.</p></div>
+        <div class="sbox bg-indigo-900"><p class="sl sl-style-3">Brain waves</p><p class="sv text-indigo-200">Delta waves — the slowest, highest-amplitude brain waves. Less than 1 Hz. The brain is maximally synchronised and "quiet."</p></div>
+        <div class="sbox bg-indigo-900"><p class="sl sl-style-3">Physical repair</p><p class="sv text-indigo-200">Growth hormone (GH) is secreted in its largest pulse of the day. Tissue repair, muscle growth, and immune strengthening all peak here. The body physically heals itself.</p></div>
+        <div class="sbox bg-indigo-900"><p class="sl sl-style-3">Brain cleaning</p><p class="sv text-indigo-200">The glymphatic system (the brain's waste clearance network) is most active during N3. Cerebrospinal fluid flushes metabolic waste including amyloid-beta proteins associated with Alzheimer's disease.</p></div>
       </div>
-      <p class="snote" style="color:#AFA9EC;">N3 is the hardest stage to wake from — if woken, severe disorientation (sleep inertia) lasts 15–30 minutes. Sleepwalking and sleep talking occur in N3, not REM, explaining why sleepwalkers have no memory and are hard to rouse. Children spend proportionally more time in N3, explaining the depth of childhood sleep and growth hormone peaks.</p>
+      <p class="snote sl-style-3">N3 is the hardest stage to wake from — if woken, severe disorientation (sleep inertia) lasts 15–30 minutes. Sleepwalking and sleep talking occur in N3, not REM, explaining why sleepwalkers have no memory and are hard to rouse. Children spend proportionally more time in N3, explaining the depth of childhood sleep and growth hormone peaks.</p>
     </div>
 
     <!-- REM -->
-    <div style="background:#FBEAF0; border:0.5px solid #ED93B1; border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:10px;">
-      <div class="sh"><span class="sname" style="color:#4B1528;">REM — Rapid Eye Movement sleep</span><span class="sbadge" style="background:#F4C0D1; color:#4B1528;">10–60 min per cycle, ~20–25% of total — dreams here</span></div>
+    <div class="sleep-panel-7">
+      <div class="sh"><span class="sname sname-style-4">REM — Rapid Eye Movement sleep</span><span class="sbadge sbadge-style-4">10–60 min per cycle, ~20–25% of total — dreams here</span></div>
       <div class="sgrid">
-        <div class="sbox" style="background:#F4C0D1;"><p class="sl" style="color:#72243E;">Brain waves</p><p class="sv" style="color:#4B1528;">Almost identical to waking brain — fast, low-amplitude, desynchronised. The brain is as active as when awake. Eyes dart rapidly (hence the name). Body is in voluntary muscle paralysis (atonia).</p></div>
-        <div class="sbox" style="background:#F4C0D1;"><p class="sl" style="color:#72243E;">Dreaming</p><p class="sv" style="color:#4B1528;">90–95% of vivid, narrative dreams occur in REM. Muscle atonia prevents acting out dreams. REM sleep behaviour disorder: atonia fails — people physically act out their dreams.</p></div>
-        <div class="sbox" style="background:#F4C0D1;"><p class="sl" style="color:#72243E;">Functions</p><p class="sv" style="color:#4B1528;">Emotional memory processing — reactivating memories but stripping the emotional charge: "overnight therapy." Creativity and insight through novel connections. Social and emotional learning.</p></div>
+        <div class="sbox sbox-style-4"><p class="sl text-hex-72243e">Brain waves</p><p class="sv sname-style-4">Almost identical to waking brain — fast, low-amplitude, desynchronised. The brain is as active as when awake. Eyes dart rapidly (hence the name). Body is in voluntary muscle paralysis (atonia).</p></div>
+        <div class="sbox sbox-style-4"><p class="sl text-hex-72243e">Dreaming</p><p class="sv sname-style-4">90–95% of vivid, narrative dreams occur in REM. Muscle atonia prevents acting out dreams. REM sleep behaviour disorder: atonia fails — people physically act out their dreams.</p></div>
+        <div class="sbox sbox-style-4"><p class="sl text-hex-72243e">Functions</p><p class="sv sname-style-4">Emotional memory processing — reactivating memories but stripping the emotional charge: "overnight therapy." Creativity and insight through novel connections. Social and emotional learning.</p></div>
       </div>
-      <p class="snote" style="color:#993556;">REM is the most psychologically active stage. Norepinephrine (the stress chemical) is almost completely absent during REM — the only time in the 24-hour cycle when this happens. This is why REM is thought to provide emotional "overnight therapy": distressing memories are reprocessed in a neurochemically calm state.</p>
+      <p class="snote text-hex-993556">REM is the most psychologically active stage. Norepinephrine (the stress chemical) is almost completely absent during REM — the only time in the 24-hour cycle when this happens. This is why REM is thought to provide emotional "overnight therapy": distressing memories are reprocessed in a neurochemically calm state.</p>
     </div>
 
     <!-- Stage comparison table -->
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem; overflow-x:auto;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:10px;">Stage comparison at a glance</div>
+    <div class="sleep-panel-8">
+      <div class="sleep-label-7">Stage comparison at a glance</div>
       <table class="comp-table">
         <thead>
           <tr>
@@ -318,28 +944,28 @@
         </thead>
         <tbody>
           <tr>
-            <td><span style="color:#042C53; font-weight:500;">N1</span></td>
+            <td><span class="sleep-span-style">N1</span></td>
             <td>~5%</td>
             <td>Transition, hypnagogia</td>
             <td>Theta waves, relaxed</td>
             <td>Easily re-entered; minimal impact</td>
           </tr>
           <tr>
-            <td><span style="color:#3C3489; font-weight:500;">N2</span></td>
+            <td><span class="sleep-span-style-2">N2</span></td>
             <td>~45–50%</td>
             <td>Motor memory, sensory gating</td>
             <td>Spindles, K-complexes</td>
             <td>Impaired skill learning, lighter sleep</td>
           </tr>
           <tr>
-            <td><span style="color:#CECBF6; font-weight:500; background:#26215C; padding:1px 5px; border-radius:3px;">N3</span></td>
+            <td><span class="sleep-panel-9">N3</span></td>
             <td>~20%</td>
             <td>Physical repair, glymphatic flush</td>
             <td>Delta waves, near-silent</td>
             <td>Poor immunity, impaired tissue repair, Alzheimer's risk</td>
           </tr>
           <tr>
-            <td><span style="color:#72243E; font-weight:500;">REM</span></td>
+            <td><span class="sleep-span-style-3">REM</span></td>
             <td>~20–25%</td>
             <td>Emotional processing, creativity</td>
             <td>Near-waking activity</td>
@@ -394,46 +1020,46 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part D · the sleep hormones — your body's chemical clock</div>
 
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:10px;">Interactive hormone timeline — drag to explore the 24-hour cycle</div>
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
-        <label style="font-size:12px; color:var(--color-text-secondary, #666); min-width:60px;">Time of day:</label>
-        <input type="range" id="time-slider" min="0" max="23" value="23" step="1" style="flex:1;">
-        <span id="time-out" style="font-size:13px; font-weight:500; min-width:55px; text-align:right; color:var(--color-text-primary, #1a1a1a);"></span>
+    <div class="sleep-panel">
+      <div class="sleep-label-8">Interactive hormone timeline — drag to explore the 24-hour cycle</div>
+      <div class="sleep-row-12">
+        <label class="sleep-text-6">Time of day:</label>
+        <input class="u-flex-1" type="range" id="u-flex-1" min="0" max="23" value="23" step="1">
+        <span class="time-out" id="time-out"></span>
       </div>
-      <div id="hormone-display" style="font-size:13px; color:var(--color-text-primary, #1a1a1a); line-height:1.8; background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:11px 13px; margin-bottom:10px;"></div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:8px;">
-        <div style="background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:3px;">Melatonin</div>
-          <div style="font-size:12px; color:var(--color-text-secondary, #666); line-height:1.5;">The "darkness hormone." Produced by the pineal gland when light fades (~2 hours before natural sleep time). Tells the body it's night. Does not cause sleep — signals its appropriateness. Peaks ~2–3am, fades as light returns. Suppressed by blue light (phone screens) — equivalent to a miniature sunrise signal.</div>
+      <div class="hormone-display" id="hormone-display"></div>
+      <div class="sleep-grid">
+        <div class="sleep-panel-10">
+          <div class="sleep-label-9">Melatonin</div>
+          <div class="sleep-text-7">The "darkness hormone." Produced by the pineal gland when light fades (~2 hours before natural sleep time). Tells the body it's night. Does not cause sleep — signals its appropriateness. Peaks ~2–3am, fades as light returns. Suppressed by blue light (phone screens) — equivalent to a miniature sunrise signal.</div>
         </div>
-        <div style="background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:3px;">Adenosine</div>
-          <div style="font-size:12px; color:var(--color-text-secondary, #666); line-height:1.5;">The "sleep pressure" chemical. Produced as a by-product of brain activity — it accumulates steadily from the moment you wake. After ~16 hours, high adenosine creates overwhelming sleepiness. Sleep clears it. Caffeine works by blocking adenosine receptors (not reducing it) — when caffeine wears off, the accumulated adenosine floods in (the "crash").</div>
+        <div class="sleep-panel-10">
+          <div class="sleep-label-9">Adenosine</div>
+          <div class="sleep-text-7">The "sleep pressure" chemical. Produced as a by-product of brain activity — it accumulates steadily from the moment you wake. After ~16 hours, high adenosine creates overwhelming sleepiness. Sleep clears it. Caffeine works by blocking adenosine receptors (not reducing it) — when caffeine wears off, the accumulated adenosine floods in (the "crash").</div>
         </div>
-        <div style="background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:3px;">Cortisol</div>
-          <div style="font-size:12px; color:var(--color-text-secondary, #666); line-height:1.5;">The "wake-up" hormone. Rises sharply in the last 2 hours of sleep and peaks ~30 min after waking (the "cortisol awakening response"). This is what enables alertness on waking. Chronic sleep deprivation keeps cortisol elevated, causing chronic stress responses, impaired immunity, and metabolic disruption. Cortisol follows the opposite arc to melatonin across the 24-hour cycle.</div>
+        <div class="sleep-panel-10">
+          <div class="sleep-label-9">Cortisol</div>
+          <div class="sleep-text-7">The "wake-up" hormone. Rises sharply in the last 2 hours of sleep and peaks ~30 min after waking (the "cortisol awakening response"). This is what enables alertness on waking. Chronic sleep deprivation keeps cortisol elevated, causing chronic stress responses, impaired immunity, and metabolic disruption. Cortisol follows the opposite arc to melatonin across the 24-hour cycle.</div>
         </div>
-        <div style="background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:3px;">Growth hormone (GH)</div>
-          <div style="font-size:12px; color:var(--color-text-secondary, #666); line-height:1.5;">~70–80% of daily GH secretion occurs during the first slow-wave (N3) sleep episode — typically within 1 hour of falling asleep. GH drives tissue repair, muscle growth, fat metabolism, and immune function. This is why "sleep for gains" is physiologically real — skipping sleep cuts the primary GH pulse. Children and teenagers have dramatically higher GH secretion, explaining deep sleep and physical growth.</div>
+        <div class="sleep-panel-10">
+          <div class="sleep-label-9">Growth hormone (GH)</div>
+          <div class="sleep-text-7">~70–80% of daily GH secretion occurs during the first slow-wave (N3) sleep episode — typically within 1 hour of falling asleep. GH drives tissue repair, muscle growth, fat metabolism, and immune function. This is why "sleep for gains" is physiologically real — skipping sleep cuts the primary GH pulse. Children and teenagers have dramatically higher GH secretion, explaining deep sleep and physical growth.</div>
         </div>
       </div>
     </div>
 
     <!-- ─── Caffeine half-life interactive ─── -->
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:4px;">Caffeine half-life calculator — when is it safe to drink coffee?</div>
-      <div style="font-size:12px; color:var(--color-text-secondary, #666); margin-bottom:10px; line-height:1.5;">Caffeine's half-life is ~5–6 hours. If you drink coffee at 3pm, about 25% remains in your system at midnight — blocking adenosine receptors and degrading sleep quality even if you fall asleep normally.</div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; margin-bottom:12px;">
+    <div class="sleep-panel">
+      <div class="sleep-label">Caffeine half-life calculator — when is it safe to drink coffee?</div>
+      <div class="sleep-text-8">Caffeine's half-life is ~5–6 hours. If you drink coffee at 3pm, about 25% remains in your system at midnight — blocking adenosine receptors and degrading sleep quality even if you fall asleep normally.</div>
+      <div class="sleep-row-13">
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:4px;">Coffee time</div>
-          <input type="time" id="caf-time" value="14:00" style="height:34px; padding:0 10px; border-radius:var(--border-radius-md, 8px); border:0.5px solid var(--color-border-secondary, #ccc); background:var(--color-background-primary, #fff); color:var(--color-text-primary, #1a1a1a); font-size:13px; font-family:var(--font-sans, sans-serif);">
+          <div class="sleep-text-9">Coffee time</div>
+          <input class="caf-time" type="time" id="caf-time" value="14:00">
         </div>
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:4px;">Mg of caffeine</div>
-          <select id="caf-mg" style="height:34px; padding:0 10px; border-radius:var(--border-radius-md, 8px); border:0.5px solid var(--color-border-secondary, #ccc); background:var(--color-background-primary, #fff); color:var(--color-text-primary, #1a1a1a); font-size:13px; font-family:var(--font-sans, sans-serif);">
+          <div class="sleep-text-9">Mg of caffeine</div>
+          <select class="caf-time" id="caf-mg">
             <option value="80">Espresso (80 mg)</option>
             <option value="95" selected>Drip coffee (95 mg)</option>
             <option value="150">Large drip (150 mg)</option>
@@ -441,12 +1067,12 @@
           </select>
         </div>
         <div>
-          <div style="font-size:11px; color:var(--color-text-secondary, #666); margin-bottom:4px;">Bedtime</div>
-          <input type="time" id="bed-time-caf" value="23:00" style="height:34px; padding:0 10px; border-radius:var(--border-radius-md, 8px); border:0.5px solid var(--color-border-secondary, #ccc); background:var(--color-background-primary, #fff); color:var(--color-text-primary, #1a1a1a); font-size:13px; font-family:var(--font-sans, sans-serif);">
+          <div class="sleep-text-9">Bedtime</div>
+          <input class="caf-time" type="time" id="bed-time-caf" value="23:00">
         </div>
         <button onclick="window.calcCaffeine()">Calculate</button>
       </div>
-      <div id="caf-result" style="font-size:13px; color:var(--color-text-primary, #1a1a1a); line-height:1.7; background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:11px 13px; margin-bottom:10px;"></div>
+      <div class="caf-result" id="caf-result"></div>
       <div id="caf-bars"></div>
     </div>
 
@@ -456,21 +1082,21 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part E · sleep deprivation — what actually breaks, and when</div>
 
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="window.showDepriv('mild')"    style="font-size:12px; padding:4px 11px;">Mild (6 hrs/night)</button>
-        <button onclick="window.showDepriv('24')"      style="font-size:12px; padding:4px 11px;">24 hours awake</button>
-        <button onclick="window.showDepriv('48')"      style="font-size:12px; padding:4px 11px;">48 hours awake</button>
-        <button onclick="window.showDepriv('72')"      style="font-size:12px; padding:4px 11px;">72 hours awake</button>
-        <button onclick="window.showDepriv('chronic')" style="font-size:12px; padding:4px 11px;">Chronic insufficiency</button>
+    <div class="sleep-panel">
+      <div class="button-row-spaced">
+        <button class="window-control-2" onclick="window.showDepriv('mild')"   >Mild (6 hrs/night)</button>
+        <button class="window-control-2" onclick="window.showDepriv('24')"     >24 hours awake</button>
+        <button class="window-control-2" onclick="window.showDepriv('48')"     >48 hours awake</button>
+        <button class="window-control-2" onclick="window.showDepriv('72')"     >72 hours awake</button>
+        <button class="window-control-2" onclick="window.showDepriv('chronic')">Chronic insufficiency</button>
       </div>
-      <div id="depriv-display" style="font-size:13px; color:var(--color-text-primary, #1a1a1a); line-height:1.8; background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); padding:11px 13px;"></div>
+      <div class="depriv-display" id="depriv-display"></div>
     </div>
 
     <!-- ─── Visual: Impairment scale ─── -->
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:10px;">Cognitive impairment vs. equivalent blood alcohol — the parallel that justifies concern</div>
-      <svg class="chart-svg" viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:4px;">
+    <div class="sleep-panel">
+      <div class="sleep-label-7">Cognitive impairment vs. equivalent blood alcohol — the parallel that justifies concern</div>
+      <svg class="chart-svg u-mb-xs" viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg">
         <!-- Y axis labels -->
         <text x="0" y="24" font-size="10" fill="#666">Hours awake</text>
         <text x="0" y="44" font-size="10" fill="#666">17 hrs</text>
@@ -494,7 +1120,7 @@
         <!-- divider -->
         <line x1="55" y1="28" x2="55" y2="155" stroke="#e0e0e0" stroke-width="0.5"/>
       </svg>
-      <div style="font-size:11px; color:#999; line-height:1.5;">Sources: Williamson & Feyer (2000), Dawson & Reid (1997). Impairment measured via psychomotor vigilance tasks — reaction time, sustained attention, and cognitive throughput.</div>
+      <div class="sleep-text-10">Sources: Williamson & Feyer (2000), Dawson & Reid (1997). Impairment measured via psychomotor vigilance tasks — reaction time, sustained attention, and cognitive throughput.</div>
     </div>
 
 
@@ -503,7 +1129,7 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part F · chronotypes and daydreaming</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="sleep-grid-2">
       <div class="card">
         <p class="clabel">Chronotype — your natural sleep timing</p>
         <p class="cval">Partly genetic, age-dependent</p>
@@ -527,8 +1153,8 @@
     </div>
 
     <!-- Chronotype population distribution — visual -->
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:10px;">Chronotype distribution across the population</div>
+    <div class="sleep-panel">
+      <div class="sleep-label-7">Chronotype distribution across the population</div>
       <svg class="chart-svg" viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg">
         <!-- Bell curve path approximation -->
         <defs>
@@ -567,7 +1193,7 @@
         <text x="440" y="78" font-size="10" fill="#999">cluster near</text>
         <text x="440" y="91" font-size="10" fill="#999">the middle</text>
       </svg>
-      <div style="font-size:11px; color:#999; margin-top:4px; line-height:1.5;">Approximate distribution based on Munich Chronotype Questionnaire (MCTQ) population data (Roenneberg et al.). Teenager chronotypes shift significantly toward the owl end and return toward intermediate in the mid-twenties.</div>
+      <div class="sleep-text-11">Approximate distribution based on Munich Chronotype Questionnaire (MCTQ) population data (Roenneberg et al.). Teenager chronotypes shift significantly toward the owl end and return toward intermediate in the mid-twenties.</div>
     </div>
 
 
@@ -576,23 +1202,23 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part G · sleep hygiene — the evidence behind each rule</div>
 
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a);">Sleep hygiene checklist — tick what you already do</div>
+    <div class="sleep-panel">
+      <div class="sleep-row-15">
+        <div class="sleep-label-10">Sleep hygiene checklist — tick what you already do</div>
         <div>
           <span class="hygiene-score" id="hygiene-score">0</span>
           <span class="hygiene-score-label"> / 10</span>
         </div>
       </div>
-      <div id="hygiene-score-bar" style="height:6px; border-radius:3px; background:var(--color-background-secondary, #f5f5f5); margin-bottom:14px; overflow:hidden;">
-        <div id="hygiene-score-fill" style="height:6px; border-radius:3px; background:#4E99A3; width:0%; transition:width 0.3s;"></div>
+      <div class="hygiene-score-bar" id="hygiene-score-bar">
+        <div class="hygiene-score-fill" id="hygiene-score-fill"></div>
       </div>
       <div id="hygiene-list"></div>
-      <div id="hygiene-feedback" style="font-size:12px; color:var(--color-text-secondary, #666); line-height:1.6; margin-top:10px; padding:10px 12px; background:var(--color-background-secondary, #f5f5f5); border-radius:var(--border-radius-md, 8px); display:none;"></div>
+      <div class="hygiene-feedback" id="hygiene-feedback"></div>
     </div>
 
     <!-- Sleep hygiene: the real science behind each item -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:12px; margin-bottom:1rem;">
+    <div class="sleep-grid-3">
       <div class="card">
         <p class="clabel">Light exposure timing</p>
         <p class="cval">Morning light: the master reset</p>
@@ -621,18 +1247,18 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part H · the science of napping — types, timing, and the nappuccino</div>
 
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:8px;">Interactive nap guide — choose a nap type</div>
+    <div class="sleep-panel">
+      <div class="sleep-label-6">Interactive nap guide — choose a nap type</div>
       <div class="nap-btn-row">
-        <button onclick="window.showNap('power')" style="font-size:12px; padding:4px 11px;">Power nap (10–20 min)</button>
-        <button onclick="window.showNap('full')"  style="font-size:12px; padding:4px 11px;">Full cycle nap (90 min)</button>
-        <button onclick="window.showNap('nappuccino')" style="font-size:12px; padding:4px 11px;">The nappuccino</button>
-        <button onclick="window.showNap('avoid')" style="font-size:12px; padding:4px 11px;">When not to nap</button>
+        <button class="window-control-2" onclick="window.showNap('power')">Power nap (10–20 min)</button>
+        <button class="window-control-2" onclick="window.showNap('full')" >Full cycle nap (90 min)</button>
+        <button class="window-control-2" onclick="window.showNap('nappuccino')">The nappuccino</button>
+        <button class="window-control-2" onclick="window.showNap('avoid')">When not to nap</button>
       </div>
       <div class="nap-display" id="nap-display">Select a nap type above to learn about it.</div>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="sleep-grid-4">
       <div class="card">
         <p class="clabel">Are naps a sign of laziness?</p>
         <p class="cval">No — they are biologically programmed</p>
@@ -656,8 +1282,8 @@
     ════════════════════════════════════════════════════════════════════ -->
     <div class="sec">Part I · sleep across the lifespan — how needs and architecture change</div>
 
-    <div style="background:var(--color-background-primary, #fff); border:0.5px solid var(--color-border-tertiary, #e0e0e0); border-radius:var(--border-radius-lg, 12px); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:10px;">Daily sleep needs and REM proportion by age group</div>
+    <div class="sleep-panel">
+      <div class="sleep-label-7">Daily sleep needs and REM proportion by age group</div>
       <svg class="chart-svg" viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg">
         <!-- Grid lines -->
         <line x1="80" y1="20" x2="80" y2="165" stroke="#e0e0e0" stroke-width="0.5"/>
@@ -710,10 +1336,10 @@
         <rect x="490" y="58" width="10" height="10" rx="2" fill="#D4537E" opacity="0.7"/>
         <text x="504" y="68" font-size="10" fill="#666">REM portion</text>
       </svg>
-      <div style="font-size:11px; color:#999; margin-top:4px; line-height:1.5;">Based on NSF and AASM guidelines. REM % is approximate and varies between individuals and measurement methods. The dramatic decline in REM from infancy to adulthood (50% → 20%) may reflect the role of REM in the developing brain's synaptic consolidation during early neural growth.</div>
+      <div class="sleep-text-11">Based on NSF and AASM guidelines. REM % is approximate and varies between individuals and measurement methods. The dramatic decline in REM from infancy to adulthood (50% → 20%) may reflect the role of REM in the developing brain's synaptic consolidation during early neural growth.</div>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="sleep-grid-4">
       <div class="card">
         <p class="clabel">Why newborns sleep so much — and 50% is REM</p>
         <p class="cval">REM drives brain development in infants</p>
@@ -735,7 +1361,7 @@
     <!-- ═══════════════════════════════════════════════════════════════
          PART J — TEST YOURSELF
     ════════════════════════════════════════════════════════════════════ -->
-    <div class="sec">Part J · test yourself</div>
+    <div class="sec">Part J · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. You have an important exam at 9am tomorrow. Should you stay up until 2am studying, or sleep 8 hours and accept having studied less?</p>
@@ -839,7 +1465,7 @@
       ];
 
       window.updateHormones = function() {
-        const idx = parseInt(document.getElementById('time-slider').value);
+        const idx = parseInt(document.getElementById('u-flex-1').value);
         const hours = hormoneData.map(d => d.hour);
         const closestIdx = hours.reduce((best, h, i) => {
           const diff  = Math.abs(h  <= 5 ? h  + 24 - idx : h  - idx);
@@ -871,7 +1497,7 @@
           <div style="font-size:13px; color:#1a1a1a; line-height:1.6;">${d.desc}</div>`;
       };
       
-      const timeSlider = document.getElementById('time-slider');
+      const timeSlider = document.getElementById('u-flex-1');
       if (timeSlider) {
         timeSlider.addEventListener('input', window.updateHormones);
         window.updateHormones();
@@ -996,7 +1622,7 @@
         const d = deprivData[key];
         let html = `<div style="display:inline-block; background:${d.bg}; color:${d.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 10px; margin-bottom:10px;">${d.title}</div>`;
         d.effects.forEach(([title, desc]) => {
-          html += `<div style="margin-bottom:8px;"><div style="font-size:13px; font-weight:500; color:#1a1a1a; margin-bottom:2px;">${title}</div><div style="font-size:12px; color:#666; line-height:1.6;">${desc}</div></div>`;
+          html += `<div style="margin-bottom:8px;"><div style="font-size:13px; font-weight:500; color:var(--color-text-primary, #1a1a1a); margin-bottom:2px;">${title}</div><div style="font-size:12px; color:var(--color-text-secondary, #666); line-height:1.6;">${desc}</div></div>`;
         });
         document.getElementById('depriv-display').innerHTML = html;
       };

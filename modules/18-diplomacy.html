@@ -120,7 +120,7 @@
 .tl-body  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
 
 /* ── Signal strength widget ── */
-.signal-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px; margin-bottom: 1rem; }
+.signal-wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-bottom: 1rem; }
 .signal-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; }
 .signal-dots { display: flex; gap: 4px; margin-bottom: 6px; }
 .signal-dot  { width: 10px; height: 10px; border-radius: 50%; }
@@ -227,14 +227,296 @@
 .cmp-table tr:last-child td { border-bottom: none; }
 .cmp-table tr:hover td { background: var(--color-background-secondary); }
 .cmp-table .td-label { color: var(--color-text-secondary); font-weight: 500; width: 32%; }
+
+/* === Shared-ready extracted styles === */
+
+.card-header-row {
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+
+.card-title {
+  font-size:14px;
+  font-weight:500;
+  color:var(--color-text-primary);
+}
+
+.text-amber-700 {
+  color:#BA7517;
+}
+
+.text-amber-900 {
+  color:#633806;
+}
+
+.text-blue-500 {
+  color:#378ADD;
+}
+
+.text-blue-700 {
+  color:#185FA5;
+}
+
+.text-blue-900 {
+  color:#0C447C;
+}
+
+.text-hex-ef9f27 {
+  color:#ef9f27;
+}
+
+.text-hex-f09595 {
+  color:#f09595;
+}
+
+.text-orange-600 {
+  color:#D85A30;
+}
+
+.text-orange-850 {
+  color:#854F0B;
+}
+
+.text-red-700 {
+  color:#A32D2D;
+}
+
+.text-red-900 {
+  color:#791F1F;
+}
+
+.text-teal-500 {
+  color:#4E99A3;
+}
+
+/* === Module-specific extracted styles === */
+
+.diplomacy-panel {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:13px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:10px;
+  font-style:italic;
+}
+
+.diplomacy-label {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:3px;
+}
+
+.diplomacy-panel-3 {
+  font-size:11px;
+  font-weight:500;
+  padding:2px 8px;
+  border-radius:99px;
+  background:#E6F1FB;
+  color:#0C447C;
+}
+
+.diplomacy-panel-4 {
+  font-size:11px;
+  font-weight:500;
+  padding:2px 8px;
+  border-radius:99px;
+  background:#EAF3DE;
+  color:#27500A;
+}
+
+.diplomacy-text {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+  margin:0;
+}
+
+.diplomacy-text-2 {
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  color:var(--color-text-tertiary);
+  margin-bottom:10px;
+}
+
+.diplomacy-media {
+  width:100%;
+  min-width:480px;
+  height:auto;
+  display:block;
+}
+
+.p5-card-style {
+  background:#E6F1FB;
+  border:0.5px solid #85B7EB;
+}
+
+.p5-card-style-2 {
+  background:#FCEBEB;
+  border:0.5px solid #F09595;
+}
+
+.p5-card-style-3 {
+  background:#FAEEDA;
+  border:0.5px solid #EF9F27;
+}
+
+.diplomacy-text-3 {
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  color:var(--color-text-tertiary);
+  margin-bottom:8px;
+}
+
+.veto-fill-style {
+  width:100%;
+  background:#FCEBEB;
+  border:0.5px solid #f09595;
+}
+
+.diplomacy-span-style {
+  color:#791f1f;
+}
+
+.veto-fill-style-2 {
+  width:64%;
+  background:#E6F1FB;
+  border:0.5px solid #85b7eb;
+}
+
+.veto-fill-style-3 {
+  width:23%;
+  background:#E6F1FB;
+  border:0.5px solid #85b7eb;
+}
+
+.veto-fill-style-4 {
+  width:13%;
+  background:#E6F1FB;
+  border:0.5px solid #85b7eb;
+}
+
+.veto-fill-style-5 {
+  width:11%;
+  background:#FAEEDA;
+  border:0.5px solid #ef9f27;
+}
+
+.diplomacy-text-4 {
+  font-size:10px;
+  color:var(--color-text-tertiary);
+  margin-top:6px;
+  margin-bottom:12px;
+}
+
+.org-display {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:1rem;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.diplomacy-media-2 {
+  width:100%;
+  min-width:440px;
+  height:auto;
+  display:block;
+}
+
+.diplomacy-text-5 {
+  font-size:10px;
+  color:var(--color-text-tertiary);
+  margin-top:4px;
+}
+
+.showterm-control {
+  font-size:12px;
+  padding:3px 10px;
+}
+
+.diplomacy-text-6 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:14px;
+  line-height:1.5;
+}
+
+.diplomacy-panel-6 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+  margin-top:4px;
+  padding:9px 11px;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+}
+
+.diplomacy-text-7 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:12px;
+  line-height:1.5;
+}
+
+.power-marker-style {
+  left:8%;
+}
+
+.power-marker-style-2 {
+  left:22%;
+}
+
+.power-marker-style-3 {
+  left:36%;
+}
+
+.power-marker-style-4 {
+  left:52%;
+}
+
+.power-marker-style-5 {
+  left:66%;
+}
+
+.power-marker-style-6 {
+  left:80%;
+}
+
+.power-marker-style-7 {
+  left:92%;
+}
+
+.diplomacy-text-8 {
+  margin-top:14px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+}
+
+.state-display {
+  font-size:13px;
+  line-height:1.7;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-handshake" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 18: Diplomacy</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-handshake module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 18: Diplomacy</h1>
     </div>
     <p class="module-subtitle">International organizations, treaties, and soft power</p>
 
@@ -243,33 +525,33 @@
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part A · what diplomacy is and why it exists</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The core purpose: managing relations between states without war</div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:13px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px; font-style:italic;">
+    <div class="content-panel">
+      <div class="panel-title-spaced">The core purpose: managing relations between states without war</div>
+      <div class="diplomacy-panel">
         "Diplomacy is the art of letting someone else have your way." — Daniele Varè, Italian diplomat
       </div>
       <div class="grid-3">
         <div class="ibox">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Why diplomacy exists</div>
+          <div class="diplomacy-label">Why diplomacy exists</div>
           <div class="ibox-body">States have conflicts of interest. War is catastrophically expensive. Diplomacy provides a way to manage these conflicts through communication, negotiation, and agreement rather than violence.</div>
         </div>
         <div class="ibox">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">What diplomats actually do</div>
+          <div class="diplomacy-label">What diplomats actually do</div>
           <div class="ibox-body">Represent their state's interests in foreign countries. Report on developments. Negotiate treaties and agreements. Protect their citizens abroad. Communicate official positions — and unofficial signals.</div>
         </div>
         <div class="ibox">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The Vienna Conventions</div>
+          <div class="diplomacy-label">The Vienna Conventions</div>
           <div class="ibox-body">1961 (diplomatic relations) and 1963 (consular relations) set the global rules. Virtually every country in the world is a party. These treaties created the framework that all modern diplomacy operates within.</div>
         </div>
       </div>
     </div>
 
     <!-- Escalation ladder -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The diplomatic escalation ladder — from routine contact to breaking relations</div>
+    <div class="content-panel">
+      <div class="panel-title">The diplomatic escalation ladder — from routine contact to breaking relations</div>
       <div class="ladder">
         <div class="rung">
-          <div class="rung-level" style="color:var(--color-text-tertiary);">1</div>
+          <div class="rung-level text-tertiary">1</div>
           <div class="rung-body">
             <div class="rung-title">Routine diplomatic contact</div>
             <div class="rung-desc">Ambassadors meet foreign ministry officials, official letters, standard bilateral communication. The baseline of any functioning relationship.</div>
@@ -277,7 +559,7 @@
           </div>
         </div>
         <div class="rung">
-          <div class="rung-level" style="color:#4E99A3;">2</div>
+          <div class="rung-level text-teal-500">2</div>
           <div class="rung-body">
             <div class="rung-title">Formal protest / démarche</div>
             <div class="rung-desc">Ambassador formally delivers written objection to the foreign ministry. The language matters: "expresses concern" is mild, "strongly protests" is serious.</div>
@@ -285,7 +567,7 @@
           </div>
         </div>
         <div class="rung">
-          <div class="rung-level" style="color:#ef9f27;">3</div>
+          <div class="rung-level text-hex-ef9f27">3</div>
           <div class="rung-body">
             <div class="rung-title">Summoning the ambassador</div>
             <div class="rung-desc">The foreign ministry summons the other country's ambassador to deliver a reprimand — the host country is demanding explanation, not offering it. Noticeably stronger than a normal visit.</div>
@@ -293,7 +575,7 @@
           </div>
         </div>
         <div class="rung">
-          <div class="rung-level" style="color:#ef9f27;">4</div>
+          <div class="rung-level text-hex-ef9f27">4</div>
           <div class="rung-body">
             <div class="rung-title">Recalling the ambassador "for consultations"</div>
             <div class="rung-desc">Your own ambassador is recalled home. The phrase "for consultations" is diplomatic fiction — everyone knows it's a protest signal. The embassy continues to function at lower level.</div>
@@ -301,7 +583,7 @@
           </div>
         </div>
         <div class="rung">
-          <div class="rung-level" style="color:#f09595;">5</div>
+          <div class="rung-level text-hex-f09595">5</div>
           <div class="rung-body">
             <div class="rung-title">Expulsion (persona non grata)</div>
             <div class="rung-desc">Declaring a diplomat persona non grata forces them to leave. Used to expel suspected spies or punish hostile acts. Often met with reciprocal expulsions.</div>
@@ -309,7 +591,7 @@
           </div>
         </div>
         <div class="rung">
-          <div class="rung-level" style="color:#f09595;">6</div>
+          <div class="rung-level text-hex-f09595">6</div>
           <div class="rung-body">
             <div class="rung-title">Breaking off diplomatic relations</div>
             <div class="rung-desc">Closing the embassy, recalling all staff. Near-complete breakdown — but not war. Communication can still occur through third-party embassies (a "protecting power").</div>
@@ -325,18 +607,18 @@
     <div class="sec">Part B · the UN system — architecture and members</div>
 
     <!-- UN overview card -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="display:flex; align-items:baseline; gap:10px; margin-bottom:8px; flex-wrap:wrap;">
-        <span style="font-size:14px; font-weight:500; color:var(--color-text-primary);">United Nations (UN)</span>
-        <span style="font-size:11px; font-weight:500; padding:2px 8px; border-radius:99px; background:#E6F1FB; color:#0C447C;">193 member states</span>
-        <span style="font-size:11px; font-weight:500; padding:2px 8px; border-radius:99px; background:#EAF3DE; color:#27500A;">founded 1945</span>
+    <div class="content-card">
+      <div class="card-header-row">
+        <span class="card-title">United Nations (UN)</span>
+        <span class="diplomacy-panel-3">193 member states</span>
+        <span class="diplomacy-panel-4">founded 1945</span>
       </div>
-      <div class="grid-3" style="margin-bottom:8px;">
+      <div class="grid-3 u-mb-sm">
         <div class="ibox"><div class="ibox-label">Purpose</div><div class="ibox-val">Maintain international peace and security, develop friendly relations among nations, promote human rights and international law.</div></div>
         <div class="ibox"><div class="ibox-label">Headquarters</div><div class="ibox-val">New York (main), Geneva (human rights, humanitarian), Vienna (nuclear, drugs, crime), Nairobi (environment).</div></div>
         <div class="ibox"><div class="ibox-label">Budget</div><div class="ibox-val">~$3.5B/year (regular budget). Assessed contributions — USA ~22%, China ~15%, Japan ~8%, Germany ~6%.</div></div>
       </div>
-      <p style="font-size:12px; color:var(--color-text-secondary); line-height:1.5; margin:0;">The UN was founded after WWII by the victorious Allies to prevent another world war. Its founding document, the UN Charter, is effectively the closest thing the world has to a constitution for international order. 193 of the world's 195 recognised states are members. Non-members: Vatican City (observer), Palestine (observer).</p>
+      <p class="diplomacy-text">The UN was founded after WWII by the victorious Allies to prevent another world war. Its founding document, the UN Charter, is effectively the closest thing the world has to a constitution for international order. 193 of the world's 195 recognised states are members. Non-members: Vatican City (observer), Palestine (observer).</p>
     </div>
 
     <!-- UN organs grid -->
@@ -374,81 +656,76 @@
     </div>
 
     <!-- UN Architecture SVG diagram -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; overflow-x:auto;">
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-text-tertiary); margin-bottom:10px;">UN system — simplified architecture</div>
-      <svg viewBox="0 0 760 210" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:480px; height:auto; display:block;">
-        <!-- Root: UN Charter -->
-        <rect x="300" y="8" width="160" height="30" rx="6" fill="#4E99A3" opacity="0.9"/>
-        <text x="380" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="white">UN Charter (1945)</text>
+    <div class="scroll-panel">
+      <div class="diplomacy-text-2">UN system — simplified architecture</div>
+      <svg class="diplomacy-media" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
+  	<rect x="320" y="8" width="160" height="30" rx="6" fill="#4E99A3" opacity="0.9"/>
+  	<text x="400" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="white">UN Charter (1945)</text>
 
-        <!-- Connector lines down -->
-        <line x1="380" y1="38" x2="380" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="380" y1="54" x2="80" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="380" y1="54" x2="680" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <!-- Verticals to each box -->
-        <line x1="80"  y1="54" x2="80"  y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="230" y1="54" x2="230" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="380" y1="54" x2="380" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="530" y1="54" x2="530" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="680" y1="54" x2="680" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="400" y1="38" x2="400" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="400" y1="54" x2="80" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="400" y1="54" x2="780" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  
+  	<line x1="80"  y1="54" x2="80"  y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="240" y1="54" x2="240" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="400" y1="54" x2="400" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="580" y1="54" x2="580" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="780" y1="54" x2="780" y2="68" stroke="var(--color-border-secondary)" stroke-width="1"/>
 
-        <!-- 5 main organs -->
-        <!-- UNGA -->
-        <rect x="22" y="68" width="116" height="34" rx="5" fill="var(--color-background-info)" stroke="#85b7eb" stroke-width="0.5"/>
-        <text x="80" y="82" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-info)">General Assembly</text>
-        <text x="80" y="95" text-anchor="middle" font-size="9" fill="var(--color-text-info)" opacity="0.75">193 members</text>
-        <!-- UNSC -->
-        <rect x="172" y="68" width="116" height="34" rx="5" fill="#FCEBEB" stroke="#f09595" stroke-width="0.5"/>
-        <text x="230" y="82" text-anchor="middle" font-size="10" font-weight="600" fill="#791f1f">Security Council</text>
-        <text x="230" y="95" text-anchor="middle" font-size="9" fill="#791f1f" opacity="0.75">5 perm + 10 elected</text>
-        <!-- Secretariat -->
-        <rect x="322" y="68" width="116" height="34" rx="5" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="0.5"/>
-        <text x="380" y="82" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Secretariat</text>
-        <text x="380" y="95" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Secretary-General</text>
-        <!-- ICJ -->
-        <rect x="472" y="68" width="116" height="34" rx="5" fill="#EAF3DE" stroke="#97c459" stroke-width="0.5"/>
-        <text x="530" y="82" text-anchor="middle" font-size="10" font-weight="600" fill="#27500a">Int'l Court of Justice</text>
-        <text x="530" y="95" text-anchor="middle" font-size="9" fill="#27500a" opacity="0.75">15 judges, The Hague</text>
-        <!-- ECOSOC -->
-        <rect x="622" y="68" width="116" height="34" rx="5" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5"/>
-        <text x="680" y="82" text-anchor="middle" font-size="10" font-weight="600" fill="#3c3489">ECOSOC</text>
-        <text x="680" y="95" text-anchor="middle" font-size="9" fill="#3c3489" opacity="0.75">54 members</text>
+  	<rect x="22" y="68" width="116" height="42" rx="5" fill="var(--color-background-info)" stroke="#85b7eb" stroke-width="0.5"/>
+  	<text x="80" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-info)">General Assembly</text>
+  	<text x="80" y="98" text-anchor="middle" font-size="9" fill="var(--color-text-info)" opacity="0.75">193 members</text>
+  
+  	<rect x="182" y="68" width="116" height="42" rx="5" fill="#FCEBEB" stroke="#f09595" stroke-width="0.5"/>
+  	<text x="240" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#791f1f">Security Council</text>
+  	<text x="240" y="98" text-anchor="middle" font-size="9" fill="#791f1f" opacity="0.75">5 perm + 10 elected</text>
+  
+  	<rect x="342" y="68" width="116" height="42" rx="5" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="0.5"/>
+  	<text x="400" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Secretariat</text>
+  	<text x="400" y="98" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Secretary-General</text>
+  
+  	<rect x="522" y="68" width="116" height="42" rx="5" fill="#EAF3DE" stroke="#97c459" stroke-width="0.5"/>
+  	<text x="580" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#27500a">Int'l Court of Justice</text>
+  	<text x="580" y="98" text-anchor="middle" font-size="9" fill="#27500a" opacity="0.75">15 judges, The Hague</text>
+  
+  	<rect x="722" y="68" width="116" height="42" rx="5" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5"/>
+  	<text x="780" y="84" text-anchor="middle" font-size="10" font-weight="600" fill="#3c3489">ECOSOC</text>
+  	<text x="780" y="98" text-anchor="middle" font-size="9" fill="#3c3489" opacity="0.75">54 members</text>
 
-        <!-- Sub-bodies -->
-        <!-- Under UNSC -->
-        <line x1="230" y1="102" x2="230" y2="118" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <rect x="172" y="118" width="116" height="26" rx="4" fill="#FCEBEB" stroke="#f09595" stroke-width="0.5" opacity="0.6"/>
-        <text x="230" y="130" text-anchor="middle" font-size="9" fill="#791f1f">Peacekeeping ops</text>
-        <text x="230" y="141" text-anchor="middle" font-size="9" fill="#791f1f">Sanctions committees</text>
+  	<line x1="240" y1="110" x2="240" y2="126" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<rect x="182" y="126" width="116" height="34" rx="4" fill="#FCEBEB" stroke="#f09595" stroke-width="0.5" opacity="0.6"/>
+  	<text x="240" y="140" text-anchor="middle" font-size="9" fill="#791f1f">Peacekeeping ops</text>
+  	<text x="240" y="152" text-anchor="middle" font-size="9" fill="#791f1f">Sanctions committees</text>
 
-        <!-- Under ECOSOC: Specialised agencies -->
-        <line x1="680" y1="102" x2="680" y2="118" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="680" y1="118" x2="570" y2="118" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="680" y1="118" x2="750" y2="118" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="570" y1="118" x2="570" y2="132" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="680" y1="118" x2="680" y2="132" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <line x1="750" y1="118" x2="750" y2="132" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <rect x="532" y="132" width="76" height="22" rx="4" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5" opacity="0.7"/>
-        <text x="570" y="147" text-anchor="middle" font-size="9" fill="#3c3489">WHO · UNESCO</text>
-        <rect x="643" y="132" width="74" height="22" rx="4" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5" opacity="0.7"/>
-        <text x="680" y="147" text-anchor="middle" font-size="9" fill="#3c3489">FAO · ILO · IAEA</text>
-        <rect x="722" y="132" width="56" height="22" rx="4" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5" opacity="0.7"/>
-        <text x="750" y="147" text-anchor="middle" font-size="9" fill="#3c3489">IMF · WB</text>
+  	<line x1="580" y1="110" x2="580" y2="126" stroke="var(--color-border-tertiary)" stroke-width="1" stroke-dasharray="3,2"/>
+  	<rect x="522" y="126" width="116" height="34" rx="4" fill="#EAF3DE" stroke="#97c459" stroke-width="0.5" opacity="0.6"/>
+  	<text x="580" y="140" text-anchor="middle" font-size="9" fill="#27500a">ICC — related but</text>
+  	<text x="580" y="152" text-anchor="middle" font-size="9" fill="#27500a">separate (124 states)</text>
 
-        <!-- Related (not subordinate): ICC -->
-        <line x1="530" y1="102" x2="530" y2="118" stroke="var(--color-border-tertiary)" stroke-width="1" stroke-dasharray="3,2"/>
-        <rect x="472" y="118" width="116" height="26" rx="4" fill="#EAF3DE" stroke="#97c459" stroke-width="0.5" opacity="0.6"/>
-        <text x="530" y="130" text-anchor="middle" font-size="9" fill="#27500a">ICC — related but</text>
-        <text x="530" y="141" text-anchor="middle" font-size="9" fill="#27500a">separate (124 states)</text>
+  	<line x1="780" y1="110" x2="780" y2="126" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="780" y1="126" x2="700" y2="126" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="780" y1="126" x2="855" y2="126" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="700" y1="126" x2="700" y2="135" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="780" y1="126" x2="780" y2="135" stroke="var(--color-border-secondary)" stroke-width="1"/>
+  	<line x1="855" y1="126" x2="855" y2="135" stroke="var(--color-border-secondary)" stroke-width="1"/>
 
-        <!-- Key legend -->
-        <rect x="22" y="175" width="8" height="8" rx="2" fill="#FCEBEB" stroke="#f09595" stroke-width="0.5"/>
-        <text x="35" y="183" font-size="9" fill="var(--color-text-tertiary)">Binding power</text>
-        <rect x="120" y="175" width="8" height="8" rx="2" fill="var(--color-background-info)" stroke="#85b7eb" stroke-width="0.5"/>
-        <text x="133" y="183" font-size="9" fill="var(--color-text-tertiary)">Non-binding resolutions</text>
-        <line x1="250" y1="179" x2="266" y2="179" stroke="var(--color-border-secondary)" stroke-width="1" stroke-dasharray="3,2"/>
-        <text x="272" y="183" font-size="9" fill="var(--color-text-tertiary)">Related (not subordinate)</text>
+  	<rect x="660" y="135" width="80" height="28" rx="4" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5" opacity="0.7"/>
+  	<text x="700" y="152" text-anchor="middle" font-size="9" fill="#3c3489">WHO · UNESCO</text>
+  
+  	<rect x="745" y="135" width="70" height="28" rx="4" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5" opacity="0.7"/>
+  	<text x="780" y="152" text-anchor="middle" font-size="9" fill="#3c3489">FAO · ILO</text>
+  
+  	<rect x="820" y="135" width="70" height="28" rx="4" fill="#EEEDFE" stroke="#b0adee" stroke-width="0.5" opacity="0.7"/>
+  	<text x="855" y="152" text-anchor="middle" font-size="9" fill="#3c3489">IMF · WB</text>
+
+  	<rect x="22" y="210" width="8" height="8" rx="2" fill="#FCEBEB" stroke="#f09595" stroke-width="0.5"/>
+  	<text x="35" y="218" font-size="9" fill="var(--color-text-tertiary)">Binding power</text>
+  	<rect x="120" y="210" width="8" height="8" rx="2" fill="var(--color-background-info)" stroke="#85b7eb" stroke-width="0.5"/>
+  	<text x="133" y="218" font-size="9" fill="var(--color-text-tertiary)">Non-binding resolutions</text>
+  	<line x1="250" y1="214" x2="266" y2="214" stroke="var(--color-border-secondary)" stroke-width="1" stroke-dasharray="3,2"/>
+  	<text x="272" y="218" font-size="9" fill="var(--color-text-tertiary)">Related (not subordinate)</text>
       </svg>
+
     </div>
 
     <!-- ════════════════════════════════════════════════════════
@@ -456,78 +733,78 @@
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part C · the Security Council and the veto — the most powerful diplomatic mechanism</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The P5 and their veto power</div>
+    <div class="content-panel">
+      <div class="panel-title">The P5 and their veto power</div>
 
       <div class="p5-grid">
-        <div class="p5-card" style="background:#E6F1FB; border:0.5px solid #85B7EB;">
-          <div class="p5-name" style="color:#0C447C;">USA</div>
-          <div class="p5-since" style="color:#185FA5;">P5 since 1945</div>
-          <div class="p5-note" style="color:#378ADD;">~90 vetoes total; 40+ to protect Israel; Cold War bloc</div>
+        <div class="p5-card p5-card-style">
+          <div class="p5-name text-blue-900">USA</div>
+          <div class="p5-since text-blue-700">P5 since 1945</div>
+          <div class="p5-note text-blue-500">~90 vetoes total; 40+ to protect Israel; Cold War bloc</div>
         </div>
-        <div class="p5-card" style="background:#FCEBEB; border:0.5px solid #F09595;">
-          <div class="p5-name" style="color:#791F1F;">Russia</div>
-          <div class="p5-since" style="color:#A32D2D;">USSR seat → Russia (1991)</div>
-          <div class="p5-note" style="color:#D85A30;">Highest count (~140+ USSR/Russia combined). Blocks action where it has interests</div>
+        <div class="p5-card p5-card-style-2">
+          <div class="p5-name text-red-900">Russia</div>
+          <div class="p5-since text-red-700">USSR seat → Russia (1991)</div>
+          <div class="p5-note text-orange-600">Highest count (~140+ USSR/Russia combined). Blocks action where it has interests</div>
         </div>
-        <div class="p5-card" style="background:#FAEEDA; border:0.5px solid #EF9F27;">
-          <div class="p5-name" style="color:#633806;">China</div>
-          <div class="p5-since" style="color:#854F0B;">ROC seat → PRC (1971)</div>
-          <div class="p5-note" style="color:#BA7517;">Used veto sparingly until ~2010; now more assertive, often with Russia</div>
+        <div class="p5-card p5-card-style-3">
+          <div class="p5-name text-amber-900">China</div>
+          <div class="p5-since text-orange-850">ROC seat → PRC (1971)</div>
+          <div class="p5-note text-amber-700">Used veto sparingly until ~2010; now more assertive, often with Russia</div>
         </div>
-        <div class="p5-card" style="background:#E6F1FB; border:0.5px solid #85B7EB;">
-          <div class="p5-name" style="color:#0C447C;">UK</div>
-          <div class="p5-since" style="color:#185FA5;">P5 since 1945</div>
-          <div class="p5-note" style="color:#378ADD;">~32 vetoes, mostly Cold War era. Often votes with USA and France</div>
+        <div class="p5-card p5-card-style">
+          <div class="p5-name text-blue-900">UK</div>
+          <div class="p5-since text-blue-700">P5 since 1945</div>
+          <div class="p5-note text-blue-500">~32 vetoes, mostly Cold War era. Often votes with USA and France</div>
         </div>
-        <div class="p5-card" style="background:#E6F1FB; border:0.5px solid #85B7EB;">
-          <div class="p5-name" style="color:#0C447C;">France</div>
-          <div class="p5-since" style="color:#185FA5;">P5 since 1945</div>
-          <div class="p5-note" style="color:#378ADD;">~18 vetoes; pledged not to veto on genocide/mass atrocity cases</div>
+        <div class="p5-card p5-card-style">
+          <div class="p5-name text-blue-900">France</div>
+          <div class="p5-since text-blue-700">P5 since 1945</div>
+          <div class="p5-note text-blue-500">~18 vetoes; pledged not to veto on genocide/mass atrocity cases</div>
         </div>
       </div>
 
       <!-- Veto bar chart -->
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-text-tertiary); margin-bottom:8px;">Approximate veto count (all-time, USSR/Russia combined)</div>
+      <div class="diplomacy-text-3">Approximate veto count (all-time, USSR/Russia combined)</div>
       <div class="veto-row">
         <div class="veto-label">Russia/USSR</div>
-        <div class="veto-track"><div class="veto-fill" style="width:100%; background:#FCEBEB; border:0.5px solid #f09595;"><span style="color:#791f1f;">~140+</span></div></div>
-        <div class="veto-note" style="color:#791f1f;">Most ever</div>
+        <div class="veto-track"><div class="veto-fill veto-fill-style"><span class="diplomacy-span-style">~140+</span></div></div>
+        <div class="veto-note diplomacy-span-style">Most ever</div>
       </div>
       <div class="veto-row">
         <div class="veto-label">USA</div>
-        <div class="veto-track"><div class="veto-fill" style="width:64%; background:#E6F1FB; border:0.5px solid #85b7eb;"><span style="color:#0C447C;">~90</span></div></div>
-        <div class="veto-note" style="color:#0C447C;"></div>
+        <div class="veto-track"><div class="veto-fill veto-fill-style-2"><span class="text-blue-900">~90</span></div></div>
+        <div class="veto-note text-blue-900"></div>
       </div>
       <div class="veto-row">
         <div class="veto-label">UK</div>
-        <div class="veto-track"><div class="veto-fill" style="width:23%; background:#E6F1FB; border:0.5px solid #85b7eb;"><span style="color:#0C447C;">~32</span></div></div>
+        <div class="veto-track"><div class="veto-fill veto-fill-style-3"><span class="text-blue-900">~32</span></div></div>
         <div class="veto-note"></div>
       </div>
       <div class="veto-row">
         <div class="veto-label">France</div>
-        <div class="veto-track"><div class="veto-fill" style="width:13%; background:#E6F1FB; border:0.5px solid #85b7eb;"><span style="color:#0C447C;">~18</span></div></div>
+        <div class="veto-track"><div class="veto-fill veto-fill-style-4"><span class="text-blue-900">~18</span></div></div>
         <div class="veto-note"></div>
       </div>
       <div class="veto-row">
         <div class="veto-label">China</div>
-        <div class="veto-track"><div class="veto-fill" style="width:11%; background:#FAEEDA; border:0.5px solid #ef9f27;"><span style="color:#633806;">~15</span></div></div>
-        <div class="veto-note" style="color:var(--color-text-tertiary);">Rising</div>
+        <div class="veto-track"><div class="veto-fill veto-fill-style-5"><span class="text-amber-900">~15</span></div></div>
+        <div class="veto-note text-tertiary">Rising</div>
       </div>
-      <div style="font-size:10px; color:var(--color-text-tertiary); margin-top:6px; margin-bottom:12px;">Note: figures include USSR-era votes for Russia; counts vary slightly by source. China figure is PRC since 1971.</div>
+      <div class="diplomacy-text-4">Note: figures include USSR-era votes for Russia; counts vary slightly by source. China figure is PRC since 1971.</div>
 
       <div class="grid-2">
         <div class="ibox">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">How the veto works</div>
+          <div class="mini-card-title">How the veto works</div>
           <div class="ibox-body">A resolution needs 9 votes to pass. But if ANY of the 5 permanent members votes "no," the resolution fails regardless of how many others voted yes. Even 14-1 is a failure if the 1 is a P5 member. An abstention is NOT a veto — it allows the resolution to pass if enough others vote yes.</div>
         </div>
         <div class="ibox">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Why it exists and why it's controversial</div>
+          <div class="mini-card-title">Why it exists and why it's controversial</div>
           <div class="ibox-body">The veto was the price of P5 participation in 1945 — the great powers would only join if they couldn't be outvoted. Without it, the UN wouldn't exist. Critics: it allows the P5 to protect themselves and their allies from accountability. Any reform requires P5 agreement — which they'll never give.</div>
         </div>
       </div>
-      <div class="ibox" style="margin-top:8px;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Recent examples</div>
+      <div class="ibox u-mt-sm">
+        <div class="diplomacy-label">Recent examples</div>
         <div class="ibox-body">Russia vetoed every UNSC resolution on Syria (2011–2023), blocking any authorised intervention despite 500,000+ deaths. Russia vetoed resolutions condemning its 2022 invasion of Ukraine. The USA regularly vetoes resolutions critical of Israel. China and Russia have jointly vetoed resolutions on Myanmar and Venezuela. The veto means that wars involving P5 members or their close allies are almost always immune from UNSC action.</div>
       </div>
     </div>
@@ -549,12 +826,12 @@
       <button onclick="showOrg('wto')"   >WTO</button>
       <button onclick="showOrg('imf')"   >IMF / World Bank</button>
     </div>
-    <div id="org-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; font-size:13px; line-height:1.8;"></div>
+    <div class="org-display" id="org-display"></div>
 
     <!-- Global groupings bubble chart SVG -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; overflow-x:auto;">
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.07em; color:var(--color-text-tertiary); margin-bottom:8px;">Membership overlap — selected blocs (approximate % of world GDP)</div>
-      <svg viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:440px; height:auto; display:block;">
+    <div class="scroll-panel">
+      <div class="diplomacy-text-3">Membership overlap — selected blocs (approximate % of world GDP)</div>
+      <svg class="diplomacy-media-2" viewBox="0 0 700 160" xmlns="http://www.w3.org/2000/svg">
         <!-- GDP bars -->
         <!-- label column -->
         <text x="80" y="32" text-anchor="end" font-size="11" fill="var(--color-text-secondary)">G7</text>
@@ -589,7 +866,7 @@
         <line x1="360" y1="14" x2="360" y2="156" stroke="var(--color-border-tertiary)" stroke-width="0.5" stroke-dasharray="2,3"/>
         <text x="363" y="12" font-size="9" fill="var(--color-text-tertiary)">50%</text>
       </svg>
-      <div style="font-size:10px; color:var(--color-text-tertiary); margin-top:4px;">Share of global GDP (nominal, approximate). G20 includes EU as non-enumerated member.</div>
+      <div class="diplomacy-text-5">Share of global GDP (nominal, approximate). G20 includes EU as non-enumerated member.</div>
     </div>
 
     <!-- ════════════════════════════════════════════════════════
@@ -673,25 +950,25 @@
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part G · diplomatic vocabulary — click to explore</div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showTerm('communique')"  style="font-size:12px; padding:3px 10px;">Communiqué</button>
-      <button onclick="showTerm('protocol')"    style="font-size:12px; padding:3px 10px;">Protocol</button>
-      <button onclick="showTerm('treaty')"      style="font-size:12px; padding:3px 10px;">Treaty vs MOU</button>
-      <button onclick="showTerm('demarche')"    style="font-size:12px; padding:3px 10px;">Démarche</button>
-      <button onclick="showTerm('ambassador')"  style="font-size:12px; padding:3px 10px;">Ambassador vs consul</button>
-      <button onclick="showTerm('recognition')" style="font-size:12px; padding:3px 10px;">State recognition</button>
-      <button onclick="showTerm('neutrality')"  style="font-size:12px; padding:3px 10px;">Neutrality</button>
+    <div class="button-row">
+      <button class="showterm-control" onclick="showTerm('communique')" >Communiqué</button>
+      <button class="showterm-control" onclick="showTerm('protocol')"   >Protocol</button>
+      <button class="showterm-control" onclick="showTerm('treaty')"     >Treaty vs MOU</button>
+      <button class="showterm-control" onclick="showTerm('demarche')"   >Démarche</button>
+      <button class="showterm-control" onclick="showTerm('ambassador')" >Ambassador vs consul</button>
+      <button class="showterm-control" onclick="showTerm('recognition')">State recognition</button>
+      <button class="showterm-control" onclick="showTerm('neutrality')" >Neutrality</button>
     </div>
-    <div id="term-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; font-size:13px; line-height:1.8;"></div>
+    <div class="org-display" id="term-display"></div>
 
     <!-- ════════════════════════════════════════════════════════
          PART H · The language of diplomacy
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part H · how to read diplomatic language — the signal ladder</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Every word in a communiqué is chosen deliberately</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:14px; line-height:1.5;">Diplomatic documents have a precise internal hierarchy of language. The gap between "notes" and "strongly condemns" is enormous. This chart maps approximate signal strength.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Every word in a communiqué is chosen deliberately</div>
+      <div class="diplomacy-text-6">Diplomatic documents have a precise internal hierarchy of language. The gap between "notes" and "strongly condemns" is enormous. This chart maps approximate signal strength.</div>
 
       <div class="signal-wrap">
         <div class="signal-card">
@@ -721,8 +998,8 @@
         </div>
       </div>
 
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5; margin-top:4px; padding:9px 11px; background:var(--color-background-secondary); border-radius:var(--border-radius-md);">
-        <strong style="color:var(--color-text-primary);">What to notice in any diplomatic statement:</strong> What is absent is often as important as what is said. If a G20 communiqué discusses every major issue except Ukraine, the omission is itself news. Look for qualifiers ("most members," "some delegations") — they signal failed consensus. Look for passive voice ("violations were noted") vs active attribution ("Russia violated"). Active attribution is stronger and harder to agree.
+      <div class="diplomacy-panel-6">
+        <strong class="text-primary">What to notice in any diplomatic statement:</strong> What is absent is often as important as what is said. If a G20 communiqué discusses every major issue except Ukraine, the omission is itself news. Look for qualifiers ("most members," "some delegations") — they signal failed consensus. Look for passive voice ("violations were noted") vs active attribution ("Russia violated"). Active attribution is stronger and harder to agree.
       </div>
     </div>
 
@@ -731,24 +1008,24 @@
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part I · the power spectrum — hard, soft, and sharp power</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">How states project influence</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.5;">Hover over each marker to see what kind of power it represents. The spectrum runs from direct coercion (hard) to indirect attraction (soft) — with "sharp power" (manipulation/subversion) as a separate dimension.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">How states project influence</div>
+      <div class="diplomacy-text-7">Hover over each marker to see what kind of power it represents. The spectrum runs from direct coercion (hard) to indirect attraction (soft) — with "sharp power" (manipulation/subversion) as a separate dimension.</div>
 
       <div class="power-ends"><span>Hard Power — Force / Coercion</span><span>Soft Power — Attraction / Co-option</span></div>
       <div class="power-scale" id="powerScale">
-        <div class="power-marker" style="left:8%;"  data-key="military" title="">✈</div>
-        <div class="power-marker" style="left:22%;" data-key="sanctions" title="">💰</div>
-        <div class="power-marker" style="left:36%;" data-key="aid"       title="">🤝</div>
-        <div class="power-marker" style="left:52%;" data-key="trade"     title="">📦</div>
-        <div class="power-marker" style="left:66%;" data-key="diploma"   title="">🏛</div>
-        <div class="power-marker" style="left:80%;" data-key="culture"   title="">🎬</div>
-        <div class="power-marker" style="left:92%;" data-key="values"    title="">📘</div>
+        <div class="power-marker power-marker-style"  data-key="military" title="">✈</div>
+        <div class="power-marker power-marker-style-2" data-key="sanctions" title="">💰</div>
+        <div class="power-marker power-marker-style-3" data-key="aid"       title="">🤝</div>
+        <div class="power-marker power-marker-style-4" data-key="trade"     title="">📦</div>
+        <div class="power-marker power-marker-style-5" data-key="diploma"   title="">🏛</div>
+        <div class="power-marker power-marker-style-6" data-key="culture"   title="">🎬</div>
+        <div class="power-marker power-marker-style-7" data-key="values"    title="">📘</div>
       </div>
-      <div id="power-tooltip" class="power-tooltip" style="display:none;"></div>
+      <div id="power-tooltip" class="power-tooltip"></div>
 
-      <div style="margin-top:14px; font-size:12px; color:var(--color-text-secondary); line-height:1.5;">
-        <strong style="color:var(--color-text-primary);">Sharp power</strong> — a term coined in 2017 — sits outside the hard/soft spectrum. It describes the manipulation of information, media, and institutions by authoritarian states to distort rather than persuade: disinformation campaigns, funding foreign political parties, manipulating diaspora communities, infiltrating universities. China and Russia are the primary examples. Unlike soft power (which works by being genuinely attractive), sharp power works by corrupting the information environment in the target country.
+      <div class="diplomacy-text-8">
+        <strong class="text-primary">Sharp power</strong> — a term coined in 2017 — sits outside the hard/soft spectrum. It describes the manipulation of information, media, and institutions by authoritarian states to distort rather than persuade: disinformation campaigns, funding foreign political parties, manipulating diaspora communities, infiltrating universities. China and Russia are the primary examples. Unlike soft power (which works by being genuinely attractive), sharp power works by corrupting the information environment in the target country.
       </div>
     </div>
 
@@ -757,7 +1034,7 @@
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part J · major diplomatic milestones — the architecture of the modern world order</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
+    <div class="content-panel">
       <div class="grid-2">
         <div class="timeline">
           <div class="tl-item">
@@ -831,17 +1108,17 @@
          ════════════════════════════════════════════════════════ -->
     <div class="sec">Part K · the recognition problem — disputed states and contested sovereignty</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How many states recognise each entity? — interactive explorer</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-        <button onclick="showState('kosovo')"     style="font-size:12px; padding:3px 10px;">Kosovo</button>
-        <button onclick="showState('palestine')"  style="font-size:12px; padding:3px 10px;">Palestine</button>
-        <button onclick="showState('taiwan')"     style="font-size:12px; padding:3px 10px;">Taiwan</button>
-        <button onclick="showState('sahrawi')"    style="font-size:12px; padding:3px 10px;">Western Sahara</button>
-        <button onclick="showState('abkhazia')"   style="font-size:12px; padding:3px 10px;">Abkhazia</button>
-        <button onclick="showState('northern')"   style="font-size:12px; padding:3px 10px;">Northern Cyprus</button>
+    <div class="content-panel">
+      <div class="panel-title">How many states recognise each entity? — interactive explorer</div>
+      <div class="button-row">
+        <button class="showterm-control" onclick="showState('kosovo')"    >Kosovo</button>
+        <button class="showterm-control" onclick="showState('palestine')" >Palestine</button>
+        <button class="showterm-control" onclick="showState('taiwan')"    >Taiwan</button>
+        <button class="showterm-control" onclick="showState('sahrawi')"   >Western Sahara</button>
+        <button class="showterm-control" onclick="showState('abkhazia')"  >Abkhazia</button>
+        <button class="showterm-control" onclick="showState('northern')"  >Northern Cyprus</button>
       </div>
-      <div id="state-display" style="font-size:13px; line-height:1.7;"></div>
+      <div class="state-display" id="state-display"></div>
     </div>
 
     <!-- ════════════════════════════════════════════════════════
@@ -878,7 +1155,7 @@
     <!-- ════════════════════════════════════════════════════════
          PART M · Test yourself
          ════════════════════════════════════════════════════════ -->
-    <div class="sec">Part M · test yourself</div>
+    <div class="sec">Part M · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. Russia vetoes a UN Security Council resolution condemning its invasion of Ukraine. The resolution had 13 votes in favour. What happens next, and what options does the international community have?</p>

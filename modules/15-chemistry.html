@@ -68,14 +68,546 @@
 
 /* --- Active button highlight --- */
 button.active-sel { background: var(--color-background-tertiary) !important; border-color: var(--color-border-primary) !important; color: var(--color-text-primary) !important; font-weight: 500; }
+
+/* === Shared-ready extracted styles === */
+
+.text-amber-900 {
+  color:#633806;
+}
+
+.text-green-800 {
+  color:#27500A;
+}
+
+.text-green-900 {
+  color:#085041;
+}
+
+.text-indigo-900 {
+  color:#3C3489;
+}
+
+.text-orange-900 {
+  color:#712B13;
+}
+
+.text-red-900 {
+  color:#791F1F;
+}
+
+.text-stone-800 {
+  color:#444441;
+}
+
+/* === Module-specific extracted styles === */
+
+.part-a-grid-style {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+}
+
+.chemistry-text-2 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+.chemistry-media {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.chemistry-panel-2 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:12px 14px;
+  border:0.5px solid #85B7EB;
+}
+
+.chemistry-label-3 {
+  font-size:12px;
+  font-weight:500;
+  color:#0C447C;
+  margin-bottom:6px;
+}
+
+.chemistry-text-3 {
+  font-size:12px;
+  color:#0C447C;
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.chemistry-text-4 {
+  font-size:12px;
+  color:#0C447C;
+  line-height:1.6;
+}
+
+.chemistry-panel-3 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:12px 14px;
+  border:0.5px solid #EF9F27;
+}
+
+.chemistry-label-4 {
+  font-size:12px;
+  font-weight:500;
+  color:#633806;
+  margin-bottom:6px;
+}
+
+.chemistry-text-5 {
+  font-size:12px;
+  color:#633806;
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.chemistry-text-6 {
+  font-size:12px;
+  color:#633806;
+  line-height:1.6;
+}
+
+.chemistry-panel-4 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.chemistry-text-7 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+  margin-bottom:12px;
+}
+
+.chemistry-media-2 {
+  width:100%;
+  height:auto;
+  display:block;
+  margin-bottom:8px;
+}
+
+.bonds-grid-style {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.chemistry-panel-5 {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:12px;
+  overflow-x:auto;
+}
+
+.chemistry-label-5 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  font-size:10px;
+}
+
+.chemistry-media-3 {
+  width:100%;
+  min-width:600px;
+  height:auto;
+  display:block;
+}
+
+.fg-badge-style {
+  background:#F1EFE8;
+  color:#444441;
+}
+
+.fg-badge-style-2 {
+  background:#E1F5EE;
+  color:#085041;
+}
+
+.fg-badge-style-3 {
+  background:#FAEEDA;
+  color:#633806;
+}
+
+.fg-badge-style-4 {
+  background:#FCEBEB;
+  color:#791F1F;
+}
+
+.fg-badge-style-5 {
+  background:#EEEDFE;
+  color:#3C3489;
+}
+
+.fg-badge-style-6 {
+  background:#EAF3DE;
+  color:#27500A;
+}
+
+.fg-badge-style-7 {
+  background:#FAECE7;
+  color:#712B13;
+}
+
+.showmol-control {
+  font-size:12px;
+  padding:4px 11px;
+}
+
+.mol-display {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+}
+
+.chemistry-row-2 {
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+  margin-bottom:10px;
+}
+
+.chemistry-row-3 {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.chemistry-label-6 {
+  width:32px;
+  font-size:11px;
+  font-weight:500;
+  color:#791F1F;
+  text-align:right;
+  flex-shrink:0;
+}
+
+.chemistry-row-4 {
+  flex:1;
+  height:18px;
+  background:#A32D2D;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-text-8 {
+  font-size:11px;
+  color:#FCEBEB;
+}
+
+.chemistry-row-5 {
+  flex:0.9;
+  height:18px;
+  background:#D85A30;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-text-9 {
+  font-size:11px;
+  color:#fff;
+}
+
+.chemistry-label-7 {
+  width:32px;
+  font-size:11px;
+  font-weight:500;
+  color:#633806;
+  text-align:right;
+  flex-shrink:0;
+}
+
+.chemistry-row-6 {
+  flex:0.75;
+  height:18px;
+  background:#EF9F27;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-text-10 {
+  font-size:11px;
+  color:#412402;
+}
+
+.chemistry-label-8 {
+  width:32px;
+  font-size:11px;
+  font-weight:500;
+  color:#27500A;
+  text-align:right;
+  flex-shrink:0;
+}
+
+.chemistry-row-7 {
+  flex:0.5;
+  height:18px;
+  background:#1D9E75;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-row-8 {
+  flex:0.47;
+  height:18px;
+  background:#5DCAA5;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-text-11 {
+  font-size:11px;
+  color:#04342C;
+}
+
+.chemistry-label-9 {
+  width:32px;
+  font-size:11px;
+  font-weight:500;
+  color:#0C447C;
+  text-align:right;
+  flex-shrink:0;
+}
+
+.chemistry-row-9 {
+  flex:0.35;
+  height:18px;
+  background:#378ADD;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-row-10 {
+  flex:0.2;
+  height:18px;
+  background:#185FA5;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-label-10 {
+  width:32px;
+  font-size:11px;
+  font-weight:500;
+  color:#042C53;
+  text-align:right;
+  flex-shrink:0;
+}
+
+.chemistry-row-11 {
+  flex:0.05;
+  height:18px;
+  background:#042C53;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  padding-left:7px;
+}
+
+.chemistry-text-12 {
+  font-size:11px;
+  color:#E6F1FB;
+}
+
+.chemistry-row-12 {
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.chemistry-media-4 {
+  flex:1;
+  min-width:140px;
+}
+
+.chemistry-text-13 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:4px;
+}
+
+.pha {
+  height:36px;
+  font-size:14px;
+  font-weight:500;
+}
+
+.calcph-control {
+  padding:0 16px;
+  height:36px;
+  font-size:13px;
+  flex-shrink:0;
+}
+
+.phresult {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.7;
+  display:none;
+}
+
+.rxnbtnrow {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+
+.chemistry-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+  gap:8px;
+}
+
+.chemistry-panel-6 {
+  background:#E1F5EE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+}
+
+.chemistry-label-11 {
+  font-size:12px;
+  font-weight:500;
+  color:#085041;
+  margin-bottom:4px;
+}
+
+.chemistry-text-14 {
+  font-size:11px;
+  color:#085041;
+  line-height:1.5;
+}
+
+.chemistry-panel-7 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+}
+
+.chemistry-label-12 {
+  font-size:12px;
+  font-weight:500;
+  color:#791F1F;
+  margin-bottom:4px;
+}
+
+.chemistry-text-15 {
+  font-size:11px;
+  color:#791F1F;
+  line-height:1.5;
+}
+
+.chemistry-panel-8 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+}
+
+.chemistry-label-13 {
+  font-size:12px;
+  font-weight:500;
+  color:#633806;
+  margin-bottom:4px;
+}
+
+.chemistry-text-16 {
+  font-size:11px;
+  color:#633806;
+  line-height:1.5;
+}
+
+.chemistry-panel-9 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+}
+
+.chemistry-label-14 {
+  font-size:12px;
+  font-weight:500;
+  color:#27500A;
+  margin-bottom:4px;
+}
+
+.chemistry-text-17 {
+  font-size:11px;
+  color:#27500A;
+  line-height:1.5;
+}
+
+.chemistry-panel-10 {
+  background:#EEEDFE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+}
+
+.chemistry-label-15 {
+  font-size:12px;
+  font-weight:500;
+  color:#3C3489;
+  margin-bottom:4px;
+}
+
+.chemistry-text-18 {
+  font-size:11px;
+  color:#3C3489;
+  line-height:1.5;
+}
+
+.chemistry-grid-3 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.chemistry-text-19 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-flask" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 15: Chemistry</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-flask module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 15: Chemistry</h1>
     </div>
     <p class="module-subtitle">Functional groups, reactions, and molecular logic</p>
 
@@ -84,68 +616,74 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part A · the big picture — what chemistry is actually about</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">One idea explains most of chemistry</div>
-      <div class="part-a-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Carbon is the backbone</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Carbon can bond to 4 other atoms and to itself — making chains, rings, and branches of any length. This flexibility is why life is carbon-based.</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">One idea explains most of chemistry</div>
+      <div class="part-a-grid part-a-grid-style">
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">Carbon is the backbone</div>
+          <div class="muted-copy-tight">Carbon can bond to 4 other atoms and to itself — making chains, rings, and branches of any length. This flexibility is why life is carbon-based.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Functional groups give personality</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Attach different atom groups to that carbon backbone and the molecule's behaviour changes completely. An –OH group makes it an alcohol. A C=O makes it a ketone. The group determines smell, reactivity, solubility, and toxicity.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">Functional groups give personality</div>
+          <div class="muted-copy-tight">Attach different atom groups to that carbon backbone and the molecule's behaviour changes completely. An –OH group makes it an alcohol. A C=O makes it a ketone. The group determines smell, reactivity, solubility, and toxicity.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Polarity determines mixing</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">"Like dissolves like." Polar molecules (water, alcohol) mix with each other. Nonpolar molecules (oil, wax, petrol) mix with each other. This one rule explains why oil and water don't mix, and why soap works.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">Polarity determines mixing</div>
+          <div class="muted-copy-tight">"Like dissolves like." Polar molecules (water, alcohol) mix with each other. Nonpolar molecules (oil, wax, petrol) mix with each other. This one rule explains why oil and water don't mix, and why soap works.</div>
         </div>
       </div>
     </div>
 
     <!-- The atoms that matter most — SVG periodic highlight -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">The six atoms that build nearly all organic molecules</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:10px; line-height:1.5;">Over 99% of biochemistry is built from just six elements: C, H, O, N, P, S. The rest (iron in haemoglobin, magnesium in chlorophyll, etc.) are trace actors.</div>
-      <svg viewBox="0 0 560 110" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-        <!-- Background label -->
-        <text x="10" y="18" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui">The CHONPS elements — the alphabet of life</text>
-        <!-- C -->
-        <rect x="10" y="26" width="76" height="76" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="1"/>
-        <text x="48" y="52" font-size="11" fill="#0C447C" text-anchor="middle" font-family="monospace" font-weight="600">6</text>
-        <text x="48" y="76" font-size="26" fill="#0C447C" text-anchor="middle" font-family="monospace" font-weight="700">C</text>
-        <text x="48" y="93" font-size="9" fill="#0C447C" text-anchor="middle" font-family="system-ui">Carbon</text>
-        <text x="48" y="104" font-size="8" fill="#0C447C" text-anchor="middle" font-family="system-ui">4 bonds · backbone</text>
-        <!-- H -->
-        <rect x="96" y="26" width="76" height="76" rx="10" fill="#EAF3DE" stroke="#97C459" stroke-width="1"/>
-        <text x="134" y="52" font-size="11" fill="#27500A" text-anchor="middle" font-family="monospace" font-weight="600">1</text>
-        <text x="134" y="76" font-size="26" fill="#27500A" text-anchor="middle" font-family="monospace" font-weight="700">H</text>
-        <text x="134" y="93" font-size="9" fill="#27500A" text-anchor="middle" font-family="system-ui">Hydrogen</text>
-        <text x="134" y="104" font-size="8" fill="#27500A" text-anchor="middle" font-family="system-ui">1 bond · filler</text>
-        <!-- O -->
-        <rect x="182" y="26" width="76" height="76" rx="10" fill="#FCEBEB" stroke="#F09595" stroke-width="1"/>
-        <text x="220" y="52" font-size="11" fill="#791F1F" text-anchor="middle" font-family="monospace" font-weight="600">8</text>
-        <text x="220" y="76" font-size="26" fill="#791F1F" text-anchor="middle" font-family="monospace" font-weight="700">O</text>
-        <text x="220" y="93" font-size="9" fill="#791F1F" text-anchor="middle" font-family="system-ui">Oxygen</text>
-        <text x="220" y="104" font-size="8" fill="#791F1F" text-anchor="middle" font-family="system-ui">2 bonds · polar puller</text>
-        <!-- N -->
-        <rect x="268" y="26" width="76" height="76" rx="10" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1"/>
-        <text x="306" y="52" font-size="11" fill="#633806" text-anchor="middle" font-family="monospace" font-weight="600">7</text>
-        <text x="306" y="76" font-size="26" fill="#633806" text-anchor="middle" font-family="monospace" font-weight="700">N</text>
-        <text x="306" y="93" font-size="9" fill="#633806" text-anchor="middle" font-family="system-ui">Nitrogen</text>
-        <text x="306" y="104" font-size="8" fill="#633806" text-anchor="middle" font-family="system-ui">3 bonds · basic, smelly</text>
-        <!-- P -->
-        <rect x="354" y="26" width="76" height="76" rx="10" fill="#EEEDFE" stroke="#A9A4F5" stroke-width="1"/>
-        <text x="392" y="52" font-size="11" fill="#3C3489" text-anchor="middle" font-family="monospace" font-weight="600">15</text>
-        <text x="392" y="76" font-size="26" fill="#3C3489" text-anchor="middle" font-family="monospace" font-weight="700">P</text>
-        <text x="392" y="93" font-size="9" fill="#3C3489" text-anchor="middle" font-family="system-ui">Phosphorus</text>
-        <text x="392" y="104" font-size="8" fill="#3C3489" text-anchor="middle" font-family="system-ui">5 bonds · DNA, ATP</text>
-        <!-- S -->
-        <rect x="440" y="26" width="76" height="76" rx="10" fill="#F1EFE8" stroke="#C8C4B0" stroke-width="1"/>
-        <text x="478" y="52" font-size="11" fill="#444441" text-anchor="middle" font-family="monospace" font-weight="600">16</text>
-        <text x="478" y="76" font-size="26" fill="#444441" text-anchor="middle" font-family="monospace" font-weight="700">S</text>
-        <text x="478" y="93" font-size="9" fill="#444441" text-anchor="middle" font-family="system-ui">Sulfur</text>
-        <text x="478" y="104" font-size="8" fill="#444441" text-anchor="middle" font-family="system-ui">2 bonds · disulfide bridges</text>
+    <div class="content-panel">
+      <div class="inline-card-title">The six atoms that build nearly all organic molecules</div>
+      <div class="chemistry-text-2">Over 99% of biochemistry is built from just six elements: C, H, O, N, P, S. The rest (iron in haemoglobin, magnesium in chlorophyll, etc.) are trace actors.</div>
+      <svg class="chemistry-media" viewBox="0 0 630 160" xmlns="http://www.w3.org/2000/svg">
+  	<text x="10" y="15" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui">The CHONPS elements — the alphabet of life</text>
+  
+  	<rect x="10" y="24" width="76" height="110" rx="10" fill="#E6F1FB" stroke="#85B7EB" stroke-width="1"/>
+  	<text x="48" y="48" font-size="11" fill="#0C447C" text-anchor="middle" font-family="monospace" font-weight="600">6</text>
+  	<text x="48" y="74" font-size="26" fill="#0C447C" text-anchor="middle" font-family="monospace" font-weight="700">C</text>
+  	<text x="48" y="94" font-size="9" fill="#0C447C" text-anchor="middle" font-family="system-ui" font-weight="600">Carbon</text>
+  	<text x="48" y="112" font-size="8" fill="#0C447C" text-anchor="middle" font-family="system-ui">4 bonds</text>
+  	<text x="48" y="124" font-size="8" fill="#0C447C" text-anchor="middle" font-family="system-ui" opacity="0.8">backbone</text>
+  
+  	<rect x="106" y="24" width="76" height="110" rx="10" fill="#EAF3DE" stroke="#97C459" stroke-width="1"/>
+  	<text x="144" y="48" font-size="11" fill="#27500A" text-anchor="middle" font-family="monospace" font-weight="600">1</text>
+  	<text x="144" y="74" font-size="26" fill="#27500A" text-anchor="middle" font-family="monospace" font-weight="700">H</text>
+  	<text x="144" y="94" font-size="9" fill="#27500A" text-anchor="middle" font-family="system-ui" font-weight="600">Hydrogen</text>
+  	<text x="144" y="112" font-size="8" fill="#27500A" text-anchor="middle" font-family="system-ui">1 bond</text>
+  	<text x="144" y="124" font-size="8" fill="#27500A" text-anchor="middle" font-family="system-ui" opacity="0.8">filler</text>
+  
+  	<rect x="202" y="24" width="76" height="110" rx="10" fill="#FCEBEB" stroke="#F09595" stroke-width="1"/>
+  	<text x="240" y="48" font-size="11" fill="#791F1F" text-anchor="middle" font-family="monospace" font-weight="600">8</text>
+  	<text x="240" y="74" font-size="26" fill="#791F1F" text-anchor="middle" font-family="monospace" font-weight="700">O</text>
+  	<text x="240" y="94" font-size="9" fill="#791F1F" text-anchor="middle" font-family="system-ui" font-weight="600">Oxygen</text>
+  	<text x="240" y="112" font-size="8" fill="#791F1F" text-anchor="middle" font-family="system-ui">2 bonds</text>
+  	<text x="240" y="124" font-size="8" fill="#791F1F" text-anchor="middle" font-family="system-ui" opacity="0.8">polar puller</text>
+  
+  	<rect x="298" y="24" width="76" height="110" rx="10" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1"/>
+  	<text x="336" y="48" font-size="11" fill="#633806" text-anchor="middle" font-family="monospace" font-weight="600">7</text>
+  	<text x="336" y="74" font-size="26" fill="#633806" text-anchor="middle" font-family="monospace" font-weight="700">N</text>
+  	<text x="336" y="94" font-size="9" fill="#633806" text-anchor="middle" font-family="system-ui" font-weight="600">Nitrogen</text>
+  	<text x="336" y="112" font-size="8" fill="#633806" text-anchor="middle" font-family="system-ui">3 bonds</text>
+  	<text x="336" y="124" font-size="8" fill="#633806" text-anchor="middle" font-family="system-ui" opacity="0.8">basic, smelly</text>
+  
+  	<rect x="394" y="24" width="76" height="110" rx="10" fill="#EEEDFE" stroke="#A9A4F5" stroke-width="1"/>
+  	<text x="432" y="48" font-size="11" fill="#3C3489" text-anchor="middle" font-family="monospace" font-weight="600">15</text>
+  	<text x="432" y="74" font-size="26" fill="#3C3489" text-anchor="middle" font-family="monospace" font-weight="700">P</text>
+  	<text x="432" y="94" font-size="9" fill="#3C3489" text-anchor="middle" font-family="system-ui" font-weight="600">Phosphorus</text>
+  	<text x="432" y="112" font-size="8" fill="#3C3489" text-anchor="middle" font-family="system-ui">5 bonds</text>
+  	<text x="432" y="124" font-size="8" fill="#3C3489" text-anchor="middle" font-family="system-ui" opacity="0.8">DNA, ATP</text>
+  
+  	<rect x="490" y="24" width="76" height="110" rx="10" fill="#F1EFE8" stroke="#C8C4B0" stroke-width="1"/>
+  	<text x="528" y="48" font-size="11" fill="#444441" text-anchor="middle" font-family="monospace" font-weight="600">16</text>
+  	<text x="528" y="74" font-size="26" fill="#444441" text-anchor="middle" font-family="monospace" font-weight="700">S</text>
+  	<text x="528" y="94" font-size="9" fill="#444441" text-anchor="middle" font-family="system-ui" font-weight="600">Sulfur</text>
+  	<text x="528" y="112" font-size="8" fill="#444441" text-anchor="middle" font-family="system-ui">2 bonds</text>
+  	<text x="528" y="124" font-size="8" fill="#444441" text-anchor="middle" font-family="system-ui" opacity="0.8">disulfide bridges</text>
       </svg>
+
       <p class="svg-caption">Carbon and hydrogen together form the skeleton; oxygen and nitrogen add reactivity; phosphorus stores energy; sulfur locks protein shapes.</p>
     </div>
 
@@ -154,31 +692,31 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part B · polarity — the foundation of everything</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">What makes a molecule polar or nonpolar?</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px;">
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:12px 14px; border:0.5px solid #85B7EB;">
-          <div style="font-size:12px; font-weight:500; color:#0C447C; margin-bottom:6px;">Polar molecules</div>
-          <div style="font-size:12px; color:#0C447C; line-height:1.6; margin-bottom:8px;">Electrons are unevenly distributed — one end is slightly negative (δ−), one slightly positive (δ+). This creates a "dipole" — a tiny magnet.</div>
-          <div style="font-size:12px; color:#0C447C; line-height:1.6;"><strong>Examples:</strong> Water (H₂O), ethanol, ammonia, sugar<br><strong>Dissolves in:</strong> Other polar solvents (water)<br><strong>Property:</strong> High boiling points, form hydrogen bonds</div>
+    <div class="content-panel">
+      <div class="panel-title">What makes a molecule polar or nonpolar?</div>
+      <div class="two-col-grid">
+        <div class="chemistry-panel-2">
+          <div class="chemistry-label-3">Polar molecules</div>
+          <div class="chemistry-text-3">Electrons are unevenly distributed — one end is slightly negative (δ−), one slightly positive (δ+). This creates a "dipole" — a tiny magnet.</div>
+          <div class="chemistry-text-4"><strong>Examples:</strong> Water (H₂O), ethanol, ammonia, sugar<br><strong>Dissolves in:</strong> Other polar solvents (water)<br><strong>Property:</strong> High boiling points, form hydrogen bonds</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:12px 14px; border:0.5px solid #EF9F27;">
-          <div style="font-size:12px; font-weight:500; color:#633806; margin-bottom:6px;">Nonpolar molecules</div>
-          <div style="font-size:12px; color:#633806; line-height:1.6; margin-bottom:8px;">Electrons are evenly distributed — no partial charges. The molecule has no dipole. Atoms pull electrons equally.</div>
-          <div style="font-size:12px; color:#633806; line-height:1.6;"><strong>Examples:</strong> Oils, fats, waxes, petrol, CO₂, O₂<br><strong>Dissolves in:</strong> Other nonpolar solvents<br><strong>Property:</strong> Low boiling points, don't bond with water</div>
+        <div class="chemistry-panel-3">
+          <div class="chemistry-label-4">Nonpolar molecules</div>
+          <div class="chemistry-text-5">Electrons are evenly distributed — no partial charges. The molecule has no dipole. Atoms pull electrons equally.</div>
+          <div class="chemistry-text-6"><strong>Examples:</strong> Oils, fats, waxes, petrol, CO₂, O₂<br><strong>Dissolves in:</strong> Other nonpolar solvents<br><strong>Property:</strong> Low boiling points, don't bond with water</div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">Why soap works:</strong> Soap molecules are amphiphilic — they have a polar (water-loving, hydrophilic) head and a nonpolar (fat-loving, hydrophobic) tail. The tail grabs onto grease; the head stays in water. The soap molecule literally bridges two incompatible worlds, surrounding grease in a micelle that water can then wash away.
+      <div class="chemistry-panel-4">
+        <strong class="text-primary">Why soap works:</strong> Soap molecules are amphiphilic — they have a polar (water-loving, hydrophilic) head and a nonpolar (fat-loving, hydrophobic) tail. The tail grabs onto grease; the head stays in water. The soap molecule literally bridges two incompatible worlds, surrounding grease in a micelle that water can then wash away.
       </div>
     </div>
 
     <!-- Electronegativity scale — SVG -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Electronegativity — who wins the electron tug-of-war?</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:12px;">Polarity comes from electronegativity: how strongly an atom pulls shared electrons toward itself. When two bonded atoms differ greatly in electronegativity, electrons cluster near the more electronegative one — creating a dipole.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Electronegativity — who wins the electron tug-of-war?</div>
+      <div class="chemistry-text-7">Polarity comes from electronegativity: how strongly an atom pulls shared electrons toward itself. When two bonded atoms differ greatly in electronegativity, electrons cluster near the more electronegative one — creating a dipole.</div>
       <!-- SVG scale -->
-      <svg viewBox="0 0 520 80" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:8px;">
+      <svg class="chemistry-media-2" viewBox="0 0 520 80" xmlns="http://www.w3.org/2000/svg">
         <!-- gradient track -->
         <defs>
           <linearGradient id="enGrad" x1="0" y1="0" x2="1" y2="0">
@@ -213,30 +751,30 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
         <text x="498" y="50" font-size="11" fill="#A32D2D" text-anchor="middle" font-family="monospace" font-weight="600">F</text>
         <text x="498" y="62" font-size="9" fill="var(--color-text-secondary)" text-anchor="middle" font-family="system-ui">4.0</text>
       </svg>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+      <div class="chemistry-panel-4">
         The C–H bond (difference: 0.3) is nearly nonpolar — this is why hydrocarbons don't interact with water. The O–H bond (difference: 1.2) is strongly polar — this is why water forms hydrogen bonds and has an anomalously high boiling point of 100°C despite its tiny molecular weight. Fluorine (EN = 4.0) is the most electronegative element, making C–F bonds extremely strong and chemically inert (used in non-stick coatings like PTFE).
       </div>
     </div>
 
     <!-- Hydrogen bonding visual -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The three intermolecular forces — ranked by strength</div>
-      <div class="bonds-grid" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:10px;">
+    <div class="content-panel">
+      <div class="panel-title-spaced">The three intermolecular forces — ranked by strength</div>
+      <div class="bonds-grid bonds-grid-style">
         <div class="bond-card">
-          <div class="bond-title" style="color:#791F1F;">① Hydrogen bonds</div>
+          <div class="bond-title text-red-900">① Hydrogen bonds</div>
           <p class="bond-desc">N–H, O–H, or F–H near a lone pair on N/O/F. Strength: ~20 kJ/mol. Makes water liquid at room temperature. Holds DNA strands together. Determines protein folding.</p>
         </div>
         <div class="bond-card">
-          <div class="bond-title" style="color:#633806;">② Dipole–dipole</div>
+          <div class="bond-title text-amber-900">② Dipole–dipole</div>
           <p class="bond-desc">Between any two polar molecules. Strength: ~5–15 kJ/mol. Why acetone (a ketone) has a higher boiling point than a similar-sized alkane.</p>
         </div>
         <div class="bond-card">
-          <div class="bond-title" style="color:#444441;">③ London dispersion</div>
+          <div class="bond-title text-stone-800">③ London dispersion</div>
           <p class="bond-desc">Exists between ALL molecules — polar or not. Caused by fleeting electron imbalances. Weak per molecule (~1–5 kJ/mol) but adds up: gecko feet stick to glass via millions of these forces.</p>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">Why water is weird:</strong> Water (MW = 18) should be a gas at room temperature — H₂S (MW = 34, same group) boils at −60°C. But each water molecule can form up to 4 hydrogen bonds simultaneously, creating a cohesive liquid network. This is why water boils at 100°C, why ice floats (hydrogen-bonded crystal is less dense than liquid), and why water has the highest surface tension of any non-metallic liquid.
+      <div class="chemistry-panel-4">
+        <strong class="text-primary">Why water is weird:</strong> Water (MW = 18) should be a gas at room temperature — H₂S (MW = 34, same group) boils at −60°C. But each water molecule can form up to 4 hydrogen bonds simultaneously, creating a cohesive liquid network. This is why water boils at 100°C, why ice floats (hydrogen-bonded crystal is less dense than liquid), and why water has the highest surface tension of any non-metallic liquid.
       </div>
     </div>
 
@@ -246,9 +784,9 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="sec">Part C · the main functional groups — your chemistry vocabulary</div>
 
     <!-- Quick-reference SVG summary strip -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:12px; overflow-x:auto;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em; font-size:10px;">Quick reference — functional group at a glance</div>
-      <svg viewBox="0 0 740 56" xmlns="http://www.w3.org/2000/svg" style="width:100%; min-width:600px; height:auto; display:block;">
+    <div class="chemistry-panel-5">
+      <div class="chemistry-label-5">Quick reference — functional group at a glance</div>
+      <svg class="chemistry-media-3" viewBox="0 0 740 56" xmlns="http://www.w3.org/2000/svg">
         <!-- Alkane -->
         <rect x="2" y="2" width="88" height="52" rx="7" fill="#F1EFE8" stroke="#C8C4B0" stroke-width="0.8"/>
         <text x="46" y="20" font-size="9" fill="#444441" text-anchor="middle" font-family="system-ui" font-weight="600">ALKANE</text>
@@ -295,8 +833,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Alkane (no functional group)</span>
-        <span class="fg-formula" style="color:#444441;">C–C–C (sp³)</span>
-        <span class="fg-badge" style="background:#F1EFE8; color:#444441;">the simplest carbon chain</span>
+        <span class="fg-formula text-stone-800">C–C–C (sp³)</span>
+        <span class="fg-badge fg-badge-style">the simplest carbon chain</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">Only C–H and C–C single bonds. Fully saturated.</p></div>
@@ -309,8 +847,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Alcohol</span>
-        <span class="fg-formula" style="color:#085041;">–OH</span>
-        <span class="fg-badge" style="background:#E1F5EE; color:#085041;">hydroxyl group</span>
+        <span class="fg-formula text-green-900">–OH</span>
+        <span class="fg-badge fg-badge-style-2">hydroxyl group</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">–OH group attached to carbon. The oxygen pulls electrons, making the group polar.</p></div>
@@ -323,8 +861,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Aldehyde</span>
-        <span class="fg-formula" style="color:#633806;">–CHO (R–C(=O)–H)</span>
-        <span class="fg-badge" style="background:#FAEEDA; color:#633806;">carbonyl at chain end</span>
+        <span class="fg-formula text-amber-900">–CHO (R–C(=O)–H)</span>
+        <span class="fg-badge fg-badge-style-3">carbonyl at chain end</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">C=O double bond at the END of a carbon chain, with an H attached.</p></div>
@@ -337,8 +875,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Ketone</span>
-        <span class="fg-formula" style="color:#633806;">R–C(=O)–R'</span>
-        <span class="fg-badge" style="background:#FAEEDA; color:#633806;">carbonyl in the middle</span>
+        <span class="fg-formula text-amber-900">R–C(=O)–R'</span>
+        <span class="fg-badge fg-badge-style-3">carbonyl in the middle</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">C=O double bond in the MIDDLE of a chain, flanked by two carbon groups.</p></div>
@@ -351,8 +889,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Carboxylic acid</span>
-        <span class="fg-formula" style="color:#791F1F;">–COOH</span>
-        <span class="fg-badge" style="background:#FCEBEB; color:#791F1F;">the classic organic acid</span>
+        <span class="fg-formula text-red-900">–COOH</span>
+        <span class="fg-badge fg-badge-style-4">the classic organic acid</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">Contains both C=O and –OH. The –OH proton can be released → makes it acidic.</p></div>
@@ -365,8 +903,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Ester</span>
-        <span class="fg-formula" style="color:#3C3489;">–COO– (R–CO–O–R')</span>
-        <span class="fg-badge" style="background:#EEEDFE; color:#3C3489;">acid + alcohol → ester + water</span>
+        <span class="fg-formula text-indigo-900">–COO– (R–CO–O–R')</span>
+        <span class="fg-badge fg-badge-style-5">acid + alcohol → ester + water</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">Formed by reacting a carboxylic acid with an alcohol, releasing water. The –OH and –COOH combine.</p></div>
@@ -379,8 +917,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Amine</span>
-        <span class="fg-formula" style="color:#27500A;">–NH₂ (or –NHR, –NR₂)</span>
-        <span class="fg-badge" style="background:#EAF3DE; color:#27500A;">nitrogen-containing — basic, often smelly</span>
+        <span class="fg-formula text-green-800">–NH₂ (or –NHR, –NR₂)</span>
+        <span class="fg-badge fg-badge-style-6">nitrogen-containing — basic, often smelly</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">Contains nitrogen. The lone pair on N can accept a proton → makes amines basic (opposite of acids).</p></div>
@@ -393,8 +931,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Ether</span>
-        <span class="fg-formula" style="color:#085041;">R–O–R'</span>
-        <span class="fg-badge" style="background:#E1F5EE; color:#085041;">oxygen bridge between two carbons</span>
+        <span class="fg-formula text-green-900">R–O–R'</span>
+        <span class="fg-badge fg-badge-style-2">oxygen bridge between two carbons</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">An oxygen atom bonded to two carbon groups. No O–H bond, so can't form hydrogen bonds as a donor.</p></div>
@@ -407,8 +945,8 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <div class="fg-card">
       <div class="fg-header">
         <span class="fg-name">Amide</span>
-        <span class="fg-formula" style="color:#712B13;">–CO–NH–</span>
-        <span class="fg-badge" style="background:#FAECE7; color:#712B13;">the peptide bond — life's connector</span>
+        <span class="fg-formula text-orange-900">–CO–NH–</span>
+        <span class="fg-badge fg-badge-style-7">the peptide bond — life's connector</span>
       </div>
       <div class="fg-grid">
         <div class="fg-sub"><p class="fg-sl">Key feature</p><p class="fg-sv">A C=O next to a nitrogen. The peptide bonds linking amino acids into proteins are amide bonds.</p></div>
@@ -423,19 +961,19 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part D · interactive — what's in this molecule?</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Pick a familiar substance — see its chemistry</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;" id="molBtnRow">
-        <button onclick="showMol('ethanol')"    style="font-size:12px; padding:4px 11px;">Ethanol (wine)</button>
-        <button onclick="showMol('vinegar')"    style="font-size:12px; padding:4px 11px;">Vinegar</button>
-        <button onclick="showMol('aspirin')"    style="font-size:12px; padding:4px 11px;">Aspirin</button>
-        <button onclick="showMol('paracetamol')" style="font-size:12px; padding:4px 11px;">Paracetamol</button>
-        <button onclick="showMol('caffeine')"   style="font-size:12px; padding:4px 11px;">Caffeine</button>
-        <button onclick="showMol('fat')"        style="font-size:12px; padding:4px 11px;">A fat (triglyceride)</button>
-        <button onclick="showMol('soap')"       style="font-size:12px; padding:4px 11px;">Soap</button>
-        <button onclick="showMol('glucose')"    style="font-size:12px; padding:4px 11px;">Glucose</button>
+    <div class="content-panel">
+      <div class="panel-title">Pick a familiar substance — see its chemistry</div>
+      <div class="button-row-spaced" id="molBtnRow">
+        <button class="showmol-control" onclick="showMol('ethanol')"   >Ethanol (wine)</button>
+        <button class="showmol-control" onclick="showMol('vinegar')"   >Vinegar</button>
+        <button class="showmol-control" onclick="showMol('aspirin')"   >Aspirin</button>
+        <button class="showmol-control" onclick="showMol('paracetamol')">Paracetamol</button>
+        <button class="showmol-control" onclick="showMol('caffeine')"  >Caffeine</button>
+        <button class="showmol-control" onclick="showMol('fat')"       >A fat (triglyceride)</button>
+        <button class="showmol-control" onclick="showMol('soap')"      >Soap</button>
+        <button class="showmol-control" onclick="showMol('glucose')"   >Glucose</button>
       </div>
-      <div id="mol-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+      <div class="mol-display" id="mol-display"></div>
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -443,38 +981,38 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part E · pH — the acid-base scale</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">pH 0–14: from battery acid to drain cleaner</div>
-      <div style="display:flex; flex-direction:column; gap:3px; margin-bottom:10px;">
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#791F1F; text-align:right; flex-shrink:0;">0</div><div style="flex:1; height:18px; background:#A32D2D; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#FCEBEB;">Battery acid, stomach acid (pH ~1.5)</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#791F1F; text-align:right; flex-shrink:0;">2</div><div style="flex:0.9; height:18px; background:#D85A30; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#fff;">Lemon juice (~2.2), vinegar (~2.5)</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#633806; text-align:right; flex-shrink:0;">4</div><div style="flex:0.75; height:18px; background:#EF9F27; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#412402;">Tomato juice (~4), coffee (~5)</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#27500A; text-align:right; flex-shrink:0;">7</div><div style="flex:0.5; height:18px; background:#1D9E75; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#fff;">Pure water — neutral</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#27500A; text-align:right; flex-shrink:0;">7.4</div><div style="flex:0.47; height:18px; background:#5DCAA5; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#04342C;">Human blood — must stay here</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#0C447C; text-align:right; flex-shrink:0;">9</div><div style="flex:0.35; height:18px; background:#378ADD; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#fff;">Baking soda (~8.3), seawater (~8.1)</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#0C447C; text-align:right; flex-shrink:0;">11</div><div style="flex:0.2; height:18px; background:#185FA5; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#fff;">Ammonia (~11), bleach (~12)</span></div></div>
-        <div style="display:flex; align-items:center; gap:8px;"><div style="width:32px; font-size:11px; font-weight:500; color:#042C53; text-align:right; flex-shrink:0;">14</div><div style="flex:0.05; height:18px; background:#042C53; border-radius:3px; display:flex; align-items:center; padding-left:7px;"><span style="font-size:11px; color:#E6F1FB;">Drain cleaner, NaOH</span></div></div>
+    <div class="content-panel">
+      <div class="panel-title">pH 0–14: from battery acid to drain cleaner</div>
+      <div class="chemistry-row-2">
+        <div class="chemistry-row-3"><div class="chemistry-label-6">0</div><div class="chemistry-row-4"><span class="chemistry-text-8">Battery acid, stomach acid (pH ~1.5)</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-6">2</div><div class="chemistry-row-5"><span class="chemistry-text-9">Lemon juice (~2.2), vinegar (~2.5)</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-7">4</div><div class="chemistry-row-6"><span class="chemistry-text-10">Tomato juice (~4), coffee (~5)</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-8">7</div><div class="chemistry-row-7"><span class="chemistry-text-9">Pure water — neutral</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-8">7.4</div><div class="chemistry-row-8"><span class="chemistry-text-11">Human blood — must stay here</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-9">9</div><div class="chemistry-row-9"><span class="chemistry-text-9">Baking soda (~8.3), seawater (~8.1)</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-9">11</div><div class="chemistry-row-10"><span class="chemistry-text-9">Ammonia (~11), bleach (~12)</span></div></div>
+        <div class="chemistry-row-3"><div class="chemistry-label-10">14</div><div class="chemistry-row-11"><span class="chemistry-text-12">Drain cleaner, NaOH</span></div></div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">pH is logarithmic.</strong> Each step is 10× more acidic or alkaline. pH 3 is 10× more acidic than pH 4, and 100× more acidic than pH 5. Stomach acid (pH ~1.5) is roughly 30,000× more acidic than blood (pH 7.4). Your body maintains blood pH within ±0.1 of 7.4 — outside pH 6.8 or 7.8, death occurs.
+      <div class="chemistry-panel-4">
+        <strong class="text-primary">pH is logarithmic.</strong> Each step is 10× more acidic or alkaline. pH 3 is 10× more acidic than pH 4, and 100× more acidic than pH 5. Stomach acid (pH ~1.5) is roughly 30,000× more acidic than blood (pH 7.4). Your body maintains blood pH within ±0.1 of 7.4 — outside pH 6.8 or 7.8, death occurs.
       </div>
     </div>
 
     <!-- Interactive pH calculator -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Interactive: how much more acidic is X than Y?</div>
-      <div style="display:flex; gap:10px; align-items:flex-end; flex-wrap:wrap; margin-bottom:10px;">
-        <div style="flex:1; min-width:140px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">pH of substance A</div>
-          <input type="number" id="phA" value="2" min="0" max="14" step="0.1" style="height:36px; font-size:14px; font-weight:500;">
+    <div class="content-panel">
+      <div class="panel-title-spaced">Interactive: how much more acidic is X than Y?</div>
+      <div class="chemistry-row-12">
+        <div class="chemistry-media-4">
+          <div class="chemistry-text-13">pH of substance A</div>
+          <input class="pha" type="number" id="phA" value="2" min="0" max="14" step="0.1">
         </div>
-        <div style="flex:1; min-width:140px;">
-          <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">pH of substance B</div>
-          <input type="number" id="phB" value="7" min="0" max="14" step="0.1" style="height:36px; font-size:14px; font-weight:500;">
+        <div class="chemistry-media-4">
+          <div class="chemistry-text-13">pH of substance B</div>
+          <input class="pha" type="number" id="phB" value="7" min="0" max="14" step="0.1">
         </div>
-        <button onclick="calcPH()" style="padding:0 16px; height:36px; font-size:13px; flex-shrink:0;">Compare</button>
+        <button class="calcph-control" onclick="calcPH()">Compare</button>
       </div>
-      <div id="phResult" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:13px; color:var(--color-text-primary); line-height:1.7; display:none;"></div>
+      <div class="phresult" id="phResult"></div>
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════
@@ -482,16 +1020,16 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part F · key reactions — chemistry in action</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Click a reaction type to see it in action</div>
-      <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:12px;" id="rxnBtnRow">
-        <button onclick="showRxn('combustion')"     style="font-size:12px; padding:4px 11px;">Combustion</button>
-        <button onclick="showRxn('esterification')" style="font-size:12px; padding:4px 11px;">Esterification</button>
-        <button onclick="showRxn('saponification')" style="font-size:12px; padding:4px 11px;">Saponification</button>
-        <button onclick="showRxn('oxidation')"      style="font-size:12px; padding:4px 11px;">Oxidation</button>
-        <button onclick="showRxn('acidbase')"       style="font-size:12px; padding:4px 11px;">Acid–Base</button>
-        <button onclick="showRxn('fermentation')"   style="font-size:12px; padding:4px 11px;">Fermentation</button>
-        <button onclick="showRxn('polymerisation')" style="font-size:12px; padding:4px 11px;">Polymerisation</button>
+    <div class="content-panel">
+      <div class="panel-title">Click a reaction type to see it in action</div>
+      <div class="rxnbtnrow" id="rxnBtnRow">
+        <button class="showmol-control" onclick="showRxn('combustion')"    >Combustion</button>
+        <button class="showmol-control" onclick="showRxn('esterification')">Esterification</button>
+        <button class="showmol-control" onclick="showRxn('saponification')">Saponification</button>
+        <button class="showmol-control" onclick="showRxn('oxidation')"     >Oxidation</button>
+        <button class="showmol-control" onclick="showRxn('acidbase')"      >Acid–Base</button>
+        <button class="showmol-control" onclick="showRxn('fermentation')"  >Fermentation</button>
+        <button class="showmol-control" onclick="showRxn('polymerisation')">Polymerisation</button>
       </div>
       <div id="rxn-display"></div>
     </div>
@@ -501,45 +1039,45 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part G · smell and taste — chemistry you can sense</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Every smell is a molecule landing on a receptor</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:12px;">Smell (olfaction) works by molecules binding to ~400 different receptor proteins in your nose. Each receptor fires for a range of molecular shapes. Your brain reads the pattern as a smell. Pick a familiar smell below to see the chemistry behind it.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Every smell is a molecule landing on a receptor</div>
+      <div class="chemistry-text-7">Smell (olfaction) works by molecules binding to ~400 different receptor proteins in your nose. Each receptor fires for a range of molecular shapes. Your brain reads the pattern as a smell. Pick a familiar smell below to see the chemistry behind it.</div>
       <div class="smell-btn-row" id="smellBtnRow">
-        <button onclick="showSmell('vanilla')"   style="font-size:12px; padding:4px 11px;">Vanilla</button>
-        <button onclick="showSmell('banana')"    style="font-size:12px; padding:4px 11px;">Banana</button>
-        <button onclick="showSmell('roses')"     style="font-size:12px; padding:4px 11px;">Roses</button>
-        <button onclick="showSmell('garlic')"    style="font-size:12px; padding:4px 11px;">Garlic</button>
-        <button onclick="showSmell('grass')"     style="font-size:12px; padding:4px 11px;">Fresh-cut grass</button>
-        <button onclick="showSmell('mint')"      style="font-size:12px; padding:4px 11px;">Mint</button>
-        <button onclick="showSmell('cinnamon')"  style="font-size:12px; padding:4px 11px;">Cinnamon</button>
-        <button onclick="showSmell('petrichor')" style="font-size:12px; padding:4px 11px;">Rain on dry earth</button>
+        <button class="showmol-control" onclick="showSmell('vanilla')"  >Vanilla</button>
+        <button class="showmol-control" onclick="showSmell('banana')"   >Banana</button>
+        <button class="showmol-control" onclick="showSmell('roses')"    >Roses</button>
+        <button class="showmol-control" onclick="showSmell('garlic')"   >Garlic</button>
+        <button class="showmol-control" onclick="showSmell('grass')"    >Fresh-cut grass</button>
+        <button class="showmol-control" onclick="showSmell('mint')"     >Mint</button>
+        <button class="showmol-control" onclick="showSmell('cinnamon')" >Cinnamon</button>
+        <button class="showmol-control" onclick="showSmell('petrichor')">Rain on dry earth</button>
       </div>
       <div class="smell-result" id="smell-display">Select a smell above.</div>
     </div>
 
     <!-- Taste chemistry -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The five tastes — and their chemical triggers</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(140px,1fr)); gap:8px;">
-        <div style="background:#E1F5EE; border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:#085041; margin-bottom:4px;">Sweet</div>
-          <div style="font-size:11px; color:#085041; line-height:1.5;">Sugars (glucose, fructose, sucrose) bind to T1R2/T1R3 receptor dimers. Fructose is ~1.7× sweeter than glucose despite being the same formula (C₆H₁₂O₆) — different shape, different receptor fit.</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">The five tastes — and their chemical triggers</div>
+      <div class="chemistry-grid-2">
+        <div class="chemistry-panel-6">
+          <div class="chemistry-label-11">Sweet</div>
+          <div class="chemistry-text-14">Sugars (glucose, fructose, sucrose) bind to T1R2/T1R3 receptor dimers. Fructose is ~1.7× sweeter than glucose despite being the same formula (C₆H₁₂O₆) — different shape, different receptor fit.</div>
         </div>
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">Sour</div>
-          <div style="font-size:11px; color:#791F1F; line-height:1.5;">H⁺ ions (from acids like citric, acetic, lactic) activate proton-sensing channels. The more H⁺, the lower the pH, the sourer the taste. Vinegar (pH 2.5) vs lemon (pH 2.2) — directly measurable acidity.</div>
+        <div class="chemistry-panel-7">
+          <div class="chemistry-label-12">Sour</div>
+          <div class="chemistry-text-15">H⁺ ions (from acids like citric, acetic, lactic) activate proton-sensing channels. The more H⁺, the lower the pH, the sourer the taste. Vinegar (pH 2.5) vs lemon (pH 2.2) — directly measurable acidity.</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:#633806; margin-bottom:4px;">Salty</div>
-          <div style="font-size:11px; color:#633806; line-height:1.5;">Na⁺ ions from sodium chloride pass directly through ENaC ion channels on taste cells. Other salts (KCl, MgCl₂) taste differently because their cations activate different channels or in different proportions.</div>
+        <div class="chemistry-panel-8">
+          <div class="chemistry-label-13">Salty</div>
+          <div class="chemistry-text-16">Na⁺ ions from sodium chloride pass directly through ENaC ion channels on taste cells. Other salts (KCl, MgCl₂) taste differently because their cations activate different channels or in different proportions.</div>
         </div>
-        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">Bitter</div>
-          <div style="font-size:11px; color:#27500A; line-height:1.5;">~25 different TAS2R receptors detect a huge variety of compounds — mostly alkaloids and glucosinolates that are toxic in plants. Caffeine, quinine, and Brussels sprouts all trigger bitterness. Evolved as a toxin-detection system.</div>
+        <div class="chemistry-panel-9">
+          <div class="chemistry-label-14">Bitter</div>
+          <div class="chemistry-text-17">~25 different TAS2R receptors detect a huge variety of compounds — mostly alkaloids and glucosinolates that are toxic in plants. Caffeine, quinine, and Brussels sprouts all trigger bitterness. Evolved as a toxin-detection system.</div>
         </div>
-        <div style="background:#EEEDFE; border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:#3C3489; margin-bottom:4px;">Umami</div>
-          <div style="font-size:11px; color:#3C3489; line-height:1.5;">Glutamate (an amino acid) and nucleotides (IMP, GMP) bind the T1R1/T1R3 receptor. Identified in 1908 by Kikunae Ikeda studying kombu seaweed. Naturally concentrated in Parmesan, anchovies, mushrooms, tomatoes, and soy sauce.</div>
+        <div class="chemistry-panel-10">
+          <div class="chemistry-label-15">Umami</div>
+          <div class="chemistry-text-18">Glutamate (an amino acid) and nucleotides (IMP, GMP) bind the T1R1/T1R3 receptor. Identified in 1908 by Kikunae Ikeda studying kombu seaweed. Naturally concentrated in Parmesan, anchovies, mushrooms, tomatoes, and soy sauce.</div>
         </div>
       </div>
     </div>
@@ -549,12 +1087,12 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part H · boiling points — how structure determines state of matter</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Same molecular weight, wildly different boiling points</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:12px;">Molecular weight alone doesn't determine boiling point — intermolecular forces do. Two molecules of similar mass but different functional groups can have boiling points 100°C apart.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Same molecular weight, wildly different boiling points</div>
+      <div class="chemistry-text-7">Molecular weight alone doesn't determine boiling point — intermolecular forces do. Two molecules of similar mass but different functional groups can have boiling points 100°C apart.</div>
 
       <!-- SVG bar chart of boiling points -->
-      <svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:8px;">
+      <svg class="chemistry-media-2" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
         <text x="10" y="14" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui">Boiling points (°C at 1 atm) — organised by functional group</text>
         <!-- y-axis: 0°C at y=170, 200°C at y=30. Range: -200°C to 200°C. Scale: 170px for 400°C. 1°C = 0.425px -->
         <!-- zero line -->
@@ -622,7 +1160,7 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
         <text x="482" y="75" font-size="9" fill="#0C447C" font-family="system-ui">Should boil at ~−80°C</text>
         <text x="482" y="86" font-size="9" fill="#0C447C" font-family="system-ui">if not for H-bonds!</text>
       </svg>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
+      <div class="chemistry-panel-4">
         Butanone (ketone, MW 72) and pentane (alkane, MW 72) have identical molecular weights yet boil 44°C apart — because the C=O group creates dipole-dipole attractions that pentane lacks. Water (MW 18) should boil around −80°C based on size alone; its actual boiling point of 100°C is entirely due to the network of hydrogen bonds each molecule forms.
       </div>
     </div>
@@ -632,38 +1170,38 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
          ═══════════════════════════════════════════════════════════ -->
     <div class="sec">Part I · chemistry in the kitchen — reactions you've already done</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Six kitchen reactions — and what's actually happening</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+    <div class="content-panel">
+      <div class="panel-title">Six kitchen reactions — and what's actually happening</div>
+      <div class="chemistry-grid-3">
 
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">🥩 Maillard reaction</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">When protein (amine groups on amino acids) reacts with sugar (carbonyl groups) at temperatures above ~140°C, hundreds of new flavour and colour molecules form. This is browning: bread crust, seared meat, coffee roasting. It is NOT caramelisation (sugar-only) — it requires both amino acids and sugars.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">🥩 Maillard reaction</div>
+          <div class="chemistry-text-19">When protein (amine groups on amino acids) reacts with sugar (carbonyl groups) at temperatures above ~140°C, hundreds of new flavour and colour molecules form. This is browning: bread crust, seared meat, coffee roasting. It is NOT caramelisation (sugar-only) — it requires both amino acids and sugars.</div>
         </div>
 
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">🍰 Baking soda + acid</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">NaHCO₃ (baking soda) is a base. When it contacts an acid (buttermilk, vinegar, lemon juice), it reacts: NaHCO₃ + H⁺ → Na⁺ + H₂O + CO₂. The CO₂ gas creates bubbles that make cakes rise. Baking powder is baking soda premixed with a dry acid (cream of tartar) — just add water to activate.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">🍰 Baking soda + acid</div>
+          <div class="chemistry-text-19">NaHCO₃ (baking soda) is a base. When it contacts an acid (buttermilk, vinegar, lemon juice), it reacts: NaHCO₃ + H⁺ → Na⁺ + H₂O + CO₂. The CO₂ gas creates bubbles that make cakes rise. Baking powder is baking soda premixed with a dry acid (cream of tartar) — just add water to activate.</div>
         </div>
 
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">🥚 Denaturing proteins (cooking eggs)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">Egg white is ~10% protein (mainly ovalbumin). Heat breaks the hydrogen bonds and disulfide bridges that keep the protein folded in its 3D shape. The protein unfolds ("denatures"), exposing hydrophobic regions that stick to each other — forming the opaque solid you see. This is irreversible: you cannot un-cook an egg.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">🥚 Denaturing proteins (cooking eggs)</div>
+          <div class="chemistry-text-19">Egg white is ~10% protein (mainly ovalbumin). Heat breaks the hydrogen bonds and disulfide bridges that keep the protein folded in its 3D shape. The protein unfolds ("denatures"), exposing hydrophobic regions that stick to each other — forming the opaque solid you see. This is irreversible: you cannot un-cook an egg.</div>
         </div>
 
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">🍬 Caramelisation</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">Heating sucrose above ~160°C breaks the glycosidic bond into glucose + fructose, then drives dehydration and polymerisation reactions, forming hundreds of compounds including furans (nutty), diacetyl (buttery), and brown polymers (caramelans). This is purely sugar chemistry — no proteins involved. The smell of caramel is a complex mixture, not a single molecule.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">🍬 Caramelisation</div>
+          <div class="chemistry-text-19">Heating sucrose above ~160°C breaks the glycosidic bond into glucose + fructose, then drives dehydration and polymerisation reactions, forming hundreds of compounds including furans (nutty), diacetyl (buttery), and brown polymers (caramelans). This is purely sugar chemistry — no proteins involved. The smell of caramel is a complex mixture, not a single molecule.</div>
         </div>
 
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">🫒 Emulsification (making mayonnaise)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">Oil and water don't mix — but egg yolk contains lecithin (phosphatidylcholine), an amphiphilic molecule with a polar head and nonpolar tail. It coats tiny oil droplets and keeps them suspended in water. The result: a stable emulsion. The same principle applies to milk, cream, and vinaigrette (which lacks a proper emulsifier, which is why it separates).</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">🫒 Emulsification (making mayonnaise)</div>
+          <div class="chemistry-text-19">Oil and water don't mix — but egg yolk contains lecithin (phosphatidylcholine), an amphiphilic molecule with a polar head and nonpolar tail. It coats tiny oil droplets and keeps them suspended in water. The result: a stable emulsion. The same principle applies to milk, cream, and vinaigrette (which lacks a proper emulsifier, which is why it separates).</div>
         </div>
 
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">🍋 Acid ceviche (cold cooking)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">Citric acid in lime juice (pH ~2.2) denatures fish proteins without heat. The H⁺ ions disrupt the hydrogen bonds maintaining the protein's native structure, unfolding and cross-linking the proteins — the fish turns opaque and firms up exactly as heat would. The result is chemically "cooked," though not safe from all pathogens.</div>
+        <div class="sub-card-roomy">
+          <div class="mini-card-title">🍋 Acid ceviche (cold cooking)</div>
+          <div class="chemistry-text-19">Citric acid in lime juice (pH ~2.2) denatures fish proteins without heat. The H⁺ ions disrupt the hydrogen bonds maintaining the protein's native structure, unfolding and cross-linking the proteins — the fish turns opaque and firms up exactly as heat would. The result is chemically "cooked," though not safe from all pathogens.</div>
         </div>
 
       </div>
@@ -672,7 +1210,7 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
     <!-- ═══════════════════════════════════════════════════════════
          PART J · TEST YOURSELF
          ═══════════════════════════════════════════════════════════ -->
-    <div class="sec">Part J · test yourself</div>
+    <div class="sec">Part J · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. Why does lemon juice stop cut fruit from browning?</p>
@@ -789,11 +1327,16 @@ const molecules = {
   }
 };
 
+function setActiveChoice(rowSelector, key) {
+  const buttons = Array.from(document.querySelectorAll(rowSelector + ' button'));
+  buttons.forEach(b => b.classList.remove('active-sel'));
+  const selected = buttons.find(b => (b.getAttribute('onclick') || '').includes("'" + key + "'"));
+  if (selected) selected.classList.add('active-sel');
+}
+
 function showMol(key) {
   const m = molecules[key];
-  // Update button states
-  document.querySelectorAll('#molBtnRow button').forEach(b => b.classList.remove('active-sel'));
-  event.target.classList.add('active-sel');
+  setActiveChoice('#molBtnRow', key);
 
   let html = `<div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">${m.name}</div>`;
   html += `<div style="font-size:12px; font-family:monospace; color:var(--color-text-secondary); margin-bottom:10px;">${m.formula}</div>`;
@@ -910,8 +1453,7 @@ const reactions = {
 
 function showRxn(key) {
   const r = reactions[key];
-  document.querySelectorAll('#rxnBtnRow button').forEach(b => b.classList.remove('active-sel'));
-  event.target.classList.add('active-sel');
+  setActiveChoice('#rxnBtnRow', key);
 
   let html = `<div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">${r.title}</div>`;
   html += `<div class="rxn-tags">`;
@@ -992,8 +1534,7 @@ const smells = {
 
 function showSmell(key) {
   const s = smells[key];
-  document.querySelectorAll('#smellBtnRow button').forEach(b => b.classList.remove('active-sel'));
-  event.target.classList.add('active-sel');
+  setActiveChoice('#smellBtnRow', key);
 
   let html = `<div style="display:flex; gap:8px; align-items:flex-start; flex-wrap:wrap; margin-bottom:8px;">`;
   html += `<div><div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px;">${s.compound}</div>`;
@@ -1003,6 +1544,7 @@ function showSmell(key) {
   html += `<div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-top:6px;">${s.desc}</div>`;
   document.getElementById('smell-display').innerHTML = html;
 }
+showSmell('vanilla');
   </script>
 
   <script src="../files/shared.js"></script>

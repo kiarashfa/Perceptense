@@ -58,14 +58,313 @@
 .mat-label { font-size:11px; color:var(--color-text-secondary); width:120px; flex-shrink:0; text-align:right; padding-right:8px; line-height:1.3; }
 .mat-bar { height:20px; border-radius:3px; display:flex; align-items:center; padding:0 7px; }
 .mat-val { font-size:10px; font-weight:500; white-space:nowrap; }
+
+/* === Shared-ready extracted styles === */
+
+.muted-text {
+  font-size:12px;
+  color:var(--color-text-secondary);
+}
+
+.text-amber-900 {
+  color:#633806;
+}
+
+.text-blue-900 {
+  color:#0C447C;
+}
+
+.text-green-800 {
+  color:#27500A;
+}
+
+.text-green-900 {
+  color:#085041;
+}
+
+.text-indigo-900 {
+  color:#3C3489;
+}
+
+.text-orange-900 {
+  color:#712B13;
+}
+
+.text-red-900 {
+  color:#791F1F;
+}
+
+/* === Module-specific extracted styles === */
+
+.engineering-panel {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:12px 14px;
+  font-size:14px;
+  color:var(--color-text-primary);
+  line-height:1.6;
+  margin-bottom:10px;
+  font-style:italic;
+}
+
+.engineering-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:8px;
+}
+
+.engineering-label {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:3px;
+}
+
+.engineering-media {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.rbadge-style {
+  background:#E6F1FB;
+  color:#0C447C;
+}
+
+.engineering-spacing {
+  margin-top:4px;
+}
+
+.scale-bar-inner-style {
+  width:15%;
+  background:#E6F1FB;
+}
+
+.scale-bar-inner-style-2 {
+  width:25%;
+  background:#EAF3DE;
+}
+
+.scale-bar-inner-style-3 {
+  width:40%;
+  background:#FAEEDA;
+}
+
+.scale-bar-inner-style-4 {
+  width:40%;
+  background:#EEEDFE;
+}
+
+.scale-bar-inner-style-5 {
+  width:50%;
+  background:#FAECE7;
+}
+
+.scale-bar-inner-style-6 {
+  width:100%;
+  background:#FCEBEB;
+}
+
+.engineering-text-2 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:6px;
+}
+
+.rbadge-style-2 {
+  background:#EAF3DE;
+  color:#27500A;
+}
+
+.rbadge-style-3 {
+  background:#FAEEDA;
+  color:#633806;
+}
+
+.rbadge-style-4 {
+  background:#FAECE7;
+  color:#712B13;
+}
+
+.tol-bar-style {
+  width:6%;
+  background:#EAF3DE;
+}
+
+.engineering-text-3 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-left:6px;
+}
+
+.tol-bar-style-2 {
+  width:12%;
+  background:#E6F1FB;
+}
+
+.tol-bar-style-3 {
+  width:30%;
+  background:#FAEEDA;
+}
+
+.tol-bar-style-4 {
+  width:75%;
+  background:#FAECE7;
+}
+
+.rbadge-style-5 {
+  background:#EEEDFE;
+  color:#3C3489;
+}
+
+.rbadge-style-6 {
+  background:#E1F5EE;
+  color:#085041;
+}
+
+.showcalc-control {
+  font-size:12px;
+  padding:4px 11px;
+}
+
+.eng-result {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+}
+
+.branch-display {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:1rem;
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+}
+
+.engineering-text-4 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:12px;
+}
+
+.mat-bar-style {
+  width:4%;
+  background:#FAECE7;
+}
+
+.mat-bar-style-2 {
+  width:5%;
+  background:#EAF3DE;
+}
+
+.mat-bar-style-3 {
+  width:35%;
+  background:#E6F1FB;
+}
+
+.mat-bar-style-4 {
+  width:37%;
+  background:#FAEEDA;
+}
+
+.mat-bar-style-5 {
+  width:65%;
+  background:#EEEDFE;
+}
+
+.mat-bar-style-6 {
+  width:70%;
+  background:#FAECE7;
+}
+
+.engineering-text-5 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:8px;
+}
+
+.mat-bar-style-7 {
+  width:18%;
+  background:#FAEEDA;
+}
+
+.mat-bar-style-8 {
+  width:38%;
+  background:#FAECE7;
+}
+
+.mat-bar-style-9 {
+  width:40%;
+  background:#E6F1FB;
+}
+
+.engineering-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.engineering-text-6 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  display:block;
+  margin-bottom:4px;
+}
+
+.rel-svg {
+  width:100%;
+  height:auto;
+  display:block;
+  margin-top:10px;
+}
+
+.engineering-grid-3 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.engineering-text-7 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:4px;
+}
+
+.engineering-panel-4 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  margin-bottom:10px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.7;
+}
+
+.fermi-result {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+  min-height:80px;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-gears" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 16: Engineering Rules of Thumb</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-gears module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 16: Engineering Rules of Thumb</h1>
     </div>
     <p class="module-subtitle">Quick estimates for how things are built</p>
 
@@ -74,55 +373,58 @@
          ============================================================ -->
     <div class="sec">Part A · what engineering actually is</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The one-sentence definition that covers everything</div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:12px 14px; font-size:14px; color:var(--color-text-primary); line-height:1.6; margin-bottom:10px; font-style:italic;">
+    <div class="content-panel">
+      <div class="panel-title-spaced">The one-sentence definition that covers everything</div>
+      <div class="engineering-panel">
         Engineering is the application of science and mathematics to solve real problems under real constraints — where constraints include cost, time, weight, safety, regulation, and what can actually be manufactured.
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:8px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Science asks "why?"</div>
-          <div style="font-size:12px; color:var(--color-text-secondary);">Physics explains why a bridge can hold weight. A physicist publishes a paper.</div>
+      <div class="engineering-grid">
+        <div class="sub-card">
+          <div class="engineering-label">Science asks "why?"</div>
+          <div class="muted-text">Physics explains why a bridge can hold weight. A physicist publishes a paper.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Engineering asks "how, cheaply, safely?"</div>
-          <div style="font-size:12px; color:var(--color-text-secondary);">An engineer builds a bridge that holds weight, within budget, before the deadline, that won't fall down.</div>
+        <div class="sub-card">
+          <div class="engineering-label">Engineering asks "how, cheaply, safely?"</div>
+          <div class="muted-text">An engineer builds a bridge that holds weight, within budget, before the deadline, that won't fall down.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">The engineer's eternal trade-off</div>
-          <div style="font-size:12px; color:var(--color-text-secondary);">Fast, cheap, good — pick two. Every engineering decision is a negotiation between these three.</div>
+        <div class="sub-card">
+          <div class="engineering-label">The engineer's eternal trade-off</div>
+          <div class="muted-text">Fast, cheap, good — pick two. Every engineering decision is a negotiation between these three.</div>
         </div>
       </div>
     </div>
 
     <!-- Fast/Cheap/Good triangle SVG -->
-    <div class="svg-wrap" style="margin-bottom:1rem;">
+    <div class="svg-wrap u-mb-lg">
       <div class="svg-title">The project management triangle — you can only fully optimise two</div>
-      <svg viewBox="0 0 580 230" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
-        <!-- triangle -->
-        <polygon points="290,25 70,200 510,200" fill="none" stroke="var(--color-border-secondary)" stroke-width="1.2"/>
-        <!-- vertex circles -->
-        <circle cx="290" cy="25"  r="38" fill="var(--color-background-info)"    stroke="var(--color-border-info)"    stroke-width="1"/>
-        <circle cx="70"  cy="200" r="38" fill="var(--color-background-success)" stroke="var(--color-border-success)" stroke-width="1"/>
-        <circle cx="510" cy="200" r="38" fill="var(--color-background-warning)" stroke="var(--color-border-warning)" stroke-width="1"/>
-        <!-- vertex labels -->
-        <text x="290" y="20"  text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-info)">FAST</text>
-        <text x="290" y="34"  text-anchor="middle" font-size="10" fill="var(--color-text-info)">quick delivery</text>
-        <text x="70"  y="195" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-success)">CHEAP</text>
-        <text x="70"  y="209" text-anchor="middle" font-size="10" fill="var(--color-text-success)">low cost</text>
-        <text x="510" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-warning)">GOOD</text>
-        <text x="510" y="209" text-anchor="middle" font-size="10" fill="var(--color-text-warning)">high quality</text>
-        <!-- edge labels -->
-        <text x="170" y="102" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" transform="rotate(-55 170 102)">Fast + Cheap</text>
-        <text x="172" y="118" text-anchor="middle" font-size="9"  fill="var(--color-text-tertiary)"   transform="rotate(-55 172 118)">→ not good</text>
-        <text x="410" y="102" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" transform="rotate(55 410 102)">Fast + Good</text>
-        <text x="410" y="116" text-anchor="middle" font-size="9"  fill="var(--color-text-tertiary)"   transform="rotate(55 410 116)">→ not cheap</text>
-        <text x="290" y="216" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">Cheap + Good → not fast</text>
-        <!-- centre label -->
-        <text x="290" y="126" text-anchor="middle" font-size="11" font-weight="500" fill="var(--color-text-primary)">Pick two.</text>
-        <text x="290" y="142" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">Every engineering project</text>
-        <text x="290" y="155" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">lives here.</text>
-      </svg>
+      <svg class="engineering-media" viewBox="0 0 580 260" xmlns="http://www.w3.org/2000/svg">
+  	<polygon points="290,50 90,210 490,210" fill="none" stroke="var(--color-border-secondary)" stroke-width="1.2"/>
+  
+  	<circle cx="290" cy="50" r="42" fill="var(--color-background-info)" stroke="var(--color-border-info)" stroke-width="1"/>
+  	<text x="290" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="var(--color-text-info)">FAST</text>
+  	<text x="290" y="62" text-anchor="middle" font-size="10" fill="var(--color-text-info)">quick delivery</text>
+  
+  	<circle cx="90" cy="210" r="42" fill="var(--color-background-success)" stroke="var(--color-border-success)" stroke-width="1"/>
+  	<text x="90" y="208" text-anchor="middle" font-size="11" font-weight="700" fill="var(--color-text-success)">CHEAP</text>
+  	<text x="90" y="222" text-anchor="middle" font-size="10" fill="var(--color-text-success)">low cost</text>
+  
+  	<circle cx="490" cy="210" r="42" fill="var(--color-background-warning)" stroke="var(--color-border-warning)" stroke-width="1"/>
+  	<text x="490" y="208" text-anchor="middle" font-size="11" font-weight="700" fill="var(--color-text-warning)">GOOD</text>
+  	<text x="490" y="222" text-anchor="middle" font-size="10" fill="var(--color-text-warning)">high quality</text>
+  
+ 	<text x="180" y="115" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" transform="rotate(-38 180 115)">Fast + Cheap</text>
+  	<text x="172" y="130" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" transform="rotate(-38 172 130)">→ not good</text>
+  
+  	<text x="400" y="115" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)" transform="rotate(38 400 115)">Fast + Good</text>
+  	<text x="408" y="130" text-anchor="middle" font-size="9" fill="var(--color-text-tertiary)" transform="rotate(38 408 130)">→ not cheap</text>
+  
+  	<text x="290" y="228" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">Cheap + Good → <tspan fill="var(--color-text-tertiary)" font-size="9">not fast</tspan></text>
+  
+  	<text x="290" y="135" text-anchor="middle" font-size="12" font-weight="600" fill="var(--color-text-primary)">Pick two.</text>
+  	<text x="290" y="152" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">Every engineering project</text>
+  	<text x="290" y="166" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">lives here.</text>
+       </svg>
+
     </div>
 
     <!-- ============================================================
@@ -133,8 +435,8 @@
     <div class="rule-card">
       <div class="rh">
         <span class="rname">Safety factor</span>
-        <span class="rval" style="color:#0C447C;">Design load × 2–10</span>
-        <span class="rbadge" style="background:#E6F1FB; color:#0C447C;">the most important rule</span>
+        <span class="rval text-blue-900">Design load × 2–10</span>
+        <span class="rbadge rbadge-style">the most important rule</span>
       </div>
       <div class="rsub">
         <div class="rbox"><p class="rl">What it means</p><p class="rv">Build it stronger than the maximum expected load by a multiplier.</p></div>
@@ -145,42 +447,42 @@
     </div>
 
     <!-- Safety factor visual scale -->
-    <div class="svg-wrap" style="margin-bottom:10px;">
+    <div class="svg-wrap u-mb-md">
       <div class="svg-title">Safety factors across engineering domains</div>
-      <div style="margin-top:4px;">
+      <div class="engineering-spacing">
         <div class="scale-row">
           <div class="scale-label">Aircraft (ultimate)</div>
-          <div class="scale-bar-outer"><div class="scale-bar-inner" style="width:15%; background:#E6F1FB;"><span class="scale-bar-val" style="color:#0C447C;">×1.5</span></div></div>
+          <div class="scale-bar-outer"><div class="scale-bar-inner scale-bar-inner-style"><span class="scale-bar-val text-blue-900">×1.5</span></div></div>
         </div>
         <div class="scale-row">
           <div class="scale-label">Buildings</div>
-          <div class="scale-bar-outer"><div class="scale-bar-inner" style="width:25%; background:#EAF3DE;"><span class="scale-bar-val" style="color:#27500A;">×2–3</span></div></div>
+          <div class="scale-bar-outer"><div class="scale-bar-inner scale-bar-inner-style-2"><span class="scale-bar-val text-green-800">×2–3</span></div></div>
         </div>
         <div class="scale-row">
           <div class="scale-label">Bridges</div>
-          <div class="scale-bar-outer"><div class="scale-bar-inner" style="width:40%; background:#FAEEDA;"><span class="scale-bar-val" style="color:#633806;">×4</span></div></div>
+          <div class="scale-bar-outer"><div class="scale-bar-inner scale-bar-inner-style-3"><span class="scale-bar-val text-amber-900">×4</span></div></div>
         </div>
         <div class="scale-row">
           <div class="scale-label">Pressure vessels</div>
-          <div class="scale-bar-outer"><div class="scale-bar-inner" style="width:40%; background:#EEEDFE;"><span class="scale-bar-val" style="color:#3C3489;">×4</span></div></div>
+          <div class="scale-bar-outer"><div class="scale-bar-inner scale-bar-inner-style-4"><span class="scale-bar-val text-indigo-900">×4</span></div></div>
         </div>
         <div class="scale-row">
           <div class="scale-label">Lifting chains</div>
-          <div class="scale-bar-outer"><div class="scale-bar-inner" style="width:50%; background:#FAECE7;"><span class="scale-bar-val" style="color:#712B13;">×5</span></div></div>
+          <div class="scale-bar-outer"><div class="scale-bar-inner scale-bar-inner-style-5"><span class="scale-bar-val text-orange-900">×5</span></div></div>
         </div>
         <div class="scale-row">
           <div class="scale-label">Elevators</div>
-          <div class="scale-bar-outer"><div class="scale-bar-inner" style="width:100%; background:#FCEBEB;"><span class="scale-bar-val" style="color:#791F1F;">×10</span></div></div>
+          <div class="scale-bar-outer"><div class="scale-bar-inner scale-bar-inner-style-6"><span class="scale-bar-val text-red-900">×10</span></div></div>
         </div>
       </div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:6px;">Higher = more consequence of failure and/or more uncertainty in loads. Aircraft keep the factor low because weight cost is so extreme.</div>
+      <div class="engineering-text-2">Higher = more consequence of failure and/or more uncertainty in loads. Aircraft keep the factor low because weight cost is so extreme.</div>
     </div>
 
     <div class="rule-card">
       <div class="rh">
         <span class="rname">The 80/20 rule (Pareto principle)</span>
-        <span class="rval" style="color:#27500A;">80% of problems come from 20% of causes</span>
-        <span class="rbadge" style="background:#EAF3DE; color:#27500A;">prioritisation tool</span>
+        <span class="rval text-green-800">80% of problems come from 20% of causes</span>
+        <span class="rbadge rbadge-style-2">prioritisation tool</span>
       </div>
       <div class="rsub">
         <div class="rbox"><p class="rl">In practice</p><p class="rv">80% of bugs come from 20% of the code. 80% of heat loss from 20% of the building envelope. 80% of failures from 20% of components.</p></div>
@@ -193,8 +495,8 @@
     <div class="rule-card">
       <div class="rh">
         <span class="rname">Order-of-magnitude estimation (Fermi estimation)</span>
-        <span class="rval" style="color:#633806;">±1 order of magnitude is "good enough"</span>
-        <span class="rbadge" style="background:#FAEEDA; color:#633806;">back-of-envelope</span>
+        <span class="rval text-amber-900">±1 order of magnitude is "good enough"</span>
+        <span class="rbadge rbadge-style-3">back-of-envelope</span>
       </div>
       <div class="rsub">
         <div class="rbox"><p class="rl">What it is</p><p class="rv">A quick estimate using round numbers that gets you within 10× of the real answer, done in your head in minutes.</p></div>
@@ -207,8 +509,8 @@
     <div class="rule-card">
       <div class="rh">
         <span class="rname">Tolerance and fit</span>
-        <span class="rval" style="color:#712B13;">nominal ± tolerance</span>
-        <span class="rbadge" style="background:#FAECE7; color:#712B13;">manufacturing reality</span>
+        <span class="rval text-orange-900">nominal ± tolerance</span>
+        <span class="rbadge rbadge-style-4">manufacturing reality</span>
       </div>
       <div class="rsub">
         <div class="rbox"><p class="rl">What it means</p><p class="rv">Nothing is made perfectly. A "10 mm" rod is actually 9.95–10.05 mm. The ±0.05 mm is the tolerance.</p></div>
@@ -219,23 +521,23 @@
     </div>
 
     <!-- Tolerance cost chart -->
-    <div class="svg-wrap" style="margin-bottom:10px;">
+    <div class="svg-wrap u-mb-md">
       <div class="svg-title">Tolerance vs cost — exponential relationship</div>
-      <div style="margin-top:4px;">
-        <div class="tol-row"><div class="tol-label">±1 mm</div><div class="tol-bar" style="width:6%; background:#EAF3DE;"><span class="tol-val" style="color:#27500A;">€5</span></div><div style="font-size:11px; color:var(--color-text-tertiary); margin-left:6px;">Manual lathe, rough cut</div></div>
-        <div class="tol-row"><div class="tol-label">±0.1 mm</div><div class="tol-bar" style="width:12%; background:#E6F1FB;"><span class="tol-val" style="color:#0C447C;">€50</span></div><div style="font-size:11px; color:var(--color-text-tertiary); margin-left:6px;">CNC mill, standard</div></div>
-        <div class="tol-row"><div class="tol-label">±0.01 mm</div><div class="tol-bar" style="width:30%; background:#FAEEDA;"><span class="tol-val" style="color:#633806;">€500</span></div><div style="font-size:11px; color:var(--color-text-tertiary); margin-left:6px;">Precision grinding, temp control</div></div>
-        <div class="tol-row"><div class="tol-label">±0.001 mm</div><div class="tol-bar" style="width:75%; background:#FAECE7;"><span class="tol-val" style="color:#712B13;">€5,000+</span></div><div style="font-size:11px; color:var(--color-text-tertiary); margin-left:6px;">Lapping, clean room, optical check</div></div>
-        <div class="tol-row"><div class="tol-label">±0.0001 mm</div><div class="tol-bar" style="width:100%; background:#FCEBEB;"><span class="tol-val" style="color:#791F1F;">€50,000+</span></div><div style="font-size:11px; color:var(--color-text-tertiary); margin-left:6px;">Semiconductor fab, interferometry</div></div>
+      <div class="engineering-spacing">
+        <div class="tol-row"><div class="tol-label">±1 mm</div><div class="tol-bar tol-bar-style"><span class="tol-val text-green-800">€5</span></div><div class="engineering-text-3">Manual lathe, rough cut</div></div>
+        <div class="tol-row"><div class="tol-label">±0.1 mm</div><div class="tol-bar tol-bar-style-2"><span class="tol-val text-blue-900">€50</span></div><div class="engineering-text-3">CNC mill, standard</div></div>
+        <div class="tol-row"><div class="tol-label">±0.01 mm</div><div class="tol-bar tol-bar-style-3"><span class="tol-val text-amber-900">€500</span></div><div class="engineering-text-3">Precision grinding, temp control</div></div>
+        <div class="tol-row"><div class="tol-label">±0.001 mm</div><div class="tol-bar tol-bar-style-4"><span class="tol-val text-orange-900">€5,000+</span></div><div class="engineering-text-3">Lapping, clean room, optical check</div></div>
+        <div class="tol-row"><div class="tol-label">±0.0001 mm</div><div class="tol-bar scale-bar-inner-style-6"><span class="tol-val text-red-900">€50,000+</span></div><div class="engineering-text-3">Semiconductor fab, interferometry</div></div>
       </div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:6px;">Each 10× tighter tolerance ≈ 10× higher cost. The question is always: does the function actually require this precision?</div>
+      <div class="engineering-text-2">Each 10× tighter tolerance ≈ 10× higher cost. The question is always: does the function actually require this precision?</div>
     </div>
 
     <div class="rule-card">
       <div class="rh">
         <span class="rname">The 10× cost rule of error correction</span>
-        <span class="rval" style="color:#3C3489;">fix it early, or pay 10× later</span>
-        <span class="rbadge" style="background:#EEEDFE; color:#3C3489;">project management</span>
+        <span class="rval text-indigo-900">fix it early, or pay 10× later</span>
+        <span class="rbadge rbadge-style-5">project management</span>
       </div>
       <div class="rsub">
         <div class="rbox"><p class="rl">The rule</p><p class="rv">A design error caught at the drawing stage costs €1 to fix. At prototype: €10. In production: €100. After delivery: €1,000+.</p></div>
@@ -248,8 +550,8 @@
     <div class="rule-card">
       <div class="rh">
         <span class="rname">Redundancy</span>
-        <span class="rval" style="color:#085041;">N+1 for reliability, N+2 for safety-critical</span>
-        <span class="rbadge" style="background:#E1F5EE; color:#085041;">failure tolerance</span>
+        <span class="rval text-green-900">N+1 for reliability, N+2 for safety-critical</span>
+        <span class="rbadge rbadge-style-6">failure tolerance</span>
       </div>
       <div class="rsub">
         <div class="rbox"><p class="rl">What it means</p><p class="rv">Have one more than you need. If you need 1 pump, install 2. If you need 2 engines, use 4.</p></div>
@@ -264,20 +566,20 @@
          ============================================================ -->
     <div class="sec">Part C · back-of-envelope calculator</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Quick engineering sanity checks — pick a scenario</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="showCalc('beam')"   style="font-size:12px; padding:4px 11px;">Beam load</button>
-        <button onclick="showCalc('pipe')"   style="font-size:12px; padding:4px 11px;">Pipe flow</button>
-        <button onclick="showCalc('heat')"   style="font-size:12px; padding:4px 11px;">Heat loss</button>
-        <button onclick="showCalc('power')"  style="font-size:12px; padding:4px 11px;">Motor power</button>
-        <button onclick="showCalc('cable')"  style="font-size:12px; padding:4px 11px;">Cable size</button>
-        <button onclick="showCalc('floor')"  style="font-size:12px; padding:4px 11px;">Floor load</button>
-        <button onclick="showCalc('wind')"   style="font-size:12px; padding:4px 11px;">Wind load</button>
-        <button onclick="showCalc('concrete')" style="font-size:12px; padding:4px 11px;">Concrete mix</button>
+    <div class="content-panel">
+      <div class="panel-title">Quick engineering sanity checks — pick a scenario</div>
+      <div class="button-row-spaced">
+        <button class="showcalc-control" onclick="showCalc('beam')"  >Beam load</button>
+        <button class="showcalc-control" onclick="showCalc('pipe')"  >Pipe flow</button>
+        <button class="showcalc-control" onclick="showCalc('heat')"  >Heat loss</button>
+        <button class="showcalc-control" onclick="showCalc('power')" >Motor power</button>
+        <button class="showcalc-control" onclick="showCalc('cable')" >Cable size</button>
+        <button class="showcalc-control" onclick="showCalc('floor')" >Floor load</button>
+        <button class="showcalc-control" onclick="showCalc('wind')"  >Wind load</button>
+        <button class="showcalc-control" onclick="showCalc('concrete')">Concrete mix</button>
       </div>
-      <div id="eng-inputs" style="margin-bottom:12px;"></div>
-      <div id="eng-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+      <div class="u-mb-md" id="u-mb-12px"></div>
+      <div class="eng-result" id="eng-result"></div>
     </div>
 
     <!-- ============================================================
@@ -285,16 +587,16 @@
          ============================================================ -->
     <div class="sec">Part D · the major engineering disciplines</div>
 
-    <div id="branch-btns" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-      <button onclick="showBranch('civil')"    style="font-size:12px; padding:4px 11px;">Civil</button>
-      <button onclick="showBranch('mech')"     style="font-size:12px; padding:4px 11px;">Mechanical</button>
-      <button onclick="showBranch('elec')"     style="font-size:12px; padding:4px 11px;">Electrical</button>
-      <button onclick="showBranch('chem')"     style="font-size:12px; padding:4px 11px;">Chemical</button>
-      <button onclick="showBranch('software')" style="font-size:12px; padding:4px 11px;">Software</button>
-      <button onclick="showBranch('aero')"     style="font-size:12px; padding:4px 11px;">Aerospace</button>
-      <button onclick="showBranch('bio')"      style="font-size:12px; padding:4px 11px;">Biomedical</button>
+    <div class="button-row-spaced" id="branch-btns">
+      <button class="showcalc-control" onclick="showBranch('civil')"   >Civil</button>
+      <button class="showcalc-control" onclick="showBranch('mech')"    >Mechanical</button>
+      <button class="showcalc-control" onclick="showBranch('elec')"    >Electrical</button>
+      <button class="showcalc-control" onclick="showBranch('chem')"    >Chemical</button>
+      <button class="showcalc-control" onclick="showBranch('software')">Software</button>
+      <button class="showcalc-control" onclick="showBranch('aero')"    >Aerospace</button>
+      <button class="showcalc-control" onclick="showBranch('bio')"     >Biomedical</button>
     </div>
-    <div id="branch-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+    <div class="branch-display" id="branch-display"></div>
 
     <!-- ============================================================
          PART E — KEY CONCEPTS
@@ -335,9 +637,9 @@
     </div>
 
     <!-- Precision vs Accuracy SVG -->
-    <div class="svg-wrap" style="margin-bottom:1rem;">
+    <div class="svg-wrap u-mb-lg">
       <div class="svg-title">Precision vs accuracy — four scenarios</div>
-      <svg viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+      <svg class="engineering-media" viewBox="0 0 580 160" xmlns="http://www.w3.org/2000/svg">
         <!-- Target 1: Low accuracy, low precision -->
         <circle cx="80"  cy="80" r="48" fill="none" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
         <circle cx="80"  cy="80" r="32" fill="none" stroke="var(--color-border-tertiary)" stroke-width="0.8"/>
@@ -399,31 +701,31 @@
          ============================================================ -->
     <div class="sec">Part F · structural materials — numbers that matter</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Tensile strength — how hard you have to pull before it breaks</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">MPa = megapascals = newtons per mm². A human hair: ~200 MPa. A car tyre bead: ~3,000 MPa.</div>
+    <div class="content-card">
+      <div class="inline-card-title">Tensile strength — how hard you have to pull before it breaks</div>
+      <div class="engineering-text-4">MPa = megapascals = newtons per mm². A human hair: ~200 MPa. A car tyre bead: ~3,000 MPa.</div>
       <div>
-        <div class="mat-row"><div class="mat-label">Concrete (compression)</div><div class="mat-bar" style="width:4%;  background:#FAECE7;"><span class="mat-val" style="color:#712B13;">30 MPa</span></div></div>
-        <div class="mat-row"><div class="mat-label">Timber (pine, along grain)</div><div class="mat-bar" style="width:5%;  background:#EAF3DE;"><span class="mat-val" style="color:#27500A;">40 MPa</span></div></div>
-        <div class="mat-row"><div class="mat-label">Aluminium alloy (6061)</div><div class="mat-bar" style="width:35%; background:#E6F1FB;"><span class="mat-val" style="color:#0C447C;">276 MPa</span></div></div>
-        <div class="mat-row"><div class="mat-label">Structural steel (S275)</div><div class="mat-bar" style="width:37%; background:#FAEEDA;"><span class="mat-val" style="color:#633806;">275–430 MPa</span></div></div>
-        <div class="mat-row"><div class="mat-label">High-strength steel</div><div class="mat-bar" style="width:65%; background:#EEEDFE;"><span class="mat-val" style="color:#3C3489;">500–700 MPa</span></div></div>
-        <div class="mat-row"><div class="mat-label">Titanium alloy (Ti-6Al-4V)</div><div class="mat-bar" style="width:70%; background:#FAECE7;"><span class="mat-val" style="color:#712B13;">900 MPa</span></div></div>
-        <div class="mat-row"><div class="mat-label">Carbon fibre composite</div><div class="mat-bar" style="width:100%; background:#FCEBEB;"><span class="mat-val" style="color:#791F1F;">~3,500 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">Concrete (compression)</div><div class="mat-bar mat-bar-style"><span class="mat-val text-orange-900">30 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">Timber (pine, along grain)</div><div class="mat-bar mat-bar-style-2"><span class="mat-val text-green-800">40 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">Aluminium alloy (6061)</div><div class="mat-bar mat-bar-style-3"><span class="mat-val text-blue-900">276 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">Structural steel (S275)</div><div class="mat-bar mat-bar-style-4"><span class="mat-val text-amber-900">275–430 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">High-strength steel</div><div class="mat-bar mat-bar-style-5"><span class="mat-val text-indigo-900">500–700 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">Titanium alloy (Ti-6Al-4V)</div><div class="mat-bar mat-bar-style-6"><span class="mat-val text-orange-900">900 MPa</span></div></div>
+        <div class="mat-row"><div class="mat-label">Carbon fibre composite</div><div class="mat-bar scale-bar-inner-style-6"><span class="mat-val text-red-900">~3,500 MPa</span></div></div>
       </div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:8px;">Carbon fibre is ~8× stronger than structural steel in tension — but costs ~100× more and is brittle. Steel yields (bends) before breaking — a crucial safety warning. Carbon fibre snaps without warning.</div>
+      <div class="engineering-text-5">Carbon fibre is ~8× stronger than structural steel in tension — but costs ~100× more and is brittle. Steel yields (bends) before breaking — a crucial safety warning. Carbon fibre snaps without warning.</div>
     </div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Strength-to-weight ratio — the aerospace engineer's obsession</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">Specific strength = tensile strength ÷ density (kN·m/kg). The higher, the better for weight-critical applications.</div>
+    <div class="content-card">
+      <div class="inline-card-title">Strength-to-weight ratio — the aerospace engineer's obsession</div>
+      <div class="engineering-text-4">Specific strength = tensile strength ÷ density (kN·m/kg). The higher, the better for weight-critical applications.</div>
       <div>
-        <div class="mat-row"><div class="mat-label">Structural steel</div><div class="mat-bar" style="width:18%; background:#FAEEDA;"><span class="mat-val" style="color:#633806;">~63 kN·m/kg</span></div></div>
-        <div class="mat-row"><div class="mat-label">Titanium alloy</div><div class="mat-bar" style="width:38%; background:#FAECE7;"><span class="mat-val" style="color:#712B13;">~200 kN·m/kg</span></div></div>
-        <div class="mat-row"><div class="mat-label">Aluminium 7075</div><div class="mat-bar" style="width:40%; background:#E6F1FB;"><span class="mat-val" style="color:#0C447C;">~214 kN·m/kg</span></div></div>
-        <div class="mat-row"><div class="mat-label">Carbon fibre (CFRP)</div><div class="mat-bar" style="width:100%; background:#FCEBEB;"><span class="mat-val" style="color:#791F1F;">~2,000 kN·m/kg</span></div></div>
+        <div class="mat-row"><div class="mat-label">Structural steel</div><div class="mat-bar mat-bar-style-7"><span class="mat-val text-amber-900">~63 kN·m/kg</span></div></div>
+        <div class="mat-row"><div class="mat-label">Titanium alloy</div><div class="mat-bar mat-bar-style-8"><span class="mat-val text-orange-900">~200 kN·m/kg</span></div></div>
+        <div class="mat-row"><div class="mat-label">Aluminium 7075</div><div class="mat-bar mat-bar-style-9"><span class="mat-val text-blue-900">~214 kN·m/kg</span></div></div>
+        <div class="mat-row"><div class="mat-label">Carbon fibre (CFRP)</div><div class="mat-bar scale-bar-inner-style-6"><span class="mat-val text-red-900">~2,000 kN·m/kg</span></div></div>
       </div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:8px;">Carbon fibre is ~32× stronger per kilogram than steel. This is why it dominates aircraft, F1 cars, and bicycles — despite the cost.</div>
+      <div class="engineering-text-5">Carbon fibre is ~32× stronger per kilogram than steel. This is why it dominates aircraft, F1 cars, and bicycles — despite the cost.</div>
     </div>
 
     <div class="concept-grid">
@@ -454,22 +756,22 @@
          ============================================================ -->
     <div class="sec">Part G · reliability — interactive explorer</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Series vs parallel reliability — adjust the sliders</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:12px; margin-bottom:14px;">
+    <div class="content-panel">
+      <div class="panel-title">Series vs parallel reliability — adjust the sliders</div>
+      <div class="engineering-grid-2">
         <div>
-          <label style="font-size:11px; color:var(--color-text-secondary); display:block; margin-bottom:4px;">Component reliability: <strong id="rel-comp-val">99%</strong></label>
+          <label class="engineering-text-6">Component reliability: <strong id="rel-comp-val">99%</strong></label>
           <input type="range" id="rel-comp" min="50" max="99.9" step="0.1" value="99" oninput="updateRel()">
         </div>
         <div>
-          <label style="font-size:11px; color:var(--color-text-secondary); display:block; margin-bottom:4px;">Number of components: <strong id="rel-n-val">3</strong></label>
+          <label class="engineering-text-6">Number of components: <strong id="rel-n-val">3</strong></label>
           <input type="range" id="rel-n" min="1" max="10" step="1" value="3" oninput="updateRel()">
         </div>
       </div>
       <div id="rel-result" class="rel-display"></div>
       <!-- SVG for series vs parallel diagram -->
-      <svg id="rel-svg" viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-top:10px;"></svg>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:6px;">Series: all must work. Parallel: only one needs to work. Real systems mix both.</div>
+      <svg class="rel-svg" id="rel-svg" viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="engineering-text-2">Series: all must work. Parallel: only one needs to work. Real systems mix both.</div>
     </div>
 
     <!-- ============================================================
@@ -477,7 +779,7 @@
          ============================================================ -->
     <div class="sec">Part H · famous engineering failures and what they taught</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="engineering-grid-3">
       <div class="card">
         <p class="clabel">Tacoma Narrows Bridge (1940)</p>
         <p class="cval">Resonance ignored</p>
@@ -511,9 +813,9 @@
     </div>
 
     <!-- Failure causes pie chart SVG -->
-    <div class="svg-wrap" style="margin-bottom:1rem;">
+    <div class="svg-wrap u-mb-lg">
       <div class="svg-title">Engineering failure root causes — historical analysis across industries</div>
-      <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+      <svg class="engineering-media" viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg">
         <!-- Pie chart (manually calculated segments at cx=100,cy=90,r=75) -->
         <!-- Data: Human/org error 35%, Design flaw 25%, Material failure 15%, Maintenance 13%, External/overload 12% -->
         <!-- Segments: human 0°→126°, design 126°→216°, material 216°→270°, maint 270°→317°, external 317°→360° -->
@@ -552,7 +854,7 @@
         <rect x="210" y="164" width="12" height="12" rx="2" fill="#b8a6f0" opacity="0.85"/>
         <text x="228" y="175" font-size="12" fill="var(--color-text-primary)">External / design basis exceeded</text>
       </svg>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:4px;">The dominant cause is human and organisational — not physics. This is why engineering safety culture, review processes, and whistle-blower protection matter as much as calculations.</div>
+      <div class="engineering-text-7">The dominant cause is human and organisational — not physics. This is why engineering safety culture, review processes, and whistle-blower protection matter as much as calculations.</div>
     </div>
 
     <!-- ============================================================
@@ -560,28 +862,28 @@
          ============================================================ -->
     <div class="sec">Part I · Fermi estimation — practise the skill</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">The method: break any big number into knowable pieces</div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; margin-bottom:10px; font-size:12px; color:var(--color-text-secondary); line-height:1.7;">
-        <strong style="color:var(--color-text-primary);">Step 1:</strong> Identify what you know. &nbsp;
-        <strong style="color:var(--color-text-primary);">Step 2:</strong> Break the unknown into knowable pieces. &nbsp;
-        <strong style="color:var(--color-text-primary);">Step 3:</strong> Estimate each piece with round numbers. &nbsp;
-        <strong style="color:var(--color-text-primary);">Step 4:</strong> Multiply. &nbsp;
-        <strong style="color:var(--color-text-primary);">Step 5:</strong> Sanity-check the order of magnitude.
+    <div class="content-panel">
+      <div class="inline-card-title">The method: break any big number into knowable pieces</div>
+      <div class="engineering-panel-4">
+        <strong class="text-primary">Step 1:</strong> Identify what you know. &nbsp;
+        <strong class="text-primary">Step 2:</strong> Break the unknown into knowable pieces. &nbsp;
+        <strong class="text-primary">Step 3:</strong> Estimate each piece with round numbers. &nbsp;
+        <strong class="text-primary">Step 4:</strong> Multiply. &nbsp;
+        <strong class="text-primary">Step 5:</strong> Sanity-check the order of magnitude.
       </div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="showFermi('fuel')"    style="font-size:12px; padding:4px 11px;">🛢 Fuel in a lorry fleet</button>
-        <button onclick="showFermi('concrete')" style="font-size:12px; padding:4px 11px;">🏗 Concrete in a dam</button>
-        <button onclick="showFermi('cables')"  style="font-size:12px; padding:4px 11px;">⚡ Power cables underground</button>
-        <button onclick="showFermi('bolts')"   style="font-size:12px; padding:4px 11px;">🔩 Bolts in a bridge</button>
+      <div class="button-row-spaced">
+        <button class="showcalc-control" onclick="showFermi('fuel')"   >🛢 Fuel in a lorry fleet</button>
+        <button class="showcalc-control" onclick="showFermi('concrete')">🏗 Concrete in a dam</button>
+        <button class="showcalc-control" onclick="showFermi('cables')" >⚡ Power cables underground</button>
+        <button class="showcalc-control" onclick="showFermi('bolts')"  >🔩 Bolts in a bridge</button>
       </div>
-      <div id="fermi-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px; min-height:80px;"></div>
+      <div class="fermi-result" id="fermi-result"></div>
     </div>
 
     <!-- ============================================================
          PART J — TEST YOURSELF
          ============================================================ -->
-    <div class="sec">Part J · test yourself</div>
+    <div class="sec">Part J · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. A floor is designed to hold 500 kg/m² with a safety factor of 3. What is the maximum safe load, and why isn't the safety factor just 1?</p>
@@ -747,12 +1049,12 @@ const calcs = {
     ],
     calc: v => {
       const [A, vkph, Cd] = v;
-      const v = vkph / 3.6;
+      const windMps = vkph / 3.6;
       const rho = 1.225;
-      const F = 0.5 * rho * v * v * Cd * A;
+      const F = 0.5 * rho * windMps * windMps * Cd * A;
       const cat = vkph < 62 ? 'light breeze' : vkph < 89 ? 'near gale' : vkph < 118 ? 'storm' : vkph < 150 ? 'violent storm/hurricane cat 1' : 'major hurricane';
       return `Wind force: <strong>${(F/1000).toFixed(1)} kN</strong> (${F.toFixed(0)} N)<br>
-      <span style="color:var(--color-text-secondary); font-size:12px;">F = ½ρv²CdA. Air density ρ = 1.225 kg/m³. Wind speed ${vkph} km/h = ${v.toFixed(1)} m/s (${cat}). Cd=1.2 for a flat plate; Cd≈0.3 for a streamlined form. Building codes typically design for 1-in-50-year wind speeds, which in Europe range 100–180 km/h depending on region.</span>`;
+      <span style="color:var(--color-text-secondary); font-size:12px;">F = ½ρv²CdA. Air density ρ = 1.225 kg/m³. Wind speed ${vkph} km/h = ${windMps.toFixed(1)} m/s (${cat}). Cd=1.2 for a flat plate; Cd≈0.3 for a streamlined form. Building codes typically design for 1-in-50-year wind speeds, which in Europe range 100–180 km/h depending on region.</span>`;
     }
   },
   concrete: {
@@ -789,7 +1091,7 @@ function showCalc(key) {
   });
   html += `<button onclick="runCalc('${key}')" style="height:36px; padding:0 16px; font-size:13px; flex-shrink:0;">Calculate</button>`;
   html += `</div>`;
-  document.getElementById('eng-inputs').innerHTML = html;
+  document.getElementById('u-mb-12px').innerHTML = html;
   runCalc(key);
 }
 

@@ -47,6 +47,13 @@
 .hr-zone-lbl  { font-size: 12px; color: var(--color-text-secondary); width: 80px; flex-shrink: 0; text-align: right; }
 .hr-zone-bar  { height: 20px; border-radius: 3px; display: flex; align-items: center; padding: 0 8px; transition: width 0.3s ease; }
 .hr-zone-txt  { font-size: 11px; font-weight: 500; white-space: nowrap; }
+.hr-zone-scaled { width: 36%; }
+.hr-zone-recovery { background: #4E99A3; }
+.hr-zone-base { background: #378ADD; }
+.hr-zone-aerobic { background: #185FA5; }
+.hr-zone-threshold { background: #EF9F27; }
+.hr-zone-max { background: #c0392b; }
+.hr-zone-light-text { color: #fff; }
 
 /* --- Reaction time game --- */
 .rt-game { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 16px; margin-bottom: 1rem; text-align: center; }
@@ -120,6 +127,306 @@
 .punnett .p-xx { background: var(--color-background-info); color: var(--color-text-info); font-weight: 500; border-radius: 4px; }
 .punnett .p-xy { background: var(--color-background-success); color: var(--color-text-success); font-weight: 500; border-radius: 4px; }
 
+.content-panel-roomy {
+  margin-bottom: 1.2rem;
+}
+.panel-title-tight {
+  margin-bottom: 4px;
+}
+.panel-title-medium {
+  margin-bottom: 6px;
+}
+.panel-title-spacious {
+  margin-bottom: 12px;
+}
+.panel-subtitle,
+.panel-note {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+.panel-subtitle {
+  margin: 0 0 12px;
+}
+.panel-note {
+  margin: 10px 0 0;
+}
+.panel-note-compact {
+  font-size: 11px;
+  margin: 8px 0 0;
+}
+.panel-note-flush {
+  margin: 0;
+}
+.section-intro {
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  margin: 0 0 0.8rem;
+  line-height: 1.6;
+}
+.primary-emphasis {
+  color: var(--color-text-primary);
+}
+.strong-primary {
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+.heart-rate-slider {
+  flex: 1;
+  max-width: 220px;
+}
+.heart-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.bone-detail {
+  font-size: 13px;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+.donut-svg {
+  flex-shrink: 0;
+}
+.donut-water { background: #378ADD; }
+.donut-protein { background: #4E99A3; }
+.donut-fat { background: #EF9F27; }
+.donut-minerals { background: #97C459; }
+.donut-other { background: #A8A69E; }
+.bar-info {
+  background: var(--color-background-info);
+}
+.bar-info-text {
+  color: var(--color-text-info);
+}
+.organ-skin { width: 100%; }
+.organ-liver { width: 36%; }
+.organ-brain { width: 30%; }
+.organ-lungs { width: 26%; }
+.organ-heart { width: 9%; }
+.organ-kidneys { width: 7%; }
+.organ-spleen { width: 4%; }
+.body-diagram-svg {
+  min-width: 110px;
+}
+.diagram-legend-fluid,
+.chrom-table-wrap,
+.punnett-explainer {
+  flex: 1;
+  min-width: 180px;
+}
+.diagram-legend-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin-bottom: 8px;
+}
+.dot-blue { background: #378ADD; }
+.dot-teal { background: #4E99A3; }
+.dot-amber { background: #EF9F27; }
+.dot-green { background: #97C459; }
+.blood-o-pos { width: 100%; background: #c0392b; opacity: 0.7; }
+.blood-a-pos { width: 71%; background: #e74c3c; opacity: 0.7; }
+.blood-b-pos { width: 53%; background: #e74c3c; opacity: 0.5; }
+.blood-ab-pos { width: 13%; background: #e74c3c; opacity: 0.4; }
+.blood-o-neg { width: 18%; background: #2980b9; opacity: 0.7; }
+.blood-a-neg { width: 16%; background: #2980b9; opacity: 0.6; }
+.blood-b-neg { width: 5%; background: #2980b9; opacity: 0.5; }
+.blood-ab-neg { width: 3%; background: #2980b9; opacity: 0.4; }
+.compat-control-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+  align-items: center;
+}
+.compat-control-row-spacious {
+  margin-bottom: 10px;
+}
+.compat-control-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+.compat-button-row {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.compat-result {
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 20px;
+  margin-bottom: 10px;
+  color: var(--color-text-primary);
+}
+.compat-th-label {
+  text-align: right;
+  padding-right: 6px;
+  width: 110px;
+}
+.compat-dot-compatible { background: var(--color-background-success); }
+.compat-dot-incompatible {
+  background: var(--color-background-secondary);
+  border: 0.5px solid var(--color-border-tertiary);
+}
+.compat-dot-self { background: var(--color-background-info); }
+.sense-vision { width: 95%; background: var(--color-background-info); }
+.sense-smell { width: 88%; background: var(--color-background-success); }
+.sense-hearing { width: 76%; background: var(--color-background-warning); }
+.sense-taste { width: 52%; background: var(--color-background-secondary); }
+.sense-touch { width: 38%; background: var(--color-background-secondary); }
+.text-info { color: var(--color-text-info); }
+.text-success { color: var(--color-text-success); }
+.text-warning { color: var(--color-text-warning); }
+.rt-benchmarks {
+  margin-top: 10px;
+}
+.bar-lbl {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+.bl-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.bl-row-last {
+  margin-bottom: 0;
+}
+.benchmark-label {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  width: 120px;
+  flex-shrink: 0;
+  text-align: right;
+}
+.benchmark-bar {
+  height: 16px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+}
+.benchmark-text {
+  font-size: 10px;
+  font-weight: 500;
+}
+.benchmark-elite { width: 40%; background: var(--color-background-success); }
+.benchmark-average { width: 62%; background: var(--color-background-info); }
+.benchmark-older { width: 80%; background: var(--color-background-warning); }
+.benchmark-impaired { width: 100%; background: var(--color-background-danger); }
+.text-danger { color: var(--color-text-danger); }
+.chrom-layout,
+.punnett-layout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.chrom-layout {
+  margin-bottom: 14px;
+}
+.chromosome-svg {
+  flex-shrink: 0;
+  min-width: 160px;
+}
+.chrom-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--color-border-tertiary);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 12px;
+}
+.chrom-cell {
+  padding: 7px 9px;
+}
+.chrom-head {
+  background: var(--color-background-secondary);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+.chrom-x-head {
+  background: var(--color-background-secondary);
+  font-weight: 600;
+  color: #378ADD;
+  text-align: center;
+}
+.chrom-y-head {
+  background: var(--color-background-secondary);
+  font-weight: 600;
+  color: #4E7A1A;
+  text-align: center;
+}
+.chrom-label {
+  background: var(--color-background-primary);
+  color: var(--color-text-secondary);
+}
+.chrom-value {
+  background: var(--color-background-primary);
+  text-align: center;
+  color: var(--color-text-primary);
+}
+.punnett-title {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-bottom: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.punnett-axis {
+  width: 72px;
+  text-align: right;
+  padding-right: 8px;
+}
+.punnett-axis-blue {
+  text-align: right;
+  padding-right: 8px;
+  color: #378ADD;
+}
+.punnett-x-head { color: #4E99A3; }
+.punnett-y-head { color: #97C459; }
+.punnett-sub {
+  font-size: 10px;
+  font-weight: 400;
+}
+.punnett-cell-note {
+  font-size: 10px;
+}
+.punnett-caption {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: 6px;
+}
+.punnett-copy {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+.punnett-copy-row {
+  margin-bottom: 6px;
+}
+.tl-bar-buzz { width: 3%; background: var(--tl-c1,#B5D4F4); }
+.tl-bar-buzz .tl-val { color: var(--tl-t1,#0C447C); }
+.tl-bar-ear { width: 18%; background: var(--tl-c2,#85B7EB); }
+.tl-bar-ear .tl-val { color: var(--tl-t2,#0C447C); }
+.tl-bar-chin { width: 32%; background: var(--tl-c3,#378ADD); }
+.tl-bar-chin .tl-val { color: var(--tl-t3,#fff); }
+.tl-bar-shoulder { width: 52%; background: var(--tl-c4,#185FA5); }
+.tl-bar-shoulder .tl-val { color: var(--tl-t4,#fff); }
+.tl-bar-midback { width: 78%; background: var(--tl-c5,#0C447C); }
+.tl-bar-midback .tl-val { color: var(--tl-t5,#fff); }
+.tl-bar-waist { width: 100%; background: var(--tl-c6,#042C53); }
+.tl-bar-waist .tl-val { color: var(--tl-t6,#fff); }
+
 /* --- Responsive cgrid override for 3+ cards --- */
 @media (max-width: 520px) {
   .cgrid { grid-template-columns: 1fr; }
@@ -133,9 +440,9 @@
 </head>
 <body>
   <div class="page-wrap">
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-heart-pulse" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 2: The Human Body</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-heart-pulse module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 2: The Human Body</h1>
     </div>
     <p class="module-subtitle">Hair, vital signs, bones, senses, chromosomes, and the physical body in numbers</p>
 
@@ -161,34 +468,34 @@
     </div>
 
     <!-- Hair growth timeline — theme-adaptive -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Hair growth: how long to reach each length?</div>
+    <div class="content-panel">
+      <div class="panel-title">Hair growth: how long to reach each length?</div>
 
       <div class="timeline-row">
         <span class="tl-label">Buzz cut (1 cm)</span>
-        <div class="tl-bar" style="width:3%; background: var(--tl-c1,#B5D4F4);"><span class="tl-val" style="color: var(--tl-t1,#0C447C);">~1 mo</span></div>
+        <div class="tl-bar tl-bar-buzz"><span class="tl-val">~1 mo</span></div>
       </div>
       <div class="timeline-row">
         <span class="tl-label">Ear-length (10 cm)</span>
-        <div class="tl-bar" style="width:18%; background: var(--tl-c2,#85B7EB);"><span class="tl-val" style="color: var(--tl-t2,#0C447C);">8 mo</span></div>
+        <div class="tl-bar tl-bar-ear"><span class="tl-val">8 mo</span></div>
       </div>
       <div class="timeline-row">
         <span class="tl-label">Chin-length (20 cm)</span>
-        <div class="tl-bar" style="width:32%; background: var(--tl-c3,#378ADD);"><span class="tl-val" style="color: var(--tl-t3,#fff);">16 mo</span></div>
+        <div class="tl-bar tl-bar-chin"><span class="tl-val">16 mo</span></div>
       </div>
       <div class="timeline-row">
         <span class="tl-label">Shoulder (35 cm)</span>
-        <div class="tl-bar" style="width:52%; background: var(--tl-c4,#185FA5);"><span class="tl-val" style="color: var(--tl-t4,#fff);">~2.5 yr</span></div>
+        <div class="tl-bar tl-bar-shoulder"><span class="tl-val">~2.5 yr</span></div>
       </div>
       <div class="timeline-row">
         <span class="tl-label">Mid-back (55 cm)</span>
-        <div class="tl-bar" style="width:78%; background: var(--tl-c5,#0C447C);"><span class="tl-val" style="color: var(--tl-t5,#fff);">~4 yr</span></div>
+        <div class="tl-bar tl-bar-midback"><span class="tl-val">~4 yr</span></div>
       </div>
       <div class="timeline-row">
         <span class="tl-label">Waist-length (70 cm)</span>
-        <div class="tl-bar" style="width:100%; background: var(--tl-c6,#042C53);"><span class="tl-val" style="color: var(--tl-t6,#fff);">~5 yr</span></div>
+        <div class="tl-bar tl-bar-waist"><span class="tl-val">~5 yr</span></div>
       </div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0;">Based on 1.25 cm/month average. Individual growth varies ±30%.</p>
+      <p class="panel-note">Based on 1.25 cm/month average. Individual growth varies ±30%.</p>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -231,23 +538,23 @@
     </div>
 
     <!-- Heart rate zone explorer -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;">Heart rate zones — interactive explorer</div>
-      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 12px;">Drag the slider to your age. The zones update based on the 220 − age formula (Karvonen approximation).</p>
+    <div class="content-panel">
+      <div class="panel-title panel-title-medium">Heart rate zones — interactive explorer</div>
+      <p class="panel-subtitle">Drag the slider to your age. The zones update based on the 220 − age formula (Karvonen approximation).</p>
       <div class="hr-age-row">
         <span class="hr-age-lbl">Age:</span>
-        <input type="range" id="hrAge" min="15" max="80" value="35" style="flex:1; max-width:220px;">
+        <input type="range" id="hrAge" class="heart-rate-slider" min="15" max="80" value="35">
         <span class="hr-age-val" id="hrAgeVal">35</span>
-        <span class="hr-age-lbl">Max HR: <span id="hrMax" style="font-weight:500; color:var(--color-text-primary);">185</span> bpm</span>
+        <span class="hr-age-lbl">Max HR: <span id="hrMax" class="strong-primary">185</span> bpm</span>
       </div>
       <div class="hr-zone-rows" id="hrZoneRows"></div>
-      <p style="font-size:11px; color:var(--color-text-secondary); margin:8px 0 0;">Note: 220 − age is a population average formula with ±12 bpm standard deviation. Use a chest strap for precision.</p>
+      <p class="panel-note panel-note-compact">Note: 220 − age is a population average formula with ±12 bpm standard deviation. Use a chest strap for precision.</p>
     </div>
 
     <!-- Heartbeats in a lifetime SVG infographic -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Your heart in numbers</div>
-      <svg viewBox="0 0 580 90" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+    <div class="content-panel">
+      <div class="panel-title">Your heart in numbers</div>
+      <svg class="heart-svg" viewBox="0 0 580 90" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <style>
             .hb-box { rx: 8; }
@@ -299,7 +606,7 @@
 
     <!-- Bone region explorer -->
     <div class="bone-explorer">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">Where are the 206 bones?</div>
+      <div class="panel-title">Where are the 206 bones?</div>
       <div class="bone-tabs">
         <button class="bone-tab active" onclick="showBoneRegion('skull')">Skull &amp; face</button>
         <button class="bone-tab" onclick="showBoneRegion('spine')">Spine</button>
@@ -310,17 +617,17 @@
       </div>
       <div class="bone-content" id="boneContent">
         <div class="bone-count" id="boneCount">28</div>
-        <div id="boneDetail" style="font-size:13px; color:var(--color-text-primary); line-height:1.6;"></div>
+        <div id="boneDetail" class="bone-detail"></div>
         <div class="bone-note" id="boneNote"></div>
       </div>
     </div>
 
     <!-- Body composition donut chart -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 12px;">What is your body made of? (average adult, by weight)</div>
+    <div class="content-panel">
+      <div class="panel-title panel-title-spacious">What is your body made of? (average adult, by weight)</div>
       <div class="donut-wrap">
         <!-- SVG donut chart -->
-        <svg viewBox="0 0 140 140" width="130" height="130" style="flex-shrink:0;">
+        <svg class="donut-svg" viewBox="0 0 140 140" width="130" height="130">
           <!-- Water 60% -->
           <circle cx="70" cy="70" r="50" fill="none" stroke="#378ADD" stroke-width="24"
             stroke-dasharray="188.5 125.7" stroke-dashoffset="0" transform="rotate(-90 70 70)"/>
@@ -340,38 +647,38 @@
           <text x="70" y="80" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="var(--color-text-secondary)">weight</text>
         </svg>
         <div class="donut-legend">
-          <div class="donut-leg-row"><div class="donut-leg-swatch" style="background:#378ADD;"></div><span class="donut-leg-label">Water</span><span class="donut-leg-pct">~60%</span></div>
-          <div class="donut-leg-row"><div class="donut-leg-swatch" style="background:#4E99A3;"></div><span class="donut-leg-label">Protein (muscle, organs)</span><span class="donut-leg-pct">~16%</span></div>
-          <div class="donut-leg-row"><div class="donut-leg-swatch" style="background:#EF9F27;"></div><span class="donut-leg-label">Fat (essential + storage)</span><span class="donut-leg-pct">~15%</span></div>
-          <div class="donut-leg-row"><div class="donut-leg-swatch" style="background:#97C459;"></div><span class="donut-leg-label">Minerals (bone matrix)</span><span class="donut-leg-pct">~5%</span></div>
-          <div class="donut-leg-row"><div class="donut-leg-swatch" style="background:#A8A69E;"></div><span class="donut-leg-label">Carbohydrates + other</span><span class="donut-leg-pct">~4%</span></div>
+          <div class="donut-leg-row"><div class="donut-leg-swatch donut-water"></div><span class="donut-leg-label">Water</span><span class="donut-leg-pct">~60%</span></div>
+          <div class="donut-leg-row"><div class="donut-leg-swatch donut-protein"></div><span class="donut-leg-label">Protein (muscle, organs)</span><span class="donut-leg-pct">~16%</span></div>
+          <div class="donut-leg-row"><div class="donut-leg-swatch donut-fat"></div><span class="donut-leg-label">Fat (essential + storage)</span><span class="donut-leg-pct">~15%</span></div>
+          <div class="donut-leg-row"><div class="donut-leg-swatch donut-minerals"></div><span class="donut-leg-label">Minerals (bone matrix)</span><span class="donut-leg-pct">~5%</span></div>
+          <div class="donut-leg-row"><div class="donut-leg-swatch donut-other"></div><span class="donut-leg-label">Carbohydrates + other</span><span class="donut-leg-pct">~4%</span></div>
         </div>
       </div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0;">Values for a typical lean adult male. Body fat % varies substantially: essential fat is ~3–5% (men) and ~10–13% (women); average adults carry 15–25%.</p>
+      <p class="panel-note panel-note-flush">Values for a typical lean adult male. Body fat % varies substantially: essential fat is ~3–5% (men) and ~10–13% (women); average adults carry 15–25%.</p>
     </div>
 
     <!-- Organ weights bar chart -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">How much do your organs weigh?</div>
+    <div class="content-panel">
+      <div class="panel-title">How much do your organs weigh?</div>
 
-      <div class="organ-row"><span class="organ-lbl">Skin</span><div class="bb" style="width:100%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~4–5 kg — the heaviest organ by far</span></div></div>
-      <div class="organ-row"><span class="organ-lbl">Liver</span><div class="bb" style="width:36%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~1.5 kg</span></div></div>
-      <div class="organ-row"><span class="organ-lbl">Brain</span><div class="bb" style="width:30%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~1.3–1.4 kg</span></div></div>
-      <div class="organ-row"><span class="organ-lbl">Lungs (×2)</span><div class="bb" style="width:26%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~1.0–1.2 kg</span></div></div>
-      <div class="organ-row"><span class="organ-lbl">Heart</span><div class="bb" style="width:9%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~300 g</span></div></div>
-      <div class="organ-row"><span class="organ-lbl">Kidneys (×2)</span><div class="bb" style="width:7%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~270 g</span></div></div>
-      <div class="organ-row"><span class="organ-lbl">Spleen</span><div class="bb" style="width:4%; background:var(--color-background-info);"><span class="bv" style="color:var(--color-text-info);">~150 g</span></div></div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0;">Skin is consistently the largest organ, yet rarely thought of as one. It covers ~1.5–2 m² and regenerates completely about every 2–4 weeks.</p>
+      <div class="organ-row"><span class="organ-lbl">Skin</span><div class="bb bar-info organ-skin"><span class="bv bar-info-text">~4–5 kg — the heaviest organ by far</span></div></div>
+      <div class="organ-row"><span class="organ-lbl">Liver</span><div class="bb bar-info organ-liver"><span class="bv bar-info-text">~1.5 kg</span></div></div>
+      <div class="organ-row"><span class="organ-lbl">Brain</span><div class="bb bar-info organ-brain"><span class="bv bar-info-text">~1.3–1.4 kg</span></div></div>
+      <div class="organ-row"><span class="organ-lbl">Lungs (×2)</span><div class="bb bar-info organ-lungs"><span class="bv bar-info-text">~1.0–1.2 kg</span></div></div>
+      <div class="organ-row"><span class="organ-lbl">Heart</span><div class="bb bar-info organ-heart"><span class="bv bar-info-text">~300 g</span></div></div>
+      <div class="organ-row"><span class="organ-lbl">Kidneys (×2)</span><div class="bb bar-info organ-kidneys"><span class="bv bar-info-text">~270 g</span></div></div>
+      <div class="organ-row"><span class="organ-lbl">Spleen</span><div class="bb bar-info organ-spleen"><span class="bv bar-info-text">~150 g</span></div></div>
+      <p class="panel-note">Skin is consistently the largest organ, yet rarely thought of as one. It covers ~1.5–2 m² and regenerates completely about every 2–4 weeks.</p>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
     <div class="sec">Part D · body proportions</div>
 
-    <p style="font-size:13px; color:var(--color-text-secondary); margin:0 0 0.8rem; line-height:1.6;">The body has a set of remarkably consistent proportions that have been used by artists, tailors, and doctors for centuries. These are averages — individual variation is ±5–10%.</p>
+    <p class="section-intro">The body has a set of remarkably consistent proportions that have been used by artists, tailors, and doctors for centuries. These are averages — individual variation is ±5–10%.</p>
 
     <!-- Vitruvian-style proportion diagram -->
     <div class="diagram-wrap">
-      <svg class="diagram-svg" viewBox="0 0 120 260" width="110" style="min-width:110px;">
+      <svg class="diagram-svg body-diagram-svg" viewBox="0 0 120 260" width="110">
         <!-- Body silhouette -->
         <!-- Head -->
         <ellipse cx="60" cy="22" rx="16" ry="19" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="1"/>
@@ -409,12 +716,12 @@
         <ellipse cx="84" cy="237" rx="10" ry="5" fill="var(--color-background-secondary)" stroke="var(--color-border-secondary)" stroke-width="1"/>
       </svg>
 
-      <div class="diagram-legend" style="flex:1;">
-        <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Classic proportion rules</div>
-        <div class="dleg-row"><div class="dleg-dot" style="background:#378ADD;"></div><div class="dleg-text"><span class="dleg-val">Height = 8 heads.</span> Total body height is approximately 8 times the height of the head. Artists use this as a baseline (heroic figures use 9 heads).</div></div>
-        <div class="dleg-row"><div class="dleg-dot" style="background:#4E99A3;"></div><div class="dleg-text"><span class="dleg-val">Wingspan ≈ Height.</span> Arm span from fingertip to fingertip roughly equals your total height — a fact Vitruvius noted in 25 BC.</div></div>
-        <div class="dleg-row"><div class="dleg-dot" style="background:#EF9F27;"></div><div class="dleg-text"><span class="dleg-val">Navel at midpoint.</span> The belly button sits at almost exactly the midpoint of total body height.</div></div>
-        <div class="dleg-row"><div class="dleg-dot" style="background:#97C459;"></div><div class="dleg-text"><span class="dleg-val">Foot ≈ Forearm.</span> The length of your foot is roughly equal to the length of your forearm (elbow to wrist).</div></div>
+      <div class="diagram-legend diagram-legend-fluid">
+        <div class="diagram-legend-title">Classic proportion rules</div>
+        <div class="dleg-row"><div class="dleg-dot dot-blue"></div><div class="dleg-text"><span class="dleg-val">Height = 8 heads.</span> Total body height is approximately 8 times the height of the head. Artists use this as a baseline (heroic figures use 9 heads).</div></div>
+        <div class="dleg-row"><div class="dleg-dot dot-teal"></div><div class="dleg-text"><span class="dleg-val">Wingspan ≈ Height.</span> Arm span from fingertip to fingertip roughly equals your total height — a fact Vitruvius noted in 25 BC.</div></div>
+        <div class="dleg-row"><div class="dleg-dot dot-amber"></div><div class="dleg-text"><span class="dleg-val">Navel at midpoint.</span> The belly button sits at almost exactly the midpoint of total body height.</div></div>
+        <div class="dleg-row"><div class="dleg-dot dot-green"></div><div class="dleg-text"><span class="dleg-val">Foot ≈ Forearm.</span> The length of your foot is roughly equal to the length of your forearm (elbow to wrist).</div></div>
       </div>
     </div>
 
@@ -464,72 +771,72 @@
     </div>
 
     <!-- Blood type distribution -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Blood type distribution (global average, ABO system)</div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 12px;">Frequencies vary significantly by ethnicity and geography. These are rough global averages.</p>
+    <div class="content-panel">
+      <div class="panel-title panel-title-tight">Blood type distribution (global average, ABO system)</div>
+      <p class="panel-subtitle">Frequencies vary significantly by ethnicity and geography. These are rough global averages.</p>
       <div class="blood-grid">
         <div class="blood-card">
           <div class="blood-type">O+</div>
           <div class="blood-pct">~38%</div>
-          <div class="blood-bar" style="width:100%; background:#c0392b; opacity:0.7;"></div>
+          <div class="blood-bar blood-o-pos"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">A+</div>
           <div class="blood-pct">~27%</div>
-          <div class="blood-bar" style="width:71%; background:#e74c3c; opacity:0.7;"></div>
+          <div class="blood-bar blood-a-pos"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">B+</div>
           <div class="blood-pct">~20%</div>
-          <div class="blood-bar" style="width:53%; background:#e74c3c; opacity:0.5;"></div>
+          <div class="blood-bar blood-b-pos"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">AB+</div>
           <div class="blood-pct">~5%</div>
-          <div class="blood-bar" style="width:13%; background:#e74c3c; opacity:0.4;"></div>
+          <div class="blood-bar blood-ab-pos"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">O−</div>
           <div class="blood-pct">~7%</div>
-          <div class="blood-bar" style="width:18%; background:#2980b9; opacity:0.7;"></div>
+          <div class="blood-bar blood-o-neg"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">A−</div>
           <div class="blood-pct">~6%</div>
-          <div class="blood-bar" style="width:16%; background:#2980b9; opacity:0.6;"></div>
+          <div class="blood-bar blood-a-neg"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">B−</div>
           <div class="blood-pct">~2%</div>
-          <div class="blood-bar" style="width:5%; background:#2980b9; opacity:0.5;"></div>
+          <div class="blood-bar blood-b-neg"></div>
         </div>
         <div class="blood-card">
           <div class="blood-type">AB−</div>
           <div class="blood-pct">~1%</div>
-          <div class="blood-bar" style="width:3%; background:#2980b9; opacity:0.4;"></div>
+          <div class="blood-bar blood-ab-neg"></div>
         </div>
       </div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0;">O− is the "universal donor" for red blood cells — anyone can receive it in an emergency. AB+ is the universal recipient. AB− is the rarest common type (about 1 in 100 people).</p>
+      <p class="panel-note">O− is the "universal donor" for red blood cells — anyone can receive it in an emergency. AB+ is the universal recipient. AB− is the rarest common type (about 1 in 100 people).</p>
     </div>
 
     <!-- Blood compatibility interactive matrix -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">Who can donate to whom? — interactive compatibility matrix</div>
-      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 12px;">Click a donor or recipient type to highlight. ✓ = compatible transfusion. This applies to red blood cells — plasma and platelets follow different rules.</p>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; align-items:center;">
-        <span style="font-size:12px; color:var(--color-text-secondary);">Highlight donor:</span>
-        <div id="compatDonorBtns" style="display:flex; gap:5px; flex-wrap:wrap;"></div>
+    <div class="content-panel">
+      <div class="panel-title panel-title-tight">Who can donate to whom? — interactive compatibility matrix</div>
+      <p class="panel-subtitle">Click a donor or recipient type to highlight. ✓ = compatible transfusion. This applies to red blood cells — plasma and platelets follow different rules.</p>
+      <div class="compat-control-row">
+        <span class="compat-control-label">Highlight donor:</span>
+        <div id="compatDonorBtns" class="compat-button-row"></div>
       </div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; align-items:center;">
-        <span style="font-size:12px; color:var(--color-text-secondary);">Highlight recipient:</span>
-        <div id="compatRecipBtns" style="display:flex; gap:5px; flex-wrap:wrap;"></div>
+      <div class="compat-control-row compat-control-row-spacious">
+        <span class="compat-control-label">Highlight recipient:</span>
+        <div id="compatRecipBtns" class="compat-button-row"></div>
       </div>
-      <div id="compatResult" style="font-size:13px; font-weight:500; min-height:20px; margin-bottom:10px; color:var(--color-text-primary);"></div>
+      <div id="compatResult" class="compat-result"></div>
       <div class="compat-wrap">
         <table class="compat-table" id="compatTable">
           <thead>
             <tr>
-              <th class="compat-th-corner" style="text-align:right; padding-right:6px; width:110px;">Donor ↓ · Recipient →</th>
+              <th class="compat-th-corner compat-th-label">Donor ↓ · Recipient →</th>
               <th>O−</th><th>O+</th><th>A−</th><th>A+</th><th>B−</th><th>B+</th><th>AB−</th><th>AB+</th>
             </tr>
           </thead>
@@ -537,11 +844,11 @@
         </table>
       </div>
       <div class="compat-legend">
-        <div class="compat-leg-item"><div class="compat-leg-dot" style="background:var(--color-background-success);"></div>Compatible</div>
-        <div class="compat-leg-item"><div class="compat-leg-dot" style="background:var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary);"></div>Incompatible</div>
-        <div class="compat-leg-item"><div class="compat-leg-dot" style="background:var(--color-background-info);"></div>Same type</div>
+        <div class="compat-leg-item"><div class="compat-leg-dot compat-dot-compatible"></div>Compatible</div>
+        <div class="compat-leg-item"><div class="compat-leg-dot compat-dot-incompatible"></div>Incompatible</div>
+        <div class="compat-leg-item"><div class="compat-leg-dot compat-dot-self"></div>Same type</div>
       </div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:12px 0 0;">Why does this matter? Red blood cells carry antigens — protein flags on their surface — and your plasma carries antibodies against foreign antigens. If you receive blood your immune system doesn't recognise as "self," it triggers a haemolytic transfusion reaction: the antibodies attack the donated cells, causing them to burst. This can be fatal. The ABO system and the Rhesus factor (the + / − ) are the two most clinically critical of over 30 known blood group systems.</p>
+      <p class="panel-note">Why does this matter? Red blood cells carry antigens — protein flags on their surface — and your plasma carries antibodies against foreign antigens. If you receive blood your immune system doesn't recognise as "self," it triggers a haemolytic transfusion reaction: the antibodies attack the donated cells, causing them to burst. This can be fatal. The ABO system and the Rhesus factor (the + / − ) are the two most clinically critical of over 30 known blood group systems.</p>
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -566,41 +873,41 @@
     </div>
 
     <!-- Sense comparison — detection thresholds -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px;">How sensitive are your senses? (remarkable detection limits)</div>
+    <div class="content-panel">
+      <div class="panel-title">How sensitive are your senses? (remarkable detection limits)</div>
 
       <div class="sense-row">
         <span class="sense-icon-col">👁️</span>
         <span class="sense-lbl-col">Vision</span>
-        <div class="sense-bar-col" style="width:95%; background:var(--color-background-info);"><span class="sense-val-col" style="color:var(--color-text-info);">A candle flame visible at 48 km on a clear night</span></div>
+        <div class="sense-bar-col sense-vision"><span class="sense-val-col text-info">A candle flame visible at 48 km on a clear night</span></div>
       </div>
       <div class="sense-row">
         <span class="sense-icon-col">👃</span>
         <span class="sense-lbl-col">Smell</span>
-        <div class="sense-bar-col" style="width:88%; background:var(--color-background-success);"><span class="sense-val-col" style="color:var(--color-text-success);">1 drop of perfume diffused in a 3-room apartment</span></div>
+        <div class="sense-bar-col sense-smell"><span class="sense-val-col text-success">1 drop of perfume diffused in a 3-room apartment</span></div>
       </div>
       <div class="sense-row">
         <span class="sense-icon-col">👂</span>
         <span class="sense-lbl-col">Hearing</span>
-        <div class="sense-bar-col" style="width:76%; background:var(--color-background-warning);"><span class="sense-val-col" style="color:var(--color-text-warning);">A watch ticking at 6 metres in a quiet room</span></div>
+        <div class="sense-bar-col sense-hearing"><span class="sense-val-col text-warning">A watch ticking at 6 metres in a quiet room</span></div>
       </div>
       <div class="sense-row">
         <span class="sense-icon-col">👅</span>
         <span class="sense-lbl-col">Taste</span>
-        <div class="sense-bar-col" style="width:52%; background:var(--color-background-secondary);"><span class="sense-val-col" style="color:var(--color-text-secondary);">1 tsp of sugar in 8 L of water</span></div>
+        <div class="sense-bar-col sense-taste"><span class="sense-val-col text-secondary">1 tsp of sugar in 8 L of water</span></div>
       </div>
       <div class="sense-row">
         <span class="sense-icon-col">✋</span>
         <span class="sense-lbl-col">Touch</span>
-        <div class="sense-bar-col" style="width:38%; background:var(--color-background-secondary);"><span class="sense-val-col" style="color:var(--color-text-secondary);">A bee wing falling on cheek from 1 cm</span></div>
+        <div class="sense-bar-col sense-touch"><span class="sense-val-col text-secondary">A bee wing falling on cheek from 1 cm</span></div>
       </div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:10px 0 0;">From Miller's "Plans and the Structure of Behavior" (1960) and updated sensory research. These are theoretical absolute thresholds under ideal conditions.</p>
+      <p class="panel-note">From Miller's "Plans and the Structure of Behavior" (1960) and updated sensory research. These are theoretical absolute thresholds under ideal conditions.</p>
     </div>
 
     <!-- Reaction time interactive game -->
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1rem;">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">🎮 Reaction time tester</div>
-      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 12px;">Click the button, wait for the green signal, then click as fast as you can. The average human visual reaction time is <strong style="color:var(--color-text-primary);">200–250 ms</strong>.</p>
+    <div class="content-panel">
+      <div class="panel-title panel-title-tight">🎮 Reaction time tester</div>
+      <p class="panel-subtitle">Click the button, wait for the green signal, then click as fast as you can. The average human visual reaction time is <strong class="primary-emphasis">200–250 ms</strong>.</p>
       <div class="rt-game">
         <div class="rt-screen rt-wait" id="rtScreen" onclick="handleRtClick()">
           Click here to begin
@@ -625,23 +932,23 @@
         </div>
       </div>
       <!-- Reaction time benchmarks -->
-      <div style="margin-top:10px;">
-        <div class="bar-lbl" style="display:flex; justify-content:space-between; font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;"><span>Reaction time benchmarks</span></div>
-        <div class="bl-row" style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
-          <span style="font-size:11px; color:var(--color-text-secondary); width:120px; flex-shrink:0; text-align:right;">Elite athlete</span>
-          <div style="height:16px; width:40%; background:var(--color-background-success); border-radius:3px; display:flex; align-items:center; padding:0 7px;"><span style="font-size:10px; font-weight:500; color:var(--color-text-success);">&lt;150 ms</span></div>
+      <div class="rt-benchmarks">
+        <div class="bar-lbl"><span>Reaction time benchmarks</span></div>
+        <div class="bl-row">
+          <span class="benchmark-label">Elite athlete</span>
+          <div class="benchmark-bar benchmark-elite"><span class="benchmark-text text-success">&lt;150 ms</span></div>
         </div>
-        <div class="bl-row" style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
-          <span style="font-size:11px; color:var(--color-text-secondary); width:120px; flex-shrink:0; text-align:right;">Young adult avg</span>
-          <div style="height:16px; width:62%; background:var(--color-background-info); border-radius:3px; display:flex; align-items:center; padding:0 7px;"><span style="font-size:10px; font-weight:500; color:var(--color-text-info);">200–250 ms</span></div>
+        <div class="bl-row">
+          <span class="benchmark-label">Young adult avg</span>
+          <div class="benchmark-bar benchmark-average"><span class="benchmark-text text-info">200–250 ms</span></div>
         </div>
-        <div class="bl-row" style="display:flex; align-items:center; gap:6px; margin-bottom:4px;">
-          <span style="font-size:11px; color:var(--color-text-secondary); width:120px; flex-shrink:0; text-align:right;">Older adult avg</span>
-          <div style="height:16px; width:80%; background:var(--color-background-warning); border-radius:3px; display:flex; align-items:center; padding:0 7px;"><span style="font-size:10px; font-weight:500; color:var(--color-text-warning);">300–400 ms</span></div>
+        <div class="bl-row">
+          <span class="benchmark-label">Older adult avg</span>
+          <div class="benchmark-bar benchmark-older"><span class="benchmark-text text-warning">300–400 ms</span></div>
         </div>
-        <div class="bl-row" style="display:flex; align-items:center; gap:6px;">
-          <span style="font-size:11px; color:var(--color-text-secondary); width:120px; flex-shrink:0; text-align:right;">Impaired / tired</span>
-          <div style="height:16px; width:100%; background:var(--color-background-danger); border-radius:3px; display:flex; align-items:center; padding:0 7px;"><span style="font-size:10px; font-weight:500; color:var(--color-text-danger);">&gt;500 ms — comparable to drunk driving limit effects</span></div>
+        <div class="bl-row bl-row-last">
+          <span class="benchmark-label">Impaired / tired</span>
+          <div class="benchmark-bar benchmark-impaired"><span class="benchmark-text text-danger">&gt;500 ms — comparable to drunk driving limit effects</span></div>
         </div>
       </div>
     </div>
@@ -669,12 +976,12 @@
 
     <!-- X and Y chromosome visual comparison -->
     <div class="chrom-section">
-      <div style="font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 4px;">X vs. Y — the sex chromosomes compared</div>
-      <p style="font-size: 12px; color: var(--color-text-secondary); margin: 0 0 12px;">The X and Y chromosomes are dramatically different in size and function. Everyone inherits one sex chromosome from each parent.</p>
+      <div class="panel-title panel-title-tight">X vs. Y — the sex chromosomes compared</div>
+      <p class="panel-subtitle">The X and Y chromosomes are dramatically different in size and function. Everyone inherits one sex chromosome from each parent.</p>
 
-      <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; margin-bottom:14px;">
+      <div class="chrom-layout">
         <!-- SVG showing X and Y side by side at scale -->
-        <svg viewBox="0 0 200 200" width="180" style="flex-shrink:0; min-width:160px;">
+        <svg class="chromosome-svg" viewBox="0 0 200 200" width="180">
           <!-- X chromosome (larger) -->
           <g transform="translate(40,10)">
             <!-- X arms -->
@@ -702,63 +1009,63 @@
         </svg>
 
         <!-- Comparison table -->
-        <div style="flex:1; min-width:180px;">
-          <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--color-border-tertiary); border-radius:8px; overflow:hidden; font-size:12px;">
-            <div style="background:var(--color-background-secondary); padding:7px 9px; font-weight:500; color:var(--color-text-secondary); font-size:11px;"></div>
-            <div style="background:var(--color-background-secondary); padding:7px 9px; font-weight:600; color:#378ADD; text-align:center;">X</div>
-            <div style="background:var(--color-background-secondary); padding:7px 9px; font-weight:600; color:#4E7A1A; text-align:center;">Y</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; color:var(--color-text-secondary);">Size</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">~155 Mbp</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">~57 Mbp</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; color:var(--color-text-secondary);">Genes</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">~800–900</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">~70</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; color:var(--color-text-secondary);">Present in</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">Everyone</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">Males only</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; color:var(--color-text-secondary);">Key role</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">Many functions</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">Sex &amp; sperm</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; color:var(--color-text-secondary);">Copies</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">2 (XX) or 1 (XY)</div>
-            <div style="background:var(--color-background-primary); padding:7px 9px; text-align:center; color:var(--color-text-primary);">0 or 1</div>
+        <div class="chrom-table-wrap">
+          <div class="chrom-comparison">
+            <div class="chrom-cell chrom-head"></div>
+            <div class="chrom-cell chrom-x-head">X</div>
+            <div class="chrom-cell chrom-y-head">Y</div>
+            <div class="chrom-cell chrom-label">Size</div>
+            <div class="chrom-cell chrom-value">~155 Mbp</div>
+            <div class="chrom-cell chrom-value">~57 Mbp</div>
+            <div class="chrom-cell chrom-label">Genes</div>
+            <div class="chrom-cell chrom-value">~800–900</div>
+            <div class="chrom-cell chrom-value">~70</div>
+            <div class="chrom-cell chrom-label">Present in</div>
+            <div class="chrom-cell chrom-value">Everyone</div>
+            <div class="chrom-cell chrom-value">Males only</div>
+            <div class="chrom-cell chrom-label">Key role</div>
+            <div class="chrom-cell chrom-value">Many functions</div>
+            <div class="chrom-cell chrom-value">Sex &amp; sperm</div>
+            <div class="chrom-cell chrom-label">Copies</div>
+            <div class="chrom-cell chrom-value">2 (XX) or 1 (XY)</div>
+            <div class="chrom-cell chrom-value">0 or 1</div>
           </div>
         </div>
       </div>
 
       <!-- How a baby gets its sex — Punnett square -->
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">How does a baby's biological sex get determined?</div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 10px; line-height:1.6;">Every egg cell carries exactly one X chromosome (females are XX, so all eggs get an X). Sperm cells come in two types: X-bearing or Y-bearing — each produced in roughly equal numbers. The sex of the offspring is entirely determined by which sperm fertilises the egg. The father's sperm decides; the mother's contribution is always X.</p>
+      <div class="diagram-legend-title">How does a baby's biological sex get determined?</div>
+      <p class="section-intro">Every egg cell carries exactly one X chromosome (females are XX, so all eggs get an X). Sperm cells come in two types: X-bearing or Y-bearing — each produced in roughly equal numbers. The sex of the offspring is entirely determined by which sperm fertilises the egg. The father's sperm decides; the mother's contribution is always X.</p>
 
       <!-- Punnett square -->
-      <div style="display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start;">
+      <div class="punnett-layout">
         <div>
-          <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); text-align:center; margin-bottom:6px; letter-spacing:0.04em; text-transform:uppercase;">Punnett square</div>
+          <div class="punnett-title">Punnett square</div>
           <div class="punnett-wrap">
             <table class="punnett">
               <thead>
                 <tr>
-                  <th style="width:72px; text-align:right; padding-right:8px;">Sperm →<br><span style="font-weight:400;">Egg ↓</span></th>
-                  <th style="color:#4E99A3;">X <span style="font-size:10px; font-weight:400;">(from father)</span></th>
-                  <th style="color:#97C459;">Y <span style="font-size:10px; font-weight:400;">(from father)</span></th>
+                  <th class="punnett-axis">Sperm →<br><span class="punnett-sub">Egg ↓</span></th>
+                  <th class="punnett-x-head">X <span class="punnett-sub">(from father)</span></th>
+                  <th class="punnett-y-head">Y <span class="punnett-sub">(from father)</span></th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th style="text-align:right; padding-right:8px; color:#378ADD;">X <span style="font-size:10px; font-weight:400;">(from mother)</span></th>
-                  <td class="p-xx">XX<br><span style="font-size:10px;">Female ♀</span></td>
-                  <td class="p-xy">XY<br><span style="font-size:10px;">Male ♂</span></td>
+                  <th class="punnett-axis-blue">X <span class="punnett-sub">(from mother)</span></th>
+                  <td class="p-xx">XX<br><span class="punnett-cell-note">Female ♀</span></td>
+                  <td class="p-xy">XY<br><span class="punnett-cell-note">Male ♂</span></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div style="font-size:11px; color:var(--color-text-secondary); text-align:center; margin-top:6px;">Each combination has a ~50% chance</div>
+          <div class="punnett-caption">Each combination has a ~50% chance</div>
         </div>
-        <div style="flex:1; min-width:180px;">
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.7;">
-            <div style="margin-bottom:6px;"><span style="font-weight:500; color:var(--color-text-primary);">XX → female.</span> Two X chromosomes. One X is randomly inactivated in each cell (forming a "Barr body"), so females express a mosaic of genes from both their maternal and paternal X.</div>
-            <div style="margin-bottom:6px;"><span style="font-weight:500; color:var(--color-text-primary);">XY → male.</span> The Y chromosome carries the SRY gene (Sex-determining Region Y), which triggers the embryo to develop testes at around 6–8 weeks. Without SRY, the default developmental path is female.</div>
-            <div><span style="font-weight:500; color:var(--color-text-primary);">Variation exists.</span> Some individuals are XXY (Klinefelter syndrome, ~1 in 600 males), XO (Turner syndrome), or XYY. Sex chromosome variations are among the most common chromosomal differences in humans.</div>
+        <div class="punnett-explainer">
+          <div class="punnett-copy">
+            <div class="punnett-copy-row"><span class="strong-primary">XX → female.</span> Two X chromosomes. One X is randomly inactivated in each cell (forming a "Barr body"), so females express a mosaic of genes from both their maternal and paternal X.</div>
+            <div class="punnett-copy-row"><span class="strong-primary">XY → male.</span> The Y chromosome carries the SRY gene (Sex-determining Region Y), which triggers the embryo to develop testes at around 6–8 weeks. Without SRY, the default developmental path is female.</div>
+            <div><span class="strong-primary">Variation exists.</span> Some individuals are XXY (Klinefelter syndrome, ~1 in 600 males), XO (Turner syndrome), or XYY. Sex chromosome variations are among the most common chromosomal differences in humans.</div>
           </div>
         </div>
       </div>
@@ -767,7 +1074,7 @@
     <!-- ═══════════════════════════════════════════════════ -->
     <div class="sec">Part H · anchor numbers to memorize</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1.2rem;">
+    <div class="content-panel content-panel-roomy">
       <div class="anchor-row">
         <span class="pill p-blue">100,000</span>
         <div><div class="atext">Hair strands on your head</div><div class="asub">Think: one per person in a small city</div></div>
@@ -803,7 +1110,7 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
-    <div class="sec">Part I · test yourself</div>
+    <div class="sec">Part I · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. You grow your hair 3 years without cutting. Roughly how long would it be?</p>
@@ -889,11 +1196,11 @@
 
   /* ─── Heart Rate Zone Explorer ─── */
   var hrZoneData = [
-    { name: 'Zone 1 — Rest / Recovery', pct: [0.50, 0.60], color: '#4E99A3', textColor: '#fff', label: '50–60%' },
-    { name: 'Zone 2 — Aerobic base',    pct: [0.60, 0.70], color: '#378ADD', textColor: '#fff', label: '60–70%' },
-    { name: 'Zone 3 — Aerobic',         pct: [0.70, 0.80], color: '#185FA5', textColor: '#fff', label: '70–80%' },
-    { name: 'Zone 4 — Threshold',       pct: [0.80, 0.90], color: '#EF9F27', textColor: '#fff', label: '80–90%' },
-    { name: 'Zone 5 — Max effort',      pct: [0.90, 1.00], color: '#c0392b', textColor: '#fff', label: '90–100%' }
+    { name: 'Zone 1 — Rest / Recovery', pct: [0.50, 0.60], barClass: 'hr-zone-recovery', label: '50–60%' },
+    { name: 'Zone 2 — Aerobic base',    pct: [0.60, 0.70], barClass: 'hr-zone-base', label: '60–70%' },
+    { name: 'Zone 3 — Aerobic',         pct: [0.70, 0.80], barClass: 'hr-zone-aerobic', label: '70–80%' },
+    { name: 'Zone 4 — Threshold',       pct: [0.80, 0.90], barClass: 'hr-zone-threshold', label: '80–90%' },
+    { name: 'Zone 5 — Max effort',      pct: [0.90, 1.00], barClass: 'hr-zone-max', label: '90–100%' }
   ];
 
   function renderHrZones() {
@@ -906,13 +1213,12 @@
     hrZoneData.forEach(function(z) {
       var lo = Math.round(z.pct[0] * maxHr);
       var hi = Math.round(z.pct[1] * maxHr);
-      var barPct = (z.pct[1] - z.pct[0]) / 0.5 * 80 + 20; // scale for visual variety
       var row = document.createElement('div');
       row.className = 'hr-zone-row';
       row.innerHTML =
         '<span class="hr-zone-lbl">' + z.label + '</span>' +
-        '<div class="hr-zone-bar" style="width:' + barPct + '%; background:' + z.color + ';">' +
-        '<span class="hr-zone-txt" style="color:' + z.textColor + ';">' + lo + '–' + hi + ' bpm — ' + z.name + '</span>' +
+        '<div class="hr-zone-bar hr-zone-scaled ' + z.barClass + '">' +
+        '<span class="hr-zone-txt hr-zone-light-text">' + lo + '–' + hi + ' bpm — ' + z.name + '</span>' +
         '</div>';
       container.appendChild(row);
     });

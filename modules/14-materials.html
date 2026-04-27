@@ -215,14 +215,421 @@
     .sustain-track { height: 12px; background: var(--color-background-secondary); border-radius: 3px; overflow: hidden; }
     .sustain-fill  { height: 100%; border-radius: 3px; }
     .sustain-val   { font-size: 11px; font-weight: 500; text-align: right; color: var(--color-text-secondary); }
+
+/* === Shared-ready extracted styles === */
+
+.bg-amber-500 {
+  background:#EF9F27;
+}
+
+.bg-red-700 {
+  background:#A32D2D;
+}
+
+.text-amber-700 {
+  color:#BA7517;
+}
+
+.text-amber-950 {
+  color:#412402;
+}
+
+.text-blue-900 {
+  color:#0C447C;
+}
+
+.text-green-800 {
+  color:#27500A;
+}
+
+.text-green-900 {
+  color:#085041;
+}
+
+.text-green-950 {
+  color:#04342C;
+}
+
+.text-indigo-700 {
+  color:#534AB7;
+}
+
+.text-orange-600 {
+  color:#D85A30;
+}
+
+.text-red-700 {
+  color:#A32D2D;
+}
+
+.text-teal-700 {
+  color:#1D9E75;
+}
+
+.text-white {
+  color:#fff;
+}
+
+/* === Module-specific extracted styles === */
+
+.materials-text-2 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.materials-row-2 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.materials-row-3 {
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+}
+
+.materials-span-style-2 {
+  color:#3B6D11;
+  font-weight:500;
+}
+
+.materials-span-style-3 {
+  color:#BA7517;
+  font-weight:500;
+}
+
+.materials-span-style-4 {
+  color:#185FA5;
+  font-weight:500;
+}
+
+.materials-span-style-5 {
+  color:#534AB7;
+  font-weight:500;
+}
+
+.materials-span-style-6 {
+  color:#791F1F;
+  font-weight:500;
+}
+
+.materials-span-style-7 {
+  color:#633806;
+  font-weight:500;
+}
+
+.materials-panel-2 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:8px 10px;
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+}
+
+.materials-media {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.mat-badge-style {
+  background:#EEEDFE;
+  color:#3C3489;
+}
+
+.mat-badge-style-2 {
+  background:#E6F1FB;
+  color:#0C447C;
+}
+
+.mat-badge-style-3 {
+  background:#FAEEDA;
+  color:#633806;
+}
+
+.mat-badge-style-4 {
+  background:#FCEBEB;
+  color:#791F1F;
+}
+
+.mat-badge-style-5 {
+  background:#E1F5EE;
+  color:#085041;
+}
+
+.mat-badge-style-6 {
+  background:#EAF3DE;
+  color:#27500A;
+}
+
+.materials-text-3 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+}
+
+.bb-style {
+  width:100%;
+  background:#A32D2D;
+}
+
+.bb-style-2 {
+  width:88%;
+  background:#D85A30;
+}
+
+.bb-style-3 {
+  width:55%;
+  background:#EF9F27;
+}
+
+.bb-style-4 {
+  width:30%;
+  background:#5DCAA5;
+}
+
+.bb-style-5 {
+  width:20%;
+  background:#1D9E75;
+}
+
+.bb-style-6 {
+  width:13%;
+  background:#9FE1CB;
+}
+
+.bb-style-7 {
+  width:10%;
+  background:#C0DD97;
+}
+
+.bb-style-8 {
+  width:2%;
+  background:#E6F1FB;
+  border:0.5px solid #B5D4F4;
+}
+
+.bv-style-5 {
+  color:#0C447C;
+  margin-left:4px;
+  font-size:10px;
+}
+
+.materials-text-4 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-top:10px;
+  line-height:1.5;
+}
+
+.materials-row-4 {
+  display:flex;
+  align-items:flex-start;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.radarsvg {
+  width:260px;
+  min-width:200px;
+  height:auto;
+  flex-shrink:0;
+}
+
+.radardesc {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.7;
+  flex:1;
+  min-width:160px;
+  padding-top:8px;
+}
+
+.showusecase-control {
+  font-size:12px;
+  padding:4px 12px;
+}
+
+.usecase-display {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+}
+
+.materials-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(0,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.materials-label-2 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:8px;
+}
+
+.compare-fill-style {
+  width:60%;
+  background:#D85A30;
+}
+
+.compare-fill-style-2 {
+  width:17%;
+  background:#EF9F27;
+}
+
+.compare-fill-style-3 {
+  width:13%;
+  background:#5DCAA5;
+}
+
+.compare-fill-style-4 {
+  width:9%;
+  background:#534AB7;
+}
+
+.compare-fill-style-5 {
+  width:9%;
+  background:#8884d8;
+}
+
+.compare-fill-style-6 {
+  width:7%;
+  background:#9FE1CB;
+}
+
+.compare-fill-style-7 {
+  width:1%;
+  background:#C0DD97;
+}
+
+.compare-fill-style-8 {
+  width:1%;
+  background:#E6F1FB;
+  border:0.5px solid #B5D4F4;
+}
+
+.materials-text-5 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-top:8px;
+  line-height:1.5;
+}
+
+.calcmat {
+  height:36px;
+}
+
+.materials-row-5 {
+  display:flex;
+  align-items:flex-end;
+}
+
+.calcexpansion-control {
+  height:36px;
+  width:100%;
+  font-size:13px;
+}
+
+.materials-text-6 {
+  font-size:13px;
+  color:var(--color-text-secondary);
+  line-height:1.7;
+  margin-bottom:12px;
+}
+
+.materials-media-2 {
+  width:100%;
+  height:auto;
+  display:block;
+  margin-bottom:8px;
+}
+
+.materials-text-7 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+}
+
+.sustain-fill-style {
+  width:53%;
+  background:#D85A30;
+}
+
+.sustain-fill-style-2 {
+  width:60%;
+  background:#EF9F27;
+}
+
+.materials-text-8 {
+  font-size:10px;
+  font-weight:400;
+}
+
+.sustain-fill-style-3 {
+  width:6%;
+  background:#1D9E75;
+}
+
+.sustain-fill-style-4 {
+  width:3%;
+  background:#5DCAA5;
+}
+
+.sustain-fill-style-5 {
+  width:3%;
+  background:#9FE1CB;
+}
+
+.sustain-fill-style-6 {
+  width:2%;
+  background:#C0DD97;
+}
+
+.materials-text-9 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-top:8px;
+  line-height:1.5;
+  margin-bottom:0;
+}
+
+.materials-media-3 {
+  width:140px;
+  height:140px;
+  flex-shrink:0;
+}
+
+.legend-dot-style-2 {
+  background:#1D9E75;
+}
+
+.materials-text-10 {
+  margin-top:8px;
+  font-size:11px;
+  line-height:1.5;
+}
+
+.materials-grid-2 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:12px;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-cubes" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 14: Materials</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-cubes module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 14: Materials</h1>
     </div>
     <p class="module-subtitle">Steel, concrete, wood — what things are made of and why</p>
 
@@ -232,35 +639,35 @@
     <div class="sec">Part A · the three properties that define every material</div>
 
     <div class="parta-grid">
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Strength</div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">How much force before it permanently deforms or breaks. Measured in megapascals (MPa) — force per area.</div>
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Rubber</span><span style="color:#3B6D11; font-weight:500;">~10 MPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Concrete (compression)</span><span style="color:#BA7517; font-weight:500;">~30 MPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Aluminium alloy</span><span style="color:#185FA5; font-weight:500;">~270 MPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Structural steel</span><span style="color:#534AB7; font-weight:500;">~400 MPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Carbon fibre composite</span><span style="color:#791F1F; font-weight:500;">~1,500 MPa</span></div>
+      <div class="content-card-static">
+        <div class="compact-card-title">Strength</div>
+        <div class="materials-text-2">How much force before it permanently deforms or breaks. Measured in megapascals (MPa) — force per area.</div>
+        <div class="materials-row-2">
+          <div class="materials-row-3"><span class="text-secondary">Rubber</span><span class="materials-span-style-2">~10 MPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Concrete (compression)</span><span class="materials-span-style-3">~30 MPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Aluminium alloy</span><span class="materials-span-style-4">~270 MPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Structural steel</span><span class="materials-span-style-5">~400 MPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Carbon fibre composite</span><span class="materials-span-style-6">~1,500 MPa</span></div>
         </div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Stiffness (Young's modulus)</div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">How much it resists being stretched or compressed. A stiff material bends little under load. Measured in GPa.</div>
-        <div style="display:flex; flex-direction:column; gap:4px;">
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Rubber</span><span style="color:#3B6D11; font-weight:500;">~0.01 GPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Wood (along grain)</span><span style="color:#BA7517; font-weight:500;">~10 GPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Concrete</span><span style="color:#633806; font-weight:500;">~30 GPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Aluminium</span><span style="color:#185FA5; font-weight:500;">~69 GPa</span></div>
-          <div style="display:flex; justify-content:space-between; font-size:11px;"><span style="color:var(--color-text-secondary);">Steel</span><span style="color:#534AB7; font-weight:500;">~200 GPa</span></div>
+      <div class="content-card-static">
+        <div class="compact-card-title">Stiffness (Young's modulus)</div>
+        <div class="materials-text-2">How much it resists being stretched or compressed. A stiff material bends little under load. Measured in GPa.</div>
+        <div class="materials-row-2">
+          <div class="materials-row-3"><span class="text-secondary">Rubber</span><span class="materials-span-style-2">~0.01 GPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Wood (along grain)</span><span class="materials-span-style-3">~10 GPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Concrete</span><span class="materials-span-style-7">~30 GPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Aluminium</span><span class="materials-span-style-4">~69 GPa</span></div>
+          <div class="materials-row-3"><span class="text-secondary">Steel</span><span class="materials-span-style-5">~200 GPa</span></div>
         </div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Toughness vs brittleness</div>
-        <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:8px;">Tough = absorbs energy before fracture (steel, rubber). Brittle = breaks suddenly with little warning (glass, ceramic, cast iron).</div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px; font-size:11px; color:var(--color-text-secondary); line-height:1.5;">
-          <strong style="color:var(--color-text-primary);">Key insight:</strong> High strength ≠ tough. Diamond is the hardest known natural material but extremely brittle — hit it with a hammer and it shatters. Steel is less hard but far tougher.
+      <div class="content-card-static">
+        <div class="compact-card-title">Toughness vs brittleness</div>
+        <div class="materials-text-2">Tough = absorbs energy before fracture (steel, rubber). Brittle = breaks suddenly with little warning (glass, ceramic, cast iron).</div>
+        <div class="materials-panel-2">
+          <strong class="text-primary">Key insight:</strong> High strength ≠ tough. Diamond is the hardest known natural material but extremely brittle — hit it with a hammer and it shatters. Steel is less hard but far tougher.
         </div>
       </div>
     </div>
@@ -269,7 +676,7 @@
     <div class="diagram-wrap">
       <div class="diagram-title">Stress–strain curves — what they actually look like</div>
       <div class="diagram-sub">Each curve tells the full story of a material from gentle loading to catastrophic failure.</div>
-      <svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+      <svg class="materials-media" viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg">
         <!-- Background grid -->
         <rect x="60" y="10" width="560" height="180" fill="var(--color-background-secondary)" rx="4"/>
         <!-- Grid lines -->
@@ -335,92 +742,92 @@
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Steel</span>
-        <span class="mat-badge" style="background:#EEEDFE; color:#3C3489;">backbone of civilisation</span>
+        <span class="mat-badge mat-badge-style">backbone of civilisation</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Density</p><p class="prop-val">7,850 kg/m³</p><p class="prop-note">Heavy — 7.85× denser than water</p></div>
         <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~400–800 MPa</p><p class="prop-note">Varies widely by alloy and heat treatment</p></div>
         <div class="prop"><p class="prop-label">Melting point</p><p class="prop-val">~1,370–1,540°C</p><p class="prop-note">Harder to work than aluminium, but much stronger</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why steel:</strong> Strong, tough, weldable, and cheap. Used in buildings, bridges, ships, cars, railways, appliances, and tools. The great workhorse. Downside: heavy and rusts without protection (stainless steel adds chromium to prevent this). The world produces ~1.9 billion tonnes of steel per year — more than all other metals combined.</p>
+      <p class="uses"><strong class="text-primary">Why steel:</strong> Strong, tough, weldable, and cheap. Used in buildings, bridges, ships, cars, railways, appliances, and tools. The great workhorse. Downside: heavy and rusts without protection (stainless steel adds chromium to prevent this). The world produces ~1.9 billion tonnes of steel per year — more than all other metals combined.</p>
     </div>
 
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Aluminium</span>
-        <span class="mat-badge" style="background:#E6F1FB; color:#0C447C;">the lightweight champion</span>
+        <span class="mat-badge mat-badge-style-2">the lightweight champion</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Density</p><p class="prop-val">2,700 kg/m³</p><p class="prop-note">About ⅓ the weight of steel</p></div>
         <div class="prop"><p class="prop-label">Strength-to-weight</p><p class="prop-val">~100–270 MPa</p><p class="prop-note">Weaker than steel in absolute terms, but competes well per kg</p></div>
         <div class="prop"><p class="prop-label">Key property</p><p class="prop-val">Corrosion-resistant</p><p class="prop-note">Forms a natural oxide layer — no rust</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why aluminium:</strong> Weight matters above all else — aircraft, cars, bikes, drink cans, laptops. Aluminium makes up roughly two-thirds of a classic jetliner's structural weight. Costs more than steel to produce (energy-intensive smelting) but infinitely recyclable at ~5% of the original energy cost. Pure aluminium wasn't isolated until 1825 — so rare and new that it was briefly more valuable than gold. Napoleon reportedly served honoured guests on aluminium plates while gold and silver were left for ordinary guests.</p>
+      <p class="uses"><strong class="text-primary">Why aluminium:</strong> Weight matters above all else — aircraft, cars, bikes, drink cans, laptops. Aluminium makes up roughly two-thirds of a classic jetliner's structural weight. Costs more than steel to produce (energy-intensive smelting) but infinitely recyclable at ~5% of the original energy cost. Pure aluminium wasn't isolated until 1825 — so rare and new that it was briefly more valuable than gold. Napoleon reportedly served honoured guests on aluminium plates while gold and silver were left for ordinary guests.</p>
     </div>
 
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Concrete</span>
-        <span class="mat-badge" style="background:#FAEEDA; color:#633806;">strongest in compression, weakest in tension</span>
+        <span class="mat-badge mat-badge-style-3">strongest in compression, weakest in tension</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Compressive strength</p><p class="prop-val">~25–50 MPa</p><p class="prop-note">Excellent — handles being squashed</p></div>
         <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~3–5 MPa</p><p class="prop-note">Very poor — cracks easily when pulled or bent</p></div>
         <div class="prop"><p class="prop-label">Why reinforce it?</p><p class="prop-val">Steel rebar inside</p><p class="prop-note">Steel handles tension; concrete handles compression. Together: reinforced concrete, the world's most-used building material.</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why concrete:</strong> Cheap, mouldable into any shape, fire-resistant, and superb under compression. Buildings, dams, roads, bridges. The Romans invented hydraulic concrete 2,000 years ago — their Pantheon dome, unreinforced, still stands because its shape keeps every part in pure compression. Modern reinforced concrete was pioneered in the 1850s. The world uses ~4 billion tonnes per year — more than any other manufactured material.</p>
+      <p class="uses"><strong class="text-primary">Why concrete:</strong> Cheap, mouldable into any shape, fire-resistant, and superb under compression. Buildings, dams, roads, bridges. The Romans invented hydraulic concrete 2,000 years ago — their Pantheon dome, unreinforced, still stands because its shape keeps every part in pure compression. Modern reinforced concrete was pioneered in the 1850s. The world uses ~4 billion tonnes per year — more than any other manufactured material.</p>
     </div>
 
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Carbon fibre (composite)</span>
-        <span class="mat-badge" style="background:#FCEBEB; color:#791F1F;">strongest per kg — but expensive</span>
+        <span class="mat-badge mat-badge-style-4">strongest per kg — but expensive</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Density</p><p class="prop-val">~1,600 kg/m³</p><p class="prop-note">Half the weight of aluminium; ¼ of steel</p></div>
         <div class="prop"><p class="prop-label">Tensile strength</p><p class="prop-val">~1,500–3,000 MPa</p><p class="prop-note">3–7× stronger than steel by weight</p></div>
         <div class="prop"><p class="prop-label">Cost</p><p class="prop-val">~€20–100/kg</p><p class="prop-note">vs steel at ~€0.50/kg — 40–200× more expensive</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why carbon fibre:</strong> When weight is critical and cost is secondary — F1 cars, aircraft (the Boeing 787 Dreamliner is ~50% carbon fibre by weight), high-end bikes, sports equipment, spacecraft. Cannot be welded; must be bonded with adhesives. Brittle — fails suddenly with no visible warning deformation. Not easily recyclable. The future challenge is driving cost down far enough for mass-market vehicles.</p>
+      <p class="uses"><strong class="text-primary">Why carbon fibre:</strong> When weight is critical and cost is secondary — F1 cars, aircraft (the Boeing 787 Dreamliner is ~50% carbon fibre by weight), high-end bikes, sports equipment, spacecraft. Cannot be welded; must be bonded with adhesives. Brittle — fails suddenly with no visible warning deformation. Not easily recyclable. The future challenge is driving cost down far enough for mass-market vehicles.</p>
     </div>
 
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Glass</span>
-        <span class="mat-badge" style="background:#E1F5EE; color:#085041;">amorphous solid — neither liquid nor crystal</span>
+        <span class="mat-badge mat-badge-style-5">amorphous solid — neither liquid nor crystal</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Compressive strength</p><p class="prop-val">~700–1,000 MPa</p><p class="prop-note">Stronger than steel in compression!</p></div>
         <div class="prop"><p class="prop-label">Tensile strength (practical)</p><p class="prop-val">~7 MPa</p><p class="prop-note">Surface scratches cause catastrophic failure — much weaker in practice than theory suggests.</p></div>
         <div class="prop"><p class="prop-label">Young's modulus</p><p class="prop-val">~70 GPa</p><p class="prop-note">As stiff as aluminium — but brittle</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why glass:</strong> Transparent, impermeable, chemically inert, hard. Windows, bottles, phone screens, optical fibres. Tempered glass is heated and rapidly cooled, creating surface compression that requires far more force to crack — and when it does, it shatters into small blunt pieces rather than sharp shards. Gorilla Glass (phone screens) achieves the same effect chemically through ion exchange.</p>
+      <p class="uses"><strong class="text-primary">Why glass:</strong> Transparent, impermeable, chemically inert, hard. Windows, bottles, phone screens, optical fibres. Tempered glass is heated and rapidly cooled, creating surface compression that requires far more force to crack — and when it does, it shatters into small blunt pieces rather than sharp shards. Gorilla Glass (phone screens) achieves the same effect chemically through ion exchange.</p>
     </div>
 
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Wood</span>
-        <span class="mat-badge" style="background:#FAEEDA; color:#633806;">natural composite — underrated by engineers</span>
+        <span class="mat-badge mat-badge-style-3">natural composite — underrated by engineers</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Density (oak)</p><p class="prop-val">~700 kg/m³</p><p class="prop-note">About ¼ the weight of steel</p></div>
         <div class="prop"><p class="prop-label">Tensile strength (along grain)</p><p class="prop-val">~80–120 MPa</p><p class="prop-note">Surprisingly strong — but direction-dependent (anisotropic)</p></div>
         <div class="prop"><p class="prop-label">Key quirk</p><p class="prop-val">Anisotropic</p><p class="prop-note">Up to 10× stronger along the grain than across it — entirely unlike metal</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why wood:</strong> Cheap, renewable, thermally insulating, workable with simple tools, and beautiful. Still used in construction (timber framing, CLT skyscrapers), furniture, and musical instruments. Wood is a natural composite: long cellulose fibres (strong in tension) embedded in a lignin matrix (holds shape). The same fibre-in-matrix logic as carbon fibre — just grown instead of manufactured. <strong style="color:var(--color-text-primary);">Cross-laminated timber (CLT)</strong> stacks layers at 90° to overcome the grain-direction weakness — buildings up to 18 storeys tall have been built from it.</p>
+      <p class="uses"><strong class="text-primary">Why wood:</strong> Cheap, renewable, thermally insulating, workable with simple tools, and beautiful. Still used in construction (timber framing, CLT skyscrapers), furniture, and musical instruments. Wood is a natural composite: long cellulose fibres (strong in tension) embedded in a lignin matrix (holds shape). The same fibre-in-matrix logic as carbon fibre — just grown instead of manufactured. <strong class="text-primary">Cross-laminated timber (CLT)</strong> stacks layers at 90° to overcome the grain-direction weakness — buildings up to 18 storeys tall have been built from it.</p>
     </div>
 
     <div class="mat-card">
       <div class="mat-header">
         <span class="mat-name">Polymers (plastics)</span>
-        <span class="mat-badge" style="background:#EAF3DE; color:#27500A;">the shape-shifters</span>
+        <span class="mat-badge mat-badge-style-6">the shape-shifters</span>
       </div>
       <div class="props">
         <div class="prop"><p class="prop-label">Density range</p><p class="prop-val">~900–1,400 kg/m³</p><p class="prop-note">Lighter than all metals. Some (PE, PP) float in water.</p></div>
         <div class="prop"><p class="prop-label">Strength range</p><p class="prop-val">~20–100 MPa</p><p class="prop-note">Wide range — engineering plastics (nylon, PEEK) approach aluminium</p></div>
         <div class="prop"><p class="prop-label">Key advantage</p><p class="prop-val">Mouldable + cheap</p><p class="prop-note">Injection moulding can produce millions of identical complex parts cheaply</p></div>
       </div>
-      <p class="uses"><strong style="color:var(--color-text-primary);">Why plastics:</strong> Cheap, light, corrosion-proof, electrically insulating, infinitely mouldable. Packaging, pipes, clothing, electronics, medical devices. The downside — durability that was an engineering triumph is an environmental catastrophe: most plastics persist for 400–1,000 years in the environment. The world produces ~400 million tonnes per year; approximately 91% has never been recycled (Geyer et al., 2017).</p>
+      <p class="uses"><strong class="text-primary">Why plastics:</strong> Cheap, light, corrosion-proof, electrically insulating, infinitely mouldable. Packaging, pipes, clothing, electronics, medical devices. The downside — durability that was an engineering triumph is an environmental catastrophe: most plastics persist for 400–1,000 years in the environment. The world produces ~400 million tonnes per year; approximately 91% has never been recycled (Geyer et al., 2017).</p>
     </div>
 
     <!-- =========================================================
@@ -428,25 +835,25 @@
          ========================================================= -->
     <div class="sec">Part C · strength-to-weight — the real comparison</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Specific strength (kN·m/kg) — how strong per kilogram</div>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">This is what engineers care about for vehicles and aircraft — not absolute strength, but strength per unit weight.</div>
-      <div class="bar-row"><span class="bl">Carbon fibre composite</span><div class="bb" style="width:100%; background:#A32D2D;"><span class="bv" style="color:#fff;">~938 kN·m/kg — best practical structural material</span></div></div>
-      <div class="bar-row"><span class="bl">Spider silk</span><div class="bb" style="width:88%; background:#D85A30;"><span class="bv" style="color:#fff;">~800 kN·m/kg — extraordinary</span></div></div>
-      <div class="bar-row"><span class="bl">Titanium alloy</span><div class="bb" style="width:55%; background:#EF9F27;"><span class="bv" style="color:#412402;">~500 kN·m/kg</span></div></div>
-      <div class="bar-row"><span class="bl">Aluminium alloy</span><div class="bb" style="width:30%; background:#5DCAA5;"><span class="bv" style="color:#04342C;">~290 kN·m/kg</span></div></div>
-      <div class="bar-row"><span class="bl">High-strength steel</span><div class="bb" style="width:20%; background:#1D9E75;"><span class="bv" style="color:#fff;">~180 kN·m/kg</span></div></div>
-      <div class="bar-row"><span class="bl">Structural steel</span><div class="bb" style="width:13%; background:#9FE1CB;"><span class="bv" style="color:#04342C;">~50 kN·m/kg</span></div></div>
-      <div class="bar-row"><span class="bl">Wood (oak, along grain)</span><div class="bb" style="width:10%; background:#C0DD97;"><span class="bv" style="color:#27500A;">~40 kN·m/kg</span></div></div>
-      <div class="bar-row"><span class="bl">Concrete</span><div class="bb" style="width:2%; background:#E6F1FB; border:0.5px solid #B5D4F4;"><span class="bv" style="color:#0C447C; margin-left:4px; font-size:10px;">~10 kN·m/kg</span></div></div>
-      <p style="font-size:12px; color:var(--color-text-secondary); margin-top:10px; line-height:1.5;">Spider silk rivals carbon fibre per gram — the challenge is producing it at scale. Spiders are territorial and cannibalistic, making farming impossible. Researchers are using genetically modified bacteria and silkworms to synthesise silk proteins.</p>
+    <div class="content-panel">
+      <div class="inline-card-title">Specific strength (kN·m/kg) — how strong per kilogram</div>
+      <div class="materials-text-3">This is what engineers care about for vehicles and aircraft — not absolute strength, but strength per unit weight.</div>
+      <div class="bar-row"><span class="bl">Carbon fibre composite</span><div class="bb bb-style"><span class="bv text-white">~938 kN·m/kg — best practical structural material</span></div></div>
+      <div class="bar-row"><span class="bl">Spider silk</span><div class="bb bb-style-2"><span class="bv text-white">~800 kN·m/kg — extraordinary</span></div></div>
+      <div class="bar-row"><span class="bl">Titanium alloy</span><div class="bb bb-style-3"><span class="bv text-amber-950">~500 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Aluminium alloy</span><div class="bb bb-style-4"><span class="bv text-green-950">~290 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">High-strength steel</span><div class="bb bb-style-5"><span class="bv text-white">~180 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Structural steel</span><div class="bb bb-style-6"><span class="bv text-green-950">~50 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Wood (oak, along grain)</span><div class="bb bb-style-7"><span class="bv text-green-800">~40 kN·m/kg</span></div></div>
+      <div class="bar-row"><span class="bl">Concrete</span><div class="bb bb-style-8"><span class="bv bv-style-5">~10 kN·m/kg</span></div></div>
+      <p class="materials-text-4">Spider silk rivals carbon fibre per gram — the challenge is producing it at scale. Spiders are territorial and cannibalistic, making farming impossible. Researchers are using genetically modified bacteria and silkworms to synthesise silk proteins.</p>
     </div>
 
     <!-- Material property radar diagram -->
     <div class="diagram-wrap">
       <div class="diagram-title">Material radar — five key properties at a glance</div>
       <div class="diagram-sub">Each axis scored 0–10 relative to the best material for that property. Use the buttons to compare.</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;" id="radarBtns">
+      <div class="button-row-spaced" id="radarBtns">
         <button onclick="drawRadar('steel')"    class="radar-btn" data-mat="steel">Steel</button>
         <button onclick="drawRadar('aluminium')" class="radar-btn" data-mat="aluminium">Aluminium</button>
         <button onclick="drawRadar('cfrp')"     class="radar-btn" data-mat="cfrp">Carbon fibre</button>
@@ -454,11 +861,11 @@
         <button onclick="drawRadar('wood')"     class="radar-btn" data-mat="wood">Wood</button>
         <button onclick="drawRadar('glass')"    class="radar-btn" data-mat="glass">Glass</button>
       </div>
-      <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap;">
-        <svg id="radarSvg" viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg" style="width:260px; min-width:200px; height:auto; flex-shrink:0;">
+      <div class="materials-row-4">
+        <svg class="radarsvg" id="radarSvg" viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
           <!-- drawn by JS -->
         </svg>
-        <div id="radarDesc" style="font-size:12px; color:var(--color-text-secondary); line-height:1.7; flex:1; min-width:160px; padding-top:8px;"></div>
+        <div class="radardesc" id="radarDesc"></div>
       </div>
     </div>
 
@@ -467,19 +874,19 @@
          ========================================================= -->
     <div class="sec">Part D · interactive material explorer</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">You're designing something. Which material fits?</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="showUseCase('bridge')"   style="font-size:12px; padding:4px 12px;">Bridge</button>
-        <button onclick="showUseCase('plane')"    style="font-size:12px; padding:4px 12px;">Aircraft</button>
-        <button onclick="showUseCase('phone')"    style="font-size:12px; padding:4px 12px;">Smartphone</button>
-        <button onclick="showUseCase('bottle')"   style="font-size:12px; padding:4px 12px;">Water bottle</button>
-        <button onclick="showUseCase('building')" style="font-size:12px; padding:4px 12px;">Skyscraper</button>
-        <button onclick="showUseCase('bike')"     style="font-size:12px; padding:4px 12px;">Racing bike</button>
-        <button onclick="showUseCase('pan')"      style="font-size:12px; padding:4px 12px;">Frying pan</button>
-        <button onclick="showUseCase('tyre')"     style="font-size:12px; padding:4px 12px;">Car tyre</button>
+    <div class="content-panel">
+      <div class="panel-title">You're designing something. Which material fits?</div>
+      <div class="button-row-spaced">
+        <button class="showusecase-control" onclick="showUseCase('bridge')"  >Bridge</button>
+        <button class="showusecase-control" onclick="showUseCase('plane')"   >Aircraft</button>
+        <button class="showusecase-control" onclick="showUseCase('phone')"   >Smartphone</button>
+        <button class="showusecase-control" onclick="showUseCase('bottle')"  >Water bottle</button>
+        <button class="showusecase-control" onclick="showUseCase('building')">Skyscraper</button>
+        <button class="showusecase-control" onclick="showUseCase('bike')"    >Racing bike</button>
+        <button class="showusecase-control" onclick="showUseCase('pan')"     >Frying pan</button>
+        <button class="showusecase-control" onclick="showUseCase('tyre')"    >Car tyre</button>
       </div>
-      <div id="usecase-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+      <div class="usecase-display" id="usecase-display"></div>
     </div>
 
     <!-- =========================================================
@@ -487,7 +894,7 @@
          ========================================================= -->
     <div class="sec">Part E · why things break, bend, or hold</div>
 
-    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="materials-grid">
       <div class="card">
         <p class="clabel">Why bridges sag in the middle</p>
         <p class="cval">Bending = tension below</p>
@@ -524,7 +931,7 @@
     <div class="diagram-wrap">
       <div class="diagram-title">I-beam cross-section — stress distribution</div>
       <div class="diagram-sub">Under a bending load, stress is highest at the top and bottom flanges and nearly zero at the neutral axis.</div>
-      <svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block;">
+      <svg class="materials-media" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
         <!-- I-beam shape -->
         <rect x="80"  y="40"  width="100" height="16" rx="2" fill="#534AB7" opacity="0.85"/>
         <rect x="120" y="56"  width="20"  height="88" rx="1" fill="#534AB7" opacity="0.6"/>
@@ -582,33 +989,33 @@
          ========================================================= -->
     <div class="sec">Part F · thermal expansion — materials grow when heated</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Why this matters</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6;">Every material expands when heated. Engineers must account for this in bridges (expansion joints), power lines (sag), railway tracks (buckling), and even the gaps between concrete pavement slabs. The formula is simple: <strong style="color:var(--color-text-primary);">ΔL = α × L₀ × ΔT</strong> — where α is the material's coefficient of thermal expansion (CTE).</div>
+    <div class="content-card">
+      <div class="inline-card-title">Why this matters</div>
+      <div class="muted-copy">Every material expands when heated. Engineers must account for this in bridges (expansion joints), power lines (sag), railway tracks (buckling), and even the gaps between concrete pavement slabs. The formula is simple: <strong class="text-primary">ΔL = α × L₀ × ΔT</strong> — where α is the material's coefficient of thermal expansion (CTE).</div>
     </div>
 
     <!-- CTE comparison visual -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Coefficients of thermal expansion (×10⁻⁶ per °C)</div>
-      <div class="compare-row"><span class="compare-label">PTFE (Teflon)</span><div class="compare-track"><div class="compare-fill" style="width:100%; background:#A32D2D;"></div></div><span class="compare-val" style="color:#A32D2D;">135 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">PVC plastic</span><div class="compare-track"><div class="compare-fill" style="width:60%; background:#D85A30;"></div></div><span class="compare-val" style="color:#D85A30;">80 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Aluminium</span><div class="compare-track"><div class="compare-fill" style="width:17%; background:#EF9F27;"></div></div><span class="compare-val" style="color:#BA7517;">23 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Copper</span><div class="compare-track"><div class="compare-fill" style="width:13%; background:#5DCAA5;"></div></div><span class="compare-val" style="color:#085041;">17 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Steel</span><div class="compare-track"><div class="compare-fill" style="width:9%; background:#534AB7;"></div></div><span class="compare-val" style="color:#534AB7;">12 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Concrete</span><div class="compare-track"><div class="compare-fill" style="width:9%; background:#8884d8;"></div></div><span class="compare-val" style="color:#534AB7;">10–12 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Glass (soda-lime)</span><div class="compare-track"><div class="compare-fill" style="width:7%; background:#9FE1CB;"></div></div><span class="compare-val" style="color:#085041;">9 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Carbon fibre (along fibre)</span><div class="compare-track"><div class="compare-fill" style="width:1%; background:#C0DD97;"></div></div><span class="compare-val" style="color:#27500A;">~1 ×10⁻⁶</span></div>
-      <div class="compare-row"><span class="compare-label">Invar (Fe–Ni alloy)</span><div class="compare-track"><div class="compare-fill" style="width:1%; background:#E6F1FB; border:0.5px solid #B5D4F4;"></div></div><span class="compare-val" style="color:#0C447C;">~1.5 ×10⁻⁶</span></div>
-      <p style="font-size:11px; color:var(--color-text-secondary); margin-top:8px; line-height:1.5;">Invar (iron–nickel alloy) was engineered specifically to have near-zero thermal expansion — it's used in precision instruments, laser mirrors, and telescope frames where dimensional stability matters more than almost anything else. Carbon fibre's near-zero CTE along the fibre is one of the reasons it's used in spacecraft and satellite structures exposed to extreme temperature swings.</p>
+    <div class="content-card">
+      <div class="materials-label-2">Coefficients of thermal expansion (×10⁻⁶ per °C)</div>
+      <div class="compare-row"><span class="compare-label">PTFE (Teflon)</span><div class="compare-track"><div class="compare-fill bb-style"></div></div><span class="compare-val text-red-700">135 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">PVC plastic</span><div class="compare-track"><div class="compare-fill compare-fill-style"></div></div><span class="compare-val text-orange-600">80 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Aluminium</span><div class="compare-track"><div class="compare-fill compare-fill-style-2"></div></div><span class="compare-val text-amber-700">23 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Copper</span><div class="compare-track"><div class="compare-fill compare-fill-style-3"></div></div><span class="compare-val text-green-900">17 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Steel</span><div class="compare-track"><div class="compare-fill compare-fill-style-4"></div></div><span class="compare-val text-indigo-700">12 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Concrete</span><div class="compare-track"><div class="compare-fill compare-fill-style-5"></div></div><span class="compare-val text-indigo-700">10–12 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Glass (soda-lime)</span><div class="compare-track"><div class="compare-fill compare-fill-style-6"></div></div><span class="compare-val text-green-900">9 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Carbon fibre (along fibre)</span><div class="compare-track"><div class="compare-fill compare-fill-style-7"></div></div><span class="compare-val text-green-800">~1 ×10⁻⁶</span></div>
+      <div class="compare-row"><span class="compare-label">Invar (Fe–Ni alloy)</span><div class="compare-track"><div class="compare-fill compare-fill-style-8"></div></div><span class="compare-val text-blue-900">~1.5 ×10⁻⁶</span></div>
+      <p class="materials-text-5">Invar (iron–nickel alloy) was engineered specifically to have near-zero thermal expansion — it's used in precision instruments, laser mirrors, and telescope frames where dimensional stability matters more than almost anything else. Carbon fibre's near-zero CTE along the fibre is one of the reasons it's used in spacecraft and satellite structures exposed to extreme temperature swings.</p>
     </div>
 
     <!-- Interactive calculator -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Thermal expansion calculator — ΔL = α × L₀ × ΔT</div>
+    <div class="content-panel">
+      <div class="panel-title">Thermal expansion calculator — ΔL = α × L₀ × ΔT</div>
       <div class="calc-grid">
         <div>
           <div class="calc-label">Material</div>
-          <select id="calcMat" onchange="calcExpansion()" style="height:36px;">
+          <select class="calcmat" id="calcMat" onchange="calcExpansion()">
             <option value="23">Aluminium (23 ×10⁻⁶)</option>
             <option value="12" selected>Steel (12 ×10⁻⁶)</option>
             <option value="17">Copper (17 ×10⁻⁶)</option>
@@ -621,14 +1028,14 @@
         </div>
         <div>
           <div class="calc-label">Original length (metres)</div>
-          <input type="number" id="calcLength" value="300" min="0.001" step="1" oninput="calcExpansion()" style="height:36px;">
+          <input class="calcmat" type="number" id="calcLength" value="300" min="0.001" step="1" oninput="calcExpansion()">
         </div>
         <div>
           <div class="calc-label">Temperature change (°C)</div>
-          <input type="number" id="calcDelta" value="40" step="1" oninput="calcExpansion()" style="height:36px;">
+          <input class="calcmat" type="number" id="calcDelta" value="40" step="1" oninput="calcExpansion()">
         </div>
-        <div style="display:flex; align-items:flex-end;">
-          <button onclick="calcExpansion()" style="height:36px; width:100%; font-size:13px;">Calculate</button>
+        <div class="materials-row-5">
+          <button class="calcexpansion-control" onclick="calcExpansion()">Calculate</button>
         </div>
       </div>
       <div class="calc-result">
@@ -642,13 +1049,13 @@
          ========================================================= -->
     <div class="sec">Part G · atomic bonds — why materials behave as they do</div>
 
-    <div style="font-size:13px; color:var(--color-text-secondary); line-height:1.7; margin-bottom:12px;">Everything we've discussed traces back to how atoms are held together. The type of bond determines whether a material is stiff or flexible, conducts electricity, melts at a high or low temperature, and whether it is ductile or brittle.</div>
+    <div class="materials-text-6">Everything we've discussed traces back to how atoms are held together. The type of bond determines whether a material is stiff or flexible, conducts electricity, melts at a high or low temperature, and whether it is ductile or brittle.</div>
 
     <div class="bond-grid">
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Metallic bonds</div>
+      <div class="content-card-static">
+        <div class="compact-card-title">Metallic bonds</div>
         <!-- SVG: metal bond -->
-        <svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:8px;">
+        <svg class="materials-media-2" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
           <!-- electron sea (wavy background) -->
           <rect x="0" y="10" width="140" height="40" rx="4" fill="var(--color-background-secondary)"/>
           <text x="70" y="48" text-anchor="middle" font-size="8" fill="var(--color-text-tertiary)">delocalised electron sea</text>
@@ -662,12 +1069,12 @@
           <circle cx="65" cy="36" r="3" fill="#EF9F27"/><text x="65" y="34" text-anchor="middle" font-size="7" fill="#EF9F27">e⁻</text>
           <circle cx="95" cy="20" r="3" fill="#EF9F27"/><text x="95" y="18" text-anchor="middle" font-size="7" fill="#EF9F27">e⁻</text>
         </svg>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;"><strong style="color:var(--color-text-primary);">Examples:</strong> Steel, aluminium, copper, gold<br><strong style="color:var(--color-text-primary);">Why ductile:</strong> Atoms can slide past each other while electrons move freely — the bond doesn't "snap." This is why metals can be bent without breaking.<br><strong style="color:var(--color-text-primary);">Why conduct electricity:</strong> The free electrons carry charge.</div>
+        <div class="materials-text-7"><strong class="text-primary">Examples:</strong> Steel, aluminium, copper, gold<br><strong class="text-primary">Why ductile:</strong> Atoms can slide past each other while electrons move freely — the bond doesn't "snap." This is why metals can be bent without breaking.<br><strong class="text-primary">Why conduct electricity:</strong> The free electrons carry charge.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Covalent bonds</div>
-        <svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:8px;">
+      <div class="content-card-static">
+        <div class="compact-card-title">Covalent bonds</div>
+        <svg class="materials-media-2" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="8" width="140" height="44" rx="4" fill="var(--color-background-secondary)"/>
           <!-- Diamond lattice hint: 4 atoms with shared electron pairs -->
           <circle cx="30" cy="30" r="11" fill="#085041" opacity="0.8"/><text x="30" y="34" text-anchor="middle" font-size="9" fill="#fff">C</text>
@@ -685,12 +1092,12 @@
           <circle cx="90" cy="24" r="2.5" fill="#EF9F27"/>
           <circle cx="90" cy="36" r="2.5" fill="#EF9F27"/>
         </svg>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;"><strong style="color:var(--color-text-primary);">Examples:</strong> Diamond, silicon, glass, carbon fibre<br><strong style="color:var(--color-text-primary);">Why brittle/hard:</strong> Electrons are locked between specific atom pairs. Atoms cannot slide — the bond either holds or snaps suddenly. Hence diamond's hardness and brittleness.<br><strong style="color:var(--color-text-primary);">Why insulate:</strong> No free electrons to carry charge.</div>
+        <div class="materials-text-7"><strong class="text-primary">Examples:</strong> Diamond, silicon, glass, carbon fibre<br><strong class="text-primary">Why brittle/hard:</strong> Electrons are locked between specific atom pairs. Atoms cannot slide — the bond either holds or snaps suddenly. Hence diamond's hardness and brittleness.<br><strong class="text-primary">Why insulate:</strong> No free electrons to carry charge.</div>
       </div>
 
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Ionic &amp; Van der Waals</div>
-        <svg viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto; display:block; margin-bottom:8px;">
+      <div class="content-card-static">
+        <div class="compact-card-title">Ionic &amp; Van der Waals</div>
+        <svg class="materials-media-2" viewBox="0 0 140 60" xmlns="http://www.w3.org/2000/svg">
           <rect x="0" y="8" width="140" height="44" rx="4" fill="var(--color-background-secondary)"/>
           <!-- alternating ions (like NaCl) -->
           <circle cx="25" cy="30" r="11" fill="#185FA5" opacity="0.8"/><text x="25" y="34" text-anchor="middle" font-size="9" fill="#fff">Na⁺</text>
@@ -704,7 +1111,7 @@
           <line x1="84" y1="30" x2="89" y2="30" stroke="#EF9F27" stroke-width="1.5"/>
           <line x1="107" y1="30" x2="109" y2="30" stroke="#EF9F27" stroke-width="1.5"/>
         </svg>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;"><strong style="color:var(--color-text-primary);">Ionic:</strong> Ceramics, concrete, salt. Hard and brittle — bonds are directional and strong, but slip causes charge misalignment and catastrophic fracture.<br><strong style="color:var(--color-text-primary);">Van der Waals:</strong> Polymers — weak attractive forces between polymer chains. This is why plastics are relatively soft and can be shaped by heat.</div>
+        <div class="materials-text-7"><strong class="text-primary">Ionic:</strong> Ceramics, concrete, salt. Hard and brittle — bonds are directional and strong, but slip causes charge misalignment and catastrophic fracture.<br><strong class="text-primary">Van der Waals:</strong> Polymers — weak attractive forces between polymer chains. This is why plastics are relatively soft and can be shaped by heat.</div>
       </div>
     </div>
 
@@ -713,53 +1120,53 @@
          ========================================================= -->
     <div class="sec">Part H · environmental cost — it's not just about weight</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Embodied carbon — CO₂ emitted to produce 1 kg of material</div>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">This is before the material does any work — just the extraction, processing, and manufacturing phase.</div>
+    <div class="content-card">
+      <div class="inline-card-title">Embodied carbon — CO₂ emitted to produce 1 kg of material</div>
+      <div class="materials-text-3">This is before the material does any work — just the extraction, processing, and manufacturing phase.</div>
 
       <div class="sustain-row">
         <span class="sustain-name">Carbon fibre</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:100%; background:#A32D2D;"></div></div>
-        <span class="sustain-val" style="color:#A32D2D;">~30 kg CO₂/kg</span>
+        <div class="sustain-track"><div class="sustain-fill bb-style"></div></div>
+        <span class="sustain-val text-red-700">~30 kg CO₂/kg</span>
       </div>
       <div class="sustain-row">
         <span class="sustain-name">Primary aluminium</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:53%; background:#D85A30;"></div></div>
-        <span class="sustain-val" style="color:#D85A30;">~16 kg CO₂/kg</span>
+        <div class="sustain-track"><div class="sustain-fill sustain-fill-style"></div></div>
+        <span class="sustain-val text-orange-600">~16 kg CO₂/kg</span>
       </div>
       <div class="sustain-row">
         <span class="sustain-name">Primary steel (BF-BOF)</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:60%; background:#EF9F27;"></div></div>
-        <span class="sustain-val" style="color:#BA7517;">~18 kg CO₂/kg <span style="font-size:10px; font-weight:400;">(but very cheap)</span></span>
+        <div class="sustain-track"><div class="sustain-fill sustain-fill-style-2"></div></div>
+        <span class="sustain-val text-amber-700">~18 kg CO₂/kg <span class="materials-text-8">(but very cheap)</span></span>
       </div>
       <div class="sustain-row">
         <span class="sustain-name">Recycled steel</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:6%; background:#1D9E75;"></div></div>
-        <span class="sustain-val" style="color:#1D9E75;">~1.8 kg CO₂/kg</span>
+        <div class="sustain-track"><div class="sustain-fill sustain-fill-style-3"></div></div>
+        <span class="sustain-val text-teal-700">~1.8 kg CO₂/kg</span>
       </div>
       <div class="sustain-row">
         <span class="sustain-name">Recycled aluminium</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:3%; background:#5DCAA5;"></div></div>
-        <span class="sustain-val" style="color:#085041;">~0.8 kg CO₂/kg</span>
+        <div class="sustain-track"><div class="sustain-fill sustain-fill-style-4"></div></div>
+        <span class="sustain-val text-green-900">~0.8 kg CO₂/kg</span>
       </div>
       <div class="sustain-row">
         <span class="sustain-name">Concrete</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:3%; background:#9FE1CB;"></div></div>
-        <span class="sustain-val" style="color:#085041;">~0.8 kg CO₂/kg</span>
+        <div class="sustain-track"><div class="sustain-fill sustain-fill-style-5"></div></div>
+        <span class="sustain-val text-green-900">~0.8 kg CO₂/kg</span>
       </div>
       <div class="sustain-row">
         <span class="sustain-name">Structural timber</span>
-        <div class="sustain-track"><div class="sustain-fill" style="width:2%; background:#C0DD97;"></div></div>
-        <span class="sustain-val" style="color:#27500A;">~0.3 kg CO₂/kg</span>
+        <div class="sustain-track"><div class="sustain-fill sustain-fill-style-6"></div></div>
+        <span class="sustain-val text-green-800">~0.3 kg CO₂/kg</span>
       </div>
-      <p style="font-size:11px; color:var(--color-text-secondary); margin-top:8px; line-height:1.5; margin-bottom:0;"><strong style="color:var(--color-text-primary);">Important nuance:</strong> Timber is often carbon-negative when accounting for the CO₂ stored in the wood. Concrete is cheap per kg but the world uses so much (~4 billion tonnes/year) that it accounts for ~8% of global CO₂ emissions — more than aviation. Recycling makes an enormous difference: recycled aluminium costs only ~5% of the energy of primary production.</p>
+      <p class="materials-text-9"><strong class="text-primary">Important nuance:</strong> Timber is often carbon-negative when accounting for the CO₂ stored in the wood. Concrete is cheap per kg but the world uses so much (~4 billion tonnes/year) that it accounts for ~8% of global CO₂ emissions — more than aviation. Recycling makes an enormous difference: recycled aluminium costs only ~5% of the energy of primary production.</p>
     </div>
 
     <!-- Plastic recycling donut -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">What happens to plastic ever produced (Geyer et al., 2017)</div>
+    <div class="content-panel">
+      <div class="panel-title">What happens to plastic ever produced (Geyer et al., 2017)</div>
       <div class="donut-wrap">
-        <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" style="width:140px; height:140px; flex-shrink:0;">
+        <svg class="materials-media-3" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
           <!-- Donut chart: 91% never recycled, 6% recycled, 3% other -->
           <!-- Total circle, draw arcs -->
           <!-- 91% landfill/environment: 327.6° from 0° -->
@@ -774,10 +1181,10 @@
           <text x="80" y="90" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">never recycled</text>
         </svg>
         <div class="donut-legend">
-          <div><span class="legend-dot" style="background:#A32D2D;"></span> <strong>91%</strong> — landfill, environment, or still in use</div>
-          <div><span class="legend-dot" style="background:#1D9E75;"></span> <strong>6%</strong> — recycled (often only once)</div>
-          <div><span class="legend-dot" style="background:#EF9F27;"></span> <strong>3%</strong> — incinerated</div>
-          <div style="margin-top:8px; font-size:11px; line-height:1.5;">Of all plastic ever produced as of 2015 (~8.3 billion tonnes), only ~9% had been recycled. The fraction has not improved dramatically since. The main barrier is not technology — it's economics: virgin plastic is often cheaper than recycled plastic.</div>
+          <div><span class="legend-dot bg-red-700"></span> <strong>91%</strong> — landfill, environment, or still in use</div>
+          <div><span class="legend-dot legend-dot-style-2"></span> <strong>6%</strong> — recycled (often only once)</div>
+          <div><span class="legend-dot bg-amber-500"></span> <strong>3%</strong> — incinerated</div>
+          <div class="materials-text-10">Of all plastic ever produced as of 2015 (~8.3 billion tonnes), only ~9% had been recycled. The fraction has not improved dramatically since. The main barrier is not technology — it's economics: virgin plastic is often cheaper than recycled plastic.</div>
         </div>
       </div>
     </div>
@@ -787,12 +1194,12 @@
          ========================================================= -->
     <div class="sec">Part I · side-by-side material comparator</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Compare two materials head-to-head</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:12px;">
+    <div class="content-panel">
+      <div class="panel-title">Compare two materials head-to-head</div>
+      <div class="materials-grid-2">
         <div>
           <div class="calc-label">Material A</div>
-          <select id="matA" onchange="updateComparator()" style="height:36px;">
+          <select class="calcmat" id="matA" onchange="updateComparator()">
             <option value="steel">Steel (structural)</option>
             <option value="aluminium" selected>Aluminium alloy</option>
             <option value="cfrp">Carbon fibre composite</option>
@@ -804,7 +1211,7 @@
         </div>
         <div>
           <div class="calc-label">Material B</div>
-          <select id="matB" onchange="updateComparator()" style="height:36px;">
+          <select class="calcmat" id="matB" onchange="updateComparator()">
             <option value="steel" selected>Steel (structural)</option>
             <option value="aluminium">Aluminium alloy</option>
             <option value="cfrp">Carbon fibre composite</option>
@@ -821,7 +1228,7 @@
     <!-- =========================================================
          PART J — Test yourself
          ========================================================= -->
-    <div class="sec">Part J · test yourself</div>
+    <div class="sec">Part J · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. A marketing claim says a phone case is "military-grade aluminium." What does that actually mean?</p>

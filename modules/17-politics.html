@@ -59,14 +59,629 @@
 /* Bias meter */
 .bias-track { height: 12px; border-radius: 6px; background: linear-gradient(to right, #378ADD, #888780, #E24B4A); position: relative; margin: 6px 0 2px; }
 .bias-thumb { width: 16px; height: 16px; border-radius: 50%; background: var(--color-background-primary); border: 2px solid var(--color-text-primary); position: absolute; top: -2px; transform: translateX(-50%); transition: left 0.25s ease; }
+
+/* === Shared-ready extracted styles === */
+
+.bg-green-800 {
+  background:#27500A;
+}
+
+.bg-red-700 {
+  background:#A32D2D;
+}
+
+/* === Module-specific extracted styles === */
+
+.politics-panel {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.politics-panel-2 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:12px 14px;
+  border:0.5px solid #85B7EB;
+}
+
+.politics-label {
+  font-size:12px;
+  font-weight:500;
+  color:#0C447C;
+  margin-bottom:6px;
+}
+
+.politics-text {
+  font-size:12px;
+  color:#0C447C;
+  line-height:1.7;
+}
+
+.politics-panel-3 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:12px 14px;
+  border:0.5px solid #F09595;
+}
+
+.politics-label-2 {
+  font-size:12px;
+  font-weight:500;
+  color:#791F1F;
+  margin-bottom:6px;
+}
+
+.politics-text-2 {
+  font-size:12px;
+  color:#791F1F;
+  line-height:1.7;
+}
+
+.politics-panel-4 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-top:10px;
+}
+
+.politics-text-3 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:12px;
+}
+
+.politics-media {
+  width:100%;
+  max-width:320px;
+  height:auto;
+}
+
+.politics-panel-5 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #F09595;
+}
+
+.politics-label-4 {
+  font-size:12px;
+  font-weight:500;
+  color:#791F1F;
+  margin-bottom:4px;
+}
+
+.politics-text-4 {
+  font-size:12px;
+  color:#791F1F;
+  line-height:1.5;
+}
+
+.politics-panel-6 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #85B7EB;
+}
+
+.politics-label-5 {
+  font-size:12px;
+  font-weight:500;
+  color:#0C447C;
+  margin-bottom:4px;
+}
+
+.politics-text-5 {
+  font-size:12px;
+  color:#0C447C;
+  line-height:1.5;
+}
+
+.politics-panel-7 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #EF9F27;
+}
+
+.politics-label-6 {
+  font-size:12px;
+  font-weight:500;
+  color:#633806;
+  margin-bottom:4px;
+}
+
+.politics-text-6 {
+  font-size:12px;
+  color:#633806;
+  line-height:1.5;
+}
+
+.politics-panel-8 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  border:0.5px solid #97C459;
+}
+
+.politics-label-7 {
+  font-size:12px;
+  font-weight:500;
+  color:#27500A;
+  margin-bottom:4px;
+}
+
+.politics-text-7 {
+  font-size:12px;
+  color:#27500A;
+  line-height:1.5;
+}
+
+.politics-row {
+  display:flex;
+  gap:0;
+  margin-bottom:1rem;
+  border-radius:var(--border-radius-lg);
+  overflow:hidden;
+  border:0.5px solid var(--color-border-tertiary);
+}
+
+.politics-card {
+  flex:1;
+  padding:10px 8px;
+  background:#A32D2D;
+  text-align:center;
+}
+
+.politics-label-8 {
+  font-size:11px;
+  font-weight:500;
+  color:#FCEBEB;
+}
+
+.politics-text-8 {
+  font-size:10px;
+  color:#F7C1C1;
+  margin-top:3px;
+  line-height:1.4;
+}
+
+.politics-card-2 {
+  flex:1;
+  padding:10px 8px;
+  background:#D85A30;
+  text-align:center;
+}
+
+.politics-label-9 {
+  font-size:11px;
+  font-weight:500;
+  color:#fff;
+}
+
+.politics-text-9 {
+  font-size:10px;
+  color:#FAECE7;
+  margin-top:3px;
+  line-height:1.4;
+}
+
+.politics-card-3 {
+  flex:1;
+  padding:10px 8px;
+  background:#378ADD;
+  text-align:center;
+}
+
+.politics-text-10 {
+  font-size:10px;
+  color:#E6F1FB;
+  margin-top:3px;
+  line-height:1.4;
+}
+
+.politics-card-4 {
+  flex:1;
+  padding:10px 8px;
+  background:#888780;
+  text-align:center;
+}
+
+.politics-text-11 {
+  font-size:10px;
+  color:#F1EFE8;
+  margin-top:3px;
+  line-height:1.4;
+}
+
+.politics-card-5 {
+  flex:1;
+  padding:10px 8px;
+  background:#BA7517;
+  text-align:center;
+}
+
+.politics-text-12 {
+  font-size:10px;
+  color:#FAEEDA;
+  margin-top:3px;
+  line-height:1.4;
+}
+
+.politics-card-6 {
+  flex:1;
+  padding:10px 8px;
+  background:#993C1D;
+  text-align:center;
+}
+
+.politics-card-7 {
+  flex:1;
+  padding:10px 8px;
+  background:#501313;
+  text-align:center;
+}
+
+.showideology-control {
+  font-size:12px;
+  padding:3px 10px;
+}
+
+.ideology-display {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:1rem;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.gbadge-style {
+  background:#E6F1FB;
+  color:#0C447C;
+}
+
+.gbadge-style-2 {
+  background:#EAF3DE;
+  color:#27500A;
+}
+
+.gbadge-style-3 {
+  background:#FAEEDA;
+  color:#633806;
+}
+
+.gbadge-style-4 {
+  background:#FCEBEB;
+  color:#791F1F;
+}
+
+.gbadge-style-5 {
+  background:#EEEDFE;
+  color:#3C3489;
+}
+
+.politics-media-2 {
+  min-width:80px;
+}
+
+.p-teal-style {
+  font-size:10px;
+  padding:1px 7px;
+}
+
+.dem-score-bar-style {
+  width:98%;
+  background:#085041;
+}
+
+.dem-score-bar-style-2 {
+  width:94%;
+  background:#085041;
+}
+
+.dem-score-bar-style-3 {
+  width:88%;
+  background:#085041;
+}
+
+.dem-score-bar-style-4 {
+  width:78%;
+  background:#185FA5;
+}
+
+.dem-score-bar-style-5 {
+  width:80%;
+  background:#185FA5;
+}
+
+.dem-score-bar-style-6 {
+  width:72%;
+  background:#185FA5;
+}
+
+.dem-score-bar-style-7 {
+  width:66%;
+  background:#BA7517;
+}
+
+.dem-score-bar-style-8 {
+  width:44%;
+  background:#BA7517;
+}
+
+.dem-score-bar-style-9 {
+  width:22%;
+  background:#791F1F;
+}
+
+.dem-score-bar-style-10 {
+  width:19%;
+  background:#791F1F;
+}
+
+.dem-score-bar-style-11 {
+  width:11%;
+  background:#791F1F;
+}
+
+.politics-text-13 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:8px;
+}
+
+.politics-row-2 {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:8px;
+  flex-wrap:wrap;
+}
+
+.politics-text-14 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  min-width:130px;
+}
+
+.pa-votes {
+  flex:1;
+  min-width:100px;
+}
+
+.pa-out {
+  font-size:13px;
+  font-weight:500;
+  min-width:40px;
+  text-align:right;
+  color:#185FA5;
+}
+
+.pb-out {
+  font-size:13px;
+  font-weight:500;
+  min-width:40px;
+  text-align:right;
+  color:#A32D2D;
+}
+
+.politics-row-3 {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+  flex-wrap:wrap;
+}
+
+.pc-fixed {
+  font-size:12px;
+  color:var(--color-text-tertiary);
+  flex:1;
+}
+
+.pc-out {
+  font-size:13px;
+  font-weight:500;
+  min-width:40px;
+  text-align:right;
+  color:#27500A;
+}
+
+.election-results {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+}
+
+.dem-table-style {
+  min-width:480px;
+}
+
+.politics-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.framing-display {
+  font-size:12px;
+  line-height:1.7;
+}
+
+.power-diagram {
+  font-size:12px;
+  color:var(--color-text-primary);
+  line-height:1.7;
+}
+
+.politics-text-15 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:12px;
+  line-height:1.6;
+}
+
+.politics-text-16 {
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--color-text-tertiary);
+  margin-bottom:8px;
+}
+
+.tl-dot-style {
+  background:#BA7517;
+}
+
+.tl-dot-style-2 {
+  background:#993C1D;
+}
+
+.tl-dot-style-4 {
+  background:#791F1F;
+}
+
+.tl-dot-style-5 {
+  background:#501313;
+}
+
+.tl-body-style {
+  padding-bottom:0;
+}
+
+.politics-panel-9 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.politics-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(160px, 1fr));
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.politics-panel-10 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-md);
+  padding:12px 13px;
+  border:0.5px solid #F09595;
+}
+
+.politics-text-17 {
+  font-size:12px;
+  font-weight:600;
+  color:#791F1F;
+  margin-bottom:5px;
+}
+
+.politics-text-18 {
+  font-size:12px;
+  color:#791F1F;
+  line-height:1.6;
+}
+
+.politics-panel-11 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-md);
+  padding:12px 13px;
+  border:0.5px solid #EF9F27;
+}
+
+.politics-text-19 {
+  font-size:12px;
+  font-weight:600;
+  color:#633806;
+  margin-bottom:5px;
+}
+
+.politics-text-20 {
+  font-size:12px;
+  color:#633806;
+  line-height:1.6;
+}
+
+.politics-panel-12 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-md);
+  padding:12px 13px;
+  border:0.5px solid #97C459;
+}
+
+.politics-text-21 {
+  font-size:12px;
+  font-weight:600;
+  color:#27500A;
+  margin-bottom:5px;
+}
+
+.politics-text-22 {
+  font-size:12px;
+  color:#27500A;
+  line-height:1.6;
+}
+
+.politics-text-23 {
+  font-size:11px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.05em;
+  color:var(--color-text-tertiary);
+  margin-bottom:8px;
+}
+
+.politics-media-3 {
+  width:100%;
+  height:auto;
+}
+
+.politics-text-24 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:4px;
+}
+
+.politics-text-25 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:14px;
+  line-height:1.6;
+}
+
+.tl-dot-style-6 {
+  background:#378ADD;
+}
+
+.tl-dot-style-7 {
+  background:#085041;
+}
+
+.tl-dot-style-9 {
+  background:#633806;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-building-columns" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 17: Politics</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-building-columns module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 17: Politics</h1>
     </div>
     <p class="module-subtitle">Government systems, institutions, power, and how to read political language</p>
 
@@ -75,15 +690,15 @@
          ============================================================ -->
     <div class="sec">Part A · left vs right — what it actually means</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The origin: where left and right come from</div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">
-        The terms come from the 1789 French National Assembly. Those who supported the king sat on his right; those who wanted change sat on his left. The spatial metaphor stuck. Today the meanings have evolved, but the core tension remains: <strong style="color:var(--color-text-primary);">left broadly favours collective action and reducing inequality; right broadly favours individual liberty and market-based solutions</strong>.
+    <div class="content-panel">
+      <div class="panel-title-spaced">The origin: where left and right come from</div>
+      <div class="politics-panel">
+        The terms come from the 1789 French National Assembly. Those who supported the king sat on his right; those who wanted change sat on his left. The spatial metaphor stuck. Today the meanings have evolved, but the core tension remains: <strong class="text-primary">left broadly favours collective action and reducing inequality; right broadly favours individual liberty and market-based solutions</strong>.
       </div>
       <div class="two-col">
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:12px 14px; border:0.5px solid #85B7EB;">
-          <div style="font-size:12px; font-weight:500; color:#0C447C; margin-bottom:6px;">Left — key tendencies</div>
-          <div style="font-size:12px; color:#0C447C; line-height:1.7;">
+        <div class="politics-panel-2">
+          <div class="politics-label">Left — key tendencies</div>
+          <div class="politics-text">
             — Government has a role in reducing inequality<br>
             — Public healthcare, education, social safety nets<br>
             — Progressive taxation (higher earners pay more)<br>
@@ -93,9 +708,9 @@
             — More open immigration
           </div>
         </div>
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:12px 14px; border:0.5px solid #F09595;">
-          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:6px;">Right — key tendencies</div>
-          <div style="font-size:12px; color:#791F1F; line-height:1.7;">
+        <div class="politics-panel-3">
+          <div class="politics-label-2">Right — key tendencies</div>
+          <div class="politics-text-2">
             — Individual responsibility over collective provision<br>
             — Lower taxes, smaller government<br>
             — Free markets and private enterprise<br>
@@ -106,8 +721,8 @@
           </div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-top:10px;">
-        <strong style="color:var(--color-text-primary);">Important:</strong> These are tendencies, not rigid rules. Most real parties and people mix elements of both. "Left" and "right" mean different things in different countries — a moderate right-wing party in Sweden might be to the left of a moderate Democrat in the USA on healthcare. The labels are useful shorthand but always relative to a specific national context.
+      <div class="politics-panel-4">
+        <strong class="text-primary">Important:</strong> These are tendencies, not rigid rules. Most real parties and people mix elements of both. "Left" and "right" mean different things in different countries — a moderate right-wing party in Sweden might be to the left of a moderate Democrat in the USA on healthcare. The labels are useful shorthand but always relative to a specific national context.
       </div>
     </div>
 
@@ -116,13 +731,13 @@
          ============================================================ -->
     <div class="sec">Part B · the 2D political compass — beyond left and right</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">One axis is not enough</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">The left-right axis describes economics. A second axis — authoritarian vs libertarian — describes social freedom. These two axes are largely independent.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">One axis is not enough</div>
+      <div class="politics-text-3">The left-right axis describes economics. A second axis — authoritarian vs libertarian — describes social freedom. These two axes are largely independent.</div>
 
       <!-- SVG compass diagram -->
       <div class="compass-wrap">
-        <svg viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:320px; height:auto;">
+        <svg class="politics-media" viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
           <!-- Quadrant backgrounds -->
           <rect x="20" y="20" width="130" height="120" rx="4" fill="#FCEBEB" opacity="0.7"/>
           <rect x="170" y="20" width="130" height="120" rx="4" fill="#E6F1FB" opacity="0.7"/>
@@ -164,26 +779,26 @@
       </div>
 
       <div class="two-col">
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #F09595;">
-          <div style="font-size:12px; font-weight:500; color:#791F1F; margin-bottom:4px;">Authoritarian left</div>
-          <div style="font-size:12px; color:#791F1F; line-height:1.5;">State-controlled economy + strong state control of society. Soviet communism, Maoist China, Cuba. Markets suppressed; state directs both economy and personal behaviour.</div>
+        <div class="politics-panel-5">
+          <div class="politics-label-4">Authoritarian left</div>
+          <div class="politics-text-4">State-controlled economy + strong state control of society. Soviet communism, Maoist China, Cuba. Markets suppressed; state directs both economy and personal behaviour.</div>
         </div>
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #85B7EB;">
-          <div style="font-size:12px; font-weight:500; color:#0C447C; margin-bottom:4px;">Authoritarian right</div>
-          <div style="font-size:12px; color:#0C447C; line-height:1.5;">Markets + strong state control of society. Traditional values, strong borders, nationalism. Examples: Franco's Spain, 1930s–40s fascism, some modern nationalist governments.</div>
+        <div class="politics-panel-6">
+          <div class="politics-label-5">Authoritarian right</div>
+          <div class="politics-text-5">Markets + strong state control of society. Traditional values, strong borders, nationalism. Examples: Franco's Spain, 1930s–40s fascism, some modern nationalist governments.</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #EF9F27;">
-          <div style="font-size:12px; font-weight:500; color:#633806; margin-bottom:4px;">Libertarian left</div>
-          <div style="font-size:12px; color:#633806; line-height:1.5;">State manages economy to reduce inequality + personal freedom. Social democracy (Nordic countries), green politics, democratic socialism. Government provides security but doesn't control private behaviour.</div>
+        <div class="politics-panel-7">
+          <div class="politics-label-6">Libertarian left</div>
+          <div class="politics-text-6">State manages economy to reduce inequality + personal freedom. Social democracy (Nordic countries), green politics, democratic socialism. Government provides security but doesn't control private behaviour.</div>
         </div>
-        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:10px 12px; border:0.5px solid #97C459;">
-          <div style="font-size:12px; font-weight:500; color:#27500A; margin-bottom:4px;">Libertarian right</div>
-          <div style="font-size:12px; color:#27500A; line-height:1.5;">Free markets + personal freedom. Minimal government in both economy and private life. Classical liberalism, libertarianism, Thatcherism at its ideological core.</div>
+        <div class="politics-panel-8">
+          <div class="politics-label-7">Libertarian right</div>
+          <div class="politics-text-7">Free markets + personal freedom. Minimal government in both economy and private life. Classical liberalism, libertarianism, Thatcherism at its ideological core.</div>
         </div>
       </div>
 
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-top:10px;">
-        <strong style="color:var(--color-text-primary);">Why this matters:</strong> Someone can be economically right (low taxes, free markets) but socially libertarian (pro-drug legalisation, pro-LGBTQ+ rights). Or economically left (redistribution, universal healthcare) but socially conservative (traditional family values, strict immigration). The 1D left-right line can't describe this — the 2D compass can. Most voters don't fit neatly in one corner.
+      <div class="politics-panel-4">
+        <strong class="text-primary">Why this matters:</strong> Someone can be economically right (low taxes, free markets) but socially libertarian (pro-drug legalisation, pro-LGBTQ+ rights). Or economically left (redistribution, universal healthcare) but socially conservative (traditional family values, strict immigration). The 1D left-right line can't describe this — the 2D compass can. Most voters don't fit neatly in one corner.
       </div>
     </div>
 
@@ -192,48 +807,48 @@
          ============================================================ -->
     <div class="sec">Part C · the shades in between — political ideology spectrum</div>
 
-    <div style="display:flex; gap:0; margin-bottom:1rem; border-radius:var(--border-radius-lg); overflow:hidden; border:0.5px solid var(--color-border-tertiary);">
-      <div style="flex:1; padding:10px 8px; background:#A32D2D; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#FCEBEB;">Far left</div>
-        <div style="font-size:10px; color:#F7C1C1; margin-top:3px; line-height:1.4;">Communism, anarchism</div>
+    <div class="politics-row">
+      <div class="politics-card">
+        <div class="politics-label-8">Far left</div>
+        <div class="politics-text-8">Communism, anarchism</div>
       </div>
-      <div style="flex:1; padding:10px 8px; background:#D85A30; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#fff;">Hard left</div>
-        <div style="font-size:10px; color:#FAECE7; margin-top:3px; line-height:1.4;">Socialism, Marxism</div>
+      <div class="politics-card-2">
+        <div class="politics-label-9">Hard left</div>
+        <div class="politics-text-9">Socialism, Marxism</div>
       </div>
-      <div style="flex:1; padding:10px 8px; background:#378ADD; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#fff;">Centre-left</div>
-        <div style="font-size:10px; color:#E6F1FB; margin-top:3px; line-height:1.4;">Social democracy</div>
+      <div class="politics-card-3">
+        <div class="politics-label-9">Centre-left</div>
+        <div class="politics-text-10">Social democracy</div>
       </div>
-      <div style="flex:1; padding:10px 8px; background:#888780; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#fff;">Centre</div>
-        <div style="font-size:10px; color:#F1EFE8; margin-top:3px; line-height:1.4;">Liberal, centrist</div>
+      <div class="politics-card-4">
+        <div class="politics-label-9">Centre</div>
+        <div class="politics-text-11">Liberal, centrist</div>
       </div>
-      <div style="flex:1; padding:10px 8px; background:#BA7517; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#fff;">Centre-right</div>
-        <div style="font-size:10px; color:#FAEEDA; margin-top:3px; line-height:1.4;">Conservative, Christian democracy</div>
+      <div class="politics-card-5">
+        <div class="politics-label-9">Centre-right</div>
+        <div class="politics-text-12">Conservative, Christian democracy</div>
       </div>
-      <div style="flex:1; padding:10px 8px; background:#993C1D; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#fff;">Hard right</div>
-        <div style="font-size:10px; color:#FAECE7; margin-top:3px; line-height:1.4;">Nationalism, populism</div>
+      <div class="politics-card-6">
+        <div class="politics-label-9">Hard right</div>
+        <div class="politics-text-9">Nationalism, populism</div>
       </div>
-      <div style="flex:1; padding:10px 8px; background:#501313; text-align:center;">
-        <div style="font-size:11px; font-weight:500; color:#FCEBEB;">Far right</div>
-        <div style="font-size:10px; color:#F7C1C1; margin-top:3px; line-height:1.4;">Fascism, ultranationalism</div>
+      <div class="politics-card-7">
+        <div class="politics-label-8">Far right</div>
+        <div class="politics-text-8">Fascism, ultranationalism</div>
       </div>
     </div>
 
-    <div id="ideology-btns" style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showIdeology('socialdem')"    style="font-size:12px; padding:3px 10px;">Social democracy</button>
-      <button onclick="showIdeology('liberalism')"   style="font-size:12px; padding:3px 10px;">Liberalism</button>
-      <button onclick="showIdeology('conservatism')" style="font-size:12px; padding:3px 10px;">Conservatism</button>
-      <button onclick="showIdeology('nationalism')"  style="font-size:12px; padding:3px 10px;">Nationalism/populism</button>
-      <button onclick="showIdeology('socialism')"    style="font-size:12px; padding:3px 10px;">Socialism</button>
-      <button onclick="showIdeology('communism')"    style="font-size:12px; padding:3px 10px;">Communism</button>
-      <button onclick="showIdeology('fascism')"      style="font-size:12px; padding:3px 10px;">Fascism</button>
-      <button onclick="showIdeology('greens')"       style="font-size:12px; padding:3px 10px;">Green politics</button>
+    <div class="button-row" id="button-row">
+      <button class="showideology-control" onclick="showIdeology('socialdem')"   >Social democracy</button>
+      <button class="showideology-control" onclick="showIdeology('liberalism')"  >Liberalism</button>
+      <button class="showideology-control" onclick="showIdeology('conservatism')">Conservatism</button>
+      <button class="showideology-control" onclick="showIdeology('nationalism')" >Nationalism/populism</button>
+      <button class="showideology-control" onclick="showIdeology('socialism')"   >Socialism</button>
+      <button class="showideology-control" onclick="showIdeology('communism')"   >Communism</button>
+      <button class="showideology-control" onclick="showIdeology('fascism')"     >Fascism</button>
+      <button class="showideology-control" onclick="showIdeology('greens')"      >Green politics</button>
     </div>
-    <div id="ideology-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem; font-size:13px; line-height:1.8;"></div>
+    <div class="ideology-display" id="ideology-display"></div>
 
     <!-- ============================================================
          PART D — TYPES OF GOVERNMENT
@@ -241,7 +856,7 @@
     <div class="sec">Part D · types of government — with real country examples</div>
 
     <div class="gov-card">
-      <div class="gh"><span class="gname">Liberal democracy</span><span class="gbadge" style="background:#E6F1FB; color:#0C447C;">most common in developed world</span></div>
+      <div class="gh"><span class="gname">Liberal democracy</span><span class="gbadge gbadge-style">most common in developed world</span></div>
       <div class="gsub">
         <div class="gbox"><p class="gl">How power works</p><p class="gv">Free elections, multiple parties, independent courts, free press, rights protected by law.</p></div>
         <div class="gbox"><p class="gl">Variations</p><p class="gv">Presidential (USA, France), Parliamentary (UK, Germany, most of Europe), Semi-presidential (France has elements of both).</p></div>
@@ -251,7 +866,7 @@
     </div>
 
     <div class="gov-card">
-      <div class="gh"><span class="gname">Constitutional monarchy</span><span class="gbadge" style="background:#EAF3DE; color:#27500A;">monarchy + democracy</span></div>
+      <div class="gh"><span class="gname">Constitutional monarchy</span><span class="gbadge gbadge-style-2">monarchy + democracy</span></div>
       <div class="gsub">
         <div class="gbox"><p class="gl">How power works</p><p class="gv">A monarch is head of state (often ceremonial) while elected politicians hold real power. Constitution limits both.</p></div>
         <div class="gbox"><p class="gl">The monarch's role</p><p class="gv">Symbolic: signing laws, representing the nation, providing continuity. Real power rests with parliament and prime minister.</p></div>
@@ -261,7 +876,7 @@
     </div>
 
     <div class="gov-card">
-      <div class="gh"><span class="gname">Authoritarian regime</span><span class="gbadge" style="background:#FAEEDA; color:#633806;">power concentrated, limited accountability</span></div>
+      <div class="gh"><span class="gname">Authoritarian regime</span><span class="gbadge gbadge-style-3">power concentrated, limited accountability</span></div>
       <div class="gsub">
         <div class="gbox"><p class="gl">How power works</p><p class="gv">One leader or party controls the state. Elections may exist but aren't free. Opposition suppressed. Press not fully free.</p></div>
         <div class="gbox"><p class="gl">Variations</p><p class="gv">Military junta (power seized by army), competitive authoritarian (elections exist but are rigged), personal dictatorship, one-party state.</p></div>
@@ -271,7 +886,7 @@
     </div>
 
     <div class="gov-card">
-      <div class="gh"><span class="gname">Totalitarian state</span><span class="gbadge" style="background:#FCEBEB; color:#791F1F;">total control of all aspects of life</span></div>
+      <div class="gh"><span class="gname">Totalitarian state</span><span class="gbadge gbadge-style-4">total control of all aspects of life</span></div>
       <div class="gsub">
         <div class="gbox"><p class="gl">Difference from authoritarianism</p><p class="gv">Authoritarian: controls political life. Totalitarian: controls all life — culture, family, religion, economy, language, thought.</p></div>
         <div class="gbox"><p class="gl">Key features</p><p class="gv">Single ideology (which cannot be questioned), mass surveillance, propaganda, purges of perceived enemies, personality cult.</p></div>
@@ -281,7 +896,7 @@
     </div>
 
     <div class="gov-card">
-      <div class="gh"><span class="gname">Theocracy</span><span class="gbadge" style="background:#EEEDFE; color:#3C3489;">religious law governs the state</span></div>
+      <div class="gh"><span class="gname">Theocracy</span><span class="gbadge gbadge-style-5">religious law governs the state</span></div>
       <div class="gsub">
         <div class="gbox"><p class="gl">How power works</p><p class="gv">Religious authorities hold political power, or religious law (sharia, halakha) is the basis of state law. Clergy may govern directly or veto secular decisions.</p></div>
         <div class="gbox"><p class="gl">Variations</p><p class="gv">Pure theocracy (Vatican City — the Pope rules directly), hybrid (Iran — elected institutions but Supreme Leader is a cleric with ultimate veto), soft (Saudi Arabia — monarchy uses Islamic law as foundation).</p></div>
@@ -291,26 +906,26 @@
     </div>
 
     <!-- NEW: Democracy health index visual -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Democracy index — how countries compare</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">The Economist Intelligence Unit scores countries 0–10 across electoral process, civil liberties, political culture, and government function. Updated annually.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Democracy index — how countries compare</div>
+      <div class="politics-text-3">The Economist Intelligence Unit scores countries 0–10 across electoral process, civil liberties, political culture, and government function. Updated annually.</div>
       <table class="dem-table">
-        <thead><tr><th>Country</th><th>Score /10</th><th>Category</th><th style="min-width:80px;">Scale</th></tr></thead>
+        <thead><tr><th>Country</th><th>Score /10</th><th>Category</th><th class="politics-media-2">Scale</th></tr></thead>
         <tbody>
-          <tr><td>Norway</td><td>9.81</td><td><span class="pill p-teal" style="font-size:10px; padding:1px 7px;">Full democracy</span></td><td><span class="dem-score-bar" style="width:98%; background:#085041;"></span></td></tr>
-          <tr><td>Sweden</td><td>9.39</td><td><span class="pill p-teal" style="font-size:10px; padding:1px 7px;">Full democracy</span></td><td><span class="dem-score-bar" style="width:94%; background:#085041;"></span></td></tr>
-          <tr><td>Germany</td><td>8.80</td><td><span class="pill p-teal" style="font-size:10px; padding:1px 7px;">Full democracy</span></td><td><span class="dem-score-bar" style="width:88%; background:#085041;"></span></td></tr>
-          <tr><td>USA</td><td>7.85</td><td><span class="pill p-blue" style="font-size:10px; padding:1px 7px;">Flawed democracy</span></td><td><span class="dem-score-bar" style="width:78%; background:#185FA5;"></span></td></tr>
-          <tr><td>France</td><td>7.99</td><td><span class="pill p-blue" style="font-size:10px; padding:1px 7px;">Flawed democracy</span></td><td><span class="dem-score-bar" style="width:80%; background:#185FA5;"></span></td></tr>
-          <tr><td>India</td><td>7.18</td><td><span class="pill p-blue" style="font-size:10px; padding:1px 7px;">Flawed democracy</span></td><td><span class="dem-score-bar" style="width:72%; background:#185FA5;"></span></td></tr>
-          <tr><td>Hungary</td><td>6.64</td><td><span class="pill p-amber" style="font-size:10px; padding:1px 7px;">Hybrid regime</span></td><td><span class="dem-score-bar" style="width:66%; background:#BA7517;"></span></td></tr>
-          <tr><td>Turkey</td><td>4.35</td><td><span class="pill p-amber" style="font-size:10px; padding:1px 7px;">Hybrid regime</span></td><td><span class="dem-score-bar" style="width:44%; background:#BA7517;"></span></td></tr>
-          <tr><td>Russia</td><td>2.22</td><td><span class="pill p-red" style="font-size:10px; padding:1px 7px;">Authoritarian</span></td><td><span class="dem-score-bar" style="width:22%; background:#791F1F;"></span></td></tr>
-          <tr><td>China</td><td>1.94</td><td><span class="pill p-red" style="font-size:10px; padding:1px 7px;">Authoritarian</span></td><td><span class="dem-score-bar" style="width:19%; background:#791F1F;"></span></td></tr>
-          <tr><td>North Korea</td><td>1.08</td><td><span class="pill p-red" style="font-size:10px; padding:1px 7px;">Authoritarian</span></td><td><span class="dem-score-bar" style="width:11%; background:#791F1F;"></span></td></tr>
+          <tr><td>Norway</td><td>9.81</td><td><span class="pill p-teal p-teal-style">Full democracy</span></td><td><span class="dem-score-bar dem-score-bar-style"></span></td></tr>
+          <tr><td>Sweden</td><td>9.39</td><td><span class="pill p-teal p-teal-style">Full democracy</span></td><td><span class="dem-score-bar dem-score-bar-style-2"></span></td></tr>
+          <tr><td>Germany</td><td>8.80</td><td><span class="pill p-teal p-teal-style">Full democracy</span></td><td><span class="dem-score-bar dem-score-bar-style-3"></span></td></tr>
+          <tr><td>USA</td><td>7.85</td><td><span class="pill p-blue p-teal-style">Flawed democracy</span></td><td><span class="dem-score-bar dem-score-bar-style-4"></span></td></tr>
+          <tr><td>France</td><td>7.99</td><td><span class="pill p-blue p-teal-style">Flawed democracy</span></td><td><span class="dem-score-bar dem-score-bar-style-5"></span></td></tr>
+          <tr><td>India</td><td>7.18</td><td><span class="pill p-blue p-teal-style">Flawed democracy</span></td><td><span class="dem-score-bar dem-score-bar-style-6"></span></td></tr>
+          <tr><td>Hungary</td><td>6.64</td><td><span class="pill p-amber p-teal-style">Hybrid regime</span></td><td><span class="dem-score-bar dem-score-bar-style-7"></span></td></tr>
+          <tr><td>Turkey</td><td>4.35</td><td><span class="pill p-amber p-teal-style">Hybrid regime</span></td><td><span class="dem-score-bar dem-score-bar-style-8"></span></td></tr>
+          <tr><td>Russia</td><td>2.22</td><td><span class="pill p-red p-teal-style">Authoritarian</span></td><td><span class="dem-score-bar dem-score-bar-style-9"></span></td></tr>
+          <tr><td>China</td><td>1.94</td><td><span class="pill p-red p-teal-style">Authoritarian</span></td><td><span class="dem-score-bar dem-score-bar-style-10"></span></td></tr>
+          <tr><td>North Korea</td><td>1.08</td><td><span class="pill p-red p-teal-style">Authoritarian</span></td><td><span class="dem-score-bar dem-score-bar-style-11"></span></td></tr>
         </tbody>
       </table>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:8px;">Source: EIU Democracy Index 2023. Full democracy: 8–10 · Flawed democracy: 6–8 · Hybrid regime: 4–6 · Authoritarian: 0–4</div>
+      <div class="politics-text-13">Source: EIU Democracy Index 2023. Full democracy: 8–10 · Flawed democracy: 6–8 · Hybrid regime: 4–6 · Authoritarian: 0–4</div>
     </div>
 
     <!-- ============================================================
@@ -318,61 +933,61 @@
          ============================================================ -->
     <div class="sec">Part E · electoral systems — the same votes, different outcomes</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">How you count votes determines who wins — see the same election result under different systems</div>
+    <div class="content-panel">
+      <div class="panel-title">How you count votes determines who wins — see the same election result under different systems</div>
 
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px; flex-wrap:wrap;">
-        <label style="font-size:12px; color:var(--color-text-secondary); min-width:130px;">Party A (left) votes:</label>
-        <input type="range" id="pa-votes" min="10" max="60" value="40" step="1" style="flex:1; min-width:100px;">
-        <span id="pa-out" style="font-size:13px; font-weight:500; min-width:40px; text-align:right; color:#185FA5;">40%</span>
+      <div class="politics-row-2">
+        <label class="politics-text-14">Party A (left) votes:</label>
+        <input class="pa-votes" type="range" id="pa-votes" min="10" max="60" value="40" step="1">
+        <span class="pa-out" id="pa-out">40%</span>
       </div>
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px; flex-wrap:wrap;">
-        <label style="font-size:12px; color:var(--color-text-secondary); min-width:130px;">Party B (right) votes:</label>
-        <input type="range" id="pb-votes" min="10" max="60" value="35" step="1" style="flex:1; min-width:100px;">
-        <span id="pb-out" style="font-size:13px; font-weight:500; min-width:40px; text-align:right; color:#A32D2D;">35%</span>
+      <div class="politics-row-2">
+        <label class="politics-text-14">Party B (right) votes:</label>
+        <input class="pa-votes" type="range" id="pb-votes" min="10" max="60" value="35" step="1">
+        <span class="pb-out" id="pb-out">35%</span>
       </div>
-      <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;">
-        <label style="font-size:12px; color:var(--color-text-secondary); min-width:130px;">Party C (third):</label>
-        <span id="pc-fixed" style="font-size:12px; color:var(--color-text-tertiary); flex:1;">Remainder of votes</span>
-        <span id="pc-out" style="font-size:13px; font-weight:500; min-width:40px; text-align:right; color:#27500A;"></span>
+      <div class="politics-row-3">
+        <label class="politics-text-14">Party C (third):</label>
+        <span class="pc-fixed" id="pc-fixed">Remainder of votes</span>
+        <span class="pc-out" id="pc-out"></span>
       </div>
 
-      <div id="election-results" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+      <div class="election-results" id="election-results"></div>
     </div>
 
     <!-- Electoral systems comparison table -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Electoral systems at a glance</div>
-      <div style="overflow-x:auto;">
-        <table class="dem-table" style="min-width:480px;">
+    <div class="content-panel">
+      <div class="panel-title">Electoral systems at a glance</div>
+      <div class="u-overflow-x-auto">
+        <table class="dem-table dem-table-style">
           <thead><tr><th>System</th><th>How it works</th><th>Typical outcome</th><th>Used in</th></tr></thead>
           <tbody>
             <tr>
-              <td style="font-weight:500;">FPTP</td>
+              <td class="u-fw-500">FPTP</td>
               <td>Most votes in each single-member constituency wins the seat</td>
               <td>Strong majorities; third parties squeezed; disproportionate</td>
               <td>UK, USA, Canada, India</td>
             </tr>
             <tr>
-              <td style="font-weight:500;">Party-list PR</td>
+              <td class="u-fw-500">Party-list PR</td>
               <td>Parties get seats in proportion to their national vote share</td>
               <td>Highly proportional; coalitions almost always needed</td>
               <td>Netherlands, Israel, Spain</td>
             </tr>
             <tr>
-              <td style="font-weight:500;">Mixed-member PR</td>
+              <td class="u-fw-500">Mixed-member PR</td>
               <td>Half constituency seats (FPTP-style) + half top-up PR seats</td>
               <td>Proportional overall; local representation preserved</td>
               <td>Germany, New Zealand, Scotland</td>
             </tr>
             <tr>
-              <td style="font-weight:500;">Two-round / Runoff</td>
+              <td class="u-fw-500">Two-round / Runoff</td>
               <td>If no majority in round 1, top two candidates go to round 2</td>
               <td>Prevents winners with &lt;50%; encourages centrist coalitions</td>
               <td>France, Brazil, most presidential systems</td>
             </tr>
             <tr>
-              <td style="font-weight:500;">Ranked-choice (IRV)</td>
+              <td class="u-fw-500">Ranked-choice (IRV)</td>
               <td>Voters rank candidates; lowest eliminated, votes redistributed</td>
               <td>Reduces "wasted votes"; allows more parties to compete</td>
               <td>Australia, Ireland, Alaska (USA)</td>
@@ -387,7 +1002,7 @@
          ============================================================ -->
     <div class="sec">Part F · reading political language — the rhetoric toolkit</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:1rem;">
+    <div class="politics-grid">
       <div class="card">
         <p class="clabel">Framing</p>
         <p class="cval">Same fact, different story</p>
@@ -421,17 +1036,17 @@
     </div>
 
     <!-- NEW: Media bias explorer -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">The same story — how framing changes meaning</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px;">Pick a topic to see how different outlets or political perspectives frame identical events.</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-        <button onclick="showFraming('protest')"    style="font-size:12px; padding:3px 10px;">A large protest</button>
-        <button onclick="showFraming('budget')"     style="font-size:12px; padding:3px 10px;">Budget cuts</button>
-        <button onclick="showFraming('migration')"  style="font-size:12px; padding:3px 10px;">Migration</button>
-        <button onclick="showFraming('strike')"     style="font-size:12px; padding:3px 10px;">A workers' strike</button>
-        <button onclick="showFraming('crime')"      style="font-size:12px; padding:3px 10px;">Crime statistics</button>
+    <div class="content-panel">
+      <div class="inline-card-title">The same story — how framing changes meaning</div>
+      <div class="politics-text-3">Pick a topic to see how different outlets or political perspectives frame identical events.</div>
+      <div class="button-row">
+        <button class="showideology-control" onclick="showFraming('protest')"   >A large protest</button>
+        <button class="showideology-control" onclick="showFraming('budget')"    >Budget cuts</button>
+        <button class="showideology-control" onclick="showFraming('migration')" >Migration</button>
+        <button class="showideology-control" onclick="showFraming('strike')"    >A workers' strike</button>
+        <button class="showideology-control" onclick="showFraming('crime')"     >Crime statistics</button>
       </div>
-      <div id="framing-display" style="font-size:12px; line-height:1.7;"></div>
+      <div class="framing-display" id="framing-display"></div>
     </div>
 
     <!-- ============================================================
@@ -439,18 +1054,18 @@
          ============================================================ -->
     <div class="sec">Part G · key political vocabulary</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;" id="vocab-section">
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="showVocab('federalism')"    style="font-size:12px; padding:3px 10px;">Federalism</button>
-        <button onclick="showVocab('separation')"    style="font-size:12px; padding:3px 10px;">Separation of powers</button>
-        <button onclick="showVocab('constitution')"  style="font-size:12px; padding:3px 10px;">Constitution</button>
-        <button onclick="showVocab('referendum')"    style="font-size:12px; padding:3px 10px;">Referendum</button>
-        <button onclick="showVocab('gerrymander')"   style="font-size:12px; padding:3px 10px;">Gerrymandering</button>
-        <button onclick="showVocab('coalition')"     style="font-size:12px; padding:3px 10px;">Coalition</button>
-        <button onclick="showVocab('sovereignty')"   style="font-size:12px; padding:3px 10px;">Sovereignty</button>
-        <button onclick="showVocab('checks')"        style="font-size:12px; padding:3px 10px;">Checks and balances</button>
+    <div class="content-panel" id="vocab-section">
+      <div class="button-row-spaced">
+        <button class="showideology-control" onclick="showVocab('federalism')"   >Federalism</button>
+        <button class="showideology-control" onclick="showVocab('separation')"   >Separation of powers</button>
+        <button class="showideology-control" onclick="showVocab('constitution')" >Constitution</button>
+        <button class="showideology-control" onclick="showVocab('referendum')"   >Referendum</button>
+        <button class="showideology-control" onclick="showVocab('gerrymander')"  >Gerrymandering</button>
+        <button class="showideology-control" onclick="showVocab('coalition')"    >Coalition</button>
+        <button class="showideology-control" onclick="showVocab('sovereignty')"  >Sovereignty</button>
+        <button class="showideology-control" onclick="showVocab('checks')"       >Checks and balances</button>
       </div>
-      <div id="vocab-display" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+      <div class="election-results" id="vocab-display"></div>
     </div>
 
     <!-- ============================================================
@@ -458,14 +1073,14 @@
          ============================================================ -->
     <div class="sec">Part H · how power flows — three system diagrams</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Presidential vs parliamentary vs semi-presidential</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="showPowerDiagram('presidential')"  style="font-size:12px; padding:3px 10px;" id="pd-btn-presidential">Presidential (USA)</button>
-        <button onclick="showPowerDiagram('parliamentary')" style="font-size:12px; padding:3px 10px;" id="pd-btn-parliamentary">Parliamentary (UK/Germany)</button>
-        <button onclick="showPowerDiagram('semi')"          style="font-size:12px; padding:3px 10px;" id="pd-btn-semi">Semi-presidential (France)</button>
+    <div class="content-panel">
+      <div class="panel-title">Presidential vs parliamentary vs semi-presidential</div>
+      <div class="button-row-spaced">
+        <button class="showideology-control" onclick="showPowerDiagram('presidential')"  id="pd-btn-presidential">Presidential (USA)</button>
+        <button class="showideology-control" onclick="showPowerDiagram('parliamentary')" id="pd-btn-parliamentary">Parliamentary (UK/Germany)</button>
+        <button class="showideology-control" onclick="showPowerDiagram('semi')"          id="pd-btn-semi">Semi-presidential (France)</button>
       </div>
-      <div id="power-diagram" style="font-size:12px; color:var(--color-text-primary); line-height:1.7;"></div>
+      <div class="power-diagram" id="power-diagram"></div>
     </div>
 
     <!-- ============================================================
@@ -473,42 +1088,42 @@
          ============================================================ -->
     <div class="sec">Part I · democratic backsliding — how democracies die slowly</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Modern democracies rarely die in coups — they erode from within</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:12px; line-height:1.6;">Political scientists Steven Levitsky and Lucan Way identified a pattern: elected leaders dismantle democracy step by step, often with popular support. Each step seems individually defensible; together they hollow out democratic institutions without ever declaring a coup. The playbook is remarkably consistent across countries.</div>
+    <div class="content-panel">
+      <div class="compact-card-title">Modern democracies rarely die in coups — they erode from within</div>
+      <div class="politics-text-15">Political scientists Steven Levitsky and Lucan Way identified a pattern: elected leaders dismantle democracy step by step, often with popular support. Each step seems individually defensible; together they hollow out democratic institutions without ever declaring a coup. The playbook is remarkably consistent across countries.</div>
 
-      <div style="margin-bottom:14px;">
-        <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:var(--color-text-tertiary); margin-bottom:8px;">The backsliding playbook — in order</div>
+      <div class="u-mb-lg">
+        <div class="politics-text-16">The backsliding playbook — in order</div>
 
         <div class="timeline-row">
           <div class="tl-year">Step 1</div>
-          <div class="tl-dot-col"><div class="tl-dot" style="background:#BA7517;"></div><div class="tl-line"></div></div>
+          <div class="tl-dot-col"><div class="tl-dot tl-dot-style"></div><div class="tl-line"></div></div>
           <div class="tl-body"><div class="tl-event">Win a landslide — or manufacture a crisis</div><div class="tl-detail">Come to power legitimately or exploit a genuine crisis (economic collapse, terrorism, pandemic) to demand emergency powers. The mandate of the people is invoked constantly.</div></div>
         </div>
         <div class="timeline-row">
           <div class="tl-year">Step 2</div>
-          <div class="tl-dot-col"><div class="tl-dot" style="background:#993C1D;"></div><div class="tl-line"></div></div>
+          <div class="tl-dot-col"><div class="tl-dot tl-dot-style-2"></div><div class="tl-line"></div></div>
           <div class="tl-body"><div class="tl-event">Pack the courts</div><div class="tl-detail">Expand the number of judges, impose early retirement ages, or replace independent justices with loyalists. Once courts are captured, almost anything the government does is "constitutional." Hungary under Orbán lowered the retirement age of judges to force out experienced, independent ones; Poland's Law and Justice party tried the same.</div></div>
         </div>
         <div class="timeline-row">
           <div class="tl-year">Step 3</div>
-          <div class="tl-dot-col"><div class="tl-dot" style="background:#A32D2D;"></div><div class="tl-line"></div></div>
+          <div class="tl-dot-col"><div class="tl-dot bg-red-700"></div><div class="tl-line"></div></div>
           <div class="tl-body"><div class="tl-event">Capture or silence the media</div><div class="tl-detail">Buy up independent outlets through friendly oligarchs, withdraw state advertising from critical media (economically devastating for smaller outlets), use tax investigations or broadcasting licence renewals as leverage. In Hungary, over 500 outlets are now controlled by Orbán-aligned interests.</div></div>
         </div>
         <div class="timeline-row">
           <div class="tl-year">Step 4</div>
-          <div class="tl-dot-col"><div class="tl-dot" style="background:#791F1F;"></div><div class="tl-line"></div></div>
+          <div class="tl-dot-col"><div class="tl-dot tl-dot-style-4"></div><div class="tl-line"></div></div>
           <div class="tl-body"><div class="tl-event">Rewrite electoral rules</div><div class="tl-detail">Redraw constituency boundaries, change campaign finance rules, set discriminatory voter ID requirements, control the electoral commission. Done while in power, these changes are almost impossible for an opposition to reverse through the ballot box alone.</div></div>
         </div>
         <div class="timeline-row">
           <div class="tl-year">Step 5</div>
-          <div class="tl-dot-col"><div class="tl-dot" style="background:#501313;"></div></div>
-          <div class="tl-body" style="padding-bottom:0;"><div class="tl-event">Delegitimise the opposition</div><div class="tl-detail">Frame opponents not as political rivals but as existential threats to the nation — corrupt elites, foreign agents, traitors. Criminal investigations against opposition leaders. Legal harassment of NGOs and civil society. The goal: make voters feel that opposing the ruling party is unpatriotic, even treasonous.</div></div>
+          <div class="tl-dot-col"><div class="tl-dot tl-dot-style-5"></div></div>
+          <div class="tl-body tl-body-style"><div class="tl-event">Delegitimise the opposition</div><div class="tl-detail">Frame opponents not as political rivals but as existential threats to the nation — corrupt elites, foreign agents, traitors. Criminal investigations against opposition leaders. Legal harassment of NGOs and civil society. The goal: make voters feel that opposing the ruling party is unpatriotic, even treasonous.</div></div>
         </div>
       </div>
 
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">The key insight (Levitsky &amp; Ziblatt):</strong> Democratic norms — the unwritten rules that make democracy function — are more important than constitutional rules. The US constitution has no rule against a president refusing to accept election results; it was considered unthinkable. Once norms are broken, constitutions alone cannot protect democracy. Institutions are only as strong as the people who agree to be bound by them.
+      <div class="politics-panel-9">
+        <strong class="text-primary">The key insight (Levitsky &amp; Ziblatt):</strong> Democratic norms — the unwritten rules that make democracy function — are more important than constitutional rules. The US constitution has no rule against a president refusing to accept election results; it was considered unthinkable. Once norms are broken, constitutions alone cannot protect democracy. Institutions are only as strong as the people who agree to be bound by them.
       </div>
     </div>
 
@@ -517,26 +1132,26 @@
          ============================================================ -->
     <div class="sec">Part J · hard power vs soft power — how states influence each other</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Joseph Nye's framework: three types of power</div>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap:10px; margin-bottom:12px;">
-        <div style="background:#FCEBEB; border-radius:var(--border-radius-md); padding:12px 13px; border:0.5px solid #F09595;">
-          <div style="font-size:12px; font-weight:600; color:#791F1F; margin-bottom:5px;">Hard power</div>
-          <div style="font-size:12px; color:#791F1F; line-height:1.6;">Military force, economic coercion, sanctions. "Do this or we'll hurt you." The bluntest instrument. Can produce compliance without consent. USA, China, Russia are the primary hard power actors.</div>
+    <div class="content-panel">
+      <div class="panel-title">Joseph Nye's framework: three types of power</div>
+      <div class="politics-grid-2">
+        <div class="politics-panel-10">
+          <div class="politics-text-17">Hard power</div>
+          <div class="politics-text-18">Military force, economic coercion, sanctions. "Do this or we'll hurt you." The bluntest instrument. Can produce compliance without consent. USA, China, Russia are the primary hard power actors.</div>
         </div>
-        <div style="background:#FAEEDA; border-radius:var(--border-radius-md); padding:12px 13px; border:0.5px solid #EF9F27;">
-          <div style="font-size:12px; font-weight:600; color:#633806; margin-bottom:5px;">Soft power</div>
-          <div style="font-size:12px; color:#633806; line-height:1.6;">Culture, values, institutions. "Do this because you want what we represent." Hollywood, the BBC, universities, the appeal of democracy as a model. Coined by Joseph Nye in 1990; France, the UK and South Korea are notable soft power actors.</div>
+        <div class="politics-panel-11">
+          <div class="politics-text-19">Soft power</div>
+          <div class="politics-text-20">Culture, values, institutions. "Do this because you want what we represent." Hollywood, the BBC, universities, the appeal of democracy as a model. Coined by Joseph Nye in 1990; France, the UK and South Korea are notable soft power actors.</div>
         </div>
-        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:12px 13px; border:0.5px solid #97C459;">
-          <div style="font-size:12px; font-weight:600; color:#27500A; margin-bottom:5px;">Smart power</div>
-          <div style="font-size:12px; color:#27500A; line-height:1.6;">Combining hard and soft power strategically. The most effective foreign policy combines military credibility with attractive values and strong institutions. The EU is often cited as a smart power actor — uses trade and values, not armies.</div>
+        <div class="politics-panel-12">
+          <div class="politics-text-21">Smart power</div>
+          <div class="politics-text-22">Combining hard and soft power strategically. The most effective foreign policy combines military credibility with attractive values and strong institutions. The EU is often cited as a smart power actor — uses trade and values, not armies.</div>
         </div>
       </div>
 
       <!-- SVG power comparison chart -->
-      <div style="font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.05em; color:var(--color-text-tertiary); margin-bottom:8px;">Global power comparison (approximate, illustrative)</div>
-      <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:auto;">
+      <div class="politics-text-23">Global power comparison (approximate, illustrative)</div>
+      <svg class="politics-media-3" viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg">
         <!-- Y axis label -->
         <text x="4" y="20" font-size="9" fill="var(--color-text-tertiary)" font-weight="600">Hard</text>
         <text x="4" y="110" font-size="9" fill="var(--color-text-tertiary)" font-weight="600">Soft</text>
@@ -566,7 +1181,7 @@
         <text x="437" y="192" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">UK</text>
         <text x="507" y="192" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">S. Korea</text>
       </svg>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:4px;">Red = hard power (military/economic might). Blue = soft power (cultural influence, institutional prestige). Illustrative — not a precise index.</div>
+      <div class="politics-text-24">Red = hard power (military/economic might). Blue = soft power (cultural influence, institutional prestige). Illustrative — not a precise index.</div>
     </div>
 
     <!-- ============================================================
@@ -574,19 +1189,19 @@
          ============================================================ -->
     <div class="sec">Part K · political systems — a world survey</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Explore key countries — their system, strengths, and tensions</div>
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
-        <button onclick="showCountry('usa')"     style="font-size:12px; padding:3px 10px;">🇺🇸 USA</button>
-        <button onclick="showCountry('germany')" style="font-size:12px; padding:3px 10px;">🇩🇪 Germany</button>
-        <button onclick="showCountry('uk')"      style="font-size:12px; padding:3px 10px;">🇬🇧 UK</button>
-        <button onclick="showCountry('france')"  style="font-size:12px; padding:3px 10px;">🇫🇷 France</button>
-        <button onclick="showCountry('china')"   style="font-size:12px; padding:3px 10px;">🇨🇳 China</button>
-        <button onclick="showCountry('india')"   style="font-size:12px; padding:3px 10px;">🇮🇳 India</button>
-        <button onclick="showCountry('russia')"  style="font-size:12px; padding:3px 10px;">🇷🇺 Russia</button>
-        <button onclick="showCountry('sweden')"  style="font-size:12px; padding:3px 10px;">🇸🇪 Sweden</button>
+    <div class="content-panel">
+      <div class="panel-title">Explore key countries — their system, strengths, and tensions</div>
+      <div class="button-row-spaced">
+        <button class="showideology-control" onclick="showCountry('usa')"    >🇺🇸 USA</button>
+        <button class="showideology-control" onclick="showCountry('germany')">🇩🇪 Germany</button>
+        <button class="showideology-control" onclick="showCountry('uk')"     >🇬🇧 UK</button>
+        <button class="showideology-control" onclick="showCountry('france')" >🇫🇷 France</button>
+        <button class="showideology-control" onclick="showCountry('china')"  >🇨🇳 China</button>
+        <button class="showideology-control" onclick="showCountry('india')"  >🇮🇳 India</button>
+        <button class="showideology-control" onclick="showCountry('russia')" >🇷🇺 Russia</button>
+        <button class="showideology-control" onclick="showCountry('sweden')" >🇸🇪 Sweden</button>
       </div>
-      <div id="country-display" style="font-size:12px; color:var(--color-text-primary); line-height:1.7;"></div>
+      <div class="power-diagram" id="country-display"></div>
     </div>
 
     <!-- ============================================================
@@ -594,65 +1209,65 @@
          ============================================================ -->
     <div class="sec">Part L · ten moments that shaped modern politics</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:14px; line-height:1.6;">Understanding these events gives you the mental map for why today's political world looks the way it does.</div>
+    <div class="content-panel">
+      <div class="politics-text-25">Understanding these events gives you the mental map for why today's political world looks the way it does.</div>
 
       <div class="timeline-row">
         <div class="tl-year">1789</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#378ADD;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-6"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">French Revolution</div><div class="tl-detail">Ended the divine right of kings in Europe. Introduced the concepts of popular sovereignty, citizenship, and secular government. Created the left-right political spectrum. Inspired revolutions across the 19th century and shaped the modern concept of nationalism.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">1848</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#378ADD;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-6"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">The Springtime of Nations</div><div class="tl-detail">Revolutions erupted across Europe (France, Germany, Austria-Hungary, Italy). Most were suppressed, but they established liberal and nationalist movements as permanent features of European politics. Marx and Engels published The Communist Manifesto the same year.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">1917</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#A32D2D;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot bg-red-700"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">Russian Revolution</div><div class="tl-detail">The Bolsheviks seized power and created the world's first communist state. For the rest of the 20th century, the ideological battle between capitalism and communism structured global politics. Every political party in the West defined itself partly in relation to what had happened in Russia.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">1933</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#501313;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-5"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">Hitler appointed Chancellor of Germany</div><div class="tl-detail">A democratic election system brought the Nazis to power. This traumatised post-war democracies into building stronger constitutional safeguards — Germany's Basic Law, the European Convention on Human Rights, and the UN's Universal Declaration of Human Rights (1948) were all direct responses to what democratic failure had produced.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">1945</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#085041;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-7"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">End of WWII — the liberal international order is built</div><div class="tl-detail">The UN, IMF, World Bank, and later NATO and the EU were created to prevent another catastrophic war. The "rules-based international order" — free trade, collective security, human rights norms — was deliberately constructed by the victors, especially the USA. Much of current geopolitical tension is about whether this order should continue.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">1989</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#27500A;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot bg-green-800"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">Fall of the Berlin Wall</div><div class="tl-detail">Symbolised the collapse of Soviet communism. Francis Fukuyama famously declared "the end of history" — liberal democracy had won. This optimism shaped the 1990s expansion of democracy and free markets globally. The backlash to this optimism — rising nationalism, authoritarianism, and inequality from globalisation — defines much of 21st-century politics.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">2001</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#633806;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-9"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">September 11 attacks</div><div class="tl-detail">Reshaped security politics worldwide. The War on Terror expanded state surveillance powers (PATRIOT Act, GCHQ mass surveillance), launched wars in Afghanistan and Iraq, and accelerated debates about civil liberties vs security that continue today. Increased Islamophobia and identity politics tensions in Western democracies.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">2008</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#BA7517;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">Global financial crisis</div><div class="tl-detail">Triggered the deepest recession since the Great Depression. Governments bailed out banks; austerity policies followed in Europe and the UK. The result: shattered trust in mainstream centre-left and centre-right parties, rising inequality, and fertile ground for populist movements on both the left (Occupy, Podemos, Syriza, Corbyn, Sanders) and right (Trump, Brexit, Le Pen, Orbán).</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">2016</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#993C1D;"></div><div class="tl-line"></div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-2"></div><div class="tl-line"></div></div>
         <div class="tl-body"><div class="tl-event">Brexit and Trump</div><div class="tl-detail">Two seismic shocks to the post-war liberal order. Brexit passed 52–48 on a campaign defined by anti-establishment sentiment, migration, and sovereignty. Trump won the US presidency on a nationalist "America First" platform, rejecting multilateral trade deals and alliances. Both signalled that the centrist consensus of the 1990s–2000s was over.</div></div>
       </div>
       <div class="timeline-row">
         <div class="tl-year">2022</div>
-        <div class="tl-dot-col"><div class="tl-dot" style="background:#791F1F;"></div></div>
-        <div class="tl-body" style="padding-bottom:0;"><div class="tl-event">Russia invades Ukraine</div><div class="tl-detail">The largest military conflict in Europe since WWII. Ended two decades of post-Cold War assumptions about European security, accelerated NATO expansion (Finland and Sweden joined), forced a reckoning with energy dependence on Russia, and sharpened the global divide between democratic and authoritarian blocs. The war also showed limits of international institutions — the UN Security Council is paralysed when a permanent member is the aggressor.</div></div>
+        <div class="tl-dot-col"><div class="tl-dot tl-dot-style-4"></div></div>
+        <div class="tl-body tl-body-style"><div class="tl-event">Russia invades Ukraine</div><div class="tl-detail">The largest military conflict in Europe since WWII. Ended two decades of post-Cold War assumptions about European security, accelerated NATO expansion (Finland and Sweden joined), forced a reckoning with energy dependence on Russia, and sharpened the global divide between democratic and authoritarian blocs. The war also showed limits of international institutions — the UN Security Council is paralysed when a permanent member is the aggressor.</div></div>
       </div>
     </div>
 
     <!-- ============================================================
          PART M — TEST YOURSELF
          ============================================================ -->
-    <div class="sec">Part M · test yourself</div>
+    <div class="sec">Part M · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. A party wins 45% of votes but gets 60% of parliamentary seats. Which electoral system is this likely from, and is it fair?</p>

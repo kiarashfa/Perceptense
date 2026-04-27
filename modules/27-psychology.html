@@ -192,7 +192,7 @@
     /* Emotion wheel */
     .emotion-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
       gap: 8px;
       margin-bottom: 1rem;
     }
@@ -250,14 +250,548 @@
       .therapy-matrix td:nth-child(3) { display: none; }
       .tl-year { font-size: 9px; }
     }
+
+/* === Module-specific extracted styles === */
+
+.psychology-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:8px;
+  margin-bottom:10px;
+}
+
+.psychology-label {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:3px;
+}
+
+.psychology-panel-2 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.psychology-panel-3 {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:12px;
+}
+
+.psychology-label-2 {
+  font-size:11px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+}
+
+.psychology-text {
+  color:var(--color-text-tertiary);
+  font-size:12px;
+}
+
+.psychology-row {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.showfigure-control {
+  font-size:12px;
+  padding:3px 10px;
+}
+
+.psychology-panel-4 {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:12px;
+  overflow-x:auto;
+}
+
+.psychology-text-2 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:6px;
+  line-height:1.5;
+}
+
+.psychology-grid-2 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.psychology-panel-5 {
+  background:#EEEDFE;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #AFA9EC;
+}
+
+.psychology-label-3 {
+  font-size:13px;
+  font-weight:500;
+  color:#26215C;
+  margin-bottom:5px;
+}
+
+.psychology-text-3 {
+  font-size:12px;
+  color:#3C3489;
+  line-height:1.6;
+  margin-bottom:6px;
+}
+
+.psychology-text-4 {
+  font-size:11px;
+  color:#534AB7;
+  line-height:1.4;
+}
+
+.psychology-panel-6 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #85B7EB;
+}
+
+.psychology-label-4 {
+  font-size:13px;
+  font-weight:500;
+  color:#042C53;
+  margin-bottom:5px;
+}
+
+.psychology-text-5 {
+  font-size:12px;
+  color:#0C447C;
+  line-height:1.6;
+  margin-bottom:6px;
+}
+
+.psychology-text-6 {
+  font-size:11px;
+  color:#185FA5;
+  line-height:1.4;
+}
+
+.psychology-panel-7 {
+  background:#E1F5EE;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #5DCAA5;
+}
+
+.psychology-label-5 {
+  font-size:13px;
+  font-weight:500;
+  color:#04342C;
+  margin-bottom:5px;
+}
+
+.psychology-text-7 {
+  font-size:12px;
+  color:#085041;
+  line-height:1.6;
+  margin-bottom:6px;
+}
+
+.psychology-text-8 {
+  font-size:11px;
+  color:#0F6E56;
+  line-height:1.4;
+}
+
+.psychology-panel-8 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #EF9F27;
+}
+
+.psychology-label-6 {
+  font-size:13px;
+  font-weight:500;
+  color:#412402;
+  margin-bottom:5px;
+}
+
+.psychology-text-9 {
+  font-size:12px;
+  color:#633806;
+  line-height:1.6;
+  margin-bottom:6px;
+}
+
+.psychology-text-10 {
+  font-size:11px;
+  color:#854F0B;
+  line-height:1.4;
+}
+
+.psychology-label-7 {
+  font-size:11px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  margin-bottom:12px;
+}
+
+.psychology-text-11 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:8px;
+  line-height:1.5;
+}
+
+.showconcept-control {
+  font-size:12px;
+  padding:3px 9px;
+}
+
+.psychology-row-3 {
+  display:flex;
+  align-items:center;
+  gap:4px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  padding-bottom:4px;
+}
+
+.psychology-panel-9 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:9px 12px;
+  min-width:110px;
+  flex-shrink:0;
+}
+
+.psychology-text-12 {
+  font-size:11px;
+  font-weight:600;
+  color:#0C447C;
+  margin-bottom:3px;
+}
+
+.psychology-text-13 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.45;
+}
+
+.psychology-text-14 {
+  color:var(--color-text-tertiary);
+  font-size:16px;
+  flex-shrink:0;
+  padding:0 2px;
+}
+
+.psychology-panel-10 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-md);
+  padding:9px 12px;
+  min-width:110px;
+  flex-shrink:0;
+  border:0.5px solid #85B7EB;
+}
+
+.psychology-text-15 {
+  font-size:11px;
+  color:#185FA5;
+  line-height:1.45;
+}
+
+.psychology-panel-11 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-md);
+  padding:9px 12px;
+  min-width:110px;
+  flex-shrink:0;
+  border:0.5px solid #97c459;
+}
+
+.psychology-text-16 {
+  font-size:11px;
+  font-weight:600;
+  color:#27500A;
+  margin-bottom:3px;
+}
+
+.psychology-text-17 {
+  font-size:11px;
+  color:#3B6D11;
+  line-height:1.45;
+}
+
+.psychology-text-18 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  margin-top:8px;
+}
+
+.psychology-label-8 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  margin-bottom:8px;
+}
+
+.psychology-grid-3 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(165px, 1fr));
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.psychology-panel-12 {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:11px 13px;
+}
+
+.psychology-text-19 {
+  font-size:12px;
+  font-weight:600;
+  color:var(--color-text-primary);
+  margin-bottom:4px;
+}
+
+.psychology-text-20 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+  margin-bottom:5px;
+}
+
+.psychology-panel-13 {
+  font-size:10px;
+  background:#EEEDFE;
+  color:#3C3489;
+  border-radius:3px;
+  padding:1px 6px;
+  display:inline-block;
+}
+
+.psychology-panel-14 {
+  font-size:10px;
+  background:#E6F1FB;
+  color:#0C447C;
+  border-radius:3px;
+  padding:1px 6px;
+  display:inline-block;
+}
+
+.psychology-panel-15 {
+  font-size:10px;
+  background:#E1F5EE;
+  color:#085041;
+  border-radius:3px;
+  padding:1px 6px;
+  display:inline-block;
+}
+
+.psychology-panel-16 {
+  font-size:10px;
+  background:#FAEEDA;
+  color:#633806;
+  border-radius:3px;
+  padding:1px 6px;
+  display:inline-block;
+}
+
+.psychology-label-9 {
+  font-size:11px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  text-transform:uppercase;
+  letter-spacing:0.07em;
+  margin-bottom:10px;
+}
+
+.showmemsin-control {
+  font-size:11px;
+  padding:3px 9px;
+}
+
+.memsindisplay {
+  font-size:13px;
+  color:var(--color-text-secondary);
+  line-height:1.65;
+  padding:8px 10px;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+}
+
+.psychology-grid-4 {
+  display:grid;
+  grid-template-columns:4fr 2fr;
+  gap:12px;
+  margin-bottom:1rem;
+}
+
+.psychology-label-10 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:10px;
+}
+
+.psychology-panel-18 {
+  background:var(--color-background-primary);
+  border:0.5px solid var(--color-border-tertiary);
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  margin-bottom:10px;
+  height:100%;
+  box-sizing:border-box;
+}
+
+.psychology-label-11 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-primary);
+  margin-bottom:8px;
+}
+
+.psychology-text-21 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.65;
+}
+
+.psychology-spacing {
+  margin:0 0 7px;
+}
+
+.psychology-spacing-2 {
+  margin:0;
+}
+
+.psychology-grid-5 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.psychology-panel-19 {
+  background:#FAEEDA;
+  border-radius:var(--border-radius-lg);
+  padding:11px 13px;
+  border:0.5px solid #EF9F27;
+}
+
+.psychology-text-22 {
+  font-size:12px;
+  font-weight:600;
+  color:#412402;
+  margin-bottom:4px;
+}
+
+.psychology-text-23 {
+  font-size:12px;
+  color:#633806;
+  line-height:1.5;
+}
+
+.psychology-panel-20 {
+  background:#EAF3DE;
+  border-radius:var(--border-radius-lg);
+  padding:11px 13px;
+  border:0.5px solid #97c459;
+}
+
+.psychology-text-24 {
+  font-size:12px;
+  font-weight:600;
+  color:#1A3804;
+  margin-bottom:4px;
+}
+
+.psychology-text-25 {
+  font-size:12px;
+  color:#27500A;
+  line-height:1.5;
+}
+
+.psychology-panel-21 {
+  background:#FCEBEB;
+  border-radius:var(--border-radius-lg);
+  padding:11px 13px;
+  border:0.5px solid #f09595;
+}
+
+.psychology-text-26 {
+  font-size:12px;
+  font-weight:600;
+  color:#550A0A;
+  margin-bottom:4px;
+}
+
+.psychology-text-27 {
+  font-size:12px;
+  color:#791F1F;
+  line-height:1.5;
+}
+
+.psychology-text-28 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  line-height:1.5;
+  margin-top:2px;
+}
+
+.psychology-grid-6 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:8px;
+  margin-top:8px;
+}
+
+.psychology-text-29 {
+  font-size:11px;
+  font-weight:600;
+  color:var(--color-text-primary);
+  margin-bottom:3px;
+}
+
+.psychology-text-30 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.5;
+}
+
+.psychology-panel-22 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 13px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:12px;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-      <i class="fa-solid fa-brain" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-      <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 27: Psychology</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-brain module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 27: Psychology</h1>
     </div>
     <p class="module-subtitle">Biases, memory, motivation, and mental models</p>
 
@@ -266,24 +800,24 @@
     ═══════════════════════════════════════════════════════ -->
     <div class="sec">Part A · what psychology is — and what it isn't</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">The science of mind and behaviour</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:8px; margin-bottom:10px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">What psychology studies</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Perception, cognition, emotion, personality, behaviour, interpersonal relationships, social groups, development across the lifespan. Both normal functioning and psychological disorders.</div>
+    <div class="content-panel">
+      <div class="panel-title-spaced">The science of mind and behaviour</div>
+      <div class="psychology-grid">
+        <div class="sub-card">
+          <div class="psychology-label">What psychology studies</div>
+          <div class="muted-copy-tight">Perception, cognition, emotion, personality, behaviour, interpersonal relationships, social groups, development across the lifespan. Both normal functioning and psychological disorders.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">How it differs from common sense</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Psychology uses empirical methods — experiments, surveys, brain imaging, longitudinal studies — to test intuitions that are often wrong. Many common beliefs (venting anger releases it, people use 10% of their brain, opposites attract) are contradicted by evidence.</div>
+        <div class="sub-card">
+          <div class="psychology-label">How it differs from common sense</div>
+          <div class="muted-copy-tight">Psychology uses empirical methods — experiments, surveys, brain imaging, longitudinal studies — to test intuitions that are often wrong. Many common beliefs (venting anger releases it, people use 10% of their brain, opposites attract) are contradicted by evidence.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:3px;">Subfields</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.5;">Clinical, cognitive, developmental, social, neuropsychology, forensic, educational, industrial/organisational, health psychology. Each uses different methods and addresses different questions.</div>
+        <div class="sub-card">
+          <div class="psychology-label">Subfields</div>
+          <div class="muted-copy-tight">Clinical, cognitive, developmental, social, neuropsychology, forensic, educational, industrial/organisational, health psychology. Each uses different methods and addresses different questions.</div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">Psychology vs psychiatry vs psychotherapy:</strong> Psychiatry is a medical speciality — psychiatrists are medical doctors (MDs) who can prescribe medication and make diagnoses. Psychology is a research and clinical discipline — clinical psychologists (usually PhD or PsyD) provide therapy and psychological assessment but in most countries cannot prescribe medication. Psychotherapy is the practice of using psychological methods to treat mental health problems — it can be practised by psychiatrists, psychologists, or trained psychotherapists/counsellors with various levels of qualification.
+      <div class="psychology-panel-2">
+        <strong class="text-primary">Psychology vs psychiatry vs psychotherapy:</strong> Psychiatry is a medical speciality — psychiatrists are medical doctors (MDs) who can prescribe medication and make diagnoses. Psychology is a research and clinical discipline — clinical psychologists (usually PhD or PsyD) provide therapy and psychological assessment but in most countries cannot prescribe medication. Psychotherapy is the practice of using psychological methods to treat mental health problems — it can be practised by psychiatrists, psychologists, or trained psychotherapists/counsellors with various levels of qualification.
       </div>
     </div>
 
@@ -293,46 +827,46 @@
     <div class="sec">Part B · the founding figures — click to explore</div>
 
     <!-- Interactive timeline -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:12px;">
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.07em;">Key moments in psychology's history — tap a year</div>
+    <div class="psychology-panel-3">
+      <div class="psychology-label-2">Key moments in psychology's history — tap a year</div>
       <div class="psych-timeline">
         <div class="psych-timeline-inner">
           <div class="tl-line"></div>
           <div class="tl-nodes" id="tlNodes"></div>
         </div>
       </div>
-      <div class="tl-detail" id="tlDetail"><span style="color:var(--color-text-tertiary); font-size:12px;">Select a year above to see what happened.</span></div>
+      <div class="tl-detail" id="tlDetail"><span class="psychology-text">Select a year above to see what happened.</span></div>
     </div>
 
-    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showFigure('freud')"    style="font-size:12px; padding:3px 10px;">Sigmund Freud</button>
-      <button onclick="showFigure('jung')"     style="font-size:12px; padding:3px 10px;">Carl Jung</button>
-      <button onclick="showFigure('pavlov')"   style="font-size:12px; padding:3px 10px;">Ivan Pavlov</button>
-      <button onclick="showFigure('skinner')"  style="font-size:12px; padding:3px 10px;">B.F. Skinner</button>
-      <button onclick="showFigure('piaget')"   style="font-size:12px; padding:3px 10px;">Jean Piaget</button>
-      <button onclick="showFigure('maslow')"   style="font-size:12px; padding:3px 10px;">Abraham Maslow</button>
-      <button onclick="showFigure('bandura')"  style="font-size:12px; padding:3px 10px;">Albert Bandura</button>
-      <button onclick="showFigure('beck')"     style="font-size:12px; padding:3px 10px;">Aaron Beck</button>
-      <button onclick="showFigure('rogers')"   style="font-size:12px; padding:3px 10px;">Carl Rogers</button>
-      <button onclick="showFigure('wundt')"    style="font-size:12px; padding:3px 10px;">Wilhelm Wundt</button>
+    <div class="psychology-row">
+      <button class="showfigure-control" onclick="showFigure('freud')"   >Sigmund Freud</button>
+      <button class="showfigure-control" onclick="showFigure('jung')"    >Carl Jung</button>
+      <button class="showfigure-control" onclick="showFigure('pavlov')"  >Ivan Pavlov</button>
+      <button class="showfigure-control" onclick="showFigure('skinner')" >B.F. Skinner</button>
+      <button class="showfigure-control" onclick="showFigure('piaget')"  >Jean Piaget</button>
+      <button class="showfigure-control" onclick="showFigure('maslow')"  >Abraham Maslow</button>
+      <button class="showfigure-control" onclick="showFigure('bandura')" >Albert Bandura</button>
+      <button class="showfigure-control" onclick="showFigure('beck')"    >Aaron Beck</button>
+      <button class="showfigure-control" onclick="showFigure('rogers')"  >Carl Rogers</button>
+      <button class="showfigure-control" onclick="showFigure('wundt')"   >Wilhelm Wundt</button>
     </div>
-    <div id="figure-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="figure-display"></div>
 
     <!-- ═══════════════════════════════════════════════════════
          PART C · Schools of thought
     ═══════════════════════════════════════════════════════ -->
     <div class="sec">Part C · the major schools of thought</div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showSchool('psychoanalytic')" style="font-size:12px; padding:3px 10px;">Psychoanalytic</button>
-      <button onclick="showSchool('behaviourist')"   style="font-size:12px; padding:3px 10px;">Behaviourist</button>
-      <button onclick="showSchool('humanistic')"     style="font-size:12px; padding:3px 10px;">Humanistic</button>
-      <button onclick="showSchool('cognitive')"      style="font-size:12px; padding:3px 10px;">Cognitive</button>
-      <button onclick="showSchool('biological')"     style="font-size:12px; padding:3px 10px;">Biological</button>
-      <button onclick="showSchool('evolutionary')"   style="font-size:12px; padding:3px 10px;">Evolutionary</button>
-      <button onclick="showSchool('sociocultural')"  style="font-size:12px; padding:3px 10px;">Sociocultural</button>
+    <div class="button-row">
+      <button class="showfigure-control" onclick="showSchool('psychoanalytic')">Psychoanalytic</button>
+      <button class="showfigure-control" onclick="showSchool('behaviourist')"  >Behaviourist</button>
+      <button class="showfigure-control" onclick="showSchool('humanistic')"    >Humanistic</button>
+      <button class="showfigure-control" onclick="showSchool('cognitive')"     >Cognitive</button>
+      <button class="showfigure-control" onclick="showSchool('biological')"    >Biological</button>
+      <button class="showfigure-control" onclick="showSchool('evolutionary')"  >Evolutionary</button>
+      <button class="showfigure-control" onclick="showSchool('sociocultural')" >Sociocultural</button>
     </div>
-    <div id="school-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="school-display"></div>
 
     <!-- ═══════════════════════════════════════════════════════
          PART D · Therapy types + comparison matrix
@@ -340,8 +874,8 @@
     <div class="sec">Part D · therapy types — what each is for</div>
 
     <!-- NEW: Evidence comparison matrix -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:12px; overflow-x:auto;">
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.07em;">Evidence strength by condition</div>
+    <div class="psychology-panel-4">
+      <div class="psychology-label-2">Evidence strength by condition</div>
       <table class="therapy-matrix">
         <thead>
           <tr>
@@ -355,103 +889,103 @@
         </thead>
         <tbody>
           <tr>
-            <td style="font-weight:500;">CBT</td>
+            <td class="u-fw-500">CBT</td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
             <td><span class="tm-badge tm-limited">Limited</span></td>
-            <td style="color:var(--color-text-secondary);">12–20 sessions</td>
+            <td class="text-secondary">12–20 sessions</td>
           </tr>
           <tr>
-            <td style="font-weight:500;">DBT</td>
+            <td class="u-fw-500">DBT</td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-strong">Strong (BPD)</span></td>
-            <td style="color:var(--color-text-secondary);">1–2 years</td>
+            <td class="text-secondary">1–2 years</td>
           </tr>
           <tr>
-            <td style="font-weight:500;">EMDR</td>
+            <td class="u-fw-500">EMDR</td>
             <td><span class="tm-badge tm-limited">Limited</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
             <td><span class="tm-badge tm-limited">Limited</span></td>
-            <td style="color:var(--color-text-secondary);">8–20 sessions</td>
+            <td class="text-secondary">8–20 sessions</td>
           </tr>
           <tr>
-            <td style="font-weight:500;">ACT</td>
+            <td class="u-fw-500">ACT</td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
-            <td style="color:var(--color-text-secondary);">12–24 sessions</td>
+            <td class="text-secondary">12–24 sessions</td>
           </tr>
           <tr>
-            <td style="font-weight:500;">Psychodynamic</td>
+            <td class="u-fw-500">Psychodynamic</td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-strong">Strong (LT)</span></td>
-            <td style="color:var(--color-text-secondary);">16–50+ sessions</td>
+            <td class="text-secondary">16–50+ sessions</td>
           </tr>
           <tr>
-            <td style="font-weight:500;">Schema</td>
+            <td class="u-fw-500">Schema</td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-strong">Strong</span></td>
-            <td style="color:var(--color-text-secondary);">1–3 years</td>
+            <td class="text-secondary">1–3 years</td>
           </tr>
           <tr>
-            <td style="font-weight:500;">Person-centred</td>
+            <td class="u-fw-500">Person-centred</td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-moderate">Moderate</span></td>
             <td><span class="tm-badge tm-limited">Limited</span></td>
             <td><span class="tm-badge tm-limited">Limited</span></td>
-            <td style="color:var(--color-text-secondary);">Open-ended</td>
+            <td class="text-secondary">Open-ended</td>
           </tr>
         </tbody>
       </table>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:6px; line-height:1.5;">LT = long-term format. Evidence ratings reflect current meta-analytic consensus; individual outcomes vary. This is an educational summary, not clinical guidance.</div>
+      <div class="psychology-text-2">LT = long-term format. Evidence ratings reflect current meta-analytic consensus; individual outcomes vary. This is an educational summary, not clinical guidance.</div>
     </div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showTherapy('psychoanalysis')" style="font-size:12px; padding:3px 10px;">Psychoanalysis</button>
-      <button onclick="showTherapy('cbt')"            style="font-size:12px; padding:3px 10px;">CBT</button>
-      <button onclick="showTherapy('dbt')"            style="font-size:12px; padding:3px 10px;">DBT</button>
-      <button onclick="showTherapy('act')"            style="font-size:12px; padding:3px 10px;">ACT</button>
-      <button onclick="showTherapy('emdr')"           style="font-size:12px; padding:3px 10px;">EMDR</button>
-      <button onclick="showTherapy('humanistic')"     style="font-size:12px; padding:3px 10px;">Humanistic / person-centred</button>
-      <button onclick="showTherapy('schema')"         style="font-size:12px; padding:3px 10px;">Schema therapy</button>
-      <button onclick="showTherapy('group')"          style="font-size:12px; padding:3px 10px;">Group therapy</button>
+    <div class="button-row">
+      <button class="showfigure-control" onclick="showTherapy('psychoanalysis')">Psychoanalysis</button>
+      <button class="showfigure-control" onclick="showTherapy('cbt')"           >CBT</button>
+      <button class="showfigure-control" onclick="showTherapy('dbt')"           >DBT</button>
+      <button class="showfigure-control" onclick="showTherapy('act')"           >ACT</button>
+      <button class="showfigure-control" onclick="showTherapy('emdr')"          >EMDR</button>
+      <button class="showfigure-control" onclick="showTherapy('humanistic')"    >Humanistic / person-centred</button>
+      <button class="showfigure-control" onclick="showTherapy('schema')"        >Schema therapy</button>
+      <button class="showfigure-control" onclick="showTherapy('group')"         >Group therapy</button>
     </div>
-    <div id="therapy-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="therapy-display"></div>
 
     <!-- ═══════════════════════════════════════════════════════
          PART E · Professional hierarchy
     ═══════════════════════════════════════════════════════ -->
     <div class="sec">Part E · who's who in mental health — the professional hierarchy</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:10px; margin-bottom:1rem;">
-      <div style="background:#EEEDFE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #AFA9EC;">
-        <div style="font-size:13px; font-weight:500; color:#26215C; margin-bottom:5px;">Psychiatrist (MD)</div>
-        <div style="font-size:12px; color:#3C3489; line-height:1.6; margin-bottom:6px;">Medical doctor who specialised in psychiatry. Can diagnose mental disorders, prescribe medication (antidepressants, antipsychotics, mood stabilisers), and provide therapy. The highest level of medical authority in mental health.</div>
-        <div style="font-size:11px; color:#534AB7; line-height:1.4;">Training: medical degree (5–6 years) + psychiatric residency (4–5 years). Can admit patients to hospital. Most appropriate for: severe mental illness (schizophrenia, bipolar disorder), medication management, complex cases.</div>
+    <div class="psychology-grid-2">
+      <div class="psychology-panel-5">
+        <div class="psychology-label-3">Psychiatrist (MD)</div>
+        <div class="psychology-text-3">Medical doctor who specialised in psychiatry. Can diagnose mental disorders, prescribe medication (antidepressants, antipsychotics, mood stabilisers), and provide therapy. The highest level of medical authority in mental health.</div>
+        <div class="psychology-text-4">Training: medical degree (5–6 years) + psychiatric residency (4–5 years). Can admit patients to hospital. Most appropriate for: severe mental illness (schizophrenia, bipolar disorder), medication management, complex cases.</div>
       </div>
-      <div style="background:#E6F1FB; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #85B7EB;">
-        <div style="font-size:13px; font-weight:500; color:#042C53; margin-bottom:5px;">Clinical psychologist (PhD/PsyD)</div>
-        <div style="font-size:12px; color:#0C447C; line-height:1.6; margin-bottom:6px;">Doctoral-level specialist trained in psychological assessment, diagnosis, and therapy. Cannot prescribe medication in most countries. Strong emphasis on research and evidence-based practice.</div>
-        <div style="font-size:11px; color:#185FA5; line-height:1.4;">Training: undergraduate + doctoral programme (4–7 years) + supervised clinical hours. Can diagnose using DSM/ICD. Most appropriate for: depression, anxiety, PTSD, eating disorders, personality disorders, neuropsychological assessment.</div>
+      <div class="psychology-panel-6">
+        <div class="psychology-label-4">Clinical psychologist (PhD/PsyD)</div>
+        <div class="psychology-text-5">Doctoral-level specialist trained in psychological assessment, diagnosis, and therapy. Cannot prescribe medication in most countries. Strong emphasis on research and evidence-based practice.</div>
+        <div class="psychology-text-6">Training: undergraduate + doctoral programme (4–7 years) + supervised clinical hours. Can diagnose using DSM/ICD. Most appropriate for: depression, anxiety, PTSD, eating disorders, personality disorders, neuropsychological assessment.</div>
       </div>
-      <div style="background:#E1F5EE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #5DCAA5;">
-        <div style="font-size:13px; font-weight:500; color:#04342C; margin-bottom:5px;">Psychotherapist / counsellor</div>
-        <div style="font-size:12px; color:#085041; line-height:1.6; margin-bottom:6px;">Practises psychotherapy using psychological methods. Training and regulation varies widely by country and approach. "Psychotherapist" is not legally protected in all jurisdictions.</div>
-        <div style="font-size:11px; color:#0F6E56; line-height:1.4;">Training: varies from 2-year diploma to master's degree. Most appropriate for: relationship issues, life transitions, mild-moderate depression and anxiety, bereavement.</div>
+      <div class="psychology-panel-7">
+        <div class="psychology-label-5">Psychotherapist / counsellor</div>
+        <div class="psychology-text-7">Practises psychotherapy using psychological methods. Training and regulation varies widely by country and approach. "Psychotherapist" is not legally protected in all jurisdictions.</div>
+        <div class="psychology-text-8">Training: varies from 2-year diploma to master's degree. Most appropriate for: relationship issues, life transitions, mild-moderate depression and anxiety, bereavement.</div>
       </div>
-      <div style="background:#FAEEDA; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #EF9F27;">
-        <div style="font-size:13px; font-weight:500; color:#412402; margin-bottom:5px;">Neuropsychologist</div>
-        <div style="font-size:12px; color:#633806; line-height:1.6; margin-bottom:6px;">Specialist in the relationship between brain function and behaviour. Assesses cognitive deficits from brain injury, stroke, dementia, or developmental conditions. Doctoral level.</div>
-        <div style="font-size:11px; color:#854F0B; line-height:1.4;">Most appropriate for: dementia assessment, post-stroke evaluation, traumatic brain injury, ADHD and learning disorder assessment, pre-surgical neurological evaluation.</div>
+      <div class="psychology-panel-8">
+        <div class="psychology-label-6">Neuropsychologist</div>
+        <div class="psychology-text-9">Specialist in the relationship between brain function and behaviour. Assesses cognitive deficits from brain injury, stroke, dementia, or developmental conditions. Doctoral level.</div>
+        <div class="psychology-text-10">Most appropriate for: dementia assessment, post-stroke evaluation, traumatic brain injury, ADHD and learning disorder assessment, pre-surgical neurological evaluation.</div>
       </div>
     </div>
 
@@ -461,25 +995,25 @@
     <div class="sec">Part F · essential psychological concepts everyone should know</div>
 
     <!-- NEW: Cognitive bias frequency chart -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:12px;">
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:12px;">How often each bias type appears in everyday decisions (research-based estimates)</div>
+    <div class="psychology-panel-3">
+      <div class="psychology-label-7">How often each bias type appears in everyday decisions (research-based estimates)</div>
       <div id="biasChart"></div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:8px; line-height:1.5;">Bar width reflects frequency across everyday decision-making contexts, based on meta-analytic research. All biases overlap substantially.</div>
+      <div class="psychology-text-11">Bar width reflects frequency across everyday decision-making contexts, based on meta-analytic research. All biases overlap substantially.</div>
     </div>
 
-    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showConcept('cogdis')"      style="font-size:12px; padding:3px 9px;">Cognitive dissonance</button>
-      <button onclick="showConcept('confbias')"    style="font-size:12px; padding:3px 9px;">Confirmation bias</button>
-      <button onclick="showConcept('schema')"      style="font-size:12px; padding:3px 9px;">Schema</button>
-      <button onclick="showConcept('attachment')"  style="font-size:12px; padding:3px 9px;">Attachment theory</button>
-      <button onclick="showConcept('projection')"  style="font-size:12px; padding:3px 9px;">Projection</button>
-      <button onclick="showConcept('cogdist')"     style="font-size:12px; padding:3px 9px;">Cognitive distortions</button>
-      <button onclick="showConcept('flow')"        style="font-size:12px; padding:3px 9px;">Flow state</button>
-      <button onclick="showConcept('dk')"          style="font-size:12px; padding:3px 9px;">Dunning-Kruger</button>
-      <button onclick="showConcept('lh')"          style="font-size:12px; padding:3px 9px;">Learned helplessness</button>
-      <button onclick="showConcept('conditioning')" style="font-size:12px; padding:3px 9px;">Classical conditioning</button>
+    <div class="psychology-row">
+      <button class="showconcept-control" onclick="showConcept('cogdis')"     >Cognitive dissonance</button>
+      <button class="showconcept-control" onclick="showConcept('confbias')"   >Confirmation bias</button>
+      <button class="showconcept-control" onclick="showConcept('schema')"     >Schema</button>
+      <button class="showconcept-control" onclick="showConcept('attachment')" >Attachment theory</button>
+      <button class="showconcept-control" onclick="showConcept('projection')" >Projection</button>
+      <button class="showconcept-control" onclick="showConcept('cogdist')"    >Cognitive distortions</button>
+      <button class="showconcept-control" onclick="showConcept('flow')"       >Flow state</button>
+      <button class="showconcept-control" onclick="showConcept('dk')"         >Dunning-Kruger</button>
+      <button class="showconcept-control" onclick="showConcept('lh')"         >Learned helplessness</button>
+      <button class="showconcept-control" onclick="showConcept('conditioning')">Classical conditioning</button>
     </div>
-    <div id="concept-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="concept-display"></div>
 
     <!-- ═══════════════════════════════════════════════════════
          PART G · Memory systems  [NEW]
@@ -487,66 +1021,66 @@
     <div class="sec">Part G · memory — how it actually works</div>
 
     <!-- Atkinson-Shiffrin visual flow -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:12px;">
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:12px;">The memory pipeline (Atkinson-Shiffrin model)</div>
-      <div style="display:flex; align-items:center; gap:4px; flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 12px; min-width:110px; flex-shrink:0;">
-          <div style="font-size:11px; font-weight:600; color:#0C447C; margin-bottom:3px;">Sensory register</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.45;">Duration: &lt;1 second (iconic) / 3–4 s (echoic)<br>Capacity: very large<br>Mostly unconscious</div>
+    <div class="psychology-panel-3">
+      <div class="psychology-label-7">The memory pipeline (Atkinson-Shiffrin model)</div>
+      <div class="psychology-row-3">
+        <div class="psychology-panel-9">
+          <div class="psychology-text-12">Sensory register</div>
+          <div class="psychology-text-13">Duration: &lt;1 second (iconic) / 3–4 s (echoic)<br>Capacity: very large<br>Mostly unconscious</div>
         </div>
-        <div style="color:var(--color-text-tertiary); font-size:16px; flex-shrink:0; padding:0 2px;">→</div>
-        <div style="background:#E6F1FB; border-radius:var(--border-radius-md); padding:9px 12px; min-width:110px; flex-shrink:0; border:0.5px solid #85B7EB;">
-          <div style="font-size:11px; font-weight:600; color:#0C447C; margin-bottom:3px;">Working memory</div>
-          <div style="font-size:11px; color:#185FA5; line-height:1.45;">Duration: 15–30 s without rehearsal<br>Capacity: 7±2 chunks (Miller)<br>Active, conscious processing</div>
+        <div class="psychology-text-14">→</div>
+        <div class="psychology-panel-10">
+          <div class="psychology-text-12">Working memory</div>
+          <div class="psychology-text-15">Duration: 15–30 s without rehearsal<br>Capacity: 7±2 chunks (Miller)<br>Active, conscious processing</div>
         </div>
-        <div style="color:var(--color-text-tertiary); font-size:16px; flex-shrink:0; padding:0 2px;">→</div>
-        <div style="background:#EAF3DE; border-radius:var(--border-radius-md); padding:9px 12px; min-width:110px; flex-shrink:0; border:0.5px solid #97c459;">
-          <div style="font-size:11px; font-weight:600; color:#27500A; margin-bottom:3px;">Long-term memory</div>
-          <div style="font-size:11px; color:#3B6D11; line-height:1.45;">Duration: potentially lifelong<br>Capacity: effectively unlimited<br>Encoded through rehearsal &amp; meaning</div>
+        <div class="psychology-text-14">→</div>
+        <div class="psychology-panel-11">
+          <div class="psychology-text-16">Long-term memory</div>
+          <div class="psychology-text-17">Duration: potentially lifelong<br>Capacity: effectively unlimited<br>Encoded through rehearsal &amp; meaning</div>
         </div>
       </div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:8px;">The pipeline is not one-way: retrieval from LTM feeds back into working memory. Elaborative rehearsal (connecting new material to existing knowledge) is far more effective than maintenance rehearsal (repetition alone).</div>
+      <div class="psychology-text-18">The pipeline is not one-way: retrieval from LTM feeds back into working memory. Elaborative rehearsal (connecting new material to existing knowledge) is far more effective than maintenance rehearsal (repetition alone).</div>
     </div>
 
     <!-- Long-term memory types -->
-    <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px;">Long-term memory sub-types</div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(165px, 1fr)); gap:8px; margin-bottom:12px;">
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:11px 13px;">
-        <div style="font-size:12px; font-weight:600; color:var(--color-text-primary); margin-bottom:4px;">Episodic</div>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:5px;">Personal events and experiences, with a sense of time and place ("mental time travel"). What you had for breakfast. Your first day at school.</div>
-        <div style="font-size:10px; background:#EEEDFE; color:#3C3489; border-radius:3px; padding:1px 6px; display:inline-block;">Hippocampus-dependent · reconstructive · highly fallible</div>
+    <div class="psychology-label-8">Long-term memory sub-types</div>
+    <div class="psychology-grid-3">
+      <div class="psychology-panel-12">
+        <div class="psychology-text-19">Episodic</div>
+        <div class="psychology-text-20">Personal events and experiences, with a sense of time and place ("mental time travel"). What you had for breakfast. Your first day at school.</div>
+        <div class="psychology-panel-13">Hippocampus-dependent · reconstructive · highly fallible</div>
       </div>
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:11px 13px;">
-        <div style="font-size:12px; font-weight:600; color:var(--color-text-primary); margin-bottom:4px;">Semantic</div>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:5px;">General world knowledge, facts, concepts, meanings — detached from personal experience. The capital of France. What a dog is. How grammar works.</div>
-        <div style="font-size:10px; background:#E6F1FB; color:#0C447C; border-radius:3px; padding:1px 6px; display:inline-block;">Network of concepts · stable · culturally shared</div>
+      <div class="psychology-panel-12">
+        <div class="psychology-text-19">Semantic</div>
+        <div class="psychology-text-20">General world knowledge, facts, concepts, meanings — detached from personal experience. The capital of France. What a dog is. How grammar works.</div>
+        <div class="psychology-panel-14">Network of concepts · stable · culturally shared</div>
       </div>
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:11px 13px;">
-        <div style="font-size:12px; font-weight:600; color:var(--color-text-primary); margin-bottom:4px;">Procedural</div>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:5px;">Skills and habits — "knowing how." Riding a bike, touch-typing, driving. Largely unconscious; once consolidated, very resistant to forgetting.</div>
-        <div style="font-size:10px; background:#E1F5EE; color:#085041; border-radius:3px; padding:1px 6px; display:inline-block;">Basal ganglia · cerebellum · highly robust</div>
+      <div class="psychology-panel-12">
+        <div class="psychology-text-19">Procedural</div>
+        <div class="psychology-text-20">Skills and habits — "knowing how." Riding a bike, touch-typing, driving. Largely unconscious; once consolidated, very resistant to forgetting.</div>
+        <div class="psychology-panel-15">Basal ganglia · cerebellum · highly robust</div>
       </div>
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:11px 13px;">
-        <div style="font-size:12px; font-weight:600; color:var(--color-text-primary); margin-bottom:4px;">Prospective</div>
-        <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5; margin-bottom:5px;">Memory for future intentions — "remembering to remember." Taking medication at 8pm. Passing on a message. Often fails without external cues.</div>
-        <div style="font-size:10px; background:#FAEEDA; color:#633806; border-radius:3px; padding:1px 6px; display:inline-block;">Frontal lobe · event-based vs time-based</div>
+      <div class="psychology-panel-12">
+        <div class="psychology-text-19">Prospective</div>
+        <div class="psychology-text-20">Memory for future intentions — "remembering to remember." Taking medication at 8pm. Passing on a message. Often fails without external cues.</div>
+        <div class="psychology-panel-16">Frontal lobe · event-based vs time-based</div>
       </div>
     </div>
 
     <!-- Memory failure interactive explorer -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px;">Why memory fails — the seven sins of memory (Schacter)</div>
-      <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
-        <button onclick="showMemSin('transience')"    style="font-size:11px; padding:3px 9px;">Transience</button>
-        <button onclick="showMemSin('absentmind')"    style="font-size:11px; padding:3px 9px;">Absent-mindedness</button>
-        <button onclick="showMemSin('blocking')"      style="font-size:11px; padding:3px 9px;">Blocking</button>
-        <button onclick="showMemSin('misattrib')"     style="font-size:11px; padding:3px 9px;">Misattribution</button>
-        <button onclick="showMemSin('suggestibility')" style="font-size:11px; padding:3px 9px;">Suggestibility</button>
-        <button onclick="showMemSin('bias')"          style="font-size:11px; padding:3px 9px;">Bias</button>
-        <button onclick="showMemSin('persistence')"   style="font-size:11px; padding:3px 9px;">Persistence</button>
+    <div class="content-panel">
+      <div class="psychology-label-9">Why memory fails — the seven sins of memory (Schacter)</div>
+      <div class="psychology-row">
+        <button class="showmemsin-control" onclick="showMemSin('transience')"   >Transience</button>
+        <button class="showmemsin-control" onclick="showMemSin('absentmind')"   >Absent-mindedness</button>
+        <button class="showmemsin-control" onclick="showMemSin('blocking')"     >Blocking</button>
+        <button class="showmemsin-control" onclick="showMemSin('misattrib')"    >Misattribution</button>
+        <button class="showmemsin-control" onclick="showMemSin('suggestibility')">Suggestibility</button>
+        <button class="showmemsin-control" onclick="showMemSin('bias')"         >Bias</button>
+        <button class="showmemsin-control" onclick="showMemSin('persistence')"  >Persistence</button>
       </div>
-      <div id="memSinDisplay" style="font-size:13px; color:var(--color-text-secondary); line-height:1.65; padding:8px 10px; background:var(--color-background-secondary); border-radius:var(--border-radius-md);">
-        <span style="color:var(--color-text-tertiary);">Select a sin above to learn why that type of memory failure occurs.</span>
+      <div class="memsindisplay" id="memSinDisplay">
+        <span class="text-tertiary">Select a sin above to learn why that type of memory failure occurs.</span>
       </div>
     </div>
 
@@ -555,22 +1089,22 @@
     ═══════════════════════════════════════════════════════ -->
     <div class="sec">Part H · personality — the Big Five model</div>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:1rem;">
+    <div class="psychology-grid-4">
       <div>
-        <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">The OCEAN model — drag sliders to explore trait descriptions</div>
+        <div class="content-card">
+          <div class="psychology-label-10">The OCEAN model — drag sliders to explore trait descriptions</div>
           <div id="b5Sliders"></div>
           <div class="b5-desc" id="b5Desc">Move a slider to see what that trait level looks like in real life.</div>
         </div>
       </div>
       <div>
-        <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px; height:100%; box-sizing:border-box;">
-          <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Key facts about the Big Five</div>
-          <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.65;">
-            <p style="margin:0 0 7px;">The Big Five (or OCEAN) is the most empirically supported model of personality. Unlike MBTI, it is dimensional (not categorical), cross-culturally replicable, and strongly predictive.</p>
-            <p style="margin:0 0 7px;"><strong style="color:var(--color-text-primary);">Stability:</strong> traits are moderately heritable (~50%) and stable across adulthood, though gradual change occurs. People tend to become more Conscientious and Agreeable with age.</p>
-            <p style="margin:0 0 7px;"><strong style="color:var(--color-text-primary);">Predictive validity:</strong> Conscientiousness predicts job performance and longevity. Neuroticism predicts mental health risk. Openness predicts creative achievement.</p>
-            <p style="margin:0;"><strong style="color:var(--color-text-primary);">MBTI vs Big Five:</strong> MBTI's test-retest reliability is ~50% — about half of people get a different type if retested a few weeks later. Big Five scores are stable and replicate across cultures. Use OCEAN for anything predictive; MBTI at best for casual self-reflection.</p>
+        <div class="psychology-panel-18">
+          <div class="psychology-label-11">Key facts about the Big Five</div>
+          <div class="psychology-text-21">
+            <p class="psychology-spacing">The Big Five (or OCEAN) is the most empirically supported model of personality. Unlike MBTI, it is dimensional (not categorical), cross-culturally replicable, and strongly predictive.</p>
+            <p class="psychology-spacing"><strong class="text-primary">Stability:</strong> traits are moderately heritable (~50%) and stable across adulthood, though gradual change occurs. People tend to become more Conscientious and Agreeable with age.</p>
+            <p class="psychology-spacing"><strong class="text-primary">Predictive validity:</strong> Conscientiousness predicts job performance and longevity. Neuroticism predicts mental health risk. Openness predicts creative achievement.</p>
+            <p class="psychology-spacing-2"><strong class="text-primary">MBTI vs Big Five:</strong> MBTI's test-retest reliability is ~50% — about half of people get a different type if retested a few weeks later. Big Five scores are stable and replicate across cultures. Use OCEAN for anything predictive; MBTI at best for casual self-reflection.</p>
           </div>
         </div>
       </div>
@@ -583,7 +1117,7 @@
 
     <!-- Yerkes-Dodson curve (SVG) -->
     <div class="yerkes-wrap">
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px;">The Yerkes-Dodson inverted-U: arousal vs performance</div>
+      <div class="psychology-label-9">The Yerkes-Dodson inverted-U: arousal vs performance</div>
       <svg class="yerkes-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
         <!-- axes -->
         <line x1="50" y1="170" x2="490" y2="170" stroke="var(--color-border-secondary)" stroke-width="1"/>
@@ -613,26 +1147,26 @@
       </svg>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:8px; margin-bottom:12px;">
-      <div style="background:#FAEEDA; border-radius:var(--border-radius-lg); padding:11px 13px; border:0.5px solid #EF9F27;">
-        <div style="font-size:12px; font-weight:600; color:#412402; margin-bottom:4px;">Under-aroused zone</div>
-        <div style="font-size:12px; color:#633806; line-height:1.5;">Boredom, disengagement, poor attention. Performance is low not from overwhelm but from insufficient motivation. Common during repetitive tasks.</div>
+    <div class="psychology-grid-5">
+      <div class="psychology-panel-19">
+        <div class="psychology-text-22">Under-aroused zone</div>
+        <div class="psychology-text-23">Boredom, disengagement, poor attention. Performance is low not from overwhelm but from insufficient motivation. Common during repetitive tasks.</div>
       </div>
-      <div style="background:#EAF3DE; border-radius:var(--border-radius-lg); padding:11px 13px; border:0.5px solid #97c459;">
-        <div style="font-size:12px; font-weight:600; color:#1A3804; margin-bottom:4px;">Optimal zone</div>
-        <div style="font-size:12px; color:#27500A; line-height:1.5;">Focused attention, appropriate urgency, high-quality output. This is also the state associated with Csikszentmihalyi's flow. The optimal point varies by task complexity.</div>
+      <div class="psychology-panel-20">
+        <div class="psychology-text-24">Optimal zone</div>
+        <div class="psychology-text-25">Focused attention, appropriate urgency, high-quality output. This is also the state associated with Csikszentmihalyi's flow. The optimal point varies by task complexity.</div>
       </div>
-      <div style="background:#FCEBEB; border-radius:var(--border-radius-lg); padding:11px 13px; border:0.5px solid #f09595;">
-        <div style="font-size:12px; font-weight:600; color:#550A0A; margin-bottom:4px;">Over-aroused zone</div>
-        <div style="font-size:12px; color:#791F1F; line-height:1.5;">Anxiety, tunnel vision, executive function impairment. Stress hormones (cortisol, adrenaline) narrow attention and impair working memory — fine for running from a tiger, terrible for a job interview.</div>
+      <div class="psychology-panel-21">
+        <div class="psychology-text-26">Over-aroused zone</div>
+        <div class="psychology-text-27">Anxiety, tunnel vision, executive function impairment. Stress hormones (cortisol, adrenaline) narrow attention and impair working memory — fine for running from a tiger, terrible for a job interview.</div>
       </div>
     </div>
 
     <!-- Stress response interactive -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Emotion regulation strategies — how well do they actually work?</div>
+    <div class="content-panel">
+      <div class="psychology-label-11">Emotion regulation strategies — how well do they actually work?</div>
       <div class="reg-grid" id="regGrid"></div>
-      <div style="font-size:11px; color:var(--color-text-tertiary); line-height:1.5; margin-top:2px;">Effectiveness ratings based on meta-analytic studies. Short-term vs long-term effects often differ dramatically — notably for suppression and rumination.</div>
+      <div class="psychology-text-28">Effectiveness ratings based on meta-analytic studies. Short-term vs long-term effects often differ dramatically — notably for suppression and rumination.</div>
     </div>
 
     <!-- ═══════════════════════════════════════════════════════
@@ -640,56 +1174,56 @@
     ═══════════════════════════════════════════════════════ -->
     <div class="sec">Part J · emotions — what they are and how they work</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:12px;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Three competing theories of emotion</div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:8px; margin-top:8px;">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">James-Lange (1884)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">We feel emotion because we perceive our own bodily changes. "We don't tremble because we're afraid — we're afraid because we tremble." Physical state → emotional experience.</div>
+    <div class="psychology-panel-3">
+      <div class="mini-card-title">Three competing theories of emotion</div>
+      <div class="psychology-grid-6">
+        <div class="sub-card">
+          <div class="psychology-text-29">James-Lange (1884)</div>
+          <div class="psychology-text-30">We feel emotion because we perceive our own bodily changes. "We don't tremble because we're afraid — we're afraid because we tremble." Physical state → emotional experience.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Cannon-Bard (1927)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">The thalamus sends signals simultaneously to the cortex (producing subjective feeling) and the body (producing physiological response). Emotion and physiology happen together, not in sequence.</div>
+        <div class="sub-card">
+          <div class="psychology-text-29">Cannon-Bard (1927)</div>
+          <div class="psychology-text-30">The thalamus sends signals simultaneously to the cortex (producing subjective feeling) and the body (producing physiological response). Emotion and physiology happen together, not in sequence.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Schachter-Singer (1962)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">Two-factor theory: physiological arousal + cognitive label = emotion. The same arousal can become fear, excitement, or anger depending on what we attribute it to — misattribution of arousal is common.</div>
+        <div class="sub-card">
+          <div class="psychology-text-29">Schachter-Singer (1962)</div>
+          <div class="psychology-text-30">Two-factor theory: physiological arousal + cognitive label = emotion. The same arousal can become fear, excitement, or anger depending on what we attribute it to — misattribution of arousal is common.</div>
         </div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:var(--color-text-primary); margin-bottom:3px;">Constructed emotion (Barrett, 2017)</div>
-          <div style="font-size:11px; color:var(--color-text-secondary); line-height:1.5;">Emotions are not discrete biological programs but predictions constructed by the brain from interoceptive signals + past experience + context. Challenges Ekman's universality claim. Currently influential.</div>
+        <div class="sub-card">
+          <div class="psychology-text-29">Constructed emotion (Barrett, 2017)</div>
+          <div class="psychology-text-30">Emotions are not discrete biological programs but predictions constructed by the brain from interoceptive signals + past experience + context. Challenges Ekman's universality claim. Currently influential.</div>
         </div>
       </div>
     </div>
 
-    <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px;">Ekman's basic emotions — tap to explore</div>
+    <div class="psychology-label-8">Ekman's basic emotions — tap to explore</div>
     <div class="emotion-grid" id="emotionGrid"></div>
-    <div class="emotion-detail" id="emotionDetail"><span style="color:var(--color-text-tertiary);">Select an emotion above.</span></div>
+    <div class="emotion-detail" id="emotionDetail"><span class="text-tertiary">Select an emotion above.</span></div>
 
     <!-- ═══════════════════════════════════════════════════════
          PART K · Social psychology landmark studies  [NEW]
     ═══════════════════════════════════════════════════════ -->
     <div class="sec">Part K · landmark studies in social psychology</div>
 
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 13px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:12px;">
+    <div class="psychology-panel-22">
       Social psychology studies how situations shape behaviour — often far more powerfully than personality or character. The findings below are uncomfortable precisely because they reveal that "good people" reliably behave in disturbing ways under certain conditions.
     </div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showStudy('milgram')"   style="font-size:12px; padding:3px 9px;">Milgram (1961)</button>
-      <button onclick="showStudy('zimbardo')"  style="font-size:12px; padding:3px 9px;">Stanford Prison (1971)</button>
-      <button onclick="showStudy('asch')"      style="font-size:12px; padding:3px 9px;">Asch conformity (1951)</button>
-      <button onclick="showStudy('bystander')" style="font-size:12px; padding:3px 9px;">Bystander effect (1968)</button>
-      <button onclick="showStudy('halo')"      style="font-size:12px; padding:3px 9px;">Halo effect (1920)</button>
-      <button onclick="showStudy('fundamental')" style="font-size:12px; padding:3px 9px;">Fundamental attribution error</button>
-      <button onclick="showStudy('priming')"   style="font-size:12px; padding:3px 9px;">Priming</button>
+    <div class="button-row">
+      <button class="showconcept-control" onclick="showStudy('milgram')"  >Milgram (1961)</button>
+      <button class="showconcept-control" onclick="showStudy('zimbardo')" >Stanford Prison (1971)</button>
+      <button class="showconcept-control" onclick="showStudy('asch')"     >Asch conformity (1951)</button>
+      <button class="showconcept-control" onclick="showStudy('bystander')">Bystander effect (1968)</button>
+      <button class="showconcept-control" onclick="showStudy('halo')"     >Halo effect (1920)</button>
+      <button class="showconcept-control" onclick="showStudy('fundamental')">Fundamental attribution error</button>
+      <button class="showconcept-control" onclick="showStudy('priming')"  >Priming</button>
     </div>
-    <div id="study-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="study-display"></div>
 
     <!-- ═══════════════════════════════════════════════════════
          PART L (was G) · Test yourself
     ═══════════════════════════════════════════════════════ -->
-    <div class="sec">Part L · test yourself</div>
+    <div class="sec">Part L · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. What is the difference between Freud's ego, id, and superego — and why is the model influential despite being scientifically unfalsifiable?</p>
@@ -802,7 +1336,7 @@ function showFigure(key) {
       <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${f.name}</div>
       <div style="font-size:11px; font-weight:500; background:${f.bg}; color:${f.col}; border-radius:99px; padding:2px 9px;">${f.years} · ${f.origin}</div>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:8px; margin-bottom:8px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:8px; margin-bottom:8px;">
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Main contribution</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.contribution}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key ideas</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.keyideas}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Influence and legacy</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${f.influence}</div></div>
@@ -855,7 +1389,7 @@ function showSchool(key) {
   const s = schools[key];
   document.getElementById('school-display').innerHTML = `
     <div style="display:inline-block; background:${s.bg}; color:${s.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${s.name}</div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:8px; margin-bottom:8px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:8px; margin-bottom:8px;">
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Core focus</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.focus}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Key ideas</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.keyideas}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Modern developments</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.5;">${s.modern}</div></div>
@@ -916,7 +1450,7 @@ function showTherapy(key) {
       <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${t.name}</div>
       <div style="font-size:11px; font-weight:500; background:${t.bg}; color:${t.col}; border-radius:99px; padding:2px 9px;">${t.badge}</div>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:8px; margin-bottom:8px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:8px; margin-bottom:8px;">
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Best for</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.for}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">How it works</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.how}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Evidence</div><div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${t.evidence}</div></div>
@@ -984,7 +1518,7 @@ function showConcept(key) {
   const c = concepts[key];
   document.getElementById('concept-display').innerHTML = `
     <div style="display:inline-block; background:${c.bg}; color:${c.col}; border-radius:99px; font-size:11px; font-weight:500; padding:2px 9px; margin-bottom:10px;">${c.name}</div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:8px; margin-bottom:8px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:8px; margin-bottom:8px;">
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Definition</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.def}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">How it works</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.mechanism}</div></div>
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;"><div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:2px;">Examples</div><div style="font-size:13px; color:var(--color-text-primary); line-height:1.6;">${c.examples}</div></div>
@@ -1300,7 +1834,7 @@ function showStudy(key) {
       <div style="font-size:15px; font-weight:500; color:var(--color-text-primary);">${s.name}</div>
       <div style="font-size:11px; font-weight:500; background:${s.bg}; color:${s.col}; border-radius:99px; padding:2px 9px;">${s.year} · ${s.researcher}</div>
     </div>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:8px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:8px;">
       <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px;">
         <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:3px;">Finding</div>
         <div style="font-size:12px; color:var(--color-text-primary); line-height:1.55;">${s.finding}</div>

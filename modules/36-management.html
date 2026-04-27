@@ -3,88 +3,926 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 36: Management — Have a Sense</title>
+  <title>Module 36: Management - Have a Sense</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-    .stub {
-      background: var(--color-background-secondary);
-      border: 0.5px dashed var(--color-border-tertiary);
+    :root {
+      --accent: #3B7FCC;
+      --accent-bg: color-mix(in srgb, var(--accent) 14%, var(--color-background-primary));
+      --accent-border: color-mix(in srgb, var(--accent) 42%, var(--color-border-primary));
+    }
+
+    .module-head { display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem; }
+    .module-head i { font-size: 42px; color: var(--accent); flex-shrink: 0; }
+    .module-head h1 { margin: 0; line-height: 1.05; }
+
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+    .teaser-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 15px;
+      min-height: 132px;
+    }
+    .teaser-num { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 7px; }
+    .teaser-name { font-size: 14px; font-weight: 650; color: var(--color-text-primary); line-height: 1.25; margin-bottom: 6px; }
+    .teaser-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; }
+
+    .concept-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
       border-radius: var(--border-radius-lg);
       padding: 14px 16px;
+      margin-bottom: 1rem;
+    }
+    .concept-title { font-size: 14px; font-weight: 650; color: var(--color-text-primary); margin-bottom: 6px; }
+    .concept-text { font-size: 13px; color: var(--color-text-secondary); line-height: 1.65; }
+    .info-block {
+      background: var(--color-background-info);
+      border: 0.5px solid var(--color-border-info);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-text-info);
+      padding: 12px 14px;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .success-block {
+      background: var(--color-background-success);
+      border: 0.5px solid var(--color-border-success);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-text-success);
+      padding: 12px 14px;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .warning-block {
+      background: var(--color-background-warning);
+      border: 0.5px solid var(--color-border-warning);
+      border-radius: var(--border-radius-lg);
+      color: var(--color-text-warning);
+      padding: 12px 14px;
+      font-size: 12px;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .button-row { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 10px; }
+    .button-row button { font-size: 11px; padding: 4px 10px; }
+    .button-row button.active, .elem-card.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      color: var(--color-text-primary);
+      font-weight: 650;
+    }
+    .display-panel {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px;
+      margin-bottom: 1rem;
+    }
+    .panel-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+    .panel-title { font-size: 15px; font-weight: 650; color: var(--color-text-primary); margin-bottom: 8px; }
+    .panel-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.65; }
+
+    .period-chart {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .pc-title { font-size: 12px; font-weight: 650; color: var(--color-text-primary); margin-bottom: 10px; }
+    .pc-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+    .pc-label { font-size: 11px; color: var(--color-text-secondary); width: 145px; flex-shrink: 0; text-align: right; }
+    .pc-track { flex: 1; height: 17px; min-width: 240px; background: var(--color-background-secondary); border-radius: 3px; position: relative; }
+    .pc-fill { position: absolute; top: 0; height: 100%; border-radius: 3px; display: flex; align-items: center; padding: 0 5px; }
+    .pc-fill-label { font-size: 9px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pc-axis { height: 18px; margin-left: 153px; margin-bottom: 5px; position: relative; min-width: 240px; }
+    .pc-axis-mark { position: absolute; transform: translateX(-50%); font-size: 9px; color: var(--color-text-tertiary); }
+
+    .diagram-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .diagram-card svg { width: 100%; min-width: 520px; display: block; }
+    .diagram-card text { font-family: var(--font-sans); }
+
+    .slider-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px;
+      margin-bottom: 1rem;
+    }
+    .slider-top { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; margin-bottom: 8px; }
+    .slider-value { font-size: 22px; font-weight: 700; color: var(--accent); }
+    .slider-poles { display: flex; justify-content: space-between; color: var(--color-text-tertiary); font-size: 11px; margin-top: 4px; }
+    .slider-output { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; margin-top: 10px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; }
+
+    .elem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
       margin-bottom: 10px;
     }
-    .stub-title {
-      font-size: 13px; font-weight: 500;
-      color: var(--color-text-secondary); margin: 0 0 6px;
-    }
-    .stub-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .stub-tag {
-      font-size: 11px; padding: 2px 9px; border-radius: 99px;
-      background: var(--color-background-tertiary);
+    .elem-card {
+      background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
-      color: var(--color-text-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 11px 12px;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
     }
+    .elem-card:hover { background: var(--color-background-secondary); }
+    .elem-icon { color: var(--accent); font-size: 20px; margin-bottom: 7px; }
+    .elem-name { font-size: 13px; font-weight: 650; color: var(--color-text-primary); margin-bottom: 3px; }
+    .elem-sub { font-size: 11px; color: var(--color-text-secondary); line-height: 1.35; }
+    .elem-detail {
+      display: none;
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px;
+      margin-bottom: 1rem;
+    }
+
+    .cscale {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .cscale-row { display: grid; grid-template-columns: 138px 1fr; gap: 10px; align-items: center; margin-bottom: 10px; }
+    .cscale-name { font-size: 11px; color: var(--color-text-secondary); text-align: right; }
+    .cscale-track { height: 16px; border-radius: 99px; background: var(--color-background-secondary); position: relative; border: 0.5px solid var(--color-border-tertiary); }
+    .cscale-dot { width: 14px; height: 14px; border-radius: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%); background: var(--accent); border: 2px solid var(--color-background-primary); box-shadow: 0 0 0 0.5px var(--accent-border); }
+    .cscale-poles { display: flex; justify-content: space-between; margin-left: 148px; font-size: 10px; color: var(--color-text-tertiary); }
+
+    .chart-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .chart-title { font-size: 13px; font-weight: 650; color: var(--color-text-primary); margin-bottom: 10px; }
+    .chart-note { font-size: 11px; color: var(--color-text-tertiary); line-height: 1.5; margin-top: 8px; }
+    .chart-card .bb { flex: 1; background: var(--color-background-secondary); padding: 0; overflow: hidden; }
+    .chart-card .bar-fill { height: 10px; border-radius: 4px; }
+    .chart-card .bv { width: 42px; padding-left: 8px; color: var(--color-text-secondary); }
+    .dist-bar { display: flex; height: 28px; border-radius: var(--border-radius-md); overflow: hidden; border: 0.5px solid var(--color-border-tertiary); margin-bottom: 9px; }
+    .dist-seg { display: flex; align-items: center; justify-content: center; min-width: 32px; color: var(--color-background-primary); font-size: 10px; font-weight: 700; }
+    .legend { display: flex; flex-wrap: wrap; gap: 7px 12px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--color-text-secondary); }
+    .legend-swatch { width: 11px; height: 11px; border-radius: 3px; flex-shrink: 0; }
+
+    .calc-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 16px;
+      margin-bottom: 1rem;
+    }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 10px; }
+    .calc-field label { display: block; font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+    .calc-output { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; font-size: 12px; color: var(--color-text-secondary); line-height: 1.55; margin-top: 10px; min-height: 44px; }
+
+    .mini-matrix { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+    .matrix-cell { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 12px 14px; }
+    .matrix-cell .clabel { color: var(--accent); }
+
+    @media (max-width: 500px) {
+      .pc-label { width: 92px; font-size: 10px; }
+      .pc-axis { margin-left: 100px; }
+      .cscale-row { grid-template-columns: 92px 1fr; }
+      .cscale-name { font-size: 10px; }
+      .cscale-poles { margin-left: 102px; }
+      .bl { width: 78px; }
+      .module-head { align-items: flex-start; }
+    }
+
+/* === Shared-ready extracted styles === */
+
+/* === Module-specific extracted styles === */
+
+.dist-seg-style {
+  width:20%;
+  background:var(--color-border-info);
+}
+
+.dist-seg-style-2 {
+  width:35%;
+  background:var(--accent);
+}
+
+.dist-seg-style-3 {
+  width:25%;
+  background:var(--color-border-success);
+}
+
+.dist-seg-style-4 {
+  width:20%;
+  background:var(--color-border-warning);
+}
+
+.legend-swatch-style {
+  background:var(--color-border-info);
+}
+
+.legend-swatch-style-2 {
+  background:var(--accent);
+}
+
+.legend-swatch-style-3 {
+  background:var(--color-border-success);
+}
+
+.legend-swatch-style-4 {
+  background:var(--color-border-warning);
+}
+
+.bar-fill-style {
+  width:72%;
+  background:var(--accent);
+}
+
+.bar-fill-style-2 {
+  width:16%;
+  background:var(--color-border-info);
+}
+
+.bar-fill-style-3 {
+  width:4%;
+  background:var(--color-border-success);
+}
+
+.bar-fill-style-4 {
+  width:4%;
+  background:var(--color-border-warning);
+}
+
+.bar-fill-style-5 {
+  width:4%;
+  background:var(--color-border-secondary);
+}
+
+.cscale-dot-style {
+  left:8%;
+}
+
+.cscale-dot-style-2 {
+  left:28%;
+}
+
+.cscale-dot-style-3 {
+  left:52%;
+}
+
+.cscale-dot-style-4 {
+  left:72%;
+}
+
+.cscale-dot-style-5 {
+  left:88%;
+}
+
+.bar-fill-style-6 {
+  width:5%;
+  background:var(--accent);
+}
+
+.bar-fill-style-7 {
+  width:10%;
+  background:var(--color-border-success);
+}
+
+.bar-fill-style-8 {
+  width:25%;
+  background:var(--color-border-info);
+}
+
+.bar-fill-style-9 {
+  width:60%;
+  background:var(--color-border-warning);
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-briefcase" style="font-size:42px; color:#3B7FCC; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 36: Management</h1>
+    <div class="module-head">
+      <i class="fa-solid fa-briefcase"></i>
+      <h1 class="module-title">Module 36: Management</h1>
     </div>
     <p class="module-subtitle">How organisations work, how decisions get made, and what the MBA actually teaches</p>
 
-    <!-- ── PART A ── -->
-    <div class="sec">Part A · what management is — the discipline and its history</div>
-    <div class="stub"><div class="stub-title">What is management? — coordination, decision-making, and getting things done through others</div><div class="stub-tags"><span class="stub-tag">Definition & scope</span><span class="stub-tag">Management vs leadership</span><span class="stub-tag">Why it matters</span></div></div>
-    <div class="stub"><div class="stub-title">A brief history of management thought — from Taylor to Drucker to today</div><div class="stub-tags"><span class="stub-tag">Scientific management (Taylor)</span><span class="stub-tag">Human relations school</span><span class="stub-tag">Drucker & modern management</span><span class="stub-tag">Knowledge workers</span></div></div>
-    <div class="stub"><div class="stub-title">What the MBA is — and what it's not</div><div class="stub-tags"><span class="stub-tag">Origin of the MBA</span><span class="stub-tag">Core curriculum</span><span class="stub-tag">Case method</span><span class="stub-tag">ROI & debates</span></div></div>
+    <div class="sec">Part A &middot; what management is - the discipline and its history</div>
 
-    <!-- ── PART B ── -->
-    <div class="sec">Part B · strategy — how companies decide where to compete</div>
-    <div class="stub"><div class="stub-title">What strategy is — and the difference between strategy and planning</div><div class="stub-tags"><span class="stub-tag">Strategy definition</span><span class="stub-tag">Mintzberg's emergent strategy</span><span class="stub-tag">Deliberate vs emergent</span></div></div>
-    <div class="stub"><div class="stub-title">Porter's Five Forces — the classic competitive analysis framework</div><div class="stub-tags"><span class="stub-tag">Buyer power</span><span class="stub-tag">Supplier power</span><span class="stub-tag">New entrants</span><span class="stub-tag">Substitutes</span><span class="stub-tag">Rivalry</span><span class="stub-tag">Interactive diagram</span></div></div>
-    <div class="stub"><div class="stub-title">Competitive advantage — cost leadership vs differentiation vs focus</div><div class="stub-tags"><span class="stub-tag">Porter's generic strategies</span><span class="stub-tag">Blue ocean strategy</span><span class="stub-tag">Moats & defensibility</span></div></div>
-    <div class="stub"><div class="stub-title">SWOT, PESTLE, and the strategy toolkit — when to use each</div><div class="stub-tags"><span class="stub-tag">SWOT grid</span><span class="stub-tag">PESTLE factors</span><span class="stub-tag">Value chain</span><span class="stub-tag">BCG matrix</span></div></div>
-    <div class="stub"><div class="stub-title">Disruptive innovation — Christensen's theory and its limits</div><div class="stub-tags"><span class="stub-tag">Low-end disruption</span><span class="stub-tag">New-market disruption</span><span class="stub-tag">Examples & counter-examples</span></div></div>
+    <div class="concept-card">
+      <div class="concept-title">Management is the operating system of organised effort</div>
+      <div class="concept-text">Management is the craft of turning scarce resources, ambiguous goals, imperfect information, and human motives into coordinated action. A manager does not simply "tell people what to do." They choose priorities, design roles, allocate money, make trade-offs, notice weak signals, and keep the organisation learning faster than the environment changes. This module moves from the discipline's history to the MBA toolkit: strategy, finance, marketing, operations, organisational behaviour, and startups. The aim is not to turn you into a consultant; it is to give you a working map of how serious organisations think.</div>
+    </div>
 
-    <!-- ── PART C ── -->
-    <div class="sec">Part C · finance for managers — the numbers side of the MBA</div>
-    <div class="stub"><div class="stub-title">The three financial statements — what each tells you</div><div class="stub-tags"><span class="stub-tag">Income statement</span><span class="stub-tag">Balance sheet</span><span class="stub-tag">Cash flow statement</span><span class="stub-tag">How they connect</span></div></div>
-    <div class="stub"><div class="stub-title">Key financial ratios — the ones every manager should know</div><div class="stub-tags"><span class="stub-tag">Profitability ratios</span><span class="stub-tag">Liquidity ratios</span><span class="stub-tag">Leverage ratios</span><span class="stub-tag">Calculator widget</span></div></div>
-    <div class="stub"><div class="stub-title">Valuation basics — how businesses are valued</div><div class="stub-tags"><span class="stub-tag">DCF</span><span class="stub-tag">Comparable companies</span><span class="stub-tag">EBITDA multiples</span><span class="stub-tag">P/E ratio</span></div></div>
-    <div class="stub"><div class="stub-title">Unit economics — the building blocks of a business model</div><div class="stub-tags"><span class="stub-tag">CAC & LTV</span><span class="stub-tag">Contribution margin</span><span class="stub-tag">Payback period</span><span class="stub-tag">Break-even analysis</span></div></div>
+    <div class="teaser-grid">
+      <div class="teaser-card"><div class="teaser-num">Part A</div><div class="teaser-name">The discipline</div><div class="teaser-desc">Why management emerged when firms became too large for one owner to coordinate by memory, charisma, and handwritten ledgers.</div></div>
+      <div class="teaser-card"><div class="teaser-num">Part B</div><div class="teaser-name">Strategy</div><div class="teaser-desc">How companies decide where to compete, what not to do, and why a good plan can still be a bad strategy.</div></div>
+      <div class="teaser-card"><div class="teaser-num">Part C</div><div class="teaser-name">Finance</div><div class="teaser-desc">The three statements, valuation, ratios, and unit economics: the numbers that reveal whether a business is actually working.</div></div>
+      <div class="teaser-card"><div class="teaser-num">Part D</div><div class="teaser-name">Marketing</div><div class="teaser-desc">Customers, segmentation, positioning, brands, and the difference between creating demand and merely chasing it.</div></div>
+      <div class="teaser-card"><div class="teaser-num">Part E</div><div class="teaser-name">Operations</div><div class="teaser-desc">The hidden machinery: bottlenecks, supply chains, quality systems, and the cost of making promises the process cannot keep.</div></div>
+      <div class="teaser-card"><div class="teaser-num">Part F</div><div class="teaser-name">People</div><div class="teaser-desc">Motivation, teams, leadership, culture, and decision errors. This is where spreadsheets meet psychology.</div></div>
+      <div class="teaser-card"><div class="teaser-num">Part G</div><div class="teaser-name">Startups</div><div class="teaser-desc">Management without much history, capital, or certainty: experiments, funding, pivots, and business models.</div></div>
+    </div>
 
-    <!-- ── PART D ── -->
-    <div class="sec">Part D · marketing — understanding customers and creating demand</div>
-    <div class="stub"><div class="stub-title">What marketing is — and the difference from sales and advertising</div><div class="stub-tags"><span class="stub-tag">Marketing definition</span><span class="stub-tag">The 4 Ps</span><span class="stub-tag">STP framework</span></div></div>
-    <div class="stub"><div class="stub-title">Market segmentation, targeting, and positioning (STP)</div><div class="stub-tags"><span class="stub-tag">Segmentation types</span><span class="stub-tag">Target selection</span><span class="stub-tag">Positioning maps</span></div></div>
-    <div class="stub"><div class="stub-title">Brand building — what a brand is and how it creates value</div><div class="stub-tags"><span class="stub-tag">Brand equity</span><span class="stub-tag">Brand vs product</span><span class="stub-tag">Brand architecture</span></div></div>
-    <div class="stub"><div class="stub-title">The customer journey and funnel — from awareness to loyalty</div><div class="stub-tags"><span class="stub-tag">AIDA model</span><span class="stub-tag">Touchpoints</span><span class="stub-tag">Retention vs acquisition</span></div></div>
+    <div class="period-chart">
+      <div class="pc-title">Management thought, 1880-2026: each school fixes the blind spot of the last</div>
+      <div class="pc-axis" id="mgmtAxis"></div>
+      <div id="mgmtTimeline"></div>
+      <div class="chart-note">Dates are approximate intellectual peaks, not clean starts and stops. Taylorism, Drucker-style management by objectives, Lean, Agile, and data-driven management all still coexist inside modern firms.</div>
+    </div>
 
-    <!-- ── PART E ── -->
-    <div class="sec">Part E · operations — how things actually get made and delivered</div>
-    <div class="stub"><div class="stub-title">Operations management — the discipline of making things efficiently</div><div class="stub-tags"><span class="stub-tag">Process design</span><span class="stub-tag">Capacity planning</span><span class="stub-tag">Bottlenecks (Theory of Constraints)</span></div></div>
-    <div class="stub"><div class="stub-title">Supply chains — from raw materials to the customer</div><div class="stub-tags"><span class="stub-tag">Supply chain anatomy</span><span class="stub-tag">Just-in-time</span><span class="stub-tag">Bullwhip effect</span><span class="stub-tag">Resilience vs efficiency</span></div></div>
-    <div class="stub"><div class="stub-title">Quality management — TQM, Six Sigma, and Lean</div><div class="stub-tags"><span class="stub-tag">Six Sigma basics</span><span class="stub-tag">Lean principles</span><span class="stub-tag">Kaizen</span><span class="stub-tag">Agile</span></div></div>
+    <div class="cgrid">
+      <div class="card">
+        <div class="clabel">Coordination</div>
+        <div class="cval">Management makes work divisible without making outcomes incoherent.</div>
+        <div class="cnote">The moment a task needs more than one person's hands, someone must define interfaces: who decides, who informs, who checks quality, and what "done" means. Modern firms are coordination machines. Toyota's production system, for example, works because line workers can stop production when quality fails, while suppliers, takt time, and visual controls keep thousands of parts arriving in sequence.</div>
+      </div>
+      <div class="card">
+        <div class="clabel">Decision-making</div>
+        <div class="cval">A manager buys clarity with attention, data, and trade-offs.</div>
+        <div class="cnote">The hard part is rarely choosing between good and bad. It is choosing between growth and margin, speed and reliability, autonomy and consistency, short-term cash and long-term capability. Peter Drucker argued that managers are paid for contribution, not activity. A 70-hour week filled with meetings can still be bad management if no important constraint has moved.</div>
+      </div>
+      <div class="card">
+        <div class="clabel">Leadership</div>
+        <div class="cval">Leadership creates direction and legitimacy; management turns it into a system.</div>
+        <div class="cnote">The distinction is useful but overplayed. A founder can inspire a team and still destroy it with unclear priorities, bad hiring, and no cash discipline. A plant manager may never give a TED-style speech yet produce extraordinary performance through stable routines, credible promises, and rapid problem solving. In practice, good executives need both heat and plumbing.</div>
+      </div>
+    </div>
 
-    <!-- ── PART F ── -->
-    <div class="sec">Part F · organisational behaviour — the people side</div>
-    <div class="stub"><div class="stub-title">Motivation theory — what actually makes people work harder</div><div class="stub-tags"><span class="stub-tag">Maslow's hierarchy</span><span class="stub-tag">Herzberg's two-factor</span><span class="stub-tag">Self-determination theory</span><span class="stub-tag">Intrinsic vs extrinsic</span></div></div>
-    <div class="stub"><div class="stub-title">Leadership styles — authoritarian to servant leadership</div><div class="stub-tags"><span class="stub-tag">Transformational vs transactional</span><span class="stub-tag">Situational leadership</span><span class="stub-tag">Authentic leadership</span><span class="stub-tag">Comparison scale</span></div></div>
-    <div class="stub"><div class="stub-title">Team dynamics — why some teams outperform and others fail</div><div class="stub-tags"><span class="stub-tag">Tuckman's stages</span><span class="stub-tag">Psychological safety</span><span class="stub-tag">Google's Project Aristotle</span></div></div>
-    <div class="stub"><div class="stub-title">Organisational culture — what it is and why it's hard to change</div><div class="stub-tags"><span class="stub-tag">Culture definition</span><span class="stub-tag">Schein's model</span><span class="stub-tag">Culture types</span><span class="stub-tag">The "culture eats strategy" debate</span></div></div>
-    <div class="stub"><div class="stub-title">Decision-making and cognitive biases — how managers actually decide</div><div class="stub-tags"><span class="stub-tag">Kahneman System 1/2</span><span class="stub-tag">Key biases</span><span class="stub-tag">Decision frameworks</span><span class="stub-tag">Bias explorer</span></div></div>
+    <div class="button-row" id="mbaButtons">
+      <button onclick="showMBA('origin', this)">Origin</button>
+      <button onclick="showMBA('curriculum', this)">Core curriculum</button>
+      <button onclick="showMBA('case', this)">Case method</button>
+      <button onclick="showMBA('debate', this)">ROI debate</button>
+    </div>
+    <div class="display-panel" id="mbaDisplay"></div>
 
-    <!-- ── PART G ── -->
-    <div class="sec">Part G · entrepreneurship and startups — management without the rulebook</div>
-    <div class="stub"><div class="stub-title">How startups differ from companies — the management challenges of zero to one</div><div class="stub-tags"><span class="stub-tag">Startup vs SME vs corporate</span><span class="stub-tag">Product-market fit</span><span class="stub-tag">Pivot logic</span></div></div>
-    <div class="stub"><div class="stub-title">Venture capital and startup financing — how startups get funded</div><div class="stub-tags"><span class="stub-tag">Funding stages</span><span class="stub-tag">Equity dilution</span><span class="stub-tag">Term sheets</span><span class="stub-tag">VC economics</span></div></div>
-    <div class="stub"><div class="stub-title">Business model design — how companies create and capture value</div><div class="stub-tags"><span class="stub-tag">Business Model Canvas</span><span class="stub-tag">Revenue model types</span><span class="stub-tag">Platform vs pipeline</span></div></div>
+    <div class="qa">
+      <div class="qa-q">Is management just common sense with business vocabulary?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Some of it feels like common sense after you learn it, which is exactly the trick. The non-obvious part is applying simple ideas under pressure, at scale, with conflicting incentives. Everyone agrees that cash matters until growth is slowing and a competitor is hiring aggressively. Management knowledge is less like trivia and more like trained perception: it helps you notice which problem you are actually facing.</div>
+    </div>
+
+    <div class="sec">Part B &middot; strategy - how companies decide where to compete</div>
+
+    <div class="concept-card">
+      <div class="concept-title">Strategy is choice under competition, not a long document</div>
+      <div class="concept-text">A strategy says where the organisation will play, how it will win, what capabilities it must build, and what attractive distractions it will refuse. Planning allocates work; strategy explains why that work should produce an advantage. Henry Mintzberg's useful correction is that real strategy can be emergent: Honda entered the US motorcycle market in 1959 intending to sell big bikes, then discovered that the tiny Super Cub was what Americans actually wanted. The plan failed; the strategy evolved.</div>
+    </div>
+
+    <div class="diagram-card">
+      <div class="chart-title">Porter's Five Forces: profit leaks through five doors</div>
+      <svg viewBox="0 0 760 430" role="img" aria-label="Porter's Five Forces diagram">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="var(--accent)"></path>
+          </marker>
+        </defs>
+        <rect x="275" y="165" width="210" height="100" rx="12" fill="var(--accent-bg)" stroke="var(--accent-border)"></rect>
+        <text x="380" y="202" text-anchor="middle" font-size="17" font-weight="700" fill="var(--color-text-primary)">Industry rivalry</text>
+        <text x="380" y="225" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">Price wars, advertising,</text>
+        <text x="380" y="242" text-anchor="middle" font-size="12" fill="var(--color-text-secondary)">capacity, switching costs</text>
+
+        <rect x="50" y="55" width="190" height="78" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="145" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">New entrants</text>
+        <text x="145" y="106" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">Can outsiders copy you?</text>
+
+        <rect x="520" y="55" width="190" height="78" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="615" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">Substitutes</text>
+        <text x="615" y="106" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">Can customers solve it another way?</text>
+
+        <rect x="50" y="300" width="190" height="78" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="145" y="331" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">Suppliers</text>
+        <text x="145" y="351" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">Who controls critical inputs?</text>
+
+        <rect x="520" y="300" width="190" height="78" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="615" y="331" text-anchor="middle" font-size="14" font-weight="700" fill="var(--color-text-primary)">Buyers</text>
+        <text x="615" y="351" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">Who has bargaining power?</text>
+
+        <line x1="240" y1="105" x2="292" y2="165" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="520" y1="105" x2="468" y2="165" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="240" y1="335" x2="292" y2="265" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="520" y1="335" x2="468" y2="265" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+      </svg>
+      <div class="chart-note">Porter's point is uncomfortable: being in a glamorous industry does not guarantee profit. Airlines carry billions of passengers but face high fixed costs, powerful suppliers, price-sensitive buyers, and intense rivalry.</div>
+    </div>
+
+    <div class="button-row" id="strategyButtons">
+      <button onclick="showStrategy('cost', this)">Cost leadership</button>
+      <button onclick="showStrategy('different', this)">Differentiation</button>
+      <button onclick="showStrategy('focus', this)">Focus</button>
+      <button onclick="showStrategy('blue', this)">Blue ocean</button>
+      <button onclick="showStrategy('disrupt', this)">Disruption</button>
+    </div>
+    <div class="display-panel" id="strategyDisplay"></div>
+
+    <div class="mini-matrix">
+      <div class="matrix-cell"><div class="clabel">SWOT</div><div class="cnote">Use it for a fast snapshot: internal strengths and weaknesses against external opportunities and threats. The danger is listing words without making a choice.</div></div>
+      <div class="matrix-cell"><div class="clabel">PESTLE</div><div class="cnote">Use it when the outside world is moving: politics, economics, society, technology, law, environment. Excellent for regulated industries like energy, banking, and healthcare.</div></div>
+      <div class="matrix-cell"><div class="clabel">Value chain</div><div class="cnote">Use it to locate advantage inside activities: inbound logistics, operations, marketing, sales, service. IKEA's advantage is not one trick; it is a fitted chain of design, flat-pack logistics, stores, and customer assembly.</div></div>
+      <div class="matrix-cell"><div class="clabel">BCG matrix</div><div class="cnote">Use it for portfolio logic: cash cows fund question marks, stars need investment, dogs consume attention. It is crude but forces capital allocation into view.</div></div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Why do so many companies say they have a strategy when they only have goals?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Because goals sound decisive and are politically easier than choices. "Grow 20%" offends nobody; "we will stop serving small customers and build for enterprise procurement teams" creates losers inside the organisation. A strategy must expose a theory of advantage: why this company, with these capabilities, can win in this arena. If it does not tell you what to stop doing, it is probably a wish list.</div>
+    </div>
+
+    <div class="sec">Part C &middot; finance for managers - the numbers side of the MBA</div>
+
+    <div class="elem-grid" id="statementCards">
+      <div class="elem-card" onclick="showStatement('income', this)"><div class="elem-icon"><i class="fa-solid fa-chart-line"></i></div><div class="elem-name">Income statement</div><div class="elem-sub">Revenue, costs, profit over time</div></div>
+      <div class="elem-card" onclick="showStatement('balance', this)"><div class="elem-icon"><i class="fa-solid fa-scale-balanced"></i></div><div class="elem-name">Balance sheet</div><div class="elem-sub">Assets, liabilities, equity at a date</div></div>
+      <div class="elem-card" onclick="showStatement('cash', this)"><div class="elem-icon"><i class="fa-solid fa-money-bill-transfer"></i></div><div class="elem-name">Cash flow</div><div class="elem-sub">Where cash actually moved</div></div>
+      <div class="elem-card" onclick="showStatement('connect', this)"><div class="elem-icon"><i class="fa-solid fa-link"></i></div><div class="elem-name">How they connect</div><div class="elem-sub">Profit is not the same as cash</div></div>
+    </div>
+    <div class="elem-detail" id="statementDetail"></div>
+
+    <div class="cgrid">
+      <div class="card"><div class="clabel">Margins</div><div class="cval">Gross margin = gross profit / revenue</div><div class="cnote">Software businesses can have 75-90% gross margins because serving one more customer is cheap. Grocery retailers may run below 5% net margin, so inventory turns and supplier terms matter more than glamour.</div></div>
+      <div class="card"><div class="clabel">Liquidity</div><div class="cval">Current ratio = current assets / current liabilities</div><div class="cnote">A profitable company can still die if bills come due before cash arrives. This is why working capital is a management issue, not just an accounting footnote.</div></div>
+      <div class="card"><div class="clabel">Leverage</div><div class="cval">Debt magnifies outcomes</div><div class="cnote">Debt can improve returns when cash flows are stable, as in utilities or real estate. It becomes dangerous when revenues are cyclical and interest payments are fixed.</div></div>
+    </div>
+
+    <div class="calc-card">
+      <div class="chart-title">Unit economics calculator: LTV, CAC, and payback</div>
+      <div class="calc-grid">
+        <div class="calc-field"><label for="arpu">Monthly revenue per customer</label><input type="number" id="arpu" min="0" value="40"></div>
+        <div class="calc-field"><label for="grossMargin">Gross margin %</label><input type="number" id="grossMargin" min="0" max="100" value="80"></div>
+        <div class="calc-field"><label for="churn">Monthly churn %</label><input type="number" id="churn" min="0" max="100" value="4"></div>
+        <div class="calc-field"><label for="cac">Customer acquisition cost</label><input type="number" id="cac" min="0" value="300"></div>
+      </div>
+      <button id="unitCalcBtn">Calculate</button>
+      <div class="calc-output" id="unitCalcOutput"></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Typical SaaS revenue dollar: why gross margin is such a powerful number</div>
+      <div class="dist-bar" aria-label="Revenue dollar distribution">
+        <div class="dist-seg dist-seg-style">20%</div>
+        <div class="dist-seg dist-seg-style-2">35%</div>
+        <div class="dist-seg dist-seg-style-3">25%</div>
+        <div class="dist-seg dist-seg-style-4">20%</div>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style"></span>Hosting and support</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-2"></span>Sales and marketing</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-3"></span>Product and R&amp;D</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-4"></span>Operating profit</div>
+      </div>
+      <div class="chart-note">Illustrative, not a benchmark. Mature public SaaS companies vary widely: some reinvest nearly all margin into growth, while slower firms may prioritize free cash flow.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Why do managers obsess over cash when profit is the headline number?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Profit is an accounting measure; cash is the oxygen supply. A retailer can book revenue today, pay suppliers in 30 days, and collect from customers immediately, which helps cash. A construction firm might show profit on a project while waiting months for payment, which strains cash. Many failures are not "bad idea" failures; they are timing failures between obligations and receipts.</div>
+    </div>
+
+    <div class="sec">Part D &middot; marketing - understanding customers and creating demand</div>
+
+    <div class="concept-card">
+      <div class="concept-title">Marketing is not advertising; it is market choice, offer design, and demand creation</div>
+      <div class="concept-text">Sales turns a prospect into a customer. Advertising buys attention. Marketing decides who should be targeted, what problem will be solved, what promise will be made, how the offer is priced and distributed, and which signals make the promise believable. Procter &amp; Gamble did not become a marketing school because it made catchy ads; it built brand management, customer research, packaging discipline, and shelf economics into a repeatable system.</div>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top"><div class="chart-title">Customer journey slider: where the manager's question changes</div><div class="slider-value"><span id="funnelStage">Awareness</span></div></div>
+      <input type="range" id="funnelSlider" min="0" max="5" value="0" step="1">
+      <div class="slider-poles"><span>Stranger</span><span>Loyal customer</span></div>
+      <div class="slider-output" id="funnelOutput"></div>
+    </div>
+
+    <div class="cgrid">
+      <div class="card"><div class="clabel">Segmentation</div><div class="cval">Divide by meaningful differences, not convenient labels.</div><div class="cnote">Age and income are often lazy segments. A better segment predicts behaviour: price sensitivity, urgency, channel preference, job-to-be-done, switching cost. Ryanair targets travellers willing to trade comfort for price and route availability; that segment cuts across age and occupation.</div></div>
+      <div class="card"><div class="clabel">Targeting</div><div class="cval">Choose the segment where you can win economically.</div><div class="cnote">A segment is attractive only if it is reachable, large enough, profitable, and underserved in a way your firm can exploit. Tesla's first Roadster in 2008 targeted wealthy early adopters because the company needed high margins and evangelists before mass-market scale.</div></div>
+      <div class="card"><div class="clabel">Positioning</div><div class="cval">Own a clear mental slot.</div><div class="cnote">Volvo spent decades associated with safety. Liquid Death sells water with heavy-metal packaging because its position is not hydration science, it is permission to hold a non-alcoholic drink that feels socially loud. Positioning works when it compresses a choice into a memorable contrast.</div></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Approximate global advertising revenue share by channel, 2024</div>
+      <div class="bar-row"><div class="bl">Digital</div><div class="bb"><div class="bar-fill bar-fill-style"></div></div><div class="bv">72%</div></div>
+      <div class="bar-row"><div class="bl">Television</div><div class="bb"><div class="bar-fill bar-fill-style-2"></div></div><div class="bv">16%</div></div>
+      <div class="bar-row"><div class="bl">Out-of-home</div><div class="bb"><div class="bar-fill bar-fill-style-3"></div></div><div class="bv">4%</div></div>
+      <div class="bar-row"><div class="bl">Print</div><div class="bb"><div class="bar-fill bar-fill-style-4"></div></div><div class="bv">4%</div></div>
+      <div class="bar-row"><div class="bl">Radio and other</div><div class="bb"><div class="bar-fill bar-fill-style-5"></div></div><div class="bv">4%</div></div>
+      <div class="chart-note">Rounded industry estimates. "Digital" includes search, social, video, display, retail media, and classified platforms, so it hides several different markets inside one large category.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Can a strong brand really create financial value, or is it just image?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">A brand creates value when it lowers search cost, reduces perceived risk, permits premium pricing, or increases repeat purchase. Apple can charge more partly because customers trust integration, support, resale value, and social meaning. Coca-Cola's formula is not the moat by itself; distribution, memory structures, packaging, and availability matter. The test is simple: would the same product sell as well with a generic name and no history?</div>
+    </div>
+
+    <div class="sec">Part E &middot; operations - how things actually get made and delivered</div>
+
+    <div class="concept-card">
+      <div class="concept-title">Operations is where promises become physics</div>
+      <div class="concept-text">A strategy can promise faster delivery, lower prices, better quality, and more variety, but operations decides which of those can coexist. Every process has a bottleneck: the step whose capacity limits the whole system. Eliyahu Goldratt's Theory of Constraints says improvement away from the bottleneck may look productive while doing nothing for total output. In a restaurant, hiring more waiters will not help if the grill station can only produce 60 mains per hour.</div>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top"><div class="chart-title">Span of control: how many direct reports can one manager actually manage?</div><div class="slider-value"><span id="spanValue">7</span></div></div>
+      <input type="range" id="spanSlider" min="3" max="20" value="7" step="1">
+      <div class="slider-poles"><span>High-touch coaching</span><span>Thin supervision</span></div>
+      <div class="slider-output" id="spanOutput"></div>
+    </div>
+
+    <div class="cgrid">
+      <div class="card"><div class="clabel">Supply chains</div><div class="cval">Efficiency and resilience pull in opposite directions.</div><div class="cnote">Just-in-time systems reduce inventory and expose problems fast. They also reduce buffers. When the 2011 Tohoku earthquake disrupted automotive suppliers, Toyota learned the hidden fragility of deep tier networks and later mapped critical parts more aggressively.</div></div>
+      <div class="card"><div class="clabel">Bullwhip effect</div><div class="cval">Small demand changes become huge upstream swings.</div><div class="cnote">If a retailer sees a 5% spike and over-orders to avoid stockouts, the distributor may amplify it, and the factory may see a false boom. Sharing point-of-sale data and reducing order batching can calm the whip.</div></div>
+      <div class="card"><div class="clabel">Quality</div><div class="cval">Quality is designed into the process, not inspected in at the end.</div><div class="cnote">Six Sigma popularised the goal of 3.4 defects per million opportunities under a specific statistical assumption. Lean focuses less on slogans and more on removing waste: waiting, transport, inventory, motion, defects, overproduction, overprocessing, and unused talent.</div></div>
+    </div>
+
+    <div class="success-block">Counterintuitive operations lesson: maximum utilisation can make service worse. A road at 95% capacity jams from tiny disturbances; a hospital emergency department with every bed full loses the ability to absorb randomness. Managers need slack where variability is high.</div>
+
+    <div class="qa">
+      <div class="qa-q">Why do operational improvements often fail after consultants leave?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Because tools are easier to install than routines. A team can create dashboards, kanban boards, and process maps in a week, but the real change is daily problem solving, clear ownership, and leaders who ask better questions. If incentives still reward local optimisation, the system will drift back. Sustainable operations improvement usually looks boring because it is embedded in habits, not events.</div>
+    </div>
+
+    <div class="sec">Part F &middot; organisational behaviour - the people side</div>
+
+    <div class="cgrid">
+      <div class="card"><div class="clabel">Motivation</div><div class="cval">People work for money, meaning, mastery, status, belonging, and autonomy.</div><div class="cnote">Maslow's hierarchy is famous but not a management law. Herzberg's two-factor theory is often more useful: pay, safety, and policy prevent dissatisfaction, while achievement, recognition, responsibility, and growth create motivation. Self-determination theory adds a modern spine: autonomy, competence, and relatedness matter deeply.</div></div>
+      <div class="card"><div class="clabel">Teams</div><div class="cval">The best teams are not conflict-free; they are repair-capable.</div><div class="cnote">Google's Project Aristotle found psychological safety to be the strongest predictor of team effectiveness among the variables studied. That does not mean everyone is nice all the time. It means people can surface bad news, ask naive questions, and challenge assumptions without being punished socially.</div></div>
+      <div class="card"><div class="clabel">Culture</div><div class="cval">Culture is what the group learns is safe, rewarded, and normal.</div><div class="cnote">Edgar Schein's model separates artefacts, espoused values, and underlying assumptions. A company can write "customer first" on a wall and still teach employees that quarterly numbers matter more than customer trust. Culture changes when repeated decisions change what people believe will actually happen.</div></div>
+    </div>
+
+    <div class="cscale">
+      <div class="chart-title">Leadership style comparison: from command to distributed ownership</div>
+      <div class="cscale-row"><div class="cscale-name">Authoritarian</div><div class="cscale-track"><span class="cscale-dot cscale-dot-style"></span></div></div>
+      <div class="cscale-row"><div class="cscale-name">Transactional</div><div class="cscale-track"><span class="cscale-dot cscale-dot-style-2"></span></div></div>
+      <div class="cscale-row"><div class="cscale-name">Situational</div><div class="cscale-track"><span class="cscale-dot cscale-dot-style-3"></span></div></div>
+      <div class="cscale-row"><div class="cscale-name">Transformational</div><div class="cscale-track"><span class="cscale-dot cscale-dot-style-4"></span></div></div>
+      <div class="cscale-row"><div class="cscale-name">Servant leadership</div><div class="cscale-track"><span class="cscale-dot cscale-dot-style-5"></span></div></div>
+      <div class="cscale-poles"><span>Centralised control</span><span>Distributed ownership</span></div>
+    </div>
+
+    <div class="button-row" id="biasButtons">
+      <button onclick="showBias('confirm', this)">Confirmation</button>
+      <button onclick="showBias('sunk', this)">Sunk cost</button>
+      <button onclick="showBias('avail', this)">Availability</button>
+      <button onclick="showBias('anchor', this)">Anchoring</button>
+      <button onclick="showBias('over', this)">Overconfidence</button>
+    </div>
+    <div class="display-panel" id="biasDisplay"></div>
+
+    <div class="warning-block">Decision hygiene beats heroic intuition. Kahneman's System 1 is fast and pattern-seeking; System 2 is slower and effortful. Senior managers are often paid for judgment, but experience can make them confidently wrong when the environment changes or when feedback is delayed.</div>
+
+    <div class="qa">
+      <div class="qa-q">Does psychological safety mean low standards?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">No. Amy Edmondson's work distinguishes psychological safety from comfort. The strongest learning environments combine high safety with high standards: people can admit problems because the work matters too much to hide them. Low safety and high standards produce fear; high safety and low standards produce complacency. The productive zone is candour plus accountability.</div>
+    </div>
+
+    <div class="sec">Part G &middot; entrepreneurship and startups - management without the rulebook</div>
+
+    <div class="concept-card">
+      <div class="concept-title">A startup is not a small version of a big company</div>
+      <div class="concept-text">Steve Blank's useful definition is that a startup is an organisation searching for a repeatable and scalable business model. A normal company executes a known model; a startup runs experiments until one survives contact with reality. Product-market fit is the point where demand pulls the product faster than the team can comfortably serve it. Before that point, elaborate planning can create the illusion of discipline while hiding the fact that nobody really wants the thing.</div>
+    </div>
+
+    <div class="chart-card">
+      <div class="chart-title">Venture portfolio outcomes: why VC economics are extreme</div>
+      <div class="bar-row"><div class="bl">Return fund</div><div class="bb"><div class="bar-fill bar-fill-style-6"></div></div><div class="bv">5%</div></div>
+      <div class="bar-row"><div class="bl">Strong winners</div><div class="bb"><div class="bar-fill bar-fill-style-7"></div></div><div class="bv">10%</div></div>
+      <div class="bar-row"><div class="bl">Modest exits</div><div class="bb"><div class="bar-fill bar-fill-style-8"></div></div><div class="bv">25%</div></div>
+      <div class="bar-row"><div class="bl">Losses</div><div class="bb"><div class="bar-fill bar-fill-style-9"></div></div><div class="bv">60%</div></div>
+      <div class="chart-note">Illustrative power-law logic. In early-stage venture, one company can drive most of a fund's return, so investors prefer a small chance of a huge outcome over a high chance of a modest business.</div>
+    </div>
+
+    <div class="cgrid">
+      <div class="card"><div class="clabel">Funding stages</div><div class="cval">Capital buys time to learn, then scale.</div><div class="cnote">Pre-seed and seed money usually fund product and early proof. Series A expects repeatable growth. Later rounds fund expansion, acquisitions, or infrastructure. The price is dilution: selling 20% of the company in a round means founders own less but may own part of something much larger.</div></div>
+      <div class="card"><div class="clabel">Term sheets</div><div class="cval">Valuation is only one line.</div><div class="cnote">Liquidation preferences, board seats, anti-dilution clauses, vesting, pro rata rights, and control terms can matter more than the headline valuation. A "high valuation" with harsh terms can be worse than a lower valuation with clean terms.</div></div>
+      <div class="card"><div class="clabel">Business models</div><div class="cval">Create value and capture value are different jobs.</div><div class="cnote">Wikipedia creates enormous value and captures little revenue directly. Visa captures value by sitting inside transactions. Platforms such as Airbnb coordinate two sides of a market; pipeline businesses such as a bakery buy inputs, transform them, and sell outputs.</div></div>
+    </div>
+
+    <div class="button-row" id="modelButtons">
+      <button onclick="showModel('subscription', this)">Subscription</button>
+      <button onclick="showModel('marketplace', this)">Marketplace</button>
+      <button onclick="showModel('freemium', this)">Freemium</button>
+      <button onclick="showModel('razor', this)">Razor and blade</button>
+    </div>
+    <div class="display-panel" id="modelDisplay"></div>
+
+    <div class="qa">
+      <div class="qa-q">Why do startups pivot instead of admitting the original idea failed?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">A pivot is disciplined only when it preserves validated learning and changes the unproven assumption. Slack began from a failed game company, Tiny Speck, but the team noticed its internal communication tool had value. That is different from random wandering. The honest question is: what did the market teach us that is strong enough to justify a new direction?</div>
+    </div>
+
+    <div class="sec">Part H · Q&A</div>
+
+    <div class="qa">
+      <div class="qa-q">What is the fastest way to diagnose a struggling organisation?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Look for the constraint, the incentive, and the feedback loop. The constraint tells you what is limiting performance right now. The incentive tells you why people keep behaving in a way that may look irrational from outside. The feedback loop tells you whether the organisation learns quickly or discovers the truth after the damage is expensive.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">What does an MBA teach that is genuinely useful outside business?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">It teaches structured trade-off thinking. Strategy helps you choose arenas; finance teaches opportunity cost and cash discipline; marketing teaches audience and positioning; operations teaches bottlenecks; organisational behaviour teaches incentives and culture. Those lenses apply to nonprofits, governments, schools, households, research labs, and personal careers. The danger is using the vocabulary to sound certain when the evidence is thin.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Are great managers born or trained?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Temperament matters: judgment, steadiness, curiosity, courage, and emotional control are not evenly distributed. But management is also a learned craft with teachable routines: setting priorities, running one-on-ones, reading financials, designing processes, hiring, firing, and making decisions under uncertainty. The best managers improve because they treat management itself as work, not as a reward for being good at something else. Promotion without training is one reason many first-time managers struggle.</div>
+    </div>
 
   </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const timelineItems = [
+        { label: 'Scientific management', start: 1880, end: 1930, col: 'var(--color-text-info)', bg: 'var(--color-background-info)', text: 'Taylor' },
+        { label: 'Human relations', start: 1924, end: 1965, col: 'var(--color-text-success)', bg: 'var(--color-background-success)', text: 'Mayo' },
+        { label: 'Drucker era', start: 1945, end: 2005, col: 'var(--accent)', bg: 'var(--accent-bg)', text: 'Objectives' },
+        { label: 'Systems thinking', start: 1950, end: 1990, col: 'var(--color-text-warning)', bg: 'var(--color-background-warning)', text: 'Systems' },
+        { label: 'Lean production', start: 1950, end: 2026, col: 'var(--color-text-success)', bg: 'var(--color-background-success)', text: 'Toyota' },
+        { label: 'Shareholder value', start: 1976, end: 2010, col: 'var(--color-text-danger)', bg: 'var(--color-background-danger)', text: 'Value' },
+        { label: 'Agile and product', start: 2001, end: 2026, col: 'var(--accent)', bg: 'var(--accent-bg)', text: 'Agile' },
+        { label: 'Analytics and AI', start: 2010, end: 2026, col: 'var(--color-text-info)', bg: 'var(--color-background-info)', text: 'Data' }
+      ];
+
+      function buildTimeline() {
+        const min = 1880;
+        const max = 2026;
+        const axis = document.getElementById('mgmtAxis');
+        const rows = document.getElementById('mgmtTimeline');
+        [1880, 1920, 1960, 2000, 2026].forEach(function(year) {
+          const mark = document.createElement('span');
+          mark.className = 'pc-axis-mark';
+          mark.style.left = ((year - min) / (max - min) * 100) + '%';
+          mark.textContent = year;
+          axis.appendChild(mark);
+        });
+        timelineItems.forEach(function(item) {
+          const row = document.createElement('div');
+          row.className = 'pc-row';
+          const label = document.createElement('div');
+          label.className = 'pc-label';
+          label.textContent = item.label;
+          const track = document.createElement('div');
+          track.className = 'pc-track';
+          const fill = document.createElement('div');
+          fill.className = 'pc-fill';
+          fill.style.left = ((item.start - min) / (max - min) * 100) + '%';
+          fill.style.width = ((item.end - item.start) / (max - min) * 100) + '%';
+          fill.style.background = item.bg;
+          fill.style.color = item.col;
+          fill.innerHTML = '<span class="pc-fill-label">' + item.text + '</span>';
+          track.appendChild(fill);
+          row.appendChild(label);
+          row.appendChild(track);
+          rows.appendChild(row);
+        });
+      }
+
+      const mbaItems = {
+        origin: {
+          title: 'The MBA was invented for professional managers, not founders',
+          body: 'Harvard launched the first MBA program in 1908 with 80 students, at a time when railroads, steel companies, banks, and manufacturers were becoming too complex for owner intuition alone. The degree promised a portable language for people who would manage enterprises they did not personally own. That separation of ownership and control is one of the defining facts of modern capitalism.'
+        },
+        curriculum: {
+          title: 'The core curriculum is a map of the firm',
+          body: 'Accounting tells what happened, finance prices trade-offs, marketing studies demand, operations studies delivery, strategy studies advantage, and organisational behaviour studies people. The MBA bundles these because managers rarely face isolated problems. A pricing decision affects demand, capacity, cash flow, incentives, and competitive response at the same time.'
+        },
+        case: {
+          title: 'The case method trains judgment under incomplete information',
+          body: 'A Harvard-style case gives you a messy business situation, not a clean formula. Students argue what the protagonist should do using partial facts, time pressure, and conflicting interpretations. The value is not memorising what Netflix or Southwest did; it is learning to state assumptions, defend a choice, and notice which facts would change your mind.'
+        },
+        debate: {
+          title: 'The ROI depends heavily on school, cost, and career switch',
+          body: 'A top MBA can accelerate a move into consulting, investment banking, product management, or general management because it bundles education, signalling, recruiting access, and network. The same degree at a high price without strong placement can be financially weak. The mistake is treating "MBA" as one product when outcomes vary dramatically by institution and student goal.'
+        }
+      };
+
+      window.showMBA = function(key, btn) {
+        setActive(btn, '#mbaButtons button');
+        renderPanel('mbaDisplay', 'MBA lens', mbaItems[key].title, mbaItems[key].body);
+      };
+
+      const strategyItems = {
+        cost: {
+          title: 'Cost leadership: win by having a structurally lower cost base',
+          body: 'Walmart did not merely "sell cheap." It built scale purchasing, cross-docking, logistics technology, rural store density, and supplier discipline into a system competitors struggled to match. Cost leadership is not discounting. Discounting without a cost advantage is just donating margin to customers.'
+        },
+        different: {
+          title: 'Differentiation: make the offer meaningfully harder to substitute',
+          body: 'Differentiation can come from design, reliability, ecosystem, taste, brand, service, switching costs, or regulation. Apple&#39;s advantage is not one feature; it is hardware, software, retail, developer ecosystem, privacy signalling, and identity reinforcement. The test is whether customers will pay more or stay longer for the difference.'
+        },
+        focus: {
+          title: 'Focus: serve a narrow segment better than broad rivals can',
+          body: 'A focused strategy works when the segment has distinct needs. Enterprise cybersecurity, rural banking, luxury handbags, and low-cost airlines all reward different operating models. The trap is calling yourself focused while chasing every adjacent customer as soon as growth slows.'
+        },
+        blue: {
+          title: 'Blue ocean: change the basis of competition',
+          body: 'Cirque du Soleil mixed circus, theatre, music, and adult pricing while removing expensive animal acts and star performers. It was not competing to be the best traditional circus. It redesigned the value curve. Blue ocean thinking is useful when industry rivalry has become a race over features customers barely value.'
+        },
+        disrupt: {
+          title: 'Disruption starts weaker on old metrics, then improves',
+          body: 'Clayton Christensen&#39;s classic theory says incumbents overserve mainstream customers while entrants begin at the low end or in a new market. Early personal computers looked inferior to minicomputers; they were cheaper, more accessible, and improved fast. Not every successful tech company is disruptive by this definition. Uber was innovative, but Christensen himself argued it did not cleanly fit the original low-end disruption model.'
+        }
+      };
+
+      window.showStrategy = function(key, btn) {
+        setActive(btn, '#strategyButtons button');
+        renderPanel('strategyDisplay', 'Strategic move', strategyItems[key].title, strategyItems[key].body);
+      };
+
+      const statementItems = {
+        income: {
+          title: 'Income statement',
+          body: 'The income statement shows performance over a period: revenue minus expenses equals profit. It answers whether the company sells something customers pay for at a cost structure that leaves margin. But accrual accounting can recognise revenue before cash is collected, so profit can look healthy while cash is tight.'
+        },
+        balance: {
+          title: 'Balance sheet',
+          body: 'The balance sheet is a snapshot at a date: assets equal liabilities plus equity. It tells you what the company owns, what it owes, and the residual claim of owners. Managers read it to understand working capital, debt load, inventory, receivables, and how much risk has accumulated off the income statement.'
+        },
+        cash: {
+          title: 'Cash flow statement',
+          body: 'The cash flow statement reconciles accounting profit to actual cash movement: operating, investing, and financing cash flows. It reveals whether profits are turning into cash or being trapped in inventory and receivables. Warren Buffett&#39;s preference for businesses that produce durable free cash flow is a management insight, not just an investor slogan.'
+        },
+        connect: {
+          title: 'How the statements connect',
+          body: 'Net income increases retained earnings on the balance sheet. Depreciation lowers accounting profit but is added back in operating cash flow because no cash leaves that period. Buying equipment reduces cash and creates an asset; later depreciation spreads the cost across years. Once you see the links, financial statements become one system rather than three reports.'
+        }
+      };
+
+      window.showStatement = function(key, card) {
+        setActive(card, '#statementCards .elem-card');
+        const item = statementItems[key];
+        const detail = document.getElementById('statementDetail');
+        detail.classList.add('show');
+        detail.innerHTML = '<div class="panel-kicker">Financial statement</div><div class="panel-title">' + item.title + '</div><div class="panel-body">' + item.body + '</div>';
+      };
+
+      function calculateUnitEconomics() {
+        const arpu = Number(document.getElementById('arpu').value);
+        const margin = Number(document.getElementById('grossMargin').value) / 100;
+        const churn = Number(document.getElementById('churn').value) / 100;
+        const cac = Number(document.getElementById('cac').value);
+        const output = document.getElementById('unitCalcOutput');
+        if (!(arpu > 0) || !(margin > 0) || !(churn > 0) || !(cac >= 0)) {
+          output.textContent = 'Enter positive revenue, margin, churn, and CAC values. Churn cannot be zero because this simple model uses 1 / churn as expected customer life.';
+          return;
+        }
+        const monthlyGrossProfit = arpu * margin;
+        const ltv = monthlyGrossProfit / churn;
+        const payback = cac / monthlyGrossProfit;
+        const ratio = ltv / cac;
+        output.textContent = 'Estimated gross-profit LTV is ' + money(ltv) + '. CAC payback is about ' + payback.toFixed(1) + ' months, and LTV/CAC is ' + ratio.toFixed(1) + 'x. A common venture rule of thumb is 3x or better, but payback speed and market size matter just as much.';
+      }
+
+      const funnelStages = [
+        { name: 'Awareness', text: 'Question: do the right people know the category and the brand exist? Useful measures include reach, share of search, unaided awareness, and cost per qualified visit.' },
+        { name: 'Interest', text: 'Question: does the promise create curiosity? At this stage, message clarity, landing page relevance, social proof, and problem fit matter more than hard closing.' },
+        { name: 'Consideration', text: 'Question: why this offer rather than the obvious alternatives? Comparison pages, demos, reviews, guarantees, and pricing architecture do heavy work here.' },
+        { name: 'Purchase', text: 'Question: what friction prevents commitment? Checkout steps, procurement hurdles, payment terms, trust signals, and sales cycle length can quietly destroy demand that marketing already created.' },
+        { name: 'Retention', text: 'Question: does the product keep solving the problem after the first transaction? Churn, repeat purchase, net revenue retention, and support quality become central.' },
+        { name: 'Advocacy', text: 'Question: will customers bring others? Referrals, reviews, case studies, community, and visible identity make acquisition cheaper and brand memory stronger.' }
+      ];
+
+      function updateFunnel() {
+        const idx = Number(document.getElementById('funnelSlider').value);
+        document.getElementById('funnelStage').textContent = funnelStages[idx].name;
+        document.getElementById('funnelOutput').textContent = funnelStages[idx].text;
+      }
+
+      function updateSpan() {
+        const span = Number(document.getElementById('spanSlider').value);
+        document.getElementById('spanValue').textContent = span;
+        let text;
+        if (span <= 5) {
+          text = 'A span of ' + span + ' allows close coaching, useful for new hires, complex work, high risk, or rapid skill development. It is expensive but can prevent costly errors.';
+        } else if (span <= 10) {
+          text = 'A span of ' + span + ' is the classic middle zone for knowledge work: enough attention for weekly one-on-ones, but not so narrow that hierarchy multiplies without need.';
+        } else if (span <= 15) {
+          text = 'A span of ' + span + ' requires experienced employees, clear metrics, strong routines, and low task interdependence. The manager becomes a system designer more than a coach.';
+        } else {
+          text = 'A span of ' + span + ' is thin supervision. It can work in standardised operations with strong process controls, but in ambiguous work it often hides overload until performance drops.';
+        }
+        document.getElementById('spanOutput').textContent = text;
+      }
+
+      const biasItems = {
+        confirm: {
+          title: 'Confirmation bias',
+          body: 'Managers seek and remember evidence that supports the story they already like. The antidote is to assign someone to argue the strongest opposing case, predefine kill criteria, and ask what evidence would change the decision.'
+        },
+        sunk: {
+          title: 'Sunk cost fallacy',
+          body: 'Money already spent should not justify future spending, but careers and identity make projects hard to stop. The Concorde is the classic public example: Britain and France continued despite worsening economics because cancellation felt like admitting loss.'
+        },
+        avail: {
+          title: 'Availability bias',
+          body: 'Recent, vivid events feel more probable than base rates justify. After one major customer complaint, a team may overcorrect the roadmap for a loud edge case. Good managers ask: how frequent is this, how costly is it, and what does the full dataset say?'
+        },
+        anchor: {
+          title: 'Anchoring',
+          body: 'The first number in a negotiation, forecast, or budget discussion pulls later estimates toward it. This is why procurement teams ask for independent estimates before opening supplier bids, and why sales targets can become self-fulfilling constraints.'
+        },
+        over: {
+          title: 'Overconfidence',
+          body: 'Executives often underestimate integration cost, competitor response, and execution difficulty. Premortems help: imagine the project failed 18 months from now, then list the most likely reasons. The exercise makes hidden assumptions discussable.'
+        }
+      };
+
+      window.showBias = function(key, btn) {
+        setActive(btn, '#biasButtons button');
+        renderPanel('biasDisplay', 'Decision bias', biasItems[key].title, biasItems[key].body);
+      };
+
+      const modelItems = {
+        subscription: {
+          title: 'Subscription',
+          body: 'The customer pays repeatedly for ongoing access. The model can create predictable revenue, but it shifts the managerial obsession to churn, onboarding, usage, and customer success. A subscription business with weak retention is just a leaky bucket with nicer accounting.'
+        },
+        marketplace: {
+          title: 'Marketplace',
+          body: 'A marketplace coordinates buyers and sellers, then captures a transaction fee, listing fee, subscription, or advertising revenue. The hard part is liquidity: enough supply and demand in the same category, location, and time. Uber had to solve city by city because network effects were local.'
+        },
+        freemium: {
+          title: 'Freemium',
+          body: 'A free tier creates distribution; a paid tier captures value from heavier users. The model works when marginal service cost is low and free users either convert or attract others. If free users are expensive and conversion is weak, freemium becomes a charity with a pricing page.'
+        },
+        razor: {
+          title: 'Razor and blade',
+          body: 'The core device is cheap or subsidised; profits come from consumables or complements. Gillette razors and blades, printers and ink, and game consoles and software all use versions of this logic. The risk is that competitors attack the high-margin complement.'
+        }
+      };
+
+      window.showModel = function(key, btn) {
+        setActive(btn, '#modelButtons button');
+        renderPanel('modelDisplay', 'Business model', modelItems[key].title, modelItems[key].body);
+      };
+
+      function setActive(activeEl, selector) {
+        document.querySelectorAll(selector).forEach(function(el) { el.classList.remove('active'); });
+        if (activeEl) activeEl.classList.add('active');
+      }
+
+      function renderPanel(id, kicker, title, body) {
+        document.getElementById(id).innerHTML = '<div class="panel-kicker">' + kicker + '</div><div class="panel-title">' + title + '</div><div class="panel-body">' + body + '</div>';
+      }
+
+      function money(value) {
+        return '$' + Math.round(value).toLocaleString('en-US');
+      }
+
+      document.querySelectorAll('.qa-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const ans = btn.nextElementSibling;
+          ans.classList.toggle('show');
+          btn.textContent = ans.classList.contains('show') ? 'hide' : 'show answer';
+        });
+      });
+
+      document.getElementById('unitCalcBtn').addEventListener('click', calculateUnitEconomics);
+      document.getElementById('funnelSlider').addEventListener('input', updateFunnel);
+      document.getElementById('spanSlider').addEventListener('input', updateSpan);
+
+      buildTimeline();
+      window.showMBA('origin', document.querySelector('#mbaButtons button'));
+      window.showStrategy('cost', document.querySelector('#strategyButtons button'));
+      window.showStatement('income', document.querySelector('#statementCards .elem-card'));
+      calculateUnitEconomics();
+      updateFunnel();
+      updateSpan();
+      window.showBias('confirm', document.querySelector('#biasButtons button'));
+      window.showModel('subscription', document.querySelector('#modelButtons button'));
+    });
+  </script>
   <script src="../files/shared.js"></script>
 </body>
 </html>

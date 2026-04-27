@@ -224,6 +224,35 @@
     .war-figure-row:last-child { border-bottom: none; }
     .war-figure-name  { font-size: 12px; font-weight: 500; color: var(--color-text-primary); min-width: 160px; flex-shrink: 0; }
     .war-figure-role  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
+    .profile-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .profile-table th {
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      text-align: left;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 5px 10px 5px 0;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+    .profile-table td {
+      padding: 7px 10px 7px 0;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      vertical-align: top;
+      line-height: 1.45;
+    }
+    .profile-table tr:last-child td { border-bottom: none; }
+    .profile-table-name {
+      width: 32%;
+      min-width: 150px;
+      font-weight: 500;
+      color: var(--color-text-primary);
+    }
+    .profile-table-note { color: var(--color-text-secondary); }
     .war-country-list {
       display: flex;
       flex-wrap: wrap;
@@ -264,192 +293,306 @@
     .iran-ruler-row:last-child { border-bottom: none; }
     .iran-ruler-name  { font-size: 12px; font-weight: 500; color: var(--color-text-primary); min-width: 170px; flex-shrink: 0; }
     .iran-ruler-note  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.4; }
+.u-text-hex-4e99a3 { color: #4E99A3; }
+.u-bg-hex-eeedfe { background: #EEEDFE; }
+.u-bordercolor-hex-afa9ec { border-color: #AFA9EC; }
+.u-text-hex-3c3489 { color: #3C3489; }
+.u-text-hex-26215c { color: #26215C; }
+.u-text-hex-534ab7 { color: #534AB7; }
+.u-bg-hex-faece7 { background: #FAECE7; }
+.u-bordercolor-hex-f0997b { border-color: #F0997B; }
+.u-text-hex-712b13 { color: #712B13; }
+.u-text-hex-4a1b0c { color: #4A1B0C; }
+.u-text-hex-993c1d { color: #993C1D; }
+.u-bg-hex-faeeda { background: #FAEEDA; }
+.u-bordercolor-hex-ef9f27 { border-color: #EF9F27; }
+.u-text-hex-633806 { color: #633806; }
+.u-text-hex-412402 { color: #412402; }
+.u-text-hex-854f0b { color: #854F0B; }
+.u-bg-hex-e1f5ee { background: #E1F5EE; }
+.u-bordercolor-hex-5dcaa5 { border-color: #5DCAA5; }
+.u-text-hex-085041 { color: #085041; }
+.u-text-hex-04342c { color: #04342C; }
+.u-text-hex-0f6e56 { color: #0F6E56; }
+.u-bg-hex-eaf3de { background: #EAF3DE; }
+.u-bordercolor-hex-97c459 { border-color: #97C459; }
+.u-text-hex-27500a { color: #27500A; }
+.u-text-hex-173404 { color: #173404; }
+.u-text-hex-3b6d11 { color: #3B6D11; }
+.u-bg-hex-fcebeb { background: #FCEBEB; }
+.u-bordercolor-hex-f09595 { border-color: #F09595; }
+.u-text-hex-791f1f { color: #791F1F; }
+.u-text-hex-501313 { color: #501313; }
+.u-text-hex-a32d2d { color: #A32D2D; }
+.u-bg-hex-e6f1fb { background: #E6F1FB; }
+.u-bordercolor-hex-85b7eb { border-color: #85B7EB; }
+.u-text-hex-0c447c { color: #0C447C; }
+.u-text-hex-042c53 { color: #042C53; }
+.u-text-hex-185fa5 { color: #185FA5; }
+.u-bg-background-primary { background: var(--color-background-primary); }
+.u-border-0-5px-solid-border-tertiary { border: 0.5px solid var(--color-border-tertiary); }
+.u-radius-radius-lg { border-radius: var(--border-radius-lg); }
+.u-p-13px-15px { padding: 13px 15px; }
+.u-p-2px-8px { padding: 2px 8px; }
+.u-fs-22px { font-size: 22px; }
+.u-display-inline-block { display: inline-block; }
+.u-p-2px-9px { padding: 2px 9px; }
+.u-radius-99px { border-radius: 99px; }
+.u-bt-0-5px-solid-border-tertiary { border-top: 0.5px solid var(--color-border-tertiary); }
+.u-pt-8px { padding-top: 8px; }
+.u-minw-120px { min-width: 120px; }
+.u-p-0-18px { padding: 0 18px; }
+.u-h-36px { height: 36px; }
+.u-m-0-0-14px { margin: 0 0 14px; }
+.u-m-10px-0-0 { margin: 10px 0 0; }
+.u-m-0-0-12px { margin: 0 0 12px; }
+.u-gap-7px { gap: 7px; }
+.u-p-5px-16px { padding: 5px 16px; }
+.u-m-0-0-13px { margin: 0 0 13px; }
+.u-gap-5px { gap: 5px; }
+.u-p-5px-0 { padding: 5px 0; }
+.u-bb-0-5px-solid-border-tertiary { border-bottom: 0.5px solid var(--color-border-tertiary); }
+.u-items-baseline { align-items: baseline; }
+.u-cursor-pointer { cursor: pointer; }
+.u-minw-64px { min-width: 64px; }
+.u-font-monospace { font-family: monospace; }
+.u-m-0-0-10px { margin: 0 0 10px; }
+.u-bg-background-secondary { background: var(--color-background-secondary); }
+.u-radius-4px { border-radius: 4px; }
+.u-h-12px { height: 12px; }
+.u-overflow-hidden { overflow: hidden; }
+.u-maxw-55-pct { max-width: 55%; }
+.u-align-right { text-align: right; }
+.u-radius-radius-md { border-radius: var(--border-radius-md); }
+.u-p-8px-10px { padding: 8px 10px; }
+.u-mb-13px { margin-bottom: 13px; }
+.u-p-10px-0 { padding: 10px 0; }
+.u-p-1px-8px { padding: 1px 8px; }
+.u-border-0-5px-solid-hex-f09595 { border: 0.5px solid #F09595; }
+.u-border-0-5px-solid-hex-ef9f27 { border: 0.5px solid #EF9F27; }
+.u-bg-background-warning { background: var(--color-background-warning); }
+.u-border-0-5px-solid-border-warning { border: 0.5px solid var(--color-border-warning); }
+.u-p-9px-12px { padding: 9px 12px; }
+.u-text-text-warning { color: var(--color-text-warning); }
+
+/* --- Runtime generated classes --- */
+.text-primary-emphasis { color: var(--color-text-primary); }
+.era-pill, .anchor-era-label { font-size: 11px; font-weight: 500; border-radius: 99px; border: 0.5px solid transparent; }
+.era-pill { padding: 1px 7px; }
+.anchor-era-label { border-radius: var(--border-radius-md); padding: 3px 9px; display: inline-block; margin: 10px 0 6px; }
+.era-style-1 { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
+.era-style-2 { background: #FAECE7; color: #712B13; border-color: #F0997B; }
+.era-style-3 { background: #FAEEDA; color: #633806; border-color: #EF9F27; }
+.era-style-4 { background: #E1F5EE; color: #085041; border-color: #5DCAA5; }
+.era-style-5 { background: #EAF3DE; color: #27500A; border-color: #97C459; }
+.era-style-6 { background: #FCEBEB; color: #791F1F; border-color: #F09595; }
+.era-style-7 { background: #E6F1FB; color: #0C447C; border-color: #85B7EB; }
+.empire-bar-fill, .speed-fill { width: 0; }
+.depth-fill { height: 12px; background: #85B7EB; border-radius: 4px; }
+.war-other-tag { font-size: 11px; padding: 1px 8px; border-radius: 99px; border: 0.5px solid transparent; flex-shrink: 0; }
+
   </style>
 </head>
 <body>
   <div class="page-wrap">
-<div style="display: flex; align-items: center; gap: 14px; margin-bottom: 0.6rem;">
-  <i class="fa-solid fa-landmark" style="font-size: 42px; color: #4E99A3; flex-shrink: 0;"></i>
-  <h1 class="module-title" style="margin: 0; line-height: 1.05;">Module 10: History Anchors</h1>
+<div class="u-display-flex u-items-center u-gap-14px u-mb-md">
+  <i class="fa-solid fa-archway u-fs-42px u-text-hex-4e99a3 u-shrink-0"></i>
+  <h1 class="module-title u-m-0 u-lh-1-05">Module 10: History Anchors</h1>
 </div>
     <p class="module-subtitle">A navigable map of the last 5,000 years</p>
 
     <div class="sec">Part A · the 7 eras — your skeleton map</div>
 
     <div class="era-grid">
-      <div class="era-card" style="background:#EEEDFE; border-color:#AFA9EC;">
-        <div class="era-num" style="color:#3C3489;">Era 1</div>
-        <div class="era-name" style="color:#26215C;">Ancient world</div>
-        <div class="era-dates" style="color:#534AB7;">3000 BC – 500 AD</div>
+      <div class="era-card u-bg-hex-eeedfe u-bordercolor-hex-afa9ec">
+        <div class="era-num u-text-hex-3c3489">Era 1</div>
+        <div class="era-name u-text-hex-26215c">Ancient world</div>
+        <div class="era-dates u-text-hex-534ab7">3000 BC – 500 AD</div>
       </div>
-      <div class="era-card" style="background:#FAECE7; border-color:#F0997B;">
-        <div class="era-num" style="color:#712B13;">Era 2</div>
-        <div class="era-name" style="color:#4A1B0C;">Middle Ages</div>
-        <div class="era-dates" style="color:#993C1D;">500 – 1400</div>
+      <div class="era-card u-bg-hex-faece7 u-bordercolor-hex-f0997b">
+        <div class="era-num u-text-hex-712b13">Era 2</div>
+        <div class="era-name u-text-hex-4a1b0c">Middle Ages</div>
+        <div class="era-dates u-text-hex-993c1d">500 – 1400</div>
       </div>
-      <div class="era-card" style="background:#FAEEDA; border-color:#EF9F27;">
-        <div class="era-num" style="color:#633806;">Era 3</div>
-        <div class="era-name" style="color:#412402;">Early Modern</div>
-        <div class="era-dates" style="color:#854F0B;">1400 – 1700</div>
+      <div class="era-card u-bg-hex-faeeda u-bordercolor-hex-ef9f27">
+        <div class="era-num u-text-hex-633806">Era 3</div>
+        <div class="era-name u-text-hex-412402">Early Modern</div>
+        <div class="era-dates u-text-hex-854f0b">1400 – 1700</div>
       </div>
-      <div class="era-card" style="background:#E1F5EE; border-color:#5DCAA5;">
-        <div class="era-num" style="color:#085041;">Era 4</div>
-        <div class="era-name" style="color:#04342C;">Enlightenment</div>
-        <div class="era-dates" style="color:#0F6E56;">1700 – 1800</div>
+      <div class="era-card u-bg-hex-e1f5ee u-bordercolor-hex-5dcaa5">
+        <div class="era-num u-text-hex-085041">Era 4</div>
+        <div class="era-name u-text-hex-04342c">Enlightenment</div>
+        <div class="era-dates u-text-hex-0f6e56">1700 – 1800</div>
       </div>
-      <div class="era-card" style="background:#EAF3DE; border-color:#97C459;">
-        <div class="era-num" style="color:#27500A;">Era 5</div>
-        <div class="era-name" style="color:#173404;">Long 19th century</div>
-        <div class="era-dates" style="color:#3B6D11;">1800 – 1914</div>
+      <div class="era-card u-bg-hex-eaf3de u-bordercolor-hex-97c459">
+        <div class="era-num u-text-hex-27500a">Era 5</div>
+        <div class="era-name u-text-hex-173404">Long 19th century</div>
+        <div class="era-dates u-text-hex-3b6d11">1800 – 1914</div>
       </div>
-      <div class="era-card" style="background:#FCEBEB; border-color:#F09595;">
-        <div class="era-num" style="color:#791F1F;">Era 6</div>
-        <div class="era-name" style="color:#501313;">Age of catastrophe</div>
-        <div class="era-dates" style="color:#A32D2D;">1914 – 1945</div>
+      <div class="era-card u-bg-hex-fcebeb u-bordercolor-hex-f09595">
+        <div class="era-num u-text-hex-791f1f">Era 6</div>
+        <div class="era-name u-text-hex-501313">Age of catastrophe</div>
+        <div class="era-dates u-text-hex-a32d2d">1914 – 1945</div>
       </div>
-      <div class="era-card" style="background:#E6F1FB; border-color:#85B7EB;">
-        <div class="era-num" style="color:#0C447C;">Era 7</div>
-        <div class="era-name" style="color:#042C53;">Modern world</div>
-        <div class="era-dates" style="color:#185FA5;">1945 – today</div>
+      <div class="era-card u-bg-hex-e6f1fb u-bordercolor-hex-85b7eb">
+        <div class="era-num u-text-hex-0c447c">Era 7</div>
+        <div class="era-name u-text-hex-042c53">Modern world</div>
+        <div class="era-dates u-text-hex-185fa5">1945 – today</div>
       </div>
     </div>
 
     <div class="sec">Part B · interactive timeline — click any event to learn more</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
-        <span style="font-size:12px; color:var(--color-text-secondary);">Jump to era:</span>
-        <button onclick="jumpTo(-3000)" style="font-size:11px; padding:2px 8px;">Ancient</button>
-        <button onclick="jumpTo(500)" style="font-size:11px; padding:2px 8px;">Middle Ages</button>
-        <button onclick="jumpTo(1400)" style="font-size:11px; padding:2px 8px;">Early Modern</button>
-        <button onclick="jumpTo(1700)" style="font-size:11px; padding:2px 8px;">Enlightenment</button>
-        <button onclick="jumpTo(1800)" style="font-size:11px; padding:2px 8px;">19th century</button>
-        <button onclick="jumpTo(1914)" style="font-size:11px; padding:2px 8px;">World Wars</button>
-        <button onclick="jumpTo(1945)" style="font-size:11px; padding:2px 8px;">Modern</button>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <div class="u-display-flex u-gap-sm u-items-center u-mb-md u-flex-wrap">
+        <span class="u-fs-12px text-secondary">Jump to era:</span>
+        <button onclick="jumpTo(-3000)" class="u-fs-11px u-p-2px-8px">Ancient</button>
+        <button onclick="jumpTo(500)" class="u-fs-11px u-p-2px-8px">Middle Ages</button>
+        <button onclick="jumpTo(1400)" class="u-fs-11px u-p-2px-8px">Early Modern</button>
+        <button onclick="jumpTo(1700)" class="u-fs-11px u-p-2px-8px">Enlightenment</button>
+        <button onclick="jumpTo(1800)" class="u-fs-11px u-p-2px-8px">19th century</button>
+        <button onclick="jumpTo(1914)" class="u-fs-11px u-p-2px-8px">World Wars</button>
+        <button onclick="jumpTo(1945)" class="u-fs-11px u-p-2px-8px">Modern</button>
       </div>
 
-      <div style="display:flex; align-items:center; gap:10px; margin-bottom:14px;">
-        <span style="font-size:11px; color:var(--color-text-secondary); white-space:nowrap;">3000 BC</span>
-        <input type="range" id="hist-slider" min="-3000" max="2025" value="1" step="1" style="flex:1;">
-        <span style="font-size:11px; color:var(--color-text-secondary); white-space:nowrap;">2025</span>
+      <div class="u-display-flex u-items-center u-gap-md u-mb-lg">
+        <span class="u-fs-11px text-secondary u-white-space-nowrap">3000 BC</span>
+        <input type="range" id="hist-slider" min="-3000" max="2025" value="1" step="1" class="u-flex-1">
+        <span class="u-fs-11px text-secondary u-white-space-nowrap">2025</span>
       </div>
 
-      <div id="hist-year-display" style="font-size:22px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;"></div>
-      <div id="hist-era-badge" style="display:inline-block; font-size:11px; font-weight:500; padding:2px 9px; border-radius:99px; margin-bottom:10px;"></div>
-      <div id="hist-nearby" style="margin-bottom: 10px;"></div>
-      <div id="hist-context" style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; border-top:0.5px solid var(--color-border-tertiary); padding-top:8px;"></div>
+      <div id="hist-year-display" class="u-fs-22px u-fw-500 text-primary u-mb-xs"></div>
+      <div id="hist-era-badge" class="u-display-inline-block u-fs-11px u-fw-500 u-p-2px-9px u-radius-99px u-mb-md"></div>
+      <div id="hist-nearby" class="u-mb-md"></div>
+      <div id="hist-context" class="u-fs-12px text-secondary u-lh-1-6 u-bt-0-5px-solid-border-tertiary u-pt-8px"></div>
     </div>
 
     <div class="sec">Part C · the 60 anchor events — your permanent mental map</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;" id="anchor-list"></div>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg" id="anchor-list"></div>
 
     <div class="sec">Part D · proximity shockers — things that feel far apart but aren't</div>
 
     <div class="shock-grid">
       <div class="card">
         <p class="clabel">Cleopatra and the iPhone</p>
-        <p class="cval" style="font-size:18px;">Closer than you think</p>
+        <p class="cval u-fs-18px">Closer than you think</p>
         <p class="cnote">Cleopatra (died 30 BC) lived closer in time to the Moon landing (1969) than to the building of the Great Pyramid (~2560 BC). The pyramids are genuinely ancient — even to the ancient Egyptians.</p>
       </div>
       <div class="card">
         <p class="clabel">Napoleon and the first photograph</p>
-        <p class="cval" style="font-size:18px;">Only 5 years apart</p>
+        <p class="cval u-fs-18px">Only 5 years apart</p>
         <p class="cnote">Napoleon died in 1821. The first photograph (Niépce's "View from the Window") was taken in 1826. No photo of Napoleon ever existed — he died just before the invention that would have captured him.</p>
       </div>
       <div class="card">
         <p class="clabel">The fax machine and the US Civil War</p>
-        <p class="cval" style="font-size:18px;">Invented the same decade</p>
+        <p class="cval u-fs-18px">Invented the same decade</p>
         <p class="cnote">An early electric facsimile device was patented in 1843. The US Civil War began in 1861. The first commercial fax service opened in 1865 — the same year the war ended. Lincoln just missed it.</p>
       </div>
       <div class="card">
         <p class="clabel">Shakespeare and Galileo</p>
-        <p class="cval" style="font-size:18px;">Exact contemporaries</p>
+        <p class="cval u-fs-18px">Exact contemporaries</p>
         <p class="cnote">Shakespeare (1564–1616) and Galileo (1564–1642) were born the same year. While one rewrote drama, the other rewrote the solar system.</p>
       </div>
       <div class="card">
         <p class="clabel">The last guillotine execution in France</p>
-        <p class="cval" style="font-size:18px;">1977 — same year as Star Wars</p>
+        <p class="cval u-fs-18px">1977 — same year as Star Wars</p>
         <p class="cnote">France's last execution by guillotine was September 1977. Star Wars came out in May 1977. The guillotine outlasted the Apollo programme.</p>
       </div>
       <div class="card">
         <p class="clabel">Woolly mammoths and the pyramids</p>
-        <p class="cval" style="font-size:18px;">Alive at the same time</p>
+        <p class="cval u-fs-18px">Alive at the same time</p>
         <p class="cnote">The last woolly mammoths (on Wrangel Island) didn't go extinct until ~1700 BC — while the Great Pyramid had already been standing for nearly 900 years. Mammoths were alive when Stonehenge was being finished.</p>
       </div>
       <div class="card">
         <p class="clabel">Oxford University and the Aztec Empire</p>
-        <p class="cval" style="font-size:18px;">Oxford is older</p>
+        <p class="cval u-fs-18px">Oxford is older</p>
         <p class="cnote">Oxford University began teaching in 1096–1167. The Aztec empire was founded in 1428. Oxford University is roughly 300 years older than the Aztec Empire and has been teaching continuously ever since.</p>
       </div>
       <div class="card">
         <p class="clabel">Nintendo and the Ottoman Empire</p>
-        <p class="cval" style="font-size:18px;">Founded the same decade</p>
+        <p class="cval u-fs-18px">Founded the same decade</p>
         <p class="cnote">Nintendo was founded in 1889 as a playing card company. The Ottoman Empire didn't collapse until 1922. Nintendo predates the end of the Ottoman Empire by 33 years.</p>
       </div>
       <div class="card">
         <p class="clabel">Harriet Tubman and the Wright Brothers</p>
-        <p class="cval" style="font-size:18px;">She lived to see flight</p>
+        <p class="cval u-fs-18px">She lived to see flight</p>
         <p class="cnote">Harriet Tubman was born into slavery (~1822) and died in 1913 — a decade after the Wright Brothers' first flight in 1903. One person's lifetime spanned from human bondage to powered aviation.</p>
       </div>
     </div>
 
     <div class="sec">Part E · the "what year was that?" lookup tool</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Enter any year and instantly see its era, what just happened, and what was coming next.</div>
-      <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
-        <input type="number" id="year-lookup" placeholder="e.g. 1870" min="-3000" max="2025" style="flex:1; min-width:120px; font-size:14px;">
-        <button onclick="lookupYear()" style="padding:0 18px; height:36px; font-size:13px;">Look up ↗</button>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <div class="u-fs-13px u-fw-500 text-primary u-mb-md">Enter any year and instantly see its era, what just happened, and what was coming next.</div>
+      <div class="u-display-flex u-gap-md u-items-center u-mb-md u-flex-wrap">
+        <input type="number" id="year-lookup" placeholder="e.g. 1870" min="-3000" max="2025" class="u-flex-1 u-minw-120px u-fs-14px">
+        <button onclick="lookupYear()" class="u-p-0-18px u-h-36px u-fs-13px">Look up ↗</button>
       </div>
-      <div id="lookup-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8;"></div>
+      <div id="lookup-result" class="u-fs-13px text-primary u-lh-1-8"></div>
     </div>
 
     <div class="sec">Part F · how long did they last? — empire &amp; civilisation lifespans</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 14px; line-height:1.6;">One of the most disorienting facts in history: most major empires lasted longer than the entire gap between Napoleon and today. Use this chart to calibrate your sense of historical depth.</p>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <p class="u-fs-12px text-secondary u-m-0-0-14px u-lh-1-6">One of the most disorienting facts in history: most major empires lasted longer than the entire gap between Napoleon and today. Use this chart to calibrate your sense of historical depth.</p>
       <div id="empire-bars"></div>
-      <p style="font-size:11px; color:var(--color-text-tertiary); margin:10px 0 0; line-height:1.5;">* "Roman civilisation" measured from Rome's traditional founding (753 BC) to the final fall of the Eastern Empire (1453 AD). Many empires had interruptions; durations shown are total civilisational spans.</p>
+      <p class="u-fs-11px text-tertiary u-m-10px-0-0 u-lh-1-5">* "Roman civilisation" measured from Rome's traditional founding (753 BC) to the final fall of the Eastern Empire (1453 AD). Many empires had interruptions; durations shown are total civilisational spans.</p>
     </div>
 
     <div class="sec">Part G · concurrent worlds — what was happening everywhere at once?</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 12px; line-height:1.6;">History is often taught one civilisation at a time. But the world was always happening everywhere simultaneously. Pick a moment and see the full picture.</p>
-      <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:14px;" id="conc-btns"></div>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <p class="u-fs-12px text-secondary u-m-0-0-12px u-lh-1-6">History is often taught one civilisation at a time. But the world was always happening everywhere simultaneously. Pick a moment and see the full picture.</p>
+      <div class="u-display-flex u-gap-7px u-flex-wrap u-mb-lg" id="conc-btns"></div>
       <div id="conc-panel"></div>
     </div>
 
     <div class="sec">Part H · depth calculator — where does a year sit in all of history?</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Enter a year to see how it relates to the full sweep of recorded history.</div>
-      <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
-        <input type="number" id="depth-year" placeholder="e.g. 1066" min="-3000" max="2025" style="flex:1; min-width:120px; font-size:14px;">
-        <button onclick="calcDepth()" style="padding:0 18px; height:36px; font-size:13px;">Calculate ↗</button>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <div class="u-fs-13px u-fw-500 text-primary u-mb-md">Enter a year to see how it relates to the full sweep of recorded history.</div>
+      <div class="u-display-flex u-gap-md u-items-center u-mb-md u-flex-wrap">
+        <input type="number" id="depth-year" placeholder="e.g. 1066" min="-3000" max="2025" class="u-flex-1 u-minw-120px u-fs-14px">
+        <button onclick="calcDepth()" class="u-p-0-18px u-h-36px u-fs-13px">Calculate ↗</button>
       </div>
       <div id="depth-result"></div>
     </div>
 
     <div class="sec">Part I · the speed of change — how long between each leap?</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 14px; line-height:1.6;">The time between major human leaps keeps shrinking. Each bar shows the gap (in years) between one civilisational milestone and the next. The compression in the last 300 years is staggering.</p>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <p class="u-fs-12px text-secondary u-m-0-0-14px u-lh-1-6">The time between major human leaps keeps shrinking. Each bar shows the gap (in years) between one civilisational milestone and the next. The compression in the last 300 years is staggering.</p>
       <div id="speed-bars"></div>
-      <p style="font-size:11px; color:var(--color-text-tertiary); margin:10px 0 0; line-height:1.5;">Note: gaps between ancient milestones are approximate. The compression of modern change is the key insight here.</p>
+      <p class="u-fs-11px text-tertiary u-m-10px-0-0 u-lh-1-5">Note: gaps between ancient milestones are approximate. The compression of modern change is the key insight here.</p>
     </div>
 
     <div class="sec">Part J · history quiz — test your calibration</div>
 
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">10 questions. No multiple-choice tricks — just "before or after?" calibration.</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:14px;">Score: <span id="quiz-score">0</span> / <span id="quiz-total">0</span></div>
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <div class="u-fs-13px u-fw-500 text-primary u-mb-xs">10 questions. No multiple-choice tricks — just "before or after?" calibration.</div>
+      <div class="u-fs-12px text-secondary u-mb-lg">Score: <span id="quiz-score">0</span> / <span id="quiz-total">0</span></div>
       <div id="quiz-container"></div>
-      <button id="quiz-restart" onclick="startQuiz()" style="display:none; margin-top:10px; font-size:13px; padding:5px 16px;">Restart quiz ↺</button>
+      <button id="quiz-restart" onclick="startQuiz()" class="u-display-none u-mt-md u-fs-13px u-p-5px-16px">Restart quiz ↺</button>
     </div>
 
-    <div class="sec">Part K · deep Q&amp;A — think through history</div>
+    <div class="sec">Part K · wars in depth — the conflicts that shaped the world</div>
+
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <p class="u-fs-12px text-secondary u-m-0-0-13px u-lh-1-6">Ten defining conflicts — each one a turning point that remade the political, cultural, or technological order of the world. Select a war to see its full profile.</p>
+      <div class="u-display-flex u-gap-5px u-flex-wrap u-mb-lg" id="war-tabs"></div>
+      <div id="war-panel"></div>
+    </div>
+
+    <div class="sec">Part L · Iran through the ages — 3,000 years of continuous civilisation</div>
+
+    <div class="u-bg-background-primary u-border-0-5px-solid-border-tertiary u-radius-radius-lg u-p-13px-15px u-mb-lg">
+      <p class="u-fs-12px text-secondary u-m-0-0-13px u-lh-1-6">Iran (historically known as Persia) has one of the longest continuous civilisational histories on Earth — encompassing some of history's largest empires, world-shaping religions, and cultural achievements that influenced Greece, Rome, Islam, and beyond. Select an era to explore its full profile.</p>
+      <div class="u-display-flex u-gap-5px u-flex-wrap u-mb-lg" id="iran-tabs"></div>
+      <div id="iran-panel"></div>
+    </div>
+
+    <div class="sec">Part M · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. Someone says something happened in 1870. What era is that, and what major events frame it?</p>
@@ -497,22 +640,6 @@
       <p class="qa-q">8. If you had to identify the single most consequential century in human history before the 20th, which would it be and why?</p>
       <button class="qa-btn" onclick="this.style.display='none';this.nextElementSibling.classList.add('show')">Show answer</button>
       <div class="qa-ans">Strong candidates: the 6th century BC (500s BC) is called the "Axial Age" — within a few decades, Buddha, Confucius, Pythagoras, Zoroaster, and the Hebrew prophets all appeared independently, reshaping human moral and philosophical frameworks across Eurasia. The 15th century (1400s) is another: the printing press (1440s), the fall of Constantinople (1453), Columbus (1492), and the beginning of the global slave trade all happened within 50 years. The 17th century gave us Newton, the Scientific Revolution, and the first modern democracies. Reasonable historians disagree — the point is to have an answer and defend it.</div>
-    </div>
-
-    <div class="sec">Part L · wars in depth — the conflicts that shaped the world</div>
-
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 13px; line-height:1.6;">Ten defining conflicts — each one a turning point that remade the political, cultural, or technological order of the world. Select a war to see its full profile.</p>
-      <div style="display:flex; gap:5px; flex-wrap:wrap; margin-bottom:14px;" id="war-tabs"></div>
-      <div id="war-panel"></div>
-    </div>
-
-    <div class="sec">Part M · Iran through the ages — 3,000 years of continuous civilisation</div>
-
-    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 13px 15px; margin-bottom: 1rem;">
-      <p style="font-size:12px; color:var(--color-text-secondary); margin:0 0 13px; line-height:1.6;">Iran (historically known as Persia) has one of the longest continuous civilisational histories on Earth — encompassing some of history's largest empires, world-shaping religions, and cultural achievements that influenced Greece, Rome, Islam, and beyond. Select an era to explore its full profile.</p>
-      <div style="display:flex; gap:5px; flex-wrap:wrap; margin-bottom:14px;" id="iran-tabs"></div>
-      <div id="iran-panel"></div>
     </div>
 
     <script>
@@ -593,6 +720,8 @@ const eraStyles = [
   { bg:'#E6F1FB', border:'#85B7EB', text:'#0C447C', label:'Modern world' },
 ];
 
+let anchorCurrentEra = 1;
+
 function getEra(y) {
   if (y < 500) return 1;
   if (y < 1400) return 2;
@@ -624,13 +753,13 @@ function updateTimeline() {
   badge.style.cssText = `background:${s.bg}; color:${s.text}; border:0.5px solid ${s.border}; display:inline-block; font-size:11px; font-weight:500; padding:2px 9px; border-radius:99px; margin-bottom:10px;`;
   const { before, after } = getNearby(y);
   let nearby = '';
-  if (before) nearby += `<div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:4px;">← Last anchor: <strong style="color:var(--color-text-primary)">${fmtYear(before.y)} — ${before.name}</strong> (${Math.abs(y-before.y)} years ago)</div>`;
-  if (after)  nearby += `<div style="font-size:12px; color:var(--color-text-secondary);">→ Next anchor: <strong style="color:var(--color-text-primary)">${fmtYear(after.y)} — ${after.name}</strong> (in ${Math.abs(after.y-y)} years)</div>`;
+  if (before) nearby += `<div class="u-fs-12px text-secondary u-mb-xs">← Last anchor: <strong class="text-primary">${fmtYear(before.y)} — ${before.name}</strong> (${Math.abs(y-before.y)} years ago)</div>`;
+  if (after)  nearby += `<div class="u-fs-12px text-secondary">→ Next anchor: <strong class="text-primary">${fmtYear(after.y)} — ${after.name}</strong> (in ${Math.abs(after.y-y)} years)</div>`;
   document.getElementById('hist-nearby').innerHTML = nearby;
 
   const exact = events.find(e => e.y === y);
   if (exact) {
-    document.getElementById('hist-context').innerHTML = `<strong style="color:var(--color-text-primary)">${exact.name}</strong><br>${exact.note}`;
+    document.getElementById('hist-context').innerHTML = `<strong class="text-primary">${exact.name}</strong><br>${exact.note}`;
   } else {
     const eraContext = [
       '',
@@ -653,20 +782,31 @@ function jumpTo(y) {
 
 function buildAnchorList() {
   const container = document.getElementById('anchor-list');
-  let html = '';
-  let currentEra = 0;
-  events.forEach(e => {
-    if (e.era !== currentEra) {
-      currentEra = e.era;
-      const s = eraStyles[currentEra];
-      html += `<div style="font-size:11px; font-weight:500; color:${s.text}; background:${s.bg}; border-radius:var(--border-radius-md); padding:3px 9px; display:inline-block; margin: 10px 0 6px; border:0.5px solid ${s.border};">${s.label}</div>`;
-    }
-    html += `<div style="display:flex; gap:10px; padding:5px 0; border-bottom:0.5px solid var(--color-border-tertiary); align-items:baseline; cursor:pointer;" onclick="jumpTo(${e.y})" title="Jump to ${fmtYear(e.y)}">
-      <span style="font-size:12px; font-weight:500; color:var(--color-text-secondary); min-width:64px; flex-shrink:0; font-family:monospace;">${fmtYear(e.y)}</span>
-      <span style="font-size:13px; color:var(--color-text-primary);">${e.name}</span>
+  const s = eraStyles[anchorCurrentEra];
+  const eraEvents = events.filter(e => e.era === anchorCurrentEra);
+  let tabs = '';
+  eraStyles.forEach((era, i) => {
+    if (!era) return;
+    tabs += `<button class="conc-btn${i===anchorCurrentEra?' active':''}" onclick="showAnchorEra(${i})">${era.label}</button>`;
+  });
+  let rows = '';
+  eraEvents.forEach(e => {
+    rows += `<div class="u-display-flex u-gap-md u-p-5px-0 u-bb-0-5px-solid-border-tertiary u-items-baseline u-cursor-pointer" onclick="jumpTo(${e.y})" title="Jump to ${fmtYear(e.y)}">
+      <span class="u-fs-12px u-fw-500 text-secondary u-minw-64px u-shrink-0 u-font-monospace">${fmtYear(e.y)}</span>
+      <span class="u-fs-13px text-primary">${e.name}</span>
     </div>`;
   });
-  container.innerHTML = html;
+  container.innerHTML = `<div class="button-row-compact">${tabs}</div>
+    <div class="u-display-flex u-justify-space-between u-gap-sm u-items-center u-flex-wrap u-mb-sm">
+      <div class="panel-title-spaced">${s.label}</div>
+      <div class="muted-text-small">${eraEvents.length} anchor events</div>
+    </div>
+    ${rows}`;
+}
+
+function showAnchorEra(era) {
+  anchorCurrentEra = era;
+  buildAnchorList();
 }
 
 function lookupYear() {
@@ -676,10 +816,10 @@ function lookupYear() {
   const s = eraStyles[era];
   const { before, after } = getNearby(y);
   const exact = events.find(e => e.y === y);
-  let html = `<strong>${fmtYear(y)}</strong> — <span style="background:${s.bg}; color:${s.text}; padding:1px 7px; border-radius:99px; font-size:11px; border:0.5px solid ${s.border};">${s.label}</span><br><br>`;
+  let html = `<strong>${fmtYear(y)}</strong> — <span class="era-pill era-style-${era}">${s.label}</span><br><br>`;
   if (exact) html += `<strong>This is: ${exact.name}</strong><br>${exact.note}<br><br>`;
-  if (before) html += `Most recent anchor before: <strong>${fmtYear(before.y)} — ${before.name}</strong><br><span style="color:var(--color-text-secondary); font-size:12px;">${before.note}</span><br><br>`;
-  if (after)  html += `Next anchor after: <strong>${fmtYear(after.y)} — ${after.name}</strong><br><span style="color:var(--color-text-secondary); font-size:12px;">${after.note}</span>`;
+  if (before) html += `Most recent anchor before: <strong>${fmtYear(before.y)} — ${before.name}</strong><br><span class="text-secondary u-fs-12px">${before.note}</span><br><br>`;
+  if (after)  html += `Next anchor after: <strong>${fmtYear(after.y)} — ${after.name}</strong><br><span class="text-secondary u-fs-12px">${after.note}</span>`;
   document.getElementById('lookup-result').innerHTML = html;
   document.getElementById('hist-slider').value = y;
   updateTimeline();
@@ -710,13 +850,21 @@ function buildEmpireBars() {
     html += `<div class="empire-bar-row">
       <div class="empire-bar-label">${emp.name}</div>
       <div class="empire-bar-track">
-        <div class="empire-bar-fill" style="width:${pct}%; background:${emp.color};">
-          <span class="empire-bar-val" style="color:${emp.textColor};">${dur.toLocaleString()} yrs</span>
+        <div class="empire-bar-fill">
+          <span class="empire-bar-val">${dur.toLocaleString()} yrs</span>
         </div>
       </div>
     </div>`;
   });
   container.innerHTML = html;
+  container.querySelectorAll('.empire-bar-fill').forEach((bar, i) => {
+    const emp = sorted[i];
+    const dur = emp.end - emp.start;
+    bar.style.width = Math.round((dur / maxDur) * 100) + '%';
+    bar.style.background = emp.color;
+    const val = bar.querySelector('.empire-bar-val');
+    if (val) val.style.color = emp.textColor;
+  });
 }
 
 // === PART G — Concurrent Worlds ===
@@ -784,21 +932,27 @@ function buildConcurrentBtns() {
 function showConcurrent(idx) {
   document.querySelectorAll('.conc-btn').forEach((b,i) => b.classList.toggle('active', i===idx));
   const w = concurrentWorlds[idx];
-  let html = `<p style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin:0 0 10px;">${w.desc}</p>`;
+  let html = `<p class="u-fs-13px u-fw-500 text-primary u-m-0-0-10px">${w.desc}</p>`;
   w.regions.forEach(r => {
     html += `<div class="region-row">
-      <span class="region-pill" style="background:${r.color}; color:${r.textColor};">${r.name}</span>
+      <span class="region-pill">${r.name}</span>
       <span class="region-text">${r.text}</span>
     </div>`;
   });
-  document.getElementById('conc-panel').innerHTML = html;
+  const panel = document.getElementById('conc-panel');
+  panel.innerHTML = html;
+  panel.querySelectorAll('.region-pill').forEach((pill, i) => {
+    const region = w.regions[i];
+    pill.style.background = region.color;
+    pill.style.color = region.textColor;
+  });
 }
 
 // === PART H — Depth Calculator ===
 function calcDepth() {
   const y = parseInt(document.getElementById('depth-year').value);
   if (isNaN(y) || y < -3000 || y > 2025) {
-    document.getElementById('depth-result').innerHTML = '<span style="color:var(--color-text-secondary); font-size:12px;">Please enter a year between 3000 BC and 2025.</span>';
+    document.getElementById('depth-result').innerHTML = '<span class="text-secondary u-fs-12px">Please enter a year between 3000 BC and 2025.</span>';
     return;
   }
   const HISTORY_START = -3000;
@@ -828,18 +982,18 @@ function calcDepth() {
   const barPct = Math.max(2, Math.min(98, pctOfHistory));
 
   let html = `
-  <div style="margin-bottom:14px;">
-    <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">Position in recorded history (3000 BC → now)</div>
-    <div style="background:var(--color-background-secondary); border-radius:4px; height:12px; overflow:hidden; margin-bottom:4px;">
-      <div style="width:${barPct}%; height:12px; background:#85B7EB; border-radius:4px;"></div>
+  <div class="u-mb-lg">
+    <div class="u-fs-11px text-secondary u-mb-xs">Position in recorded history (3000 BC → now)</div>
+    <div class="u-bg-background-secondary u-radius-4px u-h-12px u-overflow-hidden u-mb-xs">
+      <div class="depth-fill"></div>
     </div>
-    <div style="font-size:11px; color:var(--color-text-secondary);">${pctOfHistory}% of the way through recorded history</div>
+    <div class="u-fs-11px text-secondary">${pctOfHistory}% of the way through recorded history</div>
   </div>
   <div>
   `;
 
   const rows = [
-    { icon: '📅', label: 'Era', val: `<span style="background:${s.bg}; color:${s.text}; padding:1px 8px; border-radius:99px; font-size:11px; border:0.5px solid ${s.border};">${s.label}</span>` },
+    { icon: '📅', label: 'Era', val: `<span class="era-pill era-style-${era}">${s.label}</span>` },
     { icon: '⏳', label: 'Years ago', val: y <= NOW ? yearsAgo.toLocaleString() + ' years' : '—' },
     { icon: '👴', label: 'Generations ago', val: y <= NOW ? '~' + generationsAgo.toLocaleString() + ' generations (at 25 yrs/gen)' : '—' },
     { icon: '🧠', label: 'Memory context', val: memNote },
@@ -850,12 +1004,15 @@ function calcDepth() {
     html += `<div class="depth-row">
       <div class="depth-icon">${r.icon}</div>
       <div class="depth-label">${r.label}</div>
-      <div class="depth-val" style="max-width:55%; text-align:right; font-size:12px;">${r.val}</div>
+      <div class="depth-val u-maxw-55-pct u-align-right u-fs-12px">${r.val}</div>
     </div>`;
   });
 
   html += '</div>';
-  document.getElementById('depth-result').innerHTML = html;
+  const depthResult = document.getElementById('depth-result');
+  depthResult.innerHTML = html;
+  const depthFill = depthResult.querySelector('.depth-fill');
+  if (depthFill) depthFill.style.width = barPct + '%';
 }
 
 // === PART I — Speed of Change ===
@@ -885,13 +1042,18 @@ function buildSpeedBars() {
     html += `<div class="speed-row">
       <div class="speed-label">${m.from}<br>→ ${m.to}</div>
       <div class="speed-track">
-        <div class="speed-fill" style="width:${pct}%; background:${m.color};">
+        <div class="speed-fill">
           <span class="speed-val">${m.gap.toLocaleString()} yrs</span>
         </div>
       </div>
     </div>`;
   });
   container.innerHTML = html;
+  container.querySelectorAll('.speed-fill').forEach((bar, i) => {
+    const m = speedMilestones[i];
+    bar.style.width = Math.max(3, Math.round((m.gap / maxGap) * 100)) + '%';
+    bar.style.background = m.color;
+  });
 }
 
 // === PART J — Quiz ===
@@ -983,20 +1145,20 @@ function startQuiz() {
 function renderQuizQuestion() {
   if (quizIdx >= quizQuestions.length) {
     document.getElementById('quiz-container').innerHTML = `
-      <div style="font-size:15px; font-weight:500; color:var(--color-text-primary); margin-bottom:6px;">Finished! Score: ${quizScoreVal} / ${quizQuestions.length}</div>
-      <div style="font-size:13px; color:var(--color-text-secondary);">${quizScoreVal >= 8 ? 'Excellent calibration.' : quizScoreVal >= 5 ? 'Good — a few surprises in there.' : 'History is full of surprises. Worth reviewing the anchors.'}</div>`;
+      <div class="u-fs-15px u-fw-500 text-primary u-mb-sm">Finished! Score: ${quizScoreVal} / ${quizQuestions.length}</div>
+      <div class="u-fs-13px text-secondary">${quizScoreVal >= 8 ? 'Excellent calibration.' : quizScoreVal >= 5 ? 'Good — a few surprises in there.' : 'History is full of surprises. Worth reviewing the anchors.'}</div>`;
     document.getElementById('quiz-restart').style.display = 'inline-block';
     return;
   }
   const q = quizQuestions[quizIdx];
   const container = document.getElementById('quiz-container');
   container.innerHTML = `
-    <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:6px;">Question ${quizIdx+1} of ${quizQuestions.length}</div>
-    <div style="font-size:14px; font-weight:500; color:var(--color-text-primary); margin-bottom:12px;">${q.q}</div>
+    <div class="u-fs-12px text-secondary u-mb-sm">Question ${quizIdx+1} of ${quizQuestions.length}</div>
+    <div class="u-fs-14px u-fw-500 text-primary u-mb-md">${q.q}</div>
     <button class="quiz-opt" onclick="answerQuiz('a')" id="qopt-a">${q.a}</button>
     <button class="quiz-opt" onclick="answerQuiz('b')" id="qopt-b">${q.b}</button>
     ${q.correct === 'tie' ? `<button class="quiz-opt" onclick="answerQuiz('tie')" id="qopt-tie">They happened at the same time / same year</button>` : ''}
-    <div id="quiz-feedback" style="display:none; margin-top:8px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:8px 10px;"></div>
+    <div id="quiz-feedback" class="u-display-none u-mt-sm u-fs-12px text-secondary u-lh-1-6 u-bg-background-secondary u-radius-radius-md u-p-8px-10px"></div>
   `;
 }
 
@@ -1444,17 +1606,23 @@ function showWar(idx) {
 
   // "Others" tab has special layout
   if (w.others) {
-    let html = `<p class="war-body-text" style="margin-bottom:13px;">${w.intro}</p>`;
+    let html = `<p class="war-body-text u-mb-13px">${w.intro}</p>`;
     w.others.forEach(o => {
-      html += `<div style="padding:10px 0; border-bottom:0.5px solid var(--color-border-tertiary);">
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:5px; flex-wrap:wrap;">
-          <span style="font-size:13px; font-weight:500; color:var(--color-text-primary);">${o.name}</span>
-          <span style="font-size:11px; padding:1px 8px; border-radius:99px; background:${o.tagColor}; color:${o.tagText}; border:0.5px solid ${o.tagText}22; flex-shrink:0;">${o.tag}</span>
+      html += `<div class="u-p-10px-0 u-bb-0-5px-solid-border-tertiary">
+        <div class="u-display-flex u-items-center u-gap-sm u-mb-xs u-flex-wrap">
+          <span class="u-fs-13px u-fw-500 text-primary">${o.name}</span>
+          <span class="war-other-tag">${o.tag}</span>
         </div>
-        <p style="font-size:12px; color:var(--color-text-secondary); margin:0; line-height:1.6;">${o.text}</p>
+        <p class="u-fs-12px text-secondary u-m-0 u-lh-1-6">${o.text}</p>
       </div>`;
     });
     panel.innerHTML = html;
+    panel.querySelectorAll('.war-other-tag').forEach((tag, i) => {
+      const item = w.others[i];
+      tag.style.background = item.tagColor;
+      tag.style.color = item.tagText;
+      tag.style.borderColor = item.tagText + '22';
+    });
     return;
   }
 
@@ -1462,16 +1630,16 @@ function showWar(idx) {
   let html = '';
 
   // Header meta line
-  html += `<div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
-    <span style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${w.years}</span>
-    <span style="font-size:11px; color:var(--color-text-secondary);">·</span>
-    <span style="font-size:12px; color:var(--color-text-secondary);">${w.duration}</span>
-    <span style="font-size:11px; color:var(--color-text-secondary);">·</span>
-    <span style="font-size:11px; padding:1px 8px; border-radius:99px; background:#FCEBEB; color:#791F1F; border:0.5px solid #F09595;">${w.type}</span>
+  html += `<div class="u-display-flex u-gap-sm u-flex-wrap u-items-center u-mb-md">
+    <span class="u-fs-12px u-fw-500 text-primary">${w.years}</span>
+    <span class="u-fs-11px text-secondary">·</span>
+    <span class="u-fs-12px text-secondary">${w.duration}</span>
+    <span class="u-fs-11px text-secondary">·</span>
+    <span class="u-fs-12px text-secondary">${w.type}</span>
   </div>`;
 
   // Intro
-  html += `<p class="war-body-text" style="margin-bottom:12px;">${w.intro}</p>`;
+  html += `<p class="war-body-text u-mb-md">${w.intro}</p>`;
 
   // Stats grid
   if (w.stats.length) {
@@ -1490,8 +1658,8 @@ function showWar(idx) {
   if (w.sides.length) {
     html += `<div class="war-section-head">Who Fought</div>`;
     w.sides.forEach(side => {
-      html += `<div style="margin-bottom:7px;">
-        <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:4px;">${side.label}</div>
+      html += `<div class="u-mb-sm">
+        <div class="u-fs-11px u-fw-500 text-secondary u-mb-xs">${side.label}</div>
         <div class="war-country-list">`;
       side.countries.forEach(c => {
         html += `<span class="war-country-pill">${c}</span>`;
@@ -1500,27 +1668,34 @@ function showWar(idx) {
     });
   }
 
-  // Cause
-  html += `<div class="war-section-head">How It Started</div>
-    <p class="war-body-text">${w.cause}</p>`;
-
-  // End
-  html += `<div class="war-section-head">How It Ended</div>
-    <p class="war-body-text">${w.end}</p>`;
-
-  // Legacy
-  html += `<div class="war-section-head">Legacy &amp; Long-Term Impact</div>
-    <p class="war-body-text">${w.legacy}</p>`;
+  html += `<div class="u-display-grid u-gridcols-auto-fit-200px-1fr u-gap-sm u-mb-md">
+    <div class="sub-card">
+      <div class="mini-card-title">How It Started</div>
+      <p class="war-body-text">${w.cause}</p>
+    </div>
+    <div class="sub-card">
+      <div class="mini-card-title">How It Ended</div>
+      <p class="war-body-text">${w.end}</p>
+    </div>
+    <div class="sub-card">
+      <div class="mini-card-title">Legacy &amp; Long-Term Impact</div>
+      <p class="war-body-text">${w.legacy}</p>
+    </div>
+  </div>`;
 
   // Key figures
   if (w.figures.length) {
     html += `<div class="war-section-head">Key Figures</div>`;
+    html += `<div class="u-overflow-x-auto"><table class="profile-table">
+      <thead><tr><th>Figure</th><th>Role</th></tr></thead>
+      <tbody>`;
     w.figures.forEach(f => {
-      html += `<div class="war-figure-row">
-        <div class="war-figure-name">${f.name}</div>
-        <div class="war-figure-role">${f.role}</div>
-      </div>`;
+      html += `<tr>
+        <td class="profile-table-name">${f.name}</td>
+        <td class="profile-table-note">${f.role}</td>
+      </tr>`;
     });
+    html += `</tbody></table></div>`;
   }
 
   panel.innerHTML = html;
@@ -1852,19 +2027,19 @@ function showIranEra(idx) {
   let html = '';
 
   // Header meta
-  html += `<div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:10px;">
-    <span style="font-size:12px; font-weight:500; color:var(--color-text-primary);">${era.period}</span>
-    <span style="font-size:11px; color:var(--color-text-secondary);">·</span>
-    <span style="font-size:12px; color:var(--color-text-secondary);">${era.duration}</span>
-    <span style="font-size:11px; color:var(--color-text-secondary);">·</span>
-    <span style="font-size:11px; padding:1px 8px; border-radius:99px; background:#FAEEDA; color:#633806; border:0.5px solid #EF9F27;">${era.type}</span>
+  html += `<div class="u-display-flex u-gap-sm u-flex-wrap u-items-center u-mb-md">
+    <span class="u-fs-12px u-fw-500 text-primary">${era.period}</span>
+    <span class="u-fs-11px text-secondary">·</span>
+    <span class="u-fs-12px text-secondary">${era.duration}</span>
+    <span class="u-fs-11px text-secondary">·</span>
+    <span class="u-fs-12px text-secondary">${era.type}</span>
   </div>`;
 
   // Intro
-  html += `<p class="war-body-text" style="margin-bottom:12px;">${era.intro}</p>`;
+  html += `<p class="war-body-text u-mb-md">${era.intro}</p>`;
 
   // Highlight callout
-  html += `<div style="background:var(--color-background-warning); border:0.5px solid var(--color-border-warning); border-radius:var(--border-radius-md); padding:9px 12px; margin-bottom:13px; font-size:12px; color:var(--color-text-warning); line-height:1.6;">
+  html += `<div class="u-bg-background-warning u-border-0-5px-solid-border-warning u-radius-radius-md u-p-9px-12px u-mb-13px u-fs-12px u-text-text-warning u-lh-1-6">
     <strong>↳ Key fact:</strong> ${era.highlight}
   </div>`;
 
@@ -1883,24 +2058,34 @@ function showIranEra(idx) {
   era.capitals.forEach(c => { html += `<span class="war-country-pill">${c}</span>`; });
   html += `</div>`;
 
-  html += `<div class="war-section-head">Territory &amp; Geography</div>
-    <p class="war-body-text">${era.territory}</p>`;
-
-  html += `<div class="war-section-head">Religion</div>
-    <p class="war-body-text">${era.religion}</p>`;
-
-  html += `<div class="war-section-head">Language</div>
-    <p class="war-body-text">${era.language}</p>`;
+  html += `<div class="u-display-grid u-gridcols-auto-fit-200px-1fr u-gap-sm u-mb-md">
+    <div class="sub-card">
+      <div class="mini-card-title">Territory &amp; Geography</div>
+      <p class="war-body-text">${era.territory}</p>
+    </div>
+    <div class="sub-card">
+      <div class="mini-card-title">Religion</div>
+      <p class="war-body-text">${era.religion}</p>
+    </div>
+    <div class="sub-card">
+      <div class="mini-card-title">Language</div>
+      <p class="war-body-text">${era.language}</p>
+    </div>
+  </div>`;
 
   // Rulers
   if (era.rulers.length) {
     html += `<div class="war-section-head">Key Rulers &amp; Figures</div>`;
+    html += `<div class="u-overflow-x-auto"><table class="profile-table">
+      <thead><tr><th>Ruler or Figure</th><th>Why It Matters</th></tr></thead>
+      <tbody>`;
     era.rulers.forEach(r => {
-      html += `<div class="iran-ruler-row">
-        <div class="iran-ruler-name">${r.name}</div>
-        <div class="iran-ruler-note">${r.note}</div>
-      </div>`;
+      html += `<tr>
+        <td class="profile-table-name">${r.name}</td>
+        <td class="profile-table-note">${r.note}</td>
+      </tr>`;
     });
+    html += `</tbody></table></div>`;
   }
 
   // Legacy

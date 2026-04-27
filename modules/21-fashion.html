@@ -45,14 +45,720 @@
 /* watch tabs */
 .watch-tab { font-size:11px; padding:3px 9px; }
 .watch-tab.active { background:var(--color-text-primary); color:var(--color-background-primary); border-color:var(--color-text-primary); }
-</style>
+
+/* === Module-specific extracted styles === */
+
+.fashion-media {
+  width:100%;
+  max-width:600px;
+  display:block;
+  margin:0 auto 14px;
+}
+
+.fashion-row {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:12px;
+}
+
+.fashion-panel {
+  background:#26215C;
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+}
+
+.fashion-label {
+  font-size:12px;
+  font-weight:500;
+  color:#CECBF6;
+  margin-bottom:2px;
+}
+
+.fashion-text {
+  font-size:11px;
+  color:#AFA9EC;
+  line-height:1.5;
+}
+
+.fashion-panel-2 {
+  background:#185FA5;
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+}
+
+.fashion-label-2 {
+  font-size:12px;
+  font-weight:500;
+  color:#E6F1FB;
+  margin-bottom:2px;
+}
+
+.fashion-text-2 {
+  font-size:11px;
+  color:#B5D4F4;
+  line-height:1.5;
+}
+
+.fashion-panel-3 {
+  background:#1D9E75;
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+}
+
+.fashion-label-3 {
+  font-size:12px;
+  font-weight:500;
+  color:#E1F5EE;
+  margin-bottom:2px;
+}
+
+.fashion-text-3 {
+  font-size:11px;
+  color:#9FE1CB;
+  line-height:1.5;
+}
+
+.fashion-panel-4 {
+  background:#633806;
+  border-radius:var(--border-radius-md);
+  padding:10px 14px;
+}
+
+.fashion-label-4 {
+  font-size:12px;
+  font-weight:500;
+  color:#FAEEDA;
+  margin-bottom:2px;
+}
+
+.fashion-text-4 {
+  font-size:11px;
+  color:#EF9F27;
+  line-height:1.5;
+}
+
+.fashion-panel-5 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.fashion-label-5 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.fashion-media-2 {
+  width:100%;
+  display:block;
+}
+
+.fashion-grid {
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.fashion-panel-7 {
+  background:#EEEDFE;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #AFA9EC;
+}
+
+.fashion-label-6 {
+  font-size:13px;
+  font-weight:500;
+  color:#26215C;
+  margin-bottom:4px;
+}
+
+.fashion-text-5 {
+  font-size:11px;
+  color:#3C3489;
+  margin-bottom:6px;
+}
+
+.fashion-text-6 {
+  font-size:11px;
+  color:#534AB7;
+  line-height:1.6;
+}
+
+.fashion-panel-8 {
+  background:#FAECE7;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #F0997B;
+}
+
+.fashion-label-7 {
+  font-size:13px;
+  font-weight:500;
+  color:#4A1B0C;
+  margin-bottom:4px;
+}
+
+.fashion-text-7 {
+  font-size:11px;
+  color:#712B13;
+  margin-bottom:6px;
+}
+
+.fashion-text-8 {
+  font-size:11px;
+  color:#993C1D;
+  line-height:1.6;
+}
+
+.fashion-panel-9 {
+  background:#E6F1FB;
+  border-radius:var(--border-radius-lg);
+  padding:13px 15px;
+  border:0.5px solid #85B7EB;
+}
+
+.fashion-label-8 {
+  font-size:13px;
+  font-weight:500;
+  color:#042C53;
+  margin-bottom:4px;
+}
+
+.fashion-text-9 {
+  font-size:11px;
+  color:#0C447C;
+  margin-bottom:6px;
+}
+
+.fashion-text-10 {
+  font-size:11px;
+  color:#185FA5;
+  line-height:1.6;
+}
+
+.fashion-panel-10 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:10px 12px;
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:1rem;
+}
+
+.fashion-row-2 {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.showbrand-control {
+  font-size:11px;
+  padding:3px 9px;
+}
+
+.fashion-row-3 {
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  margin-bottom:12px;
+}
+
+.size-cat {
+  flex:1;
+  min-width:130px;
+  height:36px;
+  padding:0 10px;
+  border-radius:var(--border-radius-md);
+  border:0.5px solid var(--color-border-secondary);
+  background:var(--color-background-primary);
+  color:var(--color-text-primary);
+  font-size:13px;
+}
+
+.size-from {
+  flex:1;
+  min-width:100px;
+  height:36px;
+  padding:0 10px;
+  border-radius:var(--border-radius-md);
+  border:0.5px solid var(--color-border-secondary);
+  background:var(--color-background-primary);
+  color:var(--color-text-primary);
+  font-size:13px;
+}
+
+.size-val {
+  width:80px;
+  font-size:14px;
+}
+
+.convertsize-control {
+  height:36px;
+  padding:0 16px;
+  font-size:13px;
+}
+
+.size-result {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.8;
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+}
+
+.fashion-text-11 {
+  width:100%;
+  font-size:12px;
+  border-collapse:collapse;
+  min-width:400px;
+}
+
+.fashion-tr-style {
+  border-bottom:0.5px solid var(--color-border-secondary);
+}
+
+.fashion-spacing {
+  text-align:left;
+  padding:6px 8px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+}
+
+.fashion-spacing-2 {
+  text-align:center;
+  padding:6px 8px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+}
+
+.fashion-text-12 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  margin-bottom:8px;
+}
+
+.fashion-media-3 {
+  width:100%;
+  display:block;
+  margin-bottom:4px;
+}
+
+.showdress-control {
+  font-size:12px;
+  padding:3px 10px;
+}
+
+.fashion-grid-2 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:1rem;
+}
+
+.fashion-media-4 {
+  width:100%;
+  display:block;
+  margin-bottom:8px;
+}
+
+.fashion-grid-3 {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  font-size:11px;
+  color:var(--color-text-secondary);
+}
+
+.fashion-panel-11 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:7px 9px;
+}
+
+.fashion-grid-4 {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:12px;
+  margin-bottom:1rem;
+}
+
+.fashion-label-9 {
+  font-size:12px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.fashion-grid-5 {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.fashion-label-10 {
+  font-size:11px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  margin-bottom:6px;
+}
+
+.fashion-row-5 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.fashion-panel-12 {
+  background:#1D9E75;
+  border-radius:3px;
+  padding:5px 9px;
+  font-size:11px;
+  color:#E1F5EE;
+}
+
+.fashion-text-13 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  padding:3px 0;
+}
+
+.fashion-row-6 {
+  display:flex;
+  gap:3px;
+  flex-wrap:wrap;
+}
+
+.fashion-media-5 {
+  background:#633806;
+  border-radius:3px;
+  width:22px;
+  height:16px;
+}
+
+.fashion-text-14 {
+  font-size:11px;
+  color:var(--color-text-tertiary);
+  padding:5px 0;
+}
+
+.fashion-text-15 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:10px;
+}
+
+.fashion-panel-13 {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+}
+
+.era-display {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:11px 13px;
+}
+
+.fashion-text-16 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-bottom:6px;
+}
+
+.swatch-style {
+  background:#1B3A5C;
+}
+
+.swatch-style-2 {
+  background:#3D3D3D;
+}
+
+.swatch-style-3 {
+  background:#9B6B3C;
+}
+
+.swatch-style-4 {
+  background:#8B2B2B;
+}
+
+.swatch-style-5 {
+  background:#1A5C3A;
+}
+
+.swatch-style-6 {
+  background:#6B4F8C;
+}
+
+.swatch-style-7 {
+  background:#C4702A;
+}
+
+.swatch-style-8 {
+  background:#4A7FA5;
+}
+
+.swatch-style-9 {
+  background:#D4B483;
+}
+
+.swatch-style-10 {
+  background:#2D2D2D;
+}
+
+.colour-result {
+  font-size:13px;
+  color:var(--color-text-primary);
+  line-height:1.7;
+}
+
+.p-red-style {
+  min-width:60px;
+  font-size:10px;
+}
+
+.fashion-row-8 {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:4px;
+  font-size:11px;
+  color:var(--color-text-secondary);
+}
+
+.fashion-panel-15 {
+  background:#2C2C2A;
+  color:#E8E6DF;
+  border-radius:3px;
+  padding:2px 8px;
+}
+
+.fashion-panel-16 {
+  background:#1A1A18;
+  color:#E8E6DF;
+  border-radius:3px;
+  padding:2px 8px;
+}
+
+.fashion-text-17 {
+  font-size:11px;
+  color:var(--color-text-secondary);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.fashion-text-18 {
+  font-size:12px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:10px;
+}
+
+.fashion-label-12 {
+  font-size:11px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:6px;
+}
+
+.fashion-grid-6 {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:0;
+}
+
+.fashion-panel-17 {
+  background:#26215C;
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+}
+
+.fashion-text-19 {
+  font-size:11px;
+  font-weight:600;
+  color:#CECBF6;
+  margin-bottom:3px;
+}
+
+.fashion-text-20 {
+  font-size:10px;
+  color:#AFA9EC;
+  line-height:1.5;
+}
+
+.fashion-panel-18 {
+  background:#185FA5;
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+}
+
+.fashion-text-21 {
+  font-size:11px;
+  font-weight:600;
+  color:#E6F1FB;
+  margin-bottom:3px;
+}
+
+.fashion-text-22 {
+  font-size:10px;
+  color:#B5D4F4;
+  line-height:1.5;
+}
+
+.fashion-panel-19 {
+  background:#1D9E75;
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+}
+
+.fashion-text-23 {
+  font-size:11px;
+  font-weight:600;
+  color:#E1F5EE;
+  margin-bottom:3px;
+}
+
+.fashion-text-24 {
+  font-size:10px;
+  color:#9FE1CB;
+  line-height:1.5;
+}
+
+.showwatch-control {
+  font-size:11px;
+  padding:3px 9px;
+  background:var(--color-background-secondary);
+}
+
+.perfume-tab {
+  font-size:11px;
+  padding:3px 9px;
+}
+
+.perfume-header-row {
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+
+.perfume-name {
+  font-size:15px;
+  font-weight:500;
+  color:var(--color-text-primary);
+}
+
+.perfume-pill {
+  font-size:11px;
+  font-weight:500;
+  border-radius:99px;
+  padding:2px 9px;
+}
+
+.perfume-meta-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:7px;
+  margin-bottom:10px;
+}
+
+.perfume-meta-label {
+  font-size:10px;
+  color:var(--color-text-secondary);
+  margin-bottom:2px;
+}
+
+.perfume-meta-val {
+  font-size:12px;
+  color:var(--color-text-primary);
+  line-height:1.4;
+}
+
+.perfume-meta-val-sm {
+  font-size:11px;
+  color:var(--color-text-primary);
+  line-height:1.5;
+}
+
+.perfume-about-block {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.perfume-notes-label {
+  font-size:11px;
+  font-weight:500;
+  color:var(--color-text-secondary);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  margin-bottom:6px;
+}
+
+.perfume-notes-block {
+  background:var(--color-background-secondary);
+  border-radius:var(--border-radius-md);
+  padding:9px 11px;
+  font-size:11px;
+  color:var(--color-text-secondary);
+  line-height:1.6;
+  margin-bottom:8px;
+}
+
+.perfume-two-col {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+  margin-bottom:8px;
+}
+
+.watch-nav-row {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:10px;
+  padding-top:8px;
+  border-top:0.5px solid var(--color-border-tertiary);
+}
+
+.watch-nav-btn {
+  font-size:11px;
+  padding:3px 9px;
+}
+  </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-shirt" style="font-size:42px; color:#4E99A3; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 21: Fashion</h1>
+    <div class="module-header">
+      <i class="fa-solid fa-gem module-header-icon"></i>
+      <h1 class="module-title module-heading">Module 21: Fashion</h1>
     </div>
     <p class="module-subtitle">Fabrics, brands, dress codes, and style</p>
 
@@ -61,11 +767,11 @@
          ===================================================================== -->
     <div class="sec">Part A · the fashion industry pyramid</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Four tiers — the same brand sometimes occupies multiple levels</div>
+    <div class="content-panel">
+      <div class="panel-title">Four tiers — the same brand sometimes occupies multiple levels</div>
 
       <!-- SVG pyramid diagram -->
-      <svg viewBox="0 0 600 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:600px;display:block;margin:0 auto 14px;">
+      <svg class="fashion-media" viewBox="0 0 600 190" xmlns="http://www.w3.org/2000/svg">
         <!-- Tier 1: Haute Couture -->
         <polygon points="300,8 370,50 230,50" fill="#26215C" opacity="0.92"/>
         <text x="300" y="36" text-anchor="middle" font-size="10" font-weight="600" fill="#CECBF6">Haute Couture</text>
@@ -85,26 +791,26 @@
         <text x="590" y="178" text-anchor="end" font-size="9" fill="#633806" font-weight="500">€5–€100</text>
       </svg>
 
-      <div style="display:flex; flex-direction:column; gap:6px; margin-bottom:12px;">
-        <div style="background:#26215C; border-radius:var(--border-radius-md); padding:10px 14px;">
-          <div style="font-size:12px; font-weight:500; color:#CECBF6; margin-bottom:2px;">Haute couture — hand-crafted, made-to-measure, one client at a time</div>
-          <div style="font-size:11px; color:#AFA9EC; line-height:1.5;">Chanel, Dior, Valentino, Givenchy. A single couture dress: €10,000–€200,000+. Legally protected designation in France. Only ~16 full member houses (plus correspondent members). Shows twice yearly in Paris. Serves roughly 2,000–4,000 clients worldwide. Exists primarily as marketing for the brand's perfume, beauty, and accessories lines — which actually make money.</div>
+      <div class="fashion-row">
+        <div class="fashion-panel">
+          <div class="fashion-label">Haute couture — hand-crafted, made-to-measure, one client at a time</div>
+          <div class="fashion-text">Chanel, Dior, Valentino, Givenchy. A single couture dress: €10,000–€200,000+. Legally protected designation in France. Only ~16 full member houses (plus correspondent members). Shows twice yearly in Paris. Serves roughly 2,000–4,000 clients worldwide. Exists primarily as marketing for the brand's perfume, beauty, and accessories lines — which actually make money.</div>
         </div>
-        <div style="background:#185FA5; border-radius:var(--border-radius-md); padding:10px 14px;">
-          <div style="font-size:12px; font-weight:500; color:#E6F1FB; margin-bottom:2px;">Luxury / ready-to-wear — designed in-house, manufactured to high standards, high price</div>
-          <div style="font-size:11px; color:#B5D4F4; line-height:1.5;">Louis Vuitton, Gucci, Hermès, Prada, Burberry, Versace, Saint Laurent. Items: €500–€5,000+. Sold in own boutiques and high-end department stores. Quality materials and construction; distinct brand identity. The "aspirational luxury" tier where most luxury revenue is made.</div>
+        <div class="fashion-panel-2">
+          <div class="fashion-label-2">Luxury / ready-to-wear — designed in-house, manufactured to high standards, high price</div>
+          <div class="fashion-text-2">Louis Vuitton, Gucci, Hermès, Prada, Burberry, Versace, Saint Laurent. Items: €500–€5,000+. Sold in own boutiques and high-end department stores. Quality materials and construction; distinct brand identity. The "aspirational luxury" tier where most luxury revenue is made.</div>
         </div>
-        <div style="background:#1D9E75; border-radius:var(--border-radius-md); padding:10px 14px;">
-          <div style="font-size:12px; font-weight:500; color:#E1F5EE; margin-bottom:2px;">Premium / contemporary — quality above high street, accessible luxury</div>
-          <div style="font-size:11px; color:#9FE1CB; line-height:1.5;">Ralph Lauren, Tommy Hilfiger, Hugo Boss, Calvin Klein (mainline), Ted Baker, Reiss. Items: €80–€800. Good quality, brand recognition, sold in department stores and own shops. The sweet spot for most aspirational shoppers.</div>
+        <div class="fashion-panel-3">
+          <div class="fashion-label-3">Premium / contemporary — quality above high street, accessible luxury</div>
+          <div class="fashion-text-3">Ralph Lauren, Tommy Hilfiger, Hugo Boss, Calvin Klein (mainline), Ted Baker, Reiss. Items: €80–€800. Good quality, brand recognition, sold in department stores and own shops. The sweet spot for most aspirational shoppers.</div>
         </div>
-        <div style="background:#633806; border-radius:var(--border-radius-md); padding:10px 14px;">
-          <div style="font-size:12px; font-weight:500; color:#FAEEDA; margin-bottom:2px;">High street / fast fashion — trend-driven, low-cost, high-volume, rapid cycles</div>
-          <div style="font-size:11px; color:#EF9F27; line-height:1.5;">Zara, H&amp;M, Uniqlo, Mango, Primark. Items: €5–€100. Dozens of "micro-seasons" per year (Zara releases new stock twice weekly). Global supply chains. Environmental and labour concerns. Zara's model (design-to-shelf in ~2 weeks vs industry's 6 months) revolutionised the industry.</div>
+        <div class="fashion-panel-4">
+          <div class="fashion-label-4">High street / fast fashion — trend-driven, low-cost, high-volume, rapid cycles</div>
+          <div class="fashion-text-4">Zara, H&amp;M, Uniqlo, Mango, Primark. Items: €5–€100. Dozens of "micro-seasons" per year (Zara releases new stock twice weekly). Global supply chains. Environmental and labour concerns. Zara's model (design-to-shelf in ~2 weeks vs industry's 6 months) revolutionised the industry.</div>
         </div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">The great irony:</strong> Haute couture exists to fund perfume. A Chanel No.5 perfume (€120) funds the €200,000 dress that funds the brand's prestige that sells the perfume. The entire pyramid depends on each level signalling upward aspiration.
+      <div class="fashion-panel-5">
+        <strong class="text-primary">The great irony:</strong> Haute couture exists to fund perfume. A Chanel No.5 perfume (€120) funds the €200,000 dress that funds the brand's prestige that sells the perfume. The entire pyramid depends on each level signalling upward aspiration.
       </div>
     </div>
 
@@ -114,9 +820,9 @@
     <div class="sec">Part B · the three fashion conglomerates that own almost everything</div>
 
     <!-- Revenue comparison bar chart SVG -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;">Revenue comparison — 2023 (€B)</div>
-      <svg viewBox="0 0 540 110" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+    <div class="content-card">
+      <div class="fashion-label-5">Revenue comparison — 2023 (€B)</div>
+      <svg class="fashion-media-2" viewBox="0 0 540 110" xmlns="http://www.w3.org/2000/svg">
         <!-- LVMH bar -->
         <rect x="90" y="10" width="370" height="24" rx="3" fill="#534AB7" opacity="0.85"/>
         <text x="86" y="26" text-anchor="end" font-size="11" font-weight="500" fill="var(--color-text-secondary)">LVMH</text>
@@ -132,25 +838,25 @@
       </svg>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; margin-bottom:1rem;">
-      <div style="background:#EEEDFE; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #AFA9EC;">
-        <div style="font-size:13px; font-weight:500; color:#26215C; margin-bottom:4px;">LVMH</div>
-        <div style="font-size:11px; color:#3C3489; margin-bottom:6px;">Louis Vuitton Moët Hennessy. Largest luxury group. Bernard Arnault (France), world's richest person ~2021–2023.</div>
-        <div style="font-size:11px; color:#534AB7; line-height:1.6;">Louis Vuitton, Dior, Givenchy, Celine, Loewe, Fendi, Bulgari, TAG Heuer, Dom Pérignon, Moët &amp; Chandon, Hennessy. 75 houses. Revenue ~€86B (2023).</div>
+    <div class="fashion-grid">
+      <div class="fashion-panel-7">
+        <div class="fashion-label-6">LVMH</div>
+        <div class="fashion-text-5">Louis Vuitton Moët Hennessy. Largest luxury group. Bernard Arnault (France), world's richest person ~2021–2023.</div>
+        <div class="fashion-text-6">Louis Vuitton, Dior, Givenchy, Celine, Loewe, Fendi, Bulgari, TAG Heuer, Dom Pérignon, Moët &amp; Chandon, Hennessy. 75 houses. Revenue ~€86B (2023).</div>
       </div>
-      <div style="background:#FAECE7; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #F0997B;">
-        <div style="font-size:13px; font-weight:500; color:#4A1B0C; margin-bottom:4px;">Kering</div>
-        <div style="font-size:11px; color:#712B13; margin-bottom:6px;">François-Henri Pinault (France). Second-largest luxury fashion group. His wife: Salma Hayek.</div>
-        <div style="font-size:11px; color:#993C1D; line-height:1.6;">Gucci, Saint Laurent, Bottega Veneta, Balenciaga, Alexander McQueen, Brioni, Pomellato. Revenue ~€18B (2023).</div>
+      <div class="fashion-panel-8">
+        <div class="fashion-label-7">Kering</div>
+        <div class="fashion-text-7">François-Henri Pinault (France). Second-largest luxury fashion group. His wife: Salma Hayek.</div>
+        <div class="fashion-text-8">Gucci, Saint Laurent, Bottega Veneta, Balenciaga, Alexander McQueen, Brioni, Pomellato. Revenue ~€18B (2023).</div>
       </div>
-      <div style="background:#E6F1FB; border-radius:var(--border-radius-lg); padding:13px 15px; border:0.5px solid #85B7EB;">
-        <div style="font-size:13px; font-weight:500; color:#042C53; margin-bottom:4px;">Richemont</div>
-        <div style="font-size:11px; color:#0C447C; margin-bottom:6px;">Johann Rupert (South Africa). Specialises in watches and jewellery.</div>
-        <div style="font-size:11px; color:#185FA5; line-height:1.6;">Cartier, Van Cleef &amp; Arpels, IWC, Jaeger-LeCoultre, Piaget, Panerai, Dunhill, Chloé. Revenue ~€20B (2023).</div>
+      <div class="fashion-panel-9">
+        <div class="fashion-label-8">Richemont</div>
+        <div class="fashion-text-9">Johann Rupert (South Africa). Specialises in watches and jewellery.</div>
+        <div class="fashion-text-10">Cartier, Van Cleef &amp; Arpels, IWC, Jaeger-LeCoultre, Piaget, Panerai, Dunhill, Chloé. Revenue ~€20B (2023).</div>
       </div>
     </div>
-    <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:10px 12px; font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:1rem;">
-      <strong style="color:var(--color-text-primary);">Independents:</strong> Hermès (Hermès family, publicly traded but family-controlled), Chanel (Wertheimer family, private — no public financials), Prada (Miuccia Prada and Patrizio Bertelli family), Versace (sold to Capri Holdings, the Michael Kors parent group), Burberry (UK listed), Ralph Lauren (Ralph Lauren Corporation, NYSE).
+    <div class="fashion-panel-10">
+      <strong class="text-primary">Independents:</strong> Hermès (Hermès family, publicly traded but family-controlled), Chanel (Wertheimer family, private — no public financials), Prada (Miuccia Prada and Patrizio Bertelli family), Versace (sold to Capri Holdings, the Michael Kors parent group), Burberry (UK listed), Ralph Lauren (Ralph Lauren Corporation, NYSE).
     </div>
 
     <!-- =====================================================================
@@ -158,70 +864,70 @@
          ===================================================================== -->
     <div class="sec">Part C · top 20 brands — click to explore</div>
 
-    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showBrand('lv')"         style="font-size:11px; padding:3px 9px;">Louis Vuitton</button>
-      <button onclick="showBrand('chanel')"     style="font-size:11px; padding:3px 9px;">Chanel</button>
-      <button onclick="showBrand('hermes')"     style="font-size:11px; padding:3px 9px;">Hermès</button>
-      <button onclick="showBrand('gucci')"      style="font-size:11px; padding:3px 9px;">Gucci</button>
-      <button onclick="showBrand('dior')"       style="font-size:11px; padding:3px 9px;">Dior</button>
-      <button onclick="showBrand('prada')"      style="font-size:11px; padding:3px 9px;">Prada</button>
-      <button onclick="showBrand('versace')"    style="font-size:11px; padding:3px 9px;">Versace</button>
-      <button onclick="showBrand('balenciaga')" style="font-size:11px; padding:3px 9px;">Balenciaga</button>
-      <button onclick="showBrand('burberry')"   style="font-size:11px; padding:3px 9px;">Burberry</button>
-      <button onclick="showBrand('armani')"     style="font-size:11px; padding:3px 9px;">Armani</button>
-      <button onclick="showBrand('rl')"         style="font-size:11px; padding:3px 9px;">Ralph Lauren</button>
-      <button onclick="showBrand('boss')"       style="font-size:11px; padding:3px 9px;">Hugo Boss</button>
-      <button onclick="showBrand('zara')"       style="font-size:11px; padding:3px 9px;">Zara</button>
-      <button onclick="showBrand('hm')"         style="font-size:11px; padding:3px 9px;">H&amp;M</button>
-      <button onclick="showBrand('uniqlo')"     style="font-size:11px; padding:3px 9px;">Uniqlo</button>
-      <button onclick="showBrand('nike')"       style="font-size:11px; padding:3px 9px;">Nike</button>
-      <button onclick="showBrand('adidas')"     style="font-size:11px; padding:3px 9px;">Adidas</button>
-      <button onclick="showBrand('cartier')"    style="font-size:11px; padding:3px 9px;">Cartier</button>
-      <button onclick="showBrand('saint')"      style="font-size:11px; padding:3px 9px;">Saint Laurent</button>
-      <button onclick="showBrand('moncler')"    style="font-size:11px; padding:3px 9px;">Moncler</button>
+    <div class="fashion-row-2">
+      <button class="showbrand-control" onclick="showBrand('lv')"        >Louis Vuitton</button>
+      <button class="showbrand-control" onclick="showBrand('chanel')"    >Chanel</button>
+      <button class="showbrand-control" onclick="showBrand('hermes')"    >Hermès</button>
+      <button class="showbrand-control" onclick="showBrand('gucci')"     >Gucci</button>
+      <button class="showbrand-control" onclick="showBrand('dior')"      >Dior</button>
+      <button class="showbrand-control" onclick="showBrand('prada')"     >Prada</button>
+      <button class="showbrand-control" onclick="showBrand('versace')"   >Versace</button>
+      <button class="showbrand-control" onclick="showBrand('balenciaga')">Balenciaga</button>
+      <button class="showbrand-control" onclick="showBrand('burberry')"  >Burberry</button>
+      <button class="showbrand-control" onclick="showBrand('armani')"    >Armani</button>
+      <button class="showbrand-control" onclick="showBrand('rl')"        >Ralph Lauren</button>
+      <button class="showbrand-control" onclick="showBrand('boss')"      >Hugo Boss</button>
+      <button class="showbrand-control" onclick="showBrand('zara')"      >Zara</button>
+      <button class="showbrand-control" onclick="showBrand('hm')"        >H&amp;M</button>
+      <button class="showbrand-control" onclick="showBrand('uniqlo')"    >Uniqlo</button>
+      <button class="showbrand-control" onclick="showBrand('nike')"      >Nike</button>
+      <button class="showbrand-control" onclick="showBrand('adidas')"    >Adidas</button>
+      <button class="showbrand-control" onclick="showBrand('cartier')"   >Cartier</button>
+      <button class="showbrand-control" onclick="showBrand('saint')"     >Saint Laurent</button>
+      <button class="showbrand-control" onclick="showBrand('moncler')"   >Moncler</button>
     </div>
-    <div id="brand-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="brand-display"></div>
 
     <!-- =====================================================================
          PART D · SIZE CONVERSION
          ===================================================================== -->
     <div class="sec">Part D · size conversion — the interactive calculator</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Convert any clothing or shoe size between systems</div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:12px;">
-        <select id="size-cat" onchange="updateFromOptions()" style="flex:1; min-width:130px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+    <div class="content-panel">
+      <div class="panel-title">Convert any clothing or shoe size between systems</div>
+      <div class="fashion-row-3">
+        <select class="size-cat" id="size-cat" onchange="updateFromOptions()">
           <option value="clothing-women">Women's clothing</option>
           <option value="clothing-men">Men's clothing</option>
           <option value="shirt">Men's shirt collar</option>
           <option value="shoes-women">Women's shoes</option>
           <option value="shoes-men">Men's shoes</option>
         </select>
-        <select id="size-from" style="flex:1; min-width:100px; height:36px; padding:0 10px; border-radius:var(--border-radius-md); border:0.5px solid var(--color-border-secondary); background:var(--color-background-primary); color:var(--color-text-primary); font-size:13px;">
+        <select class="size-from" id="size-from">
           <option value="eu">EU</option>
           <option value="uk">UK</option>
           <option value="us">US</option>
           <option value="it">IT</option>
           <option value="fr">FR</option>
         </select>
-        <input type="number" id="size-val" placeholder="Size" style="width:80px; font-size:14px;" value="38">
-        <button onclick="convertSize()" style="height:36px; padding:0 16px; font-size:13px;">Convert</button>
+        <input class="size-val" type="number" id="size-val" placeholder="Size" value="38">
+        <button class="convertsize-control" onclick="convertSize()">Convert</button>
       </div>
-      <div id="size-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.8; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+      <div class="size-result" id="size-result"></div>
     </div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">XS – XXL to measurements — what the labels actually mean</div>
-      <div style="overflow-x:auto;">
-        <table style="width:100%; font-size:12px; border-collapse:collapse; min-width:400px;">
-          <thead><tr style="border-bottom:0.5px solid var(--color-border-secondary);">
-            <th style="text-align:left; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">Label</th>
-            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">Women chest (cm)</th>
-            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">Men chest (cm)</th>
-            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">EU women</th>
-            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">EU men</th>
-            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">US women</th>
-            <th style="text-align:center; padding:6px 8px; font-weight:500; color:var(--color-text-secondary);">US men</th>
+    <div class="content-panel">
+      <div class="panel-title-spaced">XS – XXL to measurements — what the labels actually mean</div>
+      <div class="u-overflow-x-auto">
+        <table class="fashion-text-11">
+          <thead><tr class="fashion-tr-style">
+            <th class="fashion-spacing">Label</th>
+            <th class="fashion-spacing-2">Women chest (cm)</th>
+            <th class="fashion-spacing-2">Men chest (cm)</th>
+            <th class="fashion-spacing-2">EU women</th>
+            <th class="fashion-spacing-2">EU men</th>
+            <th class="fashion-spacing-2">US women</th>
+            <th class="fashion-spacing-2">US men</th>
           </tr></thead>
           <tbody id="size-table-body"></tbody>
         </table>
@@ -234,9 +940,9 @@
     <div class="sec">Part E · dress codes decoded</div>
 
     <!-- Formality scale SVG -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:12px; color:var(--color-text-secondary); margin-bottom:8px;">Formality scale — from most to least formal</div>
-      <svg viewBox="0 0 560 36" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin-bottom:4px;">
+    <div class="content-card">
+      <div class="fashion-text-12">Formality scale — from most to least formal</div>
+      <svg class="fashion-media-3" viewBox="0 0 560 52" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="formalGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#26215C"/>
@@ -246,39 +952,39 @@
             <stop offset="100%" stop-color="#888780"/>
           </linearGradient>
         </defs>
-        <rect x="0" y="8" width="560" height="20" rx="4" fill="url(#formalGrad)"/>
+        <rect x="0" y="22" width="560" height="20" rx="4" fill="url(#formalGrad)"/>
         <!-- tick marks and labels -->
-        <line x1="0" y1="6" x2="0" y2="30" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <text x="2" y="5" font-size="8.5" fill="var(--color-text-secondary)">White tie</text>
-        <line x1="112" y1="6" x2="112" y2="30" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <text x="114" y="5" font-size="8.5" fill="var(--color-text-secondary)">Black tie</text>
-        <line x1="224" y1="6" x2="224" y2="30" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <text x="226" y="5" font-size="8.5" fill="var(--color-text-secondary)">Cocktail</text>
-        <line x1="336" y1="6" x2="336" y2="30" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <text x="338" y="5" font-size="8.5" fill="var(--color-text-secondary)">Biz formal</text>
-        <line x1="448" y1="6" x2="448" y2="30" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <text x="450" y="5" font-size="8.5" fill="var(--color-text-secondary)">Biz casual</text>
-        <line x1="560" y1="6" x2="560" y2="30" stroke="var(--color-border-secondary)" stroke-width="1"/>
-        <text x="500" y="5" font-size="8.5" fill="var(--color-text-secondary)">Smart casual</text>
+        <line x1="0"   y1="20" x2="0"   y2="44" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <text x="2"   y="16" font-size="8.5" fill="var(--color-text-secondary)">White tie</text>
+        <line x1="112" y1="20" x2="112" y2="44" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <text x="114" y="16" font-size="8.5" fill="var(--color-text-secondary)">Black tie</text>
+        <line x1="224" y1="20" x2="224" y2="44" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <text x="226" y="16" font-size="8.5" fill="var(--color-text-secondary)">Cocktail</text>
+        <line x1="336" y1="20" x2="336" y2="44" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <text x="338" y="16" font-size="8.5" fill="var(--color-text-secondary)">Biz formal</text>
+        <line x1="448" y1="20" x2="448" y2="44" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <text x="450" y="16" font-size="8.5" fill="var(--color-text-secondary)">Biz casual</text>
+        <line x1="556" y1="20" x2="556" y2="44" stroke="var(--color-border-secondary)" stroke-width="1"/>
+        <text x="460" y="52" font-size="8.5" fill="var(--color-text-secondary)">Smart casual</text>
       </svg>
     </div>
 
-    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
-      <button onclick="showDress('whitetie')"    style="font-size:12px; padding:3px 10px;">White tie</button>
-      <button onclick="showDress('blacktie')"    style="font-size:12px; padding:3px 10px;">Black tie</button>
-      <button onclick="showDress('cocktail')"    style="font-size:12px; padding:3px 10px;">Cocktail / smart</button>
-      <button onclick="showDress('bizformal')"   style="font-size:12px; padding:3px 10px;">Business formal</button>
-      <button onclick="showDress('bizcasual')"   style="font-size:12px; padding:3px 10px;">Business casual</button>
-      <button onclick="showDress('smartcasual')" style="font-size:12px; padding:3px 10px;">Smart casual</button>
+    <div class="button-row">
+      <button class="showdress-control" onclick="showDress('whitetie')"   >White tie</button>
+      <button class="showdress-control" onclick="showDress('blacktie')"   >Black tie</button>
+      <button class="showdress-control" onclick="showDress('cocktail')"   >Cocktail / smart</button>
+      <button class="showdress-control" onclick="showDress('bizformal')"  >Business formal</button>
+      <button class="showdress-control" onclick="showDress('bizcasual')"  >Business casual</button>
+      <button class="showdress-control" onclick="showDress('smartcasual')">Smart casual</button>
     </div>
-    <div id="dress-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="dress-display"></div>
 
     <!-- =====================================================================
          PART F · TIE VS BOW TIE
          ===================================================================== -->
     <div class="sec">Part F · tie vs bow tie — and how to wear both</div>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+    <div class="fashion-grid-2">
       <div class="card">
         <p class="clabel">Necktie (regular tie)</p>
         <p class="cval">Business and formal events</p>
@@ -292,46 +998,46 @@
     </div>
 
     <!-- Tie knot visual comparison -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Tie knot comparison — size, formality, and collar pairing</div>
-      <svg viewBox="0 0 540 140" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;margin-bottom:8px;">
+    <div class="content-panel">
+      <div class="panel-title">Tie knot comparison — size, formality, and collar pairing</div>
+      <svg class="fashion-media-4" viewBox="0 0 540 165" xmlns="http://www.w3.org/2000/svg">
         <!-- Four-in-hand -->
-        <g transform="translate(40,10)">
+        <g transform="translate(40,25)">
           <polygon points="30,0 42,30 36,120 24,120 18,30" fill="#185FA5" opacity="0.85"/>
           <polygon points="30,0 42,30 38,18" fill="#0C447C" opacity="0.7"/>
           <text x="30" y="135" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Four-in-Hand</text>
-          <text x="30" y="147" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Simple · asymmetric</text>
+          <text x="30" y="149" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Simple · asymmetric</text>
         </g>
         <!-- Half Windsor -->
-        <g transform="translate(160,10)">
+        <g transform="translate(160,25)">
           <polygon points="35,0 52,35 42,120 28,120 18,35" fill="#185FA5" opacity="0.85"/>
           <polygon points="35,0 52,35 46,20 24,20 18,35" fill="#0C447C" opacity="0.7"/>
           <text x="35" y="135" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Half Windsor</text>
-          <text x="35" y="147" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Medium · triangular</text>
+          <text x="35" y="149" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Medium · triangular</text>
         </g>
         <!-- Full Windsor -->
-        <g transform="translate(290,10)">
+        <g transform="translate(290,25)">
           <polygon points="40,0 62,38 50,120 30,120 18,38" fill="#185FA5" opacity="0.85"/>
           <polygon points="40,0 62,38 56,22 24,22 18,38" fill="#0C447C" opacity="0.7"/>
           <text x="40" y="135" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Full Windsor</text>
-          <text x="40" y="147" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Large · symmetrical</text>
+          <text x="40" y="149" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Large · symmetrical</text>
         </g>
         <!-- Bow tie -->
-        <g transform="translate(430,35)">
+        <g transform="translate(430,48)">
           <ellipse cx="20" cy="30" rx="20" ry="22" fill="#26215C" opacity="0.85"/>
           <ellipse cx="60" cy="30" rx="20" ry="22" fill="#26215C" opacity="0.85"/>
           <ellipse cx="40" cy="30" rx="8" ry="10" fill="#3C3489" opacity="0.9"/>
-          <text x="40" y="70" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Bow Tie</text>
-          <text x="40" y="82" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Black tie / eccentric</text>
+          <text x="40" y="72" text-anchor="middle" font-size="10" font-weight="600" fill="var(--color-text-primary)">Bow Tie</text>
+          <text x="40" y="86" text-anchor="middle" font-size="9" fill="var(--color-text-secondary)">Black tie / eccentric</text>
         </g>
         <!-- Formality arrows -->
-        <text x="10" y="12" font-size="9" fill="var(--color-text-tertiary)">← more casual</text>
-        <text x="380" y="12" font-size="9" fill="var(--color-text-tertiary)">more formal →</text>
+        <text x="10" y="16" font-size="9" fill="var(--color-text-tertiary)">← more casual</text>
+        <text x="380" y="16" font-size="9" fill="var(--color-text-tertiary)">more formal →</text>
       </svg>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; font-size:11px; color:var(--color-text-secondary);">
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 9px;"><strong style="color:var(--color-text-primary);">Four-in-hand:</strong> Everyday business. Works with any collar. The slight asymmetry is a feature, not a bug.</div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 9px;"><strong style="color:var(--color-text-primary);">Half Windsor:</strong> Smart business. Suits medium-spread collars. The most versatile formal knot.</div>
-        <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:7px 9px;"><strong style="color:var(--color-text-primary);">Full Windsor:</strong> Most formal. Requires a wide-spread collar. Fills the collar gap completely.</div>
+      <div class="fashion-grid-3">
+        <div class="fashion-panel-11"><strong class="text-primary">Four-in-hand:</strong> Everyday business. Works with any collar. The slight asymmetry is a feature, not a bug.</div>
+        <div class="fashion-panel-11"><strong class="text-primary">Half Windsor:</strong> Smart business. Suits medium-spread collars. The most versatile formal knot.</div>
+        <div class="fashion-panel-11"><strong class="text-primary">Full Windsor:</strong> Most formal. Requires a wide-spread collar. Fills the collar gap completely.</div>
       </div>
     </div>
 
@@ -340,7 +1046,7 @@
          ===================================================================== -->
     <div class="sec">Part G · fast fashion — what it is and why it matters</div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:12px; margin-bottom:1rem;">
+    <div class="fashion-grid-4">
       <div class="card">
         <p class="clabel">The Zara model</p>
         <p class="cval">Design to shelf in ~2 weeks</p>
@@ -364,46 +1070,46 @@
     </div>
 
     <!-- Fast fashion timeline -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:10px; text-transform:uppercase; letter-spacing:0.06em;">Industry seasons: then vs now</div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+    <div class="content-panel">
+      <div class="fashion-label-9">Industry seasons: then vs now</div>
+      <div class="fashion-grid-5">
         <div>
-          <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:6px;">Traditional fashion calendar (pre-1990s)</div>
-          <div style="display:flex; flex-direction:column; gap:4px;">
-            <div style="background:#1D9E75; border-radius:3px; padding:5px 9px; font-size:11px; color:#E1F5EE;">Spring / Summer collection</div>
-            <div style="background:#1D9E75; border-radius:3px; padding:5px 9px; font-size:11px; color:#E1F5EE;">Autumn / Winter collection</div>
-            <div style="font-size:11px; color:var(--color-text-tertiary); padding:3px 0;">→ 2 seasons per year</div>
+          <div class="fashion-label-10">Traditional fashion calendar (pre-1990s)</div>
+          <div class="fashion-row-5">
+            <div class="fashion-panel-12">Spring / Summer collection</div>
+            <div class="fashion-panel-12">Autumn / Winter collection</div>
+            <div class="fashion-text-13">→ 2 seasons per year</div>
           </div>
         </div>
         <div>
-          <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); margin-bottom:6px;">Fast fashion (Zara today) — new stock twice weekly</div>
-          <div style="display:flex; gap:3px; flex-wrap:wrap;">
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
-            <div style="background:#633806; border-radius:3px; width:22px; height:16px;"></div>
+          <div class="fashion-label-10">Fast fashion (Zara today) — new stock twice weekly</div>
+          <div class="fashion-row-6">
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
+            <div class="fashion-media-5"></div>
           </div>
-          <div style="font-size:11px; color:var(--color-text-tertiary); padding:5px 0;">→ ~100+ micro-drops per year</div>
+          <div class="fashion-text-14">→ ~100+ micro-drops per year</div>
         </div>
       </div>
     </div>
@@ -413,9 +1119,9 @@
          ===================================================================== -->
     <div class="sec">Part H · fabrics — what clothes are actually made of</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Select a fabric to explore its properties</div>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Natural fibres come from plants or animals. Synthetic fibres are petroleum-derived. Understanding fabric is the fastest way to judge quality.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Select a fabric to explore its properties</div>
+      <div class="fashion-text-15">Natural fibres come from plants or animals. Synthetic fibres are petroleum-derived. Understanding fabric is the fastest way to judge quality.</div>
       <div class="fabric-tab-row" id="fabric-tabs">
         <button class="fabric-tab active" onclick="showFabric('cotton')">Cotton</button>
         <button class="fabric-tab" onclick="showFabric('linen')">Linen</button>
@@ -432,9 +1138,9 @@
     </div>
 
     <!-- Fabric natural vs synthetic overview SVG -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;">Natural vs synthetic — key trade-offs at a glance</div>
-      <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+    <div class="content-panel">
+      <div class="fashion-label-5">Natural vs synthetic — key trade-offs at a glance</div>
+      <svg class="fashion-media-2" viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg">
         <!-- Headers -->
         <text x="140" y="16" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-primary)">Natural fibres</text>
         <text x="420" y="16" text-anchor="middle" font-size="11" font-weight="600" fill="var(--color-text-primary)">Synthetic fibres</text>
@@ -474,9 +1180,9 @@
     </div>
 
     <!-- Laundry care symbols -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Care label symbols — what they actually mean</div>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">These symbols appear on every garment's care label. A bar under a symbol means "gentle." A cross means "do not."</div>
+    <div class="content-panel">
+      <div class="inline-card-title">Care label symbols — what they actually mean</div>
+      <div class="fashion-text-15">These symbols appear on every garment's care label. A bar under a symbol means "gentle." A cross means "do not."</div>
       <div class="care-grid">
         <div class="care-item"><div class="care-sym">🪣</div><div class="care-label">Wash (tub = machine wash)</div></div>
         <div class="care-item"><div class="care-sym">🤚</div><div class="care-label">Hand wash only</div></div>
@@ -491,8 +1197,8 @@
         <div class="care-item"><div class="care-sym">↕️</div><div class="care-label">Hang to dry</div></div>
         <div class="care-item"><div class="care-sym">📐</div><div class="care-label">Dry flat (knits &amp; wool)</div></div>
       </div>
-      <div style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:9px 11px; font-size:11px; color:var(--color-text-secondary); line-height:1.6;">
-        <strong style="color:var(--color-text-primary);">The one rule to remember:</strong> wool and silk almost always require cold water and either hand wash or dry clean. Merino wool is a notable exception — it's often machine washable on cold/delicate. Cashmere should always be hand-washed or dry cleaned; it will felt irreversibly in a hot machine cycle.
+      <div class="fashion-panel-13">
+        <strong class="text-primary">The one rule to remember:</strong> wool and silk almost always require cold water and either hand wash or dry clean. Merino wool is a notable exception — it's often machine washable on cold/delicate. Cashmere should always be hand-washed or dry cleaned; it will felt irreversibly in a hot machine cycle.
       </div>
     </div>
 
@@ -501,19 +1207,19 @@
          ===================================================================== -->
     <div class="sec">Part I · fashion history — key moments that changed how we dress</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:10px;">Click any era for key events and shifts</div>
+    <div class="content-panel">
+      <div class="panel-title">Click any era for key events and shifts</div>
 
       <!-- Interactive era buttons -->
-      <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;">
-        <button onclick="showEra('1850')" style="font-size:11px; padding:3px 9px;">1850s–1900s</button>
-        <button onclick="showEra('1910')" style="font-size:11px; padding:3px 9px;">1910s–1930s</button>
-        <button onclick="showEra('1940')" style="font-size:11px; padding:3px 9px;">1940s–1950s</button>
-        <button onclick="showEra('1960')" style="font-size:11px; padding:3px 9px;">1960s–1970s</button>
-        <button onclick="showEra('1980')" style="font-size:11px; padding:3px 9px;">1980s–1990s</button>
-        <button onclick="showEra('2000')" style="font-size:11px; padding:3px 9px;">2000s–present</button>
+      <div class="button-row-compact">
+        <button class="showbrand-control" onclick="showEra('1850')">1850s–1900s</button>
+        <button class="showbrand-control" onclick="showEra('1910')">1910s–1930s</button>
+        <button class="showbrand-control" onclick="showEra('1940')">1940s–1950s</button>
+        <button class="showbrand-control" onclick="showEra('1960')">1960s–1970s</button>
+        <button class="showbrand-control" onclick="showEra('1980')">1980s–1990s</button>
+        <button class="showbrand-control" onclick="showEra('2000')">2000s–present</button>
       </div>
-      <div id="era-display" style="background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:11px 13px;"></div>
+      <div class="era-display" id="era-display"></div>
     </div>
 
     <!-- =====================================================================
@@ -521,29 +1227,29 @@
          ===================================================================== -->
     <div class="sec">Part J · colour in fashion — combinations, rules, and when to break them</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">The wardrobe colour wheel — select a base colour to see harmonious pairings</div>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:10px;">Fashion colour rules differ from art — neutrals (navy, grey, black, white, camel, cream) combine with almost anything. The rules below apply to accent and statement colours.</div>
+    <div class="content-panel">
+      <div class="inline-card-title">The wardrobe colour wheel — select a base colour to see harmonious pairings</div>
+      <div class="fashion-text-15">Fashion colour rules differ from art — neutrals (navy, grey, black, white, camel, cream) combine with almost anything. The rules below apply to accent and statement colours.</div>
 
-      <div style="margin-bottom:10px;">
-        <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:6px;">Choose a base colour:</div>
+      <div class="u-mb-md">
+        <div class="fashion-text-16">Choose a base colour:</div>
         <div class="swatch-row" id="colour-swatches">
-          <div class="swatch selected" style="background:#1B3A5C;" data-colour="navy" title="Navy"></div>
-          <div class="swatch" style="background:#3D3D3D;" data-colour="charcoal" title="Charcoal"></div>
-          <div class="swatch" style="background:#9B6B3C;" data-colour="camel" title="Camel/Tan"></div>
-          <div class="swatch" style="background:#8B2B2B;" data-colour="burgundy" title="Burgundy"></div>
-          <div class="swatch" style="background:#1A5C3A;" data-colour="forest" title="Forest green"></div>
-          <div class="swatch" style="background:#6B4F8C;" data-colour="plum" title="Plum/Purple"></div>
-          <div class="swatch" style="background:#C4702A;" data-colour="rust" title="Rust/Terracotta"></div>
-          <div class="swatch" style="background:#4A7FA5;" data-colour="dustyblue" title="Dusty blue"></div>
-          <div class="swatch" style="background:#D4B483;" data-colour="cream" title="Cream/Ivory"></div>
-          <div class="swatch" style="background:#2D2D2D;" data-colour="black" title="Black"></div>
+          <div class="swatch selected swatch-style" data-colour="navy" title="Navy"></div>
+          <div class="swatch swatch-style-2" data-colour="charcoal" title="Charcoal"></div>
+          <div class="swatch swatch-style-3" data-colour="camel" title="Camel/Tan"></div>
+          <div class="swatch swatch-style-4" data-colour="burgundy" title="Burgundy"></div>
+          <div class="swatch swatch-style-5" data-colour="forest" title="Forest green"></div>
+          <div class="swatch swatch-style-6" data-colour="plum" title="Plum/Purple"></div>
+          <div class="swatch swatch-style-7" data-colour="rust" title="Rust/Terracotta"></div>
+          <div class="swatch swatch-style-8" data-colour="dustyblue" title="Dusty blue"></div>
+          <div class="swatch swatch-style-9" data-colour="cream" title="Cream/Ivory"></div>
+          <div class="swatch swatch-style-10" data-colour="black" title="Black"></div>
         </div>
       </div>
-      <div id="colour-result" style="font-size:13px; color:var(--color-text-primary); line-height:1.7;"></div>
+      <div class="colour-result" id="colour-result"></div>
     </div>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+    <div class="fashion-grid-2">
       <div class="card">
         <p class="clabel">The 60-30-10 rule</p>
         <p class="cval">A reliable proportion guide</p>
@@ -561,49 +1267,49 @@
          ===================================================================== -->
     <div class="sec">Part K · the suit — anatomy, fit, and reading quality</div>
 
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Suit fit — the hierarchy of importance</div>
-        <div style="display:flex; flex-direction:column; gap:4px;">
+    <div class="fashion-grid-2">
+      <div class="content-card-static">
+        <div class="panel-title-spaced">Suit fit — the hierarchy of importance</div>
+        <div class="fashion-row-5">
           <div class="anchor-row">
-            <span class="pill p-red" style="min-width:60px; font-size:10px;">Critical</span>
+            <span class="pill p-red p-red-style">Critical</span>
             <div><div class="atext">Shoulder seam</div><div class="asub">Must sit exactly at the end of your shoulder — no overhang, no pulling. Cannot be fixed by a tailor affordably.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-amber" style="min-width:60px; font-size:10px;">Important</span>
+            <span class="pill p-amber p-red-style">Important</span>
             <div><div class="atext">Chest fit</div><div class="asub">One finger should fit between jacket and shirt when buttoned. X-shaped creasing = too tight. Fabric sag = too loose.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-amber" style="min-width:60px; font-size:10px;">Important</span>
+            <span class="pill p-amber p-red-style">Important</span>
             <div><div class="atext">Sleeve length</div><div class="asub">1.5–2 cm of shirt cuff should show below jacket sleeve. Fixable by tailor.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-green" style="min-width:60px; font-size:10px;">Tailorable</span>
+            <span class="pill p-green p-red-style">Tailorable</span>
             <div><div class="atext">Jacket length</div><div class="asub">Should cover your seat. Traditional: bottom of jacket aligns with knuckles when arms hang straight.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-green" style="min-width:60px; font-size:10px;">Tailorable</span>
+            <span class="pill p-green p-red-style">Tailorable</span>
             <div><div class="atext">Trouser waist &amp; length</div><div class="asub">Waist easy to adjust. Length: slight break on shoe (traditional) or no break (modern/slim).</div></div>
           </div>
         </div>
       </div>
-      <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px;">
-        <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:8px;">Reading suit quality — what to look for</div>
-        <div style="display:flex; flex-direction:column; gap:4px;">
+      <div class="content-card-static">
+        <div class="panel-title-spaced">Reading suit quality — what to look for</div>
+        <div class="fashion-row-5">
           <div class="anchor-row">
-            <span class="pill p-purple" style="min-width:60px; font-size:10px;">Lining</span>
+            <span class="pill p-purple p-red-style">Lining</span>
             <div><div class="atext">Half vs full lining</div><div class="asub">Full lining: more structured, warmer, easier to put on. Half lining: breathes better, more relaxed, usually Italian. Unlined: summer suits, very casual.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-purple" style="min-width:60px; font-size:10px;">Canvas</span>
+            <span class="pill p-purple p-red-style">Canvas</span>
             <div><div class="atext">Fused vs canvas construction</div><div class="asub">Fused (cheap): interlining glued to fabric — bubbles over time. Half-canvas: canvas chest piece gives structure. Full canvas (luxury): entire front is canvassed — drapes beautifully, molds to body over years.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-blue" style="min-width:60px; font-size:10px;">Buttons</span>
+            <span class="pill p-blue p-red-style">Buttons</span>
             <div><div class="atext">Horn vs plastic</div><div class="asub">Real horn or mother-of-pearl buttons: irregular surface, warm colours. Plastic: uniform, cold sheen. Test: briefly touch a button to your lip — plastic feels warm faster, horn stays cool.</div></div>
           </div>
           <div class="anchor-row">
-            <span class="pill p-blue" style="min-width:60px; font-size:10px;">Buttonholes</span>
+            <span class="pill p-blue p-red-style">Buttonholes</span>
             <div><div class="atext">Working vs decorative sleeves</div><div class="asub">Working buttonholes on sleeves (kissing buttons that actually open) = bespoke/quality signal. Purely decorative = off-the-rack indicator.</div></div>
           </div>
         </div>
@@ -611,9 +1317,9 @@
     </div>
 
     <!-- Suit colours SVG chart -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;">Suit colour guide — versatility vs formality</div>
-      <svg viewBox="0 0 540 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+    <div class="content-panel">
+      <div class="fashion-label-5">Suit colour guide — versatility vs formality</div>
+      <svg class="fashion-media-2" viewBox="0 0 540 120" xmlns="http://www.w3.org/2000/svg">
         <!-- Axes -->
         <text x="10" y="12" font-size="9" fill="var(--color-text-tertiary)">← more casual</text>
         <text x="430" y="12" font-size="9" fill="var(--color-text-tertiary)">more formal →</text>
@@ -631,11 +1337,92 @@
         <!-- extra row below -->
       </svg>
       <!-- separate from SVG to avoid overflow -->
-      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:4px; font-size:11px; color:var(--color-text-secondary);">
-        <span style="background:#2C2C2A; color:#E8E6DF; border-radius:3px; padding:2px 8px;">Charcoal grey — most formal suit colour after black; business standard</span>
-        <span style="background:#1A1A18; color:#E8E6DF; border-radius:3px; padding:2px 8px;">Black — funerals, weddings, black-tie (not standard business)</span>
+      <div class="fashion-row-8">
+        <span class="fashion-panel-15">Charcoal grey — most formal suit colour after black; business standard</span>
+        <span class="fashion-panel-16">Black — funerals, weddings, black-tie (not standard business)</span>
       </div>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-top:8px; line-height:1.6;"><strong style="color:var(--color-text-primary);">The rule:</strong> Navy or charcoal grey should be your first suit. A navy suit is the most versatile item in menswear — equally at home in a job interview, a smart wedding, or a business dinner. Buy black last.</div>
+      <div class="fashion-text-17"><strong class="text-primary">The rule:</strong> Navy or charcoal grey should be your first suit. A navy suit is the most versatile item in menswear — equally at home in a job interview, a smart wedding, or a business dinner. Buy black last.</div>
+    </div>
+
+    <!-- =====================================================================
+         PART L · PERFUMES
+         ===================================================================== -->
+    <div class="sec">Part L · perfumes — the invisible part of style</div>
+
+    <div class="content-card">
+      <div class="inline-card-title">Why perfume is fashion's most profitable product</div>
+      <div class="fashion-text-18">Fragrance is the entry point to luxury. A bottle of Chanel No.5 costs a fraction of the dress it funds, yet carries the same brand DNA. The global fragrance market exceeds €50B per year. For major fashion houses, perfume and beauty can generate 30–50% of total revenue while requiring far less capital than garment production. Understanding fragrance — its families, longevity, and houses — is part of understanding fashion.</div>
+
+      <!-- Fragrance family SVG -->
+      <div class="fashion-label-12">The fragrance wheel — major families</div>
+      <svg class="fashion-media" viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0"   y="20" width="100" height="80" rx="6" fill="#1D9E75"  opacity="0.82"/>
+        <text x="50"  y="56" text-anchor="middle" font-size="11" font-weight="600" fill="#E1F5EE">Fresh</text>
+        <text x="50"  y="70" text-anchor="middle" font-size="9"  fill="#9FE1CB">Citrus · Aquatic · Green</text>
+
+        <rect x="110" y="20" width="100" height="80" rx="6" fill="#B0629A"  opacity="0.82"/>
+        <text x="160" y="56" text-anchor="middle" font-size="11" font-weight="600" fill="#F5E6F1">Floral</text>
+        <text x="160" y="70" text-anchor="middle" font-size="9"  fill="#E2B8D4">Rose · Jasmine · Lily</text>
+
+        <rect x="220" y="20" width="100" height="80" rx="6" fill="#633806"  opacity="0.85"/>
+        <text x="270" y="56" text-anchor="middle" font-size="11" font-weight="600" fill="#FAEEDA">Oriental</text>
+        <text x="270" y="70" text-anchor="middle" font-size="9"  fill="#EF9F27">Amber · Vanilla · Spice</text>
+
+        <rect x="330" y="20" width="100" height="80" rx="6" fill="#3D3D3D"  opacity="0.85"/>
+        <text x="380" y="56" text-anchor="middle" font-size="11" font-weight="600" fill="#E8E6DF">Woody</text>
+        <text x="380" y="70" text-anchor="middle" font-size="9"  fill="#A8A69E">Sandalwood · Cedar · Oud</text>
+
+        <rect x="440" y="20" width="100" height="80" rx="6" fill="#185FA5"  opacity="0.82"/>
+        <text x="490" y="56" text-anchor="middle" font-size="11" font-weight="600" fill="#E6F1FB">Fougère</text>
+        <text x="490" y="70" text-anchor="middle" font-size="9"  fill="#B5D4F4">Lavender · Moss · Fern</text>
+
+        <text x="0"   y="14" font-size="9" fill="var(--color-text-tertiary)">← lighter / day</text>
+        <text x="380" y="14" font-size="9" fill="var(--color-text-tertiary)">heavier / evening →</text>
+      </svg>
+
+      <!-- Concentration tiers -->
+      <div class="fashion-label-12">Concentration — what the terms on the bottle mean</div>
+      <div class="fashion-grid-6">
+        <div class="fashion-panel-17">
+          <div class="fashion-text-19">Eau de Cologne (EDC)</div>
+          <div class="fashion-text-20">2–4% concentration. Lightest. Lasts 1–2 hours. Best for hot weather or a quick refresh. Splash-on tradition.</div>
+        </div>
+        <div class="fashion-panel-18">
+          <div class="fashion-text-21">Eau de Toilette (EDT)</div>
+          <div class="fashion-text-22">5–15% concentration. The most common type. Lasts 3–5 hours. Suitable for daytime and everyday wear.</div>
+        </div>
+        <div class="fashion-panel-19">
+          <div class="fashion-text-23">Eau de Parfum (EDP)</div>
+          <div class="fashion-text-24">15–20% concentration. Richer, longer-lasting (5–8 hours). More expensive. Works well for evenings and cooler weather.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Perfume house tabs -->
+    <div class="button-row-compact" id="perfume-tab-row">
+      <button class="perfume-tab showbrand-control active" onclick="showPerfume('chanel5')">Chanel No.5</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('dior')">Dior Sauvage</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('guerlain')">Guerlain</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('creed')">Creed</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('byredo')">Byredo</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('mfk')">Maison Francis Kurkdjian</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('hermes')">Hermès</button>
+      <button class="perfume-tab showbrand-control" onclick="showPerfume('lv')">Louis Vuitton</button>
+    </div>
+    <div class="content-panel" id="perfume-display"></div>
+
+    <!-- Fragrance application guide -->
+    <div class="fashion-grid-2">
+      <div class="card">
+        <p class="clabel">Where to apply</p>
+        <p class="cval">Pulse points — warmth diffuses the scent</p>
+        <p class="cnote">Inner wrists, neck (below the jaw), behind the ears, inside of elbows, behind the knees. The warmth of your pulse points helps the fragrance project. Spray at a distance of 10–15 cm. Do not rub wrists together — it crushes the top notes and changes the scent. Less is more: 2–3 sprays are enough for most occasions.</p>
+      </div>
+      <div class="card">
+        <p class="clabel">The three notes</p>
+        <p class="cval">Every fragrance evolves on your skin</p>
+        <p class="cnote">Top notes: the first 15–30 minutes — what you smell in the bottle and immediately after spraying. Usually citrus or light florals. Heart (middle) notes: the main character of the fragrance, emerging after 30 minutes. Where the nose spends most of its time. Base notes: the final dry-down after 2–4 hours. Musks, woods, resins. These last all day and define the fragrance's signature. Never judge a perfume in the bottle — always wear it for an hour before deciding.</p>
+      </div>
     </div>
 
     <!-- =====================================================================
@@ -643,48 +1430,49 @@
          ===================================================================== -->
     <div class="sec">Part M · watches — the 10 houses everyone should know</div>
 
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:10px;">
-      <div style="font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:4px;">Why watches still matter in the age of smartphones</div>
-      <div style="font-size:12px; color:var(--color-text-secondary); line-height:1.6; margin-bottom:10px;">A mechanical watch is the only luxury object that works without electricity, appreciates in value, and is worn daily on the body. Unlike a car or a bag, a fine watch is a micro-engineering marvel — a hand-wound movement can contain 300–500 individual components, some thinner than a human hair, assembled by hand under magnification. The Swiss watch industry exports ~CHF 25B in watches per year, roughly 95% of world production by value. Switzerland dominates not because of geography but because of 250 years of compounding craft knowledge.</div>
+    <div class="content-card">
+      <div class="inline-card-title">Why watches still matter in the age of smartphones</div>
+      <div class="fashion-text-18">A mechanical watch is the only luxury object that works without electricity, appreciates in value, and is worn daily on the body. Unlike a car or a bag, a fine watch is a micro-engineering marvel — a hand-wound movement can contain 300–500 individual components, some thinner than a human hair, assembled by hand under magnification. The Swiss watch industry exports ~CHF 25B in watches per year, roughly 95% of world production by value. Switzerland dominates not because of geography but because of 250 years of compounding craft knowledge.</div>
 
       <!-- Movement type explainer SVG -->
-      <div style="font-size:11px; font-weight:500; color:var(--color-text-secondary); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px;">Three movement types</div>
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:0;">
-        <div style="background:#26215C; border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:#CECBF6; margin-bottom:3px;">Mechanical (manual wind)</div>
-          <div style="font-size:10px; color:#AFA9EC; line-height:1.5;">Wound by hand via the crown. No battery. The purist's choice. Requires winding every 1–3 days. Patek Philippe calibres, vintage Rolex.</div>
+      <div class="fashion-label-12">Three movement types</div>
+      <div class="fashion-grid-6">
+        <div class="fashion-panel-17">
+          <div class="fashion-text-19">Mechanical (manual wind)</div>
+          <div class="fashion-text-20">Wound by hand via the crown. No battery. The purist's choice. Requires winding every 1–3 days. Patek Philippe calibres, vintage Rolex.</div>
         </div>
-        <div style="background:#185FA5; border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:#E6F1FB; margin-bottom:3px;">Automatic (self-winding)</div>
-          <div style="font-size:10px; color:#B5D4F4; line-height:1.5;">Wound by a rotor that spins with wrist movement. The dominant luxury movement type. Stays wound during regular wear. Most modern Swiss watches.</div>
+        <div class="fashion-panel-18">
+          <div class="fashion-text-21">Automatic (self-winding)</div>
+          <div class="fashion-text-22">Wound by a rotor that spins with wrist movement. The dominant luxury movement type. Stays wound during regular wear. Most modern Swiss watches.</div>
         </div>
-        <div style="background:#1D9E75; border-radius:var(--border-radius-md); padding:9px 11px;">
-          <div style="font-size:11px; font-weight:600; color:#E1F5EE; margin-bottom:3px;">Quartz (battery)</div>
-          <div style="font-size:10px; color:#9FE1CB; line-height:1.5;">Regulated by a vibrating quartz crystal. Extremely accurate (±15 sec/year vs ±5 sec/day for mechanical). Seiko's 1969 Astron started the Quartz Crisis that nearly destroyed Swiss industry.</div>
+        <div class="fashion-panel-19">
+          <div class="fashion-text-23">Quartz (battery)</div>
+          <div class="fashion-text-24">Regulated by a vibrating quartz crystal. Extremely accurate (±15 sec/year vs ±5 sec/day for mechanical). Seiko's 1969 Astron started the Quartz Crisis that nearly destroyed Swiss industry.</div>
         </div>
       </div>
     </div>
 
     <!-- Watch brand tabs -->
-    <div style="display:flex; gap:6px; flex-wrap:wrap; margin-bottom:10px;" id="watch-tab-row">
-      <button class="watch-tab" onclick="showWatch('patek')"       style="font-size:11px; padding:3px 9px;">Patek Philippe</button>
-      <button class="watch-tab" onclick="showWatch('rolex')"       style="font-size:11px; padding:3px 9px;">Rolex</button>
-      <button class="watch-tab" onclick="showWatch('ap')"          style="font-size:11px; padding:3px 9px;">Audemars Piguet</button>
-      <button class="watch-tab" onclick="showWatch('vc')"          style="font-size:11px; padding:3px 9px;">Vacheron Constantin</button>
-      <button class="watch-tab" onclick="showWatch('jlc')"         style="font-size:11px; padding:3px 9px;">Jaeger-LeCoultre</button>
-      <button class="watch-tab" onclick="showWatch('omega')"       style="font-size:11px; padding:3px 9px;">Omega</button>
-      <button class="watch-tab" onclick="showWatch('iwc')"         style="font-size:11px; padding:3px 9px;">IWC Schaffhausen</button>
-      <button class="watch-tab" onclick="showWatch('cartier')"     style="font-size:11px; padding:3px 9px;">Cartier</button>
-      <button class="watch-tab" onclick="showWatch('seiko')"       style="font-size:11px; padding:3px 9px;">Seiko</button>
-      <button class="watch-tab" onclick="showWatch('panerai')"     style="font-size:11px; padding:3px 9px;">Panerai</button>
-      <button class="watch-tab" onclick="showWatch('smart')" style="font-size:11px; padding:3px 9px; background:var(--color-background-secondary);">⌚ Smartwatches</button>
+    <div class="button-row-compact" id="watch-tab-row">
+      <button class="watch-tab showbrand-control" onclick="showWatch('patek')"      >Patek Philippe</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('rolex')"      >Rolex</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('ap')"         >Audemars Piguet</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('vc')"         >Vacheron Constantin</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('jlc')"        >Jaeger-LeCoultre</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('omega')"      >Omega</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('iwc')"        >IWC Schaffhausen</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('cartier')"    >Cartier</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('seiko')"      >Seiko</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('casio')"      >Casio</button>
+      <button class="watch-tab showbrand-control" onclick="showWatch('panerai')"    >Panerai</button>
+      <button class="watch-tab showwatch-control" onclick="showWatch('smart')">⌚ Smartwatches</button>
     </div>
-    <div id="watch-display" style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;"></div>
+    <div class="content-panel" id="watch-display"></div>
 
     <!-- Price tier context -->
-    <div style="background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:13px 15px; margin-bottom:1rem;">
-      <div style="font-size:12px; font-weight:500; color:var(--color-text-secondary); margin-bottom:8px; text-transform:uppercase; letter-spacing:0.06em;">Watch price tiers — what you're actually paying for</div>
-      <svg viewBox="0 0 560 148" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+    <div class="content-panel">
+      <div class="fashion-label-5">Watch price tiers — what you're actually paying for</div>
+      <svg class="fashion-media-2" viewBox="0 0 560 148" xmlns="http://www.w3.org/2000/svg">
         <!-- Tier bars -->
         <rect x="0" y="4"   width="40"  height="18" rx="3" fill="#888780"/>
         <text x="46" y="17"  font-size="10" fill="var(--color-text-secondary)">Under €500 — Seiko Presage entry, fashion watches. Quartz or basic mechanical.</text>
@@ -704,13 +1492,13 @@
         <rect x="0" y="134" width="440" height="18" rx="3" fill="#791F1F" opacity="0.85"/>
         <text x="446" y="147" font-size="10" fill="var(--color-text-secondary)">€150k+ — Patek Grand Complications, Tourbillons, bespoke. Horological art.</text>
       </svg>
-      <div style="font-size:11px; color:var(--color-text-secondary); margin-top:8px; line-height:1.6;"><strong style="color:var(--color-text-primary);">The key insight:</strong> Below ~€2,000 you're largely paying for brand and design. Between €2,000–€10,000 you're paying for in-house or certified movements. Above €10,000 you're paying for finishing, complications, and waiting lists. The Rolex "premium" on secondary market (paying above retail) exists because demand permanently outstrips production — not because Rolex is the most technically advanced watchmaker.</div>
+      <div class="fashion-text-17"><strong class="text-primary">The key insight:</strong> Below ~€2,000 you're largely paying for brand and design. Between €2,000–€10,000 you're paying for in-house or certified movements. Above €10,000 you're paying for finishing, complications, and waiting lists. The Rolex "premium" on secondary market (paying above retail) exists because demand permanently outstrips production — not because Rolex is the most technically advanced watchmaker.</div>
     </div>
 
     <!-- =====================================================================
-         PART L · TEST YOURSELF
+         PART N · TEST YOURSELF
          ===================================================================== -->
-    <div class="sec">Part L · test yourself</div>
+    <div class="sec">Part N · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. You're invited to a "black tie" dinner. You don't own a tuxedo. What exactly do you need, and what are the acceptable alternatives?</p>
@@ -1594,6 +2382,25 @@ const watches = {
     ],
     note:'Grand Seiko deserves more recognition than it typically receives in Western watch discourse, which has historically centred on Swiss brands. Grand Seiko\'s Zaratsu polishing (a hand-polishing technique producing distortion-free mirror and satin surfaces) is arguably the finest case finishing in the world. Their movements routinely exceed COSC chronometer standards. Their dials (inspired by Japanese seasons, landscapes, and traditional arts) are among the most beautiful in watchmaking. The reason Grand Seiko isn\'t better known in Europe: it was only sold in Japan until 2010.'
   },
+  casio: {
+    name:'Casio',
+    founded:'1946',
+    founders:'Tadao Kashio, Tokyo, Japan',
+    hq:'Tokyo, Japan',
+    madein:'Japan and Thailand',
+    ownership:'Casio Computer Co., Ltd. — publicly traded Japanese company (TYO: 6952). The Kashio family retains a significant stake.',
+    tier:'Accessible / Iconic / Cult',
+    tierCol:'#1D4E30', tierBg:'#D9F0E4',
+    whyList:'Casio is proof that price has no relationship to cultural significance. The G-Shock (introduced 1983) is one of the most recognisable watch designs in history and one of the most technically interesting — its "Triple 10" specification (10-metre drop resistance, 10-bar water resistance, 10-year battery) was revolutionary. Casio watches have been worn by NASA astronauts, special forces units, and are standard-issue equipment in multiple militaries. Meanwhile, the original A168 calculator watch and the F-91W have become ironic style icons. The F-91W costs roughly €15 and has been worn by heads of state, fashion designers, and is one of the best-selling watches ever made. Casio\'s digital watches represent the quartz revolution\'s ultimate democratisation: reliable, accurate timekeeping for almost anyone on earth.',
+    models:[
+      {name:'G-Shock DW-5600', ref:'Classic square G-Shock', desc:'The descendant of the original 1983 G-Shock designed by Kikuo Ibe. Square case, shock-resistant hollow structure, resin band. A fixture in streetwear, military, and outdoor communities simultaneously. Available in hundreds of colourways. The essential Casio for those who want the heritage model.'},
+      {name:'G-Shock GA-2100 "CasiOak"', ref:'G-Shock · octagonal case', desc:'Nicknamed the "CasiOak" by the watch community for its resemblance to the Audemars Piguet Royal Oak — an octagonal bezel on a round case with a metal-look resin construction. Became a surprise phenomenon: a sub-€100 watch referencing a €25,000+ one. Ultra-thin for a G-Shock. One of the most discussed watch releases of recent years.'},
+      {name:'F-91W', ref:'Classic digital', desc:'The most iconic cheap watch in the world. Introduced in 1991. Costs approximately €15–25. Battery lasts approximately 7 years. Accurate. Lightweight resin. Has been worn by Barack Obama, countless fashion designers, and is reportedly the most commonly found watch in the world. A deliberate anti-status statement that became its own kind of status.'},
+      {name:'G-Shock Frogman', ref:'G-Shock · diver', desc:'Casio\'s serious diver — ISO 200m water resistance, compass, depth sensor, tide graph. Used by professional divers and military combat swimmers. A genuine tool watch at a fraction of the price of Swiss dive watches. Updated regularly with new sensors while maintaining the Frogman silhouette.'},
+      {name:'Pro Trek PRW', ref:'Triple sensor outdoor', desc:'Casio\'s outdoor/mountaineering line: altimeter, barometer, digital compass, and thermometer in addition to solar charging and radio-controlled atomic time synchronisation. The practical alternative to a Garmin for those who want wristwatch-style rather than a sport computer aesthetic.'},
+    ],
+    note:'The relationship between G-Shock and high fashion is one of watchmaking\'s great curiosities. Collaborations with Yeezy, A Bathing Ape, Palace, Eric Emanuel, and countless others have made the G-Shock a recurring object in streetwear culture. At the same time, it remains genuinely functional military equipment. The "CasiOak" phenomenon — a community-coined name for the GA-2100 — is perhaps the purest expression of the internet watch community\'s ability to elevate an accessible product through collective attention. Casio has never marketed the CasiOak name; it emerged entirely organically.'
+  },
   panerai: {
     name:'Panerai (Officine Panerai)',
     founded:'1860',
@@ -1623,16 +2430,18 @@ const watches = {
     tierCol:'#2C2C2A', tierBg:'#F1EFE8',
     whyList:'Smartwatches have done what the Swiss watch industry feared most since 1969 — created a genuinely compelling reason to wear a device on your wrist that isn\'t a mechanical watch. The Apple Watch alone outsells the entire Swiss watch industry by unit volume. However, the two markets have unexpectedly coexisted: the Apple Watch captures people who would otherwise wear nothing, while Swiss watch demand has grown simultaneously. The reason: a smartwatch is a technology product (obsolete in 3–4 years), while a mechanical watch is a craft object (improves with age). They occupy different psychological spaces.',
     models:[
-      {name:'Apple Watch Ultra 2', ref:'49mm titanium, 2023', desc:'The most capable mainstream smartwatch. Designed for extreme athletes and adventurers — titanium case, flat sapphire glass, 60m water resistance, 36-hour battery, emergency siren (86 dB), precision GPS. Competes seriously with dedicated GPS sport watches. Starting price ~€799. Replaces GPS devices, health trackers, and payment devices.'},
-      {name:'Apple Watch Series 9', ref:'41mm / 45mm aluminium or stainless, 2023', desc:'The mainstream benchmark. ECG, blood oxygen, fall detection, crash detection, sleep tracking. S9 chip enables on-device Siri processing. Double tap gesture (no touching the screen). ~€399–€749. Now includes carbon-neutral edition.'},
-      {name:'Garmin Fenix 7 Pro', ref:'GPS multisport, 2023', desc:'The serious athlete\'s choice. Up to 22-day battery (vs ~18 hours Apple Watch). Solar charging. Topographic maps. Training load analysis, VO2 max, race predictor. Preferred by triathletes, mountaineers, military. ~€700–€900. The Apple Watch cannot compete with Garmin\'s battery life and athletic analytics.'},
-      {name:'Samsung Galaxy Watch 6', ref:'40mm / 44mm, 2023', desc:'The best Android companion. Body composition analysis (BIA sensor). BPM continuous tracking. Google integration. ~€300–€450. Better than Apple Watch for Android users but lacks Apple Watch\'s health sensor lead.'},
+      {name:'Apple Watch Ultra', ref:'Apple · titanium case', desc:'Apple\'s most capable and rugged smartwatch, aimed at serious athletes and adventurers. Features a large titanium case, flat sapphire glass, extended battery life, an emergency siren, and precision dual-frequency GPS. Competes seriously with dedicated GPS sport watches and offers extensive health monitoring including ECG and blood oxygen.'},
+      {name:'Apple Watch (standard line)', ref:'Apple · aluminium or stainless', desc:'The mainstream Apple Watch benchmark. Tracks ECG, blood oxygen, sleep, and includes fall and crash detection. Available in aluminium for everyday use and stainless steel for a more refined look. Integrates seamlessly with iPhone, enables tap-to-pay, and runs a growing library of health and fitness apps.'},
+      {name:'Garmin Fenix', ref:'Garmin · GPS multisport', desc:'The serious athlete\'s choice. Multi-day battery life far exceeds any Apple Watch. Solar charging on select models. Preloaded topographic maps, training load analysis, VO2 max estimation, and race predictor tools. Preferred by triathletes, mountaineers, and military users. Garmin\'s battery life and athletic analytics remain unmatched.'},
+      {name:'Samsung Galaxy Watch', ref:'Samsung · Android companion', desc:'The best companion for Android users. Features body composition analysis, continuous heart rate monitoring, and deep Google integration. Works across a wide range of Android phones. Offers strong health tracking and a polished round case design that bridges technology and traditional watch aesthetics.'},
+      {name:'Garmin Venu', ref:'Garmin · lifestyle / health', desc:'Garmin\'s lifestyle-oriented smartwatch line, balancing health tracking with everyday wearability. AMOLED display, sleep tracking, stress monitoring, and fitness features without the bulk of the Fenix. Positioned between a consumer smartwatch and a dedicated fitness device.'},
+      {name:'Fitbit Sense', ref:'Google / Fitbit · wellness', desc:'Google\'s Fitbit platform focuses on health and wellness tracking: EDA (electrodermal activity) sensor for stress, ECG, SpO2, and sleep analysis. More accessible in price and simpler in interface than Apple or Garmin. Well-suited to health-focused users who don\'t need advanced GPS or smartphone integration.'},
     ],
     note:'The smartwatch vs mechanical watch debate misses the point. They are different objects entirely. A smartwatch asks: "what information can I surface on your wrist?" A mechanical watch asks: "what is the most beautiful and precise way to mark the passage of time?" A Patek Philippe Calatrava has no heart rate sensor; an Apple Watch has no hand-polished anglage edges. Both are correct. The cultural shift is that a smartwatch is now the default wrist device for people under 35 in most developed countries — mechanical watches are increasingly the deliberate choice of people who understand what they\'re choosing.'
   }
 };
 
-const watchOrder = ['patek','rolex','ap','vc','jlc','omega','iwc','cartier','seiko','panerai','smart'];
+const watchOrder = ['patek','rolex','ap','vc','jlc','omega','iwc','cartier','seiko','casio','panerai','smart'];
 
 function showWatch(key) {
   // Update active tab
@@ -1700,6 +2509,182 @@ showFabric('cotton');
 showEra('1960');
 showColour('navy');
 showWatch('patek');
+
+/* ============================================================
+   PERFUME EXPLORER
+   ============================================================ */
+const perfumes = {
+  chanel5: {
+    name: 'Chanel No.5',
+    house: 'Chanel',
+    country: 'France',
+    year: '1921',
+    nose: 'Ernest Beaux',
+    family: 'Floral Aldehyde',
+    concentration: 'Available in EDC, EDT, EDP, and Parfum',
+    tierCol: '#2C2C2A', tierBg: '#F1EFE8',
+    about: 'The most famous perfume ever made. When Coco Chanel asked Ernest Beaux to create a scent in 1921, she chose the fifth of his samples — hence the name. Chanel No.5 was revolutionary: the first fragrance to use synthetic aldehydes at high concentration, giving it an abstract, soapy radiance rather than smelling like a specific flower. Marilyn Monroe famously said she wore only a few drops of No.5 to bed. It remains the world\'s best-selling fragrance by value.',
+    notes: 'Top: Aldehydes, Neroli, Ylang-Ylang. Heart: Rose, Jasmine, Lily of the Valley, Iris. Base: Vetiver, Sandalwood, Vanilla, Amber, Civet.',
+    occasions: 'Evening, formal events, signature scent. Bold and unmistakable — not for the background.',
+    nuance: 'The aldehyde accord makes No.5 smell "soapy clean" in a way that no natural ingredient can replicate. This synthetic element — once radical — is now considered a classic hallmark of 20th-century perfumery.'
+  },
+  dior: {
+    name: 'Dior Sauvage',
+    house: 'Christian Dior',
+    country: 'France',
+    year: '2015',
+    nose: 'François Demachy',
+    family: 'Aromatic Fougère',
+    concentration: 'EDT, EDP, and Parfum',
+    tierCol: '#3C3489', tierBg: '#EEEDFE',
+    about: 'The best-selling men\'s fragrance in the world for multiple consecutive years. Sauvage (meaning "wild" in French) was a deliberate departure from sweet, heavy masculine fragrances. Its bergamot and ambroxan-driven structure is clean, fresh, and powerful — almost aggressively accessible. Fronted by Johnny Depp in its advertising campaigns.',
+    notes: 'Top: Calabrian Bergamot, Pepper. Heart: Lavender, Pink Pepper, Vetiver, Patchouli. Base: Ambroxan (synthetic amber), Cedar.',
+    occasions: 'Versatile — office, daytime, casual evenings. The ambroxan base projects strongly and lasts all day.',
+    nuance: 'Ambroxan is a synthetic molecule derived from ambergris (historically from sperm whales). It produces a warm, skin-like, subtly animalic quality. It is the reason Sauvage projects so powerfully on skin — and why it smells distinctly different on different people. It also explains why the EDP and Parfum versions smell noticeably richer than the EDT.'
+  },
+  guerlain: {
+    name: 'Guerlain (house overview)',
+    house: 'Guerlain',
+    country: 'France',
+    year: 'Founded 1828',
+    nose: 'Pierre-François Pascal Guerlain (founded); Thierry Wasser (current)',
+    family: 'Multiple — Oriental, Floral, Fougère',
+    concentration: 'Varies by fragrance',
+    tierCol: '#185FA5', tierBg: '#E6F1FB',
+    about: 'The oldest major French perfume house still in operation. Guerlain has created more fragrance classics than almost any other house: Jicky (1889, the first modern perfume), Mitsouko (1919), Shalimar (1925), L\'Heure Bleue (1912), Habit Rouge (1965). LVMH acquired the house in 1994. Guerlain\'s bottles and flacons are themselves design objects — notably the round "bee bottle" (Abeille). They hold a Royal Warrant as perfumers to the British Royal Family.',
+    notes: 'Key fragrances: Shalimar (vanilla, iris, bergamot — the archetype of Oriental perfumery). Mitsouko (peach, oakmoss, spice — a Chypre masterpiece). Mon Guerlain (lavender, vanilla, sandalwood — modern, lighter).',
+    occasions: 'Varies widely: Shalimar for evening; Mon Guerlain for daily wear. Guerlain\'s vintage fragrances reward patience — they evolve significantly on skin.',
+    nuance: 'Guerlain uses a signature base note called "Guerlinade" — a blend of bergamot, iris, rose, jasmine, civet, vanilla, and tonka bean that gives all their fragrances a family resemblance. Once you know it, you can recognise a Guerlain blindly.'
+  },
+  creed: {
+    name: 'Creed',
+    house: 'Creed',
+    country: 'United Kingdom / France',
+    year: 'Founded 1760',
+    nose: 'Olivier Creed and Erwin Creed (recent generations)',
+    family: 'Chypre, Aquatic, Floral — varies',
+    concentration: 'Typically EDP (called "Millésime")',
+    tierCol: '#1D9E75', tierBg: '#D9F0E4',
+    about: 'Creed positions itself as the oldest luxury fragrance house, claiming origins in London in 1760 with tailoring commissions from British royalty before transitioning to fragrance. The marketing claims are somewhat contested by fragrance historians. Regardless, Aventus (2010) became one of the most influential masculine fragrances of the 21st century — and one of the most extensively cloned. EQymous Group (PE-backed) acquired Creed in 2023.',
+    notes: 'Aventus: Top: Pineapple, Bergamot, Black Currant. Heart: Birch, Moroccan Jasmine, Rose. Base: Musk, Oakmoss, Ambergris, Vanilla. Green Irish Tweed: Violet Leaves, Verbena, Sandalwood, Iris — the quintessential fresh fougère.',
+    occasions: 'Aventus: Business and evening — projects powerfully, reads as successful and sophisticated. Green Irish Tweed: Daytime and sport — clean, effortless, classic.',
+    nuance: 'Aventus\'s pineapple-smoky accord is one of perfumery\'s most recognisable signatures. Because Creed uses natural materials that vary batch to batch, early Aventus batches (2010–2013) are considered by collectors to smell significantly different from current production — creating a secondary market for vintage bottles and "batch hunting."'
+  },
+  byredo: {
+    name: 'Byredo',
+    house: 'Byredo',
+    country: 'Sweden',
+    year: '2006',
+    nose: 'Ben Gorham (founder/creative director); Jerome Epinette (perfumer)',
+    family: 'Niche / Artistic — varies',
+    concentration: 'EDP',
+    tierCol: '#26215C', tierBg: '#EEEDFE',
+    about: 'Byredo is one of the most successful niche fragrance houses of the 21st century. Founded by Ben Gorham (half-Indian, half-Canadian, Swedish-raised, former basketball player), Byredo built its brand on storytelling, minimalist packaging, and high-concept fragrances. Bal d\'Afrique (inspired by 1920s Afro-Parisian culture), Blanche (white flowers and musk), and Gypsy Water (forest, incense, bergamot) became cult favourites. Sold to EQymous in 2022 in a deal valuing the company at approximately €1B.',
+    notes: 'Gypsy Water: Bergamot, Lemon, Pepper, Incense, Pine Needles, Orris, Amber, Sandalwood, Vanilla. Bal d\'Afrique: Bergamot, Neroli, African Marigold, Violet, Musk, Vetiver, Cedarwood.',
+    occasions: 'Byredo fragrances are generally versatile with strong personal identity — suited to those who want a conversation piece rather than a crowd-pleaser.',
+    nuance: 'Byredo popularised the concept of "white label" niche perfumery in mass market — its minimal, logo-light packaging was widely copied. The brand\'s success demonstrated that storytelling and aesthetic coherence can command luxury prices regardless of the fragrance\'s raw material cost.'
+  },
+  mfk: {
+    name: 'Maison Francis Kurkdjian',
+    house: 'Maison Francis Kurkdjian (MFK)',
+    country: 'France',
+    year: '2009',
+    nose: 'Francis Kurkdjian',
+    family: 'Niche / Artisanal — Floral, Oriental, Chypre',
+    concentration: 'EDP and Extrait de Parfum',
+    tierCol: '#633806', tierBg: '#FAEEDA',
+    about: 'Francis Kurkdjian is one of the most celebrated working perfumers in the world — responsible for Jean Paul Gaultier Le Mâle (1995), Narciso Rodriguez For Her (2003), and Elie Saab Le Parfum, among dozens of others. In 2009 he opened his own house. Baccarat Rouge 540 (2015, originally created for Baccarat\'s 250th anniversary) became the most commercially successful niche fragrance of the 2010s — and perhaps the most extensively cloned fine fragrance of any era. LVMH acquired the house in 2017.',
+    notes: 'Baccarat Rouge 540: Saffron, Jasmine, Amberwood, Fir Resin, Cedar. The amberwood-cedar-saffron triangle is what became universally imitated. Aqua Universalis: Bergamot, White Musk, White Flowers — clean, laundry-fresh, maximally inoffensive.',
+    occasions: 'Baccarat Rouge 540: Evening and formal — it projects enormously. Aqua Universalis: All occasions, office-safe.',
+    nuance: 'Baccarat Rouge 540\'s success created an entire sub-genre of "sweet-woody-amber" fragrances, with hundreds of duplicates sold in every price range. The irony: a hyper-expensive niche fragrance became the reference point that cheap celebrity and designer fragrances try to approximate. Wearing the original is now both a luxury signal and a statement that you understand the source material.'
+  },
+  hermes: {
+    name: 'Hermès Fragrances',
+    house: 'Hermès',
+    country: 'France',
+    year: 'First fragrance: 1948 (Eau d\'Hermès)',
+    nose: 'Jean-Claude Ellena (2004–2016); Christine Nagel (2016–present)',
+    family: 'Multiple — Chypre, Floral, Leather, Citrus',
+    concentration: 'EDT and EDP',
+    tierCol: '#993C1D', tierBg: '#FAECE7',
+    about: 'Hermès approaches fragrance as it approaches leather goods: with restraint, craft, and an avoidance of the obvious. Jean-Claude Ellena\'s tenure produced some of the most critically admired fragrances of the 21st century — his Un Jardin sur le Nil (2005) and Terre d\'Hermès (2006) are considered masterclasses in minimalist perfumery. Christine Nagel has continued this sensibility while adding her own personality. Hermès also maintains the Hermès Parfumeur in-house nose tradition rather than outsourcing to large fragrance conglomerates.',
+    notes: 'Terre d\'Hermès: Grapefruit, Orange, Pepper, Iso E Super, Geranium, Benzoin, Cedar, Vetiver — a mineralic, earthy, woody masterpiece. Twilly d\'Hermès: Tuberose, Ginger, Sandalwood — playful, warm, made for the scarf-wearing Hermès customer.',
+    occasions: 'Terre d\'Hermès: Daytime, outdoors, professional — one of the most versatile masculine fragrances made. Twilly: Casual to smart-casual feminine wear.',
+    nuance: 'Hermès invests in its perfumers in a way few luxury brands do — giving them creative freedom and naming them publicly. This is unusual; most fashion house perfumers are anonymous. The result is fragrances with genuine artistic personality rather than committee-designed commercial products.'
+  },
+  lv: {
+    name: 'Louis Vuitton Fragrances',
+    house: 'Louis Vuitton',
+    country: 'France',
+    year: 'Fragrance line launched 2016',
+    nose: 'Jacques Cavallier Belletrud',
+    family: 'Multiple — Floral, Woody, Oriental',
+    concentration: 'EDP and Les Extraits (Parfum)',
+    tierCol: '#633806', tierBg: '#FAEEDA',
+    about: 'Louis Vuitton\'s fragrance line was a deliberate statement that the world\'s most valuable luxury brand could create world-class perfumery, not just license its name to a conglomerate like most fashion houses. Jacques Cavallier Belletrud — one of perfumery\'s most respected noses, responsible for L\'Eau d\'Issey among hundreds of others — was brought in-house. LV built its own dedicated perfume ateliers and released collections rather than individual blockbuster fragrances. Their "Les Extraits" collection uses some of the rarest and most expensive raw materials in the world.',
+    notes: 'Imagination: Aquatic, Citrus, Clean — fresh, office-appropriate masculine. Attrape-Rêves: Peach, Jasmine, Patchouli, Musk — rich, playful, feminine. Ombre Nomade: Oud, Rose, Incense — one of the finest oud fragrances available from a mainstream house.',
+    occasions: 'Varies significantly by fragrance. The "Les Extraits" collection leans evening and statement; the "Collection" range includes daytime options.',
+    nuance: 'LV fragrances occupy a curious position: technically niche-quality, sold in luxury retail stores, at prices between mainstream designer and true niche. They benefit from Jacques Cavallier Belletrud\'s extraordinary skill while suffering from the perception that "Louis Vuitton does perfume" sounds like a line extension. Critics who smell them blind consistently rate them highly.'
+  }
+};
+
+const perfumeOrder = ['chanel5','dior','guerlain','creed','byredo','mfk','hermes','lv'];
+
+function showPerfume(key) {
+  document.querySelectorAll('.perfume-tab').forEach(t => {
+    t.classList.remove('active');
+    if (t.getAttribute('onclick') && t.getAttribute('onclick').includes(`'${key}'`)) t.classList.add('active');
+  });
+  const p = perfumes[key];
+  const idx = perfumeOrder.indexOf(key);
+  const prevKey = idx > 0 ? perfumeOrder[idx - 1] : null;
+  const nextKey = idx < perfumeOrder.length - 1 ? perfumeOrder[idx + 1] : null;
+
+  const navHtml = `
+    <div class="watch-nav-row">
+      ${prevKey ? `<button onclick="showPerfume('${prevKey}')" class="watch-nav-btn">← ${perfumes[prevKey].name}</button>` : '<span></span>'}
+      ${nextKey ? `<button onclick="showPerfume('${nextKey}')" class="watch-nav-btn">${perfumes[nextKey].name} →</button>` : '<span></span>'}
+    </div>`;
+
+  document.getElementById('perfume-display').innerHTML = `
+    <div class="perfume-header-row">
+      <div class="perfume-name">${p.name}</div>
+      <div class="perfume-pill" style="background:${p.tierBg}; color:${p.tierCol};">${p.family}</div>
+    </div>
+    <div class="perfume-meta-grid">
+      <div class="sub-card-compact">
+        <div class="perfume-meta-label">House &amp; Country</div>
+        <div class="perfume-meta-val">${p.house} · ${p.country}</div>
+      </div>
+      <div class="sub-card-compact">
+        <div class="perfume-meta-label">Year / Nose</div>
+        <div class="perfume-meta-val">${p.year} · ${p.nose}</div>
+      </div>
+      <div class="sub-card-compact">
+        <div class="perfume-meta-label">Concentration</div>
+        <div class="perfume-meta-val">${p.concentration}</div>
+      </div>
+      <div class="sub-card-compact">
+        <div class="perfume-meta-label">Fragrance family</div>
+        <div class="perfume-meta-val">${p.family}</div>
+      </div>
+    </div>
+    <div class="perfume-about-block">${p.about}</div>
+    <div class="perfume-notes-label">Notes structure</div>
+    <div class="perfume-notes-block">${p.notes}</div>
+    <div class="perfume-two-col">
+      <div class="sub-card-compact">
+        <div class="perfume-meta-label">Best occasions</div>
+        <div class="perfume-meta-val-sm">${p.occasions}</div>
+      </div>
+      <div class="sub-card-compact">
+        <div class="perfume-meta-label">Key nuance</div>
+        <div class="perfume-meta-val-sm">${p.nuance}</div>
+      </div>
+    </div>
+    ${navHtml}`;
+}
+showPerfume('chanel5');
     </script>
   </div>
   <script src="../files/shared.js"></script>

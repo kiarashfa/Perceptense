@@ -3,86 +3,1394 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 37: Technology — Have a Sense</title>
+  <title>Module 37: Technology - Have a Sense</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="description" content="Module 37: How computers, software, networks, data, AI, and frontier technologies actually work. Part of Have a Sense About Everything.">
+  <meta property="og:title" content="Module 37: Technology - Have a Sense">
+  <meta property="og:description" content="How computers work, how the internet runs, and what AI actually is.">
+  <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-    .stub {
-      background: var(--color-background-secondary);
-      border: 0.5px dashed var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 14px 16px; margin-bottom: 10px;
+    :root {
+      --accent: #2E9E6B;
+      --accent-bg: #E1F5EE;
+      --accent-border: #5DCAA5;
     }
-    .stub-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin: 0 0 6px; }
-    .stub-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .stub-tag {
-      font-size: 11px; padding: 2px 9px; border-radius: 99px;
-      background: var(--color-background-tertiary);
+
+    .module-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 0.6rem;
+    }
+    .module-head .fa-solid {
+      font-size: 42px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin-bottom: 1rem;
+    }
+    .teaser-num {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .teaser-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+      margin-bottom: 5px;
+    }
+    .teaser-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+
+    .tight-grid-2 { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+    .tight-grid-3 { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+    .tight-grid-4 { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+
+    .mini-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 7px;
+    }
+    .prose {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .callout {
+      border-radius: var(--border-radius-lg);
+      padding: 12px 14px;
+      margin-bottom: 1rem;
+      border: 0.5px solid var(--color-border-info);
+      background: var(--color-background-info);
+      color: var(--color-text-info);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .callout.success {
+      border-color: var(--color-border-success);
+      background: var(--color-background-success);
+      color: var(--color-text-success);
+    }
+    .callout.warning {
+      border-color: var(--color-border-warning);
+      background: var(--color-background-warning);
+      color: var(--color-text-warning);
+    }
+    .callout.danger {
+      border-color: var(--color-border-danger);
+      background: var(--color-background-danger);
+      color: var(--color-text-danger);
+    }
+
+    .explorer-buttons {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .explorer-buttons button {
+      font-size: 12px;
+      padding: 3px 10px;
+    }
+    .explorer-buttons button.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      color: var(--color-text-success);
+      font-weight: 600;
+    }
+    .display-panel {
+      background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .display-kicker {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 3px;
+    }
+    .display-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 7px;
+    }
+    .display-body {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .period-chart {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .pc-inner { min-width: 560px; }
+    .pc-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .pc-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      width: 150px;
+      flex-shrink: 0;
+      text-align: right;
+      line-height: 1.25;
+    }
+    .pc-track {
+      flex: 1;
+      height: 17px;
+      background: var(--color-background-secondary);
+      border-radius: 3px;
+      position: relative;
+      min-width: 280px;
+    }
+    .pc-fill {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 0 6px;
+      overflow: hidden;
+    }
+    .pc-fill-label {
+      font-size: 9px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pc-axis {
+      height: 18px;
+      margin-left: 158px;
+      position: relative;
+      margin-bottom: 3px;
+    }
+    .pc-axis-mark {
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: 9px;
       color: var(--color-text-tertiary);
     }
+
+    .slider-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .slider-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .slider-output {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .range-poles {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      margin-top: 4px;
+    }
+    .live-note {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 9px 11px;
+      color: var(--color-text-secondary);
+      font-size: 12px;
+      line-height: 1.5;
+      margin-top: 9px;
+    }
+
+    .elem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .elem-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 11px 12px;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+      text-align: center;
+      min-height: 92px;
+    }
+    .elem-card:hover { background: var(--color-background-secondary); }
+    .elem-card.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+    }
+    .elem-icon {
+      font-size: 21px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .elem-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.25;
+    }
+    .elem-sub {
+      font-size: 10px;
+      color: var(--color-text-secondary);
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    .cscale {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .cscale-row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .cscale-name {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      text-align: right;
+      line-height: 1.25;
+    }
+    .cscale-track {
+      position: relative;
+      height: 18px;
+      background: var(--color-background-secondary);
+      border-radius: 99px;
+    }
+    .cscale-dot {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--color-background-primary);
+      box-shadow: 0 0 0 0.5px var(--color-border-secondary);
+    }
+    .cscale-poles {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 160px;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.35;
+    }
+
+    .chart-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .bar-note,
+    .chart-note {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+      margin-top: 7px;
+    }
+
+    .dist-bar {
+      display: flex;
+      width: 100%;
+      height: 34px;
+      border-radius: var(--border-radius-md);
+      overflow: hidden;
+      border: 0.5px solid var(--color-border-tertiary);
+      margin: 9px 0 10px;
+      background: var(--color-background-secondary);
+    }
+    .dist-seg {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-primary);
+      font-size: 10px;
+      font-weight: 700;
+      min-width: 22px;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .legend-item {
+      display: inline-flex;
+      gap: 5px;
+      align-items: center;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    .legend-swatch {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .calc-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+    .calc-field label {
+      display: block;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 3px;
+    }
+    .calc-output {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.55;
+      margin-top: 9px;
+      min-height: 44px;
+    }
+
+    .svg-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .svg-card svg {
+      width: 100%;
+      min-width: 520px;
+      display: block;
+    }
+    .svg-label {
+      font-family: var(--font-sans);
+      fill: var(--color-text-primary);
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .svg-small {
+      font-family: var(--font-sans);
+      fill: var(--color-text-secondary);
+      font-size: 10px;
+    }
+
+    .logic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+      gap: 8px;
+      margin-bottom: 1rem;
+    }
+    .logic-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 11px 12px;
+    }
+    .logic-gate {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 500px) {
+      .pc-label { width: 96px; font-size: 10px; }
+      .pc-axis { margin-left: 104px; }
+      .bl { width: 92px; font-size: 10px; padding-right: 7px; }
+      .cscale-row { grid-template-columns: 92px 1fr; }
+      .cscale-name { font-size: 10px; }
+      .cscale-poles { margin-left: 102px; font-size: 10px; }
+      .module-head .fa-solid { font-size: 34px; }
+    }
+
+/* === Module-specific extracted styles === */
+
+.bb-style {
+  width:8%;
+  background:var(--accent-bg);
+}
+
+.bb-style-2 {
+  width:18%;
+  background:var(--color-background-info);
+}
+
+.bb-style-3 {
+  width:38%;
+  background:var(--color-background-warning);
+}
+
+.bb-style-4 {
+  width:58%;
+  background:var(--color-background-success);
+}
+
+.bb-style-5 {
+  width:86%;
+  background:var(--color-background-danger);
+}
+
+.cscale-dot-style {
+  left:18%;
+}
+
+.cscale-dot-style-2 {
+  left:42%;
+}
+
+.cscale-dot-style-3 {
+  left:68%;
+}
+
+.cscale-dot-style-4 {
+  left:88%;
+}
+
+.bb-style-6 {
+  width:32%;
+  background:var(--accent-bg);
+}
+
+.bb-style-7 {
+  width:25%;
+  background:var(--color-background-info);
+}
+
+.bb-style-8 {
+  width:11%;
+  background:var(--color-background-warning);
+}
+
+.bb-style-9 {
+  width:4%;
+  background:var(--color-background-success);
+}
+
+.bb-style-10 {
+  width:29%;
+  background:var(--color-background-secondary);
+}
+
+.dist-seg-style {
+  width:65%;
+  background:var(--accent-bg);
+}
+
+.dist-seg-style-2 {
+  width:16%;
+  background:var(--color-background-info);
+}
+
+.dist-seg-style-3 {
+  width:9%;
+  background:var(--color-background-warning);
+}
+
+.dist-seg-style-4 {
+  width:10%;
+  background:var(--color-background-secondary);
+}
+
+.legend-swatch-style {
+  background:var(--accent-bg);
+}
+
+.legend-swatch-style-2 {
+  background:var(--color-background-info);
+}
+
+.legend-swatch-style-3 {
+  background:var(--color-background-warning);
+}
+
+.legend-swatch-style-4 {
+  background:var(--color-background-secondary);
+}
+
+.dist-seg-style-5 {
+  width:23%;
+  background:var(--color-background-info);
+}
+
+.dist-seg-style-6 {
+  width:35%;
+  background:var(--color-background-warning);
+}
+
+.dist-seg-style-7 {
+  width:42%;
+  background:var(--color-background-danger);
+}
+
+.legend-swatch-style-5 {
+  background:var(--color-background-danger);
+}
+
+.bb-style-11 {
+  width:85%;
+  background:var(--accent-bg);
+}
+
+.bb-style-12 {
+  width:76%;
+  background:var(--color-background-info);
+}
+
+.bb-style-13 {
+  width:70%;
+  background:var(--color-background-warning);
+}
+
+.bb-style-14 {
+  width:31%;
+  background:var(--color-background-success);
+}
+
+.bb-style-15 {
+  width:12%;
+  background:var(--color-background-secondary);
+}
+
+.cscale-dot-style-5 {
+  left:28%;
+}
+
+.cscale-dot-style-6 {
+  left:62%;
+}
+
+.cscale-dot-style-7 {
+  left:78%;
+}
+
+.cscale-dot-style-8 {
+  left:46%;
+}
+
+.cscale-dot-style-9 {
+  left:86%;
+}
   </style>
 </head>
 <body>
   <div class="page-wrap">
 
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-microchip" style="font-size:42px; color:#2E9E6B; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 37: Technology</h1>
+    <div class="module-head">
+      <i class="fa-solid fa-microchip"></i>
+      <h1 class="module-title">Module 37: Technology</h1>
     </div>
     <p class="module-subtitle">How computers work, how the internet runs, and what AI actually is</p>
 
-    <!-- ── PART A ── -->
-    <div class="sec">Part A · what technology is — a brief history of tools and the digital revolution</div>
-    <div class="stub"><div class="stub-title">Technology as the extension of human capability — from stone tools to software</div><div class="stub-tags"><span class="stub-tag">Definition</span><span class="stub-tag">Agricultural revolution</span><span class="stub-tag">Industrial revolution</span><span class="stub-tag">Digital revolution</span></div></div>
-    <div class="stub"><div class="stub-title">The history of computing — from Babbage to the smartphone</div><div class="stub-tags"><span class="stub-tag">Babbage & Lovelace</span><span class="stub-tag">Turing & ENIAC</span><span class="stub-tag">Transistor & microprocessor</span><span class="stub-tag">Personal computer</span><span class="stub-tag">Internet age</span><span class="stub-tag">Timeline</span></div></div>
-    <div class="stub"><div class="stub-title">Moore's Law — what it says, why it held, and what comes next</div><div class="stub-tags"><span class="stub-tag">The original observation</span><span class="stub-tag">Transistor count chart</span><span class="stub-tag">Physical limits</span><span class="stub-tag">What replaces it</span></div></div>
+    <div class="sec">Part A - what technology is - a brief history of tools and the digital revolution</div>
 
-    <!-- ── PART B ── -->
-    <div class="sec">Part B · how computers work — the hardware</div>
-    <div class="stub"><div class="stub-title">Binary and logic — how everything reduces to 0s and 1s</div><div class="stub-tags"><span class="stub-tag">Binary number system</span><span class="stub-tag">Logic gates</span><span class="stub-tag">Bits and bytes</span><span class="stub-tag">Interactive converter</span></div></div>
-    <div class="stub"><div class="stub-title">The CPU — how a processor actually executes instructions</div><div class="stub-tags"><span class="stub-tag">Fetch-decode-execute cycle</span><span class="stub-tag">Clock speed</span><span class="stub-tag">Cores and parallelism</span><span class="stub-tag">CPU vs GPU</span></div></div>
-    <div class="stub"><div class="stub-title">Memory and storage — RAM, SSD, hard drive, and the hierarchy</div><div class="stub-tags"><span class="stub-tag">Memory hierarchy</span><span class="stub-tag">Latency comparison</span><span class="stub-tag">Cache</span><span class="stub-tag">Volatile vs non-volatile</span></div></div>
-    <div class="stub"><div class="stub-title">The semiconductor industry — how chips are made and why it matters geopolitically</div><div class="stub-tags"><span class="stub-tag">Fab process</span><span class="stub-tag">TSMC and the supply chain</span><span class="stub-tag">Chip wars</span><span class="stub-tag">nm nodes explained</span></div></div>
+    <div class="teaser-grid">
+      <div class="teaser-card">
+        <div class="teaser-num">Overview</div>
+        <div class="teaser-name">Technology is organized leverage</div>
+        <div class="teaser-desc">A tool stores a trick so the next person can use it without rediscovering it. This module moves from that basic idea to chips, software, networks, data, AI, and frontier fields. The through-line is simple: technology converts scarce human attention into repeatable systems.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">Parts A-B</div>
+        <div class="teaser-name">From tools to hardware</div>
+        <div class="teaser-desc">We start with the long arc from stone tools to smartphones, then open the machine: binary, logic gates, CPUs, memory, storage, and the semiconductor supply chain that makes modern life fragile in very specific places.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">Parts C-E</div>
+        <div class="teaser-name">Software, networks, data</div>
+        <div class="teaser-desc">Software is layered abstraction, the web is a set of agreements, and databases are machines for preserving truth under pressure. The internet feels weightless, but it runs through fiber, power plants, contracts, and millions of fallible servers.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">Parts F-G</div>
+        <div class="teaser-name">AI and the frontier</div>
+        <div class="teaser-desc">Artificial intelligence is not magic or a mind in a box. It is statistical machinery trained at industrial scale. We close with quantum computing, biotechnology, robotics, and the habit that matters most: separating real capability from theatrical hype.</div>
+      </div>
+    </div>
 
-    <!-- ── PART C ── -->
-    <div class="sec">Part C · software — how computers are programmed</div>
-    <div class="stub"><div class="stub-title">What software is — layers from machine code to applications</div><div class="stub-tags"><span class="stub-tag">Machine code → assembly → high-level</span><span class="stub-tag">Operating systems</span><span class="stub-tag">Abstraction layers</span></div></div>
-    <div class="stub"><div class="stub-title">Programming fundamentals — what every non-programmer should understand</div><div class="stub-tags"><span class="stub-tag">Variables & data types</span><span class="stub-tag">Conditionals & loops</span><span class="stub-tag">Functions</span><span class="stub-tag">Algorithms & complexity</span></div></div>
-    <div class="stub"><div class="stub-title">Data structures — how information is organised in software</div><div class="stub-tags"><span class="stub-tag">Arrays & lists</span><span class="stub-tag">Trees & graphs</span><span class="stub-tag">Hash tables</span><span class="stub-tag">Why it matters for performance</span></div></div>
-    <div class="stub"><div class="stub-title">How the web works — HTTP, browsers, servers, and APIs</div><div class="stub-tags"><span class="stub-tag">Client-server model</span><span class="stub-tag">HTTP request cycle</span><span class="stub-tag">HTML/CSS/JS roles</span><span class="stub-tag">APIs explained</span></div></div>
-    <div class="stub"><div class="stub-title">Open source — what it is and why it underpins almost all modern software</div><div class="stub-tags"><span class="stub-tag">Open source licenses</span><span class="stub-tag">Linux</span><span class="stub-tag">GitHub</span><span class="stub-tag">The economics of free software</span></div></div>
+    <div class="period-chart">
+      <div class="mini-title">Technology waves, 10,000 BCE to today</div>
+      <div class="pc-inner">
+        <div class="pc-axis" id="techAxis"></div>
+        <div id="techRows"></div>
+      </div>
+      <div class="chart-note">Bars are deliberately approximate. A technology does not end when the next one begins; agriculture, steam engines, radio, and mainframes still matter.</div>
+    </div>
 
-    <!-- ── PART D ── -->
-    <div class="sec">Part D · the internet and networks</div>
-    <div class="stub"><div class="stub-title">How the internet works — packets, protocols, and the physical infrastructure</div><div class="stub-tags"><span class="stub-tag">TCP/IP</span><span class="stub-tag">DNS</span><span class="stub-tag">Submarine cables</span><span class="stub-tag">ISPs and peering</span></div></div>
-    <div class="stub"><div class="stub-title">Cybersecurity fundamentals — how attacks work and how defence works</div><div class="stub-tags"><span class="stub-tag">Attack types</span><span class="stub-tag">Encryption basics</span><span class="stub-tag">HTTPS & TLS</span><span class="stub-tag">Social engineering</span></div></div>
-    <div class="stub"><div class="stub-title">Cloud computing — what it is and what moved there</div><div class="stub-tags"><span class="stub-tag">IaaS / PaaS / SaaS</span><span class="stub-tag">AWS, Azure, GCP</span><span class="stub-tag">Economies of scale</span><span class="stub-tag">Data sovereignty</span></div></div>
-    <div class="stub"><div class="stub-title">The platform economy — how tech giants built monopolies on networks</div><div class="stub-tags"><span class="stub-tag">Network effects</span><span class="stub-tag">Winner-take-all dynamics</span><span class="stub-tag">GAFA business models</span><span class="stub-tag">Regulation debates</span></div></div>
+    <div class="explorer-buttons" id="waveButtons">
+      <button onclick="showWave('tools', this)">Tools</button>
+      <button onclick="showWave('agriculture', this)">Agriculture</button>
+      <button onclick="showWave('industry', this)">Industry</button>
+      <button onclick="showWave('electrical', this)">Electricity</button>
+      <button onclick="showWave('digital', this)">Digital</button>
+      <button onclick="showWave('ai', this)">AI</button>
+    </div>
+    <div id="waveDisplay" class="display-panel"></div>
 
-    <!-- ── PART E ── -->
-    <div class="sec">Part E · data and databases</div>
-    <div class="stub"><div class="stub-title">How databases work — SQL, NoSQL, and why data is the new oil</div><div class="stub-tags"><span class="stub-tag">Relational databases</span><span class="stub-tag">SQL basics</span><span class="stub-tag">NoSQL types</span><span class="stub-tag">ACID properties</span></div></div>
-    <div class="stub"><div class="stub-title">Big data — what changed when data became massive</div><div class="stub-tags"><span class="stub-tag">Volume, velocity, variety</span><span class="stub-tag">Hadoop & Spark</span><span class="stub-tag">Data lakes vs warehouses</span></div></div>
-    <div class="stub"><div class="stub-title">Privacy and surveillance — what data is collected and what it enables</div><div class="stub-tags"><span class="stub-tag">Surveillance capitalism</span><span class="stub-tag">GDPR</span><span class="stub-tag">Metadata</span><span class="stub-tag">Anonymisation limits</span></div></div>
+    <div class="callout success">A useful definition: technology is not "gadgets." It is any reliable method for amplifying human capability: a stone blade, double-entry bookkeeping, refrigeration, GPS, antibiotics, a search engine, or a shipping container. The quiet technologies often change the world more than the flashy ones.</div>
 
-    <!-- ── PART F ── -->
-    <div class="sec">Part F · artificial intelligence — what it is, how it works, and what it means</div>
-    <div class="stub"><div class="stub-title">What AI actually is — and the difference from human intelligence</div><div class="stub-tags"><span class="stub-tag">Narrow vs general AI</span><span class="stub-tag">The Turing test</span><span class="stub-tag">What AI can and cannot do</span></div></div>
-    <div class="stub"><div class="stub-title">Machine learning — how computers learn from data</div><div class="stub-tags"><span class="stub-tag">Supervised learning</span><span class="stub-tag">Unsupervised learning</span><span class="stub-tag">Reinforcement learning</span><span class="stub-tag">Training & inference</span></div></div>
-    <div class="stub"><div class="stub-title">Neural networks and deep learning — the architecture behind modern AI</div><div class="stub-tags"><span class="stub-tag">Perceptron</span><span class="stub-tag">Layers & weights</span><span class="stub-tag">Backpropagation</span><span class="stub-tag">Why depth matters</span><span class="stub-tag">Visual diagram</span></div></div>
-    <div class="stub"><div class="stub-title">Large language models — how ChatGPT and Claude work</div><div class="stub-tags"><span class="stub-tag">Transformers & attention</span><span class="stub-tag">Tokens & prediction</span><span class="stub-tag">Pre-training & fine-tuning</span><span class="stub-tag">What LLMs know and don't</span></div></div>
-    <div class="stub"><div class="stub-title">Computer vision, speech, and multimodal AI</div><div class="stub-tags"><span class="stub-tag">CNNs for vision</span><span class="stub-tag">Speech recognition</span><span class="stub-tag">Diffusion models (image generation)</span><span class="stub-tag">Multimodal models</span></div></div>
-    <div class="stub"><div class="stub-title">AI risk and governance — alignment, bias, and the big-picture questions</div><div class="stub-tags"><span class="stub-tag">Alignment problem</span><span class="stub-tag">Bias in training data</span><span class="stub-tag">Existential risk debate</span><span class="stub-tag">Regulation landscape</span></div></div>
-    <div class="stub"><div class="stub-title">AI and the economy — jobs, productivity, and what changes</div><div class="stub-tags"><span class="stub-tag">Task automation vs job automation</span><span class="stub-tag">Historical analogies</span><span class="stub-tag">Which jobs are most exposed</span><span class="stub-tag">Productivity paradox</span></div></div>
+    <div class="sec">Part B - how computers work - the hardware</div>
 
-    <!-- ── PART G ── -->
-    <div class="sec">Part G · emerging and frontier technologies</div>
-    <div class="stub"><div class="stub-title">Quantum computing — what it is, what it could do, and the hype vs reality</div><div class="stub-tags"><span class="stub-tag">Qubits & superposition</span><span class="stub-tag">Quantum advantage</span><span class="stub-tag">Timeline realism</span></div></div>
-    <div class="stub"><div class="stub-title">Biotechnology and the digital-biological convergence</div><div class="stub-tags"><span class="stub-tag">CRISPR</span><span class="stub-tag">Synthetic biology</span><span class="stub-tag">AlphaFold</span><span class="stub-tag">Digital twins of organisms</span></div></div>
-    <div class="stub"><div class="stub-title">Robotics and automation — physical AI in the world</div><div class="stub-tags"><span class="stub-tag">Industrial robotics</span><span class="stub-tag">Humanoid robots</span><span class="stub-tag">Autonomous vehicles</span><span class="stub-tag">The uncanny valley</span></div></div>
+    <div class="cgrid tight-grid-2">
+      <div class="card">
+        <div class="clabel">Binary</div>
+        <div class="cval">0 / 1</div>
+        <p class="cnote">Computers use binary because physical devices are good at distinguishing two stable states: high or low voltage, magnetized one way or the other, charged or uncharged. A bit is one such choice. Eight bits make a byte, enough to represent 256 values, which is why early character encodings and color channels lean so heavily on 8-bit boundaries.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Logic</div>
+        <div class="cval">Gates</div>
+        <p class="cnote">Logic gates are tiny circuits that implement Boolean operations. Combine enough AND, OR, and NOT gates and you can build adders, memory cells, processors, and eventually a machine that plays video, routes satellites, or trains a neural network. The abstraction is astonishing: arithmetic becomes electrical choreography.</p>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <div class="mini-title">Binary converter</div>
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="decimalInput">Decimal number, 0 to 255</label>
+          <input id="decimalInput" type="number" min="0" max="255" value="42">
+        </div>
+      </div>
+      <button id="binaryCalcBtn">Calculate</button>
+      <div id="binaryOutput" class="calc-output"></div>
+    </div>
+
+    <div class="logic-grid">
+      <div class="logic-card">
+        <div class="logic-gate">AND</div>
+        <div class="prose">Returns 1 only if both inputs are 1. It is the logic of permission: this condition and that condition must both be true.</div>
+      </div>
+      <div class="logic-card">
+        <div class="logic-gate">OR</div>
+        <div class="prose">Returns 1 if either input is 1. It is the logic of alternatives: Wi-Fi or cellular, cache hit or database lookup.</div>
+      </div>
+      <div class="logic-card">
+        <div class="logic-gate">NOT</div>
+        <div class="prose">Flips 1 to 0 and 0 to 1. Tiny inversions are enough to build memory, arithmetic, and control flow.</div>
+      </div>
+      <div class="logic-card">
+        <div class="logic-gate">XOR</div>
+        <div class="prose">Returns 1 when inputs differ. It is central in binary addition, checksums, cryptography, and error detection.</div>
+      </div>
+    </div>
+
+    <div class="svg-card">
+      <div class="mini-title">A CPU is a loop, made absurdly fast</div>
+      <svg viewBox="0 0 760 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CPU fetch decode execute diagram">
+        <defs>
+          <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="var(--accent)"></path>
+          </marker>
+        </defs>
+        <rect x="26" y="45" width="150" height="76" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="101" y="75" text-anchor="middle" class="svg-label">Fetch</text>
+        <text x="101" y="96" text-anchor="middle" class="svg-small">read instruction</text>
+        <text x="101" y="110" text-anchor="middle" class="svg-small">from memory</text>
+        <rect x="226" y="45" width="150" height="76" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="301" y="75" text-anchor="middle" class="svg-label">Decode</text>
+        <text x="301" y="96" text-anchor="middle" class="svg-small">what operation?</text>
+        <text x="301" y="110" text-anchor="middle" class="svg-small">which registers?</text>
+        <rect x="426" y="45" width="150" height="76" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="501" y="75" text-anchor="middle" class="svg-label">Execute</text>
+        <text x="501" y="96" text-anchor="middle" class="svg-small">add, compare, load</text>
+        <text x="501" y="110" text-anchor="middle" class="svg-small">or branch</text>
+        <rect x="626" y="45" width="108" height="76" rx="10" fill="var(--accent-bg)" stroke="var(--accent-border)"></rect>
+        <text x="680" y="75" text-anchor="middle" class="svg-label">Write back</text>
+        <text x="680" y="96" text-anchor="middle" class="svg-small">store result</text>
+        <line x1="176" y1="83" x2="218" y2="83" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="376" y1="83" x2="418" y2="83" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="576" y1="83" x2="618" y2="83" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <path d="M680 121 C680 198, 101 198, 101 128" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow)"></path>
+        <rect x="84" y="166" width="590" height="50" rx="10" fill="var(--color-background-info)" stroke="var(--color-border-info)"></rect>
+        <text x="379" y="188" text-anchor="middle" class="svg-label">Modern CPUs do this billions of times per second</text>
+        <text x="379" y="205" text-anchor="middle" class="svg-small">Pipelines, caches, branch prediction, and multiple cores are tricks for keeping the loop fed.</text>
+      </svg>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <div class="mini-title">Memory latency if one CPU cycle were one second</div>
+        <div class="slider-output"><span id="latencyValue">100</span> ns</div>
+      </div>
+      <input id="latencySlider" type="range" min="1" max="10000000" value="100" step="1">
+      <div class="range-poles"><span>L1 cache: about 1 ns</span><span>SSD read: 100,000+ ns</span><span>Internet request: millions</span></div>
+      <div id="latencyNote" class="live-note"></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="mini-title">Approximate latency ladder</div>
+      <div class="bar-row"><div class="bl">L1 cache</div><div class="bb bb-style"><div class="bv">1 ns</div></div></div>
+      <div class="bar-row"><div class="bl">RAM</div><div class="bb bb-style-2"><div class="bv">100 ns</div></div></div>
+      <div class="bar-row"><div class="bl">NVMe SSD</div><div class="bb bb-style-3"><div class="bv">100,000 ns</div></div></div>
+      <div class="bar-row"><div class="bl">Local network</div><div class="bb bb-style-4"><div class="bv">500,000 ns</div></div></div>
+      <div class="bar-row"><div class="bl">US to Europe</div><div class="bb bb-style-5"><div class="bv">70,000,000+ ns</div></div></div>
+      <div class="bar-note">Widths are compressed on a rough logarithmic scale. The real gap between cache and a cross-Atlantic request is so large that a linear chart would be mostly empty space.</div>
+    </div>
+
+    <div class="cgrid tight-grid-2">
+      <div class="card">
+        <div class="clabel">CPU versus GPU</div>
+        <p class="cnote">A CPU is optimized for low-latency, branching, general-purpose work: run the operating system, coordinate programs, handle irregular tasks. A GPU is optimized for throughput: thousands of simpler cores doing similar math at once. That is why GPUs became central to deep learning, where training a model means multiplying enormous matrices again and again.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Semiconductors</div>
+        <p class="cnote">A cutting-edge chip can contain tens of billions of transistors. Manufacturing one requires extreme ultraviolet lithography, atom-scale deposition, ultrapure chemicals, and a supply chain spread across the Netherlands, Taiwan, Japan, Korea, the United States, and elsewhere. The "nanometer node" is now more brand label than literal transistor dimension, but it still tracks density, speed, and cost.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part C - software - how computers are programmed</div>
+
+    <div class="elem-grid" id="softwareCards">
+      <div class="elem-card" onclick="showSoftwareLayer('machine', this)"><div class="elem-icon"><i class="fa-solid fa-microchip"></i></div><div class="elem-name">Machine code</div><div class="elem-sub">bits the CPU executes</div></div>
+      <div class="elem-card" onclick="showSoftwareLayer('os', this)"><div class="elem-icon"><i class="fa-solid fa-window-restore"></i></div><div class="elem-name">Operating system</div><div class="elem-sub">resources and permissions</div></div>
+      <div class="elem-card" onclick="showSoftwareLayer('runtime', this)"><div class="elem-icon"><i class="fa-solid fa-code"></i></div><div class="elem-name">Runtime</div><div class="elem-sub">languages and libraries</div></div>
+      <div class="elem-card" onclick="showSoftwareLayer('app', this)"><div class="elem-icon"><i class="fa-solid fa-cubes"></i></div><div class="elem-name">Application</div><div class="elem-sub">user-facing behavior</div></div>
+      <div class="elem-card" onclick="showSoftwareLayer('api', this)"><div class="elem-icon"><i class="fa-solid fa-plug"></i></div><div class="elem-name">API</div><div class="elem-sub">contracts between systems</div></div>
+      <div class="elem-card" onclick="showSoftwareLayer('data', this)"><div class="elem-icon"><i class="fa-solid fa-database"></i></div><div class="elem-name">Data model</div><div class="elem-sub">what the program believes</div></div>
+    </div>
+    <div id="softwareDetail" class="elem-detail elem-detail-panel"></div>
+
+    <div class="cgrid tight-grid-3">
+      <div class="card">
+        <div class="clabel">Variables and types</div>
+        <p class="cnote">A variable names a value; a type says what operations make sense. A date, a string, a floating-point number, and a user record may all look like "data," but confusing them creates subtle bugs. The Mars Climate Orbiter was lost in 1999 after one software component used imperial units and another expected metric.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Loops and conditionals</div>
+        <p class="cnote">Most programs are repetition plus decisions. Loop through customers, frames, pixels, packets, or transactions; branch when the price is too high, a password fails, or a sensor reads danger. The magic feeling of software comes from executing tiny, boring rules at inhuman speed.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Complexity</div>
+        <p class="cnote">An algorithm that checks every pair in a million-item list performs roughly 500 billion comparisons. A better data structure can turn the same task into a few million operations. Big-O notation is not academic decoration; it is how a program crosses from instant to impossible.</p>
+      </div>
+    </div>
+
+    <div class="svg-card">
+      <div class="mini-title">What happens when you open a web page</div>
+      <svg viewBox="0 0 780 255" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Web request diagram">
+        <defs>
+          <marker id="arrow2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="var(--accent)"></path>
+          </marker>
+        </defs>
+        <rect x="30" y="72" width="130" height="70" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <text x="95" y="102" text-anchor="middle" class="svg-label">Browser</text>
+        <text x="95" y="122" text-anchor="middle" class="svg-small">HTML, CSS, JS</text>
+        <rect x="220" y="35" width="120" height="54" rx="10" fill="var(--color-background-info)" stroke="var(--color-border-info)"></rect>
+        <text x="280" y="66" text-anchor="middle" class="svg-label">DNS</text>
+        <rect x="405" y="72" width="130" height="70" rx="10" fill="var(--accent-bg)" stroke="var(--accent-border)"></rect>
+        <text x="470" y="102" text-anchor="middle" class="svg-label">Server</text>
+        <text x="470" y="122" text-anchor="middle" class="svg-small">app code</text>
+        <rect x="610" y="72" width="130" height="70" rx="10" fill="var(--color-background-warning)" stroke="var(--color-border-warning)"></rect>
+        <text x="675" y="102" text-anchor="middle" class="svg-label">Database</text>
+        <text x="675" y="122" text-anchor="middle" class="svg-small">stored facts</text>
+        <path d="M160 88 C182 50, 198 53, 218 58" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow2)"></path>
+        <path d="M220 72 C195 118, 183 122, 162 114" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow2)"></path>
+        <line x1="160" y1="107" x2="397" y2="107" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow2)"></line>
+        <line x1="535" y1="107" x2="602" y2="107" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow2)"></line>
+        <path d="M610 134 C505 205, 268 204, 160 135" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow2)"></path>
+        <text x="282" y="152" text-anchor="middle" class="svg-small">HTTPS request</text>
+        <text x="560" y="154" text-anchor="middle" class="svg-small">query</text>
+        <text x="392" y="212" text-anchor="middle" class="svg-small">response: bytes that the browser turns into an interface</text>
+      </svg>
+    </div>
+
+    <div class="callout">Open source is not a hobby niche. Linux runs most servers, Android phones, cloud infrastructure, routers, and supercomputers. The strange economics are the point: companies share basic plumbing because competing on every line of code would be slower and more expensive than building together.</div>
+
+    <div class="sec">Part D - the internet and networks</div>
+
+    <div class="cgrid tight-grid-2">
+      <div class="card">
+        <div class="clabel">Packets</div>
+        <p class="cnote">The internet does not send your video call as one continuous object. It chops data into packets, each with addressing information, and routes them across many possible paths. TCP checks that packets arrive and asks for missing ones again; UDP skips some guarantees for speed, which is why it is common in games, voice, and video.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Physical infrastructure</div>
+        <p class="cnote">Most international internet traffic travels through submarine fiber-optic cables, not satellites. Light pulses carry data through glass strands across ocean floors. A single modern cable pair can carry terabits per second, but landing stations, peering agreements, power, and politics decide where the network is fast, cheap, or vulnerable.</p>
+      </div>
+    </div>
+
+    <div class="cscale">
+      <div class="mini-title">Security tradeoff scale</div>
+      <div class="cscale-row"><div class="cscale-name">Password only</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">SMS code</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-2"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Authenticator app</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-3"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Hardware passkey</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-4"></div></div></div>
+      <div class="cscale-poles"><span>convenient, easy to phish</span><span>resistant to phishing and replay</span></div>
+      <div class="chart-note">Passkeys are strong because the secret does not leave the device and is bound to the real site domain. A fake login page cannot reuse it the way it can reuse a password.</div>
+    </div>
+
+    <div class="chart-card">
+      <div class="mini-title">Global cloud infrastructure market, rough 2024 share</div>
+      <div class="bar-row"><div class="bl">AWS</div><div class="bb bb-style-6"><div class="bv">about 31%</div></div></div>
+      <div class="bar-row"><div class="bl">Microsoft Azure</div><div class="bb bb-style-7"><div class="bv">about 25%</div></div></div>
+      <div class="bar-row"><div class="bl">Google Cloud</div><div class="bb bb-style-8"><div class="bv">about 11%</div></div></div>
+      <div class="bar-row"><div class="bl">Alibaba Cloud</div><div class="bb bb-style-9"><div class="bv">about 4%</div></div></div>
+      <div class="bar-row"><div class="bl">Others</div><div class="bb bb-style-10"><div class="bv">about 29%</div></div></div>
+      <div class="bar-note">Approximate global infrastructure-as-a-service and platform cloud revenue shares. Methodologies differ, but the shape is stable: three hyperscalers dominate because data centers reward scale.</div>
+    </div>
+
+    <div class="chart-card">
+      <div class="mini-title">What dominates internet traffic?</div>
+      <div class="dist-bar">
+        <div class="dist-seg dist-seg-style">video</div>
+        <div class="dist-seg dist-seg-style-2">web</div>
+        <div class="dist-seg dist-seg-style-3">gaming</div>
+        <div class="dist-seg dist-seg-style-4">other</div>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style"></span>Streaming and social video</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-2"></span>Web and apps</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-3"></span>Gaming and real-time</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-4"></span>Updates, backups, files, everything else</div>
+      </div>
+      <div class="chart-note">Breakdowns vary by region and year. The mental model is what matters: video is the internet's heavy cargo, which is why content delivery networks cache popular clips close to viewers.</div>
+    </div>
+
+    <div class="explorer-buttons" id="attackButtons">
+      <button onclick="showAttack('phishing', this)">Phishing</button>
+      <button onclick="showAttack('ransomware', this)">Ransomware</button>
+      <button onclick="showAttack('ddos', this)">DDoS</button>
+      <button onclick="showAttack('supply', this)">Supply chain</button>
+      <button onclick="showAttack('zero', this)">Zero-day</button>
+    </div>
+    <div id="attackDisplay" class="display-panel"></div>
+
+    <div class="sec">Part E - data and databases</div>
+
+    <div class="cgrid tight-grid-3">
+      <div class="card">
+        <div class="clabel">Relational databases</div>
+        <p class="cnote">SQL databases organize facts into tables with defined relationships. They are excellent when correctness matters: bank transfers, orders, inventory, medical records. ACID properties mean transactions should be atomic, consistent, isolated, and durable, which is a fancy way of saying "do not lose or half-save reality."</p>
+      </div>
+      <div class="card">
+        <div class="clabel">NoSQL databases</div>
+        <p class="cnote">NoSQL is not one technology. It includes document stores, key-value stores, graph databases, and wide-column systems. They trade some rigid structure for scale, flexibility, or specialized queries. A social graph, a shopping cart cache, and a log pipeline want different shapes of storage.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Big data</div>
+        <p class="cnote">"Big" starts when one machine and one tidy database stop being enough. Hadoop made distributed storage and batch processing mainstream in the 2000s; Spark made many jobs faster by keeping data in memory. The hard part is rarely storage. The hard part is deciding which data is trustworthy.</p>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <div class="mini-title">Metadata exposure calculator</div>
+      <div class="calc-grid">
+        <div class="calc-field">
+          <label for="messagesInput">Messages per day</label>
+          <input id="messagesInput" type="number" min="0" value="80">
+        </div>
+        <div class="calc-field">
+          <label for="locationsInput">Location pings per day</label>
+          <input id="locationsInput" type="number" min="0" value="120">
+        </div>
+        <div class="calc-field">
+          <label for="daysInput">Days retained</label>
+          <input id="daysInput" type="number" min="1" value="365">
+        </div>
+      </div>
+      <button id="metadataCalcBtn">Calculate</button>
+      <div id="metadataOutput" class="calc-output"></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="mini-title">Why "anonymized" data can still identify people</div>
+      <div class="dist-bar">
+        <div class="dist-seg dist-seg-style-5">ZIP</div>
+        <div class="dist-seg dist-seg-style-6">birth date</div>
+        <div class="dist-seg dist-seg-style-7">sex</div>
+      </div>
+      <div class="legend">
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-2"></span>ZIP code</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-3"></span>Date of birth</div>
+        <div class="legend-item"><span class="legend-swatch legend-swatch-style-5"></span>Sex</div>
+      </div>
+      <div class="chart-note">Latanya Sweeney famously showed that combinations like ZIP code, birth date, and sex can re-identify many Americans. The point is not that those three fields are always fatal; it is that harmless-looking columns become fingerprints when combined.</div>
+    </div>
+
+    <div class="callout warning">The phrase "data is the new oil" is catchy and wrong in one important way. Oil is used up when burned; data can be copied, combined, and reused indefinitely. That makes data less like fuel and more like memory with economic power attached.</div>
+
+    <div class="sec">Part F - artificial intelligence - what it is, how it works, and what it means</div>
+
+    <div class="explorer-buttons" id="aiButtons">
+      <button onclick="showAI('symbolic', this)">Symbolic AI</button>
+      <button onclick="showAI('ml', this)">Machine learning</button>
+      <button onclick="showAI('deep', this)">Deep learning</button>
+      <button onclick="showAI('llm', this)">Language models</button>
+      <button onclick="showAI('diffusion', this)">Diffusion</button>
+      <button onclick="showAI('alignment', this)">Alignment</button>
+    </div>
+    <div id="aiDisplay" class="display-panel"></div>
+
+    <div class="svg-card">
+      <div class="mini-title">Neural networks learn by adjusting weights</div>
+      <svg viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Neural network diagram">
+        <defs>
+          <marker id="arrow3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="var(--accent)"></path>
+          </marker>
+        </defs>
+        <g stroke="var(--color-border-secondary)" stroke-width="1">
+          <line x1="115" y1="75" x2="285" y2="55"></line><line x1="115" y1="75" x2="285" y2="105"></line><line x1="115" y1="75" x2="285" y2="155"></line><line x1="115" y1="75" x2="285" y2="205"></line>
+          <line x1="115" y1="140" x2="285" y2="55"></line><line x1="115" y1="140" x2="285" y2="105"></line><line x1="115" y1="140" x2="285" y2="155"></line><line x1="115" y1="140" x2="285" y2="205"></line>
+          <line x1="115" y1="205" x2="285" y2="55"></line><line x1="115" y1="205" x2="285" y2="105"></line><line x1="115" y1="205" x2="285" y2="155"></line><line x1="115" y1="205" x2="285" y2="205"></line>
+          <line x1="315" y1="55" x2="505" y2="90"></line><line x1="315" y1="55" x2="505" y2="150"></line><line x1="315" y1="55" x2="505" y2="210"></line>
+          <line x1="315" y1="105" x2="505" y2="90"></line><line x1="315" y1="105" x2="505" y2="150"></line><line x1="315" y1="105" x2="505" y2="210"></line>
+          <line x1="315" y1="155" x2="505" y2="90"></line><line x1="315" y1="155" x2="505" y2="150"></line><line x1="315" y1="155" x2="505" y2="210"></line>
+          <line x1="315" y1="205" x2="505" y2="90"></line><line x1="315" y1="205" x2="505" y2="150"></line><line x1="315" y1="205" x2="505" y2="210"></line>
+          <line x1="535" y1="90" x2="650" y2="140"></line><line x1="535" y1="150" x2="650" y2="140"></line><line x1="535" y1="210" x2="650" y2="140"></line>
+        </g>
+        <g fill="var(--color-background-secondary)" stroke="var(--accent)" stroke-width="2">
+          <circle cx="100" cy="75" r="15"></circle><circle cx="100" cy="140" r="15"></circle><circle cx="100" cy="205" r="15"></circle>
+          <circle cx="300" cy="55" r="15"></circle><circle cx="300" cy="105" r="15"></circle><circle cx="300" cy="155" r="15"></circle><circle cx="300" cy="205" r="15"></circle>
+          <circle cx="520" cy="90" r="15"></circle><circle cx="520" cy="150" r="15"></circle><circle cx="520" cy="210" r="15"></circle>
+          <circle cx="665" cy="140" r="17" fill="var(--accent-bg)"></circle>
+        </g>
+        <text x="100" y="32" text-anchor="middle" class="svg-label">Input</text>
+        <text x="300" y="32" text-anchor="middle" class="svg-label">Hidden layer</text>
+        <text x="520" y="32" text-anchor="middle" class="svg-label">Hidden layer</text>
+        <text x="665" y="105" text-anchor="middle" class="svg-label">Output</text>
+        <path d="M660 176 C590 260, 255 260, 195 215" fill="none" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrow3)"></path>
+        <text x="430" y="252" text-anchor="middle" class="svg-small">Backpropagation: compare prediction to target, then nudge millions or billions of weights.</text>
+      </svg>
+    </div>
+
+    <div class="slider-card">
+      <div class="slider-top">
+        <div class="mini-title">Transformer context window: how much text can the model see at once?</div>
+        <div class="slider-output"><span id="tokenValue">8,000</span> tokens</div>
+      </div>
+      <input id="tokenSlider" type="range" min="1000" max="200000" value="8000" step="1000">
+      <div class="range-poles"><span>short prompt</span><span>chapter</span><span>book-scale context</span></div>
+      <div id="tokenNote" class="live-note"></div>
+    </div>
+
+    <div class="chart-card">
+      <div class="mini-title">AI task exposure is not the same as job replacement</div>
+      <div class="bar-row"><div class="bl">Translation</div><div class="bb bb-style-11"><div class="bv">high task exposure</div></div></div>
+      <div class="bar-row"><div class="bl">Customer support</div><div class="bb bb-style-12"><div class="bv">high</div></div></div>
+      <div class="bar-row"><div class="bl">Software help</div><div class="bb bb-style-13"><div class="bv">high</div></div></div>
+      <div class="bar-row"><div class="bl">Nursing</div><div class="bb bb-style-14"><div class="bv">partial</div></div></div>
+      <div class="bar-row"><div class="bl">Plumbing</div><div class="bb bb-style-15"><div class="bv">low</div></div></div>
+      <div class="bar-note">This is a conceptual exposure chart, not a labor forecast. Jobs are bundles of tasks, relationships, accountability, and physical context. Automating 40 percent of a job rarely means deleting 40 percent of workers on schedule.</div>
+    </div>
+
+    <div class="callout danger">The best AI misconception to drop: "it is just autocomplete." Next-token prediction sounds trivial until the training data, model size, and compute scale force the system to learn grammar, facts, code patterns, visual concepts, and reasoning heuristics as compression strategies. It still makes mistakes, but the mechanism is more powerful than the slogan suggests.</div>
+
+    <div class="sec">Part G - emerging and frontier technologies</div>
+
+    <div class="elem-grid" id="frontierCards">
+      <div class="elem-card" onclick="showFrontier('quantum', this)"><div class="elem-icon"><i class="fa-solid fa-atom"></i></div><div class="elem-name">Quantum computing</div><div class="elem-sub">specialized physics</div></div>
+      <div class="elem-card" onclick="showFrontier('bio', this)"><div class="elem-icon"><i class="fa-solid fa-dna"></i></div><div class="elem-name">Biotechnology</div><div class="elem-sub">editing life</div></div>
+      <div class="elem-card" onclick="showFrontier('robotics', this)"><div class="elem-icon"><i class="fa-solid fa-robot"></i></div><div class="elem-name">Robotics</div><div class="elem-sub">AI in the world</div></div>
+      <div class="elem-card" onclick="showFrontier('energy', this)"><div class="elem-icon"><i class="fa-solid fa-bolt"></i></div><div class="elem-name">Energy tech</div><div class="elem-sub">batteries and grids</div></div>
+      <div class="elem-card" onclick="showFrontier('space', this)"><div class="elem-icon"><i class="fa-solid fa-satellite"></i></div><div class="elem-name">Space systems</div><div class="elem-sub">cheap launch, big data</div></div>
+      <div class="elem-card" onclick="showFrontier('ar', this)"><div class="elem-icon"><i class="fa-solid fa-glasses"></i></div><div class="elem-name">Spatial computing</div><div class="elem-sub">interfaces in 3D</div></div>
+    </div>
+    <div id="frontierDetail" class="elem-detail elem-detail-panel"></div>
+
+    <div class="cscale">
+      <div class="mini-title">Hype versus deployed impact</div>
+      <div class="cscale-row"><div class="cscale-name">Quantum computers</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-5"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">CRISPR tools</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-6"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Industrial robots</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-7"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Autonomous cars</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-8"></div></div></div>
+      <div class="cscale-row"><div class="cscale-name">Lithium batteries</div><div class="cscale-track"><div class="cscale-dot cscale-dot-style-9"></div></div></div>
+      <div class="cscale-poles"><span>mostly promise or labs</span><span>large real-world deployment</span></div>
+      <div class="chart-note">A frontier technology can be scientifically real and economically immature at the same time. The winning question is not "is it possible?" but "what exact job does it do better than the existing system?"</div>
+    </div>
+
+    <div class="callout success">The frontier is usually uneven. AlphaFold transformed protein-structure prediction years before robots could fold laundry reliably. Electric vehicles arrived before fully autonomous taxis. Technology does not advance as one smooth front; it breaks through wherever physics, data, money, regulation, and user tolerance happen to align.</div>
+
+    <div class="sec">Part H · Q&A</div>
+
+    <div class="qa">
+      <div class="qa-q">If computers are just 0s and 1s, why do they feel so flexible?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Because layers of abstraction compound. A transistor makes a bit reliable; logic gates combine bits; instructions combine gates into arithmetic and memory; programming languages combine instructions into human-readable commands. By the time you reach a browser or game engine, the primitive 0/1 choices are buried under millions of reusable conventions. Flexibility comes from stacking simple reliable layers until the top layer feels expressive.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Was Moore's Law a law of physics?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">No. Gordon Moore observed in 1965 that the number of components on integrated circuits was rising at a striking pace, later simplified to transistor counts doubling roughly every two years. It held because physics, manufacturing, design tools, and enormous capital investment all reinforced each other. The old version has slowed because power density, quantum effects, and fabrication cost became brutal. Progress continues through chiplets, specialized accelerators, packaging, software, and parallelism.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Why is cybersecurity so hard if encryption is mathematically strong?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Encryption protects data under specific assumptions: keys stay secret, endpoints are honest, software is patched, and users are not tricked. Attackers often avoid the math entirely. They phish a password, exploit an old library, bribe an insider, steal a session token, or compromise a vendor. Security is a system property, and the system includes tired people, old code, business incentives, and emergency exceptions.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">What does the cloud actually change?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">The cloud converts computing from equipment you buy into capacity you rent. That matters because demand is spiky: a startup can scale from one server to thousands without building a data center. It also centralizes power in hyperscalers that can afford custom chips, global fiber, cooling expertise, and security teams. The tradeoff is dependence: outages, pricing changes, data residency rules, and vendor lock-in become strategic risks.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Do large language models understand anything?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">It depends what you mean by understand. They do not have human experience, goals, or grounded perception by default, but they learn rich statistical structure from text, code, images, and feedback. That structure can support translation, summarization, programming, planning, and explanation in ways that look meaningfully cognitive. The practical stance is neither worship nor dismissal: treat them as powerful pattern engines that need verification, context, and good judgment around consequences.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">How should I judge a new technology claim?</div>
+      <button class="qa-btn">show answer</button>
+      <div class="qa-ans">Ask what bottleneck it removes, what it costs, and what must change around it for adoption. A lab demo is not a supply chain, a prototype is not a business, and a benchmark is not a user habit. Look for constraints: energy, latency, regulation, manufacturing yield, training data, maintenance, liability, and integration with old systems. The future usually arrives through boring compatibility work after the spectacular demo.</div>
+    </div>
 
   </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const techPeriods = [
+        { label: 'Agriculture', start: -10000, end: 2026, col: 'var(--color-text-success)', bg: 'var(--color-background-success)', text: '10,000 BCE - now' },
+        { label: 'Writing and accounting', start: -3300, end: 2026, col: 'var(--color-text-info)', bg: 'var(--color-background-info)', text: '3300 BCE - now' },
+        { label: 'Printing press', start: 1450, end: 2026, col: 'var(--color-text-warning)', bg: 'var(--color-background-warning)', text: '1450 - now' },
+        { label: 'Steam and factories', start: 1760, end: 1914, col: 'var(--color-text-danger)', bg: 'var(--color-background-danger)', text: '1760 - 1914' },
+        { label: 'Electrification', start: 1880, end: 2026, col: 'var(--color-text-info)', bg: 'var(--color-background-info)', text: '1880 - now' },
+        { label: 'Electronic computing', start: 1945, end: 2026, col: 'var(--color-text-success)', bg: 'var(--accent-bg)', text: '1945 - now' },
+        { label: 'Internet era', start: 1991, end: 2026, col: 'var(--color-text-primary)', bg: 'var(--color-background-secondary)', text: '1991 - now' },
+        { label: 'Modern AI wave', start: 2012, end: 2026, col: 'var(--color-text-success)', bg: 'var(--accent-bg)', text: '2012 - now' }
+      ];
+
+      function buildPeriodChart(rows, axisId, rowsId, minYear, maxYear, marks) {
+        const axis = document.getElementById(axisId);
+        const target = document.getElementById(rowsId);
+        const span = maxYear - minYear;
+        axis.innerHTML = marks.map(function(mark) {
+          const left = ((mark - minYear) / span) * 100;
+          const label = mark < 0 ? Math.abs(mark).toLocaleString() + ' BCE' : String(mark);
+          return '<div class="pc-axis-mark" style="left:' + left + '%;">' + label + '</div>';
+        }).join('');
+        target.innerHTML = rows.map(function(row) {
+          const left = ((row.start - minYear) / span) * 100;
+          const width = ((row.end - row.start) / span) * 100;
+          return '<div class="pc-row"><div class="pc-label">' + row.label + '</div><div class="pc-track"><div class="pc-fill" style="left:' + left + '%; width:' + width + '%; background:' + row.bg + '; color:' + row.col + ';"><span class="pc-fill-label">' + row.text + '</span></div></div></div>';
+        }).join('');
+      }
+
+      buildPeriodChart(techPeriods, 'techAxis', 'techRows', -10000, 2026, [-10000, -5000, 0, 1500, 1800, 1950, 2026]);
+
+      const waves = {
+        tools: {
+          title: 'Tools extend the body',
+          body: 'The earliest stone tools are more than 3 million years old, older than Homo sapiens. A sharp flake turns a weak fingernail into a cutting edge; a spear turns an arm into a distance weapon; a lever multiplies muscle. The key idea is delegation: the trick is stored in the object, so the user does not need stronger teeth, claws, or bones.'
+        },
+        agriculture: {
+          title: 'Agriculture stores sunlight as surplus',
+          body: 'Farming, beginning around 10,000 BCE in several regions, was not simply "better food." It was a new energy system. Grain stores calories for months, supports taxation, armies, cities, writing, and hierarchy. It also made diets narrower and disease easier to spread, which is a useful reminder: technologies solve one problem while creating new ones.'
+        },
+        industry: {
+          title: 'Industry replaces muscle with fuel',
+          body: 'The steam engine made coal into mechanical work anywhere you could move fuel and water. Britain produced roughly 10 million tons of coal in 1800 and more than 200 million by 1900. Factories reorganized time itself: instead of work following seasons and daylight, people followed clocks, shifts, wages, and machines.'
+        },
+        electrical: {
+          title: 'Electricity separates power from place',
+          body: 'Electrification let energy travel through wires and be converted into light, heat, motion, sound, or computation. The 1882 Pearl Street Station in New York served only a small district; within decades, grids became civilization-scale infrastructure. The underrated miracle is standardization: outlets, voltage, motors, transformers, and billing systems all had to agree.'
+        },
+        digital: {
+          title: 'Digital technology makes information programmable',
+          body: 'Analog systems represent information continuously; digital systems represent it with discrete states. That makes copying, error correction, compression, encryption, and general-purpose computation easier. A smartphone is not one tool but a universal machine plus sensors, radio, storage, battery chemistry, cameras, maps, payments, and a software marketplace.'
+        },
+        ai: {
+          title: 'AI automates pattern work',
+          body: 'The current AI wave accelerated after 2012, when deep learning crushed older computer-vision benchmarks, and again after 2017, when the transformer architecture made large language models practical. AI does not replace "thinking" as a single block. It eats tasks: classification, prediction, generation, search, summarization, coding assistance, and control.'
+        }
+      };
+
+      window.showWave = function(key, btn) {
+        document.querySelectorAll('#waveButtons button').forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+        const item = waves[key];
+        document.getElementById('waveDisplay').innerHTML = '<div class="display-kicker">technology wave</div><div class="display-title">' + item.title + '</div><div class="display-body">' + item.body + '</div>';
+      };
+
+      function calculateBinary() {
+        const input = document.getElementById('decimalInput');
+        const out = document.getElementById('binaryOutput');
+        const n = Number(input.value);
+        if (!Number.isInteger(n) || n < 0 || n > 255) {
+          out.textContent = 'Enter a whole number from 0 to 255. One byte can hold exactly 256 possible values.';
+          return;
+        }
+        const bin = n.toString(2).padStart(8, '0');
+        const hex = n.toString(16).toUpperCase().padStart(2, '0');
+        out.innerHTML = n + ' in one byte is <span class="pill p-green">' + bin + '</span>. In hexadecimal it is <span class="pill p-blue">0x' + hex + '</span>. Hex is popular because every hex digit maps cleanly to 4 bits, so two hex digits represent one byte.';
+      }
+
+      document.getElementById('binaryCalcBtn').addEventListener('click', calculateBinary);
+      document.getElementById('decimalInput').addEventListener('input', calculateBinary);
+
+      function updateLatency() {
+        const value = Number(document.getElementById('latencySlider').value);
+        document.getElementById('latencyValue').textContent = value.toLocaleString();
+        let note;
+        if (value < 10) {
+          note = 'You are in cache territory. CPUs are designed around keeping useful data this close, because waiting for farther memory wastes cycles.';
+        } else if (value < 1000) {
+          note = 'This is roughly main-memory territory. To a CPU, RAM is already far away, which is why caches matter so much.';
+        } else if (value < 100000) {
+          note = 'You are beyond normal RAM latency. The processor can do enormous amounts of work while waiting this long.';
+        } else if (value < 1000000) {
+          note = 'This is storage or local-network scale. SSDs feel fast to humans and slow to processors.';
+        } else {
+          note = 'Now you are in network-request territory. Performance engineering often means avoiding this trip, batching it, or hiding it behind useful work.';
+        }
+        document.getElementById('latencyNote').textContent = note;
+      }
+
+      document.getElementById('latencySlider').addEventListener('input', updateLatency);
+
+      const layers = {
+        machine: {
+          title: 'Machine code: the actual instructions',
+          body: 'Machine code is the binary instruction format a CPU understands. Humans almost never write it directly because it is brittle and tied to a processor architecture such as x86-64 or ARM. Compilers translate higher-level languages into this form. The hidden achievement of computing is that one programmer can write "sort this list" and a stack of tools turns it into thousands of precise instructions.'
+        },
+        os: {
+          title: 'Operating system: referee and illusionist',
+          body: 'The operating system allocates CPU time, memory, files, devices, network access, and permissions. It also creates illusions: every program feels like it has its own machine, even though many processes share hardware. Windows, macOS, Linux, iOS, and Android differ in interface and policy, but all perform this coordination.'
+        },
+        runtime: {
+          title: 'Runtime: the language support system',
+          body: 'A runtime is the machinery a language needs while running: memory management, standard libraries, type checks, package loading, garbage collection, or just-in-time compilation. JavaScript in a browser and Python on a server are not merely "text." They rely on engines and libraries that make the code portable enough to run across different machines.'
+        },
+        app: {
+          title: 'Application: decisions turned into interface',
+          body: 'An application is where technical structure becomes user behavior: save a file, order food, edit a photo, message a friend. Good apps hide enormous state management behind a few buttons. Bad apps leak their internal confusion into the interface: duplicate records, mysterious loading, inconsistent permissions, or buttons that do not match the user model.'
+        },
+        api: {
+          title: 'API: a contract between pieces',
+          body: 'An API says what requests are allowed, what data must be supplied, and what response will come back. Payment providers, maps, weather services, identity systems, and AI models are often accessed this way. APIs let teams and companies build on each other without exposing all internal code, but they also create dependency and pricing risk.'
+        },
+        data: {
+          title: 'Data model: the program\'s picture of reality',
+          body: 'The data model defines what entities exist and how they relate: users have accounts, orders contain items, posts have authors, permissions attach to roles. Many software failures are not coding typos but wrong models. If the model cannot represent refunds, time zones, shared custody, maiden names, or edge cases, the product will injure reality until reality pushes back.'
+        }
+      };
+
+      window.showSoftwareLayer = function(key, card) {
+        document.querySelectorAll('#softwareCards .elem-card').forEach(function(c) { c.classList.remove('active'); });
+        if (card) card.classList.add('active');
+        const item = layers[key];
+        const detail = document.getElementById('softwareDetail');
+        detail.classList.add('show');
+        detail.innerHTML = '<div class="display-title">' + item.title + '</div><div class="display-body">' + item.body + '</div>';
+      };
+
+      const attacks = {
+        phishing: {
+          title: 'Phishing: attack the human interface',
+          body: 'Phishing works because people are part of the system. A fake login page, urgent invoice, or cloned support message can steal credentials without breaking cryptography. The strongest defense is phishing-resistant authentication such as passkeys or hardware security keys, plus boring habits: password managers, domain checking, and slowing down when urgency is part of the message.'
+        },
+        ransomware: {
+          title: 'Ransomware: make availability the hostage',
+          body: 'Ransomware encrypts or steals an organization\'s data and demands payment. Hospitals, city governments, schools, and logistics firms are attractive because downtime is costly. Backups help only if they are offline, tested, and restorable. Modern groups often combine encryption with extortion: pay, or stolen files are released.'
+        },
+        ddos: {
+          title: 'DDoS: overwhelm capacity',
+          body: 'A distributed denial-of-service attack floods a service with traffic from many machines, often compromised devices. It does not need to break in; it just needs to make legitimate access impossible. Defense uses filtering, rate limits, anycast networks, traffic scrubbing, and enough spare capacity that the flood becomes expensive.'
+        },
+        supply: {
+          title: 'Supply chain attacks: compromise trust upstream',
+          body: 'Modern software imports thousands of packages, containers, build tools, and vendor services. A supply chain attack poisons something trusted so many downstream targets install the problem themselves. The SolarWinds breach, disclosed in 2020, showed how a signed software update could become a delivery vehicle for espionage.'
+        },
+        zero: {
+          title: 'Zero-days: exploit before defenders know',
+          body: 'A zero-day is a vulnerability unknown to the vendor or without an available patch. These are valuable because normal defenses may not recognize them yet. Governments, spyware companies, and criminal groups all compete in this market. The practical defense is layered: reduce exposed services, sandbox risky code, monitor behavior, and patch quickly once fixes exist.'
+        }
+      };
+
+      window.showAttack = function(key, btn) {
+        document.querySelectorAll('#attackButtons button').forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+        const item = attacks[key];
+        document.getElementById('attackDisplay').innerHTML = '<div class="display-kicker">security case</div><div class="display-title">' + item.title + '</div><div class="display-body">' + item.body + '</div>';
+      };
+
+      function calculateMetadata() {
+        const messages = Number(document.getElementById('messagesInput').value);
+        const locations = Number(document.getElementById('locationsInput').value);
+        const days = Number(document.getElementById('daysInput').value);
+        const out = document.getElementById('metadataOutput');
+        if (messages < 0 || locations < 0 || days < 1 || !Number.isFinite(messages + locations + days)) {
+          out.textContent = 'Use non-negative daily counts and at least one retained day.';
+          return;
+        }
+        const messageRecords = messages * days;
+        const locationRecords = locations * days;
+        const total = messageRecords + locationRecords;
+        out.innerHTML = 'Over ' + days.toLocaleString() + ' days, that creates about <span class="pill p-green">' + total.toLocaleString() + '</span> metadata records: ' + messageRecords.toLocaleString() + ' message events and ' + locationRecords.toLocaleString() + ' location events. Even without message contents, timing, contacts, and movement patterns reveal routines, relationships, sleep, work, travel, and stress.';
+      }
+
+      document.getElementById('metadataCalcBtn').addEventListener('click', calculateMetadata);
+      ['messagesInput', 'locationsInput', 'daysInput'].forEach(function(id) {
+        document.getElementById(id).addEventListener('input', calculateMetadata);
+      });
+
+      const aiItems = {
+        symbolic: {
+          title: 'Symbolic AI: rules and explicit knowledge',
+          body: 'Early AI often tried to encode intelligence as rules: if this condition, then that conclusion. Expert systems worked in narrow domains but became brittle because the real world has too many exceptions. Symbolic methods still matter in planning, theorem proving, compilers, and business rules. The lesson is not that rules failed; it is that hand-writing all common sense is harder than it looks.'
+        },
+        ml: {
+          title: 'Machine learning: fit patterns from examples',
+          body: 'Machine learning replaces hand-written rules with learned parameters. Show the system labeled examples, optimize it to reduce error, then test whether the pattern generalizes. Supervised learning predicts from labels, unsupervised learning finds structure, and reinforcement learning learns through rewards. The danger is that a model can learn the shortcut in the dataset rather than the truth in the world.'
+        },
+        deep: {
+          title: 'Deep learning: representation learning at scale',
+          body: 'Deep neural networks stack layers so early layers learn simple features and later layers combine them into more abstract patterns. In vision, lower layers may detect edges and textures; higher layers detect shapes or objects. Deep learning took off when data, GPUs, better algorithms, and large benchmarks converged. It is powerful because it learns features rather than requiring engineers to specify them.'
+        },
+        llm: {
+          title: 'Large language models: prediction becomes capability',
+          body: 'A language model is trained to predict tokens, but that task forces it to model syntax, facts, style, code, and many reasoning patterns. Transformers use attention so each token can weigh other tokens in the context. Pre-training builds broad capability; instruction tuning and human feedback shape behavior. The model does not retrieve a perfect database. It generates plausible continuations conditioned on context.'
+        },
+        diffusion: {
+          title: 'Diffusion models: learn to reverse noise',
+          body: 'Diffusion image models train by adding noise to images and learning how to remove it step by step. At generation time, they start with noise and iteratively denoise toward an image that matches the prompt. This is why image generation can feel like sculpting from static. The model is not copying a single stored image; it is sampling from a learned distribution, though training data rights remain a serious issue.'
+        },
+        alignment: {
+          title: 'Alignment: make capability obey intent',
+          body: 'Alignment asks whether an AI system does what people actually want, not merely what its objective function rewards. Bias, deception, jailbreaks, overconfidence, tool misuse, and loss of human oversight are all alignment-shaped problems at different scales. Some concerns are immediate product risks; others are frontier governance questions. The common thread is control under uncertainty.'
+        }
+      };
+
+      window.showAI = function(key, btn) {
+        document.querySelectorAll('#aiButtons button').forEach(function(b) { b.classList.remove('active'); });
+        if (btn) btn.classList.add('active');
+        const item = aiItems[key];
+        document.getElementById('aiDisplay').innerHTML = '<div class="display-kicker">AI concept</div><div class="display-title">' + item.title + '</div><div class="display-body">' + item.body + '</div>';
+      };
+
+      function updateTokens() {
+        const tokens = Number(document.getElementById('tokenSlider').value);
+        document.getElementById('tokenValue').textContent = tokens.toLocaleString();
+        const words = Math.round(tokens * 0.75);
+        let note = 'Roughly ' + words.toLocaleString() + ' English words fit in that context. ';
+        if (tokens < 10000) {
+          note += 'This is enough for a long conversation or a short document, but details from earlier may fall out quickly.';
+        } else if (tokens < 60000) {
+          note += 'This can hold reports, code files, or several chapters, though retrieval inside the context is still imperfect.';
+        } else {
+          note += 'This is book-scale. The challenge shifts from "can it fit?" to "can the model use the right part reliably?"';
+        }
+        document.getElementById('tokenNote').textContent = note;
+      }
+
+      document.getElementById('tokenSlider').addEventListener('input', updateTokens);
+
+      const frontier = {
+        quantum: {
+          title: 'Quantum computing: not faster computers, different computers',
+          body: 'Quantum computers use qubits whose states interfere, which can speed up specific algorithms such as Shor\'s factoring algorithm or quantum simulation. They will not make spreadsheets or websites magically faster. The hard problem is error correction: useful machines may need many physical qubits to create one reliable logical qubit. The real near-term value is likely chemistry, materials, and optimization research, not consumer devices.'
+        },
+        bio: {
+          title: 'Biotechnology: code meets cells',
+          body: 'CRISPR-Cas9 made genome editing cheaper and more programmable after 2012. The first CRISPR-based therapy approvals for sickle cell disease showed the field moving from lab promise to medicine. Biology is harder than software because cells are noisy, evolved systems with side effects. Still, sequencing, synthesis, AI protein models, and lab automation are making biology increasingly engineerable.'
+        },
+        robotics: {
+          title: 'Robotics: intelligence must survive contact with physics',
+          body: 'Robots are hard because the real world is continuous, slippery, breakable, and full of edge cases. Industrial robots succeeded first because factories constrain the environment. Humanoid robots are tempting because the human world is built for human bodies, but hands, balance, batteries, safety, and cost remain brutal constraints. Physical AI moves slower than screen AI because atoms are less forgiving than pixels.'
+        },
+        energy: {
+          title: 'Energy technology: the hidden constraint on everything',
+          body: 'Batteries, solar panels, power electronics, grid software, and transmission lines shape what other technologies can do. Lithium-ion battery pack prices fell by roughly 90 percent from 2010 to the early 2020s, enabling modern electric vehicles. But grids are built slowly, and storage must handle not only daily cycles but weather, seasons, regulation, and public acceptance.'
+        },
+        space: {
+          title: 'Space systems: launch cost changes the business model',
+          body: 'Reusable rockets reduced launch costs and made large satellite constellations plausible. The result is less a romantic space age than a data infrastructure age: Earth observation, broadband, navigation, weather, climate monitoring, and military sensing. Space is still harsh, regulated, and expensive, but cheaper launch changes what can be replaced, upgraded, and scaled.'
+        },
+        ar: {
+          title: 'Spatial computing: interfaces leave the rectangle',
+          body: 'Augmented and mixed reality try to place digital objects into the physical world. The challenge is not drawing a floating window; it is latency, optics, comfort, battery life, social acceptability, input, privacy, and making tasks genuinely better. The most useful early versions may be industrial training, surgery planning, design review, and remote assistance rather than all-day consumer glasses.'
+        }
+      };
+
+      window.showFrontier = function(key, card) {
+        document.querySelectorAll('#frontierCards .elem-card').forEach(function(c) { c.classList.remove('active'); });
+        if (card) card.classList.add('active');
+        const item = frontier[key];
+        const detail = document.getElementById('frontierDetail');
+        detail.classList.add('show');
+        detail.innerHTML = '<div class="display-title">' + item.title + '</div><div class="display-body">' + item.body + '</div>';
+      };
+
+      document.querySelectorAll('.qa-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const ans = btn.parentElement.querySelector('.qa-ans');
+          ans.classList.toggle('show');
+          btn.textContent = ans.classList.contains('show') ? 'hide' : 'show answer';
+        });
+      });
+
+      showWave('digital', document.querySelector('#waveButtons button:nth-child(5)'));
+      calculateBinary();
+      updateLatency();
+      showSoftwareLayer('os', document.querySelector('#softwareCards .elem-card:nth-child(2)'));
+      showAttack('phishing', document.querySelector('#attackButtons button:nth-child(1)'));
+      calculateMetadata();
+      showAI('llm', document.querySelector('#aiButtons button:nth-child(4)'));
+      updateTokens();
+      showFrontier('bio', document.querySelector('#frontierCards .elem-card:nth-child(2)'));
+    });
+  </script>
   <script src="../files/shared.js"></script>
 </body>
 </html>

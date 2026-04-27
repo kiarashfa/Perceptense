@@ -3,82 +3,1221 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 38: Crypto — Have a Sense</title>
+  <title>Module 38: Crypto - Have a Sense</title>
+  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <meta name="description" content="Module 38: Blockchain, Bitcoin, Ethereum, DeFi, stablecoins, NFTs, DAOs, regulation, and risk. Part of 'Have a Sense About Everything' - a free, self-directed course.">
+  <meta property="og:title" content="Module 38: Crypto - Have a Sense">
+  <meta property="og:description" content="Blockchain, Bitcoin, Ethereum, DeFi, stablecoins, NFTs, DAOs, regulation, and risk.">
+  <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-    .stub {
-      background: var(--color-background-secondary);
-      border: 0.5px dashed var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 14px 16px; margin-bottom: 10px;
+    :root {
+      --accent: #e07b2a;
+      --accent-bg: var(--color-background-warning);
+      --accent-border: var(--color-border-warning);
     }
-    .stub-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); margin: 0 0 6px; }
-    .stub-tags { display: flex; flex-wrap: wrap; gap: 5px; }
-    .stub-tag {
-      font-size: 11px; padding: 2px 9px; border-radius: 99px;
-      background: var(--color-background-tertiary);
+
+    .module-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 0.6rem;
+    }
+    .module-icon {
+      font-size: 42px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .module-head .module-title {
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+    .teaser-card {
+      background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 14px 15px;
+    }
+    .teaser-num {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .teaser-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.25;
+      margin-bottom: 5px;
+    }
+    .teaser-desc {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .danger-block {
+      background: var(--color-background-danger);
+      border: 0.5px solid var(--color-border-danger);
+      border-radius: var(--border-radius-lg);
+      padding: 12px 14px;
+      color: var(--color-text-danger);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .button-row button {
+      font-size: 12px;
+      padding: 3px 10px;
+    }
+    .button-row button.active,
+    .elem-card.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      font-weight: 600;
+    }
+    .detail-panel {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .detail-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 5px;
+    }
+    .detail-body {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .mini-card {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 9px 11px;
+    }
+    .two-col-grid {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+    .mini-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 2px;
+    }
+    .mini-value {
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.5;
+    }
+
+    .period-chart {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .pc-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 10px;
+    }
+    .pc-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+    .pc-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      width: 138px;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .pc-track {
+      flex: 1;
+      height: 18px;
+      background: var(--color-background-secondary);
+      border-radius: 3px;
+      position: relative;
+      min-width: 240px;
+    }
+    .pc-fill {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+      overflow: hidden;
+    }
+    .pc-fill-label {
+      font-size: 9px;
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .pc-axis {
+      position: relative;
+      height: 18px;
+      margin-left: 146px;
+      margin-bottom: 4px;
+      min-width: 240px;
+    }
+    .pc-axis-mark {
+      position: absolute;
+      transform: translateX(-50%);
+      font-size: 9px;
       color: var(--color-text-tertiary);
+    }
+    .chart-note {
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    .chain-diagram {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+    }
+    .chain-diagram svg {
+      width: 100%;
+      min-width: 620px;
+      display: block;
+    }
+    .svg-title {
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      fill: var(--color-text-primary);
+    }
+    .svg-text {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      fill: var(--color-text-secondary);
+    }
+    .svg-small {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      fill: var(--color-text-tertiary);
+    }
+
+    .slider-card,
+    .calc-card,
+    .scale-card,
+    .dist-card,
+    .bar-chart-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      --bar-label-width: 140px;
+    }
+    .control-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 8px;
+    }
+    .slider-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-top: 3px;
+    }
+    .live-output {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+    }
+
+    .elem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .elem-card {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 11px 12px;
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .elem-card:hover {
+      background: var(--color-background-secondary);
+    }
+    .elem-icon {
+      color: var(--accent);
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+    .elem-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      line-height: 1.3;
+    }
+    .elem-sub {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-top: 2px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 10px;
+    }
+    .calc-label {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      margin-bottom: 3px;
+    }
+    .calc-output {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      min-height: 46px;
+    }
+
+    .cscale-row {
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 9px;
+    }
+    .cscale-name {
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      text-align: right;
+      line-height: 1.3;
+    }
+    .cscale-track {
+      height: 16px;
+      background: var(--color-background-secondary);
+      border-radius: 99px;
+      position: relative;
+    }
+    .cscale-dot {
+      position: absolute;
+      top: 50%;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--accent);
+      border: 2px solid var(--color-background-primary);
+      box-shadow: 0 0 0 0.5px var(--color-border-secondary);
+    }
+    .cscale-poles {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 142px;
+      font-size: 11px;
+      color: var(--color-text-tertiary);
+      line-height: 1.4;
+      gap: 10px;
+    }
+
+    .dist-bar {
+      display: flex;
+      height: 30px;
+      overflow: hidden;
+      border-radius: var(--border-radius-md);
+      background: var(--color-background-secondary);
+      margin-bottom: 10px;
+    }
+    .dist-seg {
+      min-width: 2px;
+      height: 100%;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 12px;
+      margin-bottom: 8px;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--color-text-secondary);
+    }
+    .legend-swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .chart-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 9px;
+    }
+    .bar-row {
+      margin-bottom: 6px;
+    }
+    .bb {
+      background: var(--accent-bg);
+      color: var(--color-text-warning);
+      border: 0.5px solid var(--accent-border);
+    }
+
+    .qa-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px 7px;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 500px) {
+      .pc-label {
+        width: 88px;
+        font-size: 10px;
+      }
+      .pc-axis {
+        margin-left: 96px;
+      }
+      .bl {
+        width: 88px;
+        font-size: 10px;
+      }
+      .bar-chart-card {
+        --bar-label-width: 88px;
+      }
+      .cscale-row {
+        grid-template-columns: 88px 1fr;
+      }
+      .cscale-name {
+        font-size: 10px;
+      }
+      .cscale-poles {
+        margin-left: 98px;
+        font-size: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="page-wrap">
-
-    <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-brands fa-bitcoin" style="font-size:42px; color:#E07B2A; flex-shrink:0;"></i>
-      <h1 class="module-title" style="margin:0; line-height:1.05;">Module 38: Crypto</h1>
+    <div class="module-head">
+      <i class="fa-brands fa-bitcoin module-icon" aria-hidden="true"></i>
+      <h1 class="module-title">Module 38: Crypto</h1>
     </div>
     <p class="module-subtitle">Blockchain, Bitcoin, DeFi, and the promises and problems of decentralised finance</p>
 
-    <!-- ── PART A ── -->
-    <div class="sec">Part A · the problem crypto tries to solve — trust without intermediaries</div>
-    <div class="stub"><div class="stub-title">The double-spend problem — why digital money is hard</div><div class="stub-tags"><span class="stub-tag">Digital scarcity</span><span class="stub-tag">Why banks exist</span><span class="stub-tag">The Byzantine generals problem</span></div></div>
-    <div class="stub"><div class="stub-title">Cryptography basics — the maths underpinning all of crypto</div><div class="stub-tags"><span class="stub-tag">Hash functions</span><span class="stub-tag">Public/private key cryptography</span><span class="stub-tag">Digital signatures</span><span class="stub-tag">Merkle trees</span></div></div>
-    <div class="stub"><div class="stub-title">What Satoshi's Bitcoin whitepaper actually said — and what it proposed</div><div class="stub-tags"><span class="stub-tag">Whitepaper summary</span><span class="stub-tag">Satoshi's identity</span><span class="stub-tag">The original vision</span></div></div>
+    <div class="sec">Part A - the problem crypto tries to solve - trust without intermediaries</div>
 
-    <!-- ── PART B ── -->
-    <div class="sec">Part B · how blockchain works</div>
-    <div class="stub"><div class="stub-title">The blockchain data structure — blocks, chains, and immutability</div><div class="stub-tags"><span class="stub-tag">Block anatomy</span><span class="stub-tag">Chaining via hashes</span><span class="stub-tag">Why tampering is expensive</span><span class="stub-tag">Visual diagram</span></div></div>
-    <div class="stub"><div class="stub-title">Consensus mechanisms — how a decentralised network agrees</div><div class="stub-tags"><span class="stub-tag">Proof of Work</span><span class="stub-tag">Proof of Stake</span><span class="stub-tag">Other consensus types</span><span class="stub-tag">Energy comparison chart</span></div></div>
-    <div class="stub"><div class="stub-title">Mining and validators — who maintains the blockchain and why</div><div class="stub-tags"><span class="stub-tag">Mining economics</span><span class="stub-tag">Hash rate</span><span class="stub-tag">51% attack</span><span class="stub-tag">Validator staking</span></div></div>
-    <div class="stub"><div class="stub-title">Wallets, keys, and addresses — how ownership works in crypto</div><div class="stub-tags"><span class="stub-tag">Public address</span><span class="stub-tag">Private key</span><span class="stub-tag">Seed phrase</span><span class="stub-tag">Custodial vs non-custodial</span></div></div>
-    <div class="stub"><div class="stub-title">The blockchain trilemma — security, scalability, and decentralisation</div><div class="stub-tags"><span class="stub-tag">Trilemma diagram</span><span class="stub-tag">Layer 2 solutions</span><span class="stub-tag">Sharding</span></div></div>
+    <div class="teaser-grid">
+      <div class="teaser-card">
+        <div class="teaser-num">Why this matters</div>
+        <div class="teaser-name">Crypto is a coordination technology, not magic money</div>
+        <div class="teaser-desc">The core idea is stark: can strangers maintain one shared ledger without a bank, state, or platform owner deciding what is true? Bitcoin answered with proof-of-work. Ethereum added programmable contracts. DeFi, stablecoins, NFTs, DAOs, and the regulatory fight are all consequences of that first design move.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">Roadmap</div>
+        <div class="teaser-name">From keys to crashes</div>
+        <div class="teaser-desc">Part A gives the trust problem. Part B opens the blockchain machine. Part C explains Bitcoin's supply and limits. Part D covers Ethereum. Part E enters DeFi. Part F separates applications from hype. Part G gives the risk and regulation picture. Part H handles the sceptical questions.</div>
+      </div>
+      <div class="teaser-card">
+        <div class="teaser-num">Mental model</div>
+        <div class="teaser-name">A database with economic armor</div>
+        <div class="teaser-desc">A blockchain is not efficient in the ordinary software sense. It repeats work across many machines on purpose, because redundancy is the price of not trusting one operator. The question is always whether censorship resistance, open settlement, and self-custody are worth that cost in a given use case.</div>
+      </div>
+    </div>
 
-    <!-- ── PART C ── -->
-    <div class="sec">Part C · Bitcoin — the original and what it is (and isn't)</div>
-    <div class="stub"><div class="stub-title">Bitcoin as digital gold — the store of value thesis</div><div class="stub-tags"><span class="stub-tag">Fixed supply (21M)</span><span class="stub-tag">Halving cycles</span><span class="stub-tag">Inflation hedge argument</span><span class="stub-tag">Counterarguments</span></div></div>
-    <div class="stub"><div class="stub-title">Bitcoin's price history — bubbles, crashes, and cycles</div><div class="stub-tags"><span class="stub-tag">Major price chart</span><span class="stub-tag">Bull/bear cycles</span><span class="stub-tag">Institutional adoption</span><span class="stub-tag">ETF approval</span></div></div>
-    <div class="stub"><div class="stub-title">Bitcoin's limitations as currency — why it mostly isn't used for payments</div><div class="stub-tags"><span class="stub-tag">Volatility problem</span><span class="stub-tag">Transaction speed & fees</span><span class="stub-tag">Lightning Network</span></div></div>
+    <div class="button-row" id="trustButtons" aria-label="Crypto foundations explorer">
+      <button data-key="double">Double-spend</button>
+      <button data-key="hashes">Hash functions</button>
+      <button data-key="keys">Public keys</button>
+      <button data-key="signatures">Signatures</button>
+      <button data-key="merkle">Merkle trees</button>
+      <button data-key="satoshi">Satoshi</button>
+    </div>
+    <div class="detail-panel" id="trustDisplay"></div>
 
-    <!-- ── PART D ── -->
-    <div class="sec">Part D · Ethereum and smart contracts</div>
-    <div class="stub"><div class="stub-title">What Ethereum added — programmable blockchain and smart contracts</div><div class="stub-tags"><span class="stub-tag">Smart contract concept</span><span class="stub-tag">The EVM</span><span class="stub-tag">Solidity basics</span><span class="stub-tag">Gas fees</span></div></div>
-    <div class="stub"><div class="stub-title">The Ethereum ecosystem — tokens, protocols, and applications</div><div class="stub-tags"><span class="stub-tag">ERC-20 tokens</span><span class="stub-tag">ERC-721 (NFTs)</span><span class="stub-tag">DApps</span><span class="stub-tag">The Merge (PoS transition)</span></div></div>
-    <div class="stub"><div class="stub-title">Other major chains — and the multi-chain landscape</div><div class="stub-tags"><span class="stub-tag">Solana</span><span class="stub-tag">BNB Chain</span><span class="stub-tag">Layer 2s (Arbitrum, Optimism)</span><span class="stub-tag">Chain comparison chart</span></div></div>
+    <div class="info-block">The common misconception is that Bitcoin made copying digital files impossible. It did not. It made it economically and socially difficult to rewrite a particular shared history of ownership. That is subtler, and much more powerful.</div>
 
-    <!-- ── PART E ── -->
-    <div class="sec">Part E · DeFi — decentralised finance</div>
-    <div class="stub"><div class="stub-title">What DeFi is — replacing banks with code</div><div class="stub-tags"><span class="stub-tag">DeFi vs TradFi</span><span class="stub-tag">Permissionless access</span><span class="stub-tag">Composability ("money legos")</span></div></div>
-    <div class="stub"><div class="stub-title">DEXs, lending protocols, and yield farming</div><div class="stub-tags"><span class="stub-tag">Uniswap & AMMs</span><span class="stub-tag">Aave & Compound</span><span class="stub-tag">Liquidity pools</span><span class="stub-tag">APY reality vs advertising</span></div></div>
-    <div class="stub"><div class="stub-title">Stablecoins — the connective tissue of crypto</div><div class="stub-tags"><span class="stub-tag">Fiat-backed (USDC, USDT)</span><span class="stub-tag">Algorithmic stablecoins</span><span class="stub-tag">UST collapse case study</span><span class="stub-tag">CBDC comparison</span></div></div>
-    <div class="stub"><div class="stub-title">DeFi risks — hacks, exploits, rug pulls, and smart contract bugs</div><div class="stub-tags"><span class="stub-tag">Major hacks timeline</span><span class="stub-tag">Rug pull mechanics</span><span class="stub-tag">Impermanent loss</span><span class="stub-tag">Audits & their limits</span></div></div>
+    <div class="sec">Part B - how blockchain works</div>
 
-    <!-- ── PART F ── -->
-    <div class="sec">Part F · NFTs, DAOs, and other crypto applications</div>
-    <div class="stub"><div class="stub-title">NFTs — what they are, what they aren't, and what happened</div><div class="stub-tags"><span class="stub-tag">Non-fungibility explained</span><span class="stub-tag">2021 boom & bust chart</span><span class="stub-tag">What you actually own</span><span class="stub-tag">Legitimate use cases</span></div></div>
-    <div class="stub"><div class="stub-title">DAOs — decentralised autonomous organisations</div><div class="stub-tags"><span class="stub-tag">DAO governance mechanics</span><span class="stub-tag">Token voting</span><span class="stub-tag">Real examples</span><span class="stub-tag">Limitations</span></div></div>
-    <div class="stub"><div class="stub-title">Web3 — the vision of a decentralised internet</div><div class="stub-tags"><span class="stub-tag">Web1 / Web2 / Web3</span><span class="stub-tag">The promise</span><span class="stub-tag">The criticism</span></div></div>
+    <div class="chain-diagram">
+      <svg viewBox="0 0 780 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blockchain structure diagram">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--color-text-tertiary)"></path>
+          </marker>
+        </defs>
+        <rect x="18" y="34" width="155" height="154" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <rect x="218" y="34" width="155" height="154" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <rect x="418" y="34" width="155" height="154" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
+        <rect x="618" y="34" width="145" height="154" rx="10" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
 
-    <!-- ── PART G ── -->
-    <div class="sec">Part G · regulation, risks, and the bigger picture</div>
-    <div class="stub"><div class="stub-title">The regulatory landscape — how governments are responding to crypto</div><div class="stub-tags"><span class="stub-tag">US SEC approach</span><span class="stub-tag">EU MiCA</span><span class="stub-tag">China ban</span><span class="stub-tag">El Salvador</span><span class="stub-tag">Global map</span></div></div>
-    <div class="stub"><div class="stub-title">Major collapses — FTX, Terra/Luna, and what they reveal</div><div class="stub-tags"><span class="stub-tag">FTX case study</span><span class="stub-tag">Terra/Luna collapse</span><span class="stub-tag">Common failure patterns</span></div></div>
-    <div class="stub"><div class="stub-title">The environmental impact of crypto — energy, e-waste, and PoS transition</div><div class="stub-tags"><span class="stub-tag">Bitcoin energy use</span><span class="stub-tag">Country comparisons</span><span class="stub-tag">PoS reduction</span><span class="stub-tag">Renewable mining</span></div></div>
-    <div class="stub"><div class="stub-title">The honest balance sheet — what crypto has and hasn't delivered</div><div class="stub-tags"><span class="stub-tag">Genuine innovations</span><span class="stub-tag">Failed promises</span><span class="stub-tag">Emerging real use cases</span><span class="stub-tag">Sanity check</span></div></div>
+        <text x="36" y="62" class="svg-title">Block 840000</text>
+        <text x="36" y="86" class="svg-text">previous hash</text>
+        <text x="36" y="106" class="svg-text">transactions</text>
+        <text x="36" y="126" class="svg-text">timestamp</text>
+        <text x="36" y="146" class="svg-text">nonce</text>
+        <text x="36" y="166" class="svg-small">hash: 000000...</text>
+
+        <text x="236" y="62" class="svg-title">Block 840001</text>
+        <text x="236" y="86" class="svg-text">points back</text>
+        <text x="236" y="106" class="svg-text">new transactions</text>
+        <text x="236" y="126" class="svg-text">new proof</text>
+        <text x="236" y="146" class="svg-text">new state</text>
+        <text x="236" y="166" class="svg-small">hash: 000000...</text>
+
+        <text x="436" y="62" class="svg-title">Block 840002</text>
+        <text x="436" y="86" class="svg-text">points back</text>
+        <text x="436" y="106" class="svg-text">valid signatures</text>
+        <text x="436" y="126" class="svg-text">fees included</text>
+        <text x="436" y="146" class="svg-text">consensus rule</text>
+        <text x="436" y="166" class="svg-small">hash: 000000...</text>
+
+        <text x="636" y="62" class="svg-title">Attacker</text>
+        <text x="636" y="86" class="svg-text">changes an old</text>
+        <text x="636" y="106" class="svg-text">transaction</text>
+        <text x="636" y="126" class="svg-text">then must redo</text>
+        <text x="636" y="146" class="svg-text">every later proof</text>
+        <text x="636" y="166" class="svg-small">and outrun everyone</text>
+
+        <line x1="173" y1="111" x2="218" y2="111" stroke="var(--color-text-tertiary)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="373" y1="111" x2="418" y2="111" stroke="var(--color-text-tertiary)" stroke-width="2" marker-end="url(#arrow)"></line>
+        <line x1="573" y1="111" x2="618" y2="111" stroke="var(--color-text-tertiary)" stroke-width="2" marker-end="url(#arrow)"></line>
+
+        <path d="M 78 202 C 170 236, 265 236, 356 202" fill="none" stroke="var(--accent)" stroke-width="2"></path>
+        <path d="M 278 202 C 370 236, 465 236, 556 202" fill="none" stroke="var(--accent)" stroke-width="2"></path>
+        <text x="217" y="238" class="svg-small" text-anchor="middle">Each block commits to the one before it</text>
+        <text x="416" y="238" class="svg-small" text-anchor="middle">Tampering breaks the future chain</text>
+      </svg>
+    </div>
+
+    <div class="period-chart">
+      <div class="pc-title">Crypto eras and infrastructure, 1983-2026</div>
+      <div class="pc-axis" id="eraAxis"></div>
+      <div id="eraRows"></div>
+      <div class="chart-note">Bars show approximate periods when an idea became technically or culturally important. The systems overlap heavily: Bitcoin did not end cypherpunk thinking, and stablecoins did not end Bitcoin.</div>
+    </div>
+
+    <div class="cgrid two-col-grid">
+      <div class="card">
+        <div class="clabel">Proof-of-work</div>
+        <div class="cval">expensive truth</div>
+        <p class="cnote">Miners repeatedly hash candidate blocks until one falls below the network target. The work is useless except for one purpose: it makes rewriting history expensive. Bitcoin adjusts difficulty every 2,016 blocks, roughly two weeks, so blocks keep arriving near a 10-minute average even when mining hardware changes.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Proof-of-stake</div>
+        <div class="cval">bonded truth</div>
+        <p class="cnote">Validators lock capital and risk losing it if they violate consensus rules. Ethereum's September 15, 2022 Merge removed proof-of-work mining and cut Ethereum energy use by about 99.95 percent. The tradeoff is different: less energy, but more attention to stake concentration, governance, and client diversity.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Wallets</div>
+        <div class="cval">keys, not coins</div>
+        <p class="cnote">A wallet usually holds private keys, not cryptocurrency itself. The coins or tokens are ledger entries; the private key authorizes movement. A 12 or 24 word seed phrase can recreate keys, which is elegant and terrifying: lose it and nobody can reset your account, leak it and nobody can reverse the theft.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part C - Bitcoin - the original and what it is, and is not</div>
+
+    <div class="slider-card">
+      <div class="control-title">Bitcoin halving slider: block subsidy over time</div>
+      <input type="range" id="halvingSlider" min="0" max="7" step="1" value="4">
+      <div class="slider-meta"><span>2009 genesis</span><span>Current era and beyond</span></div>
+      <div class="live-output" id="halvingOutput"></div>
+    </div>
+
+    <div class="bar-chart-card">
+      <div class="chart-title">Bitcoin block subsidy by halving era</div>
+      <div id="subsidyBars"></div>
+      <div class="chart-note">Units are bitcoin newly issued per block, excluding transaction fees. Halvings occur every 210,000 blocks, so exact calendar dates drift with block production.</div>
+    </div>
+
+    <div class="dist-card">
+      <div class="control-title">Bitcoin's 21 million supply distribution by issuance era</div>
+      <div class="dist-bar" id="supplyDist"></div>
+      <div class="legend" id="supplyLegend"></div>
+      <div class="chart-note">The first four subsidy eras issued 93.75 percent of all bitcoin that will ever exist. The remaining 6.25 percent is stretched across more than a century, which is why Bitcoin's monetary story is mostly about early issuance and later scarcity.</div>
+    </div>
+
+    <div class="warning-block">Bitcoin is often called "digital gold," but the analogy is imperfect. Gold has industrial use, jewelry demand, and thousands of years of social history. Bitcoin has programmed scarcity, portability, auditability, and no issuer. The store-of-value thesis is not that Bitcoin is already stable; it is that a credible fixed-supply asset can become more stable if ownership and liquidity keep broadening.</div>
+
+    <div class="sec">Part D - Ethereum and smart contracts</div>
+
+    <div class="elem-grid" id="ethCards">
+      <div class="elem-card" data-key="evm" tabindex="0">
+        <div class="elem-icon"><i class="fa-solid fa-microchip"></i></div>
+        <div class="elem-name">EVM</div>
+        <div class="elem-sub">the shared computer</div>
+      </div>
+      <div class="elem-card" data-key="gas" tabindex="0">
+        <div class="elem-icon"><i class="fa-solid fa-gauge-high"></i></div>
+        <div class="elem-name">Gas</div>
+        <div class="elem-sub">metering scarce compute</div>
+      </div>
+      <div class="elem-card" data-key="erc20" tabindex="0">
+        <div class="elem-icon"><i class="fa-solid fa-coins"></i></div>
+        <div class="elem-name">ERC-20</div>
+        <div class="elem-sub">fungible tokens</div>
+      </div>
+      <div class="elem-card" data-key="nft" tabindex="0">
+        <div class="elem-icon"><i class="fa-regular fa-gem"></i></div>
+        <div class="elem-name">ERC-721</div>
+        <div class="elem-sub">unique tokens</div>
+      </div>
+      <div class="elem-card" data-key="rollups" tabindex="0">
+        <div class="elem-icon"><i class="fa-solid fa-layer-group"></i></div>
+        <div class="elem-name">Rollups</div>
+        <div class="elem-sub">scale off-chain</div>
+      </div>
+      <div class="elem-card" data-key="oracles" tabindex="0">
+        <div class="elem-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+        <div class="elem-name">Oracles</div>
+        <div class="elem-sub">outside data</div>
+      </div>
+    </div>
+    <div class="elem-detail elem-detail-panel" id="ethDetail"></div>
+
+    <div class="scale-card">
+      <div class="control-title">Chain tradeoff scale: settlement conservatism to speed</div>
+      <div id="chainScale"></div>
+      <div class="cscale-poles"><span>slower, more conservative base settlement</span><span>faster, higher throughput execution</span></div>
+      <div class="chart-note">Positions are qualitative, not a score. Throughput claims also change with network load, hardware assumptions, and whether you count base layer or layer 2 execution.</div>
+    </div>
+
+    <div class="sec">Part E - DeFi - decentralised finance</div>
+
+    <div class="cgrid two-col-grid">
+      <div class="card">
+        <div class="clabel">Uniswap and AMMs</div>
+        <div class="cval">prices from pools</div>
+        <p class="cnote">Uniswap's x*y=k design lets people trade against a pool instead of an order book. If a pool has 100 ETH and 300,000 USDC, the implied price is about 3,000 USDC per ETH before fees and slippage. Arbitrageurs keep the pool near external market prices, which means liquidity providers are effectively selling what rises and buying what falls.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Lending protocols</div>
+        <div class="cval">collateral first</div>
+        <p class="cnote">Aave and Compound do not lend like banks. They usually overcollateralize loans, so a borrower might deposit 10,000 dollars of ETH to borrow 6,000 dollars of USDC. If collateral falls too far, liquidators repay debt and seize collateral at a discount. This is automated credit without personal credit scoring.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Stablecoins</div>
+        <div class="cval">crypto's dollar rail</div>
+        <p class="cnote">Stablecoins are the workhorse of crypto because they remove volatility while keeping blockchain settlement. USDT and USDC are fiat-backed promises; DAI is crypto-collateralized; TerraUSD was algorithmic and collapsed in May 2022. The lesson is simple: a stablecoin is only as good as its collateral, redemption mechanism, and panic behavior.</p>
+      </div>
+    </div>
+
+    <div class="calc-card">
+      <div class="control-title">Impermanent loss calculator for a 50/50 liquidity pool</div>
+      <div class="calc-grid">
+        <div>
+          <div class="calc-label">Price change of one asset (%)</div>
+          <input type="number" id="ilChange" value="100" min="-95" max="10000" step="5">
+        </div>
+        <div>
+          <div class="calc-label">Trading fees earned (%)</div>
+          <input type="number" id="ilFees" value="3" min="0" max="100" step="0.1">
+        </div>
+        <button id="ilButton">Calculate</button>
+      </div>
+      <div class="calc-output" id="ilOutput"></div>
+    </div>
+
+    <div class="danger-block">The word "yield" is dangerous in DeFi. Sometimes it means real fees paid by traders or borrowers. Sometimes it means token emissions that dilute holders. Sometimes it means hidden leverage. The right question is never "what APY?" It is "who is paying me, why, in what asset, and what can break?"</div>
+
+    <div class="sec">Part F - NFTs, DAOs, and other crypto applications</div>
+
+    <div class="button-row" id="appButtons" aria-label="Crypto applications explorer">
+      <button data-key="nfts">NFTs</button>
+      <button data-key="daos">DAOs</button>
+      <button data-key="web3">Web3 identity</button>
+      <button data-key="payments">Payments</button>
+      <button data-key="tokenization">Tokenization</button>
+    </div>
+    <div class="detail-panel" id="appDisplay"></div>
+
+    <div class="scale-card">
+      <div class="control-title">Application reality scale: proven utility to speculative theatre</div>
+      <div id="appScale"></div>
+      <div class="cscale-poles"><span>already useful in specific niches</span><span>often narrative-led or immature</span></div>
+    </div>
+
+    <div class="info-block">NFTs did not mean "you own the JPEG." Usually they meant you owned a token whose metadata points to media, rights, or a community promise. The strongest NFT use cases are not expensive profile pictures; they are scarce digital objects, tickets, game items, provenance records, membership credentials, and royalty-aware editions where the token is part of a larger system.</div>
+
+    <div class="sec">Part G - regulation, risks, and the bigger picture</div>
+
+    <div class="button-row" id="riskButtons" aria-label="Crypto risk and regulation explorer">
+      <button data-key="sec">US SEC</button>
+      <button data-key="mica">EU MiCA</button>
+      <button data-key="china">China</button>
+      <button data-key="elsalvador">El Salvador</button>
+      <button data-key="ftx">FTX</button>
+      <button data-key="terra">Terra/Luna</button>
+      <button data-key="energy">Energy</button>
+    </div>
+    <div class="detail-panel" id="riskDisplay"></div>
+
+    <div class="bar-chart-card">
+      <div class="chart-title">What can fail in crypto systems</div>
+      <div id="failureBars"></div>
+      <div class="chart-note">Percentages are a teaching weight, not an industry measurement. Real incidents often combine categories: FTX was custody plus governance plus fraud; Terra was design plus liquidity plus reflexive incentives.</div>
+    </div>
+
+    <div class="cgrid two-col-grid">
+      <div class="card">
+        <div class="clabel">Real innovations</div>
+        <div class="cval">settlement, self-custody, composability</div>
+        <p class="cnote">Crypto proved that open networks can move value globally, keep public audit trails, and let software contracts compose like APIs. Stablecoin settlement, Bitcoin custody, and Ethereum smart contracts are not imaginary achievements. The useful parts are strongest where existing finance is slow, exclusionary, expensive, or politically risky.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Failed promises</div>
+        <div class="cval">mass adoption, fairness, easy yield</div>
+        <p class="cnote">Many promises collapsed under incentives. Token voting often gives whales control. "Banking the unbanked" can become "selling volatile risk to people with fewer protections." Decentralisation can be superficial when front ends, bridges, stablecoins, venture allocations, and governance keys remain concentrated.</p>
+      </div>
+      <div class="card">
+        <div class="clabel">Sanity check</div>
+        <div class="cval">ask who bears loss</div>
+        <p class="cnote">Every crypto design has a loss allocation rule. In a bank failure, deposit insurance, regulators, shareholders, creditors, and courts fight over loss. In crypto, loss may fall instantly on key holders, liquidity providers, token buyers, bridge users, or governance voters. The absence of an intermediary does not mean the absence of trust. It means trust moved.</p>
+      </div>
+    </div>
+
+    <div class="sec">Part H · Q&A</div>
+
+    <div class="qa-wrap">
+      <div class="qa">
+        <p class="qa-q">If blockchains are so inefficient, why use them at all?</p>
+        <button class="qa-btn">show answer</button>
+        <div class="qa-ans">Use them when the inefficiency buys something valuable: censorship resistance, shared settlement between parties that do not trust one operator, self-custody, or public auditability. A normal database is better for a payroll app, a private inventory system, or a social network run by one company. A blockchain starts making sense when the operator itself is the risk. That is why the strongest cases cluster around money, settlement, and assets that need neutral infrastructure.</div>
+      </div>
+
+      <div class="qa">
+        <p class="qa-q">Is Bitcoin anonymous?</p>
+        <button class="qa-btn">show answer</button>
+        <div class="qa-ans">Bitcoin is pseudonymous, not anonymous. Addresses are strings, but every transaction is public forever, so blockchain analytics firms can cluster behavior and connect addresses to exchanges, sanctions lists, hacks, and real identities. Privacy can improve with careful coin control or privacy tools, but ordinary users leak information constantly. Cash is often more private in daily life than transparent blockchains.</div>
+      </div>
+
+      <div class="qa">
+        <p class="qa-q">Did Ethereum's Merge make transactions cheaper?</p>
+        <button class="qa-btn">show answer</button>
+        <div class="qa-ans">No. The Merge changed Ethereum's consensus from proof-of-work to proof-of-stake, and it cut energy use by about 99.95 percent. It did not by itself increase execution capacity enough to make gas cheap. The cheaper-transaction strategy is rollups plus data availability improvements, such as the Dencun upgrade in 2024, not the Merge alone.</div>
+      </div>
+
+      <div class="qa">
+        <p class="qa-q">Are stablecoins safer than volatile crypto?</p>
+        <button class="qa-btn">show answer</button>
+        <div class="qa-ans">They are safer on price volatility, but they introduce issuer, reserve, legal, and redemption risk. A fiat-backed stablecoin depends on the quality and accessibility of its reserves. A crypto-backed stablecoin depends on collateral liquidation during stress. An algorithmic stablecoin that relies mainly on confidence can fail with brutal speed, as TerraUSD showed in May 2022.</div>
+      </div>
+
+      <div class="qa">
+        <p class="qa-q">Was FTX a failure of blockchain technology?</p>
+        <button class="qa-btn">show answer</button>
+        <div class="qa-ans">FTX was mostly a failure of centralized custody, governance, internal controls, and fraud. Customers thought they had assets held by an exchange; the business allegedly treated customer assets as available funding for related trading activity. That is not a smart contract exploit. The irony is sharp: one of crypto's biggest disasters looked a lot like an old-fashioned financial fraud with a crypto wrapper.</div>
+      </div>
+
+      <div class="qa">
+        <p class="qa-q">What is the best single question before buying any token?</p>
+        <button class="qa-btn">show answer</button>
+        <div class="qa-ans">Ask: what gives this token durable demand that is not just the hope someone later pays more? For Bitcoin, the answer is fixed-supply settlement and monetary premium. For ETH, it is payment for blockspace, staking, and collateral in an application ecosystem. For many tokens, the honest answer is weak: governance rights nobody uses, emissions, insider unlocks, or vibes with a ticker symbol.</div>
+      </div>
+    </div>
 
   </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      const trustItems = {
+        double: {
+          title: 'The double-spend problem',
+          body: 'Digital information is easy to copy. If a digital coin is just a file, the owner can duplicate it and pay two people. Banks solve this by keeping the authoritative ledger and rejecting the second spend. Bitcoin solved it without a bank by making one public transaction history costly to rewrite and easy for nodes to verify.',
+          facts: [
+            ['Why banks exist here', 'A trusted ledger prevents the same balance from being spent twice.'],
+            ['Bitcoin answer', 'Proof-of-work orders transactions into blocks and makes conflicting history expensive.'],
+            ['Byzantine flavor', 'The network assumes some participants are dishonest, delayed, or offline.']
+          ]
+        },
+        hashes: {
+          title: 'Hash functions: fingerprints for data',
+          body: 'A cryptographic hash turns any input into a fixed-size output. Bitcoin uses SHA-256, producing 256-bit hashes. A tiny change in input completely changes the output, and finding an input that produces a chosen output should be computationally infeasible. This lets blocks commit to transaction data with compact fingerprints.',
+          facts: [
+            ['One-way', 'You can hash data quickly, but cannot practically reverse the hash.'],
+            ['Avalanche effect', 'Change one character and the result looks unrelated.'],
+            ['Mining link', 'Miners search for a block hash below a difficulty target.']
+          ]
+        },
+        keys: {
+          title: 'Public and private keys',
+          body: 'A private key is a secret number. A public key, and usually an address derived from it, can be shared. The clever part is asymmetry: the private key can create proof that it authorized a transaction, while everyone else can verify that proof without learning the private key. Ownership becomes the ability to sign.',
+          facts: [
+            ['Private key', 'A secret that must never be exposed.'],
+            ['Public address', 'A receive identifier, not a username and not a password.'],
+            ['Self-custody', 'Powerful because no account reset exists.']
+          ]
+        },
+        signatures: {
+          title: 'Digital signatures',
+          body: 'A digital signature proves that a private key approved a specific message. In crypto, the message is usually a transaction: spend these coins, send them there, pay this fee. Nodes verify signatures before accepting transactions. This is why someone can broadcast a transaction through hostile networks without trusting the messenger.',
+          facts: [
+            ['Authenticity', 'The right private key signed the transaction.'],
+            ['Integrity', 'If the transaction changes, the signature no longer verifies.'],
+            ['Non-reversal', 'Valid signatures do not prove wisdom, only authorization.']
+          ]
+        },
+        merkle: {
+          title: 'Merkle trees',
+          body: 'A Merkle tree hashes transactions in pairs until one root hash summarizes the whole block. A light client can verify that a transaction is included in a block with only a short proof, rather than downloading every transaction. This is an old computer science trick, but blockchains made it famous because compact verification is central to decentralisation.',
+          facts: [
+            ['Root hash', 'One digest commits to all transactions in the block.'],
+            ['Efficient proof', 'You can prove inclusion with a logarithmic path.'],
+            ['Tamper signal', 'Alter one transaction and the Merkle root changes.']
+          ]
+        },
+        satoshi: {
+          title: 'What Satoshi actually proposed',
+          body: 'The Bitcoin whitepaper was posted on October 31, 2008 under the name Satoshi Nakamoto. It proposed a peer-to-peer electronic cash system using proof-of-work to create a timestamped public ledger. Satoshi did not claim to remove trust from the universe. The claim was narrower: replace a trusted payment intermediary with verification, incentives, and probabilistic finality.',
+          facts: [
+            ['Launch', 'The Bitcoin network began with the genesis block on January 3, 2009.'],
+            ['Supply', 'The protocol caps issuance at 21 million bitcoin.'],
+            ['Identity', 'Satoshi remains unknown, which helps Bitcoin avoid a founder authority.']
+          ]
+        }
+      };
+
+      const ethItems = {
+        evm: {
+          title: 'Ethereum Virtual Machine',
+          body: 'The EVM is the shared execution environment for Ethereum smart contracts. Every full node can independently run contract code and agree on the same result. That sounds wildly inefficient, and it is, but the point is determinism: thousands of machines can verify one canonical state transition without trusting the machine that proposed it.',
+          facts: [
+            ['Smart contract', 'Code deployed to an address and triggered by transactions.'],
+            ['Solidity', 'The dominant contract language, designed around EVM behavior.'],
+            ['Risk', 'Bugs can become irreversible money movement.']
+          ]
+        },
+        gas: {
+          title: 'Gas fees',
+          body: 'Gas is Ethereum\'s metering system. Each operation costs gas, and users pay for the computation and storage they consume. Fees also ration blockspace when demand spikes. This is why a popular mint or liquidation cascade can make simple transfers expensive: users are bidding for the same scarce settlement resource.',
+          facts: [
+            ['Base fee', 'Burned under EIP-1559 rather than fully paid to validators.'],
+            ['Priority fee', 'A tip to encourage inclusion.'],
+            ['Design purpose', 'Prevent infinite loops and spam from being free.']
+          ]
+        },
+        erc20: {
+          title: 'ERC-20 tokens',
+          body: 'ERC-20 is a standard interface for fungible tokens. If a token follows it, wallets, exchanges, and DeFi protocols can interact with it predictably. This standardization created a Cambrian explosion: governance tokens, stablecoins, wrapped assets, reward tokens, and plenty of junk all use the same basic pattern.',
+          facts: [
+            ['Fungible', 'One unit is interchangeable with another unit.'],
+            ['Examples', 'USDC, UNI, LINK, and many wrapped assets.'],
+            ['Misconception', 'Creating a token is easy; creating durable value is hard.']
+          ]
+        },
+        nft: {
+          title: 'ERC-721 and non-fungible tokens',
+          body: 'ERC-721 gives each token a unique identifier. That makes it useful for digital collectibles, membership passes, game assets, and provenance records. The token is the registry entry; the media or rights may live elsewhere. The market forgot this distinction during the 2021 boom, when ownership language often outran legal reality.',
+          facts: [
+            ['Non-fungible', 'Token 12 is distinct from token 13.'],
+            ['Metadata', 'Often points to JSON and media stored off-chain or on IPFS.'],
+            ['Useful question', 'What rights, access, or function does the token actually confer?']
+          ]
+        },
+        rollups: {
+          title: 'Rollups',
+          body: 'Rollups execute many transactions away from the Ethereum base layer, then post compressed data or proofs back to Ethereum. Optimistic rollups assume validity unless challenged. Zero-knowledge rollups post cryptographic proofs of valid execution. In both cases, the ambition is to make Ethereum the settlement layer while cheaper systems handle activity.',
+          facts: [
+            ['Examples', 'Arbitrum, Optimism, Base, zkSync, Starknet.'],
+            ['Tradeoff', 'Cheaper fees, but more bridge and sequencer complexity.'],
+            ['Big idea', 'Scale by moving execution, not by making every base node do everything.']
+          ]
+        },
+        oracles: {
+          title: 'Oracles',
+          body: 'Blockchains cannot directly know the ETH/USD price, weather in Paris, or whether a shipment arrived. Oracles bring outside information on-chain. That makes them essential for lending, derivatives, insurance, and prediction markets. It also creates a trust edge: the contract may be decentralized, but the data source can still be attacked or manipulated.',
+          facts: [
+            ['Example', 'Chainlink aggregates price feeds for many DeFi protocols.'],
+            ['Oracle problem', 'Truth outside the chain must be imported somehow.'],
+            ['Attack path', 'Thin liquidity can distort a price feed and trigger bad liquidations.']
+          ]
+        }
+      };
+
+      const appItems = {
+        nfts: {
+          title: 'NFTs: scarce entries, not automatic copyright',
+          body: 'An NFT is a unique token. It can represent art, a ticket, a game item, a membership, or a claim inside a specific system. The 2021 profile-picture mania treated tokens as status goods and speculative inventory. The durable lesson is narrower: blockchains can create portable digital scarcity, but the surrounding legal and cultural rights still matter.'
+        },
+        daos: {
+          title: 'DAOs: organizations with on-chain rails',
+          body: 'A DAO usually combines a treasury, governance token, voting process, and smart contracts. MakerDAO, Uniswap governance, and Nouns DAO show different versions of this pattern. The hard part is not putting votes on-chain. The hard part is avoiding plutocracy, voter apathy, delegate capture, and legal ambiguity when real money and real liability appear.'
+        },
+        web3: {
+          title: 'Web3 identity: login with a wallet',
+          body: 'A wallet can act as a portable account that is not owned by a platform. That is genuinely useful for signatures, asset inventories, and cross-application identity. But it also creates rough edges: losing a key can mean losing identity, and public wallet histories can expose more than users expect. The best designs separate authentication, privacy, and recovery.'
+        },
+        payments: {
+          title: 'Payments: strongest where rails are weak',
+          body: 'Crypto payments are awkward for buying coffee in rich countries with good card networks. They are more compelling for cross-border settlement, dollar access through stablecoins, and situations where banking rails are slow or politicized. The catch is that user experience, fraud protection, taxes, and volatility still matter. Settlement is only one part of payments.'
+        },
+        tokenization: {
+          title: 'Tokenization: old assets on new rails',
+          body: 'Tokenization puts claims on assets like Treasury bills, funds, credits, or real estate onto blockchain rails. The useful part is programmable settlement and easier composability. The constraint is legal reality: a token for a house or bond is only meaningful if courts, custodians, and issuers honor the claim. Tokenization is finance plus paperwork, not paperwork disappearing.'
+        }
+      };
+
+      const riskItems = {
+        sec: {
+          title: 'United States: enforcement, courts, and ETFs',
+          body: 'The US has treated much of crypto through securities, commodities, banking, tax, and money-transmission law rather than one unified crypto statute. The SEC approved spot Bitcoin exchange-traded products on January 10, 2024, while warning that approval was not an endorsement of Bitcoin. Spot ether ETFs began trading in July 2024. The unresolved fight is classification: when is a token a security, a commodity, or something else?'
+        },
+        mica: {
+          title: 'European Union: MiCA',
+          body: 'The EU\'s Markets in Crypto-Assets Regulation, MiCA, entered into force in 2023, began applying to stablecoin issuers on June 30, 2024, and became broadly applicable on December 30, 2024. Its goal is consumer protection, market integrity, reserve rules, and licensing for crypto-asset service providers. It is not perfect, but it is a serious attempt at one regional rulebook.'
+        },
+        china: {
+          title: 'China: ban the trading, keep the blockchain research',
+          body: 'China moved aggressively against crypto trading and mining, culminating in the 2021 crackdown that pushed a large share of Bitcoin hash rate out of the country. The state did not reject digital finance. It pursued the digital yuan and controlled blockchain infrastructure. The lesson is that governments can dislike open, permissionless money while still wanting programmable ledgers.'
+        },
+        elsalvador: {
+          title: 'El Salvador: Bitcoin as legal tender',
+          body: 'El Salvador made Bitcoin legal tender in 2021 under President Nayib Bukele. The move was symbolically huge and practically mixed: it promoted tourism, branding, and treasury speculation, while everyday payment adoption remained limited. It showed that sovereign adoption can move narratives, but legal tender status does not automatically create merchant demand, price stability, or broad trust.'
+        },
+        ftx: {
+          title: 'FTX: old finance failure in crypto clothing',
+          body: 'FTX collapsed in November 2022 after a liquidity crisis revealed severe misuse of customer assets and control failures. Sam Bankman-Fried was convicted in 2023 and sentenced in 2024. The blockchain did not fail to process transactions; a centralized exchange failed to safeguard customer property. The lesson is proof of reserves, segregation of assets, governance, and suspicion of charismatic opacity.'
+        },
+        terra: {
+          title: 'Terra/Luna: reflexive stability breaking',
+          body: 'TerraUSD tried to hold a dollar peg through an algorithmic relationship with LUNA rather than full fiat reserves. In May 2022, confidence broke, redemptions accelerated, LUNA supply exploded, and tens of billions of market value disappeared. The failure was not mysterious: a stable asset backed mainly by confidence is vulnerable when confidence is exactly what is being tested.'
+        },
+        energy: {
+          title: 'Energy: the sharpest consensus tradeoff',
+          body: 'Bitcoin mining consumes large amounts of electricity because proof-of-work turns energy into security budget. Defenders argue miners can use stranded or renewable energy and provide grid flexibility. Critics point to emissions, e-waste, and opportunity cost. Ethereum\'s proof-of-stake transition showed that not all crypto has the same energy profile: consensus design matters enormously.'
+        }
+      };
+
+      function setActiveButton(container, key) {
+        container.querySelectorAll('button').forEach(function(btn) {
+          btn.classList.toggle('active', btn.dataset.key === key);
+        });
+      }
+
+      function renderFactPanel(item) {
+        const facts = item.facts || [];
+        const cards = facts.map(function(fact) {
+          return '<div class="mini-card"><div class="mini-label">' + fact[0] + '</div><div class="mini-value">' + fact[1] + '</div></div>';
+        }).join('');
+        return '<div class="detail-title">' + item.title + '</div><div class="detail-body">' + item.body + '</div>' + (cards ? '<div class="mini-grid">' + cards + '</div>' : '');
+      }
+
+      function showTrust(key, clickedElement) {
+        setActiveButton(document.getElementById('trustButtons'), key);
+        document.getElementById('trustDisplay').innerHTML = renderFactPanel(trustItems[key]);
+      }
+
+      function showEth(key, clickedElement) {
+        document.querySelectorAll('#ethCards .elem-card').forEach(function(card) {
+          card.classList.toggle('active', card.dataset.key === key);
+        });
+        document.getElementById('ethDetail').innerHTML = renderFactPanel(ethItems[key]);
+        document.getElementById('ethDetail').classList.add('show');
+      }
+
+      function showApp(key, clickedElement) {
+        setActiveButton(document.getElementById('appButtons'), key);
+        document.getElementById('appDisplay').innerHTML = renderFactPanel(appItems[key]);
+      }
+
+      function showRisk(key, clickedElement) {
+        setActiveButton(document.getElementById('riskButtons'), key);
+        document.getElementById('riskDisplay').innerHTML = renderFactPanel(riskItems[key]);
+      }
+
+      document.querySelectorAll('#trustButtons button').forEach(function(btn) {
+        btn.addEventListener('click', function() { showTrust(btn.dataset.key, btn); });
+      });
+      document.querySelectorAll('#appButtons button').forEach(function(btn) {
+        btn.addEventListener('click', function() { showApp(btn.dataset.key, btn); });
+      });
+      document.querySelectorAll('#riskButtons button').forEach(function(btn) {
+        btn.addEventListener('click', function() { showRisk(btn.dataset.key, btn); });
+      });
+      document.querySelectorAll('#ethCards .elem-card').forEach(function(card) {
+        card.addEventListener('click', function() { showEth(card.dataset.key, card); });
+        card.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            showEth(card.dataset.key, card);
+          }
+        });
+      });
+
+      function buildPeriodChart(axisId, rowsId, entries, minYear, maxYear, ticks) {
+        const axis = document.getElementById(axisId);
+        const rows = document.getElementById(rowsId);
+        axis.innerHTML = '';
+        rows.innerHTML = '';
+        ticks.forEach(function(year) {
+          const mark = document.createElement('div');
+          mark.className = 'pc-axis-mark';
+          mark.style.left = ((year - minYear) / (maxYear - minYear) * 100) + '%';
+          mark.textContent = year;
+          axis.appendChild(mark);
+        });
+        entries.forEach(function(entry) {
+          const row = document.createElement('div');
+          row.className = 'pc-row';
+          const label = document.createElement('div');
+          label.className = 'pc-label';
+          label.textContent = entry.label;
+          const track = document.createElement('div');
+          track.className = 'pc-track';
+          const fill = document.createElement('div');
+          fill.className = 'pc-fill';
+          fill.style.left = ((entry.start - minYear) / (maxYear - minYear) * 100) + '%';
+          fill.style.width = ((entry.end - entry.start) / (maxYear - minYear) * 100) + '%';
+          fill.style.background = entry.bg;
+          fill.style.border = '0.5px solid ' + entry.col;
+          fill.style.color = entry.text;
+          const text = document.createElement('span');
+          text.className = 'pc-fill-label';
+          text.textContent = entry.start + '-' + entry.end;
+          fill.appendChild(text);
+          track.appendChild(fill);
+          row.appendChild(label);
+          row.appendChild(track);
+          rows.appendChild(row);
+        });
+      }
+
+      const eraData = [
+        { label: 'Cypherpunk cash', start: 1983, end: 2008, col: 'var(--color-border-info)', bg: 'var(--color-background-info)', text: 'var(--color-text-info)' },
+        { label: 'Bitcoin base layer', start: 2009, end: 2026, col: 'var(--color-border-warning)', bg: 'var(--color-background-warning)', text: 'var(--color-text-warning)' },
+        { label: 'Smart contracts', start: 2015, end: 2026, col: 'var(--color-border-success)', bg: 'var(--color-background-success)', text: 'var(--color-text-success)' },
+        { label: 'ICO boom', start: 2016, end: 2018, col: 'var(--color-border-danger)', bg: 'var(--color-background-danger)', text: 'var(--color-text-danger)' },
+        { label: 'DeFi summer', start: 2020, end: 2022, col: 'var(--color-border-info)', bg: 'var(--color-background-info)', text: 'var(--color-text-info)' },
+        { label: 'Rollup era', start: 2021, end: 2026, col: 'var(--color-border-success)', bg: 'var(--color-background-success)', text: 'var(--color-text-success)' },
+        { label: 'Regulated ETFs', start: 2024, end: 2026, col: 'var(--color-border-warning)', bg: 'var(--color-background-warning)', text: 'var(--color-text-warning)' }
+      ];
+      buildPeriodChart('eraAxis', 'eraRows', eraData, 1983, 2026, [1983, 1990, 2000, 2009, 2015, 2020, 2026]);
+
+      const halvingData = [
+        { era: 0, years: '2009-2012', subsidy: 50, note: 'Genesis era. Half of all bitcoin that will ever exist was issued in the first 210,000 blocks.' },
+        { era: 1, years: '2012-2016', subsidy: 25, note: 'First halving. Bitcoin moved from experiment to a market with exchanges, ASIC miners, and real price discovery.' },
+        { era: 2, years: '2016-2020', subsidy: 12.5, note: 'Second halving. The 2017 bubble, ICO boom, and mainstream crypto awareness arrived during this era.' },
+        { era: 3, years: '2020-2024', subsidy: 6.25, note: 'Third halving. Institutional custody, public-company balance sheets, and the 2021 cycle shaped the narrative.' },
+        { era: 4, years: '2024-2028', subsidy: 3.125, note: 'Fourth halving. Block 840,000 cut the subsidy to 3.125 BTC in April 2024, while fees became more important to miner revenue.' },
+        { era: 5, years: '2028-2032', subsidy: 1.5625, note: 'Future era. Issuance keeps falling, so the long-term security debate increasingly turns to transaction fees.' },
+        { era: 6, years: '2032-2036', subsidy: 0.78125, note: 'Future era. New supply becomes tiny compared with existing supply, which strengthens scarcity but does not guarantee demand.' },
+        { era: 7, years: '2036-2040', subsidy: 0.390625, note: 'Future era. The subsidy is less than 1 percent of the original 50 BTC reward per block.' }
+      ];
+
+      function updateHalving() {
+        const idx = Number(document.getElementById('halvingSlider').value);
+        const h = halvingData[idx];
+        document.getElementById('halvingOutput').innerHTML = '<span class="mini-label">Era ' + h.era + ' - ' + h.years + '</span><br><span class="detail-title">' + h.subsidy + ' BTC per block</span><br>' + h.note;
+      }
+      document.getElementById('halvingSlider').addEventListener('input', updateHalving);
+      updateHalving();
+
+      function buildBarChart(containerId, rows, maxValue) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        rows.forEach(function(row) {
+          const wrap = document.createElement('div');
+          wrap.className = 'bar-row';
+          const label = document.createElement('div');
+          label.className = 'bl';
+          label.textContent = row.label;
+          const bar = document.createElement('div');
+          bar.className = 'bb';
+          const ratio = row.value / maxValue;
+          bar.style.width = 'max(4px, calc((100% - var(--bar-label-width) - 10px) * ' + ratio + '))';
+          const value = document.createElement('div');
+          value.className = 'bv';
+          value.textContent = row.display;
+          bar.appendChild(value);
+          wrap.appendChild(label);
+          wrap.appendChild(bar);
+          container.appendChild(wrap);
+        });
+      }
+
+      buildBarChart('subsidyBars', [
+        { label: '2009', value: 50, display: '50 BTC' },
+        { label: '2012', value: 25, display: '25 BTC' },
+        { label: '2016', value: 12.5, display: '12.5 BTC' },
+        { label: '2020', value: 6.25, display: '6.25 BTC' },
+        { label: '2024', value: 3.125, display: '3.125 BTC' },
+        { label: '2028 est.', value: 1.5625, display: '1.5625 BTC' }
+      ], 50);
+
+      function buildDistribution() {
+        const segments = [
+          { label: 'Era 0: 50.00%', pct: 50, bg: 'var(--color-background-warning)', border: 'var(--color-border-warning)' },
+          { label: 'Era 1: 25.00%', pct: 25, bg: 'var(--color-background-info)', border: 'var(--color-border-info)' },
+          { label: 'Era 2: 12.50%', pct: 12.5, bg: 'var(--color-background-success)', border: 'var(--color-border-success)' },
+          { label: 'Era 3: 6.25%', pct: 6.25, bg: 'var(--color-background-danger)', border: 'var(--color-border-danger)' },
+          { label: 'All later eras: 6.25%', pct: 6.25, bg: 'var(--color-background-tertiary)', border: 'var(--color-border-secondary)' }
+        ];
+        const bar = document.getElementById('supplyDist');
+        const legend = document.getElementById('supplyLegend');
+        segments.forEach(function(seg) {
+          const div = document.createElement('div');
+          div.className = 'dist-seg';
+          div.style.width = seg.pct + '%';
+          div.style.background = seg.bg;
+          div.style.borderRight = '0.5px solid ' + seg.border;
+          bar.appendChild(div);
+          const item = document.createElement('div');
+          item.className = 'legend-item';
+          const swatch = document.createElement('span');
+          swatch.className = 'legend-swatch';
+          swatch.style.background = seg.bg;
+          swatch.style.border = '0.5px solid ' + seg.border;
+          const text = document.createElement('span');
+          text.textContent = seg.label;
+          item.appendChild(swatch);
+          item.appendChild(text);
+          legend.appendChild(item);
+        });
+      }
+      buildDistribution();
+
+      function buildScale(containerId, rows) {
+        const container = document.getElementById(containerId);
+        container.innerHTML = '';
+        rows.forEach(function(row) {
+          const wrap = document.createElement('div');
+          wrap.className = 'cscale-row';
+          const name = document.createElement('div');
+          name.className = 'cscale-name';
+          name.textContent = row.name;
+          const track = document.createElement('div');
+          track.className = 'cscale-track';
+          const dot = document.createElement('div');
+          dot.className = 'cscale-dot';
+          dot.style.left = row.pos + '%';
+          dot.title = row.note;
+          track.appendChild(dot);
+          wrap.appendChild(name);
+          wrap.appendChild(track);
+          container.appendChild(wrap);
+        });
+      }
+
+      buildScale('chainScale', [
+        { name: 'Bitcoin', pos: 8, note: 'Maximum conservatism, low base-layer throughput.' },
+        { name: 'Ethereum L1', pos: 30, note: 'Programmable settlement, still scarce blockspace.' },
+        { name: 'Optimistic rollup', pos: 58, note: 'Higher throughput with challenge and bridge assumptions.' },
+        { name: 'ZK rollup', pos: 66, note: 'Proof-based scaling with complex proving systems.' },
+        { name: 'Solana', pos: 84, note: 'High throughput design with higher hardware demands.' },
+        { name: 'Centralized exchange', pos: 97, note: 'Very fast because users trust the operator database.' }
+      ]);
+
+      buildScale('appScale', [
+        { name: 'Stablecoin settlement', pos: 12, note: 'Clear demand where dollar rails are weak or slow.' },
+        { name: 'Bitcoin self-custody', pos: 20, note: 'Useful for censorship-resistant savings and transfer.' },
+        { name: 'DeFi trading', pos: 36, note: 'Real usage, but cyclical and risk-heavy.' },
+        { name: 'DAOs', pos: 58, note: 'Useful treasury tooling, difficult governance.' },
+        { name: 'NFT art', pos: 68, note: 'Real niche, heavily distorted by speculation.' },
+        { name: 'Metaverse land', pos: 91, note: 'Often narrative-first with fragile demand.' }
+      ]);
+
+      function calculateIL() {
+        const change = Number(document.getElementById('ilChange').value);
+        const fees = Number(document.getElementById('ilFees').value);
+        const output = document.getElementById('ilOutput');
+        if (!Number.isFinite(change) || !Number.isFinite(fees) || change <= -100 || fees < 0) {
+          output.textContent = 'Enter a price change above -100 percent and a non-negative fee percentage.';
+          return;
+        }
+        const ratio = 1 + change / 100;
+        const poolValueVsHold = (2 * Math.sqrt(ratio)) / (1 + ratio);
+        const ilPct = (poolValueVsHold - 1) * 100;
+        const afterFees = ilPct + fees;
+        const direction = change >= 0 ? 'rose' : 'fell';
+        output.textContent = 'If one asset ' + direction + ' by ' + Math.abs(change).toFixed(1) + ' percent, the 50/50 pool position is about ' + Math.abs(ilPct).toFixed(2) + ' percent worse than simply holding before fees. After estimated fees, the rough net is ' + afterFees.toFixed(2) + ' percent. This ignores gas, changing fee volume, price path, and smart-contract risk.';
+      }
+      document.getElementById('ilButton').addEventListener('click', calculateIL);
+      calculateIL();
+
+      buildBarChart('failureBars', [
+        { label: 'Key theft', value: 28, display: '28%' },
+        { label: 'Custody fraud', value: 24, display: '24%' },
+        { label: 'Smart contracts', value: 18, display: '18%' },
+        { label: 'Bridge exploits', value: 14, display: '14%' },
+        { label: 'Oracle/design', value: 10, display: '10%' },
+        { label: 'Governance', value: 6, display: '6%' }
+      ], 28);
+
+      document.querySelectorAll('.qa').forEach(function(card) {
+        const btn = card.querySelector('.qa-btn');
+        const ans = card.querySelector('.qa-ans');
+        btn.addEventListener('click', function() {
+          const show = !ans.classList.contains('show');
+          ans.classList.toggle('show', show);
+          btn.textContent = show ? 'hide' : 'show answer';
+        });
+      });
+
+      showTrust('double');
+      showEth('evm');
+      showApp('nfts');
+      showRisk('sec');
+    });
+  </script>
   <script src="../files/shared.js"></script>
 </body>
 </html>
