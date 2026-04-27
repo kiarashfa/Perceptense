@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
   
   <!-- description -->
-  <meta name="description" content="A free, self-directed course with interactive modules — build intuition for numbers, science, culture, and the systems that shape daily life.">
+  <meta name="description" content="A free, self-directed course with interactive modules: build intuition for numbers, science, culture, and the systems that shape daily life.">
   <meta property="og:title" content="Have a Sense About Everything">
   <meta property="og:description" content="Interactive modules covering numbers, science, culture, and the systems that shape daily life. Free, open, and no sign-up required.">
   <meta property="og:type" content="website">
@@ -348,6 +348,7 @@
     .mod-tag[data-cat="society"]  { color: #3C3489; background: #EEEDFE; }
     .mod-tag[data-cat="culture"]  { color: #791F1F; background: #FCEBEB; }
     .mod-tag[data-cat="mind"]     { color: #27500A; background: #EAF3DE; }
+    .mod-tag[data-cat="life"]     { color: #164d33; background: #e7f5ed; }
 
     html[data-theme="dark"] .mod-tag {
       opacity: 0.85;
@@ -496,12 +497,12 @@
             <p class="feat-desc">Historical periods, civilizations, wars and events</p>
           </div>
         </a>
-        <a href="modules/29-art.html" class="feat-card">
+        <a href="modules/30-art.html" class="feat-card">
           <img src="assets/thumbnails/Thumb_Art.png" alt="Art" class="feat-img" onerror="this.outerHTML='<div class=\'feat-img-placeholder\'>Art</div>'">
           <div class="feat-body">
-            <div class="feat-num">Module 29</div>
+            <div class="feat-num">Module 30</div>
             <div class="feat-name">Art</div>
-            <p class="feat-desc">Movements, techniques, and the visual literacy everyone should have</p>
+            <p class="feat-desc">Movements, techniques, and visual literacy</p>
           </div>
         </a>
       </div>
@@ -516,16 +517,17 @@
 
       <div class="filters" id="filters">
         <button class="filter-btn active" data-cat="all">All</button>
-        <button class="filter-btn" data-cat="numbers">Numbers</button>
-        <button class="filter-btn" data-cat="physical">Physical World</button>
-        <button class="filter-btn" data-cat="science">Science</button>
+        <button class="filter-btn" data-cat="numbers">Numbers &amp; Scale</button>
+        <button class="filter-btn" data-cat="physical">Earth &amp; Space</button>
+        <button class="filter-btn" data-cat="science">Science &amp; Tech</button>
         <button class="filter-btn" data-cat="body">Body &amp; Health</button>
-        <button class="filter-btn" data-cat="society">Society</button>
-        <button class="filter-btn" data-cat="culture">Culture</button>
-        <button class="filter-btn" data-cat="mind">Mind</button>
+        <button class="filter-btn" data-cat="society">Society &amp; Systems</button>
+        <button class="filter-btn" data-cat="culture">Culture &amp; Arts</button>
+        <button class="filter-btn" data-cat="mind">Mind &amp; Meaning</button>
+        <button class="filter-btn" data-cat="life">Life &amp; Environment</button>
       </div>
 
-      <div class="result-count" id="resultCount">41 modules</div>
+      <div class="result-count" id="resultCount">50 modules</div>
     </div>
 
     <!-- ========== MODULE LIST ========== -->
@@ -533,335 +535,515 @@
 
       <div class="mod-header-row" id="sortHeader">
         <button class="sort-btn active" data-sort="num" title="Sort by number">
-          <span>#</span><span class="sort-arrow">▲</span>
+          <span>#</span><span class="sort-arrow">^</span>
         </button>
         <span></span>
         <button class="sort-btn" data-sort="name" title="Sort by name">
-          <span>Module</span><span class="sort-arrow">▲</span>
+          <span>Module</span><span class="sort-arrow">^</span>
         </button>
         <button class="sort-btn" data-sort="cat" title="Sort by category">
-          <span>Category</span><span class="sort-arrow">▲</span>
+          <span>Category</span><span class="sort-arrow">^</span>
         </button>
       </div>
 
-      <a href="modules/01-everyday.html" class="mod-item" data-cat="numbers" data-search="weight mass everyday objects how much weigh paperclip car kilogram">
+      <a href="modules/01-weight.html" class="mod-item" data-cat="numbers" data-search="weight mass everyday objects paperclips cars kilograms pounds scale anchors converter heavier game planets gravity solar system">
         <span class="mod-num">01</span>
         <span class="mod-icon"><i class="fa-solid fa-weight-hanging"></i></span>
-        <div class="mod-body"><div class="mod-name">Weight &amp; Mass</div><p class="mod-desc">How much things weigh — from paperclips to cars</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <div class="mod-body">
+          <div class="mod-name">Weight &amp; Mass</div>
+          <p class="mod-desc">How much things weigh, from paperclips to cars</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/02-biology.html" class="mod-item" data-cat="body" data-search="human body hair vital signs physical body numbers">
+      <a href="modules/02-biology.html" class="mod-item" data-cat="body" data-search="human body hair vital signs bones senses chromosomes sex determination blood genetics proportions composition anchors anatomy physiology">
         <span class="mod-num">02</span>
         <span class="mod-icon"><i class="fa-solid fa-heart-pulse"></i></span>
-        <div class="mod-body"><div class="mod-name">The Human Body</div><p class="mod-desc">Hair, vital signs, and the physical body in numbers</p></div>
-        <span class="mod-tag" data-cat="body">Body</span>
+        <div class="mod-body">
+          <div class="mod-name">The Human Body</div>
+          <p class="mod-desc">Hair, vital signs, bones, senses, chromosomes, and the body in numbers</p>
+        </div>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
       </a>
 
-      <a href="modules/03-geography.html" class="mod-item" data-cat="physical" data-search="geography distance countries oceans">
+      <a href="modules/03-geography.html" class="mod-item" data-cat="physical" data-search="geography distance countries continents oceans cities landmarks water latitude population density land area travel time earth circumference">
         <span class="mod-num">03</span>
         <span class="mod-icon"><i class="fa-solid fa-earth-americas"></i></span>
-        <div class="mod-body"><div class="mod-name">Geography &amp; Distance</div><p class="mod-desc">Countries, oceans, and how far things are</p></div>
-        <span class="mod-tag" data-cat="physical">Physical</span>
+        <div class="mod-body">
+          <div class="mod-name">Geography &amp; Distance</div>
+          <p class="mod-desc">Countries, oceans, and how far things are</p>
+        </div>
+        <span class="mod-tag" data-cat="physical">Earth &amp; Space</span>
       </a>
 
-      <a href="modules/04-food.html" class="mod-item" data-cat="body" data-search="nutrition food labels calories kcal macronutrients protein fat carbs sugar energy">
+      <a href="modules/04-food.html" class="mod-item" data-cat="body" data-search="nutrition food labels calories kcal macronutrients protein fat carbs sugar fibre glycaemic index agriculture food systems calculator decoder">
         <span class="mod-num">04</span>
         <span class="mod-icon"><i class="fa-solid fa-apple-whole"></i></span>
-        <div class="mod-body"><div class="mod-name">Nutrition &amp; Food Labels</div><p class="mod-desc">Calories, macronutrients, and how to read what's in your food</p></div>
-        <span class="mod-tag" data-cat="body">Body</span>
+        <div class="mod-body">
+          <div class="mod-name">Nutrition &amp; Food Labels</div>
+          <p class="mod-desc">Calories, macronutrients, and how to read what is in your food</p>
+        </div>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
       </a>
 
-      <a href="modules/05-money.html" class="mod-item" data-cat="numbers" data-search="money economy millions billions gdp financial scale">
+      <a href="modules/05-money.html" class="mod-item" data-cat="numbers" data-search="money economy million billion trillion revenue profit market cap gdp inflation debt compound interest personal finance valuation financial scale">
         <span class="mod-num">05</span>
-        <span class="mod-icon"><i class="fa-solid fa-coins"></i></span>
-        <div class="mod-body"><div class="mod-name">Money &amp; Economy</div><p class="mod-desc">Millions, billions, GDP, and financial scale</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <span class="mod-icon"><i class="fa-solid fa-sack-dollar"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Money &amp; Economy</div>
+          <p class="mod-desc">Millions, billions, GDP, inflation, debt, and financial scale</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/06-infrastructure.html" class="mod-item" data-cat="science" data-search="big infrastructure bridges dams airports mega-projects">
+      <a href="modules/06-infrastructure.html" class="mod-item" data-cat="science" data-search="big infrastructure bridges dams airports megaprojects vehicles payload transport hubs architecture urban planning costs overruns records civil engineering">
         <span class="mod-num">06</span>
         <span class="mod-icon"><i class="fa-solid fa-bridge"></i></span>
-        <div class="mod-body"><div class="mod-name">Big Infrastructure</div><p class="mod-desc">Bridges, dams, airports, and mega-projects</p></div>
-        <span class="mod-tag" data-cat="science">Science</span>
+        <div class="mod-body">
+          <div class="mod-name">Big Infrastructure</div>
+          <p class="mod-desc">Bridges, dams, airports, and mega-projects</p>
+        </div>
+        <span class="mod-tag" data-cat="science">Science &amp; Tech</span>
       </a>
 
-      <a href="modules/07-time.html" class="mod-item" data-cat="numbers" data-search="time scale seconds centuries intuition">
+      <a href="modules/07-time.html" class="mod-item" data-cat="numbers" data-search="time scale seconds centuries number scale cosmic time lifetime weeks months time zones psychology calendars history estimation anchors">
         <span class="mod-num">07</span>
         <span class="mod-icon"><i class="fa-solid fa-hourglass-half"></i></span>
-        <div class="mod-body"><div class="mod-name">Time &amp; Scale</div><p class="mod-desc">Seconds to centuries — building time intuition</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <div class="mod-body">
+          <div class="mod-name">Time &amp; Scale</div>
+          <p class="mod-desc">Seconds to centuries, building time intuition</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/08-speed.html" class="mod-item" data-cat="physical" data-search="speed duration fast move long take">
+      <a href="modules/08-speed.html" class="mod-item" data-cat="physical" data-search="speed duration distance calculator stopping distances acceleration light speed body speeds roller coasters lhc travel time fastest records">
         <span class="mod-num">08</span>
-        <span class="mod-icon"><i class="fa-solid fa-gauge-high"></i></span>
-        <div class="mod-body"><div class="mod-name">Speed &amp; Duration</div><p class="mod-desc">How fast things move and how long things take</p></div>
-        <span class="mod-tag" data-cat="physical">Physical</span>
+        <span class="mod-icon"><i class="fa-solid fa-truck-fast"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Speed &amp; Duration</div>
+          <p class="mod-desc">How fast things move and how long things take</p>
+        </div>
+        <span class="mod-tag" data-cat="physical">Earth &amp; Space</span>
       </a>
 
-      <a href="modules/09-size.html" class="mod-item" data-cat="numbers" data-search="size scale atoms galaxies orders magnitude">
+      <a href="modules/09-size.html" class="mod-item" data-cat="numbers" data-search="size scale atoms galaxies orders magnitude si prefixes femto nano micro ratio comparisons matter zoom calculator estimation">
         <span class="mod-num">09</span>
         <span class="mod-icon"><i class="fa-solid fa-maximize"></i></span>
-        <div class="mod-body"><div class="mod-name">Size &amp; Scale</div><p class="mod-desc">Atoms to galaxies — orders of magnitude</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <div class="mod-body">
+          <div class="mod-name">Size &amp; Scale</div>
+          <p class="mod-desc">Atoms to galaxies, orders of magnitude</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/10-history.html" class="mod-item" data-cat="physical" data-search="history anchors navigable map 5000 years">
+      <a href="modules/10-history.html" class="mod-item" data-cat="society" data-search="history anchors timeline events empires civilisations wars iran eras proximity chronology recorded history quiz concurrent worlds">
         <span class="mod-num">10</span>
-        <span class="mod-icon"><i class="fa-solid fa-landmark"></i></span>
-        <div class="mod-body"><div class="mod-name">History Anchors</div><p class="mod-desc">A navigable map of the last 5,000 years</p></div>
-        <span class="mod-tag" data-cat="physical">Physical</span>
+        <span class="mod-icon"><i class="fa-solid fa-archway"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">History Anchors</div>
+          <p class="mod-desc">A navigable map of the last 5,000 years</p>
+        </div>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
       </a>
 
-      <a href="modules/11-temperature.html" class="mod-item" data-cat="physical" data-search="temperature celsius fahrenheit thermal intuition absolute zero sun">
+      <a href="modules/11-temperature.html" class="mod-item" data-cat="physical" data-search="temperature celsius fahrenheit thermometer absolute zero sun heat thermal expansion cooking human body conversion conduction convection radiation">
         <span class="mod-num">11</span>
         <span class="mod-icon"><i class="fa-solid fa-temperature-half"></i></span>
-        <div class="mod-body"><div class="mod-name">Temperature</div><p class="mod-desc">From absolute zero to the surface of the Sun</p></div>
-        <span class="mod-tag" data-cat="physical">Physical</span>
+        <div class="mod-body">
+          <div class="mod-name">Temperature</div>
+          <p class="mod-desc">From absolute zero to the surface of the Sun</p>
+        </div>
+        <span class="mod-tag" data-cat="physical">Earth &amp; Space</span>
       </a>
 
-      <a href="modules/12-probability.html" class="mod-item" data-cat="numbers" data-search="probability risk odds chance think">
+      <a href="modules/12-probability.html" class="mod-item" data-cat="numbers" data-search="probability risk odds chance absolute relative bias false positive birthday paradox expected value monty hall conditional probability randomness">
         <span class="mod-num">12</span>
         <span class="mod-icon"><i class="fa-solid fa-dice"></i></span>
-        <div class="mod-body"><div class="mod-name">Probability &amp; Risk</div><p class="mod-desc">Odds, chance, and how to think about risk</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <div class="mod-body">
+          <div class="mod-name">Probability &amp; Risk</div>
+          <p class="mod-desc">Odds, chance, and how to think about risk</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/13-percentages.html" class="mod-item" data-cat="numbers" data-search="percentages ratios mental math tricks everyday">
+      <a href="modules/13-percentages.html" class="mod-item" data-cat="numbers" data-search="percentages ratios mental math percentage points growth compound finance news checklist calculator misleading statistics proportions">
         <span class="mod-num">13</span>
         <span class="mod-icon"><i class="fa-solid fa-percent"></i></span>
-        <div class="mod-body"><div class="mod-name">Percentages &amp; Ratios</div><p class="mod-desc">Mental math tricks for everyday numbers</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <div class="mod-body">
+          <div class="mod-name">Percentages &amp; Ratios</div>
+          <p class="mod-desc">Mental math tricks for everyday numbers</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/14-materials.html" class="mod-item" data-cat="science" data-search="materials steel concrete wood carbon fibre what things made of">
+      <a href="modules/14-materials.html" class="mod-item" data-cat="science" data-search="materials steel concrete wood carbon fibre properties strength weight thermal expansion bonds environmental cost comparator break bend hold">
         <span class="mod-num">14</span>
         <span class="mod-icon"><i class="fa-solid fa-cubes"></i></span>
-        <div class="mod-body"><div class="mod-name">Materials</div><p class="mod-desc">Steel, concrete, wood — what things are made of</p></div>
-        <span class="mod-tag" data-cat="science">Science</span>
+        <div class="mod-body">
+          <div class="mod-name">Materials</div>
+          <p class="mod-desc">Steel, concrete, wood, what things are made of and why</p>
+        </div>
+        <span class="mod-tag" data-cat="science">Science &amp; Tech</span>
       </a>
 
-      <a href="modules/15-chemistry.html" class="mod-item" data-cat="science" data-search="chemistry functional groups reactions molecular logic">
+      <a href="modules/15-chemistry.html" class="mod-item" data-cat="science" data-search="chemistry functional groups reactions molecular logic polarity ph acid base smell taste boiling points kitchen molecules">
         <span class="mod-num">15</span>
         <span class="mod-icon"><i class="fa-solid fa-flask"></i></span>
-        <div class="mod-body"><div class="mod-name">Chemistry</div><p class="mod-desc">Functional groups, reactions, and molecular logic</p></div>
-        <span class="mod-tag" data-cat="science">Science</span>
+        <div class="mod-body">
+          <div class="mod-name">Chemistry</div>
+          <p class="mod-desc">Functional groups, reactions, and molecular logic</p>
+        </div>
+        <span class="mod-tag" data-cat="science">Science &amp; Tech</span>
       </a>
 
-      <a href="modules/16-engineering.html" class="mod-item" data-cat="science" data-search="engineering rules thumb quick estimates built">
+      <a href="modules/16-engineering.html" class="mod-item" data-cat="science" data-search="engineering rules thumb estimates calculator disciplines structures materials reliability failures fermi estimation back of envelope design">
         <span class="mod-num">16</span>
         <span class="mod-icon"><i class="fa-solid fa-gears"></i></span>
-        <div class="mod-body"><div class="mod-name">Engineering Rules of Thumb</div><p class="mod-desc">Quick estimates for how things are built</p></div>
-        <span class="mod-tag" data-cat="science">Science</span>
+        <div class="mod-body">
+          <div class="mod-name">Engineering Rules of Thumb</div>
+          <p class="mod-desc">Quick estimates for how things are built</p>
+        </div>
+        <span class="mod-tag" data-cat="science">Science &amp; Tech</span>
       </a>
 
-      <a href="modules/17-politics.html" class="mod-item" data-cat="society" data-search="politics government systems institutions power">
+      <a href="modules/17-politics.html" class="mod-item" data-cat="society" data-search="politics government systems institutions power left right ideology compass elections rhetoric democracy backsliding soft power vocabulary">
         <span class="mod-num">17</span>
         <span class="mod-icon"><i class="fa-solid fa-building-columns"></i></span>
-        <div class="mod-body"><div class="mod-name">Politics</div><p class="mod-desc">Government systems, institutions, and power</p></div>
-        <span class="mod-tag" data-cat="society">Society</span>
+        <div class="mod-body">
+          <div class="mod-name">Politics</div>
+          <p class="mod-desc">Government systems, institutions, power, and political language</p>
+        </div>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
       </a>
 
-      <a href="modules/18-diplomacy.html" class="mod-item" data-cat="society" data-search="diplomacy international organizations treaties soft power">
+      <a href="modules/18-diplomacy.html" class="mod-item" data-cat="society" data-search="diplomacy international organizations treaties soft power united nations security council veto sanctions immunity flags recognition sovereignty">
         <span class="mod-num">18</span>
         <span class="mod-icon"><i class="fa-solid fa-handshake"></i></span>
-        <div class="mod-body"><div class="mod-name">Diplomacy</div><p class="mod-desc">International organizations, treaties, and soft power</p></div>
-        <span class="mod-tag" data-cat="society">Society</span>
+        <div class="mod-body">
+          <div class="mod-name">Diplomacy</div>
+          <p class="mod-desc">International organizations, treaties, and soft power</p>
+        </div>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
       </a>
 
-      <a href="modules/19-culinary.html" class="mod-item" data-cat="culture" data-search="culinary arts world cuisines sauces techniques etiquette meat cooking temperatures">
+      <a href="modules/19-culinary.html" class="mod-item" data-cat="culture" data-search="culinary arts cuisines sauces techniques etiquette meat temperatures mother sauces flavour knife skills cooking methods wine pairing dining">
         <span class="mod-num">19</span>
         <span class="mod-icon"><i class="fa-solid fa-utensils"></i></span>
-        <div class="mod-body"><div class="mod-name">Culinary Arts</div><p class="mod-desc">World cuisines, meat temperatures, sauces, techniques, and etiquette</p></div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <div class="mod-body">
+          <div class="mod-name">Culinary Arts</div>
+          <p class="mod-desc">World cuisines, sauces, techniques, etiquette, and cooking science</p>
+        </div>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/20-drinks.html" class="mod-item" data-cat="culture" data-search="drinks spirits cocktails wine coffee">
+      <a href="modules/20-drinks.html" class="mod-item" data-cat="culture" data-search="drinks spirits cocktails wine beer coffee bartender units fermentation serving temperatures recipes espresso whisky gin rum vodka">
         <span class="mod-num">20</span>
         <span class="mod-icon"><i class="fa-solid fa-wine-glass"></i></span>
-        <div class="mod-body"><div class="mod-name">Drinks</div><p class="mod-desc">Spirits, cocktails, wine, and coffee</p></div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <div class="mod-body">
+          <div class="mod-name">Drinks</div>
+          <p class="mod-desc">Spirits, cocktails, wine, beer, and coffee</p>
+        </div>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/21-fashion.html" class="mod-item" data-cat="culture" data-search="fashion fabrics brands dress codes style">
+      <a href="modules/21-fashion.html" class="mod-item" data-cat="culture" data-search="fashion fabrics brands dress codes style luxury conglomerates sizes ties bow ties fast fashion suits perfumes watches colour">
         <span class="mod-num">21</span>
-        <span class="mod-icon"><i class="fa-solid fa-shirt"></i></span>
-        <div class="mod-body"><div class="mod-name">Fashion</div><p class="mod-desc">Fabrics, brands, dress codes, and style</p></div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <span class="mod-icon"><i class="fa-solid fa-gem"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Fashion</div>
+          <p class="mod-desc">Fabrics, brands, dress codes, and style</p>
+        </div>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/22-sleep.html" class="mod-item" data-cat="body" data-search="sleep cycles stages hygiene circadian rhythms">
+      <a href="modules/22-sleep.html" class="mod-item" data-cat="body" data-search="sleep cycles stages hygiene circadian rhythms dreams hormones deprivation chronotypes napping lifespan insomnia rem melatonin">
         <span class="mod-num">22</span>
         <span class="mod-icon"><i class="fa-solid fa-moon"></i></span>
-        <div class="mod-body"><div class="mod-name">Sleep</div><p class="mod-desc">Cycles, stages, hygiene, and circadian rhythms</p></div>
-        <span class="mod-tag" data-cat="body">Body</span>
+        <div class="mod-body">
+          <div class="mod-name">Sleep</div>
+          <p class="mod-desc">Cycles, stages, hygiene, and circadian rhythms</p>
+        </div>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
       </a>
 
-      <a href="modules/23-gender.html" class="mod-item" data-cat="body" data-search="sex gender orientation biology identity social constructs">
+      <a href="modules/23-sex.html" class="mod-item" data-cat="body" data-search="sex gender orientation biology identity social constructs chromosomes kinsey attraction legal history safe sex prevalence spectrum">
         <span class="mod-num">23</span>
         <span class="mod-icon"><i class="fa-solid fa-venus-mars"></i></span>
-        <div class="mod-body"><div class="mod-name">Sex, Gender &amp; Orientation</div><p class="mod-desc">Biology, identity, and social constructs</p></div>
-        <span class="mod-tag" data-cat="body">Body</span>
+        <div class="mod-body">
+          <div class="mod-name">Sex, Gender &amp; Orientation</div>
+          <p class="mod-desc">Biology, identity, and social constructs</p>
+        </div>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
       </a>
 
-      <a href="modules/24-fitness.html" class="mod-item" data-cat="body" data-search="fitness exercise lifts cardio programming body mechanics">
+      <a href="modules/24-fitness.html" class="mod-item" data-cat="body" data-search="fitness exercise lifts cardio programming body mechanics aerobic anaerobic metabolism protein recovery rep ranges muscle groups myths">
         <span class="mod-num">24</span>
         <span class="mod-icon"><i class="fa-solid fa-dumbbell"></i></span>
-        <div class="mod-body"><div class="mod-name">Fitness &amp; Exercise</div><p class="mod-desc">Lifts, cardio, programming, and body mechanics</p></div>
-        <span class="mod-tag" data-cat="body">Body</span>
+        <div class="mod-body">
+          <div class="mod-name">Fitness &amp; Exercise</div>
+          <p class="mod-desc">Lifts, cardio, programming, and body mechanics</p>
+        </div>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
       </a>
 
-      <a href="modules/25-weather.html" class="mod-item" data-cat="physical" data-search="weather fronts clouds pressure forecasting">
+      <a href="modules/25-weather.html" class="mod-item" data-cat="physical" data-search="weather fronts clouds pressure forecasting wind beaufort rain probability severe weather cyclones tornadoes climate zones instruments synoptic map">
         <span class="mod-num">25</span>
         <span class="mod-icon"><i class="fa-solid fa-cloud-sun"></i></span>
-        <div class="mod-body"><div class="mod-name">Weather</div><p class="mod-desc">Fronts, clouds, pressure, and forecasting</p></div>
-        <span class="mod-tag" data-cat="physical">Physical</span>
+        <div class="mod-body">
+          <div class="mod-name">Weather</div>
+          <p class="mod-desc">Fronts, clouds, pressure, and forecasting</p>
+        </div>
+        <span class="mod-tag" data-cat="physical">Earth &amp; Space</span>
       </a>
 
-      <a href="modules/26-space.html" class="mod-item" data-cat="physical" data-search="space solar system planets distances cosmic scale">
+      <a href="modules/26-space.html" class="mod-item" data-cat="physical" data-search="space solar system planets sun moon atmosphere missions spacex stars galaxies black holes wormholes universe cosmic distances">
         <span class="mod-num">26</span>
         <span class="mod-icon"><i class="fa-solid fa-shuttle-space"></i></span>
-        <div class="mod-body"><div class="mod-name">Space &amp; the Solar System</div><p class="mod-desc">Planets, distances, and cosmic scale</p></div>
-        <span class="mod-tag" data-cat="physical">Physical</span>
+        <div class="mod-body">
+          <div class="mod-name">Space &amp; the Solar System</div>
+          <p class="mod-desc">Planets, distances, and cosmic scale</p>
+        </div>
+        <span class="mod-tag" data-cat="physical">Earth &amp; Space</span>
       </a>
 
-      <a href="modules/27-psychology.html" class="mod-item" data-cat="mind" data-search="psychology biases memory motivation mental models">
+      <a href="modules/27-psychology.html" class="mod-item" data-cat="mind" data-search="psychology biases memory motivation mental models therapy personality big five stress emotions social psychology schools freud behaviour">
         <span class="mod-num">27</span>
         <span class="mod-icon"><i class="fa-solid fa-brain"></i></span>
-        <div class="mod-body"><div class="mod-name">Psychology</div><p class="mod-desc">Biases, memory, motivation, and mental models</p></div>
-        <span class="mod-tag" data-cat="mind">Mind</span>
+        <div class="mod-body">
+          <div class="mod-name">Psychology</div>
+          <p class="mod-desc">Biases, memory, motivation, and mental models</p>
+        </div>
+        <span class="mod-tag" data-cat="mind">Mind &amp; Meaning</span>
       </a>
 
-      <a href="modules/28-philosophy.html" class="mod-item" data-cat="mind" data-search="philosophy ethics logic epistemology big questions">
+      <a href="modules/28-philosophy.html" class="mod-item" data-cat="mind" data-search="philosophy ethics logic epistemology branches greeks medieval modern enlightenment existentialism thought experiments fallacies vocabulary moral reasoning">
         <span class="mod-num">28</span>
         <span class="mod-icon"><i class="fa-solid fa-yin-yang"></i></span>
-        <div class="mod-body"><div class="mod-name">Philosophy</div><p class="mod-desc">Ethics, logic, epistemology, and big questions</p></div>
-        <span class="mod-tag" data-cat="mind">Mind</span>
+        <div class="mod-body">
+          <div class="mod-name">Philosophy</div>
+          <p class="mod-desc">Ethics, logic, epistemology, and big questions</p>
+        </div>
+        <span class="mod-tag" data-cat="mind">Mind &amp; Meaning</span>
       </a>
 
-      <a href="modules/29-demographics.html" class="mod-item" data-cat="numbers" data-search="world population demographics births deaths growth rate billion people">
+      <a href="modules/29-demographics.html" class="mod-item" data-cat="numbers" data-search="world population demographics births deaths growth rate fertility ageing urbanisation projections regions billion people live counter calculator">
         <span class="mod-num">29</span>
         <span class="mod-icon"><i class="fa-solid fa-people-group"></i></span>
-        <div class="mod-body"><div class="mod-name">World Population &amp; Demographics</div><p class="mod-desc">How many of us there are and how fast we're growing</p></div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <div class="mod-body">
+          <div class="mod-name">World Population &amp; Demographics</div>
+          <p class="mod-desc">How many of us there are, how fast we are growing, and what the numbers mean</p>
+        </div>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/30-art.html" class="mod-item" data-cat="culture" data-search="art movements techniques visual literacy">
+      <a href="modules/30-art.html" class="mod-item" data-cat="culture" data-search="art movements techniques visual literacy seven arts painting value works elements medium scale art history aesthetics">
         <span class="mod-num">30</span>
         <span class="mod-icon"><i class="fa-solid fa-palette"></i></span>
-        <div class="mod-body"><div class="mod-name">Art</div><p class="mod-desc">Movements, techniques, and visual literacy</p></div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <div class="mod-body">
+          <div class="mod-name">Art</div>
+          <p class="mod-desc">Movements, techniques, and visual literacy</p>
+        </div>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/31-literature.html" class="mod-item" data-cat="culture" data-search="literature novel poetry reading writing fiction">
+      <a href="modules/31-literature.html" class="mod-item" data-cat="culture" data-search="literature novel poetry verse drama fiction canon mythology narrative close reading movements global traditions playwrights language">
         <span class="mod-num">31</span>
         <span class="mod-icon"><i class="fa-solid fa-book-open"></i></span>
         <div class="mod-body">
           <div class="mod-name">Literature</div>
           <p class="mod-desc">Language, narrative, and the written word as art form</p>
         </div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/32-painting.html" class="mod-item" data-cat="culture" data-search="painting fresco impressionism renaissance modern art">
+      <a href="modules/32-painting.html" class="mod-item" data-cat="culture" data-search="painting fresco impressionism renaissance modern art pigment medium technique art historian movements masterworks auction forgery chiaroscuro">
         <span class="mod-num">32</span>
         <span class="mod-icon"><i class="fa-solid fa-brush"></i></span>
         <div class="mod-body">
           <div class="mod-name">Painting</div>
-          <p class="mod-desc">From pigment to meaning — the oldest and deepest visual art</p>
+          <p class="mod-desc">From pigment to meaning, the oldest and deepest visual art</p>
         </div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/33-music.html" class="mod-item" data-cat="culture" data-search="music pitch rhythm timbre harmony classical jazz">
+      <a href="modules/33-music.html" class="mod-item" data-cat="culture" data-search="music pitch rhythm timbre harmony classical jazz blues instruments melody form texture counterpoint listening sound">
         <span class="mod-num">33</span>
         <span class="mod-icon"><i class="fa-solid fa-music"></i></span>
         <div class="mod-body">
           <div class="mod-name">Music</div>
           <p class="mod-desc">Sound, time, and the art of organised listening</p>
         </div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/34-cinema.html" class="mod-item" data-cat="culture" data-search="cinema film movie editing montage director auteur">
+      <a href="modules/34-cinema.html" class="mod-item" data-cat="culture" data-search="cinema film movie editing montage director auteur mise en scene genre world cinema hollywood film language viewing">
         <span class="mod-num">34</span>
         <span class="mod-icon"><i class="fa-solid fa-film"></i></span>
         <div class="mod-body">
           <div class="mod-name">Cinema</div>
-          <p class="mod-desc">The youngest art — moving images, time, and the grammar of film</p>
+          <p class="mod-desc">Moving images, time, and the grammar of film</p>
         </div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/35-game.html" class="mod-item" data-cat="culture" data-search="game electronic art play playstation xbox graphic">
+      <a href="modules/35-game.html" class="mod-item" data-cat="culture" data-search="games game design video games play interactivity narrative genres industry art canon arcade playstation xbox gameplay">
         <span class="mod-num">35</span>
         <span class="mod-icon"><i class="fa-solid fa-gamepad"></i></span>
         <div class="mod-body">
-          <div class="mod-name">Game</div>
-          <p class="mod-desc">The newest art — interactivity, play, and why games are the defining medium of the 21st century</p>
+          <div class="mod-name">Games</div>
+          <p class="mod-desc">Interactivity, play, and why games define the 21st century</p>
         </div>
-        <span class="mod-tag" data-cat="culture">Culture</span>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
       </a>
 
-      <a href="modules/36-management.html" class="mod-item" data-cat="society" data-search="management marketing finance leadership MBA business">
+      <a href="modules/36-management.html" class="mod-item" data-cat="society" data-search="management marketing finance leadership mba business strategy operations organisational behaviour entrepreneurship startups decisions organisations customers">
         <span class="mod-num">36</span>
         <span class="mod-icon"><i class="fa-solid fa-briefcase"></i></span>
         <div class="mod-body">
           <div class="mod-name">Management</div>
           <p class="mod-desc">How organisations work, decisions get made, and what the MBA actually teaches</p>
         </div>
-        <span class="mod-tag" data-cat="society">Society</span>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
       </a>
 
-      <a href="modules/37-technology.html" class="mod-item" data-cat="science" data-search="technology computers internet AI ML software hardware quantum">
+      <a href="modules/37-technology.html" class="mod-item" data-cat="science" data-search="technology computers internet ai ml software hardware data databases networks artificial intelligence frontier quantum programming tools">
         <span class="mod-num">37</span>
         <span class="mod-icon"><i class="fa-solid fa-microchip"></i></span>
         <div class="mod-body">
           <div class="mod-name">Technology</div>
           <p class="mod-desc">How computers work, how the internet runs, and what AI actually is</p>
         </div>
-        <span class="mod-tag" data-cat="science">Science</span>
+        <span class="mod-tag" data-cat="science">Science &amp; Tech</span>
       </a>
 
-      <a href="modules/38-crypto.html" class="mod-item" data-cat="numbers" data-search="bitcoin blockchain ethereum NFT cryptocurrency">
+      <a href="modules/38-crypto.html" class="mod-item" data-cat="numbers" data-search="crypto cryptocurrency bitcoin blockchain ethereum nft defi dao smart contracts decentralised finance regulation risks trust">
         <span class="mod-num">38</span>
         <span class="mod-icon"><i class="fa-brands fa-bitcoin"></i></span>
         <div class="mod-body">
           <div class="mod-name">Crypto</div>
-          <p class="mod-desc">Blockchain, Bitcoin, DeFi, and decentralised finance</p>
+          <p class="mod-desc">Blockchain, Bitcoin, DeFi, and the problems of decentralised finance</p>
         </div>
-        <span class="mod-tag" data-cat="numbers">Numbers</span>
+        <span class="mod-tag" data-cat="numbers">Numbers &amp; Scale</span>
       </a>
 
-      <a href="modules/39-law.html" class="mod-item" data-cat="society" data-search="law legal contract criminal constitutional civillaw justice">
+      <a href="modules/39-law.html" class="mod-item" data-cat="society" data-search="law legal systems contract criminal constitutional civil justice public private commercial international taxation tariffs disputes courts">
         <span class="mod-num">39</span>
         <span class="mod-icon"><i class="fa-solid fa-scale-balanced"></i></span>
         <div class="mod-body">
           <div class="mod-name">Law &amp; Legal Systems</div>
-          <p class="mod-desc">How societies write rules, enforce them, and resolve disputes</p>
+          <p class="mod-desc">How societies write rules, enforce them, resolve disputes, and turn conflict into procedure</p>
         </div>
-        <span class="mod-tag" data-cat="society">Society</span>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
       </a>
 
-      <a href="modules/40-language.html" class="mod-item" data-cat="mind" data-search="language linguistics phonetics syntax semantics">
+      <a href="modules/40-language.html" class="mod-item" data-cat="mind" data-search="language linguistics phonetics phonology syntax semantics pragmatics morphology writing systems language families acquisition thought digital">
         <span class="mod-num">40</span>
         <span class="mod-icon"><i class="fa-solid fa-language"></i></span>
         <div class="mod-body">
           <div class="mod-name">Language</div>
           <p class="mod-desc">How language works, where it came from, and what it does to thought</p>
         </div>
-        <span class="mod-tag" data-cat="mind">Mind</span>
+        <span class="mod-tag" data-cat="mind">Mind &amp; Meaning</span>
       </a>
 
-      <a href="modules/41-sports.html" class="mod-item" data-cat="body" data-search="sports football soccer">
+      <a href="modules/41-sports.html" class="mod-item" data-cat="body" data-search="sports football soccer competition physiology psychology performance tactics leagues transfers coaching management culture rules positions">
         <span class="mod-num">41</span>
         <span class="mod-icon"><i class="fa-solid fa-person-skiing"></i></span>
         <div class="mod-body">
           <div class="mod-name">Sports</div>
           <p class="mod-desc">Why sport matters, how it works, and a deep dive into the world's game</p>
         </div>
-        <span class="mod-tag" data-cat="body">Body</span>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
+      </a>
+
+      <a href="modules/42-animals.html" class="mod-item" data-cat="life" data-search="animals animal kingdom vertebrates invertebrates biology behaviour intelligence ecology extinction conservation classification mammals birds insects species">
+        <span class="mod-num">42</span>
+        <span class="mod-icon"><i class="fa-solid fa-paw"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Animals</div>
+          <p class="mod-desc">The diversity, biology, behaviour, and human relationship with the animal kingdom</p>
+        </div>
+        <span class="mod-tag" data-cat="life">Life &amp; Environment</span>
+      </a>
+
+      <a href="modules/43-physics.html" class="mod-item" data-cat="science" data-search="physics classical mechanics electromagnetism relativity quantum mechanics fields astrophysics cosmology spacetime light electricity applications interpretations">
+        <span class="mod-num">43</span>
+        <span class="mod-icon"><i class="fa-solid fa-atom"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Physics</div>
+          <p class="mod-desc">The laws that govern reality, from falling apples to spacetime</p>
+        </div>
+        <span class="mod-tag" data-cat="science">Science &amp; Tech</span>
+      </a>
+
+      <a href="modules/44-media.html" class="mod-item" data-cat="society" data-search="media journalism advertising social media misinformation literacy attention algorithm press freedom news values ownership business models persuasion">
+        <span class="mod-num">44</span>
+        <span class="mod-icon"><i class="fa-solid fa-newspaper"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Media</div>
+          <p class="mod-desc">How information is produced, packaged, sold, and believed</p>
+        </div>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
+      </a>
+
+      <a href="modules/45-religions.html" class="mod-item" data-cat="culture" data-search="religions religion abrahamic dharmic taoism confucianism shinto indigenous traditions belief ritual modern world christianity islam buddhism hinduism">
+        <span class="mod-num">45</span>
+        <span class="mod-icon"><i class="fa-solid fa-place-of-worship"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Religions</div>
+          <p class="mod-desc">What religions are, why humans have them, and the major traditions</p>
+        </div>
+        <span class="mod-tag" data-cat="culture">Culture &amp; Arts</span>
+      </a>
+
+      <a href="modules/46-fear.html" class="mod-item" data-cat="mind" data-search="fear neuroscience biology psychology anxiety trauma courage horror phobias social control animal phobias situational existential clinical">
+        <span class="mod-num">46</span>
+        <span class="mod-icon"><i class="fa-solid fa-mask"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Fear</div>
+          <p class="mod-desc">The biology, psychology, culture, and clinical shape of our oldest alarm system</p>
+        </div>
+        <span class="mod-tag" data-cat="mind">Mind &amp; Meaning</span>
+      </a>
+
+      <a href="modules/47-logic.html" class="mod-item" data-cat="mind" data-search="logic reasoning formal systems fallacies godel hilbert turing probability decision theory paradoxes infinity critical thinking validity">
+        <span class="mod-num">47</span>
+        <span class="mod-icon"><i class="fa-solid fa-puzzle-piece"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Logic</div>
+          <p class="mod-desc">The rules of valid reasoning, formal systems, and the paradoxes that break them</p>
+        </div>
+        <span class="mod-tag" data-cat="mind">Mind &amp; Meaning</span>
+      </a>
+
+      <a href="modules/48-fire.html" class="mod-item" data-cat="society" data-search="fire sector finance insurance real estate banking capital markets investment pricing risk brokers dealers regulation systemic crisis">
+        <span class="mod-num">48</span>
+        <span class="mod-icon"><i class="fa-solid fa-chart-line"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">FIRE Sector</div>
+          <p class="mod-desc">Finance, insurance, and real estate: industries that price and allocate capital</p>
+        </div>
+        <span class="mod-tag" data-cat="society">Society &amp; Systems</span>
+      </a>
+
+      <a href="modules/49-health.html" class="mod-item" data-cat="body" data-search="health medicine human body disease diagnostics treatment evidence based medicine public health healthcare systems nutrition mental health first aid genomics">
+        <span class="mod-num">49</span>
+        <span class="mod-icon"><i class="fa-solid fa-stethoscope"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Health &amp; Medicine</div>
+          <p class="mod-desc">The human body, what goes wrong, and how to make good health decisions</p>
+        </div>
+        <span class="mod-tag" data-cat="body">Body &amp; Health</span>
+      </a>
+
+      <a href="modules/50-ecosystems.html" class="mod-item" data-cat="life" data-search="ecosystems climate sustainability ecology food webs energy flow biodiversity biomes carbon cycle climate science decarbonisation oceans cities circular economy">
+        <span class="mod-num">50</span>
+        <span class="mod-icon"><i class="fa-solid fa-leaf"></i></span>
+        <div class="mod-body">
+          <div class="mod-name">Ecosystems, Climate &amp; Sustainability</div>
+          <p class="mod-desc">Living systems, Earth's climate, human impacts, and sustainable futures</p>
+        </div>
+        <span class="mod-tag" data-cat="life">Life &amp; Environment</span>
       </a>
       
     </div>
@@ -954,10 +1136,10 @@
         }
         sortBtns.forEach(b => {
           b.classList.remove('active');
-          b.querySelector('.sort-arrow').textContent = '▲';
+          b.querySelector('.sort-arrow').textContent = '^';
         });
         btn.classList.add('active');
-        btn.querySelector('.sort-arrow').textContent = sortAsc ? '▲' : '▼';
+        btn.querySelector('.sort-arrow').textContent = sortAsc ? '^' : 'v';
         sortItems();
       });
     });
