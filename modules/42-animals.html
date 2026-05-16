@@ -433,32 +433,6 @@
       line-height: 1.5;
     }
 
-    /* ── Q&A game ── */
-    .game-card {
-      background: var(--color-background-secondary);
-      border-radius: var(--border-radius-md);
-      padding: 14px 14px 12px;
-      margin-bottom: 8px;
-    }
-    .game-q { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 10px; line-height: 1.5; }
-    .game-opts { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 6px; }
-    .game-opt {
-      font-size: 12px; padding: 5px 12px;
-      border-radius: var(--border-radius-md);
-      border: 0.5px solid var(--color-border-secondary);
-      background: var(--color-background-primary);
-      color: var(--color-text-primary);
-      cursor: pointer; transition: background 0.1s;
-    }
-    .game-opt:hover { background: var(--color-background-tertiary); }
-    .game-opt.correct { background: var(--color-background-success); border-color: var(--color-border-success); color: var(--color-text-success); }
-    .game-opt.wrong   { background: var(--color-background-danger);  border-color: var(--color-border-danger);  color: var(--color-text-danger); }
-    .game-opt:disabled { cursor: default; }
-    .game-feedback { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; min-height: 18px; }
-    .game-score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    .game-score-label { font-size: 12px; color: var(--color-text-secondary); }
-    .game-score-val   { font-size: 16px; font-weight: 500; color: var(--color-text-primary); min-width: 40px; }
-
     @media (max-width: 500px) {
       .bl { width: 90px; font-size: 11px; }
       .pc-label { width: 100px; font-size: 10px; }
@@ -622,13 +596,6 @@
       <div class="chart-note">Source: Bar-On et al., 2018, PNAS. Insects alone outweigh all terrestrial vertebrates combined by a factor of 17. Wild mammals represent less than 5% of mammalian biomass — livestock and humans constitute the rest.</div>
     </div>
 
-    <div class="qa">
-      <p class="qa-q">If humans are animals, why does biology still separate "humans and animals" in ordinary speech?</p>
-      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
-      <div class="qa-ans">It is cultural shorthand, not biological accuracy. Biologically, humans are animals, mammals, primates, apes, hominins, and <em>Homo sapiens</em>. The everyday phrase usually means "humans and non-human animals," but it smuggles in a false separation. A good mental model keeps both truths: humans are biologically continuous with other animals, yet culturally and technologically unusual in ways that matter enormously for ecology, ethics, and conservation.</div>
-    </div>
-
-
     <!-- ═══ PART B ═══ -->
     <div class="sec">Part B · vertebrates — the animals we know best</div>
 
@@ -679,13 +646,6 @@
     </div>
     <div class="elem-detail" id="vert-detail"></div>
 
-    <div class="qa">
-      <p class="qa-q">Are birds really dinosaurs, or is that just a catchy comparison?</p>
-      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
-      <div class="qa-ans">Birds are living theropod dinosaurs, not merely dinosaur-like. Feathers, wishbones, hollow bones, nesting behaviour, and many skeletal details link them to small meat-eating dinosaurs such as dromaeosaurs and troodontids. The asteroid impact 66 million years ago eliminated non-avian dinosaurs, but one branch survived. A pigeon is therefore closer to <em>Tyrannosaurus</em> than a crocodile is — and closer to <em>Velociraptor</em> than <em>Velociraptor</em> was to <em>Triceratops</em>.</div>
-    </div>
-
-
     <!-- ═══ PART C ═══ -->
     <div class="sec">Part C · invertebrates — 97% of all animal species</div>
 
@@ -732,13 +692,6 @@
         <p class="cnote">Octopuses are molluscs, related to snails and clams, yet they solve puzzles, open jars, use coconut shells as shelters, and change skin texture and colour in fractions of a second. Their intelligence evolved on a completely separate path from vertebrate intelligence — the last common ancestor of octopuses and humans was a simple flatworm ~600 million years ago. Much of their nervous system (~500 million neurons) is distributed into their arms, so each arm is partly a semi-autonomous explorer, not just a cable.</p>
       </div>
     </div>
-
-    <div class="qa">
-      <p class="qa-q">If insects are so successful, why do people often treat them as biologically "simple"?</p>
-      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
-      <div class="qa-ans">Because small size tricks human intuition. Insects have compact nervous systems, but their behaviour can be astonishingly sophisticated: honeybees communicate food direction, ants farm fungi, and dragonflies intercept prey using predictive flight control — a feat that requires estimating prey trajectory, not just chasing it. Evolution rewards fit between body and problem, not similarity to mammals. A fly is not a failed bird; it is a highly tuned six-legged aircraft with a life history built for speed and reproduction.</div>
-    </div>
-
 
     <!-- ═══ PART D ═══ -->
     <div class="sec">Part D · animal biology — how bodies work across the kingdom</div>
@@ -835,13 +788,6 @@
       <div class="slider-note" id="rk-note"></div>
     </div>
 
-    <div class="qa">
-      <p class="qa-q">Does "cold-blooded" mean reptiles and fish are always cold and sluggish?</p>
-      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
-      <div class="qa-ans">"Cold-blooded" is a misleading term for ectothermy — body temperature shaped by external heat rather than generated internally. A lizard basking on a hot rock can sustain an active body temperature for hours. A bluefin tuna maintains its swimming muscles warmer than the surrounding water using a heat-exchange organ. Ectotherms can often be more agile than endotherms at high environmental temperatures; they lose out primarily when the environment is cold. The real advantage of ectothermy is metabolic economy: a Komodo dragon can survive on roughly 12 large meals per year.</div>
-    </div>
-
-
     <!-- ═══ PART E ═══ -->
     <div class="sec">Part E · animal behaviour and intelligence</div>
 
@@ -900,13 +846,6 @@
       <div class="bar-row"><div class="bl">Wildebeest</div><div class="bb" style="width:4%;background:#C88B3A;min-width:28px;"><span class="bv" style="color:#fff;">3,200 km</span></div></div>
       <div class="chart-note">The bar-tailed godwit holds the non-stop flight record: 12,200 km Alaska to New Zealand, 11 days, no landing. It achieves this by atrophying its digestive organs before departure to save weight, and rebuilding them on arrival. Migration is not tourism — it is a strategy for tracking food, breeding sites, and seasonal weather. The route can be as important as the destination: stopover wetlands and wind corridors are invisible infrastructure whose destruction collapses migration systems.</div>
     </div>
-
-    <div class="qa">
-      <p class="qa-q">Is mirror self-recognition the gold standard for animal consciousness?</p>
-      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
-      <div class="qa-ans">It is useful but far too narrow. Great apes, dolphins, elephants, and magpies have produced striking mirror-test results, but the test privileges vision, body-mark interest, and human-like self-inspection. A dog may understand identity more through smell than reflection — so failing the test does not mean lacking inner experience. The cleaner wrasse (a reef fish) appears to pass the test, which generated controversy precisely because the test was assumed to require mammalian cognition. Consciousness is probably a bundle of capacities, not a single exam that can be passed or failed.</div>
-    </div>
-
 
     <!-- ═══ PART F ═══ -->
     <div class="sec">Part F · ecology — animals in their environments</div>
@@ -1004,13 +943,6 @@
       </div>
     </div>
 
-    <div class="qa">
-      <p class="qa-q">Is the "10% rule" of food webs literally true?</p>
-      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
-      <div class="qa-ans">It is a useful average, not a physical law. Energy transfer between trophic levels can be lower or higher depending on body temperature, digestibility, activity level, and ecosystem type. Mammal predators lose much energy as heat; aquatic food chains can transfer 15–20% more efficiently because ectothermic fish waste less energy on thermoregulation. The rule matters not because it is exact, but because it explains why ecosystems can support far more plant biomass than large predators — and why losing apex predators has consequences far exceeding their small numerical share of the food web.</div>
-    </div>
-
-
     <!-- ═══ PART G ═══ -->
     <div class="sec">Part G · extinction, conservation, and humans</div>
 
@@ -1068,15 +1000,50 @@
       <p class="muted-copy-large" style="margin:0 0 10px;">Animals have anchored human symbolic life since the Chauvet cave paintings (~36,000 BCE), which depict lions, rhinos, and cave bears with startling anatomical accuracy. Totemic animals appear in virtually every hunter-gatherer culture. Lions represent power, owls wisdom, snakes danger or renewal, doves peace, ravens prophecy, cows wealth, dogs loyalty — but symbols can flatten real animals into props. Working animals — horses, elephants, camels, sled dogs — were the primary engine of human civilisation for 5,000 years. The domestic cat kills 1.4–3.7 billion birds per year in the US alone, making it one of the largest anthropogenic causes of bird mortality — while also demonstrably reducing owner anxiety, loneliness, and blood pressure. Culture is part of the relationship, but it should not erase the living creature underneath it.</p>
     </div>
 
+    <!-- ═══ PART H — Q&A ═══ -->
+    <div class="sec">Part H · questions and answers</div>
+
+    <div class="qa">
+      <p class="qa-q">If humans are animals, why does biology still separate "humans and animals" in ordinary speech?</p>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">It is cultural shorthand, not biological accuracy. Biologically, humans are animals, mammals, primates, apes, hominins, and <em>Homo sapiens</em>. The everyday phrase usually means "humans and non-human animals," but it smuggles in a false separation. A good mental model keeps both truths: humans are biologically continuous with other animals, yet culturally and technologically unusual in ways that matter enormously for ecology, ethics, and conservation.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Are birds really dinosaurs, or is that just a catchy comparison?</p>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Birds are living theropod dinosaurs, not merely dinosaur-like. Feathers, wishbones, hollow bones, nesting behaviour, and many skeletal details link them to small meat-eating dinosaurs such as dromaeosaurs and troodontids. The asteroid impact 66 million years ago eliminated non-avian dinosaurs, but one branch survived. A pigeon is therefore closer to <em>Tyrannosaurus</em> than a crocodile is — and closer to <em>Velociraptor</em> than <em>Velociraptor</em> was to <em>Triceratops</em>.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">If insects are so successful, why do people often treat them as biologically "simple"?</p>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Because small size tricks human intuition. Insects have compact nervous systems, but their behaviour can be astonishingly sophisticated: honeybees communicate food direction, ants farm fungi, and dragonflies intercept prey using predictive flight control — a feat that requires estimating prey trajectory, not just chasing it. Evolution rewards fit between body and problem, not similarity to mammals. A fly is not a failed bird; it is a highly tuned six-legged aircraft with a life history built for speed and reproduction.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Does "cold-blooded" mean reptiles and fish are always cold and sluggish?</p>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">"Cold-blooded" is a misleading term for ectothermy — body temperature shaped by external heat rather than generated internally. A lizard basking on a hot rock can sustain an active body temperature for hours. A bluefin tuna maintains its swimming muscles warmer than the surrounding water using a heat-exchange organ. Ectotherms can often be more agile than endotherms at high environmental temperatures; they lose out primarily when the environment is cold. The real advantage of ectothermy is metabolic economy: a Komodo dragon can survive on roughly 12 large meals per year.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Is mirror self-recognition the gold standard for animal consciousness?</p>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">It is useful but far too narrow. Great apes, dolphins, elephants, and magpies have produced striking mirror-test results, but the test privileges vision, body-mark interest, and human-like self-inspection. A dog may understand identity more through smell than reflection — so failing the test does not mean lacking inner experience. The cleaner wrasse (a reef fish) appears to pass the test, which generated controversy precisely because the test was assumed to require mammalian cognition. Consciousness is probably a bundle of capacities, not a single exam that can be passed or failed.</div>
+    </div>
+
+    <div class="qa">
+      <p class="qa-q">Is the "10% rule" of food webs literally true?</p>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">It is a useful average, not a physical law. Energy transfer between trophic levels can be lower or higher depending on body temperature, digestibility, activity level, and ecosystem type. Mammal predators lose much energy as heat; aquatic food chains can transfer 15–20% more efficiently because ectothermic fish waste less energy on thermoregulation. The rule matters not because it is exact, but because it explains why ecosystems can support far more plant biomass than large predators — and why losing apex predators has consequences far exceeding their small numerical share of the food web.</div>
+    </div>
+
     <div class="qa">
       <p class="qa-q">Is de-extinction a serious conservation strategy?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
       <div class="qa-ans">Scientifically interesting but not a substitute for protecting living species. Even if a mammoth-like elephant or passenger-pigeon-like bird were produced via CRISPR gene editing, it would not automatically restore the lost animal's learned culture, microbiome, habitat, or ecological relationships. The hard part of conservation is usually not DNA — it is land, political will, conflict resolution, and sustained funding over decades. De-extinction may become useful in narrow cases (small island species with frozen genomes and a suitable surrogate host), but framing it as an "escape hatch" from extinction actively undermines the urgency to prevent extinctions in the first place.</div>
     </div>
-
-
-    <!-- ═══ PART H — Q&A ═══ -->
-    <div class="sec">Part H · questions and answers</div>
 
     <div class="qa">
       <p class="qa-q">Why do animal species counts vary so much from source to source?</p>
@@ -1119,16 +1086,6 @@
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
       <div class="qa-ans">Not yet — but the trajectory is alarming. The five prior mass extinctions eliminated 60–96% of species over thousands to millions of years. Current extinction rates are 100–1,000 times the background rate, but probably only 1–3% of species have gone extinct since 1500. However, mass extinctions are threshold events — collapse is not visible until it is already well underway. More alarming than species counts are population-level losses: a 2020 WWF Living Planet Report found average vertebrate population sizes declined 68% between 1970 and 2016. When populations disappear, ecosystem functions (pollination, seed dispersal, pest control) collapse even before species do.</div>
     </div>
-
-
-    <!-- ═══ PART I — QUIZ ═══ -->
-    <div class="sec">Part I · test your animal sense</div>
-    <div class="game-score-row">
-      <div class="game-score-label">Score:</div>
-      <div class="game-score-val" id="quiz-score">0 / 0</div>
-      <button onclick="resetQuiz()" style="font-size:12px;padding:3px 10px;">Reset</button>
-    </div>
-    <div id="quiz-container"></div>
 
   </div><!-- end page-wrap -->
 
@@ -1649,118 +1606,6 @@
       const isShown = ans.classList.toggle('show');
       btn.textContent = isShown ? 'hide' : 'show answer';
     };
-
-    /* ════ PART I — Quiz ════ */
-    const QUIZ = [
-      {
-        q: 'A peregrine falcon diving at prey reaches approximately what speed?',
-        opts: ['120 km/h', '200 km/h', '389 km/h', '500 km/h'],
-        ans: 2,
-        explain: '389 km/h in a dive (stoop) — the fastest animal on Earth. In level flight, peregrines are far slower (~90 km/h). The dive involves folding wings into a teardrop shape and tucking nictitating membranes to protect the eyes from wind blast.'
-      },
-      {
-        q: 'What fraction of all animal species are vertebrates?',
-        opts: ['About 50%', 'About 25%', 'About 10%', 'About 4%'],
-        ans: 3,
-        explain: 'Vertebrates (~65,000 species) represent roughly 4% of all described animal species (~1.5 million). Insects alone (~950,000 species) outnumber vertebrates 14-to-one. We focus on vertebrates primarily because of familiarity and ecological visibility, not numerical dominance.'
-      },
-      {
-        q: 'The last woolly mammoths went extinct approximately when?',
-        opts: ['65 million years ago', '10,000 years ago', '4,000 years ago', '500 years ago'],
-        ans: 2,
-        explain: 'The last isolated population survived on Wrangel Island, Russia, until ~4,000 years ago — while the Great Pyramid of Giza was already built. They did not die with the dinosaurs; they were contemporary with early human civilisations.'
-      },
-      {
-        q: 'What does Kleiber\'s law state about metabolism?',
-        opts: ['Metabolic rate scales with body mass directly', 'BMR scales as mass to the power 0.75', 'All mammals have the same metabolic rate', 'Larger animals have higher metabolic rate per kg'],
-        ans: 1,
-        explain: 'Kleiber\'s law: basal metabolic rate scales as body mass^0.75. This means large animals use more total energy but less per kilogram — a blue whale is metabolically "cheaper" per gram than a shrew. The -0.25 exponent per-kg means tiny animals burn proportionally far more fuel, which is why shrews must eat almost continuously.'
-      },
-      {
-        q: 'What is the "10% rule" in food web ecology?',
-        opts: ['10% of species are predators', '~10% of energy transfers between trophic levels', '10% of animals migrate', '10% of ocean species have been discovered'],
-        ans: 1,
-        explain: 'Only about 10% of energy stored at one trophic level reaches the next — the rest is lost to heat, respiration, and waste. This explains why apex predators are rare, need large territories, and why ecosystems can support far more herbivore biomass than carnivore biomass.'
-      },
-      {
-        q: 'Which sense do sharks use to detect prey hidden under sand?',
-        opts: ['Vision', 'Smell', 'Electroreception', 'Hearing'],
-        ans: 2,
-        explain: 'The ampullae of Lorenzini detect bioelectric fields from a flounder\'s heartbeat through 30cm of sand, sensitive to 5 nanovolts per centimetre. Sharks also have excellent smell and hearing, but for detecting hidden, motionless prey on the seabed, electroreception is the primary sense.'
-      },
-      {
-        q: 'Cane toads were introduced to Queensland in 1935 to control which pest?',
-        opts: ['Feral rabbits', 'Cane beetles', 'Mice', 'Crown-of-thorns starfish'],
-        ans: 1,
-        explain: 'Cane toads were imported from Hawaii to control the cane beetle (Dermolepida albohirtum). The toads largely ignored the beetles, spread across 1.2 million km², and poisoned native predators (goannas, quolls, freshwater crocodiles) that had no evolutionary experience of their bufotoxin glands. A textbook ecological disaster.'
-      },
-      {
-        q: 'Hamilton\'s rule (rB > C) predicts when altruism evolves. What does "r" represent?',
-        opts: ['Rate of reproduction', 'Degree of genetic relatedness between actors', 'Resource availability', 'Risk of predation'],
-        ans: 1,
-        explain: 'r is the coefficient of genetic relatedness. B is the benefit to the recipient, C is the cost to the actor. Altruism evolves when relatives benefit enough to offset the actor\'s cost, because relatives share copies of the altruist\'s genes. In Hymenoptera (ants, bees), sisters share 75% of genes due to haplodiploidy, making extreme worker sacrifice mathematically rational under Hamilton\'s rule.'
-      }
-    ];
-
-    let quizAnswered = new Array(QUIZ.length).fill(false);
-    let quizCorrect  = 0;
-    let quizTotal    = 0;
-
-    function renderQuiz() {
-      const container = document.getElementById('quiz-container');
-      let html = '';
-      QUIZ.forEach(function(q, qi) {
-        html += '<div class="game-card" id="qcard-' + qi + '">';
-        html += '<div class="game-q">' + (qi + 1) + '. ' + q.q + '</div>';
-        html += '<div class="game-opts">';
-        q.opts.forEach(function(opt, oi) {
-          html += '<button class="game-opt" id="qopt-' + qi + '-' + oi + '" onclick="answerQuiz(' + qi + ',' + oi + ')">' + opt + '</button>';
-        });
-        html += '</div><div class="game-feedback" id="qfb-' + qi + '"></div></div>';
-      });
-      container.innerHTML = html;
-      updateQuizScore();
-    }
-
-    window.answerQuiz = function(qi, oi) {
-      if (quizAnswered[qi]) return;
-      quizAnswered[qi] = true;
-      quizTotal++;
-      const q = QUIZ[qi];
-      const isCorrect = oi === q.ans;
-      if (isCorrect) quizCorrect++;
-      for (let i = 0; i < q.opts.length; i++) {
-        const btn = document.getElementById('qopt-' + qi + '-' + i);
-        btn.disabled = true;
-        if (i === q.ans) btn.classList.add('correct');
-        else if (i === oi && !isCorrect) btn.classList.add('wrong');
-      }
-      const fb = document.getElementById('qfb-' + qi);
-      fb.innerHTML = (isCorrect ? '✓ Correct. ' : '✗ Not quite. ') + q.explain;
-      fb.style.color = isCorrect ? 'var(--color-text-success)' : 'var(--color-text-danger)';
-      updateQuizScore();
-    };
-
-    function updateQuizScore() {
-      const total = QUIZ.length;
-      let suffix = '';
-      if (quizTotal === total) {
-        suffix = quizCorrect === total ? ' — Perfect! 🎯'
-          : quizCorrect >= 6 ? ' — Excellent!'
-          : quizCorrect >= 4 ? ' — Good effort'
-          : ' — Keep studying';
-      }
-      document.getElementById('quiz-score').textContent = quizCorrect + ' / ' + quizTotal + suffix;
-    }
-
-    window.resetQuiz = function() {
-      quizAnswered = new Array(QUIZ.length).fill(false);
-      quizCorrect  = 0;
-      quizTotal    = 0;
-      renderQuiz();
-    };
-
-    renderQuiz();
 
   }); // end DOMContentLoaded
   </script>
