@@ -3,148 +3,180 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 46: Fear - Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <title>Module 46: Fear — Have a Sense</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/46_fa-mask.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
-  <meta name="description" content="Module 46: Fear, anxiety, trauma, culture, and a practical guide to phobias. Part of Have a Sense About Everything.">
-  <meta property="og:title" content="Module 46: Fear - Have a Sense">
-  <meta property="og:description" content="Fear, anxiety, trauma, culture, and a practical guide to phobias.">
-  <meta property="og:type" content="article">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
     :root {
-      --accent: #9b3030;
-      --accent-bg: #fcebeb;
-      --accent-border: #f09595;
+      --accent: #9B3030;
+      --accent-bg: #FCEBEB;
+      --accent-border: #F09595;
+      --accent-mid: #C04040;
     }
 
-    .module-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 0.6rem;
-    }
-    .module-head i {
-      font-size: 42px;
+    /* ── Phobia section headings ── */
+    .sec-phobia {
+      margin: 2rem 0 0.6rem;
+      font-size: 11px;
+      font-weight: 600;
       color: var(--accent);
-      flex-shrink: 0;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid var(--accent-border);
+      padding-bottom: 5px;
     }
-    .section-note {
-      background: var(--color-background-danger);
-      border: 0.5px solid var(--color-border-danger);
-      color: var(--color-text-danger);
-      border-radius: var(--border-radius-lg);
-      padding: 11px 14px;
-      margin-bottom: 1rem;
-      font-size: 12px;
+
+    /* ── Explorer panel (onclick switching) ── */
+    .explorer-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .explorer-btns button.active {
+      background: var(--accent-bg);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+    .explorer-panel {
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      padding: 12px 14px;
+      font-size: 13px;
+      color: var(--color-text-primary);
       line-height: 1.6;
+      min-height: 80px;
     }
-    .teaser-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-      margin-bottom: 1rem;
+    .explorer-panel-title {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--accent);
     }
-    .teaser-card {
+    .detail-box {
+      background: var(--color-background-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 9px 11px;
+      margin-top: 10px;
+    }
+
+    /* ── Period chart ── */
+    .pc-wrap {
       background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
       border-radius: var(--border-radius-lg);
-      padding: 14px 15px;
-      min-height: 142px;
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+      overflow-x: auto;
     }
-    .teaser-num {
-      font-size: 10px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-    .teaser-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--color-text-primary);
-      line-height: 1.25;
-      margin-bottom: 5px;
-    }
-    .teaser-desc {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-      line-height: 1.5;
-    }
-    .mini-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-primary);
-      margin-bottom: 7px;
-    }
-    .mini-body {
-      font-size: 13px;
-      color: var(--color-text-primary);
-      line-height: 1.6;
-    }
-    .small-note {
-      font-size: 11px;
-      color: var(--color-text-tertiary);
-      line-height: 1.5;
-      margin-top: 7px;
-    }
-    .tight-grid {
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-    }
-    .tri-grid {
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    }
-    .four-grid {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
+    .pc-track-area { min-width: 480px; }
+    .pc-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .pc-label { font-size: 11px; color: var(--color-text-secondary); width: 145px; flex-shrink: 0; text-align: right; line-height: 1.3; }
+    .pc-track { flex: 1; height: 18px; background: var(--color-background-tertiary); border-radius: 4px; position: relative; }
+    .pc-fill { height: 100%; border-radius: 4px; position: absolute; display: flex; align-items: center; padding: 0 6px; }
+    .pc-fill-label { font-size: 10px; font-weight: 500; white-space: nowrap; overflow: hidden; }
+    .pc-axis { display: flex; margin-left: 153px; margin-top: 4px; position: relative; height: 16px; }
+    .pc-axis-mark { position: absolute; font-size: 10px; color: var(--color-text-tertiary); transform: translateX(-50%); }
+
+    /* ── Comparison scale (dot-on-track) ── */
+    .cscale-wrap { margin-bottom: 1rem; }
+    .cscale-poles { display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px; }
+    .cscale-row { display: flex; align-items: center; gap: 10px; margin-bottom: 7px; }
+    .cscale-name { font-size: 12px; color: var(--color-text-primary); width: 160px; flex-shrink: 0; text-align: right; }
+    .cscale-track { flex: 1; height: 6px; background: var(--color-background-tertiary); border-radius: 3px; position: relative; }
+    .cscale-dot { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; position: absolute; top: -3px; transform: translateX(-50%); }
+
+    /* ── Dist bar (pie-style) ── */
+    .dist-bar { display: flex; height: 28px; border-radius: var(--border-radius-md); overflow: hidden; margin-bottom: 8px; }
+    .dist-seg { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; }
+    .dist-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1rem; }
+    .dist-legend-item { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--color-text-secondary); }
+    .dist-legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+    /* ── Multi-card (elem) grid ── */
+    .elem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 8px;
       margin-bottom: 10px;
     }
-    .chip-row button {
-      font-size: 12px;
-      padding: 3px 10px;
+    .elem-card {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 10px 11px;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.1s, background 0.1s;
     }
-    .chip-row button.active,
-    .elem-card.active {
-      background: var(--accent-bg);
-      border-color: var(--accent-border);
-      color: var(--color-text-danger);
-    }
-    .display-panel,
-    .elem-detail,
-    .calc-output {
+    .elem-card:hover { background: var(--color-background-tertiary); }
+    .elem-card.active { border-color: var(--accent-border); background: var(--accent-bg); }
+    .elem-card-icon { font-size: 20px; margin-bottom: 4px; line-height: 1; color: var(--accent); }
+    .elem-card-label { font-size: 11px; font-weight: 600; color: var(--color-text-primary); line-height: 1.3; }
+    .elem-card-sub { font-size: 10px; color: var(--color-text-secondary); margin-top: 2px; line-height: 1.35; }
+    .elem-card.active .elem-card-label { color: var(--accent); }
+    .elem-card.active .elem-card-sub { color: var(--color-text-danger); }
+    .elem-detail-panel {
+      display: none;
       background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
       border-radius: var(--border-radius-lg);
       padding: 13px 15px;
       margin-bottom: 1rem;
     }
-    .display-kicker {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
+    .elem-detail-panel.show { display: block; }
+    .elem-detail-title { font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 6px; }
+
+    /* ── Slider ── */
+    .slider-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
     }
-    .detail-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
+    .slider-poles { display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 4px; }
+    .slider-output {
+      background: var(--accent-bg);
+      border: 0.5px solid var(--accent-border);
+      border-radius: var(--border-radius-md);
+      padding: 10px 13px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.6;
+      margin-top: 8px;
     }
-    .detail-box {
+    .slider-val-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .slider-big-val { font-size: 20px; font-weight: 600; color: var(--accent); }
+
+    /* ── Calculator ── */
+    .calc-wrap {
+      background: var(--color-background-primary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      padding: 13px 15px;
+      margin-bottom: 1rem;
+    }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 10px; }
+    .calc-field label { display: block; font-size: 11px; color: var(--color-text-secondary); margin-bottom: 3px; }
+    .calc-output {
       background: var(--color-background-secondary);
       border-radius: var(--border-radius-md);
-      padding: 9px 11px;
+      padding: 11px 13px;
+      font-size: 13px;
+      color: var(--color-text-primary);
+      line-height: 1.7;
+      min-height: 44px;
     }
+
+    /* ── Stat lines ── */
+    .stat-line { display: flex; align-items: flex-start; gap: 9px; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+    .stat-line:last-child { border-bottom: 0; }
+    .stat-num { min-width: 58px; color: var(--accent); font-size: 18px; font-weight: 600; line-height: 1.2; }
+    .stat-copy { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+
+    /* ── Diagram card ── */
     .diagram-card {
       background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
@@ -153,264 +185,16 @@
       margin-bottom: 1rem;
       overflow-x: auto;
     }
-    .diagram-card svg {
-      width: 100%;
-      min-width: 520px;
-      display: block;
-    }
-    .slider-wrap {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-    }
-    .slider-top {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: baseline;
-      margin-bottom: 8px;
-    }
-    .slider-value {
-      color: var(--accent);
-      font-size: 20px;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-    .slider-poles {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 11px;
-      color: var(--color-text-tertiary);
-      margin-top: 4px;
-    }
-    .slider-result {
-      background: var(--color-background-secondary);
-      border-radius: var(--border-radius-md);
-      padding: 10px 12px;
-      font-size: 13px;
-      color: var(--color-text-primary);
-      line-height: 1.6;
-      margin-top: 10px;
-    }
-    .period-chart {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-      overflow-x: auto;
-    }
-    .pc-inner {
-      min-width: 540px;
-    }
-    .pc-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 7px;
-    }
-    .pc-label {
-      font-size: 11px;
-      color: var(--color-text-secondary);
-      width: 145px;
-      flex-shrink: 0;
-      text-align: right;
-      line-height: 1.25;
-    }
-    .pc-track {
-      flex: 1;
-      height: 18px;
-      background: var(--color-background-secondary);
-      border-radius: 3px;
-      position: relative;
-      min-width: 280px;
-    }
-    .pc-fill {
-      position: absolute;
-      top: 0;
-      height: 100%;
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      padding: 0 5px;
-    }
-    .pc-fill-label {
-      font-size: 9px;
-      font-weight: 600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .pc-axis {
-      height: 20px;
-      margin-left: 153px;
-      position: relative;
-      margin-bottom: 3px;
-    }
-    .pc-axis-mark {
-      font-size: 9px;
-      color: var(--color-text-tertiary);
-      position: absolute;
-      transform: translateX(-50%);
-    }
-    .elem-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .elem-card {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 11px 12px;
-      cursor: pointer;
-      text-align: center;
-      transition: background 0.12s, border-color 0.12s;
-    }
-    .elem-card:hover {
-      background: var(--color-background-secondary);
-    }
-    .elem-icon {
-      color: var(--accent);
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-    .elem-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-text-primary);
-    }
-    .elem-sub {
-      font-size: 10px;
-      color: var(--color-text-secondary);
-      margin-top: 2px;
-      line-height: 1.35;
-    }
-    .elem-detail {
-      display: none;
-    }
-    .cscale {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-    }
-    .cscale-row {
-      display: grid;
-      grid-template-columns: 145px 1fr;
-      gap: 10px;
-      align-items: center;
-      margin-bottom: 9px;
-    }
-    .cscale-name {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-      text-align: right;
-      line-height: 1.3;
-    }
-    .cscale-track {
-      height: 18px;
-      background: var(--color-background-secondary);
-      border-radius: 99px;
-      position: relative;
-    }
-    .cscale-dot {
-      position: absolute;
-      top: 50%;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      background: var(--accent);
-      border: 2px solid var(--color-background-primary);
-      box-shadow: 0 0 0 1px var(--accent-border);
-    }
-    .scale-poles {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      margin-left: 155px;
-      color: var(--color-text-tertiary);
-      font-size: 10px;
-      line-height: 1.4;
-    }
-    .chart-card {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-    }
-    .bar-row .bb {
+    .diagram-card svg { width: 100%; min-width: 520px; display: block; }
+
+    /* ── Accent info/danger blocks ── */
+    .fear-info-block {
       background: var(--accent-bg);
-      color: var(--color-text-danger);
-    }
-    .dist-bar {
-      display: flex;
-      height: 26px;
-      overflow: hidden;
-      border-radius: var(--border-radius-md);
-      border: 0.5px solid var(--color-border-tertiary);
-      margin: 10px 0 8px;
-    }
-    .dist-seg {
-      height: 100%;
-    }
-    .legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 12px;
-      font-size: 11px;
-      color: var(--color-text-secondary);
-      line-height: 1.4;
-    }
-    .legend-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .legend-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-    .calc-card {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
+      border: 0.5px solid var(--accent-border);
       border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-      margin-bottom: 1rem;
-    }
-    .calc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .calc-field label {
-      display: block;
-      font-size: 11px;
-      color: var(--color-text-secondary);
-      margin-bottom: 3px;
-    }
-    .calc-output {
-      background: var(--color-background-secondary);
-      margin: 10px 0 0;
-      min-height: 54px;
-    }
-    .info-block {
-      background: var(--color-background-info);
-      border: 0.5px solid var(--color-border-info);
-      color: var(--color-text-info);
-      border-radius: var(--border-radius-lg);
-      padding: 11px 13px;
+      padding: 11px 14px;
       font-size: 12px;
+      color: var(--color-text-danger);
       line-height: 1.6;
       margin-bottom: 1rem;
     }
@@ -424,351 +208,426 @@
       line-height: 1.6;
       margin-bottom: 1rem;
     }
-    .warning-block {
-      background: var(--color-background-warning);
-      border: 0.5px solid var(--color-border-warning);
-      color: var(--color-text-warning);
-      border-radius: var(--border-radius-lg);
-      padding: 11px 13px;
-      font-size: 12px;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .stat-line {
-      display: flex;
-      align-items: flex-start;
-      gap: 9px;
-      padding: 8px 0;
-      border-bottom: 0.5px solid var(--color-border-tertiary);
-    }
-    .stat-line:last-child {
-      border-bottom: 0;
-    }
-    .stat-num {
-      min-width: 58px;
-      color: var(--accent);
-      font-size: 18px;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-    .stat-copy {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-      line-height: 1.5;
-    }
+
     @media (max-width: 500px) {
-      .pc-label {
-        width: 92px;
-        font-size: 10px;
-      }
-      .pc-axis {
-        margin-left: 100px;
-      }
-      .cscale-row {
-        grid-template-columns: 88px 1fr;
-      }
-      .cscale-name {
-        font-size: 10px;
-      }
-      .scale-poles {
-        margin-left: 98px;
-      }
-      .bl {
-        width: 92px;
-        font-size: 10px;
-      }
-      .module-head {
-        align-items: flex-start;
-      }
+      .bl { width: 90px; font-size: 10px; }
+      .cscale-name { width: 100px; font-size: 10px; }
+      .pc-label { width: 90px; font-size: 10px; }
+      .pc-axis { margin-left: 98px; }
     }
   </style>
 </head>
 <body>
   <div class="page-wrap">
-    <div class="module-head">
-      <i class="fa-solid fa-skull" aria-hidden="true"></i>
-      <h1 class="module-title">Module 46: Fear</h1>
+
+    <div style="display:flex;align-items:center;gap:14px;margin-bottom:0.6rem;">
+      <i class="fa-solid fa-mask" style="font-size:42px;color:var(--accent);flex-shrink:0;"></i>
+      <h1 class="module-title" style="margin:0;line-height:1.05;">Module 46: Fear</h1>
     </div>
     <p class="module-subtitle">The biology, psychology, culture, and clinical shape of our oldest alarm system</p>
 
-    <div class="sec">Part A - what fear is - the neuroscience and biology</div>
+    <!-- ═══════════════ PART A ═══════════════ -->
+    <div class="sec">Part A · what fear is — the neuroscience and biology</div>
 
-    <div class="teaser-grid">
-      <div class="teaser-card">
-        <div class="teaser-num">overview</div>
-        <div class="teaser-name">Fear is not a flaw in the mind. It is a prediction system with a body attached.</div>
-        <div class="teaser-desc">This module builds a usable model of fear: Part A maps the biology, Part B explains anxiety, trauma, courage, and risk, Part C looks at horror and social control, and Parts D-G give a practical field guide to phobias.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-num">why it matters</div>
-        <div class="teaser-name">Fear is useful only when it updates.</div>
-        <div class="teaser-desc">A smoke alarm that never stops is not more protective. Many phobias and trauma reactions are old safety programs running in a new context, which is why treatment is usually about learning, not arguing with yourself.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-num">roadmap</div>
-        <div class="teaser-name">The course moves from circuits to civilization.</div>
-        <div class="teaser-desc">You will see how the amygdala, cortex, hormones, memory, culture, media, politics, and avoidance all connect. The goal is not fearlessness. The goal is calibrated fear.</div>
-      </div>
-    </div>
-
-    <div class="cgrid tight-grid">
+    <!-- Overview -->
+    <div class="cgrid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));">
       <div class="card">
-        <div class="mini-title">Fear as survival</div>
-        <div class="mini-body">Fear exists because slow animals became meals. A rustle in grass is cheap to misread as danger and expensive to misread as nothing. Natural selection therefore favored a biased alarm: better ten false alarms than one missed predator. The familiar fight, flight, freeze, and appease responses are not personality styles; they are action programs. Freezing can improve hearing and vision before a decision, while fleeing buys distance. The body is not being dramatic. It is reallocating blood, attention, and glucose toward immediate survival.</div>
+        <div class="panel-title">Fear is not a flaw in the mind.</div>
+        <div class="muted-copy-large">It is a prediction system with a body attached. This module builds a usable model of fear: Part A maps the biology, Part B explains anxiety, trauma, courage, and risk, Part C looks at horror and social control, and Parts D–G give a practical field guide to phobias.</div>
       </div>
       <div class="card">
-        <div class="mini-title">Fear versus anxiety</div>
-        <div class="mini-body">Fear is usually about a present threat: the dog is charging, the car is skidding, the ledge is under your feet. Anxiety is about anticipated threat: what if the dog bites, what if I faint, what if the meeting exposes me. They share machinery, but the time horizon changes everything. Fear narrows action. Anxiety simulates futures, sometimes brilliantly and sometimes ruinously. Treatment depends on this distinction because a current danger needs action, while a predicted danger often needs testing.</div>
+        <div class="panel-title">Fear is useful only when it updates.</div>
+        <div class="muted-copy-large">A smoke alarm that never stops is not more protective than one that fires and clears. When fear stops updating — stops discriminating between true and false threats — it is no longer an alarm system. It is the emergency itself.</div>
+      </div>
+      <div class="card">
+        <div class="panel-title">Key numbers</div>
+        <div class="stat-line"><div class="stat-num">~10%</div><div class="stat-copy">of people globally meet criteria for a specific phobia at some point in their lives</div></div>
+        <div class="stat-line"><div class="stat-num">~7%</div><div class="stat-copy">of US adults have social anxiety disorder in a given year — the most prevalent anxiety disorder</div></div>
+        <div class="stat-line"><div class="stat-num">~6%</div><div class="stat-copy">lifetime PTSD prevalence in the US general population; 20–30% in combat veterans</div></div>
       </div>
     </div>
 
-    <div class="diagram-card">
-      <div class="mini-title">The fear circuit - fast alarm, slower interpretation</div>
-      <svg viewBox="0 0 760 260" role="img" aria-label="Diagram of the sensory fear pathway through thalamus, amygdala, cortex, hippocampus, hypothalamus, and body response">
-        <defs>
-          <marker id="arrowFear" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-            <path d="M0,0 L8,4 L0,8 Z" fill="var(--accent)"></path>
-          </marker>
-        </defs>
-        <rect x="20" y="88" width="115" height="58" rx="8" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
-        <text x="77" y="111" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">Sensory input</text>
-        <text x="77" y="130" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">sound, sight, pain</text>
-
-        <rect x="185" y="88" width="115" height="58" rx="8" fill="var(--color-background-info)" stroke="var(--color-border-info)"></rect>
-        <text x="242" y="111" text-anchor="middle" font-size="13" fill="var(--color-text-info)">Thalamus</text>
-        <text x="242" y="130" text-anchor="middle" font-size="10" fill="var(--color-text-info)">routing station</text>
-
-        <rect x="350" y="30" width="125" height="58" rx="8" fill="var(--color-background-danger)" stroke="var(--color-border-danger)"></rect>
-        <text x="412" y="53" text-anchor="middle" font-size="13" fill="var(--color-text-danger)">Amygdala</text>
-        <text x="412" y="72" text-anchor="middle" font-size="10" fill="var(--color-text-danger)">quick alarm</text>
-
-        <rect x="350" y="145" width="125" height="58" rx="8" fill="var(--color-background-success)" stroke="var(--color-border-success)"></rect>
-        <text x="412" y="168" text-anchor="middle" font-size="13" fill="var(--color-text-success)">Cortex</text>
-        <text x="412" y="187" text-anchor="middle" font-size="10" fill="var(--color-text-success)">slower meaning</text>
-
-        <rect x="530" y="30" width="115" height="58" rx="8" fill="var(--color-background-warning)" stroke="var(--color-border-warning)"></rect>
-        <text x="587" y="53" text-anchor="middle" font-size="13" fill="var(--color-text-warning)">Hypothalamus</text>
-        <text x="587" y="72" text-anchor="middle" font-size="10" fill="var(--color-text-warning)">body command</text>
-
-        <rect x="530" y="145" width="115" height="58" rx="8" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)"></rect>
-        <text x="587" y="168" text-anchor="middle" font-size="13" fill="var(--color-text-primary)">Hippocampus</text>
-        <text x="587" y="187" text-anchor="middle" font-size="10" fill="var(--color-text-secondary)">context memory</text>
-
-        <rect x="675" y="88" width="65" height="58" rx="8" fill="var(--accent-bg)" stroke="var(--accent-border)"></rect>
-        <text x="708" y="111" text-anchor="middle" font-size="13" fill="var(--color-text-danger)">Body</text>
-        <text x="708" y="130" text-anchor="middle" font-size="10" fill="var(--color-text-danger)">act now</text>
-
-        <line x1="135" y1="117" x2="185" y2="117" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"></line>
-        <line x1="300" y1="111" x2="350" y2="69" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"></line>
-        <line x1="300" y1="123" x2="350" y2="162" stroke="var(--color-text-success)" stroke-width="2" marker-end="url(#arrowFear)"></line>
-        <line x1="475" y1="59" x2="530" y2="59" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"></line>
-        <line x1="645" y1="59" x2="690" y2="88" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"></line>
-        <line x1="475" y1="174" x2="530" y2="174" stroke="var(--color-text-success)" stroke-width="2" marker-end="url(#arrowFear)"></line>
-        <line x1="587" y1="145" x2="452" y2="88" stroke="var(--color-text-secondary)" stroke-width="1.5" marker-end="url(#arrowFear)"></line>
-        <text x="326" y="56" font-size="10" fill="var(--accent)">low road: crude, fast</text>
-        <text x="318" y="198" font-size="10" fill="var(--color-text-success)">high road: detailed, slower</text>
-      </svg>
-      <div class="small-note">Joseph LeDoux popularized the low road and high road distinction: a rough alarm can reach the amygdala before the cortex finishes identifying the object. That is why a coiled hose can make you jump before you know it is a hose.</div>
+    <!-- Fear as survival -->
+    <div class="card" style="margin-bottom:10px;">
+      <div class="panel-title">Fear as survival mechanism</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Fear is not a malfunction. It is a finely tuned prediction system that evolved because organisms that responded to predators survived to reproduce. The key insight is that fear is forward-looking: it represents a learned or innate model of threat, and it biases behaviour before conscious deliberation can slow things down. It is also, crucially, a system designed to update. An animal that stays permanently frightened of the clearing where it once saw a hawk is less effective than one whose fear resolves when the hawk is gone. The same logic governs human pathology: when the update mechanism breaks down, normal fear becomes an anxiety disorder.</p>
+      <p class="muted-copy-large" style="margin:0 0 10px;">The classic framing is fight-or-flight, but four responses are now recognised. Fight and flight both require the threat to be escapable or confrontable. Freeze (tonic immobility) is triggered when neither is viable — the animal becomes still, reducing detection by a predator that responds to movement. Fawn (appeasement) appears in social species where the threat is a dominant conspecific: submissive signalling can be more adaptive than resistance. The response selected is not a rational decision; it depends on threat proximity, relative power, and available exits, processed largely below conscious awareness.</p>
+      <p class="muted-copy-large" style="margin:0;">Fear and anxiety differ importantly. Fear is a response to a present, specific, identifiable threat — the dog charges, the car skids, the ledge is underfoot. Anxiety is anticipatory dread about a future or diffuse threat — what if the dog bites, what if the meeting exposes me. They share machinery but differ in time horizon, and that difference drives treatment: a current danger needs action, while a predicted danger often needs testing.</p>
     </div>
 
-    <div class="slider-wrap">
-      <div class="slider-top">
-        <div>
-          <div class="mini-title">Threat-dose slider</div>
-          <div class="small-note">Move the signal from harmless surprise to overwhelming threat.</div>
+    <!-- SVG fear circuit diagram — Optimized Version -->
+<div class="diagram-card">
+  <div class="panel-title" style="margin-bottom:10px; font-family:system-ui,sans-serif; font-weight:bold;">The fear circuit — fast alarm, slower interpretation</div>
+  <svg viewBox="0 0 950 390" role="img" aria-label="Diagram of the sensory fear pathway through thalamus, amygdala, cortex, hippocampus, hypothalamus, and body response" style="width:100%; height:auto;">
+    <defs>
+      <marker id="arrowFear" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="var(--accent)"/>
+      </marker>
+      <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="var(--color-text-success)"/>
+      </marker>
+      <marker id="arrowGrey" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="var(--color-text-secondary)"/>
+      </marker>
+    </defs>
+
+    <!-- MIDDLE ROW -->
+    <!-- Sensory input -->
+    <rect x="20" y="160" width="140" height="65" rx="8" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)" stroke-width="1.5"/>
+    <text x="90" y="188" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">Sensory input</text>
+    <text x="90" y="208" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">sound, sight, pain</text>
+
+    <!-- Thalamus -->
+    <rect x="220" y="160" width="140" height="65" rx="8" fill="var(--color-background-info)" stroke="var(--color-border-info)" stroke-width="1.5"/>
+    <text x="290" y="188" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-info)" font-family="system-ui,sans-serif">Thalamus</text>
+    <text x="290" y="208" text-anchor="middle" font-size="11" fill="var(--color-text-info)" font-family="system-ui,sans-serif">routing station</text>
+
+    <!-- Body -->
+    <rect x="820" y="160" width="100" height="65" rx="8" fill="var(--accent-bg)" stroke="var(--accent-border)" stroke-width="1.5"/>
+    <text x="870" y="188" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-danger)" font-family="system-ui,sans-serif">Body</text>
+    <text x="870" y="208" text-anchor="middle" font-size="11" fill="var(--color-text-danger)" font-family="system-ui,sans-serif">act now</text>
+
+
+    <!-- TOP ROW -->
+    <!-- Amygdala -->
+    <rect x="410" y="20" width="140" height="65" rx="8" fill="var(--color-background-danger)" stroke="var(--color-border-danger)" stroke-width="1.5"/>
+    <text x="480" y="48" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-danger)" font-family="system-ui,sans-serif">Amygdala</text>
+    <text x="480" y="68" text-anchor="middle" font-size="11" fill="var(--color-text-danger)" font-family="system-ui,sans-serif">quick alarm</text>
+
+    <!-- Hypothalamus -->
+    <rect x="630" y="20" width="140" height="65" rx="8" fill="var(--color-background-warning)" stroke="var(--color-border-warning)" stroke-width="1.5"/>
+    <text x="700" y="48" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-warning)" font-family="system-ui,sans-serif">Hypothalamus</text>
+    <text x="700" y="68" text-anchor="middle" font-size="11" fill="var(--color-text-warning)" font-family="system-ui,sans-serif">body command</text>
+
+
+    <!-- BOTTOM ROW -->
+    <!-- Cortex -->
+    <rect x="410" y="300" width="140" height="65" rx="8" fill="var(--color-background-success)" stroke="var(--color-border-success)" stroke-width="1.5"/>
+    <text x="480" y="328" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-success)" font-family="system-ui,sans-serif">Cortex</text>
+    <text x="480" y="348" text-anchor="middle" font-size="11" fill="var(--color-text-success)" font-family="system-ui,sans-serif">slower meaning</text>
+
+    <!-- Hippocampus -->
+    <rect x="630" y="300" width="140" height="65" rx="8" fill="var(--color-background-secondary)" stroke="var(--color-border-tertiary)" stroke-width="1.5"/>
+    <text x="700" y="328" text-anchor="middle" font-size="14" font-weight="500" fill="var(--color-text-primary)" font-family="system-ui,sans-serif">Hippocampus</text>
+    <text x="700" y="348" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">context memory</text>
+
+
+    <!-- CONNECTIONS AND ARROWS -->
+    <!-- Sensory Input -> Thalamus -->
+    <line x1="160" y1="192.5" x2="220" y2="192.5" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"/>
+
+    <!-- Low Road: Thalamus -> Amygdala -->
+    <line x1="330" y1="160" x2="435" y2="85" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"/>
+
+    <!-- High Road: Thalamus -> Cortex -->
+    <line x1="330" y1="225" x2="435" y2="300" stroke="var(--color-text-success)" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <!-- Amygdala -> Hypothalamus -->
+    <line x1="550" y1="52.5" x2="630" y2="52.5" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"/>
+
+    <!-- Cortex -> Hippocampus -->
+    <line x1="550" y1="332.5" x2="630" y2="332.5" stroke="var(--color-text-success)" stroke-width="2" marker-end="url(#arrowGreen)"/>
+
+    <!-- Hypothalamus -> Body -->
+    <line x1="710" y1="85" x2="835" y2="165" stroke="var(--accent)" stroke-width="2" marker-end="url(#arrowFear)"/>
+
+    <!-- Feedback: Hippocampus -> Amygdala -->
+    <line x1="700" y1="300" x2="505" y2="85" stroke="var(--color-text-secondary)" stroke-width="1.5" marker-end="url(#arrowGrey)"/>
+
+
+    <!-- PATH LABELS -->
+    <!-- Low road text -->
+    <text x="390" y="125" text-anchor="end" font-size="12" fill="var(--accent)" font-family="system-ui,sans-serif" font-weight="500">low road: crude, fast (~12 ms)</text>
+
+    <!-- High road text (split into two lines to prevent overlap) -->
+    <text x="220" y="265" text-anchor="start" font-size="12" fill="var(--color-text-success)" font-family="system-ui,sans-serif" font-weight="500">high road: detailed,</text>
+    <text x="220" y="282" text-anchor="start" font-size="12" fill="var(--color-text-success)" font-family="system-ui,sans-serif" font-weight="500">slower (~100 ms)</text>
+  </svg>
+  
+  <div style="font-size:11px; color:var(--color-text-tertiary); margin-top:8px; line-height:1.5; font-family:system-ui,sans-serif;">
+    Joseph LeDoux's two-pathway model: a rough alarm signal reaches the amygdala via the thalamus before the cortex finishes identifying the object. That is why a coiled hose can make you jump before you realise it is a hose. The cortex then sends corrective information back to the amygdala — the feedback arrow — but by then the stress hormones are already flowing.
+  </div>
+</div>
+
+
+    <!-- Neuroscience explorer — from ver2 -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title">Brain structures — explore each in depth</div>
+      <div class="explorer-btns" id="neuro-btns"></div>
+      <div class="explorer-panel" id="neuro-panel"></div>
+    </div>
+
+    <!-- Physiology metrics -->
+    <div class="card" style="margin-bottom:10px;">
+      <div class="panel-title">What happens in the body during fear</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Within 100–200 milliseconds of a threat signal reaching the amygdala, the hypothalamus fires the sympathetic nervous system. The adrenal glands release adrenaline (epinephrine) and noradrenaline into the bloodstream. Cortisol follows within 15–30 minutes, keeping the body in sustained readiness. Digestion shuts down, blood is redirected to large muscle groups, and the immune system is temporarily suppressed — none of these are problems over a short emergency, but all become costly under chronic activation.</p>
+      <div class="cgrid" style="grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-bottom:0;">
+        <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel">Heart rate increase</div>
+          <div class="cval">+40–60%</div>
+          <div class="cnote">Blood is forced toward limb muscles. Nausea often follows because digestion shuts down simultaneously.</div>
         </div>
-        <div class="slider-value"><span id="threatValue">35</span>/100</div>
+        <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel">Pupil dilation</div>
+          <div class="cval">2× to 3×</div>
+          <div class="cnote">Maximises peripheral vision. Tunnel vision is a myth; the visual field widens. Darkness makes you harder to see and easier to hide.</div>
+        </div>
+        <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel">Cortisol window</div>
+          <div class="cval">15–60 min</div>
+          <div class="cnote">Cortisol consolidates fear memories. This is why traumatic events are recalled more vividly than ordinary ones for decades afterward.</div>
+        </div>
+        <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel">Blood glucose</div>
+          <div class="cval">Spikes</div>
+          <div class="cnote">Liver glycogen is broken down instantly. The body is preparing to sprint or fight for several minutes at a time, not seconds.</div>
+        </div>
       </div>
-      <input type="range" id="threatSlider" min="0" max="100" value="35">
+    </div>
+
+    <!-- Threat-dose slider — from alt version -->
+    <div class="slider-wrap">
+      <div class="slider-val-row">
+        <div>
+          <div class="panel-title" style="margin:0 0 3px;">Threat-dose slider</div>
+          <div style="font-size:11px;color:var(--color-text-tertiary);">Move the signal from harmless novelty to overwhelming threat.</div>
+        </div>
+        <div class="slider-big-val"><span id="threatValue">35</span>/100</div>
+      </div>
       <div class="slider-poles"><span>curiosity / orienting</span><span>panic / shutdown</span></div>
-      <div class="slider-result" id="threatResult"></div>
+      <input type="range" id="threatSlider" min="0" max="100" value="35">
+      <div class="slider-output" id="threatResult"></div>
     </div>
 
-    <div class="chip-row" id="fearSystemButtons">
-      <button data-key="amygdala">Amygdala</button>
-      <button data-key="hormones">Adrenaline and cortisol</button>
-      <button data-key="freeze">Freeze response</button>
-      <button data-key="prepared">Prepared fears</button>
+    <!-- Preparedness scale -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title">Innate vs learned fears — the preparedness spectrum</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Martin Seligman's 1971 preparedness theory proposed that evolution biases us to learn certain fears extremely quickly — snakes, spiders, heights, social rejection — because these were lethal across millions of years. Monkeys that have never seen a snake will develop a lasting phobia after watching another monkey react fearfully to one on video; they show no such response to flowers. Culture then tunes the response: a snake handler and a city child inherit similar biology but very different fear histories.</p>
+      <p class="muted-copy-large" style="margin:0 0 12px;">True innate fears in humans are few: loud sudden noises and loss of physical support (falling) are reliably present at birth. Everything else is acquired, but some things are acquired in one trial under stress, while others require repeated conditioning. Modern dangers — cars, alcohol, sedentary life — often kill through familiarity; they rarely trigger the ancient alarm style.</p>
+      <div class="cscale-wrap">
+        <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:6px;">Ease of fear acquisition — from innate to hard-to-learn</div>
+        <div class="cscale-poles"><span>Innate / one-trial learning</span><span>Requires many repeated trials</span></div>
+        <div id="prep-scale"></div>
+        <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Left = hardwired or ultra-fast to condition; Right = requires sustained, intense exposure to acquire</div>
+      </div>
     </div>
-    <div class="display-panel" id="fearSystemDisplay"></div>
 
-    <div class="sec">Part B - the psychology of fear - anxiety, trauma, and courage</div>
+    <!-- ═══════════════ PART B ═══════════════ -->
+    <div class="sec">Part B · the psychology of fear — anxiety, trauma, and courage</div>
 
-    <div class="cgrid tight-grid">
+    <!-- Fear vs anxiety + disorder cards -->
+    <div class="card" style="margin-bottom:10px;">
+      <div class="panel-title">Fear vs anxiety — the distinction that drives treatment</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Fear is usually about a present threat: the dog is charging, the car is skidding, the ledge is underfoot. Anxiety is about anticipated threat: what if the dog bites, what if I faint, what if the meeting exposes me. The DSM-5 defines fear as the response to a real or perceived imminent threat, and anxiety as anticipation of future threat. They share machinery, but the time horizon changes everything. Fear narrows action. Anxiety simulates futures — sometimes brilliantly and sometimes ruinously. Treatment depends on this distinction because a current danger needs action, while a predicted danger often needs testing.</p>
+      <div class="cgrid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-bottom:0;">
+        <div style="background:var(--color-background-danger);border:0.5px solid var(--color-border-danger);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel" style="color:var(--color-text-danger);">Generalised Anxiety Disorder</div>
+          <div style="font-size:13px;color:var(--color-text-primary);line-height:1.5;">Uncontrollable worry across multiple life areas lasting over 6 months. Affects ~3% of adults per year. Physical symptoms include muscle tension, sleep disruption, and difficulty concentrating.</div>
+        </div>
+        <div style="background:var(--color-background-danger);border:0.5px solid var(--color-border-danger);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel" style="color:var(--color-text-danger);">Panic Disorder</div>
+          <div style="font-size:13px;color:var(--color-text-primary);line-height:1.5;">Recurrent unexpected panic attacks plus persistent fear of future attacks. The fear of having a panic attack becomes its own trigger — a vicious self-sustaining loop.</div>
+        </div>
+        <div style="background:var(--color-background-danger);border:0.5px solid var(--color-border-danger);border-radius:var(--border-radius-md);padding:10px 12px;">
+          <div class="clabel" style="color:var(--color-text-danger);">PTSD</div>
+          <div style="font-size:13px;color:var(--color-text-primary);line-height:1.5;">A fear memory that cannot be contextualised as past. The event is experienced as present. Affects ~6% over a lifetime in the US general population; 20–30% in combat veterans.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conditioning and extinction -->
+    <div class="card" style="margin-bottom:10px;">
+      <div class="panel-title">How fear is learned and unlearned</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">A neutral cue becomes frightening when it reliably predicts pain, humiliation, suffocation, or helplessness. Pavlov showed the basic machinery with dogs; John Watson and Rosalie Rayner's 1920 Little Albert experiment showed how a 9-month-old baby could be conditioned to fear a white rat after loud noises. The fear then generalised to any white furry object — a rabbit, a Santa Claus mask. The cure is not being told the rat is safe. The nervous system needs new evidence, repeated under tolerable conditions, until the cue predicts safety more strongly than danger.</p>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Extinction is the process by which a conditioned fear diminishes when the feared stimulus is repeatedly presented without the threatening outcome. Critically, extinction does not erase the original fear memory — it creates a competing inhibitory memory. This is why fears can return spontaneously after time passes, after stress, or in a new context. Good exposure therapy therefore varies the setting, pace, and cues so the brain learns the wider rule: "I can have this sensation or image and still be safe."</p>
+      <div class="info-block">Exposure therapy works because extinction is new learning, not deletion. The original fear memory can return under stress, in a new context, or after time has passed. A person who has completed successful exposure therapy still carries the original fear trace — what changes is that the inhibitory memory is now stronger and more broadly generalised.</div>
+    </div>
+
+    <!-- PTSD / Trauma card -->
+    <div class="card" style="margin-bottom:10px;">
+      <div class="panel-title">Trauma and PTSD — when fear gets stuck</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Trauma is not just a terrible event. It is an event that overwhelms the person's ability to integrate what happened into ordinary memory and self-continuity. PTSD symptoms include intrusion (flashbacks, nightmares), avoidance of reminders, negative shifts in mood and beliefs, and hyperarousal lasting more than one month. Complex PTSD, recognised in ICD-11, adds disturbances in self-organisation: emotional dysregulation, altered self-perception, and difficulties in relationships, typically from prolonged interpersonal trauma.</p>
+      <div id="ptsd-bars" style="margin-bottom:4px;"></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);">Approximate lifetime PTSD prevalence by trauma type. Source: National Comorbidity Survey &amp; Veterans Administration data.</div>
+    </div>
+
+    <!-- Fear science timeline — from alt version -->
+    <div class="pc-wrap">
+      <div class="panel-title" style="margin-bottom:10px;">Fear science timeline — ideas that changed the map</div>
+      <div class="pc-track-area">
+        <div class="pc-axis" id="sci-axis"></div>
+        <div id="sci-timeline"></div>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:8px;">Dates mark publication or broad influence. The bars show how long each idea dominated research conversations, not when it stopped mattering.</div>
+    </div>
+
+    <!-- Courage slider -->
+    <div class="slider-wrap">
+      <div class="slider-val-row">
+        <div>
+          <div class="panel-title" style="margin:0 0 3px;">Courage as fear tolerance — where do you stand?</div>
+          <div style="font-size:11px;color:var(--color-text-tertiary);">Aristotle's mean: courage is neither cowardice nor recklessness. Move the dial.</div>
+        </div>
+        <div class="slider-big-val"><span id="courage-val">50</span>/100</div>
+      </div>
+      <div class="slider-poles"><span>Paralysed by any fear</span><span>Reckless — fears nothing</span></div>
+      <input type="range" id="courage-slider" min="0" max="100" value="50" oninput="updateCourageSlider(this.value)">
+      <div class="slider-output" id="courage-output"></div>
+    </div>
+
+    <!-- Risk perception -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title">Why we fear the wrong things</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Humans overweight vivid, uncontrollable, intentional, and recently publicised threats. A plane crash dominates memory because it is dramatic and total; daily driving feels ordinary because control is distributed through your hands and habits. This is the availability heuristic, named by Daniel Kahneman and Amos Tversky. Paul Slovic's dread risk concept adds that we fear things over which we have no control (nuclear power, terrorism) disproportionately more than statistically equivalent risks we choose to take. Risk perception is not stupidity. It is a ranking system tuned for stories, agency, and dread rather than actuarial tables.</p>
+
+      <div style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">Risk perception scale — what makes a threat feel larger than its statistics</div>
+      <div class="cscale-wrap" style="margin-bottom:0;">
+        <div class="cscale-poles"><span>familiar, controllable, chosen</span><span>vivid, uncontrollable, immediate</span></div>
+        <div id="risk-scale"></div>
+      </div>
+
+      <div style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin:14px 0 8px;">Actual vs perceived risk — selected US annual deaths</div>
+      <div id="risk-bars"></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Bar = actual deaths/year. Note how perceived fear frequently inverts the actual mortality ranking.</div>
+    </div>
+
+    <!-- ═══════════════ PART C ═══════════════ -->
+    <div class="sec">Part C · fear in culture — horror, religion, and social control</div>
+
+    <!-- Horror paradox -->
+    <div class="card" style="margin-bottom:10px;">
+      <div class="panel-title">Why we enjoy being scared</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Horror is controlled threat. The body gets adrenaline, faster attention, and social bonding without needing to actually escape. The pleasure often arrives after the scare, when the nervous system drops from high activation into relief — Dolf Zillmann's excitation transfer. Haunted houses are social machines: people laugh after screaming because the group has confirmed safety together. The key word is control. If the threat feels inescapable or personally relevant, the same stimulus stops being entertainment. About 10% of the population find horror uniformly unpleasant with no positive affect at all.</p>
+      <p class="muted-copy-large" style="margin:0 0 10px;">A complementary account treats horror as rehearsal: in a safe-threat environment, the fear system runs at full intensity with no actual danger. Research by Mathias Clasen finds that people who regularly consume horror fiction score higher on measures of psychological resilience and coping capacity. Sensation-seeking (Zuckerman Sensation Seeking Scale) predicts horror enjoyment strongly, which partly explains why men on average report enjoying horror films more than women.</p>
+
+      <!-- Horror ingredient distribution — from alt version -->
+      <div style="font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;">A horror scene's fear recipe — ingredients that make it last</div>
+      <div class="dist-bar" id="horror-dist"></div>
+      <div class="dist-legend" id="horror-legend"></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);">A conceptual distribution: good horror mixes several fear channels. Pure gore exhausts quickly; uncertainty, helplessness, and moral contamination linger longer.</div>
+    </div>
+
+    <!-- Monster explorer — combined (ver2 monsters + zombie + double from alt) -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:8px;">What each monster really represents — click to explore</div>
+      <div class="elem-grid" id="monster-grid"></div>
+      <div class="elem-detail-panel" id="monster-detail"></div>
+    </div>
+
+    <!-- Religion + political fear prose -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title">Religion, politics, and fear — how institutions harness dread</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Terror management theory (Greenberg, Solomon, Pyszczynski), drawing on Ernest Becker's 1973 Pulitzer-winning "The Denial of Death," argues that awareness of our own mortality is so psychologically threatening that human culture is largely an elaborate anxiety-management system. Religion, nationalism, legacy projects, and worldview defence all function to buffer the terror of mortality. Religions often organise fear around death, impurity, punishment, and cosmic judgment — hell is not merely a doctrine, it is a moral technology that makes invisible acts feel witnessed. But the story is not one-dimensional: Buddhist practice, Christian mysticism, Stoicism, and Sufi poetry also try to metabolise fear by changing the self's relation to death and control.</p>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Political fear operates differently. Corey Robin's 2004 analysis argues that fear is not merely a response to genuine threat but a political instrument — used to create hierarchy, demand deference, and manufacture consent. The formula is consistent across history: name an enemy, amplify the threat beyond its actual probability, and position the leader as the only protector. Fear can compress complicated politics into a simple demand: obey the protector. McCarthyism, the Iraq War's WMD narrative, and multiple episodes of moral panic about immigration have all followed this pattern.</p>
+    </div>
+
+    <!-- Historical fear campaigns timeline — from ver2 -->
+    <div class="pc-wrap">
+      <div class="panel-title" style="margin-bottom:10px;">Fear as political tool — historical fear campaigns</div>
+      <div class="pc-track-area">
+        <div id="fear-timeline"></div>
+        <div class="pc-axis" id="fear-axis"></div>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:8px;">Each bar spans the active period of a documented fear campaign or moral panic.</div>
+    </div>
+
+    <!-- ═══════════════ PHOBIA INTRO ═══════════════ -->
+    <div class="sec-phobia">Phobias — the complete guide (Parts D through G)</div>
+    <div class="fear-info-block">
+      A phobia is an intense, persistent fear that is out of proportion to the actual danger and causes avoidance, distress, or impairment. Phobias are the most common anxiety disorders worldwide, affecting approximately 10% of the global population at some point in their lives. Unlike ordinary fear, a phobia does not diminish with familiarity or reassurance — it is maintained by avoidance, which prevents the nervous system from updating. This module is educational, not a diagnosis. If fear is shrinking your life, evidence-based help is worth taking seriously.
+    </div>
+
+    <!-- ═══════════════ PART D ═══════════════ -->
+    <div class="sec-phobia">Part D · what phobias are — definition, diagnosis, and mechanism</div>
+
+    <div class="cgrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-bottom:1rem;">
       <div class="card">
-        <div class="mini-title">How fear is learned and unlearned</div>
-        <div class="mini-body">A neutral cue can become frightening when it reliably predicts pain, humiliation, suffocation, or helplessness. Pavlov showed the basic machinery with dogs and bells; John Watson and Rosalie Rayner's 1920 Little Albert experiment showed how a child could be conditioned to fear a white rat after loud noises. The cure is not simply being told the rat is safe. The nervous system needs new evidence, repeated under tolerable conditions, until the cue predicts safety more strongly than danger.</div>
+        <div class="panel-title">When fear becomes a disorder</div>
+        <p class="muted-copy-large" style="margin:0 0 8px;">A specific phobia requires: marked persistent fear lasting ~6 months or more; immediate fear response to the object; active avoidance or endurance with intense distress; fear out of proportion to actual danger; and clinically significant impairment. The impairment clause matters. A person who dislikes snakes in a city apartment may never need treatment; a field biologist with the same fear might lose a career.</p>
+        <div class="cgrid" style="grid-template-columns:repeat(auto-fit,minmax(130px,1fr));margin-bottom:0;">
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div class="clabel">Global prevalence</div><div class="cval">~10%</div><div class="cnote">Lifetime. Women affected ~2× more often than men across most phobia categories.</div></div>
+          <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;"><div class="clabel">Typical onset</div><div class="cval">Age 7–9</div><div class="cnote">Most specific phobias develop before age 10. Adult-onset phobias rarely remit without treatment.</div></div>
+        </div>
       </div>
       <div class="card">
-        <div class="mini-title">Trauma and PTSD</div>
-        <div class="mini-body">Trauma is not just a terrible event. It is an event that overwhelms the person's ability to integrate what happened into ordinary memory and self-protection. PTSD can include intrusion, avoidance, negative shifts in mood and belief, and hyperarousal lasting more than one month. In U.S. data using DSM-5 criteria, about 6% of adults meet PTSD criteria at some point in life and about 5% in a given year. The number is much higher in groups exposed to combat, assault, repeated abuse, or dangerous work.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">Courage is trained fear tolerance</div>
-        <div class="mini-body">Aristotle treated courage as a mean between cowardice and rashness: too little action in the face of danger is collapse, but too much appetite for danger is foolishness. Modern training agrees. Firefighters, surgeons, soldiers, journalists, and civil-rights organizers do not become blank inside. They rehearse procedures until fear no longer consumes the whole field of attention. Courage is not the absence of fear. It is keeping values online while the alarm is loud.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">Why we fear the wrong things</div>
-        <div class="mini-body">Humans overweight vivid, uncontrollable, intentional, and recently publicized threats. A plane crash can dominate memory because it is dramatic and total; daily driving feels ordinary because control is distributed through your hands and habits. This is the availability heuristic, named by Daniel Kahneman and Amos Tversky. Risk perception is not stupidity. It is a ranking system tuned for stories, agency, and dread rather than actuarial tables.</div>
+        <div class="panel-title">How phobias develop — three pathways</div>
+        <div class="anchor-row"><span class="pill p-red" style="min-width:110px;">Direct</span><div><div class="atext">An aversive experience with the feared object — dog bite, near-drowning, painful injection. Single-trial learning is common when the event is intense and the object falls in a prepared category.</div></div></div>
+        <div class="anchor-row"><span class="pill p-amber" style="min-width:110px;">Vicarious</span><div><div class="atext">Observing another person display intense fear. Children are particularly vulnerable to acquiring parental fears through observation — Mineka's rhesus monkey experiments demonstrated this conclusively.</div></div></div>
+        <div class="anchor-row" style="border:none;"><span class="pill p-blue" style="min-width:110px;">Information</span><div><div class="atext">Repeated warnings or vivid media coverage. The rise of aeroplane phobia in the 1990s correlated with 24-hour news saturation of crashes, not with actual increases in crash frequency.</div></div></div>
       </div>
     </div>
 
-    <div class="period-chart">
-      <div class="mini-title">Fear science timeline - ideas that changed the map</div>
-      <div class="pc-inner">
-        <div class="pc-axis" id="fearAxis"></div>
-        <div id="fearTimeline"></div>
-      </div>
-      <div class="small-note">Dates mark publication or broad influence. The bars show how long each idea dominated research conversations, not when it stopped mattering.</div>
+    <!-- Treatment explorer — from alt version -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:8px;">Treatment — what actually works</div>
+      <div class="explorer-btns" id="treatment-btns"></div>
+      <div class="explorer-panel" id="treatment-panel"></div>
     </div>
 
-    <div class="cscale">
-      <div class="mini-title">Risk perception scale - what makes a threat feel larger than its statistics</div>
-      <div id="riskScale"></div>
-      <div class="scale-poles"><span>familiar, controllable, delayed</span><span>vivid, uncontrollable, immediate</span></div>
+    <!-- Prevalence bar chart — from alt version -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:10px;">US adult 12-month prevalence — anxiety and fear disorders</div>
+      <div id="prevalence-bars"></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Percent of adults in a given year. Estimates from large US epidemiological surveys (NCS-R, NESARC). Use as scale, not personal diagnosis.</div>
     </div>
 
-    <div class="info-block">Exposure therapy works because extinction is new learning, not deletion. The original fear memory can return under stress, in a new context, or after time has passed. Good exposure therefore varies the setting, pace, and cues so the brain learns the wider rule: "I can have this sensation or image and still be safe."</div>
-
-    <div class="sec">Part C - fear in culture - horror, religion, and social control</div>
-
-    <div class="cgrid tight-grid">
-      <div class="card">
-        <div class="mini-title">Why people enjoy horror</div>
-        <div class="mini-body">Horror is controlled threat. The body gets adrenaline, faster attention, and social bonding without needing to actually escape. The pleasure often arrives after the scare, when the nervous system drops from high activation into relief. This is why haunted houses are social machines: people laugh after screaming because the group has confirmed safety together. The key word is control. If the threat feels inescapable or personally relevant, the same stimulus stops being entertainment.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">Fear in religion</div>
-        <div class="mini-body">Religions often organize fear around death, impurity, punishment, and cosmic judgment. Hell is not merely a doctrine; in many traditions it functions as a moral technology, making invisible acts feel witnessed. But the story is not one-dimensional. Buddhist practice, Christian mysticism, Stoicism, and Sufi poetry also try to metabolize fear by changing the self's relation to death and control. Terror management theory argues that mortality awareness can intensify loyalty to worldviews that promise meaning.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">Fear as political tool</div>
-        <div class="mini-body">Fear can compress complicated politics into a simple demand: obey the protector. Leaders use enemies, crime waves, moral panics, and border threats to move attention from accountability to survival. The mechanism is old. When people feel endangered, they tolerate surveillance, emergency powers, censorship, and scapegoating they would reject in calmer conditions. The test is not whether a danger exists. The test is whether fear is being used to clarify reality or to narrow what people are allowed to ask.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">Monsters as storage devices</div>
-        <div class="mini-body">A monster is a culture's fear given a body. Vampires store fear of sexuality, aristocratic extraction, contagion, and seduction. Zombies store fear of crowds, infection, consumer life, and the loss of personhood. Ghosts store unfinished obligation. The uncanny, Freud's term from 1919, is the strange return of something once familiar: the doll that seems alive, the home that feels hostile, the face that is almost human but wrong.</div>
-      </div>
+    <!-- Naming convention -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title">The naming convention — how phobia names are built</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Every phobia name follows: [Greek root for the feared object] + phobia. The suffix comes from Phobos, the Greek god of fear (also the name of Mars's inner moon). Arachne (spider) gives arachnophobia; hydor (water) gives hydrophobia; treis + kai + deka (three-and-ten) gives triskaidekaphobia (fear of 13). Some are clinical categories in the DSM; others are popular coinages. Nomophobia (no-mobile-phobia) was invented by a UK Post Office study in 2008 and appears in no clinical classification, but it names a real modern anxiety pattern: dependence plus social access plus information control. A name can help people talk, but it is not proof that every discomfort is a disorder.</p>
+      <div class="fear-info-block" style="margin-bottom:0;">The word "hippopotomonstrosesquippedaliophobia" — supposedly fear of long words — is a humorous coinage. The technical term is simply "sesquipedalophobia." Neither appears in the DSM-5, which classifies phobias by type, not individual object.</div>
     </div>
 
-    <div class="chart-card">
-      <div class="mini-title">A horror scene's fear recipe</div>
-      <div class="dist-bar" id="horrorDist"></div>
-      <div class="legend" id="horrorLegend"></div>
-      <div class="small-note">A conceptual distribution: good horror usually mixes several fear channels. Pure gore gets thin quickly; uncertainty, helplessness, and moral contamination linger longer.</div>
+    <!-- ═══════════════ PART E ═══════════════ -->
+    <div class="sec-phobia">Part E · animal phobias</div>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:8px;">Animal phobias — click any entry for the full account</div>
+      <div class="elem-grid" id="animal-phobia-grid"></div>
+      <div class="elem-detail-panel" id="animal-phobia-detail"></div>
     </div>
 
-    <div class="elem-grid" id="monsterGrid">
-      <div class="elem-card" data-key="vampire"><div class="elem-icon"><i class="fa-solid fa-droplet"></i></div><div class="elem-name">Vampire</div><div class="elem-sub">seduction and extraction</div></div>
-      <div class="elem-card" data-key="zombie"><div class="elem-icon"><i class="fa-solid fa-person-walking"></i></div><div class="elem-name">Zombie</div><div class="elem-sub">contagion and crowds</div></div>
-      <div class="elem-card" data-key="ghost"><div class="elem-icon"><i class="fa-solid fa-house-crack"></i></div><div class="elem-name">Ghost</div><div class="elem-sub">unfinished memory</div></div>
-      <div class="elem-card" data-key="double"><div class="elem-icon"><i class="fa-solid fa-masks-theater"></i></div><div class="elem-name">Double</div><div class="elem-sub">identity made unstable</div></div>
-    </div>
-    <div class="elem-detail" id="monsterDetail"></div>
+    <!-- ═══════════════ PART F ═══════════════ -->
+    <div class="sec-phobia">Part F · situational and environmental phobias</div>
 
-    <div class="sec">Part D - what phobias are - definition, diagnosis, and mechanism</div>
-
-    <div class="section-note">A phobia is an intense, persistent fear that is out of proportion to the actual danger and causes avoidance, distress, or impairment. This module is educational, not a diagnosis. If fear is shrinking your life, evidence-based help is worth taking seriously.</div>
-
-    <div class="cgrid tight-grid">
-      <div class="card">
-        <div class="mini-title">When fear becomes a disorder</div>
-        <div class="mini-body">A specific phobia is not just disliking spiders, needles, heights, or flying. The fear is immediate, persistent, disproportionate, and disruptive. DSM-style diagnosis also asks whether the fear lasts around 6 months or more and whether avoidance or endurance-with-distress meaningfully interferes with life. The impairment clause matters. A person who dislikes snakes in a city apartment may never need treatment; a field biologist with the same fear might lose a career.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">How phobias develop</div>
-        <div class="mini-body">Phobias can be learned directly, as when a dog bite conditions fear of dogs; vicariously, as when a child watches a parent panic; or verbally, as when repeated warnings make elevators feel lethal. Genetics contributes to temperament, especially behavioral inhibition and sensitivity to threat. But genes are not destiny. Phobias are best understood as a readiness to learn certain dangers quickly, then a pattern of avoidance that prevents the nervous system from updating.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">Naming phobias</div>
-        <div class="mini-body">Many phobia names are Greek-root constructions: acro for height, claustro for enclosed space, ophidio for snake, thanato for death. Some are clinical categories; others are popular coinages. Nomophobia, fear of being without a mobile phone, is not a classic DSM diagnosis, but it names a real modern anxiety pattern: dependence plus social access plus information control. A name can help people talk, but it is not proof that every discomfort is a disorder.</div>
-      </div>
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:8px;">Situational &amp; environmental phobias — click to explore</div>
+      <div class="elem-grid" id="sit-phobia-grid"></div>
+      <div class="elem-detail-panel" id="sit-phobia-detail"></div>
     </div>
 
-    <div class="chip-row" id="treatmentButtons">
-      <button data-key="exposure">Exposure</button>
-      <button data-key="cbt">CBT</button>
-      <button data-key="vr">Virtual reality</button>
-      <button data-key="meds">Medication</button>
-      <button data-key="onesession">One-session treatment</button>
-    </div>
-    <div class="display-panel" id="treatmentDisplay"></div>
-
-    <div class="chart-card">
-      <div class="mini-title">Selected U.S. adult 12-month prevalence estimates</div>
-      <div id="prevalenceBars"></div>
-      <div class="small-note">Percent of adults in a given year. Estimates come from large U.S. epidemiological surveys and differ by diagnostic system, survey year, and age range. Use these as scale, not as a personal diagnosis.</div>
+    <!-- Control scale for situational phobias -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title">What makes situational phobias worse — perceived control scale</div>
+      <div class="cscale-poles"><span>high control, easy exit</span><span>no control, no exit</span></div>
+      <div id="control-scale"></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-top:4px;">Perceived control is as important as actual danger in determining phobic intensity. The same physical height is less frightening behind a railing than at an open edge.</div>
     </div>
 
-    <div class="success-block">The central treatment idea is beautifully practical: do not wait to feel calm before approaching the feared cue. Approach in a dose that is difficult but workable, stay long enough for new learning, and repeat with variation. The nervous system learns from prediction errors.</div>
+    <!-- ═══════════════ PART G ═══════════════ -->
+    <div class="sec-phobia">Part G · social, body, and existential phobias</div>
 
-    <div class="sec">Part E - animal phobias</div>
-
-    <div class="elem-grid" id="animalGrid">
-      <div class="elem-card" data-key="spider"><div class="elem-icon"><i class="fa-solid fa-spider"></i></div><div class="elem-name">Arachnophobia</div><div class="elem-sub">spiders</div></div>
-      <div class="elem-card" data-key="snake"><div class="elem-icon"><i class="fa-solid fa-staff-snake"></i></div><div class="elem-name">Ophidiophobia</div><div class="elem-sub">snakes</div></div>
-      <div class="elem-card" data-key="dog"><div class="elem-icon"><i class="fa-solid fa-paw"></i></div><div class="elem-name">Cynophobia</div><div class="elem-sub">dogs</div></div>
-      <div class="elem-card" data-key="cat"><div class="elem-icon"><i class="fa-solid fa-cat"></i></div><div class="elem-name">Ailurophobia</div><div class="elem-sub">cats</div></div>
-      <div class="elem-card" data-key="insect"><div class="elem-icon"><i class="fa-solid fa-bug"></i></div><div class="elem-name">Entomophobia</div><div class="elem-sub">insects</div></div>
-      <div class="elem-card" data-key="bird"><div class="elem-icon"><i class="fa-solid fa-feather"></i></div><div class="elem-name">Ornithophobia</div><div class="elem-sub">birds</div></div>
-      <div class="elem-card" data-key="rodent"><div class="elem-icon"><i class="fa-solid fa-wheat-awn"></i></div><div class="elem-name">Musophobia</div><div class="elem-sub">mice and rats</div></div>
-      <div class="elem-card" data-key="shark"><div class="elem-icon"><i class="fa-solid fa-water"></i></div><div class="elem-name">Selachophobia</div><div class="elem-sub">sharks</div></div>
-    </div>
-    <div class="elem-detail" id="animalDetail"></div>
-
-    <div class="cgrid tight-grid">
-      <div class="card">
-        <div class="mini-title">Why animals dominate phobia lists</div>
-        <div class="mini-body">Animal phobias are common because animals are moving agents with uncertain intentions. Snakes, spiders, insects, and predatory mammals also fit preparedness theory: humans may learn fear of evolutionarily relevant threats faster than fear of neutral modern objects. But the theory is not magic. Culture matters. A child raised around calm dogs is learning a different prediction than a child raised around barking, bites, and adult panic.</div>
-      </div>
-      <div class="card">
-        <div class="mini-title">The common misconception</div>
-        <div class="mini-body">People often assume animal phobia is about factual danger. Usually it is about disgust, surprise, movement, contamination, or loss of control. A harmless house spider can trigger more panic than a statistically more dangerous household appliance because the spider violates expectations: too many legs, too sudden, too hard to track. The object is small. The prediction error is huge.</div>
-      </div>
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:8px;">Social, body &amp; existential phobias — click to explore</div>
+      <div class="elem-grid" id="existential-grid"></div>
+      <div class="elem-detail-panel" id="existential-detail"></div>
     </div>
 
-    <div class="sec">Part F - situational and environmental phobias</div>
-
-    <div class="elem-grid" id="environmentGrid">
-      <div class="elem-card" data-key="height"><div class="elem-icon"><i class="fa-solid fa-mountain"></i></div><div class="elem-name">Acrophobia</div><div class="elem-sub">heights</div></div>
-      <div class="elem-card" data-key="closed"><div class="elem-icon"><i class="fa-solid fa-box"></i></div><div class="elem-name">Claustrophobia</div><div class="elem-sub">enclosed spaces</div></div>
-      <div class="elem-card" data-key="agora"><div class="elem-icon"><i class="fa-solid fa-people-arrows"></i></div><div class="elem-name">Agoraphobia</div><div class="elem-sub">escape feels difficult</div></div>
-      <div class="elem-card" data-key="water"><div class="elem-icon"><i class="fa-solid fa-water"></i></div><div class="elem-name">Aquaphobia</div><div class="elem-sub">water and depth</div></div>
-      <div class="elem-card" data-key="dark"><div class="elem-icon"><i class="fa-solid fa-moon"></i></div><div class="elem-name">Nyctophobia</div><div class="elem-sub">darkness</div></div>
-      <div class="elem-card" data-key="storm"><div class="elem-icon"><i class="fa-solid fa-cloud-bolt"></i></div><div class="elem-name">Astraphobia</div><div class="elem-sub">thunder and lightning</div></div>
-      <div class="elem-card" data-key="fire"><div class="elem-icon"><i class="fa-solid fa-fire"></i></div><div class="elem-name">Pyrophobia</div><div class="elem-sub">fire</div></div>
-      <div class="elem-card" data-key="flight"><div class="elem-icon"><i class="fa-solid fa-plane"></i></div><div class="elem-name">Aerophobia</div><div class="elem-sub">flying</div></div>
-    </div>
-    <div class="elem-detail" id="environmentDetail"></div>
-
-    <div class="cscale">
-      <div class="mini-title">Situational fears plotted by perceived control</div>
-      <div id="controlScale"></div>
-      <div class="scale-poles"><span>more control and easy exit</span><span>less control and harder exit</span></div>
+    <!-- Phobia distribution bar -->
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="panel-title" style="margin-bottom:8px;">Distribution of phobia types in the US population</div>
+      <div class="dist-bar" id="phobia-dist-bar"></div>
+      <div class="dist-legend" id="phobia-dist-legend"></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);">Source: National Comorbidity Survey Replication (NCS-R). Approximate proportions of all diagnosed specific phobias.</div>
     </div>
 
-    <div class="warning-block">Avoidance feels like medicine because anxiety drops the moment you escape. That relief is real, but it teaches the brain that escape caused safety. Over months, the safe zone often gets smaller.</div>
-
-    <div class="sec">Part G - social, body, and existential phobias</div>
-
-    <div class="elem-grid" id="existentialGrid">
-      <div class="elem-card" data-key="social"><div class="elem-icon"><i class="fa-solid fa-comments"></i></div><div class="elem-name">Social anxiety</div><div class="elem-sub">judgement</div></div>
-      <div class="elem-card" data-key="death"><div class="elem-icon"><i class="fa-solid fa-hourglass-end"></i></div><div class="elem-name">Thanatophobia</div><div class="elem-sub">death</div></div>
-      <div class="elem-card" data-key="illness"><div class="elem-icon"><i class="fa-solid fa-notes-medical"></i></div><div class="elem-name">Nosophobia</div><div class="elem-sub">illness and disease</div></div>
-      <div class="elem-card" data-key="blood"><div class="elem-icon"><i class="fa-solid fa-syringe"></i></div><div class="elem-name">Hemophobia</div><div class="elem-sub">blood and needles</div></div>
-      <div class="elem-card" data-key="alone"><div class="elem-icon"><i class="fa-solid fa-user-slash"></i></div><div class="elem-name">Autophobia</div><div class="elem-sub">being alone</div></div>
-      <div class="elem-card" data-key="touch"><div class="elem-icon"><i class="fa-solid fa-hand"></i></div><div class="elem-name">Haphephobia</div><div class="elem-sub">being touched</div></div>
-      <div class="elem-card" data-key="modern"><div class="elem-icon"><i class="fa-solid fa-mobile-screen"></i></div><div class="elem-name">Modern phobias</div><div class="elem-sub">phones, tech, FOMO</div></div>
-      <div class="elem-card" data-key="rare"><div class="elem-icon"><i class="fa-solid fa-shapes"></i></div><div class="elem-name">Rare phobias</div><div class="elem-sub">unusual objects</div></div>
-    </div>
-    <div class="elem-detail" id="existentialDetail"></div>
-
-    <div class="calc-card">
-      <div class="mini-title">Avoidance cost calculator</div>
-      <div class="mini-body">Avoidance often looks small by the day and enormous by the year. Estimate how much life a fear is quietly consuming.</div>
+    <!-- Avoidance cost calculator — from alt version -->
+    <div class="calc-wrap">
+      <div class="panel-title">Avoidance cost calculator</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Avoidance looks small by the day and enormous by the year. When someone avoids the underground, they may spend 20 extra minutes per journey, five days a week. That is 87 hours a year. This calculator makes the invisible cost visible enough to compare with the effort of getting help or practising exposure.</p>
       <div class="calc-grid">
         <div class="calc-field">
-          <label for="avoidMinutes">Minutes spent avoiding, checking, or recovering each day</label>
+          <label for="avoidMinutes">Minutes avoiding, checking, or recovering per day</label>
           <input type="number" id="avoidMinutes" min="0" max="600" value="25">
         </div>
         <div class="calc-field">
@@ -780,406 +639,751 @@
           <input type="number" id="avoidMonths" min="1" max="240" value="12">
         </div>
       </div>
-      <button id="avoidCalc">Calculate</button>
-      <div class="calc-output" id="avoidOutput"></div>
+      <button onclick="calcAvoidance()" style="margin-bottom:10px;">Calculate cost</button>
+      <div class="calc-output" id="avoid-output">Fill in the fields above and click Calculate.</div>
     </div>
 
-    <div class="sec">Part H · Q&A</div>
+    <!-- Exposure therapy session calculator — from ver2 -->
+    <div class="calc-wrap">
+      <div class="panel-title">Exposure therapy planner</div>
+      <p class="muted-copy-large" style="margin:0 0 10px;">Estimates sessions and total exposure time for a given phobia, based on published average parameters from Lars-Goran Ost's research and subsequent meta-analyses.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px;">
+        <label style="font-size:12px;color:var(--color-text-secondary);">Phobia type:</label>
+        <select id="calc-phobia-type" style="width:auto;min-width:180px;">
+          <option value="animal">Animal (spider, snake, dog)</option>
+          <option value="blood">Blood / injection / injury</option>
+          <option value="heights">Heights / acrophobia</option>
+          <option value="flying">Flying / aerophobia</option>
+          <option value="social">Social anxiety</option>
+          <option value="other">Other specific phobia</option>
+        </select>
+        <label style="font-size:12px;color:var(--color-text-secondary);">Severity (1–10):</label>
+        <input type="number" id="calc-severity" min="1" max="10" value="6" style="width:70px;">
+        <label style="font-size:12px;color:var(--color-text-secondary);">Format:</label>
+        <select id="calc-format" style="width:auto;min-width:160px;">
+          <option value="ost">One-session treatment (OST)</option>
+          <option value="weekly">Weekly CBT sessions</option>
+          <option value="vr">Virtual reality (VRET)</option>
+        </select>
+      </div>
+      <button onclick="calcExposure()" style="margin-bottom:10px;">Calculate treatment plan</button>
+      <div class="calc-output" id="calc-output">Fill in the options above and click Calculate.</div>
+    </div>
+
+    <div class="success-block">The central treatment idea is beautifully practical: do not wait to feel calm before approaching the feared cue. Approach in a dose that is difficult but workable, stay long enough for new learning, and repeat with variation. Avoidance that brings relief in the short run teaches the brain that escape caused safety. Over months, the safe zone often gets smaller.</div>
+
+    <!-- ═══════════════ PART H — Q&A ═══════════════ -->
+    <div class="sec">Part H · questions and answers</div>
 
     <div class="qa">
       <div class="qa-q">If fear is adaptive, why treat it at all?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">Adaptive does not mean accurate in every context. Fever is adaptive too, but a runaway fever can harm the organism it is trying to protect. Fear becomes a clinical problem when the alarm is too intense, too frequent, too disconnected from actual danger, or too costly. Treatment aims to recalibrate fear, not delete it.</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Adaptive does not mean accurate in every context. Fever is adaptive too, but a runaway fever harms the organism it is trying to protect. Fear becomes a clinical problem when the alarm is too intense, too frequent, too disconnected from actual danger, or too costly to the person's functioning. Treatment aims to recalibrate fear, not delete it. The goal of exposure therapy is not a person who feels nothing at heights or in aeroplanes — it is a person whose response is proportionate and does not prevent them from living.</div>
     </div>
+
     <div class="qa">
       <div class="qa-q">Can a person simply reason their way out of a phobia?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">Usually not by reasoning alone. The cortex may know the elevator is safe while the body predicts suffocation, panic, or entrapment. That mismatch is why exposure matters: it gives the emotional learning system direct evidence. Good reasoning can motivate exposure and correct myths, but new bodily learning usually has to occur.</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Usually not by reasoning alone. The cortex may know the elevator is safe while the body predicts suffocation, panic, or entrapment. That mismatch is why exposure matters: it gives the emotional learning system direct evidence, not just propositions. Good reasoning can motivate exposure and correct distorted beliefs about probability or catastrophe, but new bodily learning has to occur. A person with spider phobia who is told 10,000 statistical facts about spiders will typically remain phobic until they actually handle a spider repeatedly in a safe context.</div>
     </div>
+
+    <div class="qa">
+      <div class="qa-q">Can you be born without the capacity to feel fear?</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Yes, and the case of S.M. — a woman with complete bilateral amygdala destruction caused by Urbach-Wiethe disease — demonstrates it in detail. S.M. does not experience fear in situations that reliably frighten normal people: haunted houses, snakes, being held at gunpoint. However, she does experience panic attacks when inhaling CO2, suggesting the amygdala is specifically necessary for threat-detection fear but not for suffocation fear, which runs through a brainstem circuit. Her case also shows what a life without fear costs: she repeatedly placed herself in genuinely dangerous situations without protective hesitation, sustaining real harm as a result.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Is it possible to be completely cured of a phobia?</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Extinction does not erase the original fear memory — it suppresses it via a competing inhibitory memory. This is why spontaneous recovery occurs (the fear returns after time passes), stress reinstatement occurs (the old fear returns after a stressful event), and renewal occurs (fear returns in a context different from the extinction setting). Functionally, most well-treated phobia patients achieve full clinical remission — their lives are no longer impaired — but the underlying trace probably persists. Memory reconsolidation disruption using propranolol offers the theoretical possibility of actually weakening the original trace, and early results in PTSD are promising, but this is not yet standard clinical practice.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Is social anxiety disorder really a disorder, or just introversion medicalised?</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">It is a legitimate distinction. Introversion is a personality trait describing preference for low-stimulation environments; it carries no necessary impairment. Social anxiety disorder requires clinically significant distress and functional impairment — avoiding job interviews, being unable to eat in public, refusing to use the telephone. Lifetime prevalence is ~12% in the US. Introversion prevalence is estimated at 30–50% of the population. While many introverts experience social anxiety and vice versa, they are measurably different constructs with different neural correlates, different treatment responses, and different functional outcomes.</div>
+    </div>
+
+    <div class="qa">
+      <div class="qa-q">Why do horror films calm some people but deeply upset others?</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">The same stimulus lands differently depending on control, context, personality, and personal history. A horror fan experiences arousal plus mastery: "I chose this, I can leave, and the threat is fictional." Someone with recent trauma may experience cue overlap, where the scene activates real fear networks rather than fictional ones. Sensation-seeking is the strongest individual-difference predictor of horror enjoyment. The key variable is whether the person's fear system registers the threat as genuinely possible and personally relevant. The moment control disappears — the film is genuinely too much, the exit is unclear — entertainment collapses into distress.</div>
+    </div>
+
     <div class="qa">
       <div class="qa-q">Is trauma always the cause of phobias?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">No. Some phobias begin after a clear event, such as a bite, fall, crash, or medical procedure. Others grow through observation, warnings, panic attacks, disgust, or temperament without a single dramatic origin. The absence of a remembered trauma does not make the fear fake. It means the learning history may be diffuse or partly biological.</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">No. Some phobias begin after a clear event — a bite, fall, crash, or medical procedure. Others grow through observation, repeated warnings, panic attacks, disgust sensitivity, or temperament without any single dramatic origin. The absence of a remembered trauma does not make the fear fake. It means the learning history may be diffuse, partly biological, or rooted in experiences that occurred before explicit memory consolidates (typically before age 3). This matters clinically: treatment does not require identifying a traumatic origin, because the maintenance mechanism — avoidance — is the same regardless of how the phobia began.</div>
     </div>
+
     <div class="qa">
-      <div class="qa-q">Why do horror movies calm some people but upset others?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">The same stimulus lands differently depending on control, context, personality, and memory. A horror fan may experience arousal plus mastery: "I chose this, I can leave, and the threat is fictional." Someone with recent trauma may experience cue overlap, where the scene touches real fear networks. Enjoyment requires enough safety for the body to treat fear as play.</div>
+      <div class="qa-q">How does fear relate to courage — can courage actually be trained?</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Courage is trainable, but through fear tolerance, not fear elimination. Military, firefighter, and surgical training all use progressive exposure to increasingly stressful simulations to build the capacity to act under fear. Research on special forces selection suggests the distinguishing feature of successful candidates is not lower physiological fear response but faster return to baseline after the stressor resolves. The brain region most associated with trained courage is the anterior cingulate cortex, which functions as an override signal to the amygdala. Aristotle was right: courage that isn't accompanied by some fear isn't courage, it's recklessness. The person who charges a machine-gun nest with no awareness of personal danger is showing a different — and less useful — trait than the person who understands the danger fully and goes anyway.</div>
     </div>
+
     <div class="qa">
-      <div class="qa-q">What makes exposure therapy different from "just face your fear"?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">Exposure therapy is structured learning, not macho improvisation. The person approaches fear in planned doses, tracks predictions, resists safety rituals, and stays long enough for the feared catastrophe not to occur or to be tolerated. The pace matters because overwhelming exposure can teach helplessness rather than safety. Done well, exposure is precise, collaborative, and measurable.</div>
+      <div class="qa-q">Do animals experience something equivalent to phobias?</div>
+      <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
+      <div class="qa-ans">Yes. Rhesus monkeys develop persistent, generalised fear responses to snakes after a single observational conditioning event that are functionally identical to phobias in humans — they generalise the fear, show avoidance, and exhibit physiological stress markers years later. Domestic dogs and horses routinely develop acquired fears (thunderstorm phobias, traffic phobias) that show all the hallmarks of human phobias: disproportionate response, generalisation, and avoidance. The neural mechanisms — amygdala-centred fear conditioning and extinction — are highly conserved across mammals, which is precisely why rodent models have been so productive in phobia research.</div>
     </div>
-    <div class="qa">
-      <div class="qa-q">Are phobia names useful or just internet trivia?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">They are useful when they help someone describe a pattern and seek appropriate help. They become misleading when the name makes every discomfort sound like a disorder. Clinical usefulness depends on severity, avoidance, duration, and impairment, not on whether a Greek-looking label exists. The label is a handle, not the mechanism.</div>
-    </div>
-    <div class="qa">
-      <div class="qa-q">What is the fastest practical way to understand someone's fear?</div>
-      <button class="qa-btn" data-qa>show answer</button>
-      <div class="qa-ans">Ask what they predict will happen, what they do to prevent it, and what the fear has already cost them. The feared object is often only the surface. A needle may mean fainting, contamination, pain, loss of control, or bad medical news. Once the prediction is clear, the path to testing it becomes clearer too.</div>
-    </div>
-  </div>
+
+  </div><!-- .page-wrap -->
 
   <script>
-    window.addEventListener('DOMContentLoaded', function() {
-      const fearSystems = {
-        amygdala: {
-          kicker: 'alarm system',
-          title: 'The amygdala tags relevance before certainty arrives.',
-          body: 'The amygdala is not the brain\'s only fear center, and calling it one is too simple. It is a relevance detector that helps assign emotional importance to stimuli, especially cues that predict threat. It can trigger bodily preparation before conscious identification is complete. This is efficient because waiting for certainty can be fatal, but it also produces false alarms: the hose looks like a snake, the email subject line feels like danger, the harmless sound becomes a threat.',
-          fact: 'People with bilateral amygdala damage can show unusually weak fear responses to many external threats, though they can still experience panic from internal suffocation signals.'
-        },
-        hormones: {
-          kicker: 'body chemistry',
-          title: 'Adrenaline is fast. Cortisol keeps the system mobilized.',
-          body: 'Adrenaline and noradrenaline rise within seconds, increasing heart rate, blood pressure, sweating, and alertness. Cortisol, released through the HPA axis, works more slowly and helps mobilize energy over minutes. Acute cortisol can sharpen memory for threat, which is useful after danger. Chronic elevation is different: sleep, immune function, digestion, and mood can all pay the price when the alarm never powers down.',
-          fact: 'The sympathetic surge is why fear can feel like illness: chest tightness, nausea, trembling, dry mouth, and dizziness are standard emergency physiology.'
-        },
-        freeze: {
-          kicker: 'action program',
-          title: 'Freezing is not failure. It is assessment under danger.',
-          body: 'Freezing can happen before fight or flight because stillness improves detection and reduces visibility. In animals, immobility can prevent a predator from noticing movement. In humans, freeze can appear during accidents, assault, public humiliation, or panic. People often judge themselves afterward, but the response is not a moral decision. It is a defensive state selected by a nervous system trying to survive with too little time.',
-          fact: 'Tonic immobility is documented in many species and also reported by some human trauma survivors, especially when escape feels impossible.'
-        },
-        prepared: {
-          kicker: 'prepared learning',
-          title: 'Some fears are learned faster because ancestors faced them often.',
-          body: 'Preparedness theory, associated with Martin Seligman, argues that humans are more ready to learn fear of snakes, spiders, heights, darkness, and social rejection than of outlets, cars, or processed sugar. This does not mean everyone is born terrified of snakes. It means some cues may become threatening with fewer learning trials and resist extinction longer. Culture then tunes the response: a snake handler and a city child inherit similar biology but very different expectations.',
-          fact: 'Modern dangers often kill through familiarity. Cars, alcohol, sedentary life, and poor air quality are statistically serious but rarely trigger the ancient alarm style.'
-        }
-      };
+window.addEventListener('DOMContentLoaded', function() {
 
-      function showFearSystem(key, btn) {
-        const item = fearSystems[key];
-        document.querySelectorAll('#fearSystemButtons button').forEach(function(b) { b.classList.remove('active'); });
-        if (btn) btn.classList.add('active');
-        document.getElementById('fearSystemDisplay').innerHTML =
-          '<div class="display-kicker">' + item.kicker + '</div>' +
-          '<div class="mini-title">' + item.title + '</div>' +
-          '<div class="mini-body">' + item.body + '</div>' +
-          '<div class="detail-grid"><div class="detail-box"><div class="clabel">counterintuitive fact</div><div class="cnote">' + item.fact + '</div></div></div>';
-      }
+  /* ════════════════════════════════════════════════════
+     PART A — Neuroscience Explorer
+  ════════════════════════════════════════════════════ */
+  var neuroItems = {
+    amygdala: {
+      title: 'Amygdala — the alarm hub',
+      body: 'Two almond-shaped clusters in the medial temporal lobe. The amygdala is not a simple "fear centre" — it processes the biological significance of any emotionally relevant stimulus, positive or negative. But its role in fear is primary: patients with amygdala damage show severely blunted fear responses and poor fear conditioning. Crucially, the amygdala activates before the stimulus reaches conscious awareness — responding to threat in under 14 milliseconds via subcortical routes, compared with 80–100 ms for cortical processing.',
+      fact: 'Amygdala activity is elevated in people with anxiety disorders even when no threat is present — it has a raised baseline, not just a lower threshold.'
+    },
+    ledoux: {
+      title: 'Two fear pathways (LeDoux)',
+      body: 'Joseph LeDoux\'s framework distinguishes two fear pathways. The "low road" runs thalamus → amygdala directly: fast (~12 ms), crude, and unconscious. It processes basic threat features before the cortex knows anything has happened. The "high road" runs thalamus → cortex → amygdala: slower (~100 ms) but detailed and contextualised. Both converge on the amygdala, but the low road ensures you have already begun a fear response before you consciously perceive the threat.',
+      fact: 'A coiled hose on the floor makes you jump before your brain identifies it as a hose. The low road fired; the high road corrected it 80 ms later — after the stress hormones were already flowing.'
+    },
+    prefrontal: {
+      title: 'Prefrontal cortex — the regulator',
+      body: 'The ventromedial prefrontal cortex (vmPFC) and anterior cingulate cortex (ACC) regulate amygdala activity. The vmPFC is essential for extinction — it inhibits amygdala firing when learned threats are no longer present. PTSD patients show chronically reduced vmPFC activity and hyperactive amygdalae, preventing extinction from taking hold. Emotional regulation (reappraisal, mindfulness) works partly by increasing prefrontal inhibition of the amygdala.',
+      fact: 'The ACC is associated with trained courage: it appears to function as an override signal, allowing action despite amygdala alarm — the neural basis of Aristotle\'s mean.'
+    },
+    hippocampus: {
+      title: 'Hippocampus — context and memory',
+      body: 'The hippocampus supplies contextual information to the amygdala: where and when a threat occurred, and whether the current context is similar. It is essential for contextual fear conditioning. PTSD involves hippocampal dysregulation: traumatic memories are stored without the normal contextual "time-stamp" that marks them as past, which is why triggers can make past events feel present. Chronic stress physically shrinks the hippocampus; Vietnam veterans with PTSD showed 8% smaller hippocampal volumes than matched controls.',
+      fact: 'The hippocampus is why fear that extinguishes in a clinic can return in a new environment — the inhibitory memory was formed in a specific context and does not fully generalise.'
+    },
+    hpa: {
+      title: 'HPA axis — the hormone cascade',
+      body: 'The hypothalamic-pituitary-adrenal axis is the hormonal arm of the fear response. The hypothalamus releases CRH → pituitary releases ACTH → adrenal cortex releases cortisol within 15–30 minutes. Cortisol enhances memory consolidation of emotionally significant events, suppresses immune function, and mobilises glucose. Chronically elevated cortisol — from persistent anxiety or PTSD — damages hippocampal neurons, impairs memory, and suppresses immune function over time.',
+      fact: 'This is why people under long-term stress get sick more often: cortisol is immunosuppressive after the immediate emergency, trading long-term health for short-term survival capacity.'
+    },
+    insula: {
+      title: 'Insula — interoceptive fear',
+      body: 'The insular cortex represents the body\'s internal state and integrates visceral signals with emotional experience. When the amygdala fires, the insula translates the body\'s arousal (racing heart, tight chest) into subjective feelings of fear. People with higher insula sensitivity experience more intense subjective fear from the same objective threat level. Panic disorder is associated with excessive insula activation to normal interoceptive signals — the racing heart itself becomes the feared stimulus.',
+      fact: 'Interoceptive exposure therapy — deliberately inducing body sensations through hyperventilation or spinning — desensitises the insula\'s alarm response, targeting panic disorder at its source.'
+    }
+  };
+  var neuroLabels = { amygdala: 'Amygdala', ledoux: 'Two pathways', prefrontal: 'Prefrontal cortex', hippocampus: 'Hippocampus', hpa: 'HPA axis', insula: 'Insula' };
+  var neuroBtnsEl = document.getElementById('neuro-btns');
+  var neuroPanelEl = document.getElementById('neuro-panel');
 
-      document.querySelectorAll('#fearSystemButtons button').forEach(function(btn) {
-        btn.addEventListener('click', function() { showFearSystem(btn.dataset.key, btn); });
-      });
-      showFearSystem('amygdala', document.querySelector('#fearSystemButtons button'));
+  Object.keys(neuroItems).forEach(function(k) {
+    var btn = document.createElement('button');
+    btn.textContent = neuroLabels[k];
+    btn.dataset.key = k;
+    btn.onclick = function() { showNeuro(k, btn); };
+    neuroBtnsEl.appendChild(btn);
+  });
 
-      const threatSlider = document.getElementById('threatSlider');
-      const threatValue = document.getElementById('threatValue');
-      const threatResult = document.getElementById('threatResult');
-      function updateThreat() {
-        const value = Number(threatSlider.value);
-        threatValue.textContent = value;
-        let text;
-        if (value < 20) {
-          text = 'Orienting response: attention turns toward novelty. The body is asking "what is that?" rather than "run." This level can feel like curiosity, alertness, or mild unease.';
-        } else if (value < 45) {
-          text = 'Manageable fear: heart rate rises, attention narrows, and action gets easier. This is the useful zone for performance, caution, and exposure therapy: uncomfortable but still learnable.';
-        } else if (value < 75) {
-          text = 'High threat: the body prioritizes speed over nuance. Thinking becomes more categorical, safety behaviors become tempting, and memory for threat cues strengthens.';
-        } else {
-          text = 'Overload: panic, shutdown, dissociation, rage, or freezing can appear. At this intensity, the nervous system may learn helplessness rather than safety unless the dose is reduced.';
-        }
-        threatResult.textContent = text;
-      }
-      threatSlider.addEventListener('input', updateThreat);
-      updateThreat();
+  function showNeuro(key, btn) {
+    neuroBtnsEl.querySelectorAll('button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var d = neuroItems[key];
+    neuroPanelEl.innerHTML = '<div class="explorer-panel-title">' + d.title + '</div>' + d.body +
+      '<div class="detail-box"><div class="clabel">counterintuitive fact</div><div class="cnote">' + d.fact + '</div></div>';
+  }
+  showNeuro('amygdala', neuroBtnsEl.querySelector('button'));
 
-      const timelineItems = [
-        { label: 'Pavlov: conditioning', start: 1904, end: 1935, col: 'var(--color-text-info)', bg: 'var(--color-background-info)', text: 'learned signals' },
-        { label: 'Little Albert', start: 1920, end: 1930, col: 'var(--color-text-danger)', bg: 'var(--color-background-danger)', text: 'human fear learning' },
-        { label: 'Mowrer two-factor theory', start: 1947, end: 1975, col: 'var(--color-text-warning)', bg: 'var(--color-background-warning)', text: 'fear + avoidance' },
-        { label: 'Seligman preparedness', start: 1971, end: 1995, col: 'var(--color-text-success)', bg: 'var(--color-background-success)', text: 'evolved readiness' },
-        { label: 'LeDoux fear circuits', start: 1994, end: 2015, col: 'var(--accent)', bg: 'var(--accent-bg)', text: 'low road / high road' },
-        { label: 'Modern exposure models', start: 2008, end: 2026, col: 'var(--color-text-primary)', bg: 'var(--color-background-secondary)', text: 'inhibitory learning' }
-      ];
+  /* ════════════════════════════════════════════════════
+     PART A — Threat-dose slider (from alt)
+  ════════════════════════════════════════════════════ */
+  var threatSlider = document.getElementById('threatSlider');
+  var threatValEl  = document.getElementById('threatValue');
+  var threatResult = document.getElementById('threatResult');
 
-      function buildTimeline(items, axisId, rowsId, min, max) {
-        const axis = document.getElementById(axisId);
-        const rows = document.getElementById(rowsId);
-        const marks = [1900, 1930, 1960, 1990, 2020];
-        axis.innerHTML = marks.map(function(year) {
-          const left = ((year - min) / (max - min)) * 100;
-          return '<span class="pc-axis-mark" style="left:' + left + '%">' + year + '</span>';
-        }).join('');
-        rows.innerHTML = items.map(function(item) {
-          const left = ((item.start - min) / (max - min)) * 100;
-          const width = ((item.end - item.start) / (max - min)) * 100;
-          return '<div class="pc-row"><div class="pc-label">' + item.label + '</div><div class="pc-track"><div class="pc-fill" style="left:' + left + '%;width:' + width + '%;background:' + item.bg + ';color:' + item.col + '"><span class="pc-fill-label">' + item.text + '</span></div></div></div>';
-        }).join('');
-      }
-      buildTimeline(timelineItems, 'fearAxis', 'fearTimeline', 1900, 2026);
+  function updateThreat() {
+    var v = Number(threatSlider.value);
+    threatValEl.textContent = v;
+    var text;
+    if (v < 20) {
+      text = 'Orienting response: attention turns toward novelty. The body is asking "what is that?" rather than "run." This level can feel like curiosity, alertness, or mild unease. The amygdala has fired gently; the cortex is easily managing the output.';
+    } else if (v < 45) {
+      text = 'Manageable fear: heart rate rises, attention narrows, and action gets easier. This is the useful zone for performance, caution, and exposure therapy — uncomfortable but still learnable. New fear extinction happens most effectively in this window.';
+    } else if (v < 75) {
+      text = 'High threat: the body prioritises speed over nuance. Thinking becomes more categorical, safety behaviours become tempting, and memory for threat cues strengthens. Exposure therapy at this intensity requires careful pacing.';
+    } else {
+      text = 'Overload: panic, shutdown, dissociation, or freeze can appear. At this intensity, the nervous system may learn helplessness rather than safety unless the dose is reduced. Trauma often encodes at this level — the experience is too intense to be contextualised normally.';
+    }
+    threatResult.textContent = text;
+  }
+  threatSlider.addEventListener('input', updateThreat);
+  updateThreat();
 
-      const riskItems = [
-        { name: 'Seasonal flu', pos: 20 },
-        { name: 'Driving', pos: 33 },
-        { name: 'Food poisoning', pos: 45 },
-        { name: 'Turbulence', pos: 67 },
-        { name: 'Shark attack', pos: 82 },
-        { name: 'Terrorism', pos: 91 }
-      ];
-      function buildScale(targetId, items) {
-        document.getElementById(targetId).innerHTML = items.map(function(item) {
-          return '<div class="cscale-row"><div class="cscale-name">' + item.name + '</div><div class="cscale-track"><span class="cscale-dot" style="left:' + item.pos + '%"></span></div></div>';
-        }).join('');
-      }
-      buildScale('riskScale', riskItems);
+  /* ════════════════════════════════════════════════════
+     PART A — Preparedness scale
+  ════════════════════════════════════════════════════ */
+  var prepItems = [
+    { name: 'Sudden loud noise', pos: 2 },
+    { name: 'Loss of support (falling)', pos: 5 },
+    { name: 'Snakes', pos: 12 },
+    { name: 'Spiders', pos: 15 },
+    { name: 'Heights', pos: 22 },
+    { name: 'Angry faces', pos: 28 },
+    { name: 'Social rejection', pos: 38 },
+    { name: 'Darkness', pos: 45 },
+    { name: 'Contamination', pos: 55 },
+    { name: 'Enclosed spaces', pos: 62 },
+    { name: 'Flying', pos: 72 },
+    { name: 'Dentists', pos: 80 },
+    { name: 'Clowns', pos: 91 }
+  ];
+  var prepContainer = document.getElementById('prep-scale');
+  prepItems.forEach(function(item) {
+    var row = document.createElement('div');
+    row.className = 'cscale-row';
+    row.innerHTML = '<div class="cscale-name">' + item.name + '</div>' +
+      '<div class="cscale-track"><div class="cscale-dot" style="left:' + item.pos + '%"></div></div>';
+    prepContainer.appendChild(row);
+  });
 
-      const horrorParts = [
-        { label: 'Uncertainty', value: 28, color: 'var(--color-background-info)', border: 'var(--color-border-info)' },
-        { label: 'Helplessness', value: 24, color: 'var(--color-background-danger)', border: 'var(--color-border-danger)' },
-        { label: 'Disgust', value: 18, color: 'var(--color-background-warning)', border: 'var(--color-border-warning)' },
-        { label: 'Transgression', value: 16, color: 'var(--color-background-success)', border: 'var(--color-border-success)' },
-        { label: 'Startle', value: 14, color: 'var(--color-background-secondary)', border: 'var(--color-border-tertiary)' }
-      ];
-      document.getElementById('horrorDist').innerHTML = horrorParts.map(function(part) {
-        return '<div class="dist-seg" style="width:' + part.value + '%;background:' + part.color + '"></div>';
+  /* ════════════════════════════════════════════════════
+     PART B — PTSD bar chart
+  ════════════════════════════════════════════════════ */
+  var ptsdData = [
+    { label: 'Sexual assault', val: 33, col: '#9B3030' },
+    { label: 'Combat / war zone', val: 20, col: '#C04040' },
+    { label: 'Childhood abuse', val: 24, col: '#B03838' },
+    { label: 'Serious accident', val: 7, col: '#C87070' },
+    { label: 'Natural disaster', val: 5, col: '#D09090' },
+    { label: 'General trauma', val: 8, col: '#DBA0A0' }
+  ];
+  var ptsdContainer = document.getElementById('ptsd-bars');
+  var maxPtsd = 35;
+  ptsdData.forEach(function(d) {
+    var w = (d.val / maxPtsd * 100).toFixed(1);
+    var row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = '<div class="bl">' + d.label + '</div>' +
+      '<div class="bb" style="width:' + w + '%;background:' + d.col + ';"><span class="bv" style="color:#fff;">' + d.val + '%</span></div>';
+    ptsdContainer.appendChild(row);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART B — Fear science timeline (from alt)
+  ════════════════════════════════════════════════════ */
+  var sciItems = [
+    { label: 'Pavlov: conditioning', start: 1904, end: 1935, bg: 'var(--color-background-info)', col: 'var(--color-text-info)', text: 'learned signals' },
+    { label: 'Little Albert (Watson)', start: 1920, end: 1930, bg: 'var(--color-background-danger)', col: 'var(--color-text-danger)', text: 'human fear learning' },
+    { label: 'Mowrer two-factor theory', start: 1947, end: 1975, bg: 'var(--color-background-warning)', col: 'var(--color-text-warning)', text: 'fear + avoidance' },
+    { label: 'Seligman preparedness', start: 1971, end: 1995, bg: 'var(--color-background-success)', col: 'var(--color-text-success)', text: 'evolved readiness' },
+    { label: 'LeDoux fear circuits', start: 1994, end: 2015, bg: 'var(--accent-bg)', col: 'var(--accent)', text: 'low road / high road' },
+    { label: 'Inhibitory learning models', start: 2008, end: 2026, bg: 'var(--color-background-secondary)', col: 'var(--color-text-primary)', text: 'extinction = new learning' }
+  ];
+  buildTimeline('sci-axis', 'sci-timeline', sciItems, 1900, 2026, [1900, 1930, 1960, 1990, 2020]);
+
+  /* ════════════════════════════════════════════════════
+     PART B — Courage slider
+  ════════════════════════════════════════════════════ */
+  var courageMessages = [
+    { max: 10,  text: 'Complete fear paralysis: cannot act on even minimal threats. Likely meets criteria for an anxiety disorder. This is one of the most treatable points on the spectrum — exposure-based therapy produces dramatic improvements.' },
+    { max: 25,  text: 'High avoidance: life is organised around avoiding feared situations. Functional impairment is significant. Exposure-based therapy would produce large improvements in quality of life.' },
+    { max: 40,  text: 'Elevated fear sensitivity: some responses are disproportionate to threat, producing some avoidance. Subthreshold anxiety. Manageable but limiting in specific domains.' },
+    { max: 60,  text: 'Aristotle\'s mean: appropriate fear calibration. Fear arises when threats are real, motivates protective action, and resolves when the threat passes. Acts effectively despite fear. This is the functional optimum.' },
+    { max: 75,  text: 'High tolerance: able to function in high-threat situations. Trait associated with emergency responders, surgeons, military personnel. Fear is felt but does not dominate behaviour.' },
+    { max: 90,  text: 'Very high risk tolerance: pushes into genuinely dangerous situations without adequate protective hesitation. Higher injury rates despite success in high-stakes fields.' },
+    { max: 100, text: 'Recklessness / fearlessness: acts without protective fear. Seen in amygdala damage and some psychopathy profiles. Normal protective avoidance is absent — paradoxically dangerous.' }
+  ];
+
+  window.updateCourageSlider = function(val) {
+    val = parseInt(val);
+    document.getElementById('courage-val').textContent = val;
+    var msg = courageMessages[courageMessages.length - 1];
+    for (var i = 0; i < courageMessages.length; i++) {
+      if (val <= courageMessages[i].max) { msg = courageMessages[i]; break; }
+    }
+    document.getElementById('courage-output').innerHTML = '<strong>Position ' + val + '/100:</strong> ' + msg.text;
+  };
+  updateCourageSlider(50);
+
+  /* ════════════════════════════════════════════════════
+     PART B — Risk perception scale (from alt)
+  ════════════════════════════════════════════════════ */
+  var riskScaleItems = [
+    { name: 'Seasonal flu', pos: 20 },
+    { name: 'Driving', pos: 33 },
+    { name: 'Food poisoning', pos: 45 },
+    { name: 'Turbulence', pos: 67 },
+    { name: 'Shark attack', pos: 82 },
+    { name: 'Terrorism', pos: 91 }
+  ];
+  var riskScaleEl = document.getElementById('risk-scale');
+  riskScaleItems.forEach(function(item) {
+    var row = document.createElement('div');
+    row.className = 'cscale-row';
+    row.innerHTML = '<div class="cscale-name">' + item.name + '</div>' +
+      '<div class="cscale-track"><div class="cscale-dot" style="left:' + item.pos + '%"></div></div>';
+    riskScaleEl.appendChild(row);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART B — Risk perception bar chart (from ver2)
+  ════════════════════════════════════════════════════ */
+  var riskData = [
+    { label: 'Heart disease', val: 655000, fear: 'Low', col: '#888' },
+    { label: 'Cancer', val: 602000, fear: 'Medium', col: '#999' },
+    { label: 'Drug overdose', val: 72000, fear: 'Low-medium', col: '#B09090' },
+    { label: 'Car accidents', val: 38000, fear: 'Low (chosen)', col: '#B08080' },
+    { label: 'Falls', val: 35000, fear: 'Low', col: '#A09090' },
+    { label: 'Homicide', val: 19000, fear: 'High', col: '#C04040' },
+    { label: 'Plane crash (US)', val: 400, fear: 'High', col: '#B03030' },
+    { label: 'Terrorism (US)', val: 100, fear: 'Very high', col: '#9B3030' },
+    { label: 'Lightning', val: 20, fear: 'Medium', col: '#909040' }
+  ];
+  var maxRisk = 700000;
+  var riskBarsEl = document.getElementById('risk-bars');
+  riskData.forEach(function(d) {
+    var w = Math.max(2, (d.val / maxRisk * 100)).toFixed(1);
+    var label = d.val >= 1000 ? Math.round(d.val / 1000) + 'k' : d.val.toString();
+    var row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = '<div class="bl">' + d.label + '</div>' +
+      '<div class="bb" style="width:' + w + '%;background:' + d.col + ';min-width:30px;"><span class="bv" style="color:#fff;">' + label + ' · Fear: ' + d.fear + '</span></div>';
+    riskBarsEl.appendChild(row);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART C — Horror distribution bar (from alt)
+  ════════════════════════════════════════════════════ */
+  var horrorParts = [
+    { label: 'Uncertainty', val: 28, col: 'var(--color-background-info)', border: 'var(--color-border-info)', textCol: 'var(--color-text-info)' },
+    { label: 'Helplessness', val: 24, col: 'var(--color-background-danger)', border: 'var(--color-border-danger)', textCol: 'var(--color-text-danger)' },
+    { label: 'Disgust', val: 18, col: 'var(--color-background-warning)', border: 'var(--color-border-warning)', textCol: 'var(--color-text-warning)' },
+    { label: 'Transgression', val: 16, col: 'var(--color-background-success)', border: 'var(--color-border-success)', textCol: 'var(--color-text-success)' },
+    { label: 'Startle', val: 14, col: 'var(--color-background-secondary)', border: 'var(--color-border-tertiary)', textCol: 'var(--color-text-secondary)' }
+  ];
+  var horrorDistEl   = document.getElementById('horror-dist');
+  var horrorLegendEl = document.getElementById('horror-legend');
+  horrorParts.forEach(function(p) {
+    var seg = document.createElement('div');
+    seg.className = 'dist-seg';
+    seg.style.width = p.val + '%';
+    seg.style.background = p.col;
+    seg.title = p.label + ': ' + p.val + '%';
+    horrorDistEl.appendChild(seg);
+    var li = document.createElement('div');
+    li.className = 'dist-legend-item';
+    li.innerHTML = '<div class="dist-legend-dot" style="background:' + p.col + ';border:0.5px solid ' + p.border + ';"></div>' + p.label + ' ' + p.val + '%';
+    horrorLegendEl.appendChild(li);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART C — Monster explorer (ver2 + zombie + double from alt)
+  ════════════════════════════════════════════════════ */
+  var monsters = [
+    { icon: '🧛', label: 'Vampire', sub: 'seduction', title: 'Vampire — the fear of being wanted and consumed', body: 'The vampire is intimate danger: it enters by invitation, feeds through the neck, and often looks aristocratic rather than monstrous. It crystallises anxiety about sexual predation, contagion, and the corrupting power of charisma. Bram Stoker\'s 1897 Dracula emerged during intense Victorian anxiety about foreign influence and disease — the vampire as metaphor for syphilis has been well documented. The vampire\'s power to "infect" and transform victims reflects biological disgust responses to contamination; the seductive element maps onto fears about consent and the corruption of innocence. Cross-cultural vampire myths exist in over 40 cultures.' },
+    { icon: '🐺', label: 'Werewolf', sub: 'the beast within', title: 'Werewolf — the beast within', body: 'The werewolf embodies fear of the animal nature beneath civilised behaviour — the idea that any person could, under certain conditions, revert to brutality. Psychologically it maps onto fear of loss of control and fear of men specifically. Clinically, the delusion that one is transforming into a wolf (clinical lycanthropy) is a documented psychiatric symptom, typically associated with psychosis or dissociative states. The fear it channels is fundamentally about unpredictability in social bonds: can the people around you really be trusted not to turn?' },
+    { icon: '👻', label: 'Ghost', sub: 'unfinished memory', title: 'Ghost — the unfinished dead', body: 'Ghosts encode fear of death\'s incompleteness — the idea that the dead return if their passing was violent, untimely, or unavenged. Unlike the vampire, the ghost\'s primary emotional register is melancholy and obligation rather than predation. Ghosts store unfinished obligation; they haunt what they could not resolve. Cross-culturally, ghost beliefs are nearly universal; even in secular Western populations, ~20% of adults report belief in ghosts. Freud\'s "uncanny" (das Unheimliche) — the feeling that something familiar has become strange — is most purely activated by ghost narratives: a face that should be absent, looking back.' },
+    { icon: '🧟', label: 'Zombie', sub: 'contagion and crowds', title: 'Zombie — contagion, crowds, and loss of self', body: 'The zombie is a 20th-century monster whose cultural dominance tracks the rise of pandemic anxiety, mass media, and crowd psychology. Unlike the vampire (individual, seductive), the zombie threat is statistical: one becomes many, exponentially. The zombie encodes three overlapping fears: disease contagion (the bite that transforms), loss of individual identity and consciousness (the self consumed by the horde), and the horror of recognition — the zombie is always someone you knew. George Romero\'s Night of the Living Dead (1968) explicitly used zombies as a metaphor for racial violence and mindless consumerism. Pandemic fiction, from 28 Days Later to The Walking Dead, is zombie fiction with the allegory made direct.' },
+    { icon: '🤡', label: 'Clown', sub: 'the uncanny face', title: 'Clown — the uncanny face', body: 'Coulrophobia became culturally prominent in the 1980s and accelerated with Stephen King\'s IT (1986). The mechanism is the uncanny valley: the face is almost but not quite human, and the painted features eliminate microexpressions — the rapid involuntary facial signals by which we read others\' emotions. The clown\'s true emotional state is illegible, which activates the threat-detection system. Research by Andrew McAndrew found clowns rated as the single most frightening occupational category by participants. The 2016 US "creepy clown" panic showed how quickly coulrophobia can spread via social contagion.' },
+    { icon: '🪞', label: 'Double', sub: 'identity made unstable', title: 'The double — identity made unstable', body: 'The doppelganger, the mirror-twin, the uncanny double — a figure of European folklore and literary horror (Poe\'s William Wilson, Dostoevsky\'s The Double, Stevenson\'s Jekyll and Hyde) — encodes a specific existential fear: that identity is not singular, stable, or trustworthy. The double represents the parts of the self the person cannot acknowledge: the shadow, in Jungian terms. Horror using the double — Us (2019), Black Swan (2010) — is effective because the threat cannot be escaped. You cannot run from yourself. The double makes the inside external and the private visible.' },
+    { icon: '👁️', label: 'Dark thing', sub: 'threat detection limit', title: 'The thing in the dark — primal threat detection', body: 'The amorphous monster in the dark — Lovecraft\'s nameless horrors, the creature at the edge of vision — works on the most ancient circuit: the threat-detection system\'s response to ambiguous perceptual data. When the visual system cannot fully process an object, the amygdala\'s response is amplified rather than suppressed. Incomplete information = maximum threat. Lovecraft consciously exploited this: his most effective entities are never fully described. The fear is of the unknown itself, which is why it cannot be extinguished by any amount of reassurance.' }
+  ];
+
+  var monsterGrid = document.getElementById('monster-grid');
+  var monsterDetail = document.getElementById('monster-detail');
+  var activeMonster = null;
+  monsters.forEach(function(m, i) {
+    var card = document.createElement('div');
+    card.className = 'elem-card';
+    card.innerHTML = '<div class="elem-card-icon">' + m.icon + '</div><div class="elem-card-label">' + m.label + '</div><div class="elem-card-sub">' + m.sub + '</div>';
+    card.onclick = function() {
+      if (activeMonster === i) { card.classList.remove('active'); monsterDetail.classList.remove('show'); monsterDetail.innerHTML = ''; activeMonster = null; return; }
+      monsterGrid.querySelectorAll('.elem-card').forEach(function(c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      activeMonster = i;
+      monsterDetail.innerHTML = '<div class="elem-detail-title">' + m.title + '</div><div style="font-size:13px;color:var(--color-text-primary);line-height:1.6;">' + m.body + '</div>';
+      monsterDetail.classList.add('show');
+    };
+    monsterGrid.appendChild(card);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART C — Political fear timeline
+  ════════════════════════════════════════════════════ */
+  var fearPeriods = [
+    { label: 'Witch trials (Europe)', start: 1450, end: 1750, bg: '#FCEBEB', col: '#9B3030', text: '1450–1750' },
+    { label: 'French Terror', start: 1793, end: 1795, bg: '#FAD5D5', col: '#C04040', text: '1793–95' },
+    { label: 'Red Scare I (US)', start: 1917, end: 1920, bg: '#FCEBEB', col: '#9B3030', text: '1917–20' },
+    { label: 'McCarthyism (US)', start: 1950, end: 1957, bg: '#FAD5D5', col: '#A03030', text: '1950–57' },
+    { label: 'Satanic Panic (US/UK)', start: 1980, end: 1994, bg: '#FCEBEB', col: '#C05050', text: '1980–94' },
+    { label: 'War on Terror era', start: 2001, end: 2020, bg: '#FAD5D5', col: '#803030', text: '2001–20' },
+    { label: 'Anti-immigration panic', start: 2015, end: 2024, bg: '#FCEBEB', col: '#B04040', text: '2015–24' }
+  ];
+  buildTimeline('fear-axis', 'fear-timeline', fearPeriods, 1440, 2024, [1450, 1550, 1650, 1750, 1850, 1900, 1950, 2000, 2024]);
+
+  /* ════════════════════════════════════════════════════
+     PART D — Treatment explorer (from alt)
+  ════════════════════════════════════════════════════ */
+  var treatments = {
+    exposure: {
+      title: 'Exposure therapy — the gold standard',
+      body: 'Exposure means systematic, repeated contact with the feared cue in the absence of the anticipated catastrophe. The mechanism is inhibitory learning: the brain learns a new, stronger rule — "I can experience this and be safe" — that competes with the original fear memory. Exposure works better when varied across contexts, with the person\'s expectations tested explicitly ("I predicted my anxiety would reach 90, it reached 65"), and without safety behaviours that prevent full contact with the feared stimulus.',
+      note: 'Safety behaviours — holding a railing, only looking at a safe patch of floor, keeping exits in view — reduce distress in the moment but prevent the new learning that extinguishes the phobia.'
+    },
+    cbt: {
+      title: 'Cognitive behavioural therapy — restructuring the threat',
+      body: 'CBT combines exposure with explicit work on distorted beliefs: probability overestimation ("I\'m certain the plane will crash"), catastrophising ("if I panic I will die"), and safety behaviour analysis. The cognitive component rarely works alone, but it motivates exposure and helps the person distinguish realistic concern from phobic distortion. CBT is the treatment of choice for social anxiety disorder and GAD, where the cognitive component is larger relative to the exposure component.',
+      note: 'For specific phobias, pure exposure achieves the same outcomes as CBT with comparable effort. The cognitive work is more essential for social anxiety and health anxiety.'
+    },
+    vr: {
+      title: 'Virtual reality exposure therapy (VRET)',
+      body: 'VRET delivers exposure via immersive VR environments — the patient confronts a virtual height, aeroplane, or spider in a controlled, adjustable setting. A 2019 meta-analysis across 30 studies found large effect sizes (d = 1.08) that generalised to real-world contexts. VRET is especially well validated for acrophobia, aerophobia, and social anxiety, achieving outcomes comparable to in-vivo exposure at lower cost and with better therapist control of the dose.',
+      note: 'VR does not fully eliminate the need for real-world exposure — transfer from virtual to actual environments is strong but not complete. Best used as a scaffold, not a replacement.'
+    },
+    meds: {
+      title: 'Medication — when and why',
+      body: 'Beta-blockers (propranolol) reduce peripheral physiological symptoms and can be taken before unavoidable exposures. SSRIs treat the anxiety component in social anxiety disorder and agoraphobia but are largely ineffective for specific phobias. Benzodiazepines may reduce acute fear, but they interfere with extinction learning and carry dependence risks. D-cycloserine, a partial NMDA agonist, has shown promise as an augmentation agent that accelerates extinction when given just before exposure sessions.',
+      note: 'For blood-injection-injury phobia with fainting, applied tension (tensing large muscle groups to maintain blood pressure) is the specific technique required — general anxiety reduction is not sufficient.'
+    },
+    onesession: {
+      title: 'One-session treatment (OST)',
+      body: 'Lars-Goran Ost\'s one-session approach — typically a single 3-hour intensive exposure session — achieves clinically significant improvement in ~90% of patients with animal and injection phobias. It is the standard of care in Sweden. The format is not a miracle: it is concentrated, therapist-guided exposure with modelling, careful pacing, and repeated approach until the feared prediction weakens. It works best for circumscribed phobias such as spiders, injections, or small animals, not for complex trauma or broad social fear.',
+      note: 'The principle is intensity with precision: enough time for genuine new learning in a single session, not a quick reassurance exercise.'
+    }
+  };
+
+  var treatmentBtns = document.getElementById('treatment-btns');
+  var treatmentPanel = document.getElementById('treatment-panel');
+  var treatKeys = Object.keys(treatments);
+  var treatLabels = { exposure: 'Exposure', cbt: 'CBT', vr: 'Virtual reality', meds: 'Medication', onesession: 'One-session (OST)' };
+
+  treatKeys.forEach(function(k) {
+    var btn = document.createElement('button');
+    btn.textContent = treatLabels[k];
+    btn.onclick = function() { showTreatment(k, btn); };
+    treatmentBtns.appendChild(btn);
+  });
+
+  function showTreatment(key, btn) {
+    treatmentBtns.querySelectorAll('button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    var d = treatments[key];
+    treatmentPanel.innerHTML = '<div class="explorer-panel-title">' + d.title + '</div>' + d.body +
+      '<div class="detail-box"><div class="clabel">key caveat or example</div><div class="cnote">' + d.note + '</div></div>';
+  }
+  showTreatment('exposure', treatmentBtns.querySelector('button'));
+
+  /* ════════════════════════════════════════════════════
+     PART D — Prevalence bar chart (from alt)
+  ════════════════════════════════════════════════════ */
+  var prevalenceData = [
+    { label: 'Specific phobia', val: 8.7 },
+    { label: 'Social anxiety', val: 7.1 },
+    { label: 'PTSD', val: 5.0 },
+    { label: 'Panic disorder', val: 2.7 },
+    { label: 'Agoraphobia', val: 1.3 }
+  ];
+  var maxPrev = 10;
+  var prevBarsEl = document.getElementById('prevalence-bars');
+  prevalenceData.forEach(function(d) {
+    var w = Math.max(4, (d.val / maxPrev * 100)).toFixed(1);
+    var row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = '<div class="bl">' + d.label + '</div>' +
+      '<div class="bb" style="width:' + w + '%;background:var(--accent);"><span class="bv" style="color:#fff;">' + d.val + '%</span></div>';
+    prevBarsEl.appendChild(row);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART E — Animal phobias (elem-grid with icons)
+  ════════════════════════════════════════════════════ */
+  var animalPhobias = [
+    { icon: 'fa-solid fa-spider', label: 'Arachnophobia', sub: 'spiders', title: 'Arachnophobia — fear of spiders', body: 'The most researched animal phobia, affecting ~5% of people clinically (up to 50% report some discomfort). Preparedness theory applies strongly: in 15 controlled studies, humans learn spider fear faster, resist extinction more, and generalise more readily than fear of flowers or mushrooms. Geographic variation is striking: people raised in spider-poor environments (northern Europe) show higher rates than those from spider-dense environments (Australia), suggesting strong cultural transmission layered on top of biological preparedness. One-session treatment (OST) achieves 80–90% clinical response rates for spider phobia.' },
+    { icon: 'fa-solid fa-staff-snake', label: 'Ophidiophobia', sub: 'snakes', title: 'Ophidiophobia — fear of snakes', body: 'Cross-culturally the most prevalent animal fear in surveys, with ~30% of adults reporting significant discomfort. LeDoux\'s foundational work on fear conditioning used snakes precisely because of their special status in the prepared learning system. Rhesus monkeys show the same pattern: one exposure to a fearful snake reaction produces a permanent snake phobia. In humans, the fear generalises strongly — rope-like objects, S-curves, and hissing sounds all activate the response. Some neuroimaging studies find enhanced amygdala responses to snake images even in non-phobic people, suggesting a species-wide subclinical preparedness.' },
+    { icon: 'fa-solid fa-dog', label: 'Cynophobia', sub: 'dogs', title: 'Cynophobia — fear of dogs', body: 'Estimated to affect ~7–9% of adults, typically originating from direct trauma — a bite or frightening encounter in childhood. Unlike snakes and spiders, cynophobia is primarily trauma-induced rather than prepared-learning-based. Children bitten before age 5 have a ~30% probability of developing clinically significant cynophobia. The phobia is particularly disabling in urban environments where dogs are ubiquitous. Famous sufferers include Adolf Hitler (who nevertheless owned German Shepherds) — a reminder that phobias and emotional relationships with the feared object can coexist in complicated ways.' },
+    { icon: 'fa-solid fa-cat', label: 'Ailurophobia', sub: 'cats', title: 'Ailurophobia — fear of cats', body: 'Less common than cynophobia (estimated 2–3% of adults) but famously associated with several historical figures including Napoleon Bonaparte, Julius Caesar, and Genghis Khan — whose commanders were reportedly paralysed near cats. The fear is often centred on unpredictability: cats switch rapidly between calm and aggressive behaviour and are harder to read than dogs, eliminating the social signals that allow most people to feel safe around domestic animals. The scratching and clawing associated with cats may also engage the blood-injection-injury fear system in some individuals. Ailurophobia is generally highly treatable with graduated exposure therapy.' },
+    { icon: 'fa-solid fa-bug', label: 'Entomophobia', sub: 'insects', title: 'Entomophobia — fear of insects', body: 'Broad insect fear affects approximately 6% of adults at clinical severity. The disgust component is unusually prominent: insect phobia activates the disgust system (contamination, oral incorporation threat) as much as the fear system. Cockroaches are the most feared insect in Western cultures; bees and wasps (apiphobia) are feared primarily for their sting. The rise of bed bugs in the 2000s correlated with a documented increase in entomophobia clinic referrals — a rare case where a phobia\'s prevalence tracked a genuine epidemiological change.' },
+    { icon: 'fa-solid fa-dove', label: 'Ornithophobia', sub: 'birds', title: 'Ornithophobia — fear of birds', body: 'Relatively uncommon (~1% of adults) but can be severely disabling given how many public spaces contain birds. Alfred Hitchcock\'s The Birds (1963) is often cited by sufferers as precipitating their phobia — a case study in information-transmission pathways. The fear typically focuses on unpredictable bird movement, the flapping of wings (sudden movement plus noise), and proximity to faces. Public squares and beaches can become impossible because birds are semi-controlled: near humans but not under human rules — the uncanny shift that makes them threatening.' },
+    { icon: 'fa-solid fa-paw', label: 'Musophobia', sub: 'mice and rats', title: 'Musophobia — fear of mice and rats', body: 'Affects approximately 3–5% of adults; significantly more common in women (roughly 3:1 ratio). Disgust is central: the primary aversion is to unpredictable movement, soft body texture, and association with contamination. Rodent fear often combines disease history with the violation of domestic space — a mouse in a kitchen feels worse than a larger animal outdoors because it means the home boundary has been crossed. The Black Death association with rats remains culturally powerful 700 years later.' },
+    { icon: 'fa-solid fa-fish-fins', label: 'Selachophobia', sub: 'sharks', title: 'Selachophobia — fear of sharks', body: 'One of the clearest examples of media-amplified dread risk. Annual shark attacks worldwide: ~70–80, with ~5 fatalities. Annual deaths from falling coconuts: estimated 150. Yet shark fear is viscerally reported by ~25% of regular swimmers. Steven Spielberg\'s Jaws (1975) demonstrably caused a widespread increase in shark phobia and contributed to shark culling programmes that reduced great white populations by an estimated 80% in Australian waters. The ocean amplifies the fear because it removes visibility and control — the danger below perception, moving faster than the human body can respond.' }
+  ];
+  buildElemGrid('animal-phobia-grid', 'animal-phobia-detail', animalPhobias, true);
+
+  /* ════════════════════════════════════════════════════
+     PART F — Situational phobias (elem-grid with icons)
+  ════════════════════════════════════════════════════ */
+  var sitPhobias = [
+    { icon: 'fa-solid fa-mountain', label: 'Acrophobia', sub: 'heights', title: 'Acrophobia — fear of heights', body: 'Affects ~5% at clinical severity; up to 30% report significant discomfort. Important to distinguish acrophobia from visual height intolerance (VHI), a milder form affecting ~28% of people. The mechanism involves a conflict between visual input (the edge is far below) and proprioceptive balance information (the body feels unstable). Many people experience the disturbing "high places illusion" — an urge to jump that is not suicidal but represents the brain computing escape options. VR treatment achieves near-equivalent results to real-height exposure, making it highly practical for this phobia.' },
+    { icon: 'fa-solid fa-door-closed', label: 'Claustrophobia', sub: 'enclosed spaces', title: 'Claustrophobia — fear of enclosed spaces', body: 'Prevalence ~2–4% of adults. Research distinguishes two subtypes: suffocation fear (the enclosed space will run out of air) and restriction fear (the person will be physically trapped). These respond to somewhat different treatment protocols. MRI scanners are a major clinical problem: 1–15% of patients require sedation for routine MRI due to claustrophobia. Open MRI scanners were developed partly in response to this. A person can intellectually know the scan is safe and still feel trapped because the body is responding to perceived escape distance, not to the radiology manual.' },
+    { icon: 'fa-solid fa-city', label: 'Agoraphobia', sub: 'escape unavailable', title: 'Agoraphobia — fear of escape being unavailable', body: 'Often mischaracterised as simply "fear of open spaces." The DSM-5 definition is more precise: fear of situations where escape would be difficult or help unavailable during a panic attack. Agoraphobia is closely linked to panic disorder; ~50% of people with panic disorder develop agoraphobia. The condition can shrink life through a widening map of avoidance. In severe cases, a person becomes housebound not because the outside is hated, but because the outside feels like a stage on which panic could trap them. Approximately 1.7% of the global population meets full criteria.' },
+    { icon: 'fa-solid fa-plane', label: 'Aerophobia', sub: 'flying', title: 'Aerophobia — fear of flying', body: 'Fear of flying is rarely one fear. It can combine heights, turbulence, enclosed space, loss of control, and mistrust of machinery. Approximately 25% of adults report significant fear; ~6% meet phobia criteria. Commercially, aviation is extremely safe — the fatal accident rate per billion passenger-kilometres is 0.02, roughly 95 times safer than driving. Statistics alone often fail as treatment because the passenger cannot steer, stop, or step out. Treatment works better when it targets the person\'s actual fear stack rather than repeating that planes are statistically safe.' },
+    { icon: 'fa-solid fa-water', label: 'Aquaphobia', sub: 'water and deep sea', title: 'Aquaphobia and thalassophobia', body: 'Aquaphobia is fear of water itself: pools, lakes, bathing, swimming. Thalassophobia is specifically fear of deep open water — the ocean, where the bottom is not visible. The ocean amplifies fear by removing footing, visibility, and speed. Thalassophobia has its own distinctive signature: gazing downward into deep water activates amygdala responses even in otherwise non-phobic individuals, suggesting near-prepared status. Treatment often starts with control and predictability: shallow water, clear boundaries, a trusted person nearby, and gradually longer contact.' },
+    { icon: 'fa-solid fa-cloud-bolt', label: 'Nyctophobia', sub: 'darkness and storms', title: 'Nyctophobia and astraphobia', body: 'Fear of darkness is universal in young children (peak 3–8 years) and typically remits by adolescence in safe environments. Nyctophobia is not really fear of darkness as a substance — it is fear of degraded information. In darkness, the brain has less visual evidence and fills the gap with prediction and imagination. Astraphobia (thunderstorms) affects ~2% of adults and is much more common in dogs (~17% of the canine population). Thunder is difficult for the nervous system because it is loud, sudden, and uncontrollable — the phobic pattern is avoidance far beyond practical caution.' },
+    { icon: 'fa-solid fa-fire', label: 'Pyrophobia', sub: 'fire and snow', title: 'Pyrophobia and chionophobia', body: 'Pyrophobia is one of the clearest trauma-induced situational phobias. Unlike snakes or spiders, fire has no prepared-learning basis; almost all cases involve direct conditioning from a house fire, burn injury, or witnessing severe fire damage. Chionophobia (fear of snow) seems less obvious until you connect it to crashes, falls, avalanches, isolation, whiteout conditions, or being trapped during blizzards. Both phobias show the same principle: a natural force becomes a threat category that spreads into ordinary life well beyond rational caution.' }
+  ];
+  buildElemGrid('sit-phobia-grid', 'sit-phobia-detail', sitPhobias, true);
+
+  /* ════════════════════════════════════════════════════
+     PART F — Control scale
+  ════════════════════════════════════════════════════ */
+  var controlItems = [
+    { name: 'Taking the stairs', pos: 18 },
+    { name: 'Standing on a balcony', pos: 42 },
+    { name: 'MRI scanner', pos: 76 },
+    { name: 'Turbulent flight', pos: 84 },
+    { name: 'Crowded train tunnel', pos: 91 }
+  ];
+  var controlScaleEl = document.getElementById('control-scale');
+  controlItems.forEach(function(item) {
+    var row = document.createElement('div');
+    row.className = 'cscale-row';
+    row.innerHTML = '<div class="cscale-name">' + item.name + '</div>' +
+      '<div class="cscale-track"><div class="cscale-dot" style="left:' + item.pos + '%"></div></div>';
+    controlScaleEl.appendChild(row);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART G — Social/body/existential phobias (elem-card with FA icons)
+  ════════════════════════════════════════════════════ */
+  var existentialItems = {
+    social: {
+      icon: 'fa-solid fa-comments', label: 'Social anxiety', sub: 'judgement',
+      title: 'Social anxiety disorder — fear of evaluation',
+      body: 'The most prevalent anxiety disorder globally, with ~12% lifetime prevalence in the US. Social anxiety disorder is not introversion. It involves intense fear of situations where one might be scrutinised and judged negatively, accompanied by physiological anxiety (blushing, trembling, voice changes) the person fears will be noticed and judged. The cruel loop is self-monitoring: the more a person checks how they are appearing, the less attention remains for the actual conversation, which then makes awkwardness more likely. CBT with exposure achieves strong outcomes; SSRIs are effective for the interaction subtype.'
+    },
+    death: {
+      icon: 'fa-solid fa-hourglass-end', label: 'Thanatophobia', sub: 'death',
+      title: 'Thanatophobia — fear of death',
+      body: 'Death anxiety is not a rare pathology — it is a background condition of being an animal that can imagine its own nonexistence. Terror management theory places it at the centre of human psychology: mortality awareness drives much of culture, religion, and politics. Clinical thanatophobia, when death fear produces compulsive checking, avoidance of life events, or panic over ordinary bodily sensations, affects ~3–4% of adults. Paradoxically, it peaks in middle age, not old age: elderly adults typically show reduced death anxiety, likely because they have completed more of their personal projects and have more acceptance.'
+    },
+    illness: {
+      icon: 'fa-solid fa-notes-medical', label: 'Nosophobia', sub: 'illness',
+      title: 'Nosophobia, hypochondria, and cyberchondria',
+      body: 'Illness anxiety is powered by reassurance that expires quickly. A symptom is Googled, a frightening diagnosis appears, checking reduces fear briefly, then the uncertainty returns stronger. Nosophobia focuses on a specific disease — often cancer, dementia, heart disease, or infection. Each reassurance temporarily reduces anxiety but strengthens the disorder by confirming that checking is necessary. Cyberchondria — using internet symptom searches — dramatically worsened health anxiety after ~2005; Google searches on symptom combinations reliably return cancer as a top result.'
+    },
+    blood: {
+      icon: 'fa-solid fa-syringe', label: 'Hemophobia', sub: 'blood and needles',
+      title: 'Hemophobia and trypanophobia — blood and needles',
+      body: 'Blood-injection-injury (BII) phobia is the only phobia with a distinctive two-phase physiological response: initial increase in heart rate and blood pressure followed by a drop, often causing fainting (vasovagal syncope). This is why standard exposure therapy is ineffective — it increases arousal, which triggers fainting. The treatment of choice is applied tension: tensing large muscle groups to maintain blood pressure during exposure. Trypanophobia (needles specifically) affects ~10% of the population, with significant implications for vaccine uptake. Research by Neil Schmitt found trypanophobia is a significant predictor of COVID-19 vaccine hesitancy.'
+    },
+    alone: {
+      icon: 'fa-solid fa-user-slash', label: 'Autophobia', sub: 'being alone',
+      title: 'Autophobia and athazagoraphobia — alone and forgotten',
+      body: 'Autophobia is fear of being alone; athazagoraphobia is fear of being forgotten or ignored. Both connect to attachment theory: people with anxious attachment (roughly 20% of adults) have hyperactivated attachment systems that treat perceived social exclusion as a life-threatening threat. The digital age both alleviated these fears through constant connectivity and amplified them through social media — which provides constant metrics of social attention (likes, views, follows), creating new opportunities for perceived rejection to be quantified and made visible. Research by Jean Twenge links social media use in teenagers to increased loneliness from ~2012 onwards.'
+    },
+    touch: {
+      icon: 'fa-solid fa-hand', label: 'Haphephobia', sub: 'being touched',
+      title: 'Haphephobia — fear of being touched',
+      body: 'Fear of physical touch affects approximately 1–2% of the population at clinical severity. It is often comorbid with social anxiety, OCD, or trauma histories where touch was associated with boundary violation. Unlike most phobias, haphephobia is notable for combining two opposing impulses: a desire for physical connection and closeness, and an intense aversion to the sudden or unexpected physical contact that initiates it. Clinical referrals for haphephobia increased markedly following the COVID-19 pandemic, which introduced new cultural norms around touch avoidance that, for some individuals, became consolidated as a phobic pattern.'
+    },
+    modern: {
+      icon: 'fa-solid fa-mobile-screen', label: 'Modern phobias', sub: 'phones, tech, FOMO',
+      title: 'Modern phobias — nomophobia, technophobia, and FOMO',
+      body: 'Nomophobia (no-mobile-phobia) sounds comic until you notice what the phone now contains: maps, money, loved ones, memory, status, emergency access, and distraction. Survey studies find 66–77% of smartphone users report anxiety when their phone is unavailable or out of charge. Technophobia names fear or avoidance of technology, especially when tools feel humiliating, opaque, or socially mandatory. FOMO is not a formal phobia, but it uses similar machinery: imagined exclusion plus compulsive checking. Modern fears often attach to access and information, not objects.'
+    },
+    rare: {
+      icon: 'fa-solid fa-shapes', label: 'Rare phobias', sub: 'unusual objects',
+      title: 'Rare and unusual phobias',
+      body: 'Lists of unusual phobias can become comedy: xanthophobia (yellow), pogonophobia (beards), omphalophobia (belly buttons). But the useful question is never "is the object weird?" — it is "what does the fear make impossible?" A rare fear that blocks school, work, care, travel, or ordinary movement deserves the same seriousness as a famous one. All of these, however bizarre, follow the same basic conditioning and maintenance pathways as common phobias — they respond to the same treatment principles. The rarest documented phobia is arguably genuphobia (fear of knees), with fewer than 100 documented clinical cases globally.'
+    }
+  };
+
+  var existGrid = document.getElementById('existential-grid');
+  var existDetail = document.getElementById('existential-detail');
+  var activeExist = null;
+  var existKeys = Object.keys(existentialItems);
+
+  existKeys.forEach(function(k, i) {
+    var d = existentialItems[k];
+    var card = document.createElement('div');
+    card.className = 'elem-card';
+    card.innerHTML = '<div class="elem-card-icon"><i class="' + d.icon + '"></i></div>' +
+      '<div class="elem-card-label">' + d.label + '</div>' +
+      '<div class="elem-card-sub">' + d.sub + '</div>';
+    card.onclick = function() {
+      if (activeExist === i) { card.classList.remove('active'); existDetail.classList.remove('show'); existDetail.innerHTML = ''; activeExist = null; return; }
+      existGrid.querySelectorAll('.elem-card').forEach(function(c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      activeExist = i;
+      existDetail.innerHTML = '<div class="elem-detail-title">' + d.title + '</div><div style="font-size:13px;color:var(--color-text-primary);line-height:1.6;">' + d.body + '</div>';
+      existDetail.classList.add('show');
+    };
+    existGrid.appendChild(card);
+  });
+  // Auto-open first card
+  existGrid.querySelector('.elem-card').click();
+
+  /* ════════════════════════════════════════════════════
+     PART G — Phobia distribution bar
+  ════════════════════════════════════════════════════ */
+  var distData = [
+    { label: 'Animal', pct: 29, col: '#9B3030' },
+    { label: 'Situational', pct: 22, col: '#C04040' },
+    { label: 'Social anxiety', pct: 18, col: '#D06060' },
+    { label: 'Natural environment', pct: 14, col: '#C08080' },
+    { label: 'Blood/injection', pct: 10, col: '#D09090' },
+    { label: 'Other', pct: 7, col: '#DDAAAA' }
+  ];
+  var distBarEl = document.getElementById('phobia-dist-bar');
+  var distLegendEl = document.getElementById('phobia-dist-legend');
+  distData.forEach(function(d) {
+    var seg = document.createElement('div');
+    seg.className = 'dist-seg';
+    seg.style.width = d.pct + '%';
+    seg.style.background = d.col;
+    seg.style.color = '#fff';
+    seg.textContent = d.pct >= 10 ? d.pct + '%' : '';
+    seg.title = d.label + ': ' + d.pct + '%';
+    distBarEl.appendChild(seg);
+    var li = document.createElement('div');
+    li.className = 'dist-legend-item';
+    li.innerHTML = '<div class="dist-legend-dot" style="background:' + d.col + ';"></div>' + d.label + ' (' + d.pct + '%)';
+    distLegendEl.appendChild(li);
+  });
+
+  /* ════════════════════════════════════════════════════
+     PART G — Avoidance cost calculator (from alt)
+  ════════════════════════════════════════════════════ */
+  window.calcAvoidance = function() {
+    var mins   = Number(document.getElementById('avoidMinutes').value);
+    var days   = Number(document.getElementById('avoidDays').value);
+    var months = Number(document.getElementById('avoidMonths').value);
+    var out    = document.getElementById('avoid-output');
+    if (!isFinite(mins) || !isFinite(days) || !isFinite(months) || mins < 0 || days < 0 || days > 7 || months <= 0) {
+      out.textContent = 'Enter realistic non-negative numbers. Days per week must be between 0 and 7.';
+      return;
+    }
+    var totalMins  = mins * days * 4.345 * months;
+    var hours      = totalMins / 60;
+    var daysTotal  = hours / 24;
+    var workdays   = hours / 8;
+    out.innerHTML = '<strong>Estimated cost: ' + hours.toFixed(1) + ' hours</strong><br><br>' +
+      'That is about ' + daysTotal.toFixed(1) + ' full days, or ' + workdays.toFixed(1) + ' eight-hour workdays, spent avoiding, checking, planning around fear, or recovering from it.<br><br>' +
+      '<span style="font-size:11px;color:var(--color-text-tertiary);">The number is not meant to shame. It makes the invisible cost visible enough to compare with the effort of getting help or practising exposure — which for many phobias requires fewer hours total than one year of avoidance.</span>';
+  };
+  // Run on load with defaults
+  calcAvoidance();
+
+  /* ════════════════════════════════════════════════════
+     PART G — Exposure therapy planner (from ver2)
+  ════════════════════════════════════════════════════ */
+  window.calcExposure = function() {
+    var pType = document.getElementById('calc-phobia-type').value;
+    var sev   = parseInt(document.getElementById('calc-severity').value) || 6;
+    var fmt   = document.getElementById('calc-format').value;
+    if (sev < 1 || sev > 10) { document.getElementById('calc-output').innerHTML = 'Please enter a severity between 1 and 10.'; return; }
+    var baseData = {
+      animal:  { sessions: 1,  hrs: 3,   rate: 90 },
+      blood:   { sessions: 2,  hrs: 2.5, rate: 85 },
+      heights: { sessions: 3,  hrs: 2,   rate: 80 },
+      flying:  { sessions: 4,  hrs: 3,   rate: 88 },
+      social:  { sessions: 12, hrs: 1,   rate: 70 },
+      other:   { sessions: 4,  hrs: 2,   rate: 75 }
+    };
+    var base = baseData[pType];
+    var sevMult = 0.8 + (sev / 10) * 0.8;
+    var sessions, totalHrs, rate, fmtNote;
+    if (fmt === 'ost') {
+      sessions = pType === 'social' ? 4 : 1;
+      totalHrs = sessions * base.hrs;
+      rate = base.rate;
+      fmtNote = 'One-session treatment: a single intensive exposure session. Best evidence for animal and blood/injection phobias.';
+    } else if (fmt === 'weekly') {
+      sessions = Math.round(base.sessions * sevMult);
+      if (pType === 'social') sessions = Math.round(12 * sevMult);
+      totalHrs = sessions * base.hrs;
+      rate = base.rate - 5;
+      fmtNote = 'Weekly CBT sessions: standard outpatient therapy. Good for complex phobias with significant avoidance or comorbid anxiety.';
+    } else {
+      sessions = Math.max(2, Math.round(base.sessions * sevMult * 0.8));
+      totalHrs = sessions * 1.5;
+      rate = base.rate - 2;
+      fmtNote = 'Virtual reality exposure therapy: comparable outcomes to in-vivo for heights, flying, and social phobia.';
+    }
+    var typeNames = { animal: 'Animal phobia', blood: 'Blood/injection phobia', heights: 'Acrophobia', flying: 'Aerophobia', social: 'Social anxiety disorder', other: 'Specific phobia' };
+    document.getElementById('calc-output').innerHTML =
+      '<strong>' + typeNames[pType] + ' · Severity ' + sev + '/10</strong><br><br>' +
+      'Estimated sessions: <strong>' + sessions + '</strong><br>' +
+      'Total treatment hours: <strong>' + totalHrs.toFixed(1) + ' hours</strong><br>' +
+      'Expected clinical response: <strong>' + rate + '%</strong><br><br>' +
+      '<em>' + fmtNote + '</em><br><br>' +
+      '<span style="font-size:11px;color:var(--color-text-tertiary);">Estimates are based on published trial averages. Actual treatment varies with comorbidities, therapist experience, and patient engagement.</span>';
+  };
+
+  /* ════════════════════════════════════════════════════
+     Q&A toggle
+  ════════════════════════════════════════════════════ */
+  window.toggleQA = function(btn) {
+    var ans     = btn.nextElementSibling;
+    var showing = ans.classList.contains('show');
+    ans.classList.toggle('show', !showing);
+    btn.textContent = showing ? 'show answer' : 'hide';
+  };
+
+  /* ════════════════════════════════════════════════════
+     SHARED HELPERS
+  ════════════════════════════════════════════════════ */
+  function buildTimeline(axisId, rowsId, items, minY, maxY, marks) {
+    var axis = document.getElementById(axisId);
+    var rows = document.getElementById(rowsId);
+    var range = maxY - minY;
+    if (axis) {
+      axis.innerHTML = marks.map(function(y) {
+        var left = ((y - minY) / range * 100).toFixed(1);
+        return '<span class="pc-axis-mark" style="left:' + left + '%">' + y + '</span>';
       }).join('');
-      document.getElementById('horrorLegend').innerHTML = horrorParts.map(function(part) {
-        return '<span class="legend-item"><span class="legend-dot" style="background:' + part.color + ';border:0.5px solid ' + part.border + '"></span>' + part.label + ' ' + part.value + '%</span>';
+    }
+    if (rows) {
+      rows.innerHTML = items.map(function(item) {
+        var left  = ((item.start - minY) / range * 100).toFixed(1);
+        var width = ((item.end   - item.start) / range * 100).toFixed(1);
+        var bg = item.bg || item.col || '#ccc';
+        var col = item.col || 'var(--color-text-primary)';
+        var label = item.text || (item.start + '–' + item.end);
+        return '<div class="pc-row"><div class="pc-label">' + item.label + '</div>' +
+          '<div class="pc-track"><div class="pc-fill" style="left:' + left + '%;width:' + width + '%;background:' + bg + ';">' +
+          '<span class="pc-fill-label" style="color:' + col + ';">' + label + '</span></div></div></div>';
       }).join('');
+    }
+  }
 
-      const monsters = {
-        vampire: {
-          title: 'Vampire - the fear of being wanted and consumed',
-          body: 'The vampire is intimate danger: it enters by invitation, feeds through the neck, and often looks aristocratic rather than monstrous. Bram Stoker\'s Dracula, published in 1897, condensed Victorian fears about sex, empire, contagion, immigration, and decadent old power. The bite is both infection and seduction. Modern vampires keep changing because the fear keeps changing: from aristocrat to addict, outsider, romantic lead, or corporate immortal.'
-        },
-        zombie: {
-          title: 'Zombie - the fear of personhood erased',
-          body: 'The modern zombie was reshaped by George A. Romero\'s Night of the Living Dead in 1968. Its terror is not intelligence but number: the crowd that cannot be reasoned with, the body without inwardness, the neighbor as infection. Zombie stories are flexible because they can store fear of pandemic, consumer culture, political mobs, environmental collapse, or burnout. The zombie is what remains when appetite continues after the self is gone.'
-        },
-        ghost: {
-          title: 'Ghost - the past refusing burial',
-          body: 'Ghost stories make memory spatial. A room, road, hotel, or family line becomes haunted because something unresolved keeps returning. The fear is rarely only the apparition; it is the claim that the present is not free from the past. Henry James\'s The Turn of the Screw, Shirley Jackson\'s The Haunting of Hill House, and many Japanese kaidan stories use ghosts to make guilt, grief, and obligation visible.'
-        },
-        double: {
-          title: 'The double - the self made suspicious',
-          body: 'Doubles, dolls, masks, and almost-human figures trigger the uncanny because they disturb identity. The fear is not that another person exists. The fear is that the boundary between self and other was never stable. Dostoevsky\'s The Double, Stevenson\'s Jekyll and Hyde, and modern stories about clones or deepfakes all ask the same question: if my face, voice, or desire can split from me, what exactly am I?'
-        }
-      };
+  function buildElemGrid(gridId, detailId, data, autoOpenFirst) {
+    var grid   = document.getElementById(gridId);
+    var detail = document.getElementById(detailId);
+    var activeIdx = null;
 
-      function setupCardExplorer(gridId, detailId, data) {
-        const cards = document.querySelectorAll('#' + gridId + ' .elem-card');
-        function show(key, card) {
-          cards.forEach(function(c) { c.classList.remove('active'); });
-          card.classList.add('active');
-          const item = data[key];
-          const detail = document.getElementById(detailId);
-          detail.classList.add('show');
-          detail.innerHTML = '<div class="mini-title">' + item.title + '</div><div class="mini-body">' + item.body + '</div>';
-        }
-        cards.forEach(function(card) {
-          card.addEventListener('click', function() { show(card.dataset.key, card); });
-        });
-        if (cards[0]) show(cards[0].dataset.key, cards[0]);
-      }
-      setupCardExplorer('monsterGrid', 'monsterDetail', monsters);
+    function openIdx(i) {
+      var p = data[i];
+      grid.querySelectorAll('.elem-card').forEach(function(c) { c.classList.remove('active'); });
+      grid.querySelectorAll('.elem-card')[i].classList.add('active');
+      activeIdx = i;
+      detail.innerHTML = '<div class="elem-detail-title">' + p.title + '</div><div style="font-size:13px;color:var(--color-text-primary);line-height:1.6;">' + p.body + '</div>';
+      detail.classList.add('show');
+    }
 
-      const treatments = {
-        exposure: {
-          kicker: 'first-line behavior change',
-          title: 'Exposure asks the fear system to make new predictions.',
-          body: 'The person approaches the feared cue without the usual escape or safety ritual, in a planned and tolerable dose. The aim is not simply to calm down. The aim is to learn that the predicted catastrophe does not occur, or that the sensations can be survived. Modern exposure often focuses on inhibitory learning: building a strong safety memory that can compete with the fear memory across contexts.',
-          note: 'Example: for dog phobia, steps might move from photos to videos to watching a calm dog across a park to standing near a leashed dog to brief touch.'
-        },
-        cbt: {
-          kicker: 'thinking plus behavior',
-          title: 'CBT tests the belief, not the person.',
-          body: 'Cognitive behavioral therapy maps the fear cycle: trigger, prediction, body sensation, behavior, and consequence. It then tests predictions with evidence and experiments. A person afraid of fainting in a supermarket might learn how panic sensations work, reduce checking, and run behavioral experiments that show dizziness does not equal collapse. The tone is empirical, not inspirational.',
-          note: 'CBT is especially helpful when phobia overlaps with panic, social anxiety, health anxiety, or perfectionistic threat predictions.'
-        },
-        vr: {
-          kicker: 'controlled simulation',
-          title: 'Virtual reality makes hard exposures adjustable.',
-          body: 'VR is useful when real exposure is expensive, risky, or hard to grade: heights, flying, public speaking, driving, storms, or medical settings. The therapist can change height, crowd size, turbulence, or distance in minutes. The limitation is transfer. A person still needs real-world practice when the feared situation has smells, social consequences, movement, or genuine uncertainty that VR cannot fully reproduce.',
-          note: 'VR height exposure is one of the cleanest examples because the visual system responds strongly even when the person knows the floor is flat.'
-        },
-        meds: {
-          kicker: 'symptom support',
-          title: 'Medication can reduce symptoms, but it rarely teaches the phobia by itself.',
-          body: 'SSRIs can help when phobias sit inside broader anxiety or depression. Beta-blockers can reduce physical performance symptoms such as shaking or racing heart, especially in public speaking. Benzodiazepines may reduce acute fear, but they can interfere with exposure learning and carry dependence risks. Medication decisions belong with qualified clinicians because the right choice depends on diagnosis, history, and goals.',
-          note: 'For blood-injection-injury phobia with fainting, applied tension may matter more than general anxiety reduction.'
-        },
-        onesession: {
-          kicker: 'intensive format',
-          title: 'One-session treatment compresses exposure into a long, focused appointment.',
-          body: 'Lars-Goran Ost developed a one-session approach for some specific phobias, often lasting about 2 to 3 hours. The format is not a miracle trick. It is concentrated, therapist-guided exposure with modeling, careful pacing, and repeated approach until the feared prediction weakens. It works best for circumscribed phobias such as spiders, injections, or small animals, not for complex trauma or broad social fear.',
-          note: 'The principle is intensity with precision: enough time for genuine new learning, not a quick pep talk.'
-        }
-      };
-
-      function showTreatment(key, btn) {
-        const item = treatments[key];
-        document.querySelectorAll('#treatmentButtons button').forEach(function(b) { b.classList.remove('active'); });
-        if (btn) btn.classList.add('active');
-        document.getElementById('treatmentDisplay').innerHTML =
-          '<div class="display-kicker">' + item.kicker + '</div><div class="mini-title">' + item.title + '</div><div class="mini-body">' + item.body + '</div><div class="detail-grid"><div class="detail-box"><div class="clabel">example or caveat</div><div class="cnote">' + item.note + '</div></div></div>';
-      }
-      document.querySelectorAll('#treatmentButtons button').forEach(function(btn) {
-        btn.addEventListener('click', function() { showTreatment(btn.dataset.key, btn); });
-      });
-      showTreatment('exposure', document.querySelector('#treatmentButtons button'));
-
-      const prevalence = [
-        { label: 'Specific phobia', value: 8.7 },
-        { label: 'Social anxiety', value: 7.1 },
-        { label: 'PTSD', value: 5.0 },
-        { label: 'Panic disorder', value: 2.7 },
-        { label: 'Agoraphobia', value: 1.3 }
-      ];
-      const maxPrev = 10;
-      document.getElementById('prevalenceBars').innerHTML = prevalence.map(function(row) {
-        const width = Math.max(4, (row.value / maxPrev) * 100);
-        return '<div class="bar-row"><div class="bl">' + row.label + '</div><div class="bb" style="width:' + width + '%"><span class="bv">' + row.value + '%</span></div></div>';
-      }).join('');
-
-      const animals = {
-        spider: {
-          title: 'Arachnophobia - spiders',
-          body: 'Arachnophobia is often the headline animal phobia because spiders combine several triggers: sudden movement, many legs, hiding places, and disgust. The actual medical danger of most household spiders is low, but the visual pattern can dominate. Exposure treatment often starts with drawings or photos and moves toward observing a contained spider. The point is not to love spiders. It is to recover choice.'
-        },
-        snake: {
-          title: 'Ophidiophobia - snakes',
-          body: 'Snake fear is a classic candidate for prepared learning. Primates detect snake-like forms quickly, and venomous snakes were a real ancestral danger. But learning and culture still matter: some communities treat snakes with practical caution, others with sacred symbolism, and others with horror. The phobic version turns caution into overgeneralization: rope, shadows, trails, grass, or pictures can all become contaminated by the snake prediction.'
-        },
-        dog: {
-          title: 'Cynophobia - dogs',
-          body: 'Dog phobia often follows direct experience, especially bites or being chased in childhood. It can also arise from unpredictability: barking, jumping, teeth, size, and the owner saying "he is friendly" while the body reads motion as threat. Treatment must be specific because "dog" is not one stimulus. A tiny sleeping dog, a leashed calm dog, and an off-leash charging dog are different learning tasks.'
-        },
-        cat: {
-          title: 'Ailurophobia - cats',
-          body: 'Cat fear may involve claws, sudden movement, allergic associations, superstition, or an animal that seems hard to read. Unlike dogs, cats often approach and withdraw on their own schedule, which can feel unnerving to someone who needs predictable boundaries. The fear is sometimes mocked because cats are small, but size is not the point. The prediction of being scratched, contaminated, or surprised is what drives the response.'
-        },
-        insect: {
-          title: 'Entomophobia - insects',
-          body: 'Insect fears often blur fear and disgust. Fast motion, swarming, buzzing, and the possibility of contamination activate a different defensive system than fear of a large predator. Bees and wasps add pain and allergic risk, while cockroaches add disgust and household invasion. Treatment works best when it separates categories: a bee near food, a moth in a room, and a cockroach in a kitchen do not mean the same thing.'
-        },
-        bird: {
-          title: 'Ornithophobia - birds',
-          body: 'Bird phobia can involve flapping wings, unpredictable flight paths, beaks, droppings, or memories of being chased by geese or gulls. Public squares and beaches can become difficult because birds are semi-controlled: near humans but not under human rules. The Hitchcock film The Birds, released in 1963, is effective because it turns familiar background animals into coordinated threat. The uncanny shift is the point.'
-        },
-        rodent: {
-          title: 'Musophobia - mice and rats',
-          body: 'Rodent fear often mixes disease history, disgust, speed, and the violation of domestic space. Rats are culturally tied to plague, sewers, and decay, even though real disease risk depends on context. A mouse in a kitchen can feel worse than a larger animal outdoors because it means the boundary of the home has been crossed. The fear is about invasion as much as the animal.'
-        },
-        shark: {
-          title: 'Selachophobia - sharks',
-          body: 'Shark fear is a triumph of imagery over probability. Jaws, released in 1975, gave many people a vivid template: unseen depth, music, fin, helpless swimmer. Shark attacks are rare, but the fear persists because the ocean removes visibility and control. In this case the animal is almost symbolic: the danger below perception, moving faster than the human body can respond.'
-        }
-      };
-      setupCardExplorer('animalGrid', 'animalDetail', animals);
-
-      const environments = {
-        height: {
-          title: 'Acrophobia - heights',
-          body: 'Height fear is partly visual-motor conflict. At a ledge, tiny body sways produce large changes in the visual field, and the brain interprets that instability as danger. Many people have visual height intolerance without a full phobia. True acrophobia adds avoidance and impairment: refusing stairs, balconies, bridges, ladders, or jobs. Virtual reality exposure has become especially useful here because height can be simulated safely and adjusted in small steps.'
-        },
-        closed: {
-          title: 'Claustrophobia - enclosed spaces',
-          body: 'Claustrophobia often combines two fears: suffocation and restriction. Elevators, tunnels, MRI scanners, airplanes, and crowded rooms differ physically, but they can all activate the same prediction: I cannot get out, and air or control will run out. MRI settings make this especially concrete. A person can intellectually know the scan is safe and still feel trapped because the body is responding to perceived escape distance, not to the radiology manual.'
-        },
-        agora: {
-          title: 'Agoraphobia - escape or help feels unavailable',
-          body: 'Agoraphobia is widely misunderstood. It is usually fear of being in places where escape might be difficult or help unavailable if panic-like symptoms occur: public transport, queues, crowds, bridges, cinemas, or being outside alone. The condition can shrink life through a widening map of avoidance. In severe cases, a person becomes housebound not because the outside is hated, but because the outside feels like a stage on which panic could trap them.'
-        },
-        water: {
-          title: 'Aquaphobia and thalassophobia - water and deep water',
-          body: 'Aquaphobia is fear of water itself: pools, lakes, bathing, swimming, or being splashed. Thalassophobia is more specific to deep open water and what cannot be seen below. The ocean is a perfect fear amplifier because it removes footing, visibility, and speed. The body knows it is poorly built for that environment. Treatment often starts with control and predictability: shallow water, clear boundaries, a trusted person nearby, and gradually longer contact.'
-        },
-        dark: {
-          title: 'Nyctophobia - darkness',
-          body: 'Nyctophobia is not really fear of darkness as a substance. It is fear of degraded information. In darkness, the brain has less visual evidence and fills the gap with prediction, memory, and imagination. This is why childhood darkness fears can feel so vivid: the room is familiar, but the evidence has gone missing. Adult nyctophobia often persists when darkness becomes linked with intrusion, sleep paralysis, panic, or past danger.'
-        },
-        storm: {
-          title: 'Astraphobia - thunder and lightning',
-          body: 'Astraphobia is common in children and can persist into adulthood, especially after storm damage, near strikes, or frightening media exposure. Thunder is difficult for the nervous system because it is loud, sudden, and uncontrollable. Lightning adds real danger, though ordinary indoor safety rules reduce it sharply. The phobic pattern is avoidance far beyond practical caution: compulsive weather checking, hiding, canceling plans, or panic during distant storms.'
-        },
-        fire: {
-          title: 'Pyrophobia and chionophobia - fire and snow',
-          body: 'Pyrophobia often follows burns, house fires, smoke alarms, or witnessing destructive fire. Fire is rationally dangerous, so the clinical question is whether the response fits the actual situation. Chionophobia, fear of snow, may seem less obvious until you connect it to crashes, falls, avalanches, isolation, whiteout conditions, or being trapped during blizzards. Both phobias show the same principle: a natural force becomes a threat category that spreads into ordinary life.'
-        },
-        flight: {
-          title: 'Aerophobia - flying',
-          body: 'Fear of flying is rarely one fear. It can combine heights, turbulence, enclosed space, terrorism, loss of control, panic symptoms, and mistrust of machinery. This is why statistics alone often fail. Commercial aviation is extremely safe compared with driving per mile, but the passenger cannot steer, stop, or step out. Treatment usually works better when it targets the person\'s actual fear stack rather than repeating that planes are safe.'
-        }
-      };
-      setupCardExplorer('environmentGrid', 'environmentDetail', environments);
-
-      const controlItems = [
-        { name: 'Taking stairs', pos: 18 },
-        { name: 'Standing on a balcony', pos: 42 },
-        { name: 'MRI scanner', pos: 76 },
-        { name: 'Turbulent flight', pos: 84 },
-        { name: 'Crowded train tunnel', pos: 91 }
-      ];
-      buildScale('controlScale', controlItems);
-
-      const existential = {
-        social: {
-          title: 'Social anxiety disorder - fear of judgement',
-          body: 'Social anxiety is fear of negative evaluation, not simple introversion. It can focus on performance, conversation, eating in public, blushing, trembling, sweating, or seeming awkward. U.S. estimates put 12-month prevalence around 7% for adults, making it one of the most common anxiety disorders. The cruel loop is self-monitoring: the more a person checks how they are appearing, the less attention remains for the actual conversation, which then makes awkwardness more likely.'
-        },
-        death: {
-          title: 'Thanatophobia - fear of death',
-          body: 'Death anxiety is not a rare pathology. It is a background condition of being an animal that can imagine its own nonexistence. It becomes phobic when it produces compulsive checking, avoidance of life events, panic over ordinary bodily sensations, or obsessive rumination. Cultures manage death fear through ritual, ancestry, children, achievement, religion, art, and humor. None abolish mortality, but they can keep mortality from occupying every room in the mind.'
-        },
-        illness: {
-          title: 'Nosophobia, hypochondria, and cyberchondria - fear of illness',
-          body: 'Illness anxiety is powered by reassurance that expires quickly. A symptom is Googled, a frightening diagnosis appears, checking reduces fear briefly, then the uncertainty returns stronger. Nosophobia focuses on a specific disease, often cancer, dementia, heart disease, or infection. The internet changed the scale because rare diseases became instantly imaginable. The treatment target is not ignorance. It is learning to tolerate normal bodily uncertainty without endless scanning.'
-        },
-        blood: {
-          title: 'Hemophobia and trypanophobia - blood and needles',
-          body: 'Blood-injection-injury phobia is unusual because it can produce a vasovagal drop in heart rate and blood pressure, leading to fainting. Most fear responses raise arousal; this one can spike and then crash. That is why applied tension matters: repeatedly tensing large muscles can keep blood pressure up during vaccines, blood draws, and medical procedures. The stakes are practical. Untreated needle fear can delay vaccination, blood tests, dental care, and emergency treatment.'
-        },
-        alone: {
-          title: 'Autophobia and athazagoraphobia - alone or forgotten',
-          body: 'Autophobia, fear of being alone, and athazagoraphobia, fear of being forgotten, sit near attachment and identity. They can involve panic at separation, fear that no one will help, or a deeper terror of disappearing from other people\'s minds. Digital life can intensify the pattern because visibility becomes measurable: replies, read receipts, likes, location sharing. The target is not becoming indifferent to others. It is learning that connection can survive absence.'
-        },
-        touch: {
-          title: 'Haphephobia - fear of being touched',
-          body: 'Haphephobia can follow assault, sensory sensitivity, contamination fear, pain, or cultural boundary violation. The outside behavior may look like coldness, but the inside experience is often threat: touch arrives too fast, too close, or without enough consent. This fear needs careful pacing because forced exposure can repeat the original problem. Good treatment emphasizes agency, explicit boundaries, predictable steps, and the person\'s control over stopping.'
-        },
-        modern: {
-          title: 'Modern phobias - nomophobia, technophobia, and FOMO',
-          body: 'Nomophobia, fear of being without a mobile phone, sounds comic until you notice what the phone now contains: maps, money, loved ones, memory, status, emergency access, translation, tickets, and distraction. Technophobia names fear or avoidance of technology, especially when tools feel humiliating, opaque, or socially mandatory. FOMO is not a formal phobia, but it uses similar machinery: imagined exclusion plus compulsive checking. Modern fears often attach to access, not objects.'
-        },
-        rare: {
-          title: 'Rare phobias - unusual names, real impairment',
-          body: 'Lists of unusual phobias can become comedy: xanthophobia for yellow, pogonophobia for beards, omphalophobia for belly buttons, and the deliberately ridiculous hippopotomonstrosesquipedaliophobia for long words. But the useful question is never "is the object weird?" The useful question is "what does the fear make impossible?" A rare fear that blocks school, work, care, travel, intimacy, or ordinary movement deserves the same seriousness as a famous one.'
-        }
-      };
-      setupCardExplorer('existentialGrid', 'existentialDetail', existential);
-
-      function calculateAvoidance() {
-        const minutes = Number(document.getElementById('avoidMinutes').value);
-        const days = Number(document.getElementById('avoidDays').value);
-        const months = Number(document.getElementById('avoidMonths').value);
-        const out = document.getElementById('avoidOutput');
-        if (!Number.isFinite(minutes) || !Number.isFinite(days) || !Number.isFinite(months) || minutes < 0 || days < 0 || days > 7 || months <= 0) {
-          out.textContent = 'Enter realistic non-negative numbers. Days per week should be between 0 and 7.';
+    data.forEach(function(p, i) {
+      var card = document.createElement('div');
+      card.className = 'elem-card';
+      // icon may be emoji (string) or FA class — detect by presence of 'fa-'
+      var iconHtml = p.icon.indexOf('fa-') !== -1
+        ? '<div class="elem-card-icon"><i class="' + p.icon + '"></i></div>'
+        : '<div class="elem-card-icon">' + p.icon + '</div>';
+      card.innerHTML = iconHtml +
+        '<div class="elem-card-label">' + p.label + '</div>' +
+        '<div class="elem-card-sub">' + p.sub + '</div>';
+      card.onclick = function() {
+        if (activeIdx === i) {
+          card.classList.remove('active');
+          detail.classList.remove('show');
+          detail.innerHTML = '';
+          activeIdx = null;
           return;
         }
-        const totalMinutes = minutes * days * 4.345 * months;
-        const hours = totalMinutes / 60;
-        const daysTotal = hours / 24;
-        const workdays = hours / 8;
-        out.innerHTML = '<div class="mini-title">Estimated cost: ' + hours.toFixed(1) + ' hours</div><div class="mini-body">That is about ' + daysTotal.toFixed(1) + ' full days, or ' + workdays.toFixed(1) + ' eight-hour workdays, spent avoiding, checking, planning around fear, or recovering from it. The number is not meant to shame you. It makes the invisible cost visible enough to compare with the effort of getting help or practicing exposure.</div>';
-      }
-      document.getElementById('avoidCalc').addEventListener('click', calculateAvoidance);
-      calculateAvoidance();
-
-      document.querySelectorAll('[data-qa]').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          const answer = btn.nextElementSibling;
-          const showing = answer.classList.toggle('show');
-          btn.textContent = showing ? 'hide' : 'show answer';
-        });
-      });
+        openIdx(i);
+      };
+      grid.appendChild(card);
     });
+
+    if (autoOpenFirst) { openIdx(0); }
+  }
+
+}); // end DOMContentLoaded
   </script>
   <script src="../files/shared.js"></script>
 </body>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 43: Physics — Have a Sense</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/43_fa-atom.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
@@ -29,20 +30,6 @@
       padding-bottom: 5px;
     }
 
-    /* ---- OVERVIEW TEASER GRID ---- */
-    .teaser-card {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 12px 14px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .teaser-card .t-icon { font-size: 20px; margin-bottom: 2px; }
-    .teaser-card .t-label { font-size: 11px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.05em; }
-    .teaser-card .t-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
-
     /* ---- EXPLORER PANEL ---- */
     .explorer-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
     .explorer-btns button { padding: 4px 11px; font-size: 12px; }
@@ -65,9 +52,9 @@
 
     /* ---- TIMELINE / PERIOD CHART ---- */
     .pc-wrap { overflow-x: auto; padding-bottom: 6px; }
-    .pc-axis { position: relative; height: 20px; margin: 0 0 2px 140px; }
+    .pc-axis { position: relative; height: 20px; margin: 0 25px 2px 140px; }
     .pc-axis-mark { position: absolute; font-size: 10px; color: var(--color-text-tertiary); transform: translateX(-50%); }
-    .pc-row { display: flex; align-items: center; margin-bottom: 5px; min-width: 400px; }
+    .pc-row { display: flex; align-items: center; margin-bottom: 5px; min-width: 400px; margin-right: 20px;}
     .pc-label { width: 140px; flex-shrink: 0; font-size: 12px; color: var(--color-text-secondary); text-align: right; padding-right: 10px; line-height: 1.3; }
     .pc-track { flex: 1; height: 20px; background: var(--color-background-tertiary); border-radius: 3px; position: relative; }
     .pc-fill { position: absolute; height: 100%; border-radius: 3px; display: flex; align-items: center; overflow: hidden; min-width: 4px; }
@@ -223,11 +210,6 @@
 
 /* === Module-specific extracted styles === */
 
-.cgrid-style {
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  margin-bottom:1rem;
-}
-
 .physics-text-2 {
   font-size:13px;
   color:var(--color-text-secondary);
@@ -273,7 +255,7 @@
 }
 
 .weird-grid {
-  grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
 }
 
 .physics-text-3 {
@@ -283,7 +265,7 @@
 }
 
 .sm-grid {
-  grid-template-columns:repeat(auto-fill,minmax(90px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(76px,1fr));
 }
   </style>
 </head>
@@ -303,30 +285,6 @@
   <div class="card u-mb-md">
     <p class="clabel">What this module covers</p>
     <p class="cnote u-fs-13px">Physics is the attempt to describe everything that happens in the universe using the fewest possible principles. It proceeds by experiment, mathematics, and bold theorising — and its track record is extraordinary: the same equations that describe a pendulum also describe a pulsar. This module moves from classical mechanics and thermodynamics through electromagnetism, relativity, and deep into quantum mechanics (the most successful and philosophically disturbing theory humans have ever built), then arrives at particle physics, open frontiers, and cosmology.</p>
-  </div>
-
-  <!-- TEASER GRID -->
-  <div class="cgrid cgrid-style">
-    <div class="teaser-card">
-      <div class="t-icon">🍎</div>
-      <div class="t-label">Parts B–C</div>
-      <div class="t-desc">Classical mechanics, energy, gravity, waves, thermodynamics, electromagnetism</div>
-    </div>
-    <div class="teaser-card">
-      <div class="t-icon">🕰️</div>
-      <div class="t-label">Part D</div>
-      <div class="t-desc">Special & general relativity — time dilation, E=mc², curved spacetime, black holes</div>
-    </div>
-    <div class="teaser-card">
-      <div class="t-icon">⚛️</div>
-      <div class="t-label">Parts E–K</div>
-      <div class="t-desc">Quantum mechanics: foundations, formalism, weirdness, interpretations, QFT, applications</div>
-    </div>
-    <div class="teaser-card">
-      <div class="t-icon">🌌</div>
-      <div class="t-label">Part L</div>
-      <div class="t-desc">Astrophysics & cosmology — the Big Bang, stellar physics, and the fate of the universe</div>
-    </div>
   </div>
 
   <!-- EXPLORER: great theories -->
@@ -428,42 +386,56 @@
 
   <!-- SVG: Spacetime diagram -->
   <div class="card u-mb-md">
-    <p class="clabel">Spacetime diagram — light cone and causality</p>
-    <div class="diagram-wrap">
-      <svg class="spacetime-svg" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg" id="spacetime-svg">
-        <!-- Axes -->
-        <line x1="250" y1="20" x2="250" y2="300" stroke="var(--color-text-tertiary)" stroke-width="1" stroke-dasharray="4,3"/>
-        <line x1="30" y1="160" x2="470" y2="160" stroke="var(--color-text-tertiary)" stroke-width="1" stroke-dasharray="4,3"/>
-        <!-- Light cones -->
-        <polygon points="250,160 90,20 410,20" fill="var(--accent-bg)" opacity="0.7"/>
-        <polygon points="250,160 90,300 410,300" fill="var(--color-background-warning)" opacity="0.5"/>
-        <!-- Light cone edges -->
-        <line x1="250" y1="160" x2="90" y2="20" stroke="var(--accent)" stroke-width="2"/>
-        <line x1="250" y1="160" x2="410" y2="20" stroke="var(--accent)" stroke-width="2"/>
-        <line x1="250" y1="160" x2="90" y2="300" stroke="var(--color-text-warning)" stroke-width="2"/>
-        <line x1="250" y1="160" x2="410" y2="300" stroke="var(--color-text-warning)" stroke-width="2"/>
-        <!-- Origin dot -->
-        <circle cx="250" cy="160" r="5" fill="var(--color-text-primary)"/>
-        <!-- Labels -->
-        <text x="255" y="30" font-size="11" fill="var(--accent)" font-family="system-ui">FUTURE</text>
-        <text x="200" y="30" font-size="11" fill="var(--accent)" font-family="system-ui">(can be affected)</text>
-        <text x="240" y="295" font-size="11" fill="var(--color-text-warning)" font-family="system-ui">PAST</text>
-        <text x="185" y="295" font-size="11" fill="var(--color-text-warning)" font-family="system-ui">(can have caused)</text>
-        <text x="30" y="152" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui">SPACE</text>
-        <text x="430" y="152" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui">SPACE</text>
-        <text x="256" y="18" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui">TIME</text>
-        <!-- Elsewhere -->
-        <text x="65" y="165" font-size="11" fill="var(--color-text-secondary)" font-family="system-ui">ELSEWHERE</text>
-        <text x="60" y="178" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui">(unreachable)</text>
-        <text x="355" y="165" font-size="11" fill="var(--color-text-secondary)" font-family="system-ui">ELSEWHERE</text>
-        <!-- Light cone labels -->
-        <text x="310" y="90" font-size="10" fill="var(--accent)" font-family="system-ui" transform="rotate(-45,310,90)">light c</text>
-        <text x="190" y="90" font-size="10" fill="var(--accent)" font-family="system-ui" transform="rotate(45,190,90)">light c</text>
-        <text x="253" y="155" font-size="9" fill="var(--color-text-tertiary)" font-family="system-ui">HERE & NOW</text>
-      </svg>
-      <div class="diagram-caption">The light cone: events in the blue future cone can be influenced; events in the past cone could have influenced the present; events in "elsewhere" are causally disconnected — no signal travelling ≤c can connect them.</div>
-    </div>
+  <p class="clabel">Spacetime diagram — light cone and causality</p>
+  <div class="diagram-wrap">
+    <svg class="spacetime-svg" viewBox="0 0 500 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" id="spacetime-svg" style="display: block; overflow: visible;">
+      <!-- Axes -->
+      <line x1="250" y1="25" x2="250" y2="300" stroke="var(--color-text-tertiary)" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="30" y1="160" x2="470" y2="160" stroke="var(--color-text-tertiary)" stroke-width="1" stroke-dasharray="4,3"/>
+      
+      <!-- Light cones -->
+      <polygon points="250,160 90,20 410,20" fill="var(--accent-bg)" opacity="0.7"/>
+      <polygon points="250,160 90,300 410,300" fill="var(--color-background-warning)" opacity="0.5"/>
+      
+      <!-- Light cone edges -->
+      <line x1="250" y1="160" x2="90" y2="20" stroke="var(--accent)" stroke-width="2"/>
+      <line x1="250" y1="160" x2="410" y2="20" stroke="var(--accent)" stroke-width="2"/>
+      <line x1="250" y1="160" x2="90" y2="300" stroke="var(--color-text-warning)" stroke-width="2"/>
+      <line x1="250" y1="160" x2="410" y2="300" stroke="var(--color-text-warning)" stroke-width="2"/>
+      
+      <!-- Origin dot -->
+      <circle cx="250" cy="160" r="5" fill="var(--color-text-primary)"/>
+      
+      <!-- Axis Labels (Safely padded inside viewBox bounds) -->
+      <text x="250" y="16" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui" text-anchor="middle" font-weight="bold" letter-spacing="1">TIME</text>
+      <text x="35" y="152" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui" text-anchor="start" font-weight="bold" letter-spacing="1">SPACE</text>
+      <text x="465" y="152" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui" text-anchor="end" font-weight="bold" letter-spacing="1">SPACE</text>
+      
+      <!-- Future Label -->
+      <text x="250" y="55" font-size="12" fill="var(--accent)" font-family="system-ui" text-anchor="middle" font-weight="bold" letter-spacing="1">FUTURE</text>
+      <text x="250" y="70" font-size="10" fill="var(--accent)" font-family="system-ui" text-anchor="middle" opacity="0.8">(can be affected)</text>
+      
+      <!-- Past Label -->
+      <text x="250" y="255" font-size="12" fill="var(--color-text-warning)" font-family="system-ui" text-anchor="middle" font-weight="bold" letter-spacing="1">PAST</text>
+      <text x="250" y="270" font-size="10" fill="var(--color-text-warning)" font-family="system-ui" text-anchor="middle" opacity="0.8">(can have caused)</text>
+      
+      <!-- Elsewhere (Perfectly centered on the mathematical midpoints: 125 and 375) -->
+      <text x="125" y="156" font-size="11" fill="var(--color-text-secondary)" font-family="system-ui" text-anchor="middle" font-weight="bold" letter-spacing="0.5">ELSEWHERE</text>
+      <text x="125" y="170" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui" text-anchor="middle">(unreachable)</text>
+      
+      <text x="375" y="156" font-size="11" fill="var(--color-text-secondary)" font-family="system-ui" text-anchor="middle" font-weight="bold" letter-spacing="0.5">ELSEWHERE</text>
+      <text x="375" y="170" font-size="10" fill="var(--color-text-tertiary)" font-family="system-ui" text-anchor="middle">(unreachable)</text>
+      
+      <!-- Light cone boundary labels -->
+      <text x="170" y="90" dy="-8" font-size="9" fill="var(--accent)" font-family="system-ui" text-anchor="middle" transform="rotate(41.2, 170, 90)" letter-spacing="1" font-weight="bold">LIGHT CONE</text>
+      <text x="330" y="90" dy="-8" font-size="9" fill="var(--accent)" font-family="system-ui" text-anchor="middle" transform="rotate(-41.2, 330, 90)" letter-spacing="1" font-weight="bold">LIGHT CONE</text>
+      
+      <!-- Origin Label -->
+      <text x="262" y="164" font-size="10" fill="var(--color-text-primary)" font-family="system-ui" font-weight="bold" letter-spacing="0.5">HERE &amp; NOW</text>
+    </svg>
+    <div class="diagram-caption">The light cone: events in the blue future cone can be influenced; events in the past cone could have influenced the present; events in "elsewhere" are causally disconnected — no signal travelling &le;c can connect them.</div>
   </div>
+</div>
 
   <div class="cgrid cgrid-style-2">
     <div class="card">
@@ -542,8 +514,8 @@
           </linearGradient>
         </defs>
         <!-- Axes -->
-        <line x1="30" y1="170" x2="470" y2="170" stroke="var(--color-text-tertiary)" stroke-width="1"/>
-        <line x1="30" y1="170" x2="30" y2="20" stroke="var(--color-text-tertiary)" stroke-width="1"/>
+        <line x1="30" y1="165" x2="470" y2="165" stroke="var(--color-text-tertiary)" stroke-width="1"/>
+        <line x1="30" y1="165" x2="30" y2="20" stroke="var(--color-text-tertiary)" stroke-width="1"/>
         <text x="440" y="184" font-size="11" fill="var(--color-text-tertiary)" font-family="system-ui">x (position)</text>
         <text x="32" y="16" font-size="11" fill="var(--color-text-tertiary)" font-family="system-ui">|ψ|²</text>
         <!-- Gaussian probability density -->
@@ -555,7 +527,7 @@
         <text x="220" y="185" font-size="10" fill="var(--color-text-secondary)" font-family="system-ui" text-anchor="middle">Most likely position</text>
         <line x1="250" y1="170" x2="250" y2="60" stroke="var(--color-text-secondary)" stroke-width="0.5" stroke-dasharray="3,3"/>
         <text x="300" y="50" font-size="10" fill="var(--accent)" font-family="system-ui">|ψ|² = probability density</text>
-        <text x="80" y="110" font-size="10" fill="var(--accent-light)" font-family="system-ui">Re(ψ) — wave oscillation</text>
+        <text x="60" y="80" font-size="10" fill="var(--accent-light)" font-family="system-ui">Re(ψ) — wave oscillation</text>
       </svg>
       <div class="diagram-caption">The wavefunction ψ is complex-valued. |ψ|² gives the probability density of finding the particle at each position. The particle doesn't "blur out" — it's genuinely not at a definite location until measured.</div>
     </div>
@@ -750,9 +722,6 @@
     <p class="cnote u-mt-sm">Dark energy is the dominant component and drives the accelerating expansion. Baryonic matter — everything you can see, touch, and are made of — is a 5% afterthought in the cosmic inventory.</p>
   </div>
 
-</div><!-- end .page-wrap -->
-
-
   <div class="sec">Part M · Q&A</div>
 
   <div class="qa">
@@ -844,6 +813,8 @@
     <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
     <div class="qa-ans">Physicists in 1900 famously thought they were nearly done — only two "small clouds" on the horizon (blackbody radiation and the Michelson-Morley result) which promptly turned into quantum mechanics and relativity. Today's open questions are far more tractable starting points: quantum gravity, dark matter, dark energy, matter-antimatter asymmetry, the interpretation of quantum mechanics, the origin of the universe's low entropy, and the measurement problem. These are not small clouds. The Standard Model and General Relativity together cover essentially every observation, but they are incompatible with each other at high energies and leave most of the universe's content (dark matter, dark energy) unexplained. The era of fundamental discovery is almost certainly not over.</div>
   </div>
+
+</div><!-- end .page-wrap -->
 
 <script>
 window.addEventListener('DOMContentLoaded', function () {
@@ -971,7 +942,7 @@ window.addEventListener('DOMContentLoaded', function () {
       var mark = document.createElement('div');
       mark.className = 'pc-axis-mark';
       mark.style.left = ((m - minY) / range * 100) + '%';
-      mark.textContent = m;
+      mark.textContent = Math.round(m);
       axis.appendChild(mark);
     });
     entries.forEach(function(e) {
@@ -1104,36 +1075,44 @@ window.addEventListener('DOMContentLoaded', function () {
   var particles = [];
   var patternData = null;
 
-  function buildPattern(mode) {
+function buildPattern(mode) {
     var W = canvas.width, H = canvas.height;
     patternData = new Array(H).fill(0);
     if (mode === 'wave') {
-      // Interference: two slits
+      // Two-slit interference within a single-slit diffraction envelope.
+      // Slit centers match the wall geometry drawn below: H*0.42 and H*0.58.
+      var y1 = H * 0.42, y2 = H * 0.58;
+      var L = 224;              // effective slit-to-screen distance
+      var envWidth = H * 0.18;  // envelope sigma (single-slit diffraction)
+      var centerY = (y1 + y2) / 2;
       for (var y = 0; y < H; y++) {
-        var dy1 = y - H * 0.42;
-        var dy2 = y - H * 0.58;
-        var d1 = Math.sqrt(dy1*dy1 + 50000);
-        var d2 = Math.sqrt(dy2*dy2 + 50000);
-        var phase = (d1 - d2) * 0.35;
-        var amp = Math.pow(Math.cos(phase), 2);
-        // Also modulate with single-slit envelope
-        var env = Math.pow(Math.sinc ? 1 : 1, 1);
-        patternData[y] = amp * 0.9 + 0.02;
+        var d1 = Math.sqrt(Math.pow(y - y1, 2) + L * L);
+        var d2 = Math.sqrt(Math.pow(y - y2, 2) + L * L);
+        var phase = (d1 - d2) * 1.1;
+        var interference = Math.pow(Math.cos(phase / 2), 2);
+        var envelope = Math.exp(-Math.pow(y - centerY, 2) / (2 * envWidth * envWidth));
+        patternData[y] = interference * envelope * 0.95 + 0.02;
       }
     } else if (mode === 'which') {
-      // Two Gaussian peaks, no interference
+      // With which-path info, particles land directly behind their slit:
+      // two tight, well-separated bumps centered AT the slit positions.
+      var y1 = H * 0.42, y2 = H * 0.58;
+      var sigma = H * 0.035;
+      var twoSigSq = 2 * sigma * sigma;
       for (var y = 0; y < H; y++) {
-        var g1 = Math.exp(-Math.pow(y - H*0.37, 2) / 1200);
-        var g2 = Math.exp(-Math.pow(y - H*0.63, 2) / 1200);
-        patternData[y] = (g1 + g2) * 0.8 + 0.02;
+        var g1 = Math.exp(-Math.pow(y - y1, 2) / twoSigSq);
+        var g2 = Math.exp(-Math.pow(y - y2, 2) / twoSigSq);
+        patternData[y] = (g1 + g2) * 0.9 + 0.02;
       }
     } else {
-      // Single slit: one Gaussian
+      // Single slit: one diffraction bump centered on the slit at H*0.5
+      var yc = H * 0.5;
+      var sigma2 = H * 0.07;
+      var twoSigSq2 = 2 * sigma2 * sigma2;
       for (var y = 0; y < H; y++) {
-        patternData[y] = Math.exp(-Math.pow(y - H*0.5, 2) / 2000) * 0.9 + 0.02;
+        patternData[y] = Math.exp(-Math.pow(y - yc, 2) / twoSigSq2) * 0.9 + 0.02;
       }
     }
-    // Normalise
     var max = Math.max.apply(null, patternData);
     patternData = patternData.map(function(v) { return v / max; });
   }
@@ -1352,32 +1331,40 @@ window.addEventListener('DOMContentLoaded', function () {
     // Already done as static SVG
   })();
 
-  // Draw wavefunction paths
+// Draw wavefunction paths
   (function() {
     var svgEl = document.querySelector('svg[viewBox="0 0 500 200"]');
     if (!svgEl) return;
     var W = 500, H = 200;
+    var baseline = 165;        // x-axis y-position in SVG coords
+    var peakHeight = 120;      // total height of |ψ|² at its peak
     var cx = 250, sigma = 60;
     var pathFill = '', pathLine = '', pathReal = '';
     var points = [];
     for (var x = 30; x <= 470; x += 2) {
       var gauss = Math.exp(-Math.pow(x - cx, 2) / (2 * sigma * sigma));
-      var y = 165 - gauss * 120;
+      var y = baseline - gauss * peakHeight;
       points.push({x: x, y: y, g: gauss});
     }
-    pathFill = 'M30,165';
+    pathFill = 'M30,' + baseline;
     points.forEach(function(p) { pathFill += ' L' + p.x + ',' + p.y; });
-    pathFill += ' L470,165 Z';
+    pathFill += ' L470,' + baseline + ' Z';
 
     pathLine = 'M' + points[0].x + ',' + points[0].y;
     points.slice(1).forEach(function(p) { pathLine += ' L' + p.x + ',' + p.y; });
 
-    // Real part oscillation modulated by envelope
+    // Re(ψ) oscillates centered on the *middle* of the |ψ|² envelope,
+    // with amplitude = half the envelope height. This keeps the wave
+    // strictly between the Gaussian curve (top) and the x-axis (bottom),
+    // touching each at its extrema but never crossing them.
     var realPts = [];
     for (var x2 = 30; x2 <= 470; x2 += 2) {
       var gauss2 = Math.exp(-Math.pow(x2 - cx, 2) / (2 * sigma * sigma));
-      var osc = Math.cos((x2 - cx) * 0.15);
-      var y2 = 165 - gauss2 * 80 * osc - gauss2 * 40;
+      var envelope = gauss2 * peakHeight;     // Gaussian height at this x
+      var center = baseline - envelope / 2;   // middle of the envelope
+      var amplitude = envelope / 2;           // half the envelope -> fits inside
+      var osc = Math.cos((x2 - cx) * 0.18);
+      var y2 = center - amplitude * osc;      // SVG y grows downward
       realPts.push({x: x2, y: y2});
     }
     pathReal = 'M' + realPts[0].x + ',' + realPts[0].y;

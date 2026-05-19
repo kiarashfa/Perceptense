@@ -4,25 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 48: FIRE Sector: Have a Sense</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/48_fa-chart-line.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
     :root {
       --accent: #2B7A5E;
-      --accent-bg: #E1F5EE;
-      --accent-border: #6CB99F;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --accent-bg: #102E25;
-        --accent-border: #3D9177;
-      }
-    }
-
-    html[data-theme="dark"] {
-      --accent-bg: #102E25;
-      --accent-border: #3D9177;
     }
 
     .module-head {
@@ -123,11 +110,10 @@
       margin-bottom: 10px;
     }
 
-    .explorer-buttons button.active,
-    .qa-btn.active {
+    .explorer-buttons button.active {
       background: var(--accent-bg);
       border-color: var(--accent-border);
-      color: var(--color-text-primary);
+      color: var(--accent);
     }
 
     .explorer-display,
@@ -470,10 +456,6 @@
       margin: 4px 0 12px 155px;
     }
 
-    .qa-wrap {
-      margin-bottom: 2rem;
-    }
-
     @media (max-width: 500px) {
       .page-wrap {
         padding-left: 1rem;
@@ -514,7 +496,7 @@
   <div class="page-wrap">
 
     <div class="module-head">
-      <i class="fa-solid fa-building-columns module-icon" aria-hidden="true"></i>
+      <i class="fa-solid fa-chart-line module-icon" aria-hidden="true"></i>
       <h1 class="module-title">Module 48: FIRE Sector</h1>
     </div>
     <p class="module-subtitle">Finance, insurance, and real estate: the industries that price, protect, and allocate capital</p>
@@ -525,7 +507,7 @@
       <div class="teaser-card">
         <div class="teaser-kicker">overview</div>
         <div class="teaser-title">What this module gives you</div>
-        <div class="teaser-text">FIRE is not one industry. It is the capital allocation system: finance moves money through time, insurance moves risk across people, and real estate turns land and buildings into collateral, rent, and household wealth. Part A builds the map. Part B explains banks, markets, funds, and crises. Part C covers insurance logic. Part D makes property and mortgages legible. Part E shows how intermediaries get paid. Part F explains regulation and 2008.</div>
+        <div class="teaser-text">FIRE is not one industry. It is the capital allocation system: finance moves money through time, insurance moves risk across people, and real estate turns land and buildings into collateral, rent, and household wealth.</div>
       </div>
       <div class="teaser-card">
         <div class="teaser-kicker">scale</div>
@@ -890,7 +872,6 @@
 
     <div class="sec">Part G · Q&A</div>
 
-    <div class="qa-wrap">
       <div class="qa">
         <p class="qa-q">1. Does the FIRE sector actually produce anything, or is it just extracting fees?</p>
         <button class="qa-btn">show answer</button>
@@ -938,8 +919,6 @@
         <button class="qa-btn">show answer</button>
         <div class="qa-ans">Follow the balance sheet. Ask who owns the asset, who owes the liability, when cash must be paid, and what happens if prices move 20 percent. Most confusing finance stories become clearer once you separate income from wealth, liquidity from solvency, and risk transfer from risk disappearance. The risk never vanishes; it changes address.</div>
       </div>
-    </div>
-
   </div>
 
   <script>
