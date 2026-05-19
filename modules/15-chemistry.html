@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 15: Chemistry — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/15_fa-flask.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 15: Functional groups, reactions, and molecular logic. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 15: Chemistry — Have a Sense">
@@ -44,7 +41,7 @@
 
 /* --- Electronegativity scale bar --- */
 .en-bar-wrap { margin: 10px 0; }
-.en-track { height: 14px; border-radius: 99px; background: linear-gradient(to right, #E6F1FB 0%, #4E99A3 40%, #EF9F27 70%, #D85A30 100%); position: relative; margin-bottom: 6px; }
+.en-track { height: 14px; border-radius: 99px; background: linear-gradient(to right, #E6F1FB 0%, var(--accent) 40%, #EF9F27 70%, #D85A30 100%); position: relative; margin-bottom: 6px; }
 .en-marker { position: absolute; top: -4px; width: 2px; height: 22px; background: var(--color-text-primary); border-radius: 2px; transform: translateX(-50%); }
 .en-label { position: absolute; top: 20px; font-size: 10px; color: var(--color-text-secondary); transform: translateX(-50%); white-space: nowrap; }
 
@@ -721,7 +718,7 @@ button.active-sel { background: var(--color-background-tertiary) !important; bor
         <defs>
           <linearGradient id="enGrad" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stop-color="#E6F1FB"/>
-            <stop offset="45%" stop-color="#4E99A3"/>
+            <stop offset="45%" stop-color="var(--accent)"/>
             <stop offset="75%" stop-color="#EF9F27"/>
             <stop offset="100%" stop-color="#A32D2D"/>
           </linearGradient>

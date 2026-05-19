@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 18: Diplomacy — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/18_fa-handshake.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 18: International organizations, treaties, and soft power. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 18: Diplomacy — Have a Sense">
@@ -112,10 +109,10 @@
 .tl-item::before {
   content: ''; position: absolute; left: -18px; top: 5px;
   width: 8px; height: 8px; border-radius: 50%;
-  background: #4E99A3; border: 1.5px solid var(--color-background-primary);
-  box-shadow: 0 0 0 1.5px #4E99A3;
+  background: var(--accent); border: 1.5px solid var(--color-background-primary);
+  box-shadow: 0 0 0 1.5px var(--accent);
 }
-.tl-year { font-size: 10px; font-weight: 600; color: #4E99A3; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1px; }
+.tl-year { font-size: 10px; font-weight: 600; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1px; }
 .tl-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
 .tl-body  { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
 
@@ -124,7 +121,7 @@
 .signal-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; }
 .signal-dots { display: flex; gap: 4px; margin-bottom: 6px; }
 .signal-dot  { width: 10px; height: 10px; border-radius: 50%; }
-.dot-fill    { background: #4E99A3; }
+.dot-fill    { background: var(--accent); }
 .dot-empty   { background: var(--color-background-secondary); border: 1px solid var(--color-border-secondary); }
 .signal-label { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
 .signal-eg    { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; }
@@ -154,9 +151,9 @@
   background: var(--color-background-primary);
   color: var(--color-text-primary); font-size: 12px;
   font-family: inherit; outline: none;
-  caret-color: #4E99A3;
+  caret-color: var(--accent);
 }
-.fl-search input:focus { border-color: #4E99A3; box-shadow: 0 0 0 2px rgba(78,153,163,0.12); }
+.fl-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-bg); }
 .fl-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
 .fl-tab {
   font-size: 11px; font-weight: 500; padding: 3px 10px;
@@ -289,7 +286,7 @@
 }
 
 .text-teal-500 {
-  color:#4E99A3;
+  color:var(--accent);
 }
 
 /* === Module-specific extracted styles === */
@@ -659,7 +656,7 @@
     <div class="scroll-panel">
       <div class="diplomacy-text-2">UN system — simplified architecture</div>
       <svg class="diplomacy-media" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
-  	<rect x="320" y="8" width="160" height="30" rx="6" fill="#4E99A3" opacity="0.9"/>
+  	<rect x="320" y="8" width="160" height="30" rx="6" fill="var(--accent)" opacity="0.9"/>
   	<text x="400" y="28" text-anchor="middle" font-size="12" font-weight="600" fill="white">UN Charter (1945)</text>
 
   	<line x1="400" y1="38" x2="400" y2="54" stroke="var(--color-border-secondary)" stroke-width="1"/>
@@ -1381,7 +1378,7 @@ function showState(key) {
     <div style="margin-bottom:10px;">
       <div style="font-size:11px; color:var(--color-text-secondary); margin-bottom:4px;">Recognition rate</div>
       <div style="background:var(--color-background-secondary); border-radius:3px; height:18px; overflow:hidden; position:relative;">
-        <div style="width:${fillWidth}%; background:#4E99A3; height:100%; border-radius:3px; display:flex; align-items:center; padding-left:6px;">
+        <div style="width:${fillWidth}%; background:var(--accent); height:100%; border-radius:3px; display:flex; align-items:center; padding-left:6px;">
           <span style="font-size:10px; font-weight:600; color:white; white-space:nowrap;">${s.recognised} states</span>
         </div>
       </div>
