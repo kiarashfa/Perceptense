@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 8: Speed & Duration — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/08_fa-truck-fast.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 8: How fast things move and how long things take. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 8: Speed & Duration — Have a Sense">
@@ -89,7 +86,7 @@
 /* === GWR & RC animated transitions === */
 #rc-gauge-arc { transition: stroke-dashoffset 0.5s ease, stroke 0.3s; }
 #rc-gauge-needle { transition: transform 0.5s ease; }
-.u-text-hex-4e99a3 { color: #4E99A3; }
+.u-text-hex-4e99a3 { color: var(--accent); }
 .u-bg-background-primary { background: var(--color-background-primary); }
 .u-border-0-5px-solid-border-tertiary { border: 0.5px solid var(--color-border-tertiary); }
 .u-radius-radius-lg { border-radius: var(--border-radius-lg); }
@@ -456,7 +453,7 @@
         <line x1="0" y1="40" x2="520" y2="40" stroke="var(--color-border-secondary)" stroke-width="0.8" stroke-dasharray="12,8"/>
         <rect id="stop-react-bar" x="10" y="30" width="80" height="10" rx="2" fill="#378ADD" opacity="0.85"/>
         <rect id="stop-brake-bar" x="90" y="30" width="120" height="10" rx="2" fill="#185FA5" opacity="0.85"/>
-        <rect id="stop-car" x="10" y="22" width="26" height="14" rx="3" fill="#4E99A3"/>
+        <rect id="stop-car" x="10" y="22" width="26" height="14" rx="3" fill="var(--accent)"/>
         <rect id="stop-car-w1" x="13" y="24" width="8" height="6" rx="1" fill="var(--color-background-info)" opacity="0.7"/>
         <rect id="stop-car-w2" x="23" y="24" width="8" height="6" rx="1" fill="var(--color-background-info)" opacity="0.7"/>
         <polygon id="stop-hazard" points="220,20 228,36 212,36" fill="#EF9F27" opacity="0.9"/>
@@ -644,7 +641,7 @@
         <text x="70" y="46" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Human walk · 5 km/h</text>
         <rect x="30" y="58" width="89"  height="12" rx="2" fill="#378ADD"/>
         <text x="122" y="68" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Usain Bolt · 44.7 km/h</text>
-        <rect x="30" y="80" width="140" height="12" rx="2" fill="#4E99A3"/>
+        <rect x="30" y="80" width="140" height="12" rx="2" fill="var(--accent)"/>
         <text x="173" y="90" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">Peregrine falcon · 389 km/h</text>
         <rect x="30" y="102" width="167" height="12" rx="2" fill="#185FA5"/>
         <text x="200" y="112" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">ThrustSSC (land speed) · 1,228 km/h</text>
@@ -814,7 +811,7 @@
         <rect x="160" y="10" width="2" height="10" rx="1" fill="#85B7EB"/>
         <text x="155" y="19" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif" text-anchor="end">Plane (900 km/h)</text>
         <text x="165" y="19" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">0.0001% c</text>
-        <rect x="160" y="30" width="4" height="10" rx="1" fill="#4E99A3"/>
+        <rect x="160" y="30" width="4" height="10" rx="1" fill="var(--accent)"/>
         <text x="155" y="39" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif" text-anchor="end">Parker Solar Probe</text>
         <text x="167" y="39" font-size="9" fill="var(--color-text-secondary)" font-family="system-ui,sans-serif">0.064% c</text>
         <rect x="160" y="50" width="3" height="10" rx="1" fill="#378ADD"/>
@@ -1011,7 +1008,7 @@ const carData = [
   { name: 'Ferrari SF90 Stradale',      sub: 'Italy · 2020',      time: 2.5,  cat: 'petrol', color: '#185FA5', note: 'Ferrari\'s first PHEV. Uses three electric motors to fill the turbo lag gap — hence the sub-2.5 s time.' },
   { name: 'Lamborghini Huracán EVO',    sub: 'Italy · 2019',      time: 2.9,  cat: 'petrol', color: '#378ADD', note: '5.2L V10, 640 hp. 0–100 in 2.9 s — indistinguishable from teleportation in practice.' },
   { name: 'Porsche 911 Turbo S (992)',  sub: 'Germany · 2020',    time: 2.7,  cat: 'petrol', color: '#85B7EB', note: 'Often considered the benchmark supercar. Brutally fast yet comfortable enough for daily use.' },
-  { name: 'BMW M5 Competition',         sub: 'Germany · 2018',    time: 3.3,  cat: 'petrol', color: '#4E99A3', note: 'The definitive fast saloon. 600 hp, four-door, fits the family plus luggage. 3.3 s to 100.' },
+  { name: 'BMW M5 Competition',         sub: 'Germany · 2018',    time: 3.3,  cat: 'petrol', color: 'var(--accent)', note: 'The definitive fast saloon. 600 hp, four-door, fits the family plus luggage. 3.3 s to 100.' },
   { name: 'Ford Mustang Shelby GT500',  sub: 'USA · 2020',        time: 3.3,  cat: 'petrol', color: '#1D9E75', note: '760 hp supercharged V8. The most powerful street-legal Ford ever made. Pure American muscle.' },
 
   // EVERYDAY
@@ -1028,7 +1025,7 @@ const carData = [
   { name: 'Ferrari Testarossa (1984)',   sub: 'Italy · 1984',     time: 5.8,  cat: 'classic', color: '#BA2B17', note: 'The poster car of the 1980s. 390 hp flat-12. Its 5.8 s 0–100 is now slower than a Toyota RAV4 hybrid.' },
   { name: 'Lamborghini Countach (1988)', sub: 'Italy · 1988',     time: 4.7,  cat: 'classic', color: '#BA2B17', note: 'Defined the supercar silhouette for a generation. 455 hp V12, scissor doors. 4.7 s was otherworldly in 1988.' },
   { name: 'Porsche 911 Turbo (930, 1975)',sub: 'Germany · 1975',  time: 5.5,  cat: 'classic', color: '#633806', note: 'The original widowmaker. Notorious oversteer, 260 hp, 5.5 s. Terrifying to drive fast. Iconic.' },
-  { name: 'BMW M3 (E30, 1986)',          sub: 'Germany · 1986',   time: 6.7,  cat: 'classic', color: '#4E99A3', note: 'The M3 that started it all. 195 hp, 6.7 s. Slower than a current Toyota GR Yaris, yet still revered.' },
+  { name: 'BMW M3 (E30, 1986)',          sub: 'Germany · 1986',   time: 6.7,  cat: 'classic', color: 'var(--accent)', note: 'The M3 that started it all. 195 hp, 6.7 s. Slower than a current Toyota GR Yaris, yet still revered.' },
   { name: 'Ferrari F40 (1987)',          sub: 'Italy · 1987',     time: 4.1,  cat: 'classic', color: '#BA2B17', note: 'The last Ferrari personally approved by Enzo Ferrari. 478 hp, 4.1 s — still fast by 2024 standards.' },
   { name: 'Dodge Viper (GTS, 1996)',     sub: 'USA · 1996',       time: 4.0,  cat: 'classic', color: '#791F1F', note: 'No traction control, no ABS, 450 hp V10, 4.0 s. Genuinely dangerous and beloved for it.' },
   { name: 'Aston Martin DB5 (1963)',     sub: 'UK · 1963',        time: 8.1,  cat: 'classic', color: '#0F6E56', note: 'James Bond\'s car. 282 hp, 8.1 s. Shockingly slow by modern standards, yet still costs £1M+ at auction.' },
@@ -1132,7 +1129,7 @@ showDest(document.querySelector('#dest-btn-wrap .dest-btn'), 'moon');
 const gwrRecords = [
   { cat: 'Land animal',           title: 'Cheetah',                              speed: '112 km/h',   kmh: 112,      color: '#EF9F27', body: 'The cheetah holds the record for fastest land animal, clocking up to 112 km/h over short distances of 200–300 m. It achieves this through an asymmetric gallop where all four feet are off the ground twice per stride. Its acceleration — 0 to 96 km/h in under 3 seconds — exceeds most sports cars. However, it can only sustain top speed for about 20 seconds before overheating.' },
   { cat: 'Human sprint',          title: 'Usain Bolt (100 m WR, 2009)',          speed: '44.72 km/h', kmh: 44.72,    color: '#185FA5', body: 'Usain Bolt\'s peak speed of 44.72 km/h was recorded at the 60–80 m mark of his 9.58-second 100 m world record in Berlin, 2009. His top speed corresponds to a stride length of 2.44 m and a stride frequency of 4.28 strides per second. He covered the last 40 m of that race faster than any human in recorded history.' },
-  { cat: 'Bird in level flight',  title: 'Common swift',                         speed: '169 km/h',   kmh: 169,      color: '#4E99A3', body: 'The common swift holds the speed record for any bird in level (non-diving) flight at ~169 km/h. Remarkably, swifts spend almost their entire lives airborne — eating, sleeping, and even mating in the air. Young swifts may fly continuously for up to 10 months without landing after their first flight from the nest.' },
+  { cat: 'Bird in level flight',  title: 'Common swift',                         speed: '169 km/h',   kmh: 169,      color: 'var(--accent)', body: 'The common swift holds the speed record for any bird in level (non-diving) flight at ~169 km/h. Remarkably, swifts spend almost their entire lives airborne — eating, sleeping, and even mating in the air. Young swifts may fly continuously for up to 10 months without landing after their first flight from the nest.' },
   { cat: 'Bird in a dive',        title: 'Peregrine falcon',                     speed: '389 km/h',   kmh: 389,      color: '#633806', body: 'The peregrine falcon is the fastest animal on Earth in a stoop (hunting dive), reaching ~389 km/h. It achieves this by folding its wings into a teardrop shape and using specially adapted nostrils with bony tubercles that redirect airflow so it can breathe at such extreme speeds.' },
   { cat: 'Fish',                  title: 'Black marlin',                         speed: '~129 km/h',  kmh: 129,      color: '#085041', body: 'The black marlin (Istiompax indica) has been recorded at approximately 129 km/h, making it the fastest fish and fastest marine animal. Its rigid, non-folding pectoral fins are unique among billfish and allow for a hydrodynamic profile at speed.' },
   { cat: 'Land vehicle (wheels)', title: 'Vesco Turbinator II (2018)',           speed: '737 km/h',   kmh: 737,      color: '#27500A', body: 'The Turbinator II, driven by Dave Spangler at Bonneville Salt Flats in 2018, set the wheel-driven land speed record at 737.4 km/h. Powered by a Lycoming T55 turboshaft engine (the same engine that powers Chinook helicopters), it moves faster than a commercial passenger aircraft — yet rolls on wheels the entire time.' },
@@ -1144,7 +1141,7 @@ const gwrRecords = [
   { cat: 'Spacecraft (uncrewed)', title: 'Parker Solar Probe (2024)',            speed: '692,000 km/h', kmh: 692000, color: '#26215C', body: 'NASA\'s Parker Solar Probe, on its closest perihelion pass in 2024, reached a record 692,000 km/h (192 km/s) — the fastest human-made object ever. At this speed it would travel from Earth to Moon in under 2 minutes. Its heat shield must withstand temperatures of 1,377°C while keeping the instruments behind it at room temperature.' },
   { cat: 'Tennis serve',          title: 'Sam Groth (2012)',                     speed: '263 km/h',    kmh: 263,     color: '#BA7517', body: 'Australian Sam Groth served at 263.4 km/h (163.7 mph) in an ATP Challenger event in Busan, South Korea in 2012 — the fastest tennis serve ever recorded. At that speed, the ball travels the 23.77 m service length in approximately 0.32 seconds. Despite the record, Groth lost the point.' },
   { cat: 'Cricket delivery',      title: 'Shoaib Akhtar (2003)',                 speed: '161 km/h',    kmh: 161,     color: '#1D9E75', body: 'Pakistani fast bowler Shoaib Akhtar bowled the fastest delivery in international cricket history at 161.3 km/h (100.23 mph) against England in the 2003 Cricket World Cup. The ball travels the 20.12 m pitch in about 0.45 seconds — giving a batsman roughly 0.2 seconds to decide whether to play a shot after the ball reaches halfway.' },
-  { cat: 'Golf ball speed',       title: 'Ryan Winther (2013)',                  speed: '349 km/h',    kmh: 349,     color: '#4E99A3', body: 'Ryan Winther set the record for fastest golf ball speed at 349 km/h (217 mph) off the tee. Ball speed is approximately 1.5× club head speed, meaning his driver head was moving at ~232 km/h at impact. Average PGA Tour ball speed is ~270 km/h — already faster than a peregrine falcon\'s dive.' },
+  { cat: 'Golf ball speed',       title: 'Ryan Winther (2013)',                  speed: '349 km/h',    kmh: 349,     color: 'var(--accent)', body: 'Ryan Winther set the record for fastest golf ball speed at 349 km/h (217 mph) off the tee. Ball speed is approximately 1.5× club head speed, meaning his driver head was moving at ~232 km/h at impact. Average PGA Tour ball speed is ~270 km/h — already faster than a peregrine falcon\'s dive.' },
   { cat: 'Elevator',              title: 'Guangzhou CTF Finance Centre (2016)',  speed: '75.6 km/h',   kmh: 75.6,    color: '#378ADD', body: 'The elevator in the Guangzhou CTF Finance Centre travels at 75.6 km/h (21 m/s) — the fastest passenger elevator in the world. It uses active vibration-control and special air pressure regulation to prevent passenger ear discomfort. It covers 440 metres in 43 seconds. A typical office elevator travels at ~7.2 km/h — roughly 10× slower.' }
 ];
 
@@ -1178,7 +1175,7 @@ const coasters = [
   { rank:1, name:'Formula Rossa',            park:'Ferrari World',            location:'Abu Dhabi, UAE',     speed:240, height:52,  length:2200, gforce:1.7, opened:2010, type:'Hydraulic launch',               color:'#BA2B17', body:'Formula Rossa is the fastest roller coaster in the world, reaching 240 km/h (149 mph) in just 4.9 seconds. It was purpose-built to simulate the experience of driving a Ferrari Formula 1 car. Riders must wear protective goggles — at 240 km/h, even insects become projectiles. The ride lasts 92 seconds. It uses a hydraulic launch system: oil is pumped to high pressure over several minutes, then released in under 5 seconds.' },
   { rank:2, name:'Kingda Ka',                park:'Six Flags Great Adventure', location:'New Jersey, USA',   speed:206, height:139, length:950,  gforce:5.0, opened:2005, type:'Hydraulic launch',               color:'#185FA5', body:'Kingda Ka reaches 206 km/h in 3.5 seconds and was the tallest roller coaster in the world at 139 m when it opened — taller than a 45-storey building. It goes straight up, crests over 420 feet, then drops straight down. The ride itself lasts only 28 seconds.' },
   { rank:3, name:'Top Thrill 2',             park:'Cedar Point',               location:'Ohio, USA',         speed:193, height:128, length:1067, gforce:3.0, opened:2003, type:'Electric launch (redesign 2024)', color:'#27500A', body:'Originally called Top Thrill Dragster (opened 2003), this coaster was rebuilt as Top Thrill 2 and re-opened in 2024 after a 2021 incident. The redesign added a secondary launch that propels the train backwards up a second spike before the main launch.' },
-  { rank:4, name:'Do-Dodonpa',               park:'Fuji-Q Highland',           location:'Yamanashi, Japan',  speed:172, height:52,  length:1244, gforce:3.0, opened:2001, type:'Compressed air launch',          color:'#4E99A3', body:'Do-Dodonpa uses compressed air to launch riders from 0 to 172 km/h in just 1.56 seconds — one of the most violent accelerations of any coaster, producing approximately 3 g. The launch sound is famously described as a "DODON-PA!" — hence the name.' },
+  { rank:4, name:'Do-Dodonpa',               park:'Fuji-Q Highland',           location:'Yamanashi, Japan',  speed:172, height:52,  length:1244, gforce:3.0, opened:2001, type:'Compressed air launch',          color:'var(--accent)', body:'Do-Dodonpa uses compressed air to launch riders from 0 to 172 km/h in just 1.56 seconds — one of the most violent accelerations of any coaster, producing approximately 3 g. The launch sound is famously described as a "DODON-PA!" — hence the name.' },
   { rank:5, name:'Red Force',                park:'Ferrari Land',               location:'Salou, Spain',      speed:180, height:112, length:1148, gforce:1.4, opened:2017, type:'Linear synchronous motor (LSM)', color:'#BA2B17', body:'Red Force is Europe\'s tallest (112 m) and fastest (180 km/h) roller coaster. Unlike most ultra-fast coasters which use hydraulic launches, Red Force uses LSM (linear synchronous motor) technology — essentially a linear electric motor running along the launch track. This allows smoother acceleration and more reliable operation year-round.' },
   { rank:6, name:'Fury 325',                 park:'Carowinds',                 location:'North Carolina, USA',speed:153, height:99,  length:6602, gforce:1.4, opened:2015, type:'Chain lift (gravity)',           color:'#3C3489', body:'Fury 325 reaches 153 km/h — remarkable because it uses a traditional chain lift rather than any launch system. It\'s the fastest coaster in the world that uses only gravity. Its first drop is 81°, steeper than vertical.' },
   { rank:7, name:'Steel Dragon 2000',        park:'Nagashima Spa Land',        location:'Mie, Japan',        speed:153, height:97,  length:2479, gforce:1.5, opened:2000, type:'Chain lift (gravity)',           color:'#534AB7', body:'Steel Dragon 2000 held the world record for longest roller coaster track (2,479 m) for many years and remains one of the longest. Built in the year 2000, it cost approximately $50 million — the most expensive roller coaster ever at the time — partly due to earthquake-resistant construction standards required in Japan.' }

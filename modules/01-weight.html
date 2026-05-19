@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 1: Weight & Mass — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/01_fa-weight-hanging.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 1: How much everyday objects weigh — from paperclips to cars. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 1: Weight & Mass — Have a Sense">
@@ -24,7 +21,7 @@
   background: var(--color-background-primary);
   border: 0.5px solid var(--color-border-tertiary);
   border-radius: var(--border-radius-lg);
-  padding: 16px 16px 10px;
+  padding: 16px 28px 10px;
   margin-bottom: 1.2rem;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
@@ -99,10 +96,6 @@
 .world-val   { font-size: 17px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 3px; }
 .world-note  { font-size: 11px; color: var(--color-text-secondary); margin: 0; line-height: 1.4; }
 
-.callout { background: var(--color-background-info); border: 0.5px solid var(--color-border-info); border-radius: var(--border-radius-lg); padding: 14px 16px; margin-bottom: 1.2rem; }
-.callout-title { font-size: 12px; font-weight: 600; color: var(--color-text-info); margin: 0 0 5px; text-transform: uppercase; letter-spacing: 0.05em; }
-.callout p { font-size: 13px; color: var(--color-text-primary); margin: 0; line-height: 1.6; }
-
 /* ── Planet weight calculator ── */
 .planet-calc {
   background: var(--color-background-primary);
@@ -162,16 +155,12 @@
 .scale-canvas {
   display: block;
 }
-.planet-section-title,
 .rules-title {
   font-size: 12px;
   font-weight: 600;
   color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-}
-.planet-section-title {
-  margin-bottom: 12px;
 }
 .rules-title {
   margin-bottom: 10px;
@@ -194,7 +183,7 @@
 }
 .planet-color-mercury { background: #9E9E9E; }
 .planet-color-venus { background: #D4A843; }
-.planet-color-earth { background: #4E99A3; }
+.planet-color-earth { background: var(--accent); }
 .planet-color-moon { background: #D3D3D3; }
 .planet-color-mars { background: #C1440E; }
 .planet-color-jupiter { background: #C88B3A; }
@@ -202,6 +191,79 @@
 .planet-color-uranus { background: #7DE8E8; }
 .planet-color-neptune { background: #5B6FE4; }
 .planet-color-pluto { background: #6B6B6B; }
+
+/* ── Part H: density sense chart ── */
+.density-sense-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.1fr);
+  gap: 28px;
+  align-items: start;
+}
+.estimate-steps {
+  display: grid;
+  gap: 10px;
+}
+.estimate-step {
+  border-left: 3px solid var(--color-border-tertiary);
+  padding-left: 10px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+.estimate-step strong {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+.density-chart {
+  min-width: 0;
+}
+.density-row {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr) 72px;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.density-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  line-height: 1.25;
+}
+.density-track {
+  height: 20px;
+  background: var(--color-background-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.density-fill {
+  width: var(--w);
+  min-width: 8px;
+  height: 100%;
+  background: var(--bar);
+  border-radius: 4px;
+}
+.density-value {
+  font-size: 11px;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.estimate-note {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  line-height: 1.5;
+  margin: 10px 0 0;
+}
+@media (max-width: 680px) {
+  .density-sense-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .scale-wrap { padding-left: 20px; padding-right: 20px; }
+  .density-row { grid-template-columns: 68px minmax(80px, 1fr) 62px; }
+  .density-label,
+  .density-value { font-size: 10px; }
+}
   </style>
 </head>
 <body>
@@ -366,16 +428,34 @@
 
     <div class="world-grid">
       <div class="world-card">
+        <div class="world-icon">💉</div>
+        <p class="world-label">Human red blood cell</p>
+        <p class="world-val">~27 picograms</p>
+        <p class="world-note">You have ~25 trillion of them — totalling ~2 kg of cells.</p>
+      </div>
+      <div class="world-card">
         <div class="world-icon">🪨</div>
         <p class="world-label">Grain of sand</p>
         <p class="world-val">~0.00003 g</p>
         <p class="world-note">30 micrograms. About 33,000 grains per gram.</p>
       </div>
       <div class="world-card">
-        <div class="world-icon">💉</div>
-        <p class="world-label">Human red blood cell</p>
-        <p class="world-val">~27 picograms</p>
-        <p class="world-note">You have ~25 trillion of them — totalling ~2 kg of cells.</p>
+        <div class="world-icon">🍚</div>
+        <p class="world-label">Grain of rice</p>
+        <p class="world-val">~25 mg</p>
+        <p class="world-note">About 800× heavier than a grain of sand, but still only 1/40 of a gram.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-icon">🔋</div>
+        <p class="world-label">AA battery</p>
+        <p class="world-val">~24 g</p>
+        <p class="world-note">A familiar pocket weight: about 1,000 grains of rice.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-icon">🛞</div>
+        <p class="world-label">Car tyre</p>
+        <p class="world-val">~9 kg</p>
+        <p class="world-note">The tyre alone, without the metal wheel. Heavier than it looks when you lift it.</p>
       </div>
       <div class="world-card">
         <div class="world-icon">🍷</div>
@@ -396,10 +476,10 @@
         <p class="world-note">The heaviest land animal alive. About 4 cars, or 75 adult humans.</p>
       </div>
       <div class="world-card">
-        <div class="world-icon">🐳</div>
-        <p class="world-label">Humpback whale</p>
+        <div class="world-icon">🚛</div>
+        <p class="world-label">Loaded garbage truck</p>
         <p class="world-val">~30,000 kg</p>
-        <p class="world-note">About 20 cars. Much lighter than a blue whale, but still 400 adult humans.</p>
+        <p class="world-note">A full refuse truck. About 20 cars, or more than 400 adult humans.</p>
       </div>
       <div class="world-card">
         <div class="world-icon">🚀</div>
@@ -421,6 +501,12 @@
       </div>
       <div class="world-card">
         <div class="world-icon">🚀</div>
+        <p class="world-label">Space Shuttle at launch</p>
+        <p class="world-val">~2,000,000 kg</p>
+        <p class="world-note">Orbiter + external tank + boosters. Most of the mass is fuel.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-icon">🚀</div>
         <p class="world-label">Saturn V rocket (fuelled)</p>
         <p class="world-val">~2,950,000 kg</p>
         <p class="world-note">~96% of that weight is propellant. Payload to the Moon: ~48,000 kg.</p>
@@ -432,16 +518,16 @@
         <p class="world-note">~7,300 t of iron structure + ~2,800 t of other materials. Repainted every 7 years.</p>
       </div>
       <div class="world-card">
-        <div class="world-icon">🏛️</div>
-        <p class="world-label">Great Pyramid of Giza</p>
-        <p class="world-val">~6,000,000,000 kg</p>
-        <p class="world-note">~6 billion kg — about 2.3 million stone blocks averaging ~2,500 kg each.</p>
-      </div>
-      <div class="world-card">
         <div class="world-icon">☁️</div>
         <p class="world-label">Typical cumulus cloud</p>
         <p class="world-val">~500,000,000 kg</p>
         <p class="world-note">Half a billion kg of water droplets — yet so diffuse they float.</p>
+      </div>
+      <div class="world-card">
+        <div class="world-icon">🏛️</div>
+        <p class="world-label">Great Pyramid of Giza</p>
+        <p class="world-val">~6,000,000,000 kg</p>
+        <p class="world-note">~6 billion kg — about 2.3 million stone blocks averaging ~2,500 kg each.</p>
       </div>
       <div class="world-card">
         <div class="world-icon">🧑‍🤝‍🧑</div>
@@ -455,22 +541,17 @@
         <p class="world-val">~8 × 10¹⁴ kg</p>
         <p class="world-note">800 trillion kg. Dwarfed by Earth's oceans (~1.4 × 10²¹ kg).</p>
       </div>
-    </div>
-
-    <div class="callout">
-      <p class="callout-title">⚖️ Mass vs. Weight — what's the difference?</p>
-      <p>In everyday speech, "weight" and "mass" are used interchangeably — and that's fine. But technically: <strong>mass</strong> is the amount of matter in an object (measured in kg), while <strong>weight</strong> is the force gravity exerts on that mass (measured in newtons). Your mass is the same on the Moon as on Earth; your weight is about 6× less on the Moon because gravity is weaker there. When you stand on a bathroom scale, it's technically measuring force and displaying it as kg — a convenient convention. In this module and in daily life, "weight" and "mass" mean the same thing.</p>
-    </div>
-
-    <div class="planet-calc" id="solar-mass">
-      <div class="planet-section-title">Your weight across the solar system</div>
-      <div class="planet-input-row">
-        <label for="planetMassInput">Enter your mass:</label>
-        <input type="number" id="planetMassInput" class="planet-mass-input" value="70" min="1" max="500" step="1" oninput="renderPlanets()">
-        <span class="planet-input-unit">kg on Earth</span>
+      <div class="world-card">
+        <div class="world-icon">🌊</div>
+        <p class="world-label">Earth's oceans</p>
+        <p class="world-val">~1.4 × 10²¹ kg</p>
+        <p class="world-note">About 1.7 million Mount Everests. This is the scale where geology starts to feel small.</p>
       </div>
-      <div class="planet-grid" id="planetGrid"></div>
-      <p class="planet-note">Values shown as equivalent weight on a bathroom scale (mass × planet gravity). Your mass never changes — only the gravitational pull does.</p>
+    </div>
+
+    <div class="content-panel">
+      <div class="panel-title">⚖️ Mass vs. Weight — what's the difference?</div>
+      <p class="muted-copy-large u-m-0">In everyday speech, "weight" and "mass" are used interchangeably — and that's fine. But technically: <strong>mass</strong> is the amount of matter in an object (measured in kg), while <strong>weight</strong> is the force gravity exerts on that mass (measured in newtons). Your mass is the same on the Moon as on Earth; your weight is about 6× less on the Moon because gravity is weaker there. When you stand on a bathroom scale, it's technically measuring force and displaying it as kg — a convenient convention. In this module and in daily life, "weight" and "mass" mean the same thing.</p>
     </div>
 
     <div class="content-panel">
@@ -498,7 +579,53 @@
     </div>
 
     <!-- ═══════════════════════════════════════════════════════════════ -->
-    <div class="sec">Part G · Q&A</div>
+    <div class="sec">Part G · your weight across the solar system</div>
+
+    <p class="section-intro">
+      Your mass stays the same everywhere, but a scale would show a different number because gravity changes. Try your own mass and watch how the same body feels lighter or heavier.
+    </p>
+
+    <div class="planet-calc" id="solar-mass">
+      <div class="planet-input-row">
+        <label for="planetMassInput">Enter your mass:</label>
+        <input type="number" id="planetMassInput" class="planet-mass-input" value="70" min="1" max="500" step="1" oninput="renderPlanets()">
+        <span class="planet-input-unit">kg on Earth</span>
+      </div>
+      <div class="planet-grid" id="planetGrid"></div>
+      <p class="planet-note">Values shown as equivalent weight on a bathroom scale (mass × planet gravity).</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div class="sec">Part H · estimate weight from size</div>
+
+    <p class="section-intro">
+      When you meet an unfamiliar object, first guess its volume: one litre, a shoebox, a suitcase. Then ask what it is made of. The shortcut is simple: <strong>weight ≈ volume × density</strong>.
+    </p>
+
+    <div class="content-panel">
+      <div class="panel-title">The 1-litre test: same size, wildly different weights</div>
+      <div class="density-sense-grid">
+        <div class="estimate-steps">
+          <div class="estimate-step"><strong>Start with water.</strong> One litre of water is exactly 1 kg, so water is the middle of your mental scale.</div>
+          <div class="estimate-step"><strong>Airy or floating materials</strong> usually weigh less than water for the same volume: cork, dry wood, many plastics.</div>
+          <div class="estimate-step"><strong>Stone, glass, and metal</strong> jump fast. A one-litre block of iron is not "a bit heavier" than water — it is almost 8 kg.</div>
+        </div>
+        <div class="density-chart" aria-label="Approximate weights of one litre of different materials">
+          <div class="density-row"><span class="density-label">Cork</span><div class="density-track"><div class="density-fill" style="--w: 1.2%; --bar: #85B7EB;"></div></div><span class="density-value">0.24 kg</span></div>
+          <div class="density-row"><span class="density-label">Pine wood</span><div class="density-track"><div class="density-fill" style="--w: 3.1%; --bar: #97C459;"></div></div><span class="density-value">0.6 kg</span></div>
+          <div class="density-row"><span class="density-label">Olive oil</span><div class="density-track"><div class="density-fill" style="--w: 4.7%; --bar: #D4A843;"></div></div><span class="density-value">0.91 kg</span></div>
+          <div class="density-row"><span class="density-label">Water</span><div class="density-track"><div class="density-fill" style="--w: 5.2%; --bar: var(--accent);"></div></div><span class="density-value">1.0 kg</span></div>
+          <div class="density-row"><span class="density-label">Wet sand</span><div class="density-track"><div class="density-fill" style="--w: 10.4%; --bar: #EF9F27;"></div></div><span class="density-value">2.0 kg</span></div>
+          <div class="density-row"><span class="density-label">Glass</span><div class="density-track"><div class="density-fill" style="--w: 13.0%; --bar: #8B73C7;"></div></div><span class="density-value">2.5 kg</span></div>
+          <div class="density-row"><span class="density-label">Iron</span><div class="density-track"><div class="density-fill" style="--w: 40.9%; --bar: #5F5E5A;"></div></div><span class="density-value">7.9 kg</span></div>
+          <div class="density-row"><span class="density-label">Gold</span><div class="density-track"><div class="density-fill" style="--w: 100%; --bar: #B98A16;"></div></div><span class="density-value">19.3 kg</span></div>
+        </div>
+      </div>
+      <p class="estimate-note">The small bars are intentionally tiny: compared with metal, most everyday materials are basically water-like, woody, or full of air.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <div class="sec">Part I · Q&A</div>
 
     <div class="qa">
       <p class="qa-q">1. A bag of flour at the supermarket is typically how heavy?</p>
@@ -574,16 +701,18 @@
 
     var ROW_H    = 36;
     var PAD_TOP  = 12;
-    var PAD_BOT  = 38;
-    var PAD_L    = 12;
-    var PAD_R    = 12;
+    var PAD_BOT  = 46;
+    var PAD_L    = 56;
+    var PAD_R    = 70;
     var DOT_R    = 4;
 
     var canvas = document.getElementById('weightScaleCanvas');
 
     function draw() {
-      var cw = canvas.parentElement.clientWidth - 32;
-      var W  = Math.max(cw, 480);
+      var wrapStyle = window.getComputedStyle(canvas.parentElement);
+      var wrapPad = parseFloat(wrapStyle.paddingLeft) + parseFloat(wrapStyle.paddingRight);
+      var cw = canvas.parentElement.clientWidth - wrapPad;
+      var W  = Math.max(cw, 560);
       var H  = PAD_TOP + ITEMS.length * ROW_H + PAD_BOT;
       var dpr = window.devicePixelRatio || 1;
 
@@ -607,7 +736,7 @@
         grid    : dark ? 'rgba(255,255,255,0.07)'  : 'rgba(0,0,0,0.07)',
         axis    : dark ? 'rgba(255,255,255,0.25)'  : 'rgba(0,0,0,0.2)',
         tick    : dark ? 'rgba(255,255,255,0.3)'   : 'rgba(0,0,0,0.22)',
-        dot1    : '#4E99A3',
+        dot1    : 'var(--accent)',
         dot2    : '#8B73C7',
         dotHuman: '#D4822A',
         stem    : dark ? 'rgba(255,255,255,0.08)'  : 'rgba(0,0,0,0.08)',
@@ -726,9 +855,9 @@
       ctx.textBaseline = 'top';
       ctx.fillStyle = C.textTer;
       ctx.textAlign = 'left';
-      ctx.fillText('← lighter', axisL + 2, axisY + 24);
+      ctx.fillText('← lighter', axisL + 8, axisY + 24);
       ctx.textAlign = 'right';
-      ctx.fillText('heavier →', axisR - 2, axisY + 24);
+      ctx.fillText('heavier →', axisR - 8, axisY + 24);
     }
 
     draw();
@@ -957,14 +1086,14 @@
 
 
   /* ════════════════════════════════════════════════════
-     PART F — planet weight calculator
+     PART G — planet weight calculator
   ════════════════════════════════════════════════════ */
   var planetMassUnit = 'kg';
 
   const PLANETS = [
     { name: 'Mercury', g: 0.38,  color: '#9E9E9E', note: '38% of Earth gravity' },
     { name: 'Venus',   g: 0.91,  color: '#D4A843', note: '91% of Earth gravity' },
-    { name: 'Earth',   g: 1.00,  color: '#4E99A3', note: 'Your reference' },
+    { name: 'Earth',   g: 1.00,  color: 'var(--accent)', note: 'Your reference' },
     { name: 'Moon',    g: 0.165, color: '#D3D3D3', note: '16.5% of Earth gravity' },
     { name: 'Mars',    g: 0.38,  color: '#C1440E', note: '38% of Earth gravity' },
     { name: 'Jupiter', g: 2.53,  color: '#C88B3A', note: '2.53× Earth gravity' },

@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 7: Time & Scale — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/07_fa-hourglass-half.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 7: Seconds to centuries — building time intuition. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 7: Time & Scale — Have a Sense">
@@ -125,7 +122,7 @@
 .planet-card-sub  { font-size: 10px; color: var(--color-text-tertiary); margin-top: 3px; line-height: 1.35; }
 .planet-color-mercury { background: #9E9E9E; }
 .planet-color-venus { background: #D4A843; }
-.planet-color-earth { background: #4E99A3; }
+.planet-color-earth { background: var(--accent); }
 .planet-color-moon { background: #D3D3D3; }
 .planet-color-mars { background: #C1440E; }
 .planet-color-jupiter { background: #C88B3A; }
@@ -133,7 +130,7 @@
 .planet-color-uranus { background: #7DE8E8; }
 .planet-color-neptune { background: #5B6FE4; }
 .planet-color-pluto { background: #6B6B6B; }
-.u-text-hex-4e99a3 { color: #4E99A3; }
+.u-text-hex-4e99a3 { color: var(--accent); }
 .u-bg-background-primary { background: var(--color-background-primary); }
 .u-border-0-5px-solid-border-tertiary { border: 0.5px solid var(--color-border-tertiary); }
 .u-radius-radius-lg { border-radius: var(--border-radius-lg); }
@@ -175,7 +172,7 @@
 .u-bg-hex-eeedfe { background: #EEEDFE; }
 .u-border-0-5px-solid-hex-cecbf6 { border: 0.5px solid #CECBF6; }
 .u-maxw-700px { max-width: 700px; }
-.u-fill-hex-4e99a3 { fill: #4E99A3; }
+.u-fill-hex-4e99a3 { fill: var(--accent); }
 .u-w-0-07-pct { width: 0.07%; }
 .u-bg-hex-e1f5ee { background: #E1F5EE; }
 .u-border-0-5px-solid-hex-9fe1cb { border: 0.5px solid #9FE1CB; }
@@ -196,7 +193,7 @@
 .u-w-8px { width: 8px; }
 .u-h-8px { height: 8px; }
 .u-radius-50-pct { border-radius: 50%; }
-.u-bg-hex-4e99a3 { background: #4E99A3; }
+.u-bg-hex-4e99a3 { background: var(--accent); }
 .u-display-inline-block { display: inline-block; }
 .u-bg-background-tertiary { background: var(--color-background-tertiary); }
 .u-ml-auto { margin-left: auto; }
@@ -373,7 +370,7 @@
           <!-- Row 4 -->
           <rect x="1" y="151" width="232" height="48" rx="0" fill="var(--color-background-secondary)" opacity="0.4"/>
           <rect x="234" y="151" width="232" height="48" rx="0" fill="var(--color-background-secondary)" opacity="0.6"/>
-          <rect x="467" y="151" width="232" height="48" rx="0" fill="rgba(78,153,163,0.12)" />
+          <rect x="467" y="151" width="232" height="48" rx="0" fill="var(--accent-bg)" />
           <!-- Grid dividers -->
           <line x1="233" y1="1" x2="233" y2="199" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
           <line x1="466" y1="1" x2="466" y2="199" stroke="var(--color-border-tertiary)" stroke-width="0.5"/>
@@ -416,8 +413,8 @@
           <circle cx="474" cy="146" r="3" fill="#AFA9EC"/>
           <text x="481" y="149" class="cc-event">Dec 30 — Dinosaurs extinct</text>
           <!-- Humans Dec 31 11:25pm -->
-          <rect x="467" y="170" width="231" height="28" rx="4" fill="rgba(78,153,163,0.22)" stroke="rgba(78,153,163,0.5)" stroke-width="0.5"/>
-          <circle cx="475" cy="182" r="3.5" fill="#4E99A3"/>
+          <rect x="467" y="170" width="231" height="28" rx="4" fill="var(--accent-bg)" stroke="var(--accent-border)" stroke-width="0.5"/>
+          <circle cx="475" cy="182" r="3.5" fill="var(--accent)"/>
           <text x="482" y="178" class="cc-evtbig u-fill-hex-4e99a3">Dec 31, 11:25 PM — Homo sapiens</text>
           <text x="482" y="190" class="cc-event">All recorded history = last 35 seconds</text>
         </svg>
@@ -504,7 +501,7 @@
           <defs>
             <linearGradient id="tzgrad" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="#26215C"/>
-              <stop offset="46%" stop-color="#4E99A3"/>
+              <stop offset="46%" stop-color="var(--accent)"/>
               <stop offset="100%" stop-color="#085041"/>
             </linearGradient>
           </defs>
@@ -714,16 +711,16 @@
           <!-- At age 5: y = 60+70=130 → clamped 115... let's use y_pixel = 115 - min(100, (1/age)*500) -->
           <!-- age 5: y=115-100=15; age 10: y=115-50=65; age 20: y=115-25=90; age 30: y=115-16.7=98.3; age 40: y=115-12.5=102.5; age 50: y=115-10=105; age 60: y=115-8.3=106.7; age 70: y=115-7.1=107.9; age 80: y=115-6.25=108.75 -->
           <path d="M95,15 C110,35 130,65 200,90 C250,102 310,105 410,107 C500,108.5 580,109.5 620,110"
-                fill="none" stroke="#4E99A3" stroke-width="2" stroke-linecap="round"/>
+                fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
           <!-- Shaded area under curve -->
           <path d="M95,15 C110,35 130,65 200,90 C250,102 310,105 410,107 C500,108.5 580,109.5 620,110 L620,115 L95,115 Z"
-                fill="#4E99A3" opacity="0.08"/>
+                fill="var(--accent)" opacity="0.08"/>
           <!-- Annotations -->
-          <circle cx="95" cy="15" r="3" fill="#4E99A3"/>
+          <circle cx="95" cy="15" r="3" fill="var(--accent)"/>
           <text x="100" y="13" font-size="8" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Age 5: year = 20% of life</text>
-          <circle cx="270" cy="98" r="3" fill="#4E99A3"/>
+          <circle cx="270" cy="98" r="3" fill="var(--accent)"/>
           <text x="175" y="96" font-size="8" fill="var(--color-text-secondary)" font-family="var(--font-sans)">Age 30: year = 3.3% of life</text>
-          <circle cx="620" cy="110" r="3" fill="#4E99A3"/>
+          <circle cx="620" cy="110" r="3" fill="var(--accent)"/>
         </svg>
       </div>
       <div class="u-fs-11px text-secondary u-lh-1-6">
@@ -808,7 +805,7 @@
           <!-- Classical age: 500 BCE–500 CE = 1000 yrs = 98.2px -->
           <rect x="414" y="125" width="98" height="10" rx="0" fill="#7F77DD" opacity="0.7"/>
           <!-- Medieval: 500–1450 CE = 950 yrs = 93px -->
-          <rect x="512" y="125" width="93" height="10" rx="0" fill="#4E99A3" opacity="0.6"/>
+          <rect x="512" y="125" width="93" height="10" rx="0" fill="var(--accent)" opacity="0.6"/>
           <!-- Early modern: 1450–1800 = 350 yrs = 34.4px -->
           <rect x="605" y="125" width="34" height="10" rx="0" fill="#1D9E75" opacity="0.8"/>
           <!-- Industrial+modern: 1800–today = 220 yrs = 21.6px -->
@@ -828,7 +825,7 @@
           <text x="350" y="98" class="hl-lbl">753 BCE — Rome founded</text>
 
           <!-- Islam ~622 CE = 1402 yrs ago → x=120+(4098*0.09818)=120+402.4=522 -->
-          <line x1="522" y1="124" x2="522" y2="80" stroke="#4E99A3" stroke-width="0.7" stroke-dasharray="2,2"/>
+          <line x1="522" y1="124" x2="522" y2="80" stroke="var(--accent)" stroke-width="0.7" stroke-dasharray="2,2"/>
           <text x="525" y="78" class="hl-lbl">622 CE</text>
           <text x="525" y="88" class="hl-val">Islam founded</text>
 
@@ -851,7 +848,7 @@
           <text x="136" y="209" class="hl-lbl">Ancient (3500–500 BCE)</text>
           <rect x="260" y="200" width="12" height="10" fill="#7F77DD" opacity="0.7"/>
           <text x="276" y="209" class="hl-lbl">Classical (500 BCE–500 CE)</text>
-          <rect x="120" y="220" width="12" height="10" fill="#4E99A3" opacity="0.6"/>
+          <rect x="120" y="220" width="12" height="10" fill="var(--accent)" opacity="0.6"/>
           <text x="136" y="229" class="hl-lbl">Medieval (500–1450 CE)</text>
           <rect x="260" y="220" width="12" height="10" fill="#1D9E75" opacity="0.8"/>
           <text x="276" y="229" class="hl-lbl">Early Modern (1450–1800)</text>
@@ -951,7 +948,7 @@
           <!-- Hebrew avg 365.25: y = 140-112.5 = 27.5 -->
           <!-- Chinese avg 365.25: y = 27.5 -->
           <!-- Gregorian -->
-          <rect x="145" y="28" width="70" height="112" rx="3" fill="#4E99A3" opacity="0.75"/>
+          <rect x="145" y="28" width="70" height="112" rx="3" fill="var(--accent)" opacity="0.75"/>
           <text x="180" y="22" class="cl-lbl" text-anchor="middle">Gregorian</text>
           <text x="180" y="152" class="cl-val" text-anchor="middle">365.24 days</text>
           <!-- Islamic Hijri -->
@@ -1023,7 +1020,7 @@ const CALENDARS = [
     id: 'gregorian',
     name: 'Gregorian',
     emoji: '🌍',
-    color: '#4E99A3',
+    color: 'var(--accent)',
     type: 'Solar',
     epoch: '1 CE (birth of Jesus, estimated)',
     currentYear: '2025 CE',
@@ -1260,7 +1257,7 @@ function renderCalDates() {
   var shamsi = shamsiFromGregorian(gy, gm, gd);
   var chinese = chineseApprox(gy);
 
-  var CAL_COLORS = { gregorian:'#4E99A3', hijri:'#C1440E', shamsi:'#085041', hebrew:'#534AB7', chinese:'#D4A843' };
+  var CAL_COLORS = { gregorian:'var(--accent)', hijri:'#C1440E', shamsi:'#085041', hebrew:'#534AB7', chinese:'#D4A843' };
 
   var rows = [
     { name: 'Gregorian', emoji: '🌍', color: CAL_COLORS.gregorian, date: gd + ' ' + CAL_MONTH_NAMES_GREG[gm-1] + ' ' + gy + ' CE', note: 'Standard civil calendar' },
@@ -1364,7 +1361,7 @@ function fmt(n) {
 const PLANETS = [
   { name: 'Mercury', orbitalDays: 87.97,   color: '#9E9E9E', note: 'A Mercury year is just 88 Earth days' },
   { name: 'Venus',   orbitalDays: 224.70,  color: '#D4A843', note: 'One Venus year ≈ 7.5 months on Earth' },
-  { name: 'Earth',   orbitalDays: 365.25,  color: '#4E99A3', note: 'Your biological reference' },
+  { name: 'Earth',   orbitalDays: 365.25,  color: 'var(--accent)', note: 'Your biological reference' },
   { name: 'Moon',    orbitalDays: 27.3,    color: '#D3D3D3', note: 'One Moon "year" = 27.3 Earth days' },
   { name: 'Mars',    orbitalDays: 686.97,  color: '#C1440E', note: 'A Mars year ≈ 22.5 Earth months' },
   { name: 'Jupiter', orbitalDays: 4332.59, color: '#C88B3A', note: 'One Jupiter year ≈ 11.9 Earth years' },
