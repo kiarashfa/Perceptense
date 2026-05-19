@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 27: Psychology — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/27_fa-brain.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 27: Biases, memory, motivation, and mental models. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 27: Psychology — Have a Sense">
@@ -63,8 +60,8 @@
     }
     .tl-node:hover .tl-dot,
     .tl-node.active .tl-dot {
-      background: #4E99A3;
-      border-color: #4E99A3;
+      background: var(--accent);
+      border-color: var(--accent);
       transform: scale(1.25);
     }
     .tl-year {
@@ -74,7 +71,7 @@
       letter-spacing: 0.04em;
       white-space: nowrap;
     }
-    .tl-node.active .tl-year { color: #4E99A3; }
+    .tl-node.active .tl-year { color: var(--accent); }
     .tl-detail {
       background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
@@ -120,7 +117,7 @@
       margin-bottom: 4px;
     }
     .b5-trait-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
-    .b5-val { font-size: 12px; font-weight: 600; color: #4E99A3; min-width: 24px; text-align: right; }
+    .b5-val { font-size: 12px; font-weight: 600; color: var(--accent); min-width: 24px; text-align: right; }
     .b5-poles {
       display: flex;
       justify-content: space-between;
@@ -1124,10 +1121,10 @@
         <line x1="50" y1="20"  x2="50"  y2="170" stroke="var(--color-border-secondary)" stroke-width="1"/>
         <!-- curve: a smooth inverted U -->
         <path d="M60,165 C120,160 180,40 260,22 C340,40 400,160 460,165"
-              fill="none" stroke="#4E99A3" stroke-width="2.5" stroke-linecap="round"/>
+              fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"/>
         <!-- fill under curve -->
         <path d="M60,165 C120,160 180,40 260,22 C340,40 400,160 460,165 L460,170 L60,170 Z"
-              fill="#4E99A3" opacity="0.08"/>
+              fill="var(--accent)" opacity="0.08"/>
         <!-- zone labels -->
         <rect x="58" y="105" width="80" height="18" rx="3" fill="#FAEEDA"/>
         <text x="98" y="117" text-anchor="middle" font-size="10" fill="#633806" font-family="system-ui,sans-serif">Under-aroused</text>
@@ -1563,7 +1560,7 @@ const tlEvents = [
    BIAS CHART (Part F)
 ───────────────────────────────────────────────────────── */
 const biasData = [
-  { name: 'Confirmation bias', pct: 92, col: '#4E99A3', textCol: '#ffffff' },
+  { name: 'Confirmation bias', pct: 92, col: 'var(--accent)', textCol: '#ffffff' },
   { name: 'Availability heuristic', pct: 85, col: '#7BB5BD', textCol: '#ffffff' },
   { name: 'Self-serving bias', pct: 80, col: '#0C447C', textCol: '#ffffff' },
   { name: 'Anchoring effect', pct: 76, col: '#2E6FA3', textCol: '#ffffff' },
@@ -1675,7 +1672,7 @@ const b5Traits = [
       </div>
       <input type="range" min="1" max="5" value="3" step="1"
         oninput="updateB5('${tr.key}', this.value)"
-        style="width:100%; accent-color:#4E99A3;">
+        style="width:100%; accent-color:var(--accent);">
       <div class="b5-poles">
         <span>${tr.low}</span>
         <span>${tr.high}</span>

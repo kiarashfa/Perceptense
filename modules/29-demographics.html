@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 29: World Population & Demographics — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/29_fa-people-group.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 29: How many of us there are, how fast we're growing, and what the numbers mean. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 29: World Population & Demographics — Have a Sense">
@@ -75,7 +72,7 @@
     /* Milestone ticker */
     .milestone-item { display: flex; align-items: flex-start; gap: 12px; padding: 9px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
     .milestone-item:last-child { border-bottom: none; }
-    .milestone-year { font-size: 13px; font-weight: 600; color: #4E99A3; width: 46px; flex-shrink: 0; }
+    .milestone-year { font-size: 13px; font-weight: 600; color: var(--accent); width: 46px; flex-shrink: 0; }
     .milestone-text { font-size: 13px; color: var(--color-text-primary); line-height: 1.45; }
     .milestone-sub  { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
 
@@ -261,7 +258,7 @@
 
 .region-fill-style-5 {
   width:7.9%;
-  background:#4E99A3;
+  background:var(--accent);
 }
 
 .region-fill-style-6 {
@@ -372,7 +369,7 @@
   width:10px;
   height:10px;
   border-radius:50%;
-  background:#4E99A3;
+  background:var(--accent);
   display:inline-block;
 }
 
@@ -412,7 +409,7 @@
 
 .life-fill-style-5 {
   width:75%;
-  background:#4E99A3;
+  background:var(--accent);
 }
 
 .life-fill-style-6 {
@@ -454,7 +451,7 @@
 
 .demographics-row-5 {
   width:3%;
-  background:#4E99A3;
+  background:var(--accent);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -470,7 +467,7 @@
 
 .demographics-row-7 {
   width:30%;
-  background:#4E99A3;
+  background:var(--accent);
   display:flex;
   align-items:center;
   padding-left:7px;
@@ -491,7 +488,7 @@
 
 .demographics-row-9 {
   width:50%;
-  background:#4E99A3;
+  background:var(--accent);
   display:flex;
   align-items:center;
   padding-left:7px;
@@ -605,7 +602,7 @@
 
 .tl-bar-style-7 {
   width:79%;
-  background:#4E99A3;
+  background:var(--accent);
 }
 
 .tl-bar-style-8 {
@@ -1217,7 +1214,7 @@
     /* --- Age dot grid --- */
     (function buildDotGrid() {
       const grid = document.getElementById('age-dot-grid');
-      const colors = {young: '#97C459', working: '#4E99A3', old: '#f09595'};
+      const colors = {young: '#97C459', working: 'var(--accent)', old: '#f09595'};
       const counts = {young: 26, working: 65, old: 9};
       let html = '';
       for (let i = 0; i < counts.young; i++)   html += `<div class="dot" style="background:${colors.young}" title="0–14 years"></div>`;

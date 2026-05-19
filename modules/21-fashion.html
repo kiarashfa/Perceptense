@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 21: Fashion — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/21_fa-gem.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 21: Fabrics, brands, dress codes, and style. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 21: Fashion — Have a Sense">
@@ -40,7 +37,7 @@
 /* material feel scale */
 .feel-scale { display:flex; align-items:center; gap:4px; margin:4px 0 8px; }
 .feel-dot { width:9px; height:9px; border-radius:50%; background:var(--color-border-secondary); }
-.feel-dot.on { background:#4E99A3; }
+.feel-dot.on { background:var(--accent); }
 
 /* watch tabs */
 .watch-tab { font-size:11px; padding:3px 9px; }
@@ -2066,7 +2063,7 @@ function showEra(key) {
     <div style="display:flex; flex-direction:column; gap:0;">
       ${e.events.map(ev => `
         <div style="display:flex; gap:10px; padding:6px 0; border-bottom:0.5px solid var(--color-border-tertiary);">
-          <div style="font-size:11px; font-weight:600; color:#4E99A3; width:40px; flex-shrink:0; padding-top:1px;">${ev.y}</div>
+          <div style="font-size:11px; font-weight:600; color:var(--accent); width:40px; flex-shrink:0; padding-top:1px;">${ev.y}</div>
           <div style="font-size:12px; color:var(--color-text-primary); line-height:1.5;">${ev.e}</div>
         </div>`).join('')}
     </div>

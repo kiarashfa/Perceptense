@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 25: Weather — Have a Sense</title>
-  <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicons/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/25_fa-cloud-sun.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 25: Fronts, clouds, pressure, and forecasting. Part of 'Have a Sense About Everything' — a free, self-directed course.">
   <meta property="og:title" content="Module 25: Weather — Have a Sense">
@@ -356,7 +353,7 @@
 }
 
 .text-teal-500 {
-  color:#4E99A3;
+  color:var(--accent);
 }
 
 .u-text-center {
@@ -390,7 +387,7 @@
 }
 
 .atm-layer-style-5 {
-  background:#4E99A3;
+  background:var(--accent);
   color:#ffffff;
 }
 
@@ -515,7 +512,7 @@
 
 .comfort-seg-style-3 {
   width:18%;
-  background:#4E99A3;
+  background:var(--accent);
 }
 
 .comfort-seg-style-4 {
@@ -1458,9 +1455,9 @@
 
 /* ── Beaufort scale data ── */
 const beaufortData = [
-  { n:0, label:'Calm',          km:'< 1',    desc:'Smoke rises vertically. Sea like a mirror.',                         col:'#4E99A3' },
-  { n:1, label:'Light air',     km:'1–5',    desc:'Wind direction shown by smoke drift. Ripples on sea.',              col:'#4E99A3' },
-  { n:2, label:'Light breeze',  km:'6–11',   desc:'Leaves rustle; wind felt on face. Small wavelets.',                 col:'#4E99A3' },
+  { n:0, label:'Calm',          km:'< 1',    desc:'Smoke rises vertically. Sea like a mirror.',                         col:'var(--accent)' },
+  { n:1, label:'Light air',     km:'1–5',    desc:'Wind direction shown by smoke drift. Ripples on sea.',              col:'var(--accent)' },
+  { n:2, label:'Light breeze',  km:'6–11',   desc:'Leaves rustle; wind felt on face. Small wavelets.',                 col:'var(--accent)' },
   { n:3, label:'Gentle breeze', km:'12–19',  desc:'Leaves and twigs in motion. Large wavelets.',                       col:'#097B5A' },
   { n:4, label:'Moderate',      km:'20–28',  desc:'Small branches move; loose paper blows. Small waves.',              col:'#6B8E23' },
   { n:5, label:'Fresh',         km:'29–38',  desc:'Small trees sway; wavelets on inland water.',                       col:'#B5A000' },
@@ -1498,7 +1495,7 @@ const skillData = [
 ];
 const skillContainer = document.getElementById('skill-bars');
 skillData.forEach(s => {
-  const col = s.pct > 75 ? '#4E99A3' : s.pct > 45 ? '#EF9F27' : s.pct > 20 ? '#D85A30' : '#791F1F';
+  const col = s.pct > 75 ? 'var(--accent)' : s.pct > 45 ? '#EF9F27' : s.pct > 20 ? '#D85A30' : '#791F1F';
   skillContainer.innerHTML += `
     <div class="skill-bar-row">
       <div class="skill-label">${s.label}</div>
@@ -1511,7 +1508,7 @@ skillData.forEach(s => {
 const pressureEvents = {
   typhoon:    { hpa:870,  label:'Typhoon Tip, 1979', note:'870 hPa — lowest pressure ever recorded on Earth. Western Pacific typhoon. Central wind speeds exceeded 305 km/h.', col:'#791F1F' },
   katrina:    { hpa:902,  label:'Hurricane Katrina, 2005 (peak)', note:'902 hPa at peak intensity over the Gulf of Mexico. Made US landfall at 920 hPa as Category 3.', col:'#A32D2D' },
-  standard:   { hpa:1013, label:'Standard sea level', note:'1,013.25 hPa — the international standard atmosphere reference. The average sea-level pressure globally.', col:'#4E99A3' },
+  standard:   { hpa:1013, label:'Standard sea level', note:'1,013.25 hPa — the international standard atmosphere reference. The average sea-level pressure globally.', col:'var(--accent)' },
   summer_high:{ hpa:1035, label:'Summer anticyclone (typical)', note:'1,020–1,040 hPa. A blocking high over Europe can sit at 1,035–1,045 hPa, producing heatwave conditions.', col:'#0C447C' },
   everest:    { hpa:337,  label:'Summit of Everest (8,849 m)', note:'~337 hPa at the summit. Only ~33% of sea-level atmospheric pressure. This is why supplemental oxygen is typically used — the partial pressure of O₂ is too low to sustain consciousness.', col:'#3C3489' },
 };
@@ -1650,7 +1647,7 @@ function calcWindChill() {
   document.getElementById('wc-note').textContent = 'Feels like ' + wcRound + '°C. ' + risk;
 
   const pct = Math.max(0, Math.min(100, (wcRound + 60) / 80 * 100));
-  const col = wcRound > -10 ? '#4E99A3' : wcRound > -25 ? '#EF9F27' : '#791F1F';
+  const col = wcRound > -10 ? 'var(--accent)' : wcRound > -25 ? '#EF9F27' : '#791F1F';
   document.getElementById('wc-result').style.borderTop = '3px solid ' + col;
 }
 calcWindChill();
