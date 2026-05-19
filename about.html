@@ -1104,11 +1104,11 @@
           </div>
           <div class="stat-card">
             <div class="stat-num" data-count="8">0</div>
-            <div class="stat-label">Categories &mdash; from numbers and scale to mind and meaning.</div>
+            <div class="stat-label">Categories: from numbers and scale to mind and meaning.</div>
           </div>
           <div class="stat-card">
             <div class="stat-num" data-count="150">0</div>
-            <div class="stat-label">Interactive elements &mdash; calculators, games, animations, reveals.</div>
+            <div class="stat-label">Interactive elements: calculators, games, animations, reveals.</div>
           </div>
           <div class="stat-card">
             <div class="stat-num" data-count="560">0</div>
@@ -1121,20 +1121,25 @@
     <!-- ========== SECTION 4: AUTHOR ========== -->
     <div class="section">
       <div class="section-overtitle">Who made this</div>
-      <h2 class="section-title">Hi &mdash; I'm Kiarash.</h2>
+      <h2 class="section-title">Hi... I'm Kia!.</h2>
 
       <div class="author-card">
-        <img class="author-avatar" src="https://raw.githubusercontent.com/kiarashfa/website/main/assets/imgs/MyPic.png" alt="Kiarash Farajzadehahary">
-        <div class="author-body">
-          <div class="author-name">Kiarash Farajzadehahary</div>
-          <div class="author-role">Scientist &middot; developer &middot; designer &middot; curious engineer</div>
-          <p class="author-bio">
-            I built Perceptense because I kept catching myself <b>nodding along</b> at numbers I didn't really understand &mdash; gigatons of CO<sub>2</sub>, light-years, basis points, GDP. The internet is great at facts and bad at <b>feel</b>. This is my attempt at a small antidote: short, playful modules you can poke at, instead of long articles you skim.
-          </p>
-          <p class="author-bio" style="margin-bottom: 4px;">
-            Everything here is hand-built, single-file HTML, and free forever. If a module clicks for you &mdash; or breaks &mdash; I'd love to hear about it.
-          </p>
+        <div class="author-header">
+          <img class="author-avatar" src="https://raw.githubusercontent.com/kiarashfa/website/main/assets/imgs/MyPic.png" alt="Kiarash Farajzadehahary">
+          <div>
+            <div class="author-name">Kiarash Farajzadehahary</div>
+            <div class="author-role">Scientist &middot; developer &middot; designer &middot; curious engineer</div>
+          </div>
+        </div>
 
+        <p class="author-bio">
+          I built Perceptense because I kept catching myself <b>nodding along</b> at numbers I didn't really understand, gigatons of CO<sub>2</sub>, light-years, basis points, GDP. The internet is great at facts and bad at <b>feel</b>. This is my attempt at a small antidote: short, playful modules you can poke at, instead of long articles you skim.
+        </p>
+        <p class="author-bio">
+          Everything here is hand-built, single-file HTML, and free forever. If a module clicks for you, or breaks, I'd love to hear about it.
+        </p>
+
+        <div class="author-aftermatter">
           <div class="curious-row" aria-live="polite">
             <span class="curious-label">Currently curious about</span>
             <span class="curious-chip" id="curiousChip">
@@ -1145,7 +1150,7 @@
 
           <div class="author-links">
             <a class="author-link" href="https://kiarashfa.github.io/website/" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i>Personal site</a>
-            <a class="author-link" href="/cdn-cgi/l/email-protection#43082a223122302b052203042e222a2f6d202c2e"><i class="fa-solid fa-envelope"></i>Email</a>
+            <a class="author-link" href="/cdn-cgi/l/email-protection#1e55777f6c7f6d76587f5e59737f7772307d7173"><i class="fa-solid fa-envelope"></i>Email</a>
             <a class="author-link" href="https://github.com/kiarashfa" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i>GitHub</a>
           </div>
         </div>
@@ -1604,5 +1609,22 @@
   </script>
 
   <script src="files/shared.js"></script>
+  <script>
+    // swap "info" button for a home button
+    (function () {
+      var topbar = document.querySelector('.topbar-right');
+      if (!topbar) return;
+      var aboutLink = topbar.querySelector('a[href$="about.html"]');
+      if (!aboutLink) return;
+      aboutLink.setAttribute('href', 'index.html');
+      aboutLink.setAttribute('title', 'All modules');
+      aboutLink.setAttribute('aria-label', 'All modules');
+      aboutLink.innerHTML =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+        '<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>' +
+        '<polyline points="9 22 9 12 15 12 15 22"/></svg>';
+    })();
+  </script>
 </body>
 </html>
