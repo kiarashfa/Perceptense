@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 32: Painting — Have a Sense</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/32_fa-brush.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <meta name="description" content="Module 32: From pigment to meaning — a deep dive into painting.">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
-    :root{--accent:#4E99A3;--accent-bg:rgba(78,153,163,0.08);--accent-border:rgba(78,153,163,0.28)}
     #partA,#partB,#partC,#partD,#partE,#partF{margin-bottom:2rem}
     .dim-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
     .dim-tab{font-size:12px;padding:4px 12px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:none;color:var(--color-text-secondary);cursor:pointer}
@@ -103,7 +103,7 @@
 /* === Shared-ready extracted styles === */
 
 .bg-teal-500 {
-  background:#4E99A3;
+  background:var(--accent);
 }
 
 .module-header-icon-accent {
@@ -326,7 +326,7 @@
 
 .cscale-dot-style-8 {
   left:7%;
-  background:#4E99A3;
+  background:var(--accent);
 }
 
 .cscale-dot-style-9 {
@@ -364,7 +364,7 @@
 
 .dist-seg-style-6 {
   width:30%;
-  background:#4E99A3;
+  background:var(--accent);
   color:#fff;
 }
 
@@ -397,8 +397,6 @@
   color:var(--color-text-secondary);
   margin-bottom:12px;
 }
-/* Module 32 Q&A spacing */
-.qa { margin-bottom: 5px; }
   </style>
 </head>
 <body>
@@ -557,7 +555,7 @@
         <text x="100" y="80" font-size="9" fill="currentColor" text-anchor="end" opacity=".65" font-family="sans-serif">Paint layers (opaque)</text>
         <rect x="105" y="47" width="460" height="15" rx="1" fill="#A04E30" opacity=".38"/>
         <text x="100" y="58" font-size="9" fill="currentColor" text-anchor="end" opacity=".65" font-family="sans-serif">Glazes (transparent)</text>
-        <rect x="105" y="32" width="460" height="15" rx="1" fill="#4E99A3" opacity=".3"/>
+        <rect x="105" y="32" width="460" height="15" rx="1" fill="var(--accent)" opacity=".3"/>
         <text x="100" y="44" font-size="9" fill="currentColor" text-anchor="end" opacity=".65" font-family="sans-serif">Varnish (reversible)</text>
         <text x="335" y="18" font-size="10" fill="currentColor" text-anchor="middle" opacity=".45" font-family="sans-serif">viewer's eye / surface</text>
         <text x="335" y="192" font-size="10" fill="currentColor" text-anchor="middle" opacity=".4" font-family="sans-serif">structural support</text>
@@ -724,7 +722,7 @@
         <rect x="313" y="22" width="42" height="152" rx="2" fill="var(--color-background-danger)" stroke="var(--color-border-danger)" stroke-width=".5"/>
         <text x="334" y="188" font-size="8" fill="currentColor" opacity=".5" text-anchor="middle" font-family="sans-serif">Las Meninas</text>
         <text x="334" y="197" font-size="8" fill="currentColor" opacity=".5" text-anchor="middle" font-family="sans-serif">3.18m</text>
-        <rect x="374" y="0" width="48" height="174" rx="2" fill="rgba(78,153,163,.18)" stroke="var(--accent)" stroke-width=".5"/>
+        <rect x="374" y="0" width="48" height="174" rx="2" fill="var(--accent-bg)" stroke="var(--accent)" stroke-width=".5"/>
         <text x="398" y="188" font-size="8" fill="currentColor" opacity=".5" text-anchor="middle" font-family="sans-serif">Night Watch</text>
         <text x="398" y="197" font-size="8" fill="currentColor" opacity=".5" text-anchor="middle" font-family="sans-serif">3.79m</text>
         <rect x="442" y="34" width="42" height="140" rx="2" fill="rgba(192,90,160,.18)" stroke="#C05AA0" stroke-width=".5"/>
@@ -1219,7 +1217,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   /* AUCTION CHART */
   var auctions = [
-    {l:'Salvator Mundi \u2014 da Vinci (attrib.) \u00b7 2017',v:450.3,col:'#4E99A3'},
+    {l:'Salvator Mundi \u2014 da Vinci (attrib.) \u00b7 2017',v:450.3,col:'var(--accent)'},
     {l:'Interchange \u2014 de Kooning \u00b7 2015',v:300.0,col:'#3A6BB0'},
     {l:'The Card Players \u2014 C\u00e9zanne \u00b7 2011',v:259.0,col:'#C85C14'},
     {l:'Nafea Faa Ipoipo \u2014 Gauguin \u00b7 2015',v:210.0,col:'#2C8C6A'},

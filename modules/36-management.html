@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 36: Management — Have a Sense</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/36_fa-briefcase.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
@@ -11,40 +12,6 @@
       --accent: #3B7FCC;
       --accent-bg: #E6F1FB;
       --accent-border: #85B7EB;
-    }
-
-    /* ── Teaser grid ── */
-    .teaser-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 10px;
-      margin-bottom: 1rem;
-    }
-    .teaser-card {
-      background: var(--color-background-primary);
-      border: 0.5px solid var(--color-border-tertiary);
-      border-radius: var(--border-radius-lg);
-      padding: 13px 15px;
-    }
-    .teaser-part {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 3px;
-    }
-    .teaser-title {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--color-text-primary);
-      margin-bottom: 4px;
-      line-height: 1.35;
-    }
-    .teaser-desc {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-      line-height: 1.5;
     }
 
     /* ── Explorer panel ── */
@@ -432,7 +399,7 @@
   <div class="page-wrap">
 
     <div style="display:flex; align-items:center; gap:14px; margin-bottom:0.6rem;">
-      <i class="fa-solid fa-briefcase" style="font-size:42px; color:#3B7FCC; flex-shrink:0;"></i>
+      <i class="fa-solid fa-briefcase" style="font-size:42px; color:var(--accent); flex-shrink:0;"></i>
       <h1 class="module-title" style="margin:0; line-height:1.05;">Module 36: Management</h1>
     </div>
     <p class="module-subtitle">How organisations work, how decisions get made, and what the MBA actually teaches</p>
@@ -446,39 +413,6 @@
     <div class="card" style="margin-bottom:1rem;">
       <div class="clabel">About this module</div>
       <p class="cnote" style="margin-bottom:10px;">Management is the practice of getting things done through other people inside resource constraints. It is not the same as leadership, and it is not just "being in charge." This module gives you the mental model an MBA provides across seven parts: the history of management as a discipline (Part A), strategy and competitive positioning (Part B), the financial numbers every manager must read (Part C), marketing and customer logic (Part D), operations and supply chains (Part E), organisational behaviour and people (Part F), and startup/entrepreneurship contexts where the rules change (Part G). By the end you will be able to follow a board presentation, interrogate a strategy deck, and understand why most change programmes fail.</p>
-    </div>
-
-    <div class="teaser-grid">
-      <div class="teaser-card">
-        <div class="teaser-part">Part A</div>
-        <div class="teaser-title">History of the discipline</div>
-        <div class="teaser-desc">From Taylor's stopwatch to Drucker's knowledge worker — how management thought evolved and what each era got right.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-part">Part B</div>
-        <div class="teaser-title">Strategy</div>
-        <div class="teaser-desc">Five Forces, generic strategies, disruptive innovation — the core frameworks for deciding where and how to compete.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-part">Part C</div>
-        <div class="teaser-title">Finance for managers</div>
-        <div class="teaser-desc">The three statements, key ratios, valuation methods, and unit economics — the numbers every non-finance manager must own.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-part">Part D</div>
-        <div class="teaser-title">Marketing</div>
-        <div class="teaser-desc">STP, brand equity, the customer funnel — how companies create and capture demand at a systematic scale.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-part">Part E</div>
-        <div class="teaser-title">Operations</div>
-        <div class="teaser-desc">Process design, supply chains, Lean and Six Sigma — the engineering of how things actually get made and delivered.</div>
-      </div>
-      <div class="teaser-card">
-        <div class="teaser-part">Part F + G</div>
-        <div class="teaser-title">People and startups</div>
-        <div class="teaser-desc">Motivation, leadership, culture, biases — and how startup management differs from running an established enterprise.</div>
-      </div>
     </div>
 
     <!-- What is management? -->
@@ -1016,7 +950,7 @@
       <div class="bar-row"><div class="bl">No programme</div><div class="bb" style="width:95%; background:#F09595;"><span class="bv" style="color:#791f1f;">~66,807 DPMO (3-sigma)</span></div></div>
       <div class="bar-row"><div class="bl">Basic QC</div><div class="bb" style="width:60%; background:#EF9F27;"><span class="bv" style="color:#633806;">~6,210 DPMO (4-sigma)</span></div></div>
       <div class="bar-row"><div class="bl">Six Sigma</div><div class="bb" style="width:5%; background:#97C459;"><span class="bv" style="color:#27500a;">3.4 DPMO</span></div></div>
-      <div class="bar-row"><div class="bl">Toyota TPS</div><div class="bb" style="width:15%; background:#4E99A3;"><span class="bv" style="color:#fff;">~100 DPMO (typical)</span></div></div>
+      <div class="bar-row"><div class="bl">Toyota TPS</div><div class="bb" style="width:15%; background:var(--accent);"><span class="bv" style="color:#fff;">~100 DPMO (typical)</span></div></div>
       <p class="muted-copy" style="margin-top:8px;">Six Sigma's 3.4 DPMO target equates to 99.99966% defect-free. For a factory producing 1 million units per day, that is 3 defects. Motorola introduced Six Sigma in 1986 after quality problems nearly destroyed the company; GE under Jack Welch adopted it in 1995 and claimed $12 billion in savings over five years.</p>
     </div>
 
@@ -1342,7 +1276,7 @@
       { label: 'Scientific Mgmt', start: 1880, end: 1940, col: '#5594D6' },
       { label: 'Human Relations', start: 1925, end: 1965, col: '#6FA8DC' },
       { label: 'Drucker / MBO',   start: 1945, end: 1995, col: '#3B7FCC' },
-      { label: 'Systems Thinking',start: 1955, end: 2000, col: '#4E99A3' },
+      { label: 'Systems Thinking',start: 1955, end: 2000, col: 'var(--accent)' },
       { label: 'Lean Production', start: 1950, end: 2026, col: '#97C459' },
       { label: 'Shareholder Value',start: 1976, end: 2015, col: '#F09595' },
       { label: 'Knowledge Work',  start: 1988, end: 2015, col: '#8BBDE3' },

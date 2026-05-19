@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 40: Language — Have a Sense</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/40_fa-language.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../files/shared.css">
   <style>
@@ -11,34 +12,6 @@
       --accent: #3A96B0;
       --accent-bg: #e6f6fb;
       --accent-border: #9dd4e4;
-    }
-
-    /* ── Teaser card grid (Part A overview) ── */
-    .teaser-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-      gap: 10px;
-      margin-bottom: 1rem;
-    }
-    .teaser-part {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin: 0 0 5px;
-    }
-    .teaser-title {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--color-text-primary);
-      margin: 0 0 4px;
-    }
-    .teaser-desc {
-      font-size: 12px;
-      color: var(--color-text-secondary);
-      margin: 0;
-      line-height: 1.5;
     }
 
     /* ── Explorer panel ── */
@@ -62,15 +35,15 @@
     }
     .explorer-panel h4 {
       margin: 0 0 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-primary);
     }
     .explorer-panel p {
       margin: 0 0 6px;
-      font-size: 13px;
-      color: var(--color-text-primary);
-      line-height: 1.6;
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
     }
     .explorer-panel p:last-child { margin-bottom: 0; }
 
@@ -214,14 +187,15 @@
     }
     .elem-detail h4 {
       margin: 0 0 6px;
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--accent);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-primary);
     }
     .elem-detail p {
       margin: 0 0 6px;
-      font-size: 13px;
-      line-height: 1.6;
+      font-size: 12px;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
     }
     .elem-detail p:last-child { margin-bottom: 0; }
 
@@ -393,31 +367,33 @@
 
 .language-text {
   font-size:42px;
-  color:#3A96B0;
+  color:var(--accent);
   flex-shrink:0;
 }
 
 .language-text-2 {
   margin:0 0 8px;
-  font-size:14px;
+  font-size:13px;
   line-height:1.6;
+  color:var(--color-text-secondary);
 }
 
 .language-text-3 {
   margin:0;
-  font-size:13px;
+  font-size:12px;
   color:var(--color-text-secondary);
 }
 
 .language-text-4 {
   margin:0 0 8px;
-  font-size:13px;
-  line-height:1.6;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--color-text-secondary);
 }
 
 .language-text-5 {
   color:var(--color-text-tertiary);
-  font-size:13px;
+  font-size:12px;
 }
 
 .cgrid-style {
@@ -480,7 +456,7 @@
 }
 
 .language-text-6 {
-  font-size:13px;
+  font-size:12px;
   color:var(--color-text-secondary);
   margin:0 0 8px;
 }
@@ -549,8 +525,9 @@
 
 .language-text-8 {
   margin:0 0 6px;
-  font-size:13px;
-  line-height:1.6;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--color-text-secondary);
 }
 
 .language-text-9 {
@@ -577,39 +554,6 @@
       <p class="clabel">about this module</p>
       <p class="language-text-2">Language is the most sophisticated thing human beings do. Every time you speak or read, you are performing a feat of combinatorial computation that no other species can replicate and that linguists have spent a century struggling to explain. There are roughly 7,000 living languages, structured in wildly different ways, yet they share deep organisational principles that suggest something profound about the human mind. This module gives you the conceptual toolkit to think clearly about what language actually is.</p>
       <p class="language-text-3">Six parts cover: the features that make language unique (A), its structural levels from sound to meaning (B), how we acquire and vary it (C), language and thought (D), major world languages in depth (E), and language in the digital age (F).</p>
-    </div>
-
-    <div class="teaser-grid">
-      <div class="teaser-card">
-        <p class="teaser-part">Part A</p>
-        <p class="teaser-title">What language is</p>
-        <p class="teaser-desc">The design features that separate human language from every other communication system on Earth.</p>
-      </div>
-      <div class="teaser-card">
-        <p class="teaser-part">Part B</p>
-        <p class="teaser-title">How language is structured</p>
-        <p class="teaser-desc">From phonemes to sentences: the levels of linguistic structure and what each contributes.</p>
-      </div>
-      <div class="teaser-card">
-        <p class="teaser-part">Part C</p>
-        <p class="teaser-title">Acquisition and variation</p>
-        <p class="teaser-desc">How children crack the code effortlessly, why adults struggle, and how language shifts by class and region.</p>
-      </div>
-      <div class="teaser-card">
-        <p class="teaser-part">Part D</p>
-        <p class="teaser-title">Language and thought</p>
-        <p class="teaser-desc">Does the language you speak shape how you think? The evidence is more nuanced than either side admits.</p>
-      </div>
-      <div class="teaser-card">
-        <p class="teaser-part">Part E</p>
-        <p class="teaser-title">Major world languages</p>
-        <p class="teaser-desc">A deep dive into Mandarin, English, Arabic, and four other languages that define how the world communicates.</p>
-      </div>
-      <div class="teaser-card">
-        <p class="teaser-part">Part F</p>
-        <p class="teaser-title">Language in the digital age</p>
-        <p class="teaser-desc">Machine translation, large language models, and the race to save 3,000 endangered languages before they vanish.</p>
-      </div>
     </div>
 
     <!-- Design features -->
@@ -1051,8 +995,6 @@
 
     <div class="sec">Part G · Q&A</div>
 
-    <!-- Part A Q&A -->
-    <div class="sec">Questions — Part A</div>
     <div class="qa">
       <p class="qa-q">If bees can communicate location and distance with their waggle dance, what does human language have that bee dances don't?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
@@ -1064,8 +1006,6 @@
       <div class="qa-ans">The comparative method works by identifying regular sound correspondences across related languages. If Latin consistently uses "p" where Germanic uses "f" (pater/father, piscis/fish, pes/foot), that regularity is not coincidence — it is a systematic sound change. By working backwards from dozens of documented languages following predictable rules, linguists can reconstruct probable ancestor forms. The 1786 observation by William Jones that Sanskrit, Latin, and Greek shared "some common source which, perhaps, no longer exists" launched this project. Modern computational phylogenetics, treating word forms like gene sequences, can even estimate branching dates to within a few centuries.</div>
     </div>
 
-    <!-- Part B Q&A -->
-    <div class="sec">Questions — Part B</div>
     <div class="qa">
       <p class="qa-q">Why doesn't English spelling match its pronunciation — and is this a flaw?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
@@ -1077,8 +1017,6 @@
       <div class="qa-ans">Sign languages are fully fledged natural languages — not codes for spoken languages and not universal. American Sign Language (ASL) and British Sign Language (BSL) are mutually unintelligible despite both being used in English-speaking countries. They have their own phonology (handshape, movement, and location play the role that sounds do), their own morphology, and their own syntax — which in ASL is typically topic-comment rather than SVO. William Stokoe demonstrated ASL's linguistic status in 1960, to considerable initial resistance from the deaf community itself, which had internalized the prejudice that sign was "not really" language. Crucially, children born to deaf signing parents acquire sign language on exactly the same developmental timeline as hearing children acquire spoken language — the critical period hypothesis applies identically.</div>
     </div>
 
-    <!-- Part C Q&A -->
-    <div class="sec">Questions — Part C</div>
     <div class="qa">
       <p class="qa-q">Is there really a critical period for language, and what happens after it closes?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
@@ -1090,8 +1028,6 @@
       <div class="qa-ans">Because change is gradual — fast enough to accumulate over centuries but slow enough that adjacent generations remain mutually intelligible. Modern English speakers can read Shakespeare (1600) with some effort, struggle with Chaucer's Middle English (1390), and find Old English (Beowulf, 1000 CE) completely foreign without special training — yet it is genetically the same language. Writing also acts as a conservative brake on change: written standard forms, school systems, and mass media slow but do not stop the drift. The key insight is that language change is not decay — there is no such thing as a language deteriorating linguistically. Every generation innovates in vocabulary, phonology, and grammar, and those innovations are neither improvements nor corruptions.</div>
     </div>
 
-    <!-- Part D Q&A -->
-    <div class="sec">Questions — Part D</div>
     <div class="qa">
       <p class="qa-q">If you think in language, is bilingualism just having two separate thought systems?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
@@ -1103,8 +1039,6 @@
       <div class="qa-ans">No — this is one of the most persistent myths in language study, often used to justify linguistic hierarchies. Every natural language is equally capable of expressing any human thought; the apparent limitations are about vocabulary and register, which can be developed. Scientific Arabic was the most sophisticated technical vocabulary on Earth in the 10th century; Classical Chinese carried millennia of philosophical complexity; Sanskrit's phonological and grammatical analysis tradition (Panini, c. 4th century BCE) was not surpassed in depth until the 20th century. What matters for science or poetry is the community of speakers, the tradition of discourse, and the available vocabulary — all of which can be built in any language. The sense that English is "naturally" suited to science is survivorship bias.</div>
     </div>
 
-    <!-- Part E Q&A -->
-    <div class="sec">Questions — Part E</div>
     <div class="qa">
       <p class="qa-q">How did English become the world's lingua franca — and could it be displaced?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
@@ -1116,8 +1050,6 @@
       <div class="qa-ans">It is largely a political category, though a defensible one. "Chinese" encompasses around 7-14 major varieties — Mandarin, Cantonese, Hokkien, Shanghainese (Wu), Hakka, and others — that are mutually unintelligible in speech. They share a common writing system, which is partly why Chinese governments and traditions have classified them as dialects of one language. Putonghua (Standard Mandarin, based on the Beijing dialect) has been promoted since 1955 and is now spoken by about 80% of the mainland population. Cantonese has roughly 80 million native speakers and is the dominant language in Hong Kong and large diaspora communities worldwide. The line between "language" and "dialect" is genuinely blurry here — as it always is in politics.</div>
     </div>
 
-    <!-- Final Q&A -->
-    <div class="sec">Questions — Part F</div>
     <div class="qa">
       <p class="qa-q">Do large language models actually understand language, or are they "just" predicting the next word?</p>
       <button class="qa-btn" onclick="toggleQA(this)">show answer</button>
