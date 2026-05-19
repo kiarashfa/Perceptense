@@ -561,44 +561,54 @@
       background: var(--color-background-primary);
       border: 0.5px solid var(--color-border-tertiary);
       border-radius: var(--border-radius-lg);
-      padding: 18px 18px 18px;
-      display: grid;
-      grid-template-columns: 92px 1fr;
-      gap: 18px;
-      align-items: start;
+      padding: 24px 24px;
       position: relative;
       overflow: hidden;
     }
     .author-card > * { position: relative; z-index: 1; }
+    /* Top row: portrait + name/role side by side */
+    .author-header {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 22px;
+    }
     @media (max-width: 520px) {
-      .author-card { grid-template-columns: 1fr; }
+      .author-header {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 14px;
+      }
       .author-avatar { margin: 0 auto; }
     }
     .author-avatar {
-      width: 92px;
-      height: 92px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      background: var(--color-background-secondary);
-      border: 0.5px solid var(--color-border-tertiary);
       object-fit: cover;
-      flex-shrink: 0;
+      border: 0.5px solid var(--color-border-tertiary);
+      background: var(--color-background-secondary);
       display: block;
+      flex-shrink: 0;
+      box-shadow: 0 8px 24px rgba(78,153,163,0.12);
     }
     .author-name {
       font-family: Georgia, serif;
-      font-size: 22px;
+      font-size: clamp(28px, 4vw, 34px);
       font-weight: 400;
       color: var(--color-text-primary);
-      margin: 0 0 2px;
-      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
     .author-role {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.10em;
       text-transform: uppercase;
       color: #4E99A3;
-      margin-bottom: 10px;
+      line-height: 1.4;
     }
     .author-bio {
       font-size: 13px;
@@ -607,6 +617,9 @@
       margin: 0 0 12px;
     }
     .author-bio b { color: var(--color-text-primary); font-weight: 500; }
+    .author-aftermatter { margin-top: 18px; }
+    .author-aftermatter .curious-row { justify-content: center; }
+    .author-aftermatter .author-links { justify-content: center; }
     .curious-row {
       display: flex;
       align-items: center;
@@ -899,7 +912,7 @@
     <div class="section">
       <div class="section-overtitle">The idea</div>
       <h2 class="section-title">Facts are easy. <em style="font-style: italic; color: var(--color-text-secondary);">Sense</em> is hard.</h2>
-      <p class="section-lede">You know a marathon is long and Picasso was important. But <em>how</em> long? Important compared to whom? <b style="color: var(--color-text-primary); font-weight: 500;">Perceptense</b> covers the things you should have a feel for &mdash; weight and distance, but also art, history, technology, wellness, and the everyday systems around you. Here's the kind of question a module might open with.</p>
+      <p class="section-lede">You know a marathon is long and Picasso was important. But <em>how</em> long? Important compared to whom? <b style="color: var(--color-text-primary); font-weight: 500;">Perceptense</b> covers the things you should have a feel for: weight and distance, but also art, history, technology, wellness, and the everyday systems around you. Here's the kind of question a module might open with.</p>
 
       <div class="tot">
         <div class="tot-stage" id="totStage">
