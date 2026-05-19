@@ -38,7 +38,63 @@
   --border-radius-xl: 16px;
 
   --page-max-width: 860px;
+
+  --accent: #4E99A3;
+  --accent-bg: color-mix(in srgb, var(--accent) 12%, var(--color-background-primary));
+  --accent-border: color-mix(in srgb, var(--accent) 45%, var(--color-border-tertiary));
 }
+
+/* === MODULE ACCENT REGISTRY === */
+html[data-module="1"] { --accent: #6F7D8C; }
+html[data-module="2"] { --accent: #D94F70; }
+html[data-module="3"] { --accent: #1B99F2; }
+html[data-module="4"] { --accent: #4FAE57; }
+html[data-module="5"] { --accent: #2F8F46; }
+html[data-module="6"] { --accent: #D18B2C; }
+html[data-module="7"] { --accent: #7A6CCF; }
+html[data-module="8"] { --accent: #D94A3A; }
+html[data-module="9"] { --accent: #3A96B0; }
+html[data-module="10"] { --accent: #B07A3A; }
+html[data-module="11"] { --accent: #D45A45; }
+html[data-module="12"] { --accent: #6B5CC8; }
+html[data-module="13"] { --accent: #2F9E9E; }
+html[data-module="14"] { --accent: #7A8793; }
+html[data-module="15"] { --accent: #8A62B3; }
+html[data-module="16"] { --accent: #C47A2C; }
+html[data-module="17"] { --accent: #4A6FA5; }
+html[data-module="18"] { --accent: #2E8B7D; }
+html[data-module="19"] { --accent: #D06A2B; }
+html[data-module="20"] { --accent: #E8CE3F; }
+html[data-module="21"] { --accent: #5EBDBD; }
+html[data-module="22"] { --accent: #5967B2; }
+html[data-module="23"] { --accent: #F5A9B8; }
+html[data-module="24"] { --accent: #545244; }
+html[data-module="25"] { --accent: #54BADE; }
+html[data-module="26"] { --accent: #B34915; }
+html[data-module="27"] { --accent: #8B6CC4; }
+html[data-module="28"] { --accent: #6F5A8D; }
+html[data-module="29"] { --accent: #2E8C73; }
+html[data-module="30"] { --accent: #D25B8F; }
+html[data-module="31"] { --accent: #8A6DB5; }
+html[data-module="32"] { --accent: #4E99A3; }
+html[data-module="33"] { --accent: #E07B5A; }
+html[data-module="34"] { --accent: #5DCAA5; }
+html[data-module="35"] { --accent: #7E5BBF; }
+html[data-module="36"] { --accent: #3B7FCC; }
+html[data-module="37"] { --accent: #8A8A7F; }
+html[data-module="38"] { --accent: #E07B2A; }
+html[data-module="39"] { --accent: #7B5EA7; }
+html[data-module="40"] { --accent: #3A96B0; }
+html[data-module="41"] { --accent: #BAC4D1; }
+html[data-module="42"] { --accent: #7DAA3C; }
+html[data-module="43"] { --accent: #534AB7; }
+html[data-module="44"] { --accent: #CC4E2A; }
+html[data-module="45"] { --accent: #A0845C; }
+html[data-module="46"] { --accent: #9B3030; }
+html[data-module="47"] { --accent: #534AB7; }
+html[data-module="48"] { --accent: #2B7A5E; }
+html[data-module="49"] { --accent: #4E99A3; }
+html[data-module="50"] { --accent: #1D9E75; }
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -172,12 +228,22 @@ body {
   gap: 14px;
   margin-bottom: 0.6rem;
 }
-.module-header-icon {
+.module-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 0.6rem;
+}
+.module-header-icon,
+.module-header-icon-accent,
+.module-icon,
+.module-head > i:first-child {
   font-size: 42px;
-  color: #4E99A3;
+  color: var(--accent);
   flex-shrink: 0;
 }
-.module-heading {
+.module-heading,
+.module-head .module-title {
   margin: 0;
   line-height: 1.05;
 }
@@ -567,6 +633,55 @@ html[data-theme="dark"] {
   --color-border-primary: rgba(255,255,255,0.4);
   --color-border-secondary: rgba(255,255,255,0.25);
   --color-border-tertiary: rgba(255,255,255,0.12);
+}
+
+/* Dark-mode active card contrast guard.
+   Many module-local active cards use a light accent background. In dark mode,
+   keep active cards tinted but dark enough for readable nested labels. */
+html[data-theme="dark"] .elem-card.active,
+html[data-theme="dark"] .tax-elem-card.active {
+  background: var(--color-background-secondary) !important;
+  background: color-mix(in srgb, var(--accent) 18%, var(--color-background-primary)) !important;
+  border-color: var(--accent) !important;
+}
+
+html[data-theme="dark"] .elem-card.active :is(.elem-name, .elem-card-label, .ec-label),
+html[data-theme="dark"] .tax-elem-card.active :is(.elem-name, .elem-card-label, .ec-label) {
+  color: var(--color-text-primary) !important;
+}
+
+html[data-theme="dark"] .elem-card.active :is(.elem-sub, .elem-card-sub),
+html[data-theme="dark"] .tax-elem-card.active :is(.elem-sub, .elem-card-sub) {
+  color: var(--color-text-secondary) !important;
+}
+
+html[data-theme="dark"] .elem-card.active :is(.elem-icon, .elem-card-icon, .ec-icon),
+html[data-theme="dark"] .tax-elem-card.active :is(.elem-icon, .elem-card-icon, .ec-icon) {
+  color: var(--accent) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  html[data-theme="auto"] .elem-card.active,
+  html[data-theme="auto"] .tax-elem-card.active {
+    background: var(--color-background-secondary) !important;
+    background: color-mix(in srgb, var(--accent) 18%, var(--color-background-primary)) !important;
+    border-color: var(--accent) !important;
+  }
+
+  html[data-theme="auto"] .elem-card.active :is(.elem-name, .elem-card-label, .ec-label),
+  html[data-theme="auto"] .tax-elem-card.active :is(.elem-name, .elem-card-label, .ec-label) {
+    color: var(--color-text-primary) !important;
+  }
+
+  html[data-theme="auto"] .elem-card.active :is(.elem-sub, .elem-card-sub),
+  html[data-theme="auto"] .tax-elem-card.active :is(.elem-sub, .elem-card-sub) {
+    color: var(--color-text-secondary) !important;
+  }
+
+  html[data-theme="auto"] .elem-card.active :is(.elem-icon, .elem-card-icon, .ec-icon),
+  html[data-theme="auto"] .tax-elem-card.active :is(.elem-icon, .elem-card-icon, .ec-icon) {
+    color: var(--accent) !important;
+  }
 }
 
 
