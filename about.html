@@ -1235,29 +1235,39 @@
       var QS = [
         { mod: '01', cat: 'Weight &amp; Mass',
           q: 'Which is heavier?',
+          a: 'A puffy white cloud', b: 'A medium-sized elephant',
+          ans: 'a',
+          fact: '<b>The cloud.</b> A cumulus cloud can hold about <b>500 tonnes</b> of water — roughly <b>100 elephants</b>.' },
+      
+        { mod: '01', cat: 'Weight &amp; Mass',
+          q: 'Which is heavier?',
           a: 'A blue whale\u2019s tongue', b: 'An adult African elephant',
           ans: 'b',
-          fact: '<b>The elephant</b> &mdash; just. A bull African elephant weighs roughly <b>6 tonnes</b>; a blue whale\u2019s tongue alone weighs about <b>2.7 tonnes</b>, the same as a small car.' },
+          fact: '<b>The elephant.</b> About <b>6 tonnes</b>, versus <b>~2.7 tonnes</b> for a blue whale\u2019s tongue.' },
+      
         { mod: '03', cat: 'Geography &amp; Distance',
           q: 'Which has more land area?',
           a: 'Russia', b: 'The continent of Africa',
           ans: 'b',
-          fact: '<b>Africa</b>, by a wide margin. Africa is about <b>30.4M km\u00b2</b>; Russia is <b>17.1M km\u00b2</b>. Standard world maps make Russia look much bigger than it is.' },
+          fact: '<b>Africa.</b> About <b>30.4M km\u00b2</b>, compared with Russia\u2019s <b>17.1M km\u00b2</b>.' },
+      
         { mod: '04', cat: 'Nutrition',
           q: 'Which has more sugar per 100 g?',
           a: 'A pint of strawberry ice cream', b: 'A bottle of ketchup',
           ans: 'b',
-          fact: '<b>Ketchup</b>, sneakily. About <b>22 g</b> of sugar per 100 g, versus ~21 g for ice cream. A condiment quietly out-sugars a dessert.' },
+          fact: '<b>Ketchup.</b> Around <b>22 g</b> sugar per 100 g, slightly more than strawberry ice cream.' },
+      
         { mod: '12', cat: 'Probability &amp; Risk',
           q: 'In a room of 23 random people, what are the odds two share a birthday?',
           a: 'About 6%', b: 'About 50%',
           ans: 'b',
-          fact: '<b>About 50%.</b> The birthday paradox &mdash; it feels impossible because we instinctively count matches <em>to ourselves</em>, not pairs between everyone in the room.' },
+          fact: '<b>About 50%.</b> With 23 people, there are <b>253 possible pairs</b> to match birthdays.' },
+      
         { mod: '11', cat: 'Temperature',
           q: 'Which is hotter?',
           a: 'The surface of the Sun', b: 'A lightning bolt',
           ans: 'b',
-          fact: '<b>Lightning</b>, by a factor of five. A bolt\u2019s channel can hit <b>~30,000 K</b>; the Sun\u2019s surface is a relatively mild <b>~5,800 K</b>. (The Sun\u2019s <em>core</em> wins, at ~15 million K.)' }
+          fact: '<b>Lightning.</b> Its channel can reach <b>~30,000 K</b>; the Sun\u2019s surface is <b>~5,800 K</b>.' }
       ];
 
       var REVEAL_MS_RIGHT = 1700; // user got it — quick reset
