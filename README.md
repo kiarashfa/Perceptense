@@ -15,7 +15,9 @@ Views on sensitive or debated topics reflect general educational summaries, not 
 
 ---
 
-All rights reserved © 2025–2026 Kiarash Farajzadehahary
+© 2025–2026 Kiarash Farajzadehahary.
+
+⚖ Licensed under the [KFA Source-Available License 1.0](LICENSE).
 
 Made with ❤️ for curious minds.
 
